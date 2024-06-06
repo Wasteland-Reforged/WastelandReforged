@@ -1,0 +1,73 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ {
+  RichTextWidgetClass "{618A3A1C016038B2}" : "{5E0F8422A1F05728}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_Heading2.layout" {
+   Name "TextTitle"
+   Slot FrameWidgetSlot "{618A3A1C016038AD}" {
+    PositionX 774.477
+    OffsetLeft 774.477
+    PositionY 457.528
+    OffsetTop 457.528
+    SizeX 404.489
+    OffsetRight -1178.97
+    SizeY 60.119
+    OffsetBottom -517.647
+   }
+   Text "Choose a spawn point"
+  }
+  ButtonWidgetClass "{618A3A1C19376640}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+   Name "ButtonClose"
+   Slot FrameWidgetSlot "{618A3A1C19376671}" {
+    PositionX 1056.58
+    OffsetLeft 1056.58
+    PositionY 655.153
+    OffsetTop 655.153
+    SizeX 119.681
+    OffsetRight -1176.26
+    SizeY 64.191
+    OffsetBottom -719.344
+   }
+   components {
+    SCR_ButtonTextComponent "{5548F0143AE99095}" {
+     m_sText "Close"
+    }
+   }
+  }
+  ButtonWidgetClass "{618A3A1D892387C4}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+   Name "ButtonChange"
+   Slot FrameWidgetSlot "{618A3A1C19376671}" {
+    PositionX 775.258
+    OffsetLeft 775.258
+    PositionY 655.153
+    OffsetTop 655.153
+    SizeX 119.68
+    OffsetRight -894.938
+    SizeY 64.191
+    OffsetBottom -719.344
+   }
+   components {
+    SCR_ButtonTextComponent "{5548F0143AE99095}" {
+     m_sText "Change text"
+    }
+   }
+  }
+  ButtonWidgetClass "{618A3A19A9F33485}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+   Name "ButtonRespawn"
+   Slot FrameWidgetSlot "{618A3A1C19376671}" {
+    PositionX 914.302
+    OffsetLeft 914.302
+    PositionY 655.153
+    OffsetTop 655.153
+    SizeX 119.68
+    OffsetRight -1033.98
+    SizeY 64.191
+    OffsetBottom -719.344
+   }
+   components {
+    SCR_ButtonTextComponent "{5548F0143AE99095}" {
+     m_sText "Respawn"
+    }
+   }
+  }
+ }
+}

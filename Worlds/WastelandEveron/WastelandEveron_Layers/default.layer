@@ -1,0 +1,193 @@
+SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 7114.537 75.031 6401.884
+ {
+  CommentEntity {
+   coords 0 1 0
+   m_Comment "SCR_AIWorld: "\
+   "Configure navigation mesh"
+   m_Color 0 0 0
+   m_FaceCamera 1
+   m_TextBackground 1
+   m_BackgroundColor 1 0.6 0
+   m_BackgroundTransparency 0
+  }
+ }
+}
+PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 7114.537 73.859 6406.884
+}
+SCR_BaseGameMode GameMode_Base1 : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+ components {
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{618569107FE3D188}" {
+   }
+  }
+ }
+ coords 4400.008 1.605 11042.771
+}
+SCR_FactionManager FactionManager_Base1 : "{A242612865F2A48E}Prefabs/MP/Managers/Factions/FactionManager_Base.et" {
+ coords 4403.627 1.651 11048.855
+ Factions {
+  SCR_Faction "{618569368AF59548}" : "{E7B7EA4823DD81F0}Configs/Factions/BLUFOR.conf" {
+   UIInfo SCR_FactionUIInfo "{618569362B043C55}" {
+    Name "BLUFOR"
+   }
+   m_sFactionFlag "{63B14DDAFE978612}Art/Icon/Faction/blufor.edds"
+  }
+  SCR_Faction "{618569366D4D3A8D}" : "{B122E3B10BB3404B}Configs/Factions/OPFOR.conf" {
+   UIInfo SCR_FactionUIInfo "{6185693631EF6478}" {
+    Name "OPFOR"
+   }
+   m_sFactionFlag "{988CDDA6B03FF507}Art/Icon/Faction/opfor.edds"
+  }
+  SCR_Faction "{618569366A454228}" : "{277AE7613D88A55B}Configs/Factions/INDFOR.conf" {
+   UIInfo SCR_FactionUIInfo "{61856936368FE6B7}" {
+    Name "INDFOR"
+   }
+   m_sFactionFlag "{A37C40F3E0C2A2B9}Art/Icon/Faction/indfor.edds"
+   m_sGroupFlagsImageSet "{301FC1A2A46D3E0D}UI/Textures/GroupManagement/FlagIcons/GroupFlagsIndfor.imageset"
+  }
+ }
+}
+RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
+ coords 7114.537 74.093 6405.884
+}
+ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
+ coords 7114.537 73.625 6407.884
+}
+GenericEntity MyGenericEntity {
+ components {
+  SPHCU_SpawnAreaComponent "{618C3E7DE9198AF5}" {
+  }
+ }
+ coords 4393.877 1.594 11039.124
+}
+$grp SPHCU_SpawnAreaEntity {
+ {
+  coords 4394.666 1.594 11041.005
+  TriggerShapeType Sphere
+  SphereRadius 69
+  ShapeColor 0 1 0.363 1
+  m_Name "Chernogorsk"
+ }
+ {
+  coords 4401.715 1.594 11042.755
+  TriggerShapeType Sphere
+  SphereRadius 69
+  ShapeColor 0 1 0.363 1
+  m_Name "Elektrozavodsk"
+ }
+}
+HitRegistrationManager HitRegManager : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
+ coords 7114.537 73.39 6408.884
+}
+SCR_BaseTaskManager TaskManager : "{1AC69CD7907FB4F8}Prefabs/ScenarioFramework/Tasks/TaskManager.et" {
+ coords 7114.537 74.797 6402.884
+ {
+  CommentEntity {
+   coords 0 1 0
+   m_Comment "TaskManager: "\
+   "Needed for task generation"
+   m_Color 0 0 0
+   m_FaceCamera 1
+   m_TextBackground 1
+   m_BackgroundColor 1 0.6 0
+   m_BackgroundTransparency 0
+  }
+ }
+}
+$grp GenericEntity : "{308E000E2051D357}PrefabsEditable/Auto/Systems/SpawnPoints/E_SpawnPosition.et" {
+ {
+  components {
+   SCR_EditableSystemComponent "{5EF0C52B021465BD}" {
+    m_UIInfo SCR_EditableEntityUIInfo "{58D2A1BEBFDC56CC}" {
+     m_sFaction "blu"
+     m_aAuthoredLabels {
+     }
+    }
+   }
+  }
+  coords 4415.662 1.706 11045.191
+ }
+ {
+  components {
+   SCR_EditableSystemComponent "{5EF0C52B021465BD}" {
+    m_UIInfo SCR_EditableEntityUIInfo "{58D2A1BEBFDC56CC}" {
+     m_sFaction "blu"
+     m_aAuthoredLabels {
+     }
+    }
+   }
+  }
+  coords 4419.692 1.588 11027.008
+ }
+}
+GenericEntity : "{4BF528DF7A469909}Prefabs/Props/Construction/PalletJack_01.et" {
+ components {
+  ActionsManagerComponent "{618A3A1E7131AA75}" {
+   ActionContexts {
+    UserActionContext "{618A3A1E53FAD0CD}" {
+     ContextName "Spawn Menu Context"
+     Position PointInfo "{618A3A1FA4312FAA}" {
+      Offset 0 1 0
+     }
+     Radius 2
+     Height 5
+    }
+   }
+   additionalActions {
+    SPHCU_OpenUiSpawnMenuUserAction "{618A3A1F909E899C}" {
+     ParentContextList {
+      "Spawn Menu Context"
+     }
+     UIInfo UIInfo "{618A3A1F883F6EF8}" {
+      Name "Open Spawn Menu"
+     }
+     VisibilityRange 1
+    }
+   }
+  }
+ }
+ coords 4407.708 1.652 11030.145
+}
+GenericEntity Scripts : "{72E42BEAFED9B5A7}Prefabs/Props/Garbage/Bins/GarbageContainer_01.et" {
+ components {
+  SPHCU_TeleportFieldComponent "{61856915E082934D}" {
+   m_fTriggerRadius 5
+   m_fTeleportDistance 15
+   m_bLineFadeInOut 0
+  }
+ }
+ coords 4397.168 1.605 11043.92
+}
+SCR_LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
+ coords 4407.758 1.67 11045.12
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{6185692023D7D44C}" {
+   m_sLoadoutName "Soldier"
+   m_sLoadoutResource "{2F912ED6E399FF47}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Unarmed.et"
+   m_sAffiliatedFaction "BLUFOR"
+  }
+  SCR_FactionPlayerLoadout "{6185692CD3CC4212}" {
+   m_sLoadoutName "Soldier"
+   m_sLoadoutResource "{98EB9CDD85B8C92C}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Unarmed.et"
+   m_sAffiliatedFaction "OPFOR"
+  }
+  SCR_FactionPlayerLoadout "{6185692CB2A9B958}" {
+   m_sLoadoutName "Soldier"
+   m_sLoadoutResource "{854C04F0EA2129CC}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Unarmed.et"
+   m_sAffiliatedFaction "INDFOR"
+  }
+ }
+}
+SCR_SpawnPoint : "{E7F4D5562F48DDE4}Prefabs/MP/Spawning/SpawnPoint_Base.et" {
+ coords 4398.443 1.594 11039.228
+ m_fSpawnRadius 0
+ m_sFaction "BLUFOR"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Spawnpoint 1"
+  Description "First spawn point."
+ }
+ m_bUseNearbySpawnPositions 1
+ m_fSpawnPositionUsageRange 50
+}
