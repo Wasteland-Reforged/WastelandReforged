@@ -19,12 +19,11 @@ class SPHCU_SpawnAreaEntity : BaseGameTriggerEntity
 		if (!SpawnAreas)
 		{
 			SpawnAreas = {};
+			Print("Initialized spawn area list.");
 		}
 		
 		SpawnAreas.Insert(this);
-		
-		Print(SpawnAreas);
-		Print(SpawnAreas.Count());
+		Print("Inserted " + this.GetSpawnAreaName() + " into the spawn area list");
 	}
 	
 	void ~SPHCU_SpawnAreaEntity()

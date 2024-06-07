@@ -56,26 +56,22 @@ ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedCh
  coords 7114.537 73.625 6407.884
 }
 GenericEntity MyGenericEntity {
- components {
-  SPHCU_SpawnAreaComponent "{618C3E7DE9198AF5}" {
-  }
- }
  coords 4393.877 1.594 11039.124
 }
 $grp SPHCU_SpawnAreaEntity {
  {
-  coords 4394.666 1.594 11041.005
+  coords 4502.752 13.49 10769.591
   TriggerShapeType Sphere
-  SphereRadius 69
-  ShapeColor 0 1 0.363 1
-  m_Name "Chernogorsk"
+  SphereRadius 200
+  DrawShape 1
+  m_Name "St. Phillipe"
  }
  {
-  coords 4401.715 1.594 11042.755
+  coords 4503.836 13.969 9480.455
   TriggerShapeType Sphere
-  SphereRadius 69
-  ShapeColor 0 1 0.363 1
-  m_Name "Elektrozavodsk"
+  SphereRadius 100
+  DrawShape 1
+  m_Name "Meaux"
  }
 }
 HitRegistrationManager HitRegManager : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
@@ -129,21 +125,21 @@ GenericEntity : "{4BF528DF7A469909}Prefabs/Props/Construction/PalletJack_01.et" 
     UserActionContext "{618A3A1E53FAD0CD}" {
      ContextName "Spawn Menu Context"
      Position PointInfo "{618A3A1FA4312FAA}" {
-      Offset 0 1 0
+      Offset 0 2 0
      }
      Radius 2
      Height 5
     }
    }
    additionalActions {
-    SPHCU_OpenUiSpawnMenuUserAction "{618A3A1F909E899C}" {
+    SPHCU_OpenUiSpawnMenuUserAction "{618D7DE1382AAF9D}" {
      ParentContextList {
       "Spawn Menu Context"
      }
-     UIInfo UIInfo "{618A3A1F883F6EF8}" {
+     UIInfo UIInfo "{618D7DE135B543AF}" {
       Name "Open Spawn Menu"
      }
-     VisibilityRange 1
+     VisibilityRange 2
     }
    }
   }
@@ -151,13 +147,6 @@ GenericEntity : "{4BF528DF7A469909}Prefabs/Props/Construction/PalletJack_01.et" 
  coords 4407.708 1.652 11030.145
 }
 GenericEntity Scripts : "{72E42BEAFED9B5A7}Prefabs/Props/Garbage/Bins/GarbageContainer_01.et" {
- components {
-  SPHCU_TeleportFieldComponent "{61856915E082934D}" {
-   m_fTriggerRadius 5
-   m_fTeleportDistance 15
-   m_bLineFadeInOut 0
-  }
- }
  coords 4397.168 1.605 11043.92
 }
 SCR_LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
