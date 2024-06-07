@@ -58,22 +58,6 @@ ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedCh
 GenericEntity MyGenericEntity {
  coords 4393.877 1.594 11039.124
 }
-$grp SPHCU_SpawnAreaEntity {
- {
-  coords 4502.752 13.49 10769.591
-  TriggerShapeType Sphere
-  SphereRadius 200
-  DrawShape 1
-  m_Name "St. Phillipe"
- }
- {
-  coords 4503.836 13.969 9480.455
-  TriggerShapeType Sphere
-  SphereRadius 100
-  DrawShape 1
-  m_Name "Meaux"
- }
-}
 HitRegistrationManager HitRegManager : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
  coords 7114.537 73.39 6408.884
 }
