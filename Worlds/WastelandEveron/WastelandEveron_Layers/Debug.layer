@@ -1,0 +1,72 @@
+SCR_BaseTaskManager TaskManager : "{1AC69CD7907FB4F8}Prefabs/ScenarioFramework/Tasks/TaskManager.et" {
+ coords 7114.537 74.797 6402.884
+ {
+  CommentEntity {
+   coords 0 1 0
+   m_Comment "TaskManager: "\
+   "Needed for task generation"
+   m_Color 0 0 0
+   m_FaceCamera 1
+   m_TextBackground 1
+   m_BackgroundColor 1 0.6 0
+   m_BackgroundTransparency 0
+  }
+ }
+}
+$grp GenericEntity : "{308E000E2051D357}PrefabsEditable/Auto/Systems/SpawnPoints/E_SpawnPosition.et" {
+ {
+  components {
+   SCR_EditableSystemComponent "{5EF0C52B021465BD}" {
+    m_UIInfo SCR_EditableEntityUIInfo "{58D2A1BEBFDC56CC}" {
+     m_sFaction "blu"
+     m_aAuthoredLabels {
+     }
+    }
+   }
+  }
+  coords 4415.662 1.706 11045.191
+ }
+ {
+  components {
+   SCR_EditableSystemComponent "{5EF0C52B021465BD}" {
+    m_UIInfo SCR_EditableEntityUIInfo "{58D2A1BEBFDC56CC}" {
+     m_sFaction "blu"
+     m_aAuthoredLabels {
+     }
+    }
+   }
+  }
+  coords 4419.692 1.588 11027.008
+ }
+}
+GenericEntity : "{4BF528DF7A469909}Prefabs/Props/Construction/PalletJack_01.et" {
+ components {
+  ActionsManagerComponent "{618A3A1E7131AA75}" {
+   ActionContexts {
+    UserActionContext "{618A3A1E53FAD0CD}" {
+     ContextName "Spawn Menu Context"
+     Position PointInfo "{618A3A1FA4312FAA}" {
+      Offset 0 2 0
+     }
+     Radius 2
+     Height 5
+    }
+   }
+   additionalActions {
+    SPHCU_OpenUiSpawnMenuUserAction "{618D7DE1382AAF9D}" {
+     ParentContextList {
+      "Spawn Menu Context"
+     }
+     UIInfo UIInfo "{618D7DE135B543AF}" {
+      Name "Open Spawn Menu"
+     }
+     VisibilityRange 2
+    }
+   }
+  }
+ }
+ coords 4407.708 1.652 11030.145
+}
+GenericEntity GarbageContainer : "{72E42BEAFED9B5A7}Prefabs/Props/Garbage/Bins/GarbageContainer_01.et" {
+ coords 4397.168 1.605 11043.92
+}
