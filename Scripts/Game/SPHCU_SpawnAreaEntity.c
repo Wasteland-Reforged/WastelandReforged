@@ -14,26 +14,10 @@ class SPHCU_SpawnAreaEntity : BaseGameTriggerEntity
 	
 	[Attribute(defvalue: "true", desc: "Determines if players should spawn here", category: CATEGORY_SPAWNAREA)]
 	protected bool m_IsActive;
-	
-	ref static array<SPHCU_SpawnAreaEntity> SpawnAreas;
-	
+
 	override void EOnInit(IEntity owner)
 	{
-		if (!m_IsActive) return;
-		
-		if (!SpawnAreas)
-		{
-			SpawnAreas = {};
-			Print("Initialized spawn area list.");
-		}
-		
-		SpawnAreas.Insert(this);
-		Print("Inserted " + this.GetSpawnAreaName() + " into the spawn area list");
-	}
-	
-	void ~SPHCU_SpawnAreaEntity()
-	{
-		SpawnAreas.RemoveItem(this)
+		Print("[WASTELAND] Initializing " + GetSpawnAreaName() + " spawn area entity...");
 	}
 	
 	string GetSpawnAreaName()

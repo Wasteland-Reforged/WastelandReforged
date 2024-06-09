@@ -1,149 +1,275 @@
-$grp SPHCU_SpawnAreaEntity {
- SpawnArea_StPhillipe {
-  coords 4455.731 11.39 10783.104
-  TriggerShapeType Sphere
-  SphereRadius 250
-  ShapeColor 0 0 0 0
-  m_Name "St. Phillipe"
- }
- SpawnArea_Meaux {
-  coords 4503.836 13.969 9480.455
-  TriggerShapeType Sphere
-  SphereRadius 125
-  ShapeColor 0 0 0 0
-  m_Name "Meaux"
- }
- SpawnArea_Tyrone {
-  coords 4926.892 22.461 9075.774
-  TriggerShapeType Sphere
-  SphereRadius 100
-  ShapeColor 0 0 0 0
-  m_Name "Meaux"
- }
- SpawnArea_Regina {
-  coords 7173.982 137.246 2357.27
-  TriggerShapeType Sphere
-  SphereRadius 110
-  ShapeColor 0 0 0 0
-  m_Name "Regina"
- }
- SpawnArea_Figari {
-  coords 5249.353 62.618 5354.577
-  TriggerShapeType Sphere
-  SphereRadius 125
-  ShapeColor 0 0 0 0
-  m_Name "Figari"
- }
- SpawnArea_Kermovan {
-  coords 6338.106 5.573 9641.228
-  TriggerShapeType Sphere
-  SphereRadius 75
-  ShapeColor 0 0 0 0
-  m_Name "Kermovan"
- }
- SpawnArea_Laruns {
-  coords 7559.852 81.409 5533.607
-  TriggerShapeType Sphere
-  SphereRadius 100
-  ShapeColor 0 0 0 0
-  m_Name "Laruns"
- }
- SpawnArea_Etoupe {
-  coords 5378.289 18.011 10009.473
-  TriggerShapeType Sphere
-  SphereRadius 60
-  ShapeColor 0 0 0 0
-  m_Name "Etoupe"
- }
- SpawnArea_Levie {
-  coords 7482.765 138.601 4719.865
-  TriggerShapeType Sphere
-  SphereRadius 125
-  ShapeColor 0 0 0 0
-  m_Name "Levie"
- }
- SpawnArea_EntreDeux {
-  coords 5767.047 217.222 7059.564
-  TriggerShapeType Sphere
-  SphereRadius 110
-  ShapeColor 0 0 0 0
-  m_Name "Entre Deux"
- }
- SpawnArea_Durras {
-  coords 8826.499 95.047 2757.366
-  TriggerShapeType Sphere
-  SphereRadius 125
-  ShapeColor 0 0 0 0
-  m_Name "Durras"
- }
- SpawnArea_Vernon {
-  coords 9255.426 59.052 2076.659
-  TriggerShapeType Sphere
-  SphereRadius 90
-  ShapeColor 0 0 0 0
-  m_Name "Vernon"
- }
+$grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  SpawnArea_Chotain {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
   coords 7060.124 118.396 6014.66
   TriggerShapeType Sphere
   SphereRadius 125
+  DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Chotain"
  }
- SpawnArea_Villeneuf {
-  coords 2852.835 86.747 6363.759
+ SpawnArea_Durras {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 8826.499 95.047 2757.366
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Durras"
+ }
+ SpawnArea_EntreDeux {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5767.047 217.222 7059.564
   TriggerShapeType Sphere
   SphereRadius 110
+  DrawShape 0
   ShapeColor 0 0 0 0
-  m_Name "Villeneuf"
+  m_Name "Entre Deux"
  }
- SpawnArea_Provins {
-  coords 5496.87 101.339 6064.972
+ SpawnArea_Etoupe {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5378.289 18.011 10009.475
   TriggerShapeType Sphere
-  SphereRadius 90
+  SphereRadius 60
+  DrawShape 0
   ShapeColor 0 0 0 0
-  m_Name "Provins"
+  m_Name "Etoupe"
+ }
+ SpawnArea_Figari {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5249.353 62.618 5354.577
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Figari"
  }
  SpawnArea_Gravette {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
   coords 4098.656 36.263 7795.032
   TriggerShapeType Sphere
   SphereRadius 100
+  DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Gravette"
  }
+ SpawnArea_Kermovan {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 6338.106 5.573 9641.228
+  TriggerShapeType Sphere
+  SphereRadius 75
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Kermovan"
+ }
  SpawnArea_Lamentin {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
   coords 1293.64 38.977 5986.427
   TriggerShapeType Sphere
   SphereRadius 125
+  DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Lamentin"
  }
+ SpawnArea_Laruns {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7559.852 81.409 5533.607
+  TriggerShapeType Sphere
+  SphereRadius 100
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Laruns"
+ }
+ SpawnArea_LeMoule {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 2618.086 107.269 5368.484
+  TriggerShapeType Sphere
+  SphereRadius 90
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Le Moule"
+ }
+ SpawnArea_Levie {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7482.765 138.601 4719.865
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Levie"
+ }
+ SpawnArea_Meaux {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4503.834 13.969 9480.455
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Meaux"
+ }
  SpawnArea_Montignac {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
   coords 4757.67 166.234 7052.286
   TriggerShapeType Sphere
   SphereRadius 200
+  DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Montignac"
  }
  SpawnArea_Morton {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
   coords 5099.869 21.266 3998.184
   TriggerShapeType Sphere
   SphereRadius 150
+  DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Morton"
  }
- SpawnArea_LeMoule {
-  coords 2618.086 107.269 5368.484
+ SpawnArea_Provins {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5496.87 101.339 6064.972
   TriggerShapeType Sphere
   SphereRadius 90
+  DrawShape 0
   ShapeColor 0 0 0 0
-  m_Name "Le Moule"
+  m_Name "Provins"
+ }
+ SpawnArea_Regina {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7173.982 137.246 2357.27
+  TriggerShapeType Sphere
+  SphereRadius 110
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Regina"
+ }
+ SpawnArea_StPhillipe {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4455.731 11.39 10783.104
+  TriggerShapeType Sphere
+  SphereRadius 250
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "St. Phillipe"
  }
  SpawnArea_StPierre {
-  coords 9782.566 0 1533.577
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 9782.565 0 1533.577
   TriggerShapeType Sphere
   SphereRadius 200
+  DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "St. Pierre"
+ }
+ SpawnArea_Tyrone {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4926.892 22.461 9075.774
+  TriggerShapeType Sphere
+  SphereRadius 100
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Meaux"
+ }
+ SpawnArea_Vernon {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 9255.426 59.052 2076.659
+  TriggerShapeType Sphere
+  SphereRadius 90
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Vernon"
+ }
+ SpawnArea_Villeneuf {
+  components {
+   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 2852.835 86.747 6363.759
+  TriggerShapeType Sphere
+  SphereRadius 110
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Villeneuf"
  }
 }

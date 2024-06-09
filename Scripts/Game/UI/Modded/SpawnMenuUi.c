@@ -118,71 +118,10 @@ class SPHCU_SpawnMenuUiClass : ChimeraMenuBase
 	//------------------------------------------------------------------------------------------------
 	protected void RespawnPlayer()
 	{
-		PlayerController playerController = GetGame().GetPlayerController();
-		IEntity originalPlayerEntity = playerController.GetControlledEntity();
-		
-		SCR_RespawnComponent respawnComponent = SCR_RespawnComponent.Cast(playerController.GetRespawnComponent());
-		if (!respawnComponent) return;
-		
-		ResourceName prefab = "{84B40583F4D1B7A3}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Rifleman.et";
-		
-		// Select a random spawn area
-		// todo: check to make sure spawn areas is not null or empty
-		array<SPHCU_SpawnAreaEntity> spawnAreas = SPHCU_SpawnAreaEntity.SpawnAreas;
-		if (!spawnAreas)
-		{
-			Print("The spawn area list is null!");
-			return;
-		}
-		else if (spawnAreas.Count() < 1)
-		{
-			Print("The spawn area list is empty! Place one or more spawn areas in the world.");
-			return;
-		}
-		
-		SPHCU_SpawnAreaEntity spawnArea = SPHCU_SpawnAreaEntity.SpawnAreas.GetRandomElement();
-		
-		// Find a random safe position within the spawn area to spawn the player at
-		vector spawnAreaCenterPos = spawnArea.GetOrigin();
-		float spawnAreaRadius = spawnArea.GetSphereRadius();
-		
-		vector randomDir = Vector(Math.RandomFloat(0, 360), 0, 0).AnglesToVector();
-		float randomDist = Math.RandomFloat(0, spawnAreaRadius);
-		
-		float areaToCheck = 25;
-		vector outPos;
-		vector randomSpawnPos = spawnAreaCenterPos + randomDir * randomDist;
-		bool validPosFound = SCR_WorldTools.FindEmptyTerrainPosition(outPos, randomSpawnPos, areaToCheck);
-		
-		// Instantiate a FreeSpawnData object with the safe position we found
 		vector respawnPos;
+		bool respawnSuccessful = SPHCU_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
 		
-		if (validPosFound)
-		{
-			respawnPos = outPos;
-		}
-		else
-		{
-			respawnPos = spawnAreaCenterPos;
-			// todo: probably want to fail here instead of setting the respawn pos to the center pos
-		}
-			
-		SCR_FreeSpawnData data = new SCR_FreeSpawnData(prefab, respawnPos);
-		
-		// Spawn the player
-		Print("Attempting to spawn player in " + spawnArea.GetSpawnAreaName());
-		bool isSpawnSuccessful = respawnComponent.RequestSpawn(data);
-		
-		if (isSpawnSuccessful)
-		{
-			if (originalPlayerEntity)
-				delete originalPlayerEntity; // Delete player's original body if this is not the player's initial spawn (i.e. a respawn)
-			
-			Close(); // Close menu
-			Print("Player successfully spawned in " + spawnArea.GetSpawnAreaName());
-		}
-			
-		// TODO: handle the case where no valid spawn points are found anywhere in the world
+		if (respawnSuccessful) Close();
 	}
 }
 

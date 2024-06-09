@@ -1,0 +1,8 @@
+
+
+
+
+class SPHCU_SpawnAreaLogic
+{
+	
+}
