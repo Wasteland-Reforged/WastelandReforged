@@ -22,6 +22,8 @@ SCR_BaseGameMode GameMode_Base1 : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_B
    m_SpawnLogic SCR_MenuSpawnLogic "{618E338ADA711296}" {
    }
   }
+  SPHCU_SpawnAreaControllerComponent "{61917B6834FB8580}" {
+  }
  }
  coords 4400.008 1.605 11042.771
 }
