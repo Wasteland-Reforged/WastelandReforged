@@ -1,0 +1,317 @@
+$grp StaticModelEntity : "{2675369BA358EFCC}PrefabsEditable/Auto/Compositions/Misc/CustomEntities/DestructionEntities/E_CzechHedgehog_01_rusty_CompositionDestruction.et" {
+ {
+  coords 11372.578 -0.184 11263.413
+  angleZ 4.521
+  scale 1.25
+ }
+ {
+  coords 11371.541 0.287 11255.043
+  angleZ 4.521
+  scale 1.25
+ }
+ {
+  coords 11374.956 0.185 11245.707
+  angleZ 4.521
+  scale 1.25
+ }
+ {
+  coords 11423.263 0 11315.962
+  angleZ 4.521
+  scale 1.25
+ }
+ {
+  coords 11429.821 0 11308.742
+  angleZ 4.521
+  scale 1.25
+ }
+ {
+  coords 11437.129 0 11257.952
+  angleZ 4.521
+  scale 1.25
+ }
+ {
+  coords 11438.405 0 11266.276
+  angleZ 4.521
+  scale 1.25
+ }
+ {
+  coords 11424.267 0 11239.918
+  angleZ 4.521
+  scale 1.25
+ }
+}
+GenericEntity : "{2CB4BFA62C2D9C12}Prefabs/Structures/Military/CamoNets/CamoNet_Small_Top_01_base.et" {
+ coords 11415.548 61.732 11302.238
+ angleY 11.826
+ scale 3
+}
+$grp GenericEntity : "{2E6EB383EEFDDC4F}Prefabs/Props/Military/Arsenal/ArsenalBoxes/US/WR_BigLootBox_US.et" {
+ {
+  coords 11420.469 64.447 11286.779
+  angleY 10.703
+ }
+ {
+  coords 11440.237 64.447 11283.425
+  angleY -85.03
+ }
+ {
+  coords 11385.566 62.765 11285.787
+  angleX -1.222
+  angleY -7.131
+  angleZ -2.552
+ }
+}
+$grp SCR_DestructibleBuildingEntity : "{31CAD6AEE7E7E4CF}Prefabs/Structures/Cultural/Castles/Castle_01_Stairs_01.et" {
+ {
+  coords 11423.497 -4.488 11293.813
+  angleY -172.31
+ }
+ {
+  coords 11426.784 -4.392 11275.402
+  angleY 96.974
+ }
+}
+SCR_DestructibleEntity : "{34EBB1E5A6A82655}Prefabs/Structures/Walls/Net/NetFence_04/NetFence_04_D.et" {
+ coords 11373.188 -0.093 11310.785
+ angleY 175.875
+}
+StaticModelEntity : "{472BE7BF1240C1CE}Prefabs/Compositions/Misc/SubCompositions/Utility/Helipad_Lights_US_01.et" {
+ coords 11395.876 0 11259.775
+ angleY -10.023
+}
+StaticModelEntity : "{5196CA1829D428F7}Prefabs/Compositions/Misc/SubCompositions/Sandbag_Bunker_Cluttered_US_01.et" {
+ coords 11404.94 63.461 11309.269
+ angleY -40.854
+}
+GenericEntity : "{63CBCCD35D82066C}Prefabs/Props/Military/CargoContainers/CargoContainer_01_20ft_US_supplies.et" {
+ coords 11419.913 63.935 11301.376
+ angleY 27.235
+}
+StaticModelEntity : "{6690240104059C0C}Prefabs/Compositions/Misc/SubCompositions/Furniture/Table_Desk_USSR_05.et" {
+ coords 11418.209 63.948 11307.163
+ angleY -150.228
+}
+GenericEntity : "{76D4FE49EA6C57F3}Prefabs/Compositions/Slotted/SlotFlatLarge/LivingArea_L_US_01.et" {
+ coords 11387.346 62.782 11289.339
+ angleX -2.639
+ angleY -100.438
+ angleZ 0.486
+ {
+  GameEntity {
+   ID "5D0A8E5C8B14AEB6"
+   coords -6.563 0.171 13.576
+  }
+  GameEntity {
+   ID "5D0CC9D2A9422BD7"
+   coords 9.834 -0.125 -15.815
+   angleY -33.664
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B14AF99"
+   coords -0.326 -0.07 10.139
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B14AFEA"
+   coords 1.785 -0.079 -10.788
+   angleY 7.114
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B14AFF9"
+   coords 2.067 -0.062 -6.789
+   angleY -1.34
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422F9A"
+   coords 8.084 -0.194 13.831
+   angleY 85.806
+  }
+  GenericEntity {
+   ID "5E5CB309775C55FC"
+   coords 8.437 -0.125 -14.362
+   angleY 42.903
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422D12"
+   coords 8.907 -0.125 -17.69
+   angleY -99.446
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422D24"
+   coords 10.383 -0.127 -14.503
+   angleY -56.604
+   {
+    DecalEntity {
+     ID "56E0B29F4975B6A9"
+     coords 0 0 0.001
+     angleX -89.972
+     angleY 174.834
+     angleZ 179.393
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D1EB45E30138995"
+   coords 9.912 -0.125 -17.889
+   angleY -94.999
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422B8C"
+   coords 9.861 -0.125 -15.9
+   angleY -28.122
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422DDD"
+   coords 7.913 -0.125 -16.435
+   angleY 37.258
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422DE7"
+   coords 10.569 -0.129 -13.913
+   angleY 37.258
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422D59"
+   coords 9.07 -0.125 -14.189
+   angleY -64.315
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422D1F"
+   coords 8.377 -0.125 -17.648
+   angleY -99.446
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422D0A"
+   coords 8.479 -0.125 -17.897
+   angleY -99.446
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422DC9"
+   coords 11.469 -0.125 -16.348
+   angleY -172.451
+   angleZ 90
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422D4B"
+   coords 10.065 -0.125 -17.458
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422DFA"
+   coords 10.56 -0.129 -14.152
+   angleY 73.891
+   angleZ 90
+  }
+  GenericEntity {
+   ID "5D0CC9D2A9422D36"
+   coords 8.81 -0.125 -17.042
+   angleY -137.861
+   {
+    DecalEntity {
+     ID "56E0B29F4975B6A9"
+     coords -0.001 0 0.001
+     angleX -90
+     angleY 178.428
+     angleZ 178.604
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B14AE94"
+   {
+    DecalEntity {
+     ID "56DEFDB4A9499F9B"
+     coords 0.005 -0.128 0.003
+    }
+   }
+  }
+  StaticModelEntity {
+   ID "5D0CC9D2A9422DD1"
+   coords 7.75 -0.125 -15.857
+   angleY 87.855
+  }
+  StaticModelEntity {
+   ID "5D0CC9D2A9422D77"
+   coords 11.792 -0.125 -15.516
+   angleX 89.956
+   angleY -125.988
+   angleZ -13.357
+  }
+  StaticModelEntity {
+   ID "5D0CC9D2A9422A92"
+   coords 8.418 -0.125 -17.523
+   angleY 22.3
+  }
+  StaticModelEntity {
+   ID "5D0CC9D2A9422D61"
+   coords 10.14 -0.125 -13.779
+   angleY -156.767
+  }
+ }
+}
+SCR_DestructibleEntity : "{7B2651CB6E8F1306}Prefabs/Structures/Walls/Net/NetFence_04/NetFence_04_4m_D.et" {
+ coords 11384.942 -0.155 11313.246
+ angleY 171.153
+}
+SCR_DestructibleBuildingEntity : "{84DEA01FFFE606FE}Prefabs/Structures/Military/Bunkers/AirfieldBunker_E_01/AirfieldBunker_E_01_base.et" {
+ coords 11428.537 65.467 11288.839
+ angleY -173.427
+}
+StaticModelEntity : "{9E437E72C0F6A6DC}Prefabs/Compositions/Misc/SubCompositions/Furniture/Table_Desk_US_06.et" {
+ coords 11419.396 64.054 11306.033
+ angleY -136.636
+}
+GenericEntity : "{C7D38772154D45BB}Prefabs/Compositions/Slotted/SlotFlatSmall/Bunker_S_US_01.et" {
+ coords 11363.39 61.173 11299.909
+ angleY -101.352
+}
+$grp SCR_DestructibleEntity : "{DEF98342630E1591}Prefabs/Structures/Walls/Net/NetFence_04/NetFence_04_8m.et" {
+ {
+  coords 11408.351 -0.569 11318.495
+  angleY 168.297
+ }
+ {
+  coords 11400.552 0.001 11316.743
+  angleY 168.297
+ }
+ {
+  coords 11392.753 0 11315
+  angleY 168.297
+ }
+ {
+  coords 11380.994 -0.197 11312.49
+  angleY 168.297
+ }
+}
+$grp GenericEntity : "{F9910219711EC4FE}Prefabs/Compositions/Misc/SubCompositions/Fortifications/Sandbag_Camo_long_high_US.et" {
+ {
+  coords 11387.249 62.382 11312.316
+  angleX -1.786
+  angleY -10.469
+  angleZ -2.685
+ }
+ {
+  coords 11393.317 62.817 11313.697
+  angleX -1.786
+  angleY -10.469
+  angleZ -2.685
+ }
+ {
+  coords 11399.952 63.232 11315.041
+  angleX -1.786
+  angleY -10.469
+  angleZ -2.685
+ }
+}
+$grp SCR_DestructibleBuildingEntity : "{FBCE1861B987EA68}Prefabs/Structures/Military/Houses/GuardTower_01/GuardTower_01.et" {
+ {
+  coords 11406.973 0 11279.016
+  angleY 131
+ }
+ {
+  coords 11370.284 0 11303.044
+  angleY -13.118
+ }
+ {
+  coords 11414.057 0.079 11311.835
+  angleY -13.118
+ }
+}
