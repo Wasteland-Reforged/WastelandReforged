@@ -1,5 +1,7 @@
 class SPHCU_Utils
 {
+	private static ref map<ResourceName, ResourceName> WeaponAmmoResourceNames;
+	
 	//------------------------------------------------------------------------------------------------
 	static vector GetRandomPointWithinCircle(vector center, float radius)
 	{
@@ -50,5 +52,34 @@ class SPHCU_Utils
 		
 		safePos = selectedPos;
 		return foundSafePos;
+	}
+
+	static ResourceName GetDefaultAmmo(ResourceName weaponResourceName)
+	{
+		ResourceName ammoResourceName;
+		
+		// Check map if we found the ammo for this gun already
+		if (WeaponAmmoResourceNames)
+		{
+			ammoResourceName = WeaponAmmoResourceNames.Get(weaponResourceName);
+			if (ammoResourceName) return ammoResourceName;
+		}
+		
+		// If not in map, find the resource name
+		// TODO: There's gotta be a more efficient way of doing this. Will figure it out later.
+		Resource resource = Resource.Load(weaponResourceName);
+		IEntity weaponEntity = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld());
+		WeaponComponent weaponComponent = WeaponComponent.Cast(weaponEntity.FindComponent(WeaponComponent));
+		BaseMuzzleComponent muzzleComponent = weaponComponent.GetCurrentMuzzle();
+		ammoResourceName = muzzleComponent.GetDefaultMagazineOrProjectileName();
+		
+		if (!ammoResourceName) return "";
+		
+		// Add found resource to map and return it
+		if (!WeaponAmmoResourceNames)
+			WeaponAmmoResourceNames = new map<ResourceName, ResourceName>();
+		WeaponAmmoResourceNames.Set(weaponResourceName, ammoResourceName);
+		
+		return ammoResourceName;
 	}
 }

@@ -39,8 +39,34 @@ $grp GenericEntity : "{308E000E2051D357}PrefabsEditable/Auto/Systems/SpawnPoints
   coords 4419.692 1.588 11027.008
  }
 }
-GenericEntity : "{4BF528DF7A469909}Prefabs/Props/Construction/PalletJack_01.et" {
+GenericEntity PalletJack_Debug : "{4BF528DF7A469909}Prefabs/Props/Construction/PalletJack_01.et" {
  components {
+  SCR_UniversalInventoryStorageComponent "{61941D59467DAAAA}" {
+   Attributes SCR_ItemAttributeCollection "{61941D588FBA6278}" {
+    ItemDisplayName SCR_InventoryUIInfo "{61941D58824B02FF}" {
+     Name "Pallet Inventory"
+     Description "Pallet Inv Desc"
+    }
+    m_Size SLOT_3x3
+   }
+   UseCapacityCoefficient 0
+   MaxCumulativeVolume 10000000000
+   MultiSlots {
+    MultiSlotConfiguration "{61941D5940065F17}" {
+     NumSlots 10
+    }
+   }
+   m_fMaxWeight 100000
+  }
+  SCR_InventoryStorageManagerComponent "{619526CDFBEBFDB3}" {
+   InitialInventoryItems {
+    ItemsInitConfigurationItem "{619526C8E3DC636C}" {
+     PrefabsToSpawn {
+      "{96DFD2E7E63B3386}Prefabs/Weapons/Rifles/AK74/Rifle_AK74N.et"
+     }
+    }
+   }
+  }
   ActionsManagerComponent "{618A3A1E7131AA75}" {
    ActionContexts {
     UserActionContext "{618A3A1E53FAD0CD}" {
