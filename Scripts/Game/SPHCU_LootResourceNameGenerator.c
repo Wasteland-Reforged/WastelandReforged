@@ -8,11 +8,11 @@ class SPHCU_LootResourceNameGenerator
 		array<ResourceName> itemsToSpawn = {};
 		
 		// Spawn some items
-		SPHCU_WeightedItemArray<ResourceName> spawnAreaItems = SPHCU_ResourceNamesWeighted.GetSpawnAreaItems();
+		SPHCU_WeightedItemArray<ResourceName> resourceNames = SPHCU_ResourceNamesWeighted.GetSpawnAreaItems();
 		int itemCount = Math.RandomIntInclusive(1, 3);
 		for (int i = 0; i < itemCount; i++)
 		{
-			itemsToSpawn.Insert(spawnAreaItems.GetRandomItem());
+			itemsToSpawn.Insert(resourceNames.GetRandomItem());
 		}
 
 		// Chance to spawn a weapon
@@ -32,5 +32,31 @@ class SPHCU_LootResourceNameGenerator
 		}
 		
 		return itemsToSpawn;
+	}
+
+	static array<string> GetLootBoxItems()
+	{
+		array<string> itemsToSpawn = {};
+		
+		for (int i = 0; i < Math.RandomIntInclusive(minLootBoxItems, maxLootBoxItems+1); i++)
+		{
+			if (Math.RandomInt(0, 100) < weaponChance)
+			{
+				if (Math.RandomInt(0, 100) < rareWeaponChance)
+				{
+					itemList.Insert(WR_RandomLootConfig.getWeightedRareWeaponList().getRandomWeightedItemValue());
+				}
+				else
+				{
+					itemList.Insert(WR_RandomLootConfig.getWeightedCommonWeaponList().getRandomWeightedItemValue());
+				}
+			}
+			else
+			{
+				itemList.Insert(WR_RandomLootConfig.getWeightedOtherItemList().getRandomWeightedItemValue());
+			}
+		}
+		
+		return itemList;
 	}
 }
