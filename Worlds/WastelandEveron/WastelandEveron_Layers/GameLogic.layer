@@ -62,13 +62,13 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   }
   SCR_EntityCatalogManagerComponent "{5C9AD18D91F9E87E}" {
    m_aEntityCatalogs {
-    SCR_EntityCatalogMultiList "{5C9AD18D9D38E99E}" : "{EAD206A79A774696}Configs/EntityCatalog/FactionLess/EntityCatalog_Characters.conf" {
+    SCR_EntityCatalogMultiList "{5C9AD18D9D38E99E}" : "{EAD206A79A774696}Configs/EntityCatalog/FactionLess/Characters_EntityCatalog_Factionless.conf" {
     }
-    SCR_EntityCatalogMultiList "{5C9AD18D9B68853E}" : "{77243A71AF0E5A75}Configs/EntityCatalog/FactionLess/EntityCatalog_Vehicles.conf" {
+    SCR_EntityCatalogMultiList "{5C9AD18D9B68853E}" : "{77243A71AF0E5A75}Configs/EntityCatalog/FactionLess/Vehicles_EntityCatalog_Factionless.conf" {
     }
-    SCR_EntityCatalogMultiList "{5C9AD18D98F9181C}" : "{BB12292052E2F5B8}Configs/EntityCatalog/FactionLess/EntityCatalog_InventoryItems.conf" {
+    SCR_EntityCatalogMultiList "{5C9AD18D98F9181C}" : "{BB12292052E2F5B8}Configs/EntityCatalog/FactionLess/InventoryItems_EntityCatalog_Factionless.conf" {
     }
-    SCR_EntityCatalog "{5C9EDDD29E61EF44}" : "{B80293331FB7BFCF}Configs/EntityCatalog/FactionLess/EntityCatalog_SupplyContainerItems.conf" {
+    SCR_EntityCatalog "{5C9EDDD29E61EF44}" : "{B80293331FB7BFCF}Configs/EntityCatalog/FactionLess/SupplyContainerItems_EntityCatalog_Factionless.conf" {
     }
    }
   }
@@ -134,9 +134,10 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    m_SpawnLogic SCR_MenuSpawnLogic "{618E338ADA711296}" {
    }
   }
-  WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
-  }
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
+   percentageLootBoxesToSpawn 1
+  }
+  WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }
   RplComponent "{56B2B4793BF2E1B4}" {
    "Rpl State Override" None
@@ -175,7 +176,7 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
  WeatherParameters "{0ADCC05C873A9F29}Terrains/Common/WeatherPresets/WR_WeatherParameters.conf"
  "Day Duration" 1200
  "UTC TimeZone" 6
- "Initial Day Time" 7
+ "Initial Day Time" 8.456
  "Month of the Year" 9
  "Day of the Month" 16
  "Internal variant transition" 0
@@ -187,9 +188,6 @@ RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.
 }
 ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
  coords 7114.537 73.625 6407.884
-}
-HitRegistrationManager HitRegManager : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
- coords 7114.537 73.39 6408.884
 }
 SCR_LoadoutManager LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
  coords 4407.758 1.67 11045.12
