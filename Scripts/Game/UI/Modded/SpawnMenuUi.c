@@ -1,4 +1,4 @@
-class SPHCU_SpawnMenuUiClass : ChimeraMenuBase
+class WR_SpawnMenuUiClass : ChimeraMenuBase
 {
 	protected static const string TEXT_TITLE = "TextTitle";
 	protected static const string BUTTON_CLOSE = "ButtonClose";
@@ -119,7 +119,7 @@ class SPHCU_SpawnMenuUiClass : ChimeraMenuBase
 	protected void RespawnPlayer()
 	{
 		vector respawnPos;
-		bool respawnSuccessful = SPHCU_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
+		bool respawnSuccessful = WR_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
 		
 		if (respawnSuccessful) Close();
 	}
@@ -151,6 +151,6 @@ class SPHCU_SpawnMenuUiClass : ChimeraMenuBase
 
 modded enum ChimeraMenuPreset
 {
-	SPHCU_SpawnMenuUi_Id
+	WR_SpawnMenuUi_Id
 }
 

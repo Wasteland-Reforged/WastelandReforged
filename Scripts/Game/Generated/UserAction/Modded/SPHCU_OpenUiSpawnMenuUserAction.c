@@ -1,11 +1,11 @@
-class SPHCU_OpenUiSpawnMenuUserAction : ScriptedUserAction
+class WR_OpenUiSpawnMenuUserAction : ScriptedUserAction
 {
 	//------------------------------------------------------------------------------------------------
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
-		Print("SPHCU_OpenUiSpawnMenuUserAction.PerformAction method reached", LogLevel.NORMAL);
+		Print("WR_OpenUiSpawnMenuUserAction.PerformAction method reached", LogLevel.NORMAL);
 		
-		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.SPHCU_SpawnMenuUi_Id); 
+		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.WR_SpawnMenuUi_Id); 
 		
 		SCR_HintManagerComponent.GetInstance().ShowCustomHint("Opened Spawn Menu layout", "Layout Opened", 0);
 	}

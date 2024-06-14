@@ -1,10 +1,10 @@
 [EntityEditorProps(category: "SPHCU/Wasteland", description: "Marks a circular area players can spawn inside.")]
-class SPHCU_SpawnAreaEntityClass : BaseGameTriggerEntityClass
+class WR_SpawnAreaEntityClass : BaseGameTriggerEntityClass
 {
 	
 }
 
-class SPHCU_SpawnAreaEntity : BaseGameTriggerEntity
+class WR_SpawnAreaEntity : BaseGameTriggerEntity
 {
 	// Categories
 	private const string CATEGORY_SPAWNAREA = "Spawn Area";

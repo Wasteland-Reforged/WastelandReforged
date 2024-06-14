@@ -1,9 +1,9 @@
-class SPHCU_SpawnAreaControllerComponentClass : SCR_BaseGameModeComponentClass
+class WR_SpawnAreaControllerComponentClass : SCR_BaseGameModeComponentClass
 {
 	
 }
 
-class SPHCU_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
+class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 {
 	override void OnGameModeStart()
 	{
@@ -15,7 +15,7 @@ class SPHCU_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 		Print("[WASTELAND] Spawning vehicles...");
 		int totalVehiclesSpawned = 0;
 	
-		foreach (auto vehicleSpawnHandler : SPHCU_SpawnAreaVehicleSpawnHandlerComponent.VehicleSpawnHandlerComponents)
+		foreach (auto vehicleSpawnHandler : WR_SpawnAreaVehicleSpawnHandlerComponent.VehicleSpawnHandlerComponents)
 		{
 			int successfulVehSpawnCount;
 			vehicleSpawnHandler.SpawnVehicles(successfulVehSpawnCount);

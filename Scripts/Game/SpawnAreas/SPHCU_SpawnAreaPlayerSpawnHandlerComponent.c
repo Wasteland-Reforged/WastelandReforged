@@ -1,21 +1,21 @@
 [ComponentEditorProps(category: "Tutorial/Component", description: "Warn then teleport humans that are too close to the entity")]
-class SPHCU_SpawnAreaPlayerSpawnHandlerComponentClass : ScriptComponentClass
+class WR_SpawnAreaPlayerSpawnHandlerComponentClass : ScriptComponentClass
 {
 	
 }
 
-class SPHCU_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
+class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 {
-	private SPHCU_SpawnAreaEntity _parent;
+	private WR_SpawnAreaEntity _parent;
 	
-	ref static array<SPHCU_SpawnAreaPlayerSpawnHandlerComponent> PlayerSpawnHandlerComponents;
+	ref static array<WR_SpawnAreaPlayerSpawnHandlerComponent> PlayerSpawnHandlerComponents;
 	
 	override void OnPostInit(IEntity owner)
 	{
-		_parent = SPHCU_SpawnAreaEntity.Cast(owner);
+		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] Parent entity of SPHCU_SpawnAreaPlayerSpawnHandlerComponent must be a SPHCU_SpawnAreaEntity!");
+			Print("[WASTELAND] Parent entity of WR_SpawnAreaPlayerSpawnHandlerComponent must be a WR_SpawnAreaEntity!");
 			return;
 		}
 		
@@ -41,7 +41,7 @@ class SPHCU_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		ResourceName characterPrefab = "{84B40583F4D1B7A3}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Rifleman.et";
 
 		// Choose a spawn area and find a safe spawn position inside it
-		SPHCU_SpawnAreaPlayerSpawnHandlerComponent spawnArea = GetRandomSpawnArea();
+		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = GetRandomSpawnArea();
 		if (!spawnArea) return false; // Fail if no spawn area found
 		
 		// Configure spawn position parameters
@@ -49,7 +49,7 @@ class SPHCU_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		float xzPaddingRadius = 0.5;	 	// Minimum radius of empty space to have around the chosen position
 		float yPaddingDistance = 2; 		// Minimum distance of empty space to have above and below the chosen position 
 		
-		bool foundSafePos = SPHCU_Utils.TryGetSafePos(
+		bool foundSafePos = WR_Utils.TryGetSafePos(
 												respawnPos
 												, spawnArea._parent.GetOrigin()
 												, spawnArea._parent.GetSphereRadius()
@@ -68,7 +68,7 @@ class SPHCU_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		
 		// Rotate player in random direction
 		IEntity newlySpawnedPlayer = playerController.GetControlledEntity();
-		newlySpawnedPlayer.SetYawPitchRoll(SPHCU_Utils.GetRandomHorizontalDirectionAngles());
+		newlySpawnedPlayer.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 		
 		if (isSpawnSuccessful)
 		{
@@ -81,7 +81,7 @@ class SPHCU_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		return isSpawnSuccessful;
 	}
 	
-//	private static bool TryGetSafePos(out vector safePos, SPHCU_SpawnAreaPlayerSpawnHandlerComponent spawnArea)
+//	private static bool TryGetSafePos(out vector safePos, WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea)
 //	{
 //		// Find a random safe position within the spawn area to spawn the player at
 //		vector spawnAreaCenterPos = spawnArea._parent.GetOrigin();
@@ -96,9 +96,9 @@ class SPHCU_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 //		return SCR_WorldTools.FindEmptyTerrainPosition(safePos, posToCheck, areaToCheck);
 //	}
 
-	private static SPHCU_SpawnAreaPlayerSpawnHandlerComponent GetRandomSpawnArea()
+	private static WR_SpawnAreaPlayerSpawnHandlerComponent GetRandomSpawnArea()
 	{
-		array<SPHCU_SpawnAreaPlayerSpawnHandlerComponent> spawnAreas = SPHCU_SpawnAreaPlayerSpawnHandlerComponent.PlayerSpawnHandlerComponents;
+		array<WR_SpawnAreaPlayerSpawnHandlerComponent> spawnAreas = WR_SpawnAreaPlayerSpawnHandlerComponent.PlayerSpawnHandlerComponents;
 		
 		// Perform validation
 		if (!spawnAreas)
@@ -112,7 +112,7 @@ class SPHCU_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 			return null;
 		}
 
-		return SPHCU_SpawnAreaPlayerSpawnHandlerComponent.PlayerSpawnHandlerComponents.GetRandomElement();
+		return WR_SpawnAreaPlayerSpawnHandlerComponent.PlayerSpawnHandlerComponents.GetRandomElement();
 	}
 
 	string GetSpawnAreaName()
@@ -120,7 +120,7 @@ class SPHCU_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		return _parent.GetSpawnAreaName();
 	}
 	
-	void ~SPHCU_SpawnAreaPlayerSpawnHandlerComponent()
+	void ~WR_SpawnAreaPlayerSpawnHandlerComponent()
 	{
 		if (!PlayerSpawnHandlerComponents) return;
 		

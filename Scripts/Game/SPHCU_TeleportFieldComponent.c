@@ -1,9 +1,9 @@
 [ComponentEditorProps(category: "Tutorial/Component", description: "Warn then teleport humans that are too close to the entity")]
-class SPHCU_TeleportFieldComponentClass : ScriptComponentClass
+class WR_TeleportFieldComponentClass : ScriptComponentClass
 {
 }
 
-class SPHCU_TeleportFieldComponent : ScriptComponent
+class WR_TeleportFieldComponent : ScriptComponent
 {
 	/*
 		Teleportation

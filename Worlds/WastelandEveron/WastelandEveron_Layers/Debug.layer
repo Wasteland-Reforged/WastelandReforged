@@ -79,7 +79,7 @@ GenericEntity PalletJack_Debug : "{4BF528DF7A469909}Prefabs/Props/Construction/P
     }
    }
    additionalActions {
-    SPHCU_OpenUiSpawnMenuUserAction "{618D7DE1382AAF9D}" {
+    WR_OpenUiSpawnMenuUserAction "{618D7DE1382AAF9D}" {
      ParentContextList {
       "Spawn Menu Context"
      }

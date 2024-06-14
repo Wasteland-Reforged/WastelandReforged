@@ -1,9 +1,9 @@
-SPHCU_SpawnAreaEntity {
+WR_SpawnAreaEntity {
  ID "6192349936E34DE3"
  components {
-  SPHCU_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+  WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
   }
-  SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+  WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
   }
  }
  coords 4455.731 11.39 10783.104

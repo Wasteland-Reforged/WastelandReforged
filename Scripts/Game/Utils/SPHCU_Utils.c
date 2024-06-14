@@ -1,4 +1,4 @@
-class SPHCU_Utils
+class WR_Utils
 {
 	private static ref map<ResourceName, ResourceName> WeaponAmmoResourceNames;
 	
@@ -31,7 +31,7 @@ class SPHCU_Utils
 	*/
 	static bool TryGetSafePos(out vector safePos, vector centerPos, float radiusToSelectPointsWithin, float radiusToCheckAroundInitiallySelectedPos, float xzPaddingRadius = 0.5, float yPaddingDistance = 2)
 	{			
-		vector posToCheck = SPHCU_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
+		vector posToCheck = WR_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
 		
 		// Calculate safe pos
 		vector selectedPos;
@@ -43,7 +43,7 @@ class SPHCU_Utils
 		// If it is, try to find another empty position.
 		while (isPosUnderWater)
 		{
-			posToCheck = SPHCU_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
+			posToCheck = WR_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
 			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
 			isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
 		}

@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------------------------
-class SPHCU_RespawnMenuWidgetHandler : ScriptedWidgetComponent
+class WR_RespawnMenuWidgetHandler : ScriptedWidgetComponent
 {
 	[Attribute("DeployMenuRight", desc: "Input Action to listen to")]
 	protected string m_sRightMenuAction;
@@ -340,5 +340,5 @@ class SPHCU_RespawnMenuWidgetHandler : ScriptedWidgetComponent
 
 modded enum ChimeraMenuPreset
 {
-	SPHCU_RespawnMenu_Id
+	WR_RespawnMenu_Id
 }
