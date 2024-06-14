@@ -1,25 +1,25 @@
-class SPHCU_WeightedItem<Class T>
+class WR_WeightedItem<Class T>
 {
     float m_fWeight;
 	T m_tItem;
 
-    void SPHCU_WeightedItem(float weight, T item)
+    void WR_WeightedItem(float weight, T item)
     {
 		m_fWeight = weight;
 		m_tItem = item;
     }
 }
 
-class SPHCU_WeightedItemArray<Class T>
+class WR_WeightedItemArray<Class T>
 {
-	private ref array<ref SPHCU_WeightedItem<T>> m_items;
+	private ref array<ref WR_WeightedItem<T>> m_items;
 	private float m_totalItemWeight = 0;
 	
 	void AddItem(float weight, T item)
 	{
 		if (!m_items) m_items = {};
 		
-		SPHCU_WeightedItem<T> weightedItem = new SPHCU_WeightedItem<T>(weight, item);
+		WR_WeightedItem<T> weightedItem = new WR_WeightedItem<T>(weight, item);
 		
 		m_items.Insert(weightedItem);
 		m_totalItemWeight += weightedItem.m_fWeight;
@@ -34,7 +34,7 @@ class SPHCU_WeightedItemArray<Class T>
 			AddItem(itemWeight, item);
 	}
 	
-	SPHCU_WeightedItem<T> GetRandomWeightedItem()
+	WR_WeightedItem<T> GetRandomWeightedItem()
     {
         float randomValue = Math.RandomFloat(0, m_totalItemWeight);
 		T selectedItem;
@@ -54,7 +54,7 @@ class SPHCU_WeightedItemArray<Class T>
 	
 	T GetRandomItem()
     {
-		SPHCU_WeightedItem<T> weightedItem = GetRandomWeightedItem();
+		WR_WeightedItem<T> weightedItem = GetRandomWeightedItem();
 		
 		// TODO: handle this potentially null value!
 		// if (!weightedItem) return null; // Can't return null for type T. Need to find the right way to handle this

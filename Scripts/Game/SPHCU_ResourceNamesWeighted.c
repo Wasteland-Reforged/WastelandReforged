@@ -1,22 +1,22 @@
-class SPHCU_ResourceNamesWeighted
+class WR_ResourceNamesWeighted
 {
-    private static ref SPHCU_WeightedItemArray<ResourceName> Rifles;
-    private static ref SPHCU_WeightedItemArray<ResourceName> MachineGuns;
-    private static ref SPHCU_WeightedItemArray<ResourceName> Snipers;
-    private static ref SPHCU_WeightedItemArray<ResourceName> Handguns;
-    private static ref SPHCU_WeightedItemArray<ResourceName> Launchers;
-    private static ref SPHCU_WeightedItemArray<ResourceName> Ordnance;
-    private static ref SPHCU_WeightedItemArray<ResourceName> Attachments;
-    private static ref SPHCU_WeightedItemArray<ResourceName> UtilityItems;
-    private static ref SPHCU_WeightedItemArray<ResourceName> MedicalItems;
-    private static ref SPHCU_WeightedItemArray<ResourceName> Vests;
-    private static ref SPHCU_WeightedItemArray<ResourceName> Headgear;
-    private static ref SPHCU_WeightedItemArray<ResourceName> Backpacks;
+    private static ref WR_WeightedItemArray<ResourceName> Rifles;
+    private static ref WR_WeightedItemArray<ResourceName> MachineGuns;
+    private static ref WR_WeightedItemArray<ResourceName> Snipers;
+    private static ref WR_WeightedItemArray<ResourceName> Handguns;
+    private static ref WR_WeightedItemArray<ResourceName> Launchers;
+    private static ref WR_WeightedItemArray<ResourceName> Ordnance;
+    private static ref WR_WeightedItemArray<ResourceName> Attachments;
+    private static ref WR_WeightedItemArray<ResourceName> UtilityItems;
+    private static ref WR_WeightedItemArray<ResourceName> MedicalItems;
+    private static ref WR_WeightedItemArray<ResourceName> Vests;
+    private static ref WR_WeightedItemArray<ResourceName> Headgear;
+    private static ref WR_WeightedItemArray<ResourceName> Backpacks;
 	
-	static SPHCU_WeightedItemArray<ResourceName> GetRifles()
+	static WR_WeightedItemArray<ResourceName> GetRifles()
 	{
 		if (Rifles) return Rifles;
-		Rifles = new SPHCU_WeightedItemArray<ResourceName>();
+		Rifles = new WR_WeightedItemArray<ResourceName>();
 
 		Rifles.AddItem(8.0, "{3E413771E1834D2F}Prefabs/Weapons/Rifles/M16/Rifle_M16A2.et");
 		Rifles.AddItem(6.0, "{F97A4AC994231900}Prefabs/Weapons/Rifles/M16/Rifle_M16A2_carbine.et");
@@ -30,10 +30,10 @@ class SPHCU_ResourceNamesWeighted
 		return Rifles;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetMachineGuns()
+	static WR_WeightedItemArray<ResourceName> GetMachineGuns()
 	{
 		if (MachineGuns) return MachineGuns;
-		MachineGuns = new SPHCU_WeightedItemArray<ResourceName>();
+		MachineGuns = new WR_WeightedItemArray<ResourceName>();
 
 		MachineGuns.AddItem(4.0, "{D2B48DEBEF38D7D7}Prefabs/Weapons/MachineGuns/M249/MG_M249.et");
 		MachineGuns.AddItem(3.0, "{D182DCDD72BF7E34}Prefabs/Weapons/MachineGuns/M60/MG_M60.et");
@@ -45,10 +45,10 @@ class SPHCU_ResourceNamesWeighted
 		return MachineGuns;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetSnipers()
+	static WR_WeightedItemArray<ResourceName> GetSnipers()
 	{
 		if (Snipers) return Snipers;
-		Snipers = new SPHCU_WeightedItemArray<ResourceName>();
+		Snipers = new WR_WeightedItemArray<ResourceName>();
 
 		Snipers.AddItem(1.0, "{3EB02CDAD5F23C82}Prefabs/Weapons/Rifles/SVD/Rifle_SVD.et");
 		Snipers.AddItem(1.0, "{B31929F65F0D0279}Prefabs/Weapons/Rifles/M14/Rifle_M21.et");
@@ -56,10 +56,10 @@ class SPHCU_ResourceNamesWeighted
 		return Snipers;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetHandguns()
+	static WR_WeightedItemArray<ResourceName> GetHandguns()
 	{
 		if (Handguns) return Handguns;
-		Handguns = new SPHCU_WeightedItemArray<ResourceName>();
+		Handguns = new WR_WeightedItemArray<ResourceName>();
 
 		Handguns.AddItem(1.0, "{1353C6EAD1DCFE43}Prefabs/Weapons/Handguns/M9/Handgun_M9.et");
 		Handguns.AddItem(1.0, "{C0F7DD85A86B2900}Prefabs/Weapons/Handguns/PM/Handgun_PM.et");
@@ -67,10 +67,10 @@ class SPHCU_ResourceNamesWeighted
 		return Handguns;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetLaunchers()
+	static WR_WeightedItemArray<ResourceName> GetLaunchers()
 	{
 		if (Launchers) return Launchers;
-		Launchers = new SPHCU_WeightedItemArray<ResourceName>();
+		Launchers = new WR_WeightedItemArray<ResourceName>();
 
 		Launchers.AddItem(5.0, "{9C5C20FB0E01E64F}Prefabs/Weapons/Launchers/M72/Launcher_M72A3.et");
 		Launchers.AddItem(3.0, "{7A82FE978603F137}Prefabs/Weapons/Launchers/RPG7/Launcher_RPG7.et");
@@ -78,10 +78,10 @@ class SPHCU_ResourceNamesWeighted
 		return Launchers;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetOrdnance()
+	static WR_WeightedItemArray<ResourceName> GetOrdnance()
 	{
 		if (Ordnance) return Ordnance;
-		Ordnance = new SPHCU_WeightedItemArray<ResourceName>();
+		Ordnance = new WR_WeightedItemArray<ResourceName>();
 
 		Ordnance.AddItem(5.0, "");
 		Ordnance.AddItem(3.0, "");
@@ -89,10 +89,10 @@ class SPHCU_ResourceNamesWeighted
 		return Ordnance;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetAttachments()
+	static WR_WeightedItemArray<ResourceName> GetAttachments()
 	{
 		if (Attachments) return Attachments;
-		Attachments = new SPHCU_WeightedItemArray<ResourceName>();
+		Attachments = new WR_WeightedItemArray<ResourceName>();
 
 		Attachments.AddItem(10.0, "{08286DDBB1F33FF1}Prefabs/Weapons/Attachments/Optics/Optic_AP2k/Collim_AP2k.et");
 		Attachments.AddItem(6.0, "{BD496EE1B40DC510}Prefabs/Weapons/Attachments/Optics/Optic_4x20/Optic_4x20.et");
@@ -105,10 +105,10 @@ class SPHCU_ResourceNamesWeighted
 		return Attachments;	
 	}
 	
-	static SPHCU_WeightedItemArray<ResourceName> GetUtilityItems()
+	static WR_WeightedItemArray<ResourceName> GetUtilityItems()
 	{
 		if (UtilityItems) return UtilityItems;
-		UtilityItems = new SPHCU_WeightedItemArray<ResourceName>();
+		UtilityItems = new WR_WeightedItemArray<ResourceName>();
 
 		UtilityItems.AddItem(1.0, "{0CF54B9A85D8E0D4}Prefabs/Items/Equipment/Binoculars/Binoculars_M22/Binoculars_M22.et");
 		UtilityItems.AddItem(1.0, "{243948B23D90BECB}Prefabs/Items/Equipment/Binoculars/Binoculars_B8/Binoculars_B8.et");
@@ -122,10 +122,10 @@ class SPHCU_ResourceNamesWeighted
 		return UtilityItems;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetMedicalItems()
+	static WR_WeightedItemArray<ResourceName> GetMedicalItems()
 	{
 		if (MedicalItems) return MedicalItems;
-		MedicalItems = new SPHCU_WeightedItemArray<ResourceName>();
+		MedicalItems = new WR_WeightedItemArray<ResourceName>();
 
 		MedicalItems.AddItem(4.0, "");
 		// TODO: fill the rest of these out
@@ -133,10 +133,10 @@ class SPHCU_ResourceNamesWeighted
 		return MedicalItems;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetVests()
+	static WR_WeightedItemArray<ResourceName> GetVests()
 	{
 		if (Vests) return Vests;
-		Vests = new SPHCU_WeightedItemArray<ResourceName>();
+		Vests = new WR_WeightedItemArray<ResourceName>();
 
 		Vests.AddItem(1.0, "{ADE19B33DCBB9005}Prefabs/Characters/Vests/Vest_6B2/Vest_6B2.et");
 		Vests.AddItem(1.0, "{4CBDC206FEF9897C}Prefabs/Characters/Vests/Vest_6B3/Vest_6B3.et");
@@ -150,10 +150,10 @@ class SPHCU_ResourceNamesWeighted
 		return Vests;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetHeadgear()
+	static WR_WeightedItemArray<ResourceName> GetHeadgear()
 	{
 		if (Headgear) return Headgear;
-		Headgear = new SPHCU_WeightedItemArray<ResourceName>();
+		Headgear = new WR_WeightedItemArray<ResourceName>();
 
 		Headgear.AddItem(1.0, "{6E14F80C250F85FC}Prefabs/Characters/HeadGear/Helmet_M1_01/Helmet_M1_01.et");
 		Headgear.AddItem(1.0, "{F31A715FFDB2BD8E}Prefabs/Characters/HeadGear/Helmet_M1_01/Helmet_M1_01_Cover_Frogskin.et");
@@ -169,10 +169,10 @@ class SPHCU_ResourceNamesWeighted
 		return Headgear;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetBackpacks()
+	static WR_WeightedItemArray<ResourceName> GetBackpacks()
 	{
 		if (Backpacks) return Backpacks;
-		Backpacks = new SPHCU_WeightedItemArray<ResourceName>();
+		Backpacks = new WR_WeightedItemArray<ResourceName>();
 
 		Backpacks.AddItem(1.0, "{06B68C58B72EAAC6}Prefabs/Items/Equipment/Backpacks/Backpack_ALICE_Medium.et");
 		Backpacks.AddItem(1.0, "{95D4766BBE46F23D}Prefabs/Items/Equipment/Backpacks/Backpack_IIFS_FieldPack.et");

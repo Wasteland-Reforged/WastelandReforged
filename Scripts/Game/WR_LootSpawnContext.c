@@ -1,7 +1,7 @@
 // This class provides methods to get all necessary ResourceNames for various loot spawning purposes
 class WR_LootSpawnContext
 {
-    private ref SPHCU_WeightedItemArray<SPHCU_WeightedItemArray<ResourceName>> ItemCategories;
+    private ref WR_WeightedItemArray<WR_WeightedItemArray<ResourceName>> ItemCategories;
 
     void WR_LootSpawnContext(
         float rifleWeight = 1.0,
@@ -18,23 +18,23 @@ class WR_LootSpawnContext
         float headgearWeight = 0.0
     )
     {
-        ItemCategories = new SPHCU_WeightedItemArray<SPHCU_WeightedItemArray<ResourceName>>();
+        ItemCategories = new WR_WeightedItemArray<WR_WeightedItemArray<ResourceName>>();
 
         // Weapons
-        ItemCategories.AddItem(rifleWeight,       SPHCU_ResourceNamesWeighted.GetRifles());
-        ItemCategories.AddItem(machineGunWeight,  SPHCU_ResourceNamesWeighted.GetMachineGuns());
-        ItemCategories.AddItem(sniperWeight,      SPHCU_ResourceNamesWeighted.GetSnipers());
-        ItemCategories.AddItem(handgunWeight,     SPHCU_ResourceNamesWeighted.GetHandguns());
-        ItemCategories.AddItem(launcherWeight,    SPHCU_ResourceNamesWeighted.GetLaunchers());
-        ItemCategories.AddItem(ordnanceWeight,    SPHCU_ResourceNamesWeighted.GetOrdnance());
+        ItemCategories.AddItem(rifleWeight,       WR_ResourceNamesWeighted.GetRifles());
+        ItemCategories.AddItem(machineGunWeight,  WR_ResourceNamesWeighted.GetMachineGuns());
+        ItemCategories.AddItem(sniperWeight,      WR_ResourceNamesWeighted.GetSnipers());
+        ItemCategories.AddItem(handgunWeight,     WR_ResourceNamesWeighted.GetHandguns());
+        ItemCategories.AddItem(launcherWeight,    WR_ResourceNamesWeighted.GetLaunchers());
+        ItemCategories.AddItem(ordnanceWeight,    WR_ResourceNamesWeighted.GetOrdnance());
         // Items
-        ItemCategories.AddItem(attachmentWeight,  SPHCU_ResourceNamesWeighted.GetAttachments());
-        ItemCategories.AddItem(utilItemWeight,    SPHCU_ResourceNamesWeighted.GetUtilityItems());
-        ItemCategories.AddItem(mediItemWeight,    SPHCU_ResourceNamesWeighted.GetMedicalItems());
+        ItemCategories.AddItem(attachmentWeight,  WR_ResourceNamesWeighted.GetAttachments());
+        ItemCategories.AddItem(utilItemWeight,    WR_ResourceNamesWeighted.GetUtilityItems());
+        ItemCategories.AddItem(mediItemWeight,    WR_ResourceNamesWeighted.GetMedicalItems());
         // Wearables
-        ItemCategories.AddItem(backpackWeight,    SPHCU_ResourceNamesWeighted.GetBackpacks());
-        ItemCategories.AddItem(vestWeight,        SPHCU_ResourceNamesWeighted.GetVests());
-        ItemCategories.AddItem(headgearWeight,    SPHCU_ResourceNamesWeighted.GetHeadgear());
+        ItemCategories.AddItem(backpackWeight,    WR_ResourceNamesWeighted.GetBackpacks());
+        ItemCategories.AddItem(vestWeight,        WR_ResourceNamesWeighted.GetVests());
+        ItemCategories.AddItem(headgearWeight,    WR_ResourceNamesWeighted.GetHeadgear());
     }
 
     array<ResourceName> GetRandomItems(int itemCount)
@@ -45,7 +45,7 @@ class WR_LootSpawnContext
 
         for (int i = 0; i < itemCount; i++)
         {
-            SPHCU_WeightedItemArray<ResourceName> category = ItemCategories.GetRandomItem();
+            WR_WeightedItemArray<ResourceName> category = ItemCategories.GetRandomItem();
             ResourceName item = category.GetRandomItem();
             items.Insert(item);
         }
