@@ -37,7 +37,7 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	void SpawnVehicles(out int successfulVehSpawnCount)
 	{
-		SPHCU_WeightedItemArray<ResourceName> vehicleResourceNames = SPHCU_ResourceNamesWeighted.GetSpawnAreaVehicles();
+		SPHCU_WeightedItemArray<ResourceName> vehicleResourceNames = SPHCU_ResourceNamesWeightedOld.GetSpawnAreaVehicles();
 		
 		if (!vehicleResourceNames || vehicleResourceNames.Count() == 0)
 		{
@@ -53,8 +53,13 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		// Configure spawn position parameters
 		float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
 		float xzPaddingRadius = 15;		// Minimum radius of empty space to have around the chosen position
-		float yPaddingDistance = 10; 	// Minimum distance of empty space to have above and below the chosen position 
+		float yPaddingDistance = 10; 		// Minimum distance of empty space to have above and below the chosen position 
 
+		// Get loot spawning context
+		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetRandomVehicleContext();
+		int minItems = 2; // TODO: add validation and make these read from a global config
+		int maxItems = 4;
+		
 		for (int i = 0; i < desiredVehCount; i++)
 		{
 			// Select a random position				
@@ -72,7 +77,7 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			Resource resource = Resource.Load(vehicleResourceNames.GetRandomItem());
 			
 			EntitySpawnParams spawnParams = new EntitySpawnParams();
-			spawnParams.Transform[3] = spawnPos;
+			spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
 			
 			IEntity vehicle = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld(), spawnParams);
 			vehicle.SetYawPitchRoll(SPHCU_Utils.GetRandomHorizontalDirectionAngles());
@@ -88,7 +93,7 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 				inventoryStorageManager.TryDeleteItem(item);
 			
 			// Place weapons and items in inventory			
-			array<ResourceName> itemResourceNamesToSpawn = SPHCU_LootResourceNameGenerator.GetSpawnAreaVehicleItems();
+			array<ResourceName> itemResourceNamesToSpawn = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems));
 			foreach (ResourceName name : itemResourceNamesToSpawn)
 				inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
 

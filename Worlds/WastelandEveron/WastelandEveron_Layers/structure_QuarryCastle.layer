@@ -90,10 +90,47 @@ GenericEntity : "{3AE1A95C1023F894}Prefabs/Compositions/Slotted/SlotFlatSmall/Sa
  coords 8790.509 196.594 3890.62
  angleY -178.788
 }
-SCR_DestructibleEntity : "{3E1FF1C56363D645}Prefabs/Structures/Walls/Stone/StoneWall_01/StoneWall_01_end.et" {
- coords 8892.196 3.736 3930.731
- angleY 82.146
- scale 2
+$grp SCR_DestructibleEntity : "{3E1FF1C56363D645}Prefabs/Structures/Walls/Stone/StoneWall_01/StoneWall_01_end.et" {
+ {
+  coords 8894.502 2.184 3933.617
+  angleY 100.041
+  scale 2
+ }
+ {
+  coords 8895.798 1.968 3935.303
+  angleY 82.146
+  scale 2
+ }
+ {
+  coords 8895.901 3.579 3934.89
+  angleY 145.52
+  scale 2
+ }
+ {
+  coords 8891.743 4.141 3934.745
+  angleY 73.237
+  scale 2
+ }
+ {
+  coords 8892.494 4.97 3934.3
+  angleY -21.16
+  scale 2
+ }
+ {
+  coords 8897.89 1.105 3933.758
+  angleY 82.146
+  scale 2
+ }
+ {
+  coords 8897.187 2.896 3936.705
+  angleY 76.448
+  scale 2
+ }
+ {
+  coords 8897.386 2.858 3935.556
+  angleY 145.52
+  scale 2
+ }
 }
 GenericEntity : "{4757ED104D5989CE}Prefabs/Props/Military/SupplyBox/SupplyStack/SupplyStack_01/SupplyStack_01_V3.et" {
  coords 8846.661 201.199 3938.578
@@ -242,15 +279,34 @@ $grp GenericEntity : "{7B4CD0B54AA169AA}Prefabs/Props/Military/Sandbags/Sandbag_
   scale 1.2
  }
 }
-SCR_DestructibleBuildingEntity : "{810071129368254F}PrefabsEditable/Auto/Structures/Ruins/HouseRuins/E_HouseRuin_01_BrickPile_Small.et" {
- coords 8890.762 3.555 3928.673
- angleY -27.922
- scale 2
+$grp SCR_DestructibleBuildingEntity : "{810071129368254F}PrefabsEditable/Auto/Structures/Ruins/HouseRuins/E_HouseRuin_01_BrickPile_Small.et" {
+ {
+  coords 8890.762 3.555 3928.673
+  angleY -27.922
+  scale 2
+ }
+ {
+  coords 8896.733 1.321 3930.03
+  angleY -27.922
+  scale 2
+ }
+ {
+  coords 8893.988 3.048 3930.353
+  angleY -27.922
+  scale 2
+ }
 }
-SCR_DestructibleBuildingEntity : "{85D22B7ED8C8024C}Prefabs/Structures/Cultural/Castles/Castle_01_InnerWall_Small_02.et" {
- coords 8840.449 -0.531 3969.74
- angleY -55.501
- scale 2.5
+$grp SCR_DestructibleBuildingEntity : "{85D22B7ED8C8024C}Prefabs/Structures/Cultural/Castles/Castle_01_InnerWall_Small_02.et" {
+ {
+  coords 8840.449 -0.531 3969.74
+  angleY -55.501
+  scale 2.5
+ }
+ {
+  coords 8841.507 5.153 3916.35
+  angleY -26.459
+  scale 2.5
+ }
 }
 StaticModelEntity : "{862818969D70726C}Prefabs/Compositions/Misc/SubCompositions/TableMilitary_Cluttered_USSR_01.et" {
  coords 8833.104 205.115 3949.975
@@ -335,7 +391,7 @@ $grp StaticModelEntity : "{AE28D47CF26E91EA}Prefabs/Props/Military/Fortification
   coords 8875.58 0 3919.913
  }
  {
-  coords 8880.304 -0 3920.741
+  coords 8880.304 0 3920.741
   angleX -0.828
   angleY -40.092
   angleZ -5.14
@@ -412,14 +468,44 @@ GenericEntity : "{E420404FB6612F16}PrefabsEditable/Auto/Rocks/Granite/E_GraniteS
 }
 $grp GenericEntity : "{E5B343A1918DB525}Prefabs/Structures/BuildingParts/Entry/WoodenStairs_01.et" {
  {
-  coords 8839.807 204.508 3932.975
-  angleY 125.65
-  scale 2
+  coords 8839.038 204.805 3932.39
+  angleY 124.139
  }
  {
-  coords 8842.175 204.526 3936.356
-  angleY 125.65
-  scale 2
+  coords 8841.434 202.082 3930.766
+  angleY 124.139
+ }
+ {
+  coords 8842.558 202.082 3932.424
+  angleY 124.139
+ }
+ {
+  coords 8840.161 204.805 3934.048
+  angleY 124.139
+ }
+ {
+  coords 8841.435 202.082 3930.766
+  angleY 124.139
+ }
+ {
+  coords 8839.038 204.805 3932.39
+  angleY 124.139
+ }
+ {
+  coords 8841.285 204.805 3935.704
+  angleY 124.139
+ }
+ {
+  coords 8843.681 202.082 3934.08
+  angleY 124.139
+ }
+ {
+  coords 8844.805 202.082 3935.738
+  angleY 124.139
+ }
+ {
+  coords 8842.408 204.805 3937.362
+  angleY 124.139
  }
 }
 $grp StaticModelEntity : "{E6AE368A342034CB}PrefabsEditable/Auto/Props/Military/Fortification/E_CzechHedgehog_01_rusty.et" {

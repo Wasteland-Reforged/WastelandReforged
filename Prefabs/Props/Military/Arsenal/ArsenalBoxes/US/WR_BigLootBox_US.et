@@ -8,6 +8,7 @@ GenericEntity : "{54986385A6AF77B2}Prefabs/Props/Military/Arsenal/ArsenalBoxes/A
    Enabled 0
   }
   SCR_FactionAffiliationComponent "{5A50E7655452A21D}" {
+   Enabled 0
    "faction affiliation" "US"
   }
   SCR_ResourceComponent "{5D7D07D2F7A252D2}" {
@@ -19,8 +20,10 @@ GenericEntity : "{54986385A6AF77B2}Prefabs/Props/Military/Arsenal/ArsenalBoxes/A
   SCR_ServicePointComponent "{5C7489C20C7B5D4B}" {
    Enabled 0
   }
-  SCR_ArsenalInventoryStorageManagerComponent "{56F2C6D1431ADBA8}" {
-   Enabled 0
+  WR_LootBoxComponent "{619C263714885DEB}" {
+  }
+  SCR_InventoryStorageManagerComponent "{56F2C6D1431ADBA8}" {
+   Enabled 1
   }
  }
 }

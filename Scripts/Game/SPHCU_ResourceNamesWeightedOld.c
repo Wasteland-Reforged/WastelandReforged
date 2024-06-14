@@ -1,4 +1,4 @@
-class SPHCU_ResourceNamesWeighted
+class SPHCU_ResourceNamesWeightedOld
 {
     private static ref SPHCU_WeightedItemArray<ResourceName> SpawnAreaWeaponsWeighted;
     private static ref SPHCU_WeightedItemArray<ResourceName> SpawnAreaItemsWeighted;

@@ -7,7 +7,6 @@ class SPHCU_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 {
 	override void OnGameModeStart()
 	{
-		Print("[WASTELAND] Game started!");
 		SpawnVehiclesInSpawnAreas();
 	}
 	
