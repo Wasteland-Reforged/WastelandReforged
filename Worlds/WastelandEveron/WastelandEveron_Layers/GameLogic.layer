@@ -16,7 +16,7 @@ SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
 PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
  coords 7114.537 73.859 6406.884
 }
-SCR_BaseGameMode GameMode_Base1 : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
   SCR_DataCollectorComponent "{5ADE83EE64329989}" {
    m_aModules {
@@ -136,6 +136,8 @@ SCR_BaseGameMode GameMode_Base1 : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_B
   }
   SPHCU_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }
+  WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
+  }
   RplComponent "{56B2B4793BF2E1B4}" {
    "Rpl State Override" None
    Streamable Disabled
@@ -143,7 +145,7 @@ SCR_BaseGameMode GameMode_Base1 : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_B
  }
  coords 4400.008 1.605 11042.771
 }
-SCR_FactionManager FactionManager_Base1 : "{A242612865F2A48E}Prefabs/MP/Managers/Factions/FactionManager_Base.et" {
+SCR_FactionManager FactionManager : "{A242612865F2A48E}Prefabs/MP/Managers/Factions/FactionManager_Base.et" {
  coords 4403.627 1.651 11048.855
  Factions {
   SCR_Faction "{618569368AF59548}" : "{E7B7EA4823DD81F0}Configs/Factions/BLUFOR.conf" {
@@ -167,6 +169,19 @@ SCR_FactionManager FactionManager_Base1 : "{A242612865F2A48E}Prefabs/MP/Managers
   }
  }
 }
+TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
+ coords 4399.965 1.614 11043.354
+ WeatherStateMachine "{E7BBEF5A7CB63F57}Terrains/Common/WeatherPresets/StateMachine/WR_WeatherStates.conf"
+ WeatherParameters "{0ADCC05C873A9F29}Terrains/Common/WeatherPresets/WR_WeatherParameters.conf"
+ "Day Duration" 1200
+ "UTC TimeZone" 6
+ "Initial Day Time" 7
+ "Month of the Year" 9
+ "Day of the Month" 16
+ "Internal variant transition" 0
+ "Internal subvariant 0" 0
+ "Internal subvariant 1" 0
+}
 RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
  coords 7114.537 74.093 6405.884
 }
@@ -176,7 +191,7 @@ ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedCh
 HitRegistrationManager HitRegManager : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
  coords 7114.537 73.39 6408.884
 }
-SCR_LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
+SCR_LoadoutManager LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
  coords 4407.758 1.67 11045.12
  m_aPlayerLoadouts {
   SCR_FactionPlayerLoadout "{6185692023D7D44C}" {
@@ -195,15 +210,4 @@ SCR_LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutMana
    m_sAffiliatedFaction "INDFOR"
   }
  }
-}
-SCR_SpawnPoint : "{E7F4D5562F48DDE4}Prefabs/MP/Spawning/SpawnPoint_Base.et" {
- coords 4398.443 1.594 11039.228
- m_fSpawnRadius 0
- m_sFaction "BLUFOR"
- m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
-  Name "Spawnpoint 1"
-  Description "First spawn point."
- }
- m_bUseNearbySpawnPositions 1
- m_fSpawnPositionUsageRange 50
 }

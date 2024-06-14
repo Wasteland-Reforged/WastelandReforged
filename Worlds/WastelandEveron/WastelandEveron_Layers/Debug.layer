@@ -96,3 +96,14 @@ GenericEntity PalletJack_Debug : "{4BF528DF7A469909}Prefabs/Props/Construction/P
 GenericEntity GarbageContainer : "{72E42BEAFED9B5A7}Prefabs/Props/Garbage/Bins/GarbageContainer_01.et" {
  coords 4397.168 1.605 11043.92
 }
+SCR_SpawnPoint : "{E7F4D5562F48DDE4}Prefabs/MP/Spawning/SpawnPoint_Base.et" {
+ coords 4398.443 1.594 11039.228
+ m_fSpawnRadius 0
+ m_sFaction "BLUFOR"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Spawnpoint 1"
+  Description "First spawn point."
+ }
+ m_bUseNearbySpawnPositions 1
+ m_fSpawnPositionUsageRange 50
+}

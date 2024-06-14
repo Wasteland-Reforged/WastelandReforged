@@ -10,6 +10,17 @@ class WR_LootBoxComponent : ScriptComponent
 
 	override void OnPostInit(IEntity owner)
 	{
+		if (!LootBoxComponents)
+		{
+			LootBoxComponents = {};
+			Print("[WASTELAND] Initialized loot box component list.");
+		}
+		
 		LootBoxComponents.Insert(this);
+	}
+	
+	void ~WR_LootBoxComponent()
+	{
+		LootBoxComponents.RemoveItem(this);
 	}
 }
