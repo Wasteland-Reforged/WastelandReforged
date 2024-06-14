@@ -1,13 +1,13 @@
-class SPHCU_ResourceNamesWeightedOld
+class WR_ResourceNamesWeightedOld
 {
-    private static ref SPHCU_WeightedItemArray<ResourceName> SpawnAreaWeaponsWeighted;
-    private static ref SPHCU_WeightedItemArray<ResourceName> SpawnAreaItemsWeighted;
-	private static ref SPHCU_WeightedItemArray<ResourceName> SpawnAreaVehiclesWeighted;
+    private static ref WR_WeightedItemArray<ResourceName> SpawnAreaWeaponsWeighted;
+    private static ref WR_WeightedItemArray<ResourceName> SpawnAreaItemsWeighted;
+	private static ref WR_WeightedItemArray<ResourceName> SpawnAreaVehiclesWeighted;
 	
-	static SPHCU_WeightedItemArray<ResourceName> GetSpawnAreaWeapons()
+	static WR_WeightedItemArray<ResourceName> GetSpawnAreaWeapons()
 	{
 		if (SpawnAreaWeaponsWeighted) return SpawnAreaWeaponsWeighted;
-		SpawnAreaWeaponsWeighted = new SPHCU_WeightedItemArray<ResourceName>();
+		SpawnAreaWeaponsWeighted = new WR_WeightedItemArray<ResourceName>();
 
 		SpawnAreaWeaponsWeighted.AddItem(1.0, "{3E413771E1834D2F}Prefabs/Weapons/Rifles/M16/Rifle_M16A2.et");
 		SpawnAreaWeaponsWeighted.AddItem(1.0, "{FA5C25BF66A53DCF}Prefabs/Weapons/Rifles/AK74/Rifle_AK74.et");	
@@ -15,10 +15,10 @@ class SPHCU_ResourceNamesWeightedOld
 		return SpawnAreaWeaponsWeighted;	
 	}
 
-	static SPHCU_WeightedItemArray<ResourceName> GetSpawnAreaItems()
+	static WR_WeightedItemArray<ResourceName> GetSpawnAreaItems()
 	{
 		if (SpawnAreaItemsWeighted) return SpawnAreaItemsWeighted;
-		SpawnAreaItemsWeighted = new SPHCU_WeightedItemArray<ResourceName>();
+		SpawnAreaItemsWeighted = new WR_WeightedItemArray<ResourceName>();
 
 		SpawnAreaItemsWeighted.AddItem(40.0, "{A81F501D3EF6F38E}Prefabs/Items/Medicine/FieldDressing_US_01.et");
 
@@ -29,10 +29,10 @@ class SPHCU_ResourceNamesWeightedOld
 		return SpawnAreaItemsWeighted;
 	}
 	
-	static SPHCU_WeightedItemArray<ResourceName> GetSpawnAreaVehicles()
+	static WR_WeightedItemArray<ResourceName> GetSpawnAreaVehicles()
 	{
 		if (SpawnAreaVehiclesWeighted) return SpawnAreaVehiclesWeighted;
-		SpawnAreaVehiclesWeighted = new SPHCU_WeightedItemArray<ResourceName>();
+		SpawnAreaVehiclesWeighted = new WR_WeightedItemArray<ResourceName>();
 
 		// M997/M998/M1025 (Humvee)
 		array<ResourceName> humvee = {

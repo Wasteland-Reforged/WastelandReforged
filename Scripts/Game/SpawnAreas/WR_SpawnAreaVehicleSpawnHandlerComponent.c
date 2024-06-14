@@ -1,14 +1,14 @@
 [ComponentEditorProps(category: "World Vehicle Spawning", description: "Handles the random spawning of vehicles in Towns on server restart")]
-class SPHCU_SpawnAreaVehicleSpawnHandlerComponentClass : ScriptComponentClass
+class WR_SpawnAreaVehicleSpawnHandlerComponentClass : ScriptComponentClass
 {
 	
 }
 
-class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
+class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 {
-	private SPHCU_SpawnAreaEntity _parent;
+	private WR_SpawnAreaEntity _parent;
 	
-	ref static array<SPHCU_SpawnAreaVehicleSpawnHandlerComponent> VehicleSpawnHandlerComponents;
+	ref static array<WR_SpawnAreaVehicleSpawnHandlerComponent> VehicleSpawnHandlerComponents;
 
 	[Attribute(defvalue: "50", desc: "Number of vehicles to spawn per square kilometer of surface area inside this spawn area.")]
 	protected int vehiclesPerSqKm;
@@ -18,10 +18,10 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	override void OnPostInit(IEntity owner)
 	{
-		_parent = SPHCU_SpawnAreaEntity.Cast(owner);
+		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] Parent entity of SPHCU_SpawnAreaVehicleSpawnHandlerComponent must be a SPHCU_SpawnAreaEntity!");
+			Print("[WASTELAND] Parent entity of WR_SpawnAreaVehicleSpawnHandlerComponent must be a WR_SpawnAreaEntity!");
 			return;
 		}
 		
@@ -37,7 +37,7 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	void SpawnVehicles(out int successfulVehSpawnCount)
 	{
-		SPHCU_WeightedItemArray<ResourceName> vehicleResourceNames = SPHCU_ResourceNamesWeightedOld.GetSpawnAreaVehicles();
+		WR_WeightedItemArray<ResourceName> vehicleResourceNames = WR_ResourceNamesWeightedOld.GetSpawnAreaVehicles();
 		
 		if (!vehicleResourceNames || vehicleResourceNames.Count() == 0)
 		{
@@ -64,7 +64,7 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		{
 			// Select a random position				
 			vector spawnPos;
-			bool foundSafePos = SPHCU_Utils.TryGetSafePos(
+			bool foundSafePos = WR_Utils.TryGetSafePos(
 												spawnPos
 												, _parent.GetOrigin()
 												, _parent.GetSphereRadius()
@@ -80,7 +80,7 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
 			
 			IEntity vehicle = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld(), spawnParams);
-			vehicle.SetYawPitchRoll(SPHCU_Utils.GetRandomHorizontalDirectionAngles());
+			vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 			
 			// Get vehicle inventory components
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
@@ -117,7 +117,7 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		return _parent.GetSpawnAreaName();
 	}
 	
-	void ~SPHCU_SpawnAreaVehicleSpawnHandlerComponent()
+	void ~WR_SpawnAreaVehicleSpawnHandlerComponent()
 	{
 		if (!VehicleSpawnHandlerComponents) return;
 		

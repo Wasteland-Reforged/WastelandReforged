@@ -134,7 +134,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    m_SpawnLogic SCR_MenuSpawnLogic "{618E338ADA711296}" {
    }
   }
-  SPHCU_SpawnAreaControllerComponent "{61917B6834FB8580}" {
+  WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
   }

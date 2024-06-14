@@ -1,7 +1,7 @@
-$grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  SpawnArea_Chotain {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -14,7 +14,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Durras {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -27,7 +27,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_EntreDeux {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -40,7 +40,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Etoupe {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -53,7 +53,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Figari {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -66,7 +66,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Gravette {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -79,7 +79,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Kermovan {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -92,7 +92,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Lamentin {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -105,7 +105,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Laruns {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -118,7 +118,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_LeMoule {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -131,7 +131,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Levie {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -144,7 +144,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Meaux {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -157,7 +157,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Montignac {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -170,7 +170,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Morton {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -183,7 +183,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Provins {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -196,7 +196,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Regina {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -209,7 +209,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_StPhillipe {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -222,7 +222,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_StPierre {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -235,7 +235,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Tyrone {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -248,7 +248,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Vernon {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
@@ -261,7 +261,7 @@ $grp SPHCU_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/SPHCU_SpawnArea.et" {
  }
  SpawnArea_Villeneuf {
   components {
-   SPHCU_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
   }
