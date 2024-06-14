@@ -15,13 +15,11 @@ class SPHCU_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 	{
 		Print("[WASTELAND] Spawning vehicles...");
 		int totalVehiclesSpawned = 0;
-		
-		array<string> vehiclePrefabs = SPHCU_RandomSpawnConfig.GetAllUaz469(PrefabFactionFlag.Ussr | PrefabFactionFlag.Fia | PrefabFactionFlag.Civilian);
-		
+	
 		foreach (auto vehicleSpawnHandler : SPHCU_SpawnAreaVehicleSpawnHandlerComponent.VehicleSpawnHandlerComponents)
 		{
 			int successfulVehSpawnCount;
-			vehicleSpawnHandler.SpawnVehicles(successfulVehSpawnCount, vehiclePrefabs);
+			vehicleSpawnHandler.SpawnVehicles(successfulVehSpawnCount);
 			totalVehiclesSpawned += successfulVehSpawnCount;
 		}
 		

@@ -35,11 +35,13 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		Print("[WASTELAND] Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list");
 	}
 	
-	void SpawnVehicles(out int successfulVehSpawnCount, array<string> vehiclePrefabs)
+	void SpawnVehicles(out int successfulVehSpawnCount)
 	{
-		if (!vehiclePrefabs || vehiclePrefabs.Count() == 0)
+		SPHCU_WeightedItemArray<ResourceName> vehicleResourceNames = SPHCU_ResourceNamesWeighted.GetSpawnAreaVehicles();
+		
+		if (!vehicleResourceNames || vehicleResourceNames.Count() == 0)
 		{
-			Print("[WASTELAND] No prefabs were supplied! Please provide at least one prefab.");
+			Print("[WASTELAND] No spawn area vehicle resource names were supplied! Please provide at least one resource name.");
 			return;
 		}
 		
@@ -67,14 +69,28 @@ class SPHCU_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			if (!foundSafePos) return;
 			
 			// Spawn the vehicle
-			string prefab = vehiclePrefabs.GetRandomElement();
-			Resource resource = Resource.Load(prefab);
+			Resource resource = Resource.Load(vehicleResourceNames.GetRandomItem());
 			
 			EntitySpawnParams spawnParams = new EntitySpawnParams();
 			spawnParams.Transform[3] = spawnPos;
 			
 			IEntity vehicle = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld(), spawnParams);
 			vehicle.SetYawPitchRoll(SPHCU_Utils.GetRandomHorizontalDirectionAngles());
+			
+			// Get vehicle inventory components
+			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
+			auto inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+			
+			// Remove all items from inventory
+			array<IEntity> currItems = {};
+			inventoryStorageManager.GetItems(currItems);
+			foreach (IEntity item : currItems)
+				inventoryStorageManager.TryDeleteItem(item);
+			
+			// Place weapons and items in inventory			
+			array<ResourceName> itemResourceNamesToSpawn = SPHCU_LootResourceNameGenerator.GetSpawnAreaVehicleItems();
+			foreach (ResourceName name : itemResourceNamesToSpawn)
+				inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
 
 			successfulVehSpawnCount++;
 		}

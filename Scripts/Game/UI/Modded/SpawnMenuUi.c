@@ -33,7 +33,7 @@ class SPHCU_SpawnMenuUiClass : ChimeraMenuBase
 
 		SCR_ButtonTextComponent buttonChange = SCR_ButtonTextComponent.GetButtonText(BUTTON_CHANGE, rootWidget);
 		if (buttonChange)
-			buttonChange.m_OnClicked.Insert(ChangeText);
+			buttonChange.m_OnClicked.Insert(AddItemToVehicle);
 		else
 			Print("Button Change not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
 		
@@ -122,6 +122,30 @@ class SPHCU_SpawnMenuUiClass : ChimeraMenuBase
 		bool respawnSuccessful = SPHCU_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
 		
 		if (respawnSuccessful) Close();
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected void AddItemToVehicle()
+	{
+		string entityToFind = "PalletJack_Debug";
+		//string entityToFind = "Humvee";
+		IEntity storageEntity = GetGame().GetWorld().FindEntityByName(entityToFind);
+		SCR_UniversalInventoryStorageComponent storage = SCR_UniversalInventoryStorageComponent.Cast(storageEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
+		
+		SCR_InventoryStorageManagerComponent inventoryManager = SCR_InventoryStorageManagerComponent.Cast(storageEntity.FindComponent(SCR_InventoryStorageManagerComponent));
+		//SCR_VehicleInventoryStorageManagerComponent inventoryManager = SCR_VehicleInventoryStorageManagerComponent.Cast(storageEntity.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+		
+		string prefab = "{3E413771E1834D2F}Prefabs/Weapons/Rifles/M16/Rifle_M16A2.et";
+		
+		//Resource resource = Resource.Load(prefab);
+		//ResourceName resourceName = new ResourceName(prefab);
+		
+		//IEntity item = GetGame().SpawnEntityPrefab(resource);
+		//bool successfullyInsertedItem = inventoryManager.TryInsertItem(item);
+		//bool successfullyInsertedItem = inventoryManager.TryInsertItemInStorage(item, storage);
+		bool successfullyInsertedItem = inventoryManager.TrySpawnPrefabToStorage(prefab, storage);
+		
+		Print(successfullyInsertedItem);
 	}
 }
 
