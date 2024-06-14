@@ -20,10 +20,8 @@ class WR_ResourceNamesWeighted
 
 		Rifles.AddItem(8.0, "{3E413771E1834D2F}Prefabs/Weapons/Rifles/M16/Rifle_M16A2.et");
 		Rifles.AddItem(6.0, "{F97A4AC994231900}Prefabs/Weapons/Rifles/M16/Rifle_M16A2_carbine.et");
-		Rifles.AddItem(8.0, "{FA5C25BF66A53DCF}Prefabs/Weapons/Rifles/AK74/Rifle_AK74.et");
-		Rifles.AddItem(6.0, "{96DFD2E7E63B3386}Prefabs/Weapons/Rifles/AK74/Rifle_AK74N.et");
-		Rifles.AddItem(8.0, "{BFEA719491610A45}Prefabs/Weapons/Rifles/AKS74U/Rifle_AKS74U.et");
-		Rifles.AddItem(6.0, "{FA0E25CE35EE945F}Prefabs/Weapons/Rifles/AKS74U/Rifle_AKS74UN.et");
+		Rifles.AddItem(8.0, "{96DFD2E7E63B3386}Prefabs/Weapons/Rifles/AK74/Rifle_AK74N.et");
+		Rifles.AddItem(8.0, "{FA0E25CE35EE945F}Prefabs/Weapons/Rifles/AKS74U/Rifle_AKS74UN.et");
 		Rifles.AddItem(6.0, "{9C948630078D154D}Prefabs/Weapons/Rifles/VZ58/Rifle_VZ58P.et");
 		Rifles.AddItem(6.0, "{443CEFF17E040B11}Prefabs/Weapons/Rifles/VZ58/Rifle_VZ58V.et");
 
@@ -122,17 +120,17 @@ class WR_ResourceNamesWeighted
 		UtilityItems.AddItem(1.0, "{AE578EEA4244D41F}Prefabs/Items/Equipment/Kits/MedicalKit_01/MedicalKit_01_US.et");
 		UtilityItems.AddItem(1.0, "{5028D9E699AE3A73}Prefabs/Items/Equipment/Kits/RearmingKit_01/RearmingKit_01_US.et");
 		UtilityItems.AddItem(1.0, "{33B2DFDCD0EBA3DB}Prefabs/Items/Equipment/Kits/RepairKit_01/RepairKit_01_wrench.et");
-		UtilityItems.AddItem(1.0, "{6D56FED1E55A8F84}Prefabs/Items/Misc/IntelligenceFolder_E_01/IntelligenceFolder_E_01.et");
-		UtilityItems.AddItem(2.0, "{50A68300B537EDFA}Prefabs/Items/Food/ArmyCrackers_Soviet_01.et");
-		UtilityItems.AddItem(2.0, "{C22A2F123CD609FC}Prefabs/Items/Food/Meat_01_Dry.et");
-		UtilityItems.AddItem(2.0, "{128A19AA9F731095}Prefabs/Items/Food/MeatLeg_01.et");
-		UtilityItems.AddItem(2.0, "{EB21D26B8D5A3232}Prefabs/Items/Food/MRE.et");
-		UtilityItems.AddItem(2.0, "{630FB4AD4A735264}Prefabs/Items/Equipment/Canteens/Canteen_US_01.et");
-		UtilityItems.AddItem(2.0, "{3A421547BC29F679}Prefabs/Items/Equipment/Flashlights/Flashlight_MX991/Flashlight_MX991.et");
-		UtilityItems.AddItem(2.0, "{575EA58E67448C2A}Prefabs/Items/Equipment/Flashlights/Flashlight_Soviet_01/Flashlight_Soviet_01.et");
-		UtilityItems.AddItem(1.0, "{78ED4FEF62BBA728}Prefabs/Items/Equipment/Watches/Watch_SandY184A.et");
-		UtilityItems.AddItem(1.0, "{6FD6C96121905202}Prefabs/Items/Equipment/Watches/Watch_Vostok.et");
-		UtilityItems.AddItem(1.0, "{61A705D76908160C}Prefabs/Items/Equipment/Watches/Watch_Orlik38/Watch_Orlik38.et");
+		UtilityItems.AddItem(0.0, "{6D56FED1E55A8F84}Prefabs/Items/Misc/IntelligenceFolder_E_01/IntelligenceFolder_E_01.et");
+		UtilityItems.AddItem(0.0, "{50A68300B537EDFA}Prefabs/Items/Food/ArmyCrackers_Soviet_01.et");
+		UtilityItems.AddItem(0.0, "{C22A2F123CD609FC}Prefabs/Items/Food/Meat_01_Dry.et");
+		UtilityItems.AddItem(0.0, "{128A19AA9F731095}Prefabs/Items/Food/MeatLeg_01.et");
+		UtilityItems.AddItem(0.0, "{EB21D26B8D5A3232}Prefabs/Items/Food/MRE.et");
+		UtilityItems.AddItem(0.0, "{630FB4AD4A735264}Prefabs/Items/Equipment/Canteens/Canteen_US_01.et");
+		UtilityItems.AddItem(0.0, "{3A421547BC29F679}Prefabs/Items/Equipment/Flashlights/Flashlight_MX991/Flashlight_MX991.et");
+		UtilityItems.AddItem(0.0, "{575EA58E67448C2A}Prefabs/Items/Equipment/Flashlights/Flashlight_Soviet_01/Flashlight_Soviet_01.et");
+		UtilityItems.AddItem(0.0, "{78ED4FEF62BBA728}Prefabs/Items/Equipment/Watches/Watch_SandY184A.et");
+		UtilityItems.AddItem(0.0, "{6FD6C96121905202}Prefabs/Items/Equipment/Watches/Watch_Vostok.et");
+		UtilityItems.AddItem(0.0, "{61A705D76908160C}Prefabs/Items/Equipment/Watches/Watch_Orlik38/Watch_Orlik38.et");
 
 		return UtilityItems;	
 	}
