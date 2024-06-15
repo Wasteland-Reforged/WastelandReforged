@@ -62,6 +62,16 @@ class WR_WeightedItemArray<Class T>
 		return weightedItem.m_tItem;
     }
 	
+	array<T> GetAllItems()
+	{
+		array<T> items = {};
+		
+		foreach (auto weightedItem: m_items)
+			items.Insert(weightedItem.m_tItem);
+		
+		return items;
+	}
+	
 	int Count()
 	{
 		if (!m_items) return 0;

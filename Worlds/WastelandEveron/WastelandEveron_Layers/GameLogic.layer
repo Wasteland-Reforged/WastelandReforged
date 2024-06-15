@@ -174,9 +174,9 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
  coords 4399.965 1.614 11043.354
  WeatherStateMachine "{E7BBEF5A7CB63F57}Terrains/Common/WeatherPresets/StateMachine/WR_WeatherStates.conf"
  WeatherParameters "{0ADCC05C873A9F29}Terrains/Common/WeatherPresets/WR_WeatherParameters.conf"
- "Day Duration" 1200
+ "Day Duration" 10800
  "UTC TimeZone" 6
- "Initial Day Time" 8.456
+ "Initial Day Time" 8
  "Month of the Year" 9
  "Day of the Month" 16
  "Internal variant transition" 0

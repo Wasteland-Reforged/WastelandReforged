@@ -1,6 +1,7 @@
 class WR_Utils
 {
 	private static ref map<ResourceName, ResourceName> WeaponAmmoResourceNames;
+	private static ref map<ResourceName, int> Weapons;
 	
 	//------------------------------------------------------------------------------------------------
 	static vector GetRandomPointWithinCircle(vector center, float radius)
@@ -81,5 +82,28 @@ class WR_Utils
 		WeaponAmmoResourceNames.Set(weaponResourceName, ammoResourceName);
 		
 		return ammoResourceName;
+	}
+
+	// TODO: unite the Weapons map with the WeaponAmmoResouceName map. If something is a weapon, it probably takes ammo, so just use the weapon-ammo map
+	// TODO: also maybe upgrade this to check for IsReloadableWeapon instead of just IsWeapon. Then we can exclude things like bayonets and non-reloadable weapons like the M72 launcher
+	static bool IsWeapon(ResourceName resourceName)
+	{
+		if (!Weapons)
+		{
+			Weapons = new map<ResourceName, int>(); // This map is simply for checking if a given resource name is a weapon. The int value is a throwaway.
+
+			array<ResourceName> weaponResourceNames = {};
+			
+			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetRifles().GetAllItems());
+			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetMachineGuns().GetAllItems());
+			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetSnipers().GetAllItems());
+			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetHandguns().GetAllItems());
+			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetLaunchers().GetAllItems());
+
+			foreach (ResourceName rn : weaponResourceNames)
+				Weapons.Insert(rn, 0);
+		}
+		
+		return Weapons.Contains(resourceName);
 	}
 }

@@ -36,7 +36,6 @@ class WR_ResourceNamesWeighted
 		MachineGuns.AddItem(4.0, "{D2B48DEBEF38D7D7}Prefabs/Weapons/MachineGuns/M249/MG_M249.et");
 		MachineGuns.AddItem(3.0, "{D182DCDD72BF7E34}Prefabs/Weapons/MachineGuns/M60/MG_M60.et");
 		MachineGuns.AddItem(6.0, "{A89BC9D55FFB4CD8}Prefabs/Weapons/MachineGuns/PKM/MG_PKM.et");
-		MachineGuns.AddItem(6.0, "{A7AF84C6C58BA3E8}Prefabs/Weapons/MachineGuns/RPK74/MG_RPK74.et");
 		MachineGuns.AddItem(6.0, "{5F365605E36597FB}Prefabs/Weapons/MachineGuns/RPK74/MG_RPK74N.et");
 		MachineGuns.AddItem(6.0, "{026CE108BFB3EC03}Prefabs/Weapons/MachineGuns/UK59/MG_UK59.et");
 
@@ -200,4 +199,6 @@ class WR_ResourceNamesWeighted
 
 		return Backpacks;	
 	}
+
+
 }

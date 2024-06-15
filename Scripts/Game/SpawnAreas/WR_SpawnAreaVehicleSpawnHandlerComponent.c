@@ -58,7 +58,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		// Get loot spawning context
 		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetRandomVehicleContext();
 		int minItems = 2; // TODO: add validation and make these read from a global config
-		int maxItems = 4;
+		int maxItems = 6;
 		
 		for (int i = 0; i < desiredVehCount; i++)
 		{
