@@ -1,4 +1,27 @@
 SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ components {
+  NavmeshWorldComponent "{5584F30E67F617AD}" {
+   NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{619D6D672639D722}" {
+     NavmeshFile "{AD5F99CD7C59D5E0}worlds/GameMaster/Navmeshes/GM_Eden.nmn"
+    }
+   }
+  }
+  NavmeshWorldComponent "{5584F30EEFEE1223}" {
+   NavmeshSettings ChimeraNavmeshWorld "{50FC63BEBE3973C5}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{60CA9BE5536BF701}" {
+     NavmeshFile "{AD5F99CD7C59D5E0}worlds/GameMaster/Navmeshes/GM_Eden.nmn"
+    }
+   }
+  }
+  NavmeshWorldComponent "{5C8C9B750D124A63}" {
+   NavmeshSettings NavmeshWorld "{5C8C9B750B60C6E2}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{5C90BD0EC793647D}" {
+     NavmeshFile "{5E19E60F26327356}worlds/MP/Navmeshes/LowResEden.nmn"
+    }
+   }
+  }
+ }
  coords 7114.537 75.031 6401.884
  {
   CommentEntity {
@@ -131,11 +154,18 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    }
   }
   SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
-   m_SpawnLogic SCR_MenuSpawnLogic "{618E338ADA711296}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{61A3204EF0E2117B}" {
    }
   }
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
    percentageLootBoxesToSpawn 1
+  }
+  WR_MissionManagerComponent "{61A6C3FDAD54B287}" {
+   maxActiveMissions 16
+   geocacheMissionWeight 2
+   captureBaseMissionWeight 2
+   convoyMissionWeight 0
+   regularMissionWeight 4
   }
   WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }
@@ -168,6 +198,11 @@ SCR_FactionManager FactionManager : "{A242612865F2A48E}Prefabs/MP/Managers/Facti
    m_sFactionFlag "{A37C40F3E0C2A2B9}Art/Icon/Faction/indfor.edds"
    m_sGroupFlagsImageSet "{301FC1A2A46D3E0D}UI/Textures/GroupManagement/FlagIcons/GroupFlagsIndfor.imageset"
   }
+  SCR_Faction "{61A6C3D1A9728251}" {
+   FactionKey "US"
+   m_bIsPlayable 0
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
  }
 }
 TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
@@ -176,7 +211,7 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
  WeatherParameters "{0ADCC05C873A9F29}Terrains/Common/WeatherPresets/WR_WeatherParameters.conf"
  "Day Duration" 1200
  "UTC TimeZone" 6
- "Initial Day Time" 8.456
+ "Initial Day Time" 7.848
  "Month of the Year" 9
  "Day of the Month" 16
  "Internal variant transition" 0
