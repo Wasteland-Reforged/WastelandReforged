@@ -95,6 +95,9 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
     }
    }
   }
+  SCR_GameModeHealthSettings "{5A22E11F9ACBB1DF}" {
+   m_bPermitUnconsciousness 0
+  }
   SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
    m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" : "{651583FFFB7FC765}Configs/GameOverScreen/GameOverScreensConfig.conf" {
    }
@@ -102,6 +105,9 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   SCR_GroupsManagerComponent "{5706EC99934496F5}" {
    m_sDefaultGroupPrefab "{8B4D49A9F324E7D5}Prefabs/Groups/PlayableGroup.et"
    m_iPlayableGroupFrequencyOffset 500
+  }
+  SCR_NametagConfigComponent "{571AA9E54FC9210D}" {
+   m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
   }
   SCR_NotificationSenderComponent "{56FA84B04BE7D4C0}" {
    m_aKillfeedTypeNames {
@@ -211,9 +217,9 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
  WeatherParameters "{0ADCC05C873A9F29}Terrains/Common/WeatherPresets/WR_WeatherParameters.conf"
  "Day Duration" 1200
  "UTC TimeZone" 6
- "Initial Day Time" 7.848
+ "Initial Day Time" 1.57
  "Month of the Year" 9
- "Day of the Month" 16
+ "Day of the Month" 19
  "Internal variant transition" 0
  "Internal subvariant 0" 0
  "Internal subvariant 1" 0

@@ -22,7 +22,7 @@ class WR_AIMission : WR_Mission
 				spawnRandomCaptureVehicle();
 				break;
 			case "HeavyWeapons":
-				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/Group_US_Random.et";
+				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/Group_US_Random_Large.et";
 				break;
 			case "VehicleWreck":
 				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/Group_US_Random.et";
