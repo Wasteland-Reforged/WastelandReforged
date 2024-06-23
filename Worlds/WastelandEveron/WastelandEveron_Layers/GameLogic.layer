@@ -110,6 +110,8 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
   }
   SCR_NotificationSenderComponent "{56FA84B04BE7D4C0}" {
+   m_iKillFeedType FULL
+   m_iReceiveKillFeedType ALL
    m_aKillfeedTypeNames {
     SCR_NotificationKillfeedTypeName "{5932B0310455E486}" {
      m_iKillfeedType DISABLED
