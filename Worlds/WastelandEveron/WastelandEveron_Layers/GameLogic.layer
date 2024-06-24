@@ -170,10 +170,10 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   }
   WR_MissionManagerComponent "{61A6C3FDAD54B287}" {
    maxActiveMissions 10
-   geocacheMissionWeight 0
+   geocacheMissionWeight 2
    captureBaseMissionWeight 2
    convoyMissionWeight 0
-   regularMissionWeight 0
+   regularMissionWeight 4
   }
   WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }
