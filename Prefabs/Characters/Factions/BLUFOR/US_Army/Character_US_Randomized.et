@@ -27,6 +27,18 @@ SCR_ChimeraCharacter : "{284E735C6C70DAD2}Prefabs/Characters/Factions/BLUFOR/US_
    }
    m_bPermitUnconsciousness 0
   }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_VariantData SCR_EditableEntityVariantData "{60F6DBA9E190F322}" {
+    m_aVariants {
+     SCR_EditableEntityVariant "{60F6DBA9EFB01213}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{60F6DBA90010F49E}" {
+      m_bEnabled 0
+     }
+    }
+   }
+  }
   SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
    InitialInventoryItems {
     ItemsInitConfigurationItem "{5D7CAAFB9235E902}" {

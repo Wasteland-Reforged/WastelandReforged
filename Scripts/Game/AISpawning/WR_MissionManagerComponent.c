@@ -43,7 +43,7 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 	
 	protected void checkMissions()
 	{
-		//Check if any of the missions are "Empty" (all AI are dead). If so, remove them from the list, and queue another one to spawn some time later
+		//Check if any of the missions are Completed. If so, remove them from the list, and queue another one to spawn some time later
 		foreach (WR_Mission mission : activeMissionList) {
 			if (mission.isMissionComplete()) {
 				Print("[WR_MissionManagerComponent] Cleaning up mission");
