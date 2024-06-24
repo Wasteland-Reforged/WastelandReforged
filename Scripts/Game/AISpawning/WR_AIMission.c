@@ -18,21 +18,21 @@ class WR_AIMission : WR_Mission
 		switch(missionName)
 		{
 			case "CaptureVehicle":
-				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/Group_US_Random.et";
+				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/WR_AIGroupSmall.et";
 				spawnRandomCaptureVehicle();
 				break;
 			case "HeavyWeapons":
-				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/Group_US_Random_Large.et";
+				groupPrefabName = "{6183140797E9A8EF}Prefabs/Groups/US/WR_AIGroupLarge.et";
 				break;
 			case "VehicleWreck":
-				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/Group_US_Random.et";
+				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/WR_AIGroupSmall.et";
 				spawnWreckedVehicle();
 				break;
 			case "MedicalSupplies":
-				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/Group_US_Random.et";
+				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/WR_AIGroupSmall.et";
 				break;
 			case "CaptureBase":
-				groupPrefabName = "{D4A1576757665D02}Prefabs/Groups/US/Group_US_Random.et";
+				groupPrefabName = "{6183140797E9A8EF}Prefabs/Groups/US/WR_AIGroupLarge.et";
 				spawnCaptureBase();
 				break;
 			case "SniperSquad":
@@ -171,6 +171,11 @@ class WR_AIMission : WR_Mission
 				break;
 			case "MedicalSupplies":
 				spawnEquipmentCrates("Medical", 2, 10, 15);
+				break;
+			case "CaptureBase":
+				Print("On Empty Capture Base");
+				spawnEquipmentCrates("Regular", 1, 10, 15);
+				break;
 			default:
 		}
 		marker.SetColorEntry(5);

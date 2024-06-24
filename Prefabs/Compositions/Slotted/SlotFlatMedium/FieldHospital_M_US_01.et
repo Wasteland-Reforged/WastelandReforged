@@ -1,0 +1,31 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ {
+  GenericEntity {
+   ID "5E58A7FA2A6DFDA3"
+   {
+    GenericEntity {
+     ID "5E58A7FAF67EAED6"
+     components {
+      SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+       m_aContainers {
+        SCR_ResourceContainerVirtual "{5D8AA552C6324D54}" {
+         m_fResourceValueMax 2000
+        }
+       }
+       m_aEncapsulators {
+        SCR_ResourceEncapsulator "{5DAD1D48DACE9DE8}" {
+         m_aActions {
+          SCR_ResourceEncapsulatorActionChangeResourceValue "{5DE296D4C353664B}" {
+           m_fResourceValueCurrent 2000
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

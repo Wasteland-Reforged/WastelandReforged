@@ -169,11 +169,11 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    percentageLootBoxesToSpawn 1
   }
   WR_MissionManagerComponent "{61A6C3FDAD54B287}" {
-   maxActiveMissions 16
-   geocacheMissionWeight 2
+   maxActiveMissions 10
+   geocacheMissionWeight 0
    captureBaseMissionWeight 2
    convoyMissionWeight 0
-   regularMissionWeight 4
+   regularMissionWeight 0
   }
   WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }

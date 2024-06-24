@@ -41,7 +41,7 @@ class WR_Mission
 	}
 	
 	void spawnEquipmentCrates(string lootType, int numBoxes, int minLootBoxItems, int maxLootBoxItems)
-	{
+	{		
 		//Setup loot contexts depending on which box needs to be spawned
 		WR_LootSpawnContext lootContext;
 		switch (lootType) {
@@ -59,11 +59,10 @@ class WR_Mission
 		}
 		
 		//Loop through each box that is being spawned
-		for (int i = 0; i < numBoxes; i++) {
-			
+		for (int i = 0; i < numBoxes; i++) {		
 			//Find a safe place to spawn them
 			vector spawnPos;
-			bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(spawnPos, missionLocation, 25, 2, 2);
+			bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(spawnPos, missionLocation, 35, 4, 4);
 			if (!foundSafePos) {
 				Print("[WR_AIMission]: Could not find safe place to spawn item");
 				return;
@@ -75,7 +74,9 @@ class WR_Mission
 			
 			//Create box
 			IEntity box = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld(), params);
-			missionEntityList.Insert(box);
+			if (!box) {
+				Print("Box was not spawned!");
+			}
 			
 			//Setup inventory and fill it with random items taken from the loot context we selected earlier
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(box.FindComponent(SCR_UniversalInventoryStorageComponent));
@@ -84,6 +85,8 @@ class WR_Mission
 			foreach (ResourceName item : items) {
 				inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
 			}
+			
+			missionEntityList.Insert(box);
 		}
 	}
 	
@@ -118,6 +121,7 @@ class WR_Mission
 	
 	void clearMissionEntities()
 	{
+		Print("Clearing mission entities..");
 		foreach (IEntity itemToClear : missionEntityList) {
 			SCR_EntityHelper.DeleteEntityAndChildren(itemToClear);
 		}
