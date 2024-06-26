@@ -41,7 +41,7 @@ class WR_ResourceNamesWeightedOld
 			"{27E2E58E734A80EC}Prefabs/Vehicles/Wheeled/M998/M1025_MERDC.et",
 			"{00C9BBE426F7D459}Prefabs/Vehicles/Wheeled/M998/M997_maxi_ambulance.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, humvee);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(12.0, humvee);
 		
 		// M151A2 (American jeep)
 		array<ResourceName> m151a2 = {
@@ -50,7 +50,7 @@ class WR_ResourceNamesWeightedOld
 			"{47D94E1193A88497}Prefabs/Vehicles/Wheeled/M151A2/M151A2_transport.et",
 			"{94DE32169691AC34}Prefabs/Vehicles/Wheeled/M151A2/M151A2_transport_MERDC.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, m151a2);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(12.0, m151a2);
 
 		
 		// UAZ 469 (russian jeep)
@@ -61,7 +61,7 @@ class WR_ResourceNamesWeightedOld
 			"{F7E9AA0C813EABDA}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_FIA.et",
 			"{E28501E93F8EFDC0}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_FIA_uncovered.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, uazMilitary);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(20.0, uazMilitary);
 
 		array<ResourceName> uazCiv = {
 			"{C8B16ABCA57679A2}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_covered_CIV_blue.et",
@@ -73,7 +73,7 @@ class WR_ResourceNamesWeightedOld
 			"{870EB660433857D3}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_covered_CIV_teal.et",
 			"{B2CC137FE424B129}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_covered_CIV_VAK.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, uazCiv);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(30.0, uazCiv);
 		
 		// S105 sedan
 		array<ResourceName> s105 = {
@@ -88,7 +88,7 @@ class WR_ResourceNamesWeightedOld
 			"{85F0BD6AF0F42D6D}Prefabs/Vehicles/Wheeled/S105/S105_red.et",
 			"{63880E311299A016}Prefabs/Vehicles/Wheeled/S105/S105_white.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, s105);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(30.0, s105);
 		SpawnAreaVehiclesWeighted.AddItem(1.0, "{5555DCAFADB8CE2A}Prefabs/Vehicles/Wheeled/S105/S105_yellow.et");
 		
 		// S1203 van
@@ -98,7 +98,7 @@ class WR_ResourceNamesWeightedOld
 			"{ACED839A6C5BE657}Prefabs/Vehicles/Wheeled/S1203/S1203_transport_brown.et",
 			"{11A28C90DB40318D}Prefabs/Vehicles/Wheeled/S1203/S1203_transport_red.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, s1203);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(30.0, s1203);
 		SpawnAreaVehiclesWeighted.AddItem(1.0, "{4C79EB5FADB89B7A}Prefabs/Vehicles/Wheeled/S1203/S1203_transport_yellow.et");
 		
 		// UAZ 452 (Russian van)
@@ -122,7 +122,7 @@ class WR_ResourceNamesWeightedOld
 			"{34178E3A92776DA6}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_repair_FIA.et",
 			"{DC1C2350CF665F9E}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_tanker.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, uralUtilityMilitary);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, uralUtilityMilitary);
 
 		array<ResourceName> uralTransportCiv = {
 			"{F66EAD0D2016B6BA}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport_covered_CIV_blue.et",
@@ -134,7 +134,7 @@ class WR_ResourceNamesWeightedOld
 			"{4A59DAEFE645E8A0}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_tanker_CIV_orange.et",
 			"{B3C8EC88E7782C78}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_tanker_CIV_pohona.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, uralUtilityCiv);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, uralUtilityCiv);
 
 		// M923A1 (American transport truck)
 		array<ResourceName> m923a1Transport = {
@@ -153,7 +153,7 @@ class WR_ResourceNamesWeightedOld
 			"{C8656AECF5DF41D9}Prefabs/Vehicles/Wheeled/M923A1/M923A1_repair_MERDC.et",
 			"{26013123314183EA}Prefabs/Vehicles/Wheeled/M923A1/M923A1_tanker_MERDC.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, m923a1Utility);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, m923a1Utility);
 
 
 		//// Armed vehicles ////

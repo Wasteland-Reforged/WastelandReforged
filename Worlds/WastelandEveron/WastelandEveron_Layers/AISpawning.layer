@@ -314,4 +314,49 @@ $grp GenericEntity : "{934A3C3A870634DC}PrefabsEditable/System/E_Comment.et" {
  AIWaypointBase40 {
   coords 11900.209 20.57 1908.348
  }
+ AIWaypointConvoy1 {
+  coords 7480.276 138.605 4715.915
+ }
+ AIWaypointConvoy2 {
+  coords 7569.337 82.729 5503.756
+ }
+ AIWaypointConvoy3 {
+  coords 6878.616 102.321 5579.424
+ }
+ AIWaypointConvoy4 {
+  coords 7068.29 119.017 6033.526
+ }
+ AIWaypointConvoy5 {
+  coords 6461.757 162.215 6444.776
+ }
+ AIWaypointConvoy6 {
+  coords 5747.887 218.252 7069.305
+ }
+ AIWaypointConvoy7 {
+  coords 4809.144 169.652 6980.265
+ }
+ AIWaypointConvoy8 {
+  coords 3970.969 102.152 6706.297
+ }
+ AIWaypointConvoy9 {
+  coords 2844.417 86.482 6339.581
+ }
+ AIWaypointConvoy10 {
+  coords 2272.213 19.492 7484.283
+ }
+ AIWaypointConvoy11 {
+  coords 1302.169 38.186 5953.64
+ }
+ AIWaypointConvoy12 {
+  coords 2601.982 91.217 5375.005
+ }
+ AIWaypointConvoy13 {
+  coords 3471.397 117.233 5060.245
+ }
+ AIWaypointConvoy14 {
+  coords 5148.933 14.344 3980.33
+ }
+ AIWaypointConvoy15 {
+  coords 5908.832 12.023 4364.749
+ }
 }

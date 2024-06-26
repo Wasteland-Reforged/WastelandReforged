@@ -9,7 +9,7 @@ class WR_AIMission : WR_Mission
 		group = spawnAIGroup();
 		group.GetOnEmpty().Insert(OnEmpty);
 		
-		createMissionMarker(4, 11);
+		createMissionMarker(4, 15);
 	}
 	
 	protected void parseMissionType()

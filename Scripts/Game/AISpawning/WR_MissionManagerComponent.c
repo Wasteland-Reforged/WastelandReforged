@@ -65,7 +65,8 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 				activeMissionList.Insert(new WR_AIMission("CaptureBase", getRandomMissionLocation("AIWaypointBase")));
 				break;
 			case "convoy":
-				//TODO; Intentional fall-through
+				activeMissionList.Insert(new WR_ConvoyMission("Convoy", getRandomMissionLocation("AIWaypoint")));	//Mission location get overriden immediately anyways
+				break;
 			default:
 				activeMissionList.Insert(new WR_AIMission(getRandomRegularMission(), getRandomMissionLocation("AIWaypoint")));
 		}

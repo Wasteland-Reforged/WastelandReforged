@@ -4,7 +4,7 @@ class WR_GeocacheMission : WR_Mission
 	{
 		createGeocache();
 		createCompletionTrigger();
-		createMissionMarker(1, 11);
+		createMissionMarker(4, 18);
 	}
 	
 	protected void createGeocache()
