@@ -17,40 +17,30 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 			return;
 		}
 
-		/*
-			Close button
-		*/
-
+		//Close Menu
 		SCR_ButtonTextComponent buttonClose = SCR_ButtonTextComponent.GetButtonText(BUTTON_CLOSE, rootWidget);
 		if (buttonClose)
 			buttonClose.m_OnClicked.Insert(Close);
 		else
 			Print("Button Close not found - won't be able to exit by button", LogLevel.WARNING);
 
-		/*
-			Change button
-		*/
-
+		/* Change button
 		SCR_ButtonTextComponent buttonChange = SCR_ButtonTextComponent.GetButtonText(BUTTON_CHANGE, rootWidget);
 		if (buttonChange)
 			buttonChange.m_OnClicked.Insert(AddItemToVehicle);
 		else
 			Print("Button Change not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
-		
-		/*
-			Respawn button
 		*/
-
+		
+		//Respawn button
 		SCR_ButtonTextComponent buttonRespawn = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN, rootWidget);
 		if (buttonRespawn)
 			buttonRespawn.m_OnClicked.Insert(RespawnPlayer);
 		else
 			Print("Button Respawn not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
 
-		/*
-			ESC/Start listener
-		*/
 
+		//ESC/Start listener
 		InputManager inputManager = GetGame().GetInputManager();
 		if (inputManager)
 		{
@@ -120,8 +110,6 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 	{
 		vector respawnPos;
 		bool respawnSuccessful = WR_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
-		
-		if (respawnSuccessful) Close();
 	}
 	
 	//------------------------------------------------------------------------------------------------

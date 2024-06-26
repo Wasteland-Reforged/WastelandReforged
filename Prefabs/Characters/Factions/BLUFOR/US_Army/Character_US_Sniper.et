@@ -1,0 +1,23 @@
+SCR_ChimeraCharacter : "{284E735C6C70DAD2}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_BaseLoadout.et" {
+ ID "520EC961A090BBD5"
+ components {
+  ChimeraAIControlComponent "{520EA1D2DB109F34}" {
+   components {
+    PerceptionComponent "{54A2CBC75F06064B}" {
+     ForgetEnemyTime 25
+     SensorsList {
+      EyesSensor "{520EA1D2DB109AAD}" {
+       MaxRange 700
+      }
+      EarsSensor "{520EA1D2DB109AA9}" {
+       MaxRange 60
+      }
+     }
+    }
+    SCR_AICombatComponent "{55A2C9BE343B2EA1}" {
+     m_eAISkillDefault ROOKIE
+    }
+   }
+  }
+ }
+}

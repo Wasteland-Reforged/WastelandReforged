@@ -20,10 +20,8 @@ class WR_ResourceNamesWeighted
 
 		Rifles.AddItem(8.0, "{3E413771E1834D2F}Prefabs/Weapons/Rifles/M16/Rifle_M16A2.et");
 		Rifles.AddItem(6.0, "{F97A4AC994231900}Prefabs/Weapons/Rifles/M16/Rifle_M16A2_carbine.et");
-		Rifles.AddItem(4.0, "{FA5C25BF66A53DCF}Prefabs/Weapons/Rifles/AK74/Rifle_AK74.et");
-		Rifles.AddItem(3.0, "{96DFD2E7E63B3386}Prefabs/Weapons/Rifles/AK74/Rifle_AK74N.et");
-		Rifles.AddItem(5.0, "{BFEA719491610A45}Prefabs/Weapons/Rifles/AKS74U/Rifle_AKS74U.et");
-		Rifles.AddItem(4.0, "{FA0E25CE35EE945F}Prefabs/Weapons/Rifles/AKS74U/Rifle_AKS74UN.et");
+		Rifles.AddItem(8.0, "{96DFD2E7E63B3386}Prefabs/Weapons/Rifles/AK74/Rifle_AK74N.et");
+		Rifles.AddItem(8.0, "{FA0E25CE35EE945F}Prefabs/Weapons/Rifles/AKS74U/Rifle_AKS74UN.et");
 		Rifles.AddItem(6.0, "{9C948630078D154D}Prefabs/Weapons/Rifles/VZ58/Rifle_VZ58P.et");
 		Rifles.AddItem(6.0, "{443CEFF17E040B11}Prefabs/Weapons/Rifles/VZ58/Rifle_VZ58V.et");
 
@@ -94,12 +92,17 @@ class WR_ResourceNamesWeighted
 		if (Attachments) return Attachments;
 		Attachments = new WR_WeightedItemArray<ResourceName>();
 
-		Attachments.AddItem(10.0, "{08286DDBB1F33FF1}Prefabs/Weapons/Attachments/Optics/Optic_AP2k/Collim_AP2k.et");
-		Attachments.AddItem(6.0, "{BD496EE1B40DC510}Prefabs/Weapons/Attachments/Optics/Optic_4x20/Optic_4x20.et");
-		Attachments.AddItem(3.0, "{D2018EDB1BBF4C88}Prefabs/Weapons/Attachments/Optics/Optic_ARTII/Optic_ARTII.et");
-		Attachments.AddItem(9.0, "{ACDF49FACD0701A8}Prefabs/Weapons/Attachments/Optics/Optic_1P29/Optic_1P29.et");
+		Attachments.AddItem(4.0, "{08286DDBB1F33FF1}Prefabs/Weapons/Attachments/Optics/Optic_AP2k/Collim_AP2k.et");
+		Attachments.AddItem(4.0, "{BD496EE1B40DC510}Prefabs/Weapons/Attachments/Optics/Optic_4x20/Optic_4x20.et");
+		Attachments.AddItem(4.0, "{D2018EDB1BBF4C88}Prefabs/Weapons/Attachments/Optics/Optic_ARTII/Optic_ARTII.et");
+		Attachments.AddItem(4.0, "{ACDF49FACD0701A8}Prefabs/Weapons/Attachments/Optics/Optic_1P29/Optic_1P29.et");
 		Attachments.AddItem(4.0, "{E5E9DBBF3BFB88C6}Prefabs/Weapons/Attachments/Optics/Optic_PGO7/Optic_PGO7V3.et");
-		Attachments.AddItem(6.0, "{C850A33226B8F9C1}Prefabs/Weapons/Attachments/Optics/Optic_PSO1/Optic_PSO1.et");
+		Attachments.AddItem(4.0, "{C850A33226B8F9C1}Prefabs/Weapons/Attachments/Optics/Optic_PSO1/Optic_PSO1.et");
+		Attachments.AddItem(6.0, "{4A815EB8B824974A}Prefabs/Weapons/Attachments/Muzzle/FlashHider_AK74/FlashHider_AK74.et");
+		Attachments.AddItem(6.0, "{06D4C36A6D585275}Prefabs/Weapons/Attachments/Muzzle/FlashHider_AKS74u/FlashHider_AKS74u.et");
+		Attachments.AddItem(6.0, "{6288A1F1A5E3AC37}Prefabs/Weapons/Attachments/Muzzle/FlashHider_M16A2/FlashHider_M16.et");
+		Attachments.AddItem(3.0, "{1ABABE3551512B0A}Prefabs/Weapons/Attachments/Underbarrel/UGL_GP25.et");
+		Attachments.AddItem(3.0, "{AB268D088F2D6291}Prefabs/Weapons/Attachments/Underbarrel/UGL_M203_short.et");
 		// TODO: add bayonets and suppressors when they release
 
 		return Attachments;	
@@ -110,14 +113,24 @@ class WR_ResourceNamesWeighted
 		if (UtilityItems) return UtilityItems;
 		UtilityItems = new WR_WeightedItemArray<ResourceName>();
 
-		UtilityItems.AddItem(1.0, "{0CF54B9A85D8E0D4}Prefabs/Items/Equipment/Binoculars/Binoculars_M22/Binoculars_M22.et");
-		UtilityItems.AddItem(1.0, "{243948B23D90BECB}Prefabs/Items/Equipment/Binoculars/Binoculars_B8/Binoculars_B8.et");
-		UtilityItems.AddItem(1.0, "{F2539FA5706E51E4}Prefabs/Items/Equipment/Binoculars/Binoculars_B12/Binoculars_B12.et");
-		UtilityItems.AddItem(2.0, "{12D5AD21E383B768}Prefabs/Items/Fuel/Jerrycan_01/Jerrycan_01_item.et");
-		UtilityItems.AddItem(2.0, "{AE578EEA4244D41F}Prefabs/Items/Equipment/Kits/MedicalKit_01/MedicalKit_01_US.et");
-		UtilityItems.AddItem(2.0, "{5028D9E699AE3A73}Prefabs/Items/Equipment/Kits/RearmingKit_01/RearmingKit_01_US.et");
-		UtilityItems.AddItem(2.0, "{33B2DFDCD0EBA3DB}Prefabs/Items/Equipment/Kits/RepairKit_01/RepairKit_01_wrench.et");
-		// TODO: fill the rest of these out
+		UtilityItems.AddItem(2.0, "{0CF54B9A85D8E0D4}Prefabs/Items/Equipment/Binoculars/Binoculars_M22/Binoculars_M22.et");
+		UtilityItems.AddItem(2.0, "{243948B23D90BECB}Prefabs/Items/Equipment/Binoculars/Binoculars_B8/Binoculars_B8.et");
+		UtilityItems.AddItem(2.0, "{F2539FA5706E51E4}Prefabs/Items/Equipment/Binoculars/Binoculars_B12/Binoculars_B12.et");
+		UtilityItems.AddItem(4.0, "{12D5AD21E383B768}Prefabs/Items/Fuel/Jerrycan_01/Jerrycan_01_item.et");
+		UtilityItems.AddItem(1.0, "{AE578EEA4244D41F}Prefabs/Items/Equipment/Kits/MedicalKit_01/MedicalKit_01_US.et");
+		UtilityItems.AddItem(1.0, "{5028D9E699AE3A73}Prefabs/Items/Equipment/Kits/RearmingKit_01/RearmingKit_01_US.et");
+		UtilityItems.AddItem(1.0, "{33B2DFDCD0EBA3DB}Prefabs/Items/Equipment/Kits/RepairKit_01/RepairKit_01_wrench.et");
+		UtilityItems.AddItem(0.0, "{6D56FED1E55A8F84}Prefabs/Items/Misc/IntelligenceFolder_E_01/IntelligenceFolder_E_01.et");
+		UtilityItems.AddItem(0.0, "{50A68300B537EDFA}Prefabs/Items/Food/ArmyCrackers_Soviet_01.et");
+		UtilityItems.AddItem(0.0, "{C22A2F123CD609FC}Prefabs/Items/Food/Meat_01_Dry.et");
+		UtilityItems.AddItem(0.0, "{128A19AA9F731095}Prefabs/Items/Food/MeatLeg_01.et");
+		UtilityItems.AddItem(0.0, "{EB21D26B8D5A3232}Prefabs/Items/Food/MRE.et");
+		UtilityItems.AddItem(0.0, "{630FB4AD4A735264}Prefabs/Items/Equipment/Canteens/Canteen_US_01.et");
+		UtilityItems.AddItem(0.0, "{3A421547BC29F679}Prefabs/Items/Equipment/Flashlights/Flashlight_MX991/Flashlight_MX991.et");
+		UtilityItems.AddItem(0.0, "{575EA58E67448C2A}Prefabs/Items/Equipment/Flashlights/Flashlight_Soviet_01/Flashlight_Soviet_01.et");
+		UtilityItems.AddItem(0.0, "{78ED4FEF62BBA728}Prefabs/Items/Equipment/Watches/Watch_SandY184A.et");
+		UtilityItems.AddItem(0.0, "{6FD6C96121905202}Prefabs/Items/Equipment/Watches/Watch_Vostok.et");
+		UtilityItems.AddItem(0.0, "{61A705D76908160C}Prefabs/Items/Equipment/Watches/Watch_Orlik38/Watch_Orlik38.et");
 
 		return UtilityItems;	
 	}
@@ -127,8 +140,12 @@ class WR_ResourceNamesWeighted
 		if (MedicalItems) return MedicalItems;
 		MedicalItems = new WR_WeightedItemArray<ResourceName>();
 
-		MedicalItems.AddItem(4.0, "");
-		// TODO: fill the rest of these out
+		MedicalItems.AddItem(4.0, "{A81F501D3EF6F38E}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_US_01.et");
+		MedicalItems.AddItem(3.0, "{AF3411AAF94D18C2}Prefabs/Items/Medicine/Gauze_02/Gauze_02.et");
+		MedicalItems.AddItem(4.0, "{0D9A5DCF89AE7AA9}Prefabs/Items/Medicine/MorphineInjection_01/MorphineInjection_01.et");
+		MedicalItems.AddItem(3.0, "{66C501240A143DBF}Prefabs/Items/Medicine/PressureBandage_01/PressureBandage_01.et");
+		MedicalItems.AddItem(2.0, "{00E36F41CA310E2A}Prefabs/Items/Medicine/SalineBag_01/SalineBag_US_01.et");
+		MedicalItems.AddItem(4.0, "{FEF9FA4072013B5B}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et");
 
 		return MedicalItems;	
 	}

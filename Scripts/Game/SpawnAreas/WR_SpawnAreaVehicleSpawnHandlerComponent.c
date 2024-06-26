@@ -13,7 +13,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	[Attribute(defvalue: "50", desc: "Number of vehicles to spawn per square kilometer of surface area inside this spawn area.")]
 	protected int vehiclesPerSqKm;
 	
-	[Attribute(defvalue: "4", desc: "Number of vehicles guaranteed to spawn inside this spawn area. Overrides vehiclesPerSqKm if it is less than this value.")]
+	[Attribute(defvalue: "7", desc: "Number of vehicles guaranteed to spawn inside this spawn area. Overrides vehiclesPerSqKm if it is less than this value.")]
 	protected int vehiclesFlatRate;
 	
 	override void OnPostInit(IEntity owner)
@@ -71,8 +71,8 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 												, areaToCheck
 												, xzPaddingRadius
 												, yPaddingDistance);
-			if (!foundSafePos) return;
-			
+			if (!foundSafePos) continue;
+
 			// Spawn the vehicle
 			Resource resource = Resource.Load(vehicleResourceNames.GetRandomItem());
 			

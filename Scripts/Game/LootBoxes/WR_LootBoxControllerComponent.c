@@ -47,9 +47,8 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 			
 			IEntity boxOwner = boxComponent.GetOwner();
 			
-			// Delete inverse of percentageLootBoxesToSpawn
-			// TODO: potentially refactor this
-			if (Math.RandomFloat(0, 1) < 1 - percentageLootBoxesToSpawn)
+			//Refactor at some point
+			if (Math.RandomFloat(0, 1) > percentageLootBoxesToSpawn)
 			{
 				delete boxOwner;
 				continue;

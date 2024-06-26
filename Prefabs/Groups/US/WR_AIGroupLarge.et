@@ -1,0 +1,8 @@
+SCR_AIGroup : "{D4A1576757665D02}Prefabs/Groups/US/Group_US_Random.et" {
+ ID "13BAA835F61E3602"
+ DangerEventRange 100
+ m_aUnitPrefabSlots + {
+  "{5EFC243926EE6808}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Randomized.et" "{5EFC243926EE6808}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Randomized.et" "{5EFC243926EE6808}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Randomized.et"
+ }
+ m_bSpawnImmediately 1
+}

@@ -1,0 +1,18 @@
+SCR_AIGroup : "{D4A1576757665D02}Prefabs/Groups/US/WR_AIGroupSmall.et" {
+ ID "13BAA835F61E3602"
+ components {
+  AIPathfindingComponent "{518A98842FFC190E}" {
+   "Use Road Network" 1
+  }
+  SCR_AIGroupMovementComponent "{6126A0E02097C7FF}" {
+   "Min Speed" 20
+  }
+ }
+ DangerEventRange 100
+ m_aUnitPrefabSlots {
+  "{5EFC243926EE6808}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Randomized.et" "{5EFC243926EE6808}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Randomized.et" "{5EFC243926EE6808}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Randomized.et" "{5EFC243926EE6808}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Randomized.et" "{DE15FB5FAFC3E63F}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Officer.et" "{16E32C3ABEAFC2C6}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_transport.et"
+ }
+ m_bSpawnImmediately 1
+ m_iMaxMembers 6
+ m_bDeleteIfNoPlayer 0
+}

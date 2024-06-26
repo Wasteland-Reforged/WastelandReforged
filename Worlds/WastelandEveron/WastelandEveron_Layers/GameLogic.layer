@@ -1,4 +1,27 @@
 SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ components {
+  NavmeshWorldComponent "{5584F30E67F617AD}" {
+   NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{619D6D672639D722}" {
+     NavmeshFile "{AD5F99CD7C59D5E0}worlds/GameMaster/Navmeshes/GM_Eden.nmn"
+    }
+   }
+  }
+  NavmeshWorldComponent "{5584F30EEFEE1223}" {
+   NavmeshSettings ChimeraNavmeshWorld "{50FC63BEBE3973C5}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{60CA9BE5536BF701}" {
+     NavmeshFile "{AD5F99CD7C59D5E0}worlds/GameMaster/Navmeshes/GM_Eden.nmn"
+    }
+   }
+  }
+  NavmeshWorldComponent "{5C8C9B750D124A63}" {
+   NavmeshSettings NavmeshWorld "{5C8C9B750B60C6E2}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{5C90BD0EC793647D}" {
+     NavmeshFile "{5E19E60F26327356}worlds/MP/Navmeshes/LowResEden.nmn"
+    }
+   }
+  }
+ }
  coords 7114.537 75.031 6401.884
  {
   CommentEntity {
@@ -62,15 +85,18 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   }
   SCR_EntityCatalogManagerComponent "{5C9AD18D91F9E87E}" {
    m_aEntityCatalogs {
-    SCR_EntityCatalogMultiList "{5C9AD18D9D38E99E}" : "{EAD206A79A774696}Configs/EntityCatalog/FactionLess/EntityCatalog_Characters.conf" {
+    SCR_EntityCatalogMultiList "{5C9AD18D9D38E99E}" : "{EAD206A79A774696}Configs/EntityCatalog/FactionLess/Characters_EntityCatalog_Factionless.conf" {
     }
-    SCR_EntityCatalogMultiList "{5C9AD18D9B68853E}" : "{77243A71AF0E5A75}Configs/EntityCatalog/FactionLess/EntityCatalog_Vehicles.conf" {
+    SCR_EntityCatalogMultiList "{5C9AD18D9B68853E}" : "{77243A71AF0E5A75}Configs/EntityCatalog/FactionLess/Vehicles_EntityCatalog_Factionless.conf" {
     }
-    SCR_EntityCatalogMultiList "{5C9AD18D98F9181C}" : "{BB12292052E2F5B8}Configs/EntityCatalog/FactionLess/EntityCatalog_InventoryItems.conf" {
+    SCR_EntityCatalogMultiList "{5C9AD18D98F9181C}" : "{BB12292052E2F5B8}Configs/EntityCatalog/FactionLess/InventoryItems_EntityCatalog_Factionless.conf" {
     }
-    SCR_EntityCatalog "{5C9EDDD29E61EF44}" : "{B80293331FB7BFCF}Configs/EntityCatalog/FactionLess/EntityCatalog_SupplyContainerItems.conf" {
+    SCR_EntityCatalog "{5C9EDDD29E61EF44}" : "{B80293331FB7BFCF}Configs/EntityCatalog/FactionLess/SupplyContainerItems_EntityCatalog_Factionless.conf" {
     }
    }
+  }
+  SCR_GameModeHealthSettings "{5A22E11F9ACBB1DF}" {
+   m_bPermitUnconsciousness 0
   }
   SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
    m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" : "{651583FFFB7FC765}Configs/GameOverScreen/GameOverScreensConfig.conf" {
@@ -80,7 +106,12 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    m_sDefaultGroupPrefab "{8B4D49A9F324E7D5}Prefabs/Groups/PlayableGroup.et"
    m_iPlayableGroupFrequencyOffset 500
   }
+  SCR_NametagConfigComponent "{571AA9E54FC9210D}" {
+   m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
+  }
   SCR_NotificationSenderComponent "{56FA84B04BE7D4C0}" {
+   m_iKillFeedType FULL
+   m_iReceiveKillFeedType ALL
    m_aKillfeedTypeNames {
     SCR_NotificationKillfeedTypeName "{5932B0310455E486}" {
      m_iKillfeedType DISABLED
@@ -131,12 +162,20 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    }
   }
   SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
-   m_SpawnLogic SCR_MenuSpawnLogic "{618E338ADA711296}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{61A3204EF0E2117B}" {
    }
   }
-  WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
-  }
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
+   percentageLootBoxesToSpawn 1
+  }
+  WR_MissionManagerComponent "{61A6C3FDAD54B287}" {
+   missionRespawnTimer 1
+   geocacheMissionWeight 0
+   captureBaseMissionWeight 0
+   convoyMissionWeight 2
+   regularMissionWeight 0
+  }
+  WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }
   RplComponent "{56B2B4793BF2E1B4}" {
    "Rpl State Override" None
@@ -167,6 +206,11 @@ SCR_FactionManager FactionManager : "{A242612865F2A48E}Prefabs/MP/Managers/Facti
    m_sFactionFlag "{A37C40F3E0C2A2B9}Art/Icon/Faction/indfor.edds"
    m_sGroupFlagsImageSet "{301FC1A2A46D3E0D}UI/Textures/GroupManagement/FlagIcons/GroupFlagsIndfor.imageset"
   }
+  SCR_Faction "{61A6C3D1A9728251}" {
+   FactionKey "US"
+   m_bIsPlayable 0
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
  }
 }
 TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
@@ -175,9 +219,9 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
  WeatherParameters "{0ADCC05C873A9F29}Terrains/Common/WeatherPresets/WR_WeatherParameters.conf"
  "Day Duration" 1200
  "UTC TimeZone" 6
- "Initial Day Time" 7
+ "Initial Day Time" 9.266
  "Month of the Year" 9
- "Day of the Month" 16
+ "Day of the Month" 19
  "Internal variant transition" 0
  "Internal subvariant 0" 0
  "Internal subvariant 1" 0
@@ -187,9 +231,6 @@ RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.
 }
 ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
  coords 7114.537 73.625 6407.884
-}
-HitRegistrationManager HitRegManager : "{0EDA3D48791120DD}Prefabs/MP/HitRegManager.et" {
- coords 7114.537 73.39 6408.884
 }
 SCR_LoadoutManager LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
  coords 4407.758 1.67 11045.12
