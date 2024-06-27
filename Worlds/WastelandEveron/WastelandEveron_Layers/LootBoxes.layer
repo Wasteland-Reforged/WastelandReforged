@@ -48,10 +48,8 @@ $grp GenericEntity : "{2E6EB383EEFDDC4F}Prefabs/Props/Military/Arsenal/ArsenalBo
   coords 4919.545 44.022 11789.359
  }
  {
-  coords 4967.916 28.313 11890.444
- }
- {
-  coords 4931.562 28.65 11963.989
+  coords 4969.011 28.313 11897.338
+  angleY 15.126
  }
  {
   coords 7110.602 119.285 6045.315
@@ -319,7 +317,8 @@ $grp GenericEntity : "{2E6EB383EEFDDC4F}Prefabs/Props/Military/Arsenal/ArsenalBo
   coords 2819.754 87.313 6301.573
  }
  {
-  coords 7532.14 166.993 4285.478
+  coords 7601.095 167.285 4277.087
+  angleY 17.322
  }
  {
   coords 7547.514 166.501 4217.488
@@ -410,5 +409,28 @@ $grp GenericEntity : "{2E6EB383EEFDDC4F}Prefabs/Props/Military/Arsenal/ArsenalBo
  {
   coords 8833.964 208.892 3963.209
   angleY -54.786
+ }
+ {
+  coords 5429.906 43.15 10584.904
+  angleY -15.432
+ }
+ {
+  coords 5410.67 45.235 10481.194
+  angleY 32.383
+ }
+ {
+  coords 4976.343 25.954 9891.178
+ }
+ {
+  coords 5007.786 25.935 10005.918
+ }
+ {
+  coords 3873.846 15.3 8445.842
+ }
+ {
+  coords 3836.454 12.278 8442.723
+ }
+ {
+  coords 3843.075 162.993 4310.751
  }
 }

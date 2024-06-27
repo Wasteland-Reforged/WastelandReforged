@@ -37,8 +37,23 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		SCR_RespawnComponent respawnComponent = SCR_RespawnComponent.Cast(playerController.GetRespawnComponent());
 		if (!respawnComponent) return false;
 		
-		// TODO: Make character prefab selection dynamic
-		ResourceName characterPrefab = "{84B40583F4D1B7A3}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Rifleman.et";
+		//Dynamic Character Prefab Selection
+		ResourceName characterPrefab;
+		SCR_ChimeraCharacter playerChar = SCR_ChimeraCharacter.Cast(originalPlayerEntity);
+		switch (playerChar.GetFactionKey()) {
+			case "BLUFOR":
+				characterPrefab = "{B39F86B378284BFC}Prefabs/Characters/Factions/BLUFOR/US_Army/WR_Character_US_Base.et";
+				break;
+			case "OPFOR":
+				characterPrefab = "{8449DECFA1B5831F}Prefabs/Characters/Factions/OPFOR/USSR_Army/WR_Character_USSR_Base.et";
+				break;
+			case "INDFOR":
+				characterPrefab = "{111788B8922611CC}Prefabs/Characters/Factions/INDFOR/FIA/WR_Character_FIA_Base.et";
+				break;
+			default:
+				Print("[WR_SpawnAreaPlayerSpawnHandlerComponent] Unknown Faction Key!", LogLevel.ERROR);
+				return false;
+		}
 
 		// Choose a spawn area and find a safe spawn position inside it
 		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = GetRandomSpawnArea();

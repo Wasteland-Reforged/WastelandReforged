@@ -12,9 +12,6 @@ $grp GenericEntity : "{01BC0CB6BA84B87D}PrefabsEditable/Auto/Rocks/Granite/E_Gra
 }
 $grp Tree : "{03B4D5AAD4B9D8AA}Prefabs/Vegetation/Tree/t_pinus_sylvestris_3s.et" {
  {
-  coords 8813.209 0 3918.11
- }
- {
   coords 8863.524 0.012 3882.794
  }
  {
@@ -58,6 +55,9 @@ SCR_DestructibleBuildingEntity : "{1321E90FE0CF8C3C}Prefabs/Structures/Cultural/
  coords 8838.135 6.329 3931.169
  angleY -52.641
  scale 0.5
+}
+SCR_DestructibleTreeV2 : "{16E924600D9B024D}Prefabs/Vegetation/Tree/Dst/t_tilia_cordata_3s_dst.et" {
+ coords 8801.875 0.741 3922.01
 }
 GenericEntity : "{2B24356C351A2538}Prefabs/Props/Wrecks/M113_wreck.et" {
  coords 8884.017 212.812 3977.222
@@ -452,6 +452,26 @@ SCR_DestructibleEntity : "{D84A36F4699A8743}Prefabs/Structures/Walls/Stone/Stone
  coords 8892.661 3.379 3926.516
  scale 2
 }
+$grp Tree : "{DE7FC095F656695C}Prefabs/Vegetation/Tree/t_picea_abies_3s.et" {
+ {
+  coords 8827.033 0 3873.982
+ }
+ {
+  coords 8827.598 0.001 3908.052
+ }
+ {
+  coords 8874.905 0.38 3891.432
+ }
+ {
+  coords 8881.866 -0.99 3948.073
+ }
+ {
+  coords 8869.26 0 3998.995
+ }
+ {
+  coords 8810.773 -0.195 3992.056
+ }
+}
 $grp SCR_DestructibleBuildingEntity : "{DECF116069DCCC2B}Prefabs/Structures/Cultural/Castles/Castle_01_Tower.et" {
  {
   coords 8837.581 -3.608 3963.742
@@ -565,10 +585,6 @@ $grp GenericEntity : "{F85FC719F392E7A5}Prefabs/Rocks/Granite/Granite_Boulder_02
  }
 }
 $grp Tree : "{FC9A12CDC5288469}Prefabs/Vegetation/Tree/t_pinus_sylvestris_3w.et" {
- {
-  coords 8866.482 -0.015 3937.537
-  angleY 37.966
- }
  {
   coords 8796.438 -0.798 3967.691
  }
