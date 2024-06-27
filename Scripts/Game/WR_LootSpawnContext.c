@@ -37,7 +37,7 @@ class WR_LootSpawnContext
         ItemCategories.AddItem(headgearWeight,    WR_ResourceNamesWeighted.GetHeadgear());
     }
 
-    array<ResourceName> GetRandomItems(int itemCount)
+    array<ResourceName> GetRandomItems(int itemCount, int maxExtraMagsToIncludeForWeapons = 3)
     {
         if (!ItemCategories) return {};
         
@@ -48,6 +48,17 @@ class WR_LootSpawnContext
             WR_WeightedItemArray<ResourceName> category = ItemCategories.GetRandomItem();
             ResourceName item = category.GetRandomItem();
             items.Insert(item);
+
+            // If this item is a weapon, spawn some extra ammo
+            if (maxExtraMagsToIncludeForWeapons > 0 && WR_Utils.IsWeapon(item))
+            {
+                int ammoCount = Math.RandomIntInclusive(0, maxExtraMagsToIncludeForWeapons);
+                if (ammoCount > 0)
+                {
+                    ResourceName ammo = WR_Utils.GetDefaultAmmo(item);
+                    for (int j = 0; j < ammoCount; j++) items.Insert(ammo);
+                }
+            }
         }
 		
 		return items;
