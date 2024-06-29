@@ -74,7 +74,8 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			if (!foundSafePos) continue;
 
 			// Spawn the vehicle
-			Resource resource = Resource.Load(vehicleResourceNames.GetRandomItem());
+			ResourceName vehResourceName = vehicleResourceNames.GetRandomItem();
+			Resource resource = Resource.Load(vehResourceName);
 			
 			EntitySpawnParams spawnParams = new EntitySpawnParams();
 			spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world

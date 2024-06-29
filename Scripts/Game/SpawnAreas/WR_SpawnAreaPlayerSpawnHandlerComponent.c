@@ -95,6 +95,56 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		
 		return isSpawnSuccessful;
 	}
+
+	static SCR_FreeSpawnData GetSpawnData()
+	{
+		PlayerController playerController = GetGame().GetPlayerController();
+		IEntity originalPlayerEntity = playerController.GetControlledEntity();
+		
+		SCR_RespawnComponent respawnComponent = SCR_RespawnComponent.Cast(playerController.GetRespawnComponent());
+		if (!respawnComponent) return null;
+		
+		// Select loadout
+		ResourceName characterPrefabName = "{B39F86B378284BFC}Prefabs/Characters/Factions/BLUFOR/US_Army/WR_Character_US_Base.et";
+//		SCR_ChimeraCharacter playerChar = SCR_ChimeraCharacter.Cast(originalPlayerEntity);
+//		switch (playerChar.GetFactionKey()) {
+//			case "BLUFOR":
+//				characterPrefab = "{B39F86B378284BFC}Prefabs/Characters/Factions/BLUFOR/US_Army/WR_Character_US_Base.et";
+//				break;
+//			case "OPFOR":
+//				characterPrefab = "{8449DECFA1B5831F}Prefabs/Characters/Factions/OPFOR/USSR_Army/WR_Character_USSR_Base.et";
+//				break;
+//			case "INDFOR":
+//				characterPrefab = "{111788B8922611CC}Prefabs/Characters/Factions/INDFOR/FIA/WR_Character_FIA_Base.et";
+//				break;
+//			default:
+//				Print("[WR_SpawnAreaPlayerSpawnHandlerComponent] Unknown Faction Key!", LogLevel.ERROR);
+//				return null;
+//		}
+
+		// Choose a spawn area and find a safe spawn position inside it
+		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = GetRandomSpawnArea();
+		if (!spawnArea) return null; // Fail if no spawn area found
+		
+		// Configure spawn position parameters
+		float areaToCheck = 10; 			// Radius that will be checked if the initially passed pos is not safe
+		float xzPaddingRadius = 0.5;	 	// Minimum radius of empty space to have around the chosen position
+		float yPaddingDistance = 2; 		// Minimum distance of empty space to have above and below the chosen position 
+		
+		vector respawnPos;
+		bool foundSafePos = WR_Utils.TryGetSafePos(
+												respawnPos
+												, spawnArea._parent.GetOrigin()
+												, spawnArea._parent.GetSphereRadius()
+												, areaToCheck
+												, xzPaddingRadius
+												, yPaddingDistance);
+		
+		if (!foundSafePos) return null; // Fail if no safe position found
+
+		// Instantiate a FreeSpawnData object using the spawn position
+		return new SCR_FreeSpawnData(characterPrefabName, respawnPos);
+	}
 	
 //	private static bool TryGetSafePos(out vector safePos, WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea)
 //	{
