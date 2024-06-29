@@ -1,0 +1,236 @@
+FrameWidgetClass {
+ Name "LoadoutSelector"
+ Clipping False
+ {
+  OverlayWidgetClass "{61BA3D498950D96F}" {
+   Prefab "{5D52652E25BAAA35}"
+   Name "Overlay0"
+   Slot FrameWidgetSlot "{5CCEDC16C7E2C29C}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX -1820
+    OffsetRight 0
+    SizeY -1050
+    OffsetBottom 0
+    SizeToContent 1
+   }
+   {
+    VerticalLayoutWidgetClass "{61BA3D498950D96C}" {
+     Prefab "{5D52652E25BAAA32}"
+     Name "VerticalLayout1"
+     Slot OverlayWidgetSlot "{5D0A7AB8077615E1}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     {
+      SizeLayoutWidgetClass "{61BA3D498950D96D}" {
+       Prefab "{5D5475BCDEB474D8}"
+       Name "Loadouty"
+       Slot LayoutSlot "{5D5475BCDEB4752B}" {
+        Padding 0 0 0 0
+        SizeMode Fill
+       }
+       AllowHeightOverride 1
+       HeightOverride 400
+       AllowMaxDesiredWidth 1
+       MaxDesiredWidth 278
+       {
+        OverlayWidgetClass "{61BA3D498950D96A}" {
+         Prefab "{5D56A7CE5C74F66A}"
+         Name "Overlay1"
+         Slot AlignableSlot "{5D56A7CE42E16806}" {
+          HorizontalAlign 3
+          VerticalAlign 3
+          Padding 0 0 0 8
+         }
+         {
+          ImageWidgetClass "{61BA3D498950D96B}" {
+           Name "Background"
+           Slot OverlayWidgetSlot "{5D606B81C4DEBB20}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+            Padding 0 0 0 -10
+           }
+           Opacity 0.9
+           Texture "{B6005135448EE773}UI/Textures/DeployMenu/Loadout-BG/Loadout_Custom.edds"
+           Size 884 1220
+           "Blend Mode" Opaque
+           "Shadow Color" 0 0 0 0.4
+          }
+          ImageWidgetClass "{61BA3D498950D968}" {
+           Name "Background-filter"
+           Slot OverlayWidgetSlot "{6056BBCF705C1421}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+            Padding 0 0 0 -10
+           }
+           Color 0 0 0 1
+           Texture "{1880C46E85E3036D}UI/Textures/DeployMenu/Loadout-BG/Loadout_Filter.edds"
+           Size 884 1220
+           "Transition width" 0
+           Progress 0.5
+          }
+          VerticalLayoutWidgetClass "{61BA3D4989511DAD}" {
+           Name "LoadoutsVerticalLayout"
+           Slot OverlayWidgetSlot "{5D56A7CEA500E08D}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+           }
+           {
+            SizeLayoutWidgetClass "{61BA3D4989511DAC}" {
+             Name "PreviewWidget"
+             Slot LayoutSlot "{5CF873A870107CDE}" {
+              Padding 0 0 0 0
+              SizeMode Fill
+             }
+             AllowWidthOverride 1
+             WidthOverride 180
+             AllowHeightOverride 1
+             HeightOverride 290
+             {
+              FrameWidgetClass "{61BA3D4989511DA3}" : "{55E4F7C989878CF8}UI/layouts/Menus/RoleSelection/LoadoutPreview.layout" {
+               Name "LoadoutPreview"
+               Slot AlignableSlot "{5CF873A87007BA5F}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+                Padding 0 0 0 -132
+               }
+               {
+                ImageWidgetClass "{61BA3D4989511DA2}" {
+                 Name "Image0"
+                 Slot FrameWidgetSlot "{5EB263E646AE9BD2}" {
+                  Anchor 0 0 1 1
+                  PositionX 0
+                  OffsetLeft 0
+                  PositionY 0
+                  OffsetTop 300
+                  SizeX 0
+                  OffsetRight 0
+                  SizeY 0
+                  OffsetBottom 0
+                  Alignment 0 0
+                 }
+                 "Z Order" 100
+                 Color 0.007 0.012 0.014 1
+                 Texture "{C88F7BBBE5151E42}UI/Textures/Common/gradient_transparent_white_linear_UI.edds"
+                 Size 256 256
+                 "Flip Vertically" 1
+                 "Transition width" 0.35
+                }
+                OverlayWidgetClass "{552068607D1612DA}" {
+                 Prefab "{552068607D1612DA}"
+                 Slot FrameWidgetSlot "{552068607D1612F5}" {
+                  Anchor 0 0 1 1
+                  PositionX 0
+                  OffsetLeft 0
+                  PositionY 0
+                  OffsetTop 0
+                  SizeX 0
+                  OffsetRight 0
+                  SizeY 0
+                  OffsetBottom 0
+                 }
+                 {
+                  ImageWidgetClass "{61BA3D4989511DA1}" {
+                   Name "Background"
+                   Slot OverlayWidgetSlot "{5D5EDC71326D589D}" {
+                    HorizontalAlign 3
+                    VerticalAlign 3
+                    Padding 0 0 0 -12
+                   }
+                   "Is Enabled" 0
+                   "Is Visible" 0
+                   Opacity 0.4
+                   Color 0 0 0 1
+                   "Shadow Color" 0 0 0 0.4
+                  }
+                  ImageWidgetClass "{61BA3D4989513FE1}" {
+                   Name "Image0"
+                   Slot OverlayWidgetSlot "{5D085A0FD5329E0D}" {
+                    HorizontalAlign 1
+                    VerticalAlign 3
+                   }
+                   "Is Visible" 0
+                   Color 0.024 0.024 0.024 1
+                   Pivot 0.5 1
+                   Size 300 2
+                  }
+                  ItemPreviewWidgetClass "{552068601B16C353}" {
+                   Prefab "{552068601B16C353}"
+                   Opacity 1
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+          OverlayWidgetClass "{61BA3D4989560F47}" {
+           Name "w_Supplies"
+           Slot OverlayWidgetSlot "{5DF064929F9D4278}" {
+            HorizontalAlign 0
+            VerticalAlign 0
+           }
+           "Z Order" 5
+           "Is Visible" 0
+           {
+            ImageWidgetClass "{61BA3D4989560F44}" {
+             Name "Supplies-BG"
+             Slot OverlayWidgetSlot "{5DF064DE41D78DE1}" {
+              HorizontalAlign 0
+              VerticalAlign 0
+             }
+             Clipping True
+             Color 0.043 0.061 0.035 1
+             Texture "{55138B63387F6AFB}UI/Textures/Common/Rect-mask.edds"
+             Size 58 58
+             "Flip Horizontally" 1
+             "Flip Vertically" 1
+            }
+            FrameWidgetClass "{61BA3D498956578E}" : "{6F6E660DEA770096}UI/layouts/Menus/Inventory/Supplies/BaseSuppliesWidget.layout" {
+             Name "SuppliesButton"
+             Slot OverlayWidgetSlot "{5F0A91492B235283}" {
+              VerticalAlign 0
+              Padding 6 12 0 0
+             }
+             {
+              SizeLayoutWidgetClass "{5DEAD56EB801D0A2}" {
+               Prefab "{5DEAD56EB801D0A2}"
+               {
+                OverlayWidgetClass "{5DEAD56E9CA7247E}" {
+                 Prefab "{5DEAD56E9CA7247E}"
+                 {
+                  HorizontalLayoutWidgetClass "{5DEAD56110AD29DF}" {
+                   Prefab "{5DEAD56110AD29DF}"
+                   Slot OverlayWidgetSlot "{5DF064DABE8C067F}" {
+                   }
+                   {
+                    RichTextWidgetClass "{5DEAD56110AD29D5}" {
+                     Prefab "{5DEAD56110AD29D5}"
+                     Text ""
+                    }
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
