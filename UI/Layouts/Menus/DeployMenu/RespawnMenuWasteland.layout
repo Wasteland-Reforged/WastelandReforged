@@ -402,6 +402,7 @@ FrameWidgetClass {
                        Slot LayoutSlot "{5CCEDC17E3B2DB6C}" {
                         Padding 0 8 0 0
                        }
+                       "Is Visible" 0
                        {
                         ButtonWidgetClass "{5CCCC84E31F2D7BF}" {
                          Prefab "{5CCCC84E31F2D7BF}"
