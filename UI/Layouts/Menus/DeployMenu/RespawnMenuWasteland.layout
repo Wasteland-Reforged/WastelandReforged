@@ -1,4 +1,4 @@
-FrameWidgetClass "{61BB14CAAEB24F32}" {
+FrameWidgetClass {
  Name "rootFrame"
  "Ignore Cursor" 0
  components {
@@ -292,6 +292,7 @@ FrameWidgetClass "{61BB14CAAEB24F32}" {
                        Slot LayoutSlot "{5CCEDC17E3B204DB}" {
                         Padding 0 0 0 0
                        }
+                       "Is Visible" 0
                        components {
                         SCR_LoadoutRequestUIComponent "{5CFA569208B11F09}" {
                          m_sLoadoutList "LoadoutSizeLayout"
@@ -372,6 +373,7 @@ FrameWidgetClass "{61BB14CAAEB24F32}" {
                        Slot LayoutSlot "{5CD0735EE65AA2F2}" {
                         Padding 0 8 0 0
                        }
+                       "Is Visible" 0
                        components {
                         SCR_GroupRequestUIComponent "{5CD0735F184E95BE}" {
                          m_sGroupButton "{B20BE70FACCF2160}UI/layouts/Menus/DeployMenu/GroupButtonMap.layout"
@@ -433,6 +435,7 @@ FrameWidgetClass "{61BB14CAAEB24F32}" {
                        components {
                         SCR_DeployButton "{5D08A913BC266D57}" {
                          m_sActionName "DeployMenuSelect"
+                         m_sLabel "Deploy (Random Town)"
                          m_bChangeLabelColorOnDisabled 0
                         }
                        }

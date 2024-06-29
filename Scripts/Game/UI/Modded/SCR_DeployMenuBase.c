@@ -56,6 +56,7 @@ modded class SCR_DeployMenuMain
 			m_SpawnRequestManager.RequestSpawn(rspData);
 	}
 	
+	//------------------------------------------------------------------------------------------------
 	//! Sets respawn button enabled based on certain conditions.
 	protected override void UpdateRespawnButton()
 	{
@@ -70,4 +71,53 @@ modded class SCR_DeployMenuMain
 		m_bCanRespawnAtSpawnPoint = true;
 		m_RespawnButton.SetEnabled(!m_bRespawnRequested && remainingTime <= 0 && m_fCurrentDeployTimeOut <= 0 && m_bCanRespawnAtSpawnPoint && m_PlyLoadoutComp.GetLoadout() != null && hasGroup);
 	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! Centers map to a specific spawn point.
+	protected void FocusOnPoint(vector point, bool smooth = true)
+	{
+		if (!m_MapEntity || !m_MapEntity.IsOpen())
+			return;
+
+		float x, y;
+		m_MapEntity.WorldToScreen(point[0], point[2], x, y);
+
+		float xScaled = GetGame().GetWorkspace().DPIUnscale(x);
+		float yScaled = GetGame().GetWorkspace().DPIUnscale(y);
+
+		if (smooth)
+			m_MapEntity.PanSmooth(x, y);
+		else
+			m_MapEntity.SetPan(xScaled, yScaled, true, true);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected override void OnMapOpen(MapConfiguration config)
+	{
+		// note@lk: temporary hotfix for duplicite journal entries, better solution is on the way
+		Widget toolMenu = m_wMenuFrame.FindAnyWidget("ToolMenuVert");
+		Widget child = toolMenu.GetChildren();
+		while (child)
+		{
+			Widget sibling = child.GetSibling();
+			child.RemoveFromHierarchy();
+			child = sibling;
+		}		
+		
+		m_UIElementContainer = SCR_MapUIElementContainer.Cast(m_MapEntity.GetMapUIComponent(SCR_MapUIElementContainer));
+		if (m_UIElementContainer)
+			m_UIElementContainer.GetOnSpawnPointSelected().Insert(SetSpawnPointExt);
+	
+		GetGame().GetCallqueue().CallLater(SetInitialMapFocus);
+	}
+	
+	protected void SetInitialMapFocus()
+	{
+		// Focus map somewhere around the center of the island
+		vector focusPos = Vector(5170, 0, 6050);
+		
+		m_MapEntity.SetZoom(m_MapEntity.GetMinZoom(), true);
+		FocusOnPoint(focusPos, false);
+	}
 }
+
