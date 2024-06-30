@@ -5,9 +5,13 @@ class WR_SpawnAreaControllerComponentClass : SCR_BaseGameModeComponentClass
 
 class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 {
+	[Attribute(defvalue: "true", desc: "Spawn vehicles in spawn areas.")]
+	protected bool spawnVehicles;
+	
 	override void OnGameModeStart()
 	{
-		SpawnVehiclesInSpawnAreas();
+		if (spawnVehicles)
+			SpawnVehiclesInSpawnAreas();
 	}
 	
 	private void SpawnVehiclesInSpawnAreas()

@@ -75,12 +75,11 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 
 			// Spawn the vehicle
 			ResourceName vehResourceName = vehicleResourceNames.GetRandomItem();
-			Resource resource = Resource.Load(vehResourceName);
 			
 			EntitySpawnParams spawnParams = new EntitySpawnParams();
 			spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
 			
-			IEntity vehicle = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld(), spawnParams);
+			IEntity vehicle = GetGame().SpawnEntityPrefab(vehResourceName, false, GetGame().GetWorld(), spawnParams);
 			vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 			
 			// Get vehicle inventory components
