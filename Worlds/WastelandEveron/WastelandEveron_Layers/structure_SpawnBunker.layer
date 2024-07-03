@@ -158,19 +158,19 @@ $grp SCR_SpawnPoint : "{E7F4D5562F48DDE4}Prefabs/MP/Spawning/SpawnPoint_Base.et"
   coords 110.969 333 198.255
   angleY 180
   m_fSpawnRadius 1
-  m_sFaction "BLUFOR"
+  m_sFaction "US"
  }
  {
   coords 111.422 333 198.236
   angleY 180
   m_fSpawnRadius 1
-  m_sFaction "OPFOR"
+  m_sFaction "USSR"
  }
  {
   coords 111.185 333 197.98
   angleY 180
   m_fSpawnRadius 1
-  m_sFaction "INDFOR"
+  m_sFaction "CIV"
  }
 }
 GenericEntity : "{FDA8F11B3BD0C445}PrefabsEditable/Auto/Props/Construction/CableReel/E_CableReelWooden_01.et" {

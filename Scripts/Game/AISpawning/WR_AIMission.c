@@ -36,7 +36,7 @@ class WR_AIMission : WR_Mission
 				spawnCaptureBase();
 				break;
 			case "SniperSquad":
-				groupPrefabName = "{D807C7047E818488}Prefabs/Groups/BLUFOR/Group_US_SniperTeam.et";
+				groupPrefabName = "{D807C7047E818488}Prefabs/Groups/BLUFOR/WR_AISniperTeam.et";
 				break;
 			default:
 				Print("[WR_AIMission] Unexpected mission type!", LogLevel.ERROR);
@@ -48,7 +48,7 @@ class WR_AIMission : WR_Mission
 		//Generate Resource for spawn group
 		Resource groupResource = Resource.Load(groupPrefabName);
 		if (!groupResource || !groupResource.IsValid()) {
-			Print(("[WR_AIMission] Unable to load resource for spawn group" + groupPrefabName), LogLevel.ERROR);
+			Print(("[WR_AIMission] Unable to load resource for spawn group: " + groupPrefabName), LogLevel.ERROR);
 			return null;
 		}
 		

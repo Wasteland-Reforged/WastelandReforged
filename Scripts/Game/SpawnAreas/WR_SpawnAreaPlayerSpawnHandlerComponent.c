@@ -41,14 +41,14 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		ResourceName characterPrefab;
 		SCR_ChimeraCharacter playerChar = SCR_ChimeraCharacter.Cast(originalPlayerEntity);
 		switch (playerChar.GetFactionKey()) {
-			case "BLUFOR":
+			case "US":
 				characterPrefab = "{B39F86B378284BFC}Prefabs/Characters/Factions/BLUFOR/US_Army/WR_Character_US_Base.et";
 				break;
-			case "OPFOR":
+			case "USSR":
 				characterPrefab = "{8449DECFA1B5831F}Prefabs/Characters/Factions/OPFOR/USSR_Army/WR_Character_USSR_Base.et";
 				break;
-			case "INDFOR":
-				characterPrefab = "{111788B8922611CC}Prefabs/Characters/Factions/INDFOR/FIA/WR_Character_FIA_Base.et";
+			case "CIV":
+				characterPrefab = "{CEE7531F4FBAEB38}Prefabs/Characters/Factions/CIV/Dockworker/WR_Character_CIV_Base.et";
 				break;
 			default:
 				Print("[WR_SpawnAreaPlayerSpawnHandlerComponent] Unknown Faction Key!", LogLevel.ERROR);

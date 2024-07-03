@@ -223,7 +223,7 @@ $grp SCR_TreePartV2 : "{634CD92D7706C8F3}Prefabs/Vegetation/Tree/Dst/t_pinus_syl
   coords 8890.156 209.145 3969.862
  }
  {
-  coords 8783.479 190.502 3888.218
+  coords 8783.421 190.502 3892.875
   angleY 41.15
  }
 }
@@ -311,6 +311,16 @@ $grp SCR_DestructibleBuildingEntity : "{85D22B7ED8C8024C}Prefabs/Structures/Cult
 StaticModelEntity : "{862818969D70726C}Prefabs/Compositions/Misc/SubCompositions/TableMilitary_Cluttered_USSR_01.et" {
  coords 8833.104 205.115 3949.975
  angleY 0
+}
+$grp Turret : "{887DB60486A18575}Prefabs/Weapons/Tripods/Tripod_M122_MG_M60.et" {
+ {
+  coords 8868.008 205.229 3945.569
+  angleY 133.796
+ }
+ {
+  coords 8787.576 197.678 3888.816
+  angleY -142.674
+ }
 }
 GenericEntity : "{8937AFC38700A6BA}Prefabs/Props/Construction/BrickPile/BrickPileOld_01_Medium.et" {
  coords 8826.782 204.628 3944.699
@@ -589,6 +599,6 @@ $grp Tree : "{FC9A12CDC5288469}Prefabs/Vegetation/Tree/t_pinus_sylvestris_3w.et"
   coords 8796.438 -0.798 3967.691
  }
  {
-  coords 8780.434 0.281 3883.38
+  coords 8787.984 0.314 3882.482
  }
 }
