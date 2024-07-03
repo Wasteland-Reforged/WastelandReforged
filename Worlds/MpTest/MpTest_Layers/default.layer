@@ -1,0 +1,29 @@
+SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ components {
+  SCR_InitWeatherComponent "{58DCAB6D83A0CB17}" {
+   m_sInitialStartingWeatherId "Clear"
+  }
+ }
+ coords 128.275 1 104.516
+ m_bAutoInitEditor 0
+}
+Vehicle Humvee : "{5674FAEB9AB7BDD0}Prefabs/Vehicles/Wheeled/M998/M998.et" {
+ components {
+  SCR_ResourceComponent "{5D8356123028E721}" {
+   Enabled 0
+  }
+  SlotManagerComponent "{55BCE45E438E4CFF}" {
+   Slots {
+    RegisteringComponentSlotInfo Construction {
+     Prefab "{4AD8450ED9390518}Prefabs/ConstructionEntity.et"
+     RegisterActions 1
+     RegisterDamage 1
+     RegisterControllers 1
+     RegisterCompartments 1
+     RegisterLights 1
+    }
+   }
+  }
+ }
+ coords 119.647 1 105.454
+}
