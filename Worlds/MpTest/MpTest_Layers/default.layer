@@ -1,29 +1,61 @@
-SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+SCR_BaseGameMode GameMode_Base1 : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
-  SCR_InitWeatherComponent "{58DCAB6D83A0CB17}" {
-   m_sInitialStartingWeatherId "Clear"
+  SCR_CampaignBuildingManagerComponent "{61CAE96D304E606D}" {
+   m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
+   m_BudgetType CAMPAIGN
+   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{61CAE96D040627F9}" {
+    m_sSlotFlatSmallLayout "{7FD4E6A668B4537A}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFLatSmall.et"
+    m_sSlotFlatMediumLayout "{579FF731013436B5}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatMedium.et"
+    m_sSlotFlatLargeLayout "{ED9D7F29497B9BF7}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatLarge.et"
+    m_sSlotRoadSmallLayout "{8DBA7E7BF662A393}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadSmall.et"
+    m_sSlotRoadMediumLayout "{3A5E87ADA26C6940}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadMedium.et"
+    m_sSlotRoadLargeLayout "{D06D9D47008E794F}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadLarge.et"
+   }
+   m_sPrefabsToBuildResource "{D2527D9AA5B4A33E}Configs/Editor/PlaceableEntities/Compositions/Compositions_FreeRoamBuilding.conf"
+  }
+  WR_SpawnAreaControllerComponent "{61CAE96DEB8F2F1D}" {
   }
  }
- coords 128.275 1 104.516
- m_bAutoInitEditor 0
+ coords 167.43 1 40.376
 }
-Vehicle Humvee : "{5674FAEB9AB7BDD0}Prefabs/Vehicles/Wheeled/M998/M998.et" {
+SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
+ coords 174.139 1 38.523
+}
+Vehicle M1 : "{5674FAEB9AB7BDD0}Prefabs/Vehicles/Wheeled/M998/M998.et" {
  components {
+  SCR_CampaignBuildingProviderComponent "{61D429ABCB975640}" : "{9B3C57876865DE66}Prefabs/BaseBuilding/SCR_CampaignBuildingProviderComponent.ct" {
+  }
   SCR_ResourceComponent "{5D8356123028E721}" {
    Enabled 0
   }
-  SlotManagerComponent "{55BCE45E438E4CFF}" {
-   Slots {
-    RegisteringComponentSlotInfo Construction {
-     Prefab "{4AD8450ED9390518}Prefabs/ConstructionEntity.et"
-     RegisterActions 1
-     RegisterDamage 1
-     RegisterControllers 1
-     RegisterCompartments 1
-     RegisterLights 1
+  SCR_ResourceComponent "{61D429AC04913C1B}" : "{D81399A6EF08CFA9}SCR_ResourceComponent.ct" {
+  }
+  ActionsManagerComponent "{C97BE5489221AE18}" {
+   additionalActions {
+    SCR_CampaignBuildingStartUserAction "{61D429ABBF005D9D}" {
+     ParentContextList {
+      "cargo"
+     }
+     UIInfo SCR_ActionUIInfo "{61D429AB96B8D22A}" {
+      Name "#AR-Campaign_Action_ShowBuildPreview-UC"
+      m_sIconName "use"
+     }
+     Duration 1
     }
    }
   }
  }
- coords 119.647 1 105.454
+ coords 96.242 1 167.954
+}
+WR_SpawnAreaEntity SpawnArea_StPhillipe : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
+ components {
+  WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   vehiclesFlatRate 3
+  }
+ }
+ coords 124.134 -4.014 134.163
+ SphereRadius 25
+}
+GenericEntity : "{FB186A7EAB2ADE68}Prefabs/Vehicles/Wheeled/M923A1/VehParts/M923A1_engineer_box.et" {
+ coords 89.812 1 181.408
 }

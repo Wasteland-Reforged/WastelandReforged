@@ -1,6 +1,6 @@
 SCR_ResourceComponent {
  m_aContainers {
-  SCR_ResourceContainer "{61C655BBC4D23A78}" {
+  SCR_ResourceContainer "{61D429AC1F43BEC8}" {
    m_eResourceRights FACTION
    m_eStorageType CARGO_VEHICLE
    m_fResourceValueMax 550

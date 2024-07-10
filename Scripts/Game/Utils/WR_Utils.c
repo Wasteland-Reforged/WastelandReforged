@@ -106,4 +106,23 @@ class WR_Utils
 		
 		return Weapons.Contains(resourceName);
 	}
+	
+	static void giveVehicleBaseBuilding(IEntity vehicle)
+	{
+		//Disable Original Resource Component
+		SCR_ResourceComponent rc = SCR_ResourceComponent.Cast(vehicle.FindComponent(SCR_ResourceComponent));
+		rc.Deactivate(vehicle);
+			
+		//Add SCR_ResourceComponent
+		
+			
+		//Add SCR_CampaignBuildingProviderComponent
+			
+			
+		//Add SCR_CampaignBuildingStartUserAction to ActionsManagerComponents
+			//Additional Actions -> CampaignBuildingStartUser Action; Parent = cargo; UIInfo = SCR_ActionUIInfo; Name = #AR-Campaign_Action_ShowBuildPreview-UC; Icon Name = use; Duration = 1; 
+			
+
+	}
+	
 }

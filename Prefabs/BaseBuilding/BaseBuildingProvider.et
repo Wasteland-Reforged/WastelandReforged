@@ -1,9 +1,10 @@
 GenericEntity {
  ID "61C6483719AF540C"
  components {
-  SCR_CampaignBuildingProviderComponent "{61C655BBD706F477}" : "{9B3C57876865DE66}Prefabs/Components/WR_CampaignBuildingProviderComponent.ct" {
+  SCR_CampaignBuildingProviderComponent "{61C655BBD706F477}" : "{9B3C57876865DE66}Prefabs/BaseBuilding/SCR_CampaignBuildingProviderComponent.ct" {
+   m_bIsMasterProvider 1
   }
-  SCR_ResourceComponent "{61C655BBCD77ADA4}" : "{33BD5B03867F4874}Prefabs/Components/WR_ResourceComponent.ct" {
+  SCR_ResourceComponent "{61C9509D727B3C8A}" : "{D81399A6EF08CFA9}SCR_ResourceComponent.ct" {
   }
   ActionsManagerComponent "{61C64836F0DADDA9}" {
    ActionContexts {
@@ -12,6 +13,7 @@ GenericEntity {
      }
      ContextName "cargo"
      Position PointInfo "{61C655BB0C785CEA}" {
+      Offset 0 1 -2.5
      }
      Radius 0.5
     }
@@ -33,5 +35,5 @@ GenericEntity {
   Hierarchy "{61C6483256DF0C6C}" {
   }
  }
- coords 124.177 1 119.283
+ coords 115.001 1.457 106.931
 }
