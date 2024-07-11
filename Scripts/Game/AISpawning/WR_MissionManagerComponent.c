@@ -47,7 +47,7 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 		//Every X milliseconds, check the current mission list to see if any have been completed and need to be replaced (The "true" parameter makes this function repeat endlessly)
 		GetGame().GetCallqueue().CallLater(checkMissions, missionCheckInMS, true);
 		
-		startCastleMission();
+		//startCastleMission();
 	}
 	
 	protected void checkMissions()
