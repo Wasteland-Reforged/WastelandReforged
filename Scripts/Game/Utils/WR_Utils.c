@@ -57,7 +57,7 @@ class WR_Utils
 		// If selected position is too far above ground, find another one
 		float maxAllowedHeightAboveGround = 2.0;
 		bool isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
-		while (isPosUnderWater)
+		while (isPosTooFarAboveGround)
 		{
 			posToCheck = WR_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
 			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);

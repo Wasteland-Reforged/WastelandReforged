@@ -15,7 +15,8 @@ class WR_LootSpawnContext
         float mediItemWeight = 0.0,
         float backpackWeight = 0.0,
         float vestWeight = 0.0,
-        float headgearWeight = 0.0
+        float helmetWeight = 0.0,
+	    float hatWeight = 0.0
     )
     {
         ItemCategories = new WR_WeightedItemArray<WR_WeightedItemArray<ResourceName>>();
@@ -34,7 +35,8 @@ class WR_LootSpawnContext
         // Wearables
         ItemCategories.AddItem(backpackWeight,    WR_ResourceNamesWeighted.GetBackpacks());
         ItemCategories.AddItem(vestWeight,        WR_ResourceNamesWeighted.GetVests());
-        ItemCategories.AddItem(headgearWeight,    WR_ResourceNamesWeighted.GetHeadgear());
+        ItemCategories.AddItem(helmetWeight,    	WR_ResourceNamesWeighted.GetHelmets());
+		ItemCategories.AddItem(hatWeight,    		WR_ResourceNamesWeighted.GetHats());
     }
 
     array<ResourceName> GetRandomItems(int itemCount, int maxExtraMagsToIncludeForWeapons = 3)

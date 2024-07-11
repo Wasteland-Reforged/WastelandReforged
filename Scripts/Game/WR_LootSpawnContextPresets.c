@@ -16,7 +16,8 @@ class WR_LootSpawnContextPresets
             mediItemWeight: 10.0,
             backpackWeight: 5.0,
             vestWeight: 5.0,
-            headgearWeight: 5.0
+            helmetWeight: 5.0,
+            hatWeight: 1.0
         );
     }
 
@@ -35,7 +36,8 @@ class WR_LootSpawnContextPresets
             mediItemWeight: 5.0,
             backpackWeight: 2.5,
             vestWeight: 2.5,
-            headgearWeight: 2.5
+            helmetWeight: 2.5,
+            hatWeight: 3.0
         );
     }
 	
@@ -54,7 +56,8 @@ class WR_LootSpawnContextPresets
             mediItemWeight: 0.0,
             backpackWeight: 5.0,
             vestWeight: 0.0,
-            headgearWeight: 0.0
+            helmetWeight: 0.0,
+            hatWeight: 1.0
         );
     }
 	
@@ -73,7 +76,8 @@ class WR_LootSpawnContextPresets
             mediItemWeight: 0.0,
             backpackWeight: 5.0,
             vestWeight: 0.0,
-            headgearWeight: 0.0
+            helmetWeight: 0.0,
+            hatWeight: 0.0
         );
     }
 	
@@ -92,7 +96,8 @@ class WR_LootSpawnContextPresets
             mediItemWeight: 15.0,
             backpackWeight: 5.0,
             vestWeight: 0.0,
-            headgearWeight: 0.0
+            helmetWeight: 0.0,
+            hatWeight: 0.0
         );
     }
 }
