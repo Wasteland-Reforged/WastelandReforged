@@ -4,8 +4,7 @@ SCR_ChimeraCharacter : "{284E735C6C70DAD2}Prefabs/Characters/Factions/BLUFOR/US_
   CharacterWeaponManagerComponent "{5C9CA676383262FD}" {
    DefaultWeaponIndex 0
   }
-  FactionAffiliationComponent "{520EC961FB0A2E90}" {
-   "faction affiliation" "BLUFOR"
+  SCR_CampaignBuildingNetworkComponent "{61BCD89E5C8D695F}" {
   }
   SCR_CharacterStaminaComponent "{520EA1D2F659C824}" {
    StaminaRegainPerS 0.3

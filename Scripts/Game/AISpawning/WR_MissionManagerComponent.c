@@ -33,6 +33,7 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 	
 	protected int numActiveMissions, missionRespawnInMS, missionCheckInMS;
 	protected ref array<ref WR_Mission> activeMissionList;
+	protected ref WR_CastleMission castleMission;
 	
 	override void OnGameModeStart()
 	{
@@ -45,6 +46,8 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 		
 		//Every X milliseconds, check the current mission list to see if any have been completed and need to be replaced (The "true" parameter makes this function repeat endlessly)
 		GetGame().GetCallqueue().CallLater(checkMissions, missionCheckInMS, true);
+		
+		startCastleMission();
 	}
 	
 	protected void checkMissions()
@@ -91,6 +94,12 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 		for (int i = 0; i < maxActiveMissions; i++) {
 			GetGame().GetCallqueue().CallLater(startRandomMission, timeBetweenSpawns*i, false);
 		}
+	}
+	
+	protected void startCastleMission()
+	{
+		IEntity castleWaypoint = GetGame().GetWorld().FindEntityByName("CastleDefenderWaypoint1");
+		castleMission = new WR_CastleMission("Fort Karl", castleWaypoint.GetOrigin());
 	}
 	
 	protected string getRandomMissionType()

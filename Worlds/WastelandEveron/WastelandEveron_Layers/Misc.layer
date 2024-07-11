@@ -1,0 +1,35 @@
+Vehicle M923A1_engineer1 : "{2D74C39A650A3030}Prefabs/Vehicles/Wheeled/M923A1/M923A1_engineer.et" {
+ coords 4858.582 28.594 11754.175
+}
+GenericEntity : "{760BD4105816358C}Prefabs/Compositions/Slotted/SlotFlatMedium/FieldHospital_M_FIA_01.et" {
+ coords 4845.37 28.594 11746.392
+}
+Vehicle WR_M1 : "{CA509D027AEDEC13}Prefabs/Vehicles/Wheeled/M998/WR_M998.et" {
+ components {
+  SCR_CampaignBuildingProviderComponent "{61C550BD57DC61F3}" : "{50927A3186A566B5}Component Prefabs/SCR_CampaignBuildingProviderComponent.ct" {
+  }
+  SCR_ResourceComponent "{61C550BD764AF631}" {
+   Enabled 0
+  }
+  SCR_ResourceComponent "{61C550BD7A9B309C}" : "{FA27E4D4C48B2D1B}Component Prefabs/SCR_ResourceComponent.ct" {
+  }
+  ActionsManagerComponent "{C97BE5489221AE18}" {
+   additionalActions {
+    SCR_CampaignBuildingStartUserAction "{61C550BD5AE06B76}" {
+     ParentContextList {
+      "cargo"
+     }
+     UIInfo SCR_ActionUIInfo "{61C550BD4355ADB7}" {
+      Name "#AR-Campaign_Action_ShowBuildPreview-UC"
+      m_sIconName "use"
+     }
+    }
+   }
+   AllowCrossHierarchy 0
+  }
+ }
+ coords 4875.38 28.594 11748.162
+}
+GenericEntity : "{FB186A7EAB2ADE68}Prefabs/Vehicles/Wheeled/M923A1/VehParts/M923A1_engineer_box.et" {
+ coords 4866.711 28.594 11749.212
+}

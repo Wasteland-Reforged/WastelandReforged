@@ -359,4 +359,13 @@ $grp GenericEntity : "{934A3C3A870634DC}PrefabsEditable/System/E_Comment.et" {
  AIWaypointConvoy15 {
   coords 5908.832 12.023 4364.749
  }
+ CastleDefenderWaypoint1 {
+  coords 8780.26 199.264 3973.407
+ }
+ CastleDefenderWaypoint2 {
+  coords 8867.623 204.689 3962.063
+ }
+ CastleDefenderWaypoint3 {
+  coords 8793.565 196.599 3894.529
+ }
 }

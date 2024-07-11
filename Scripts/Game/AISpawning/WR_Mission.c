@@ -64,15 +64,18 @@ class WR_Mission
 		for (int i = 0; i < numBoxes; i++) {		
 			//Find a safe place to spawn them
 			vector spawnPos;
-			bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(spawnPos, missionLocation, 35, 4, 4);
+			vector randomPoint = WR_Utils.GetRandomPointWithinCircle(missionLocation, 5);
+			bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(spawnPos, randomPoint, 35, 4, 4);
 			if (!foundSafePos) {
 				Print("[WR_AIMission]: Could not find safe place to spawn item");
 				return;
 			}
 			
+			Print("[WR_Mission]: Reward box of type " + lootType + " being spawned at: " + spawnPos);
+			
 			//Load resource and generate spawn parameters
 			Resource resource = Resource.Load("{2E6EB383EEFDDC4F}Prefabs/Props/Military/Arsenal/ArsenalBoxes/US/WR_BigLootBox_US.et");
-			EntitySpawnParams params = GenerateSpawnParameters(missionLocation);
+			EntitySpawnParams params = GenerateSpawnParameters(spawnPos);
 			
 			//Create box
 			IEntity box = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld(), params);
@@ -97,9 +100,9 @@ class WR_Mission
 		return isComplete;
 	}
 	
-	void setMissionComplete()
+	void setMissionComplete(ENotification notif = ENotification.WR_MISSION_COMPLETE)
 	{
-		SCR_NotificationsComponent.SendToEveryone(ENotification.WR_MISSION_COMPLETE);
+		SCR_NotificationsComponent.SendToEveryone(notif);
 		AudioSystem.PlaySound("{06C02AFB2CA882EB}Sounds/UI/Samples/Menu/UI_Task_Created.wav");
 		Print(missionName + " has been marked as Completed");
 		
