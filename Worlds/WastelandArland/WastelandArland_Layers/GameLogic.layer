@@ -41,6 +41,19 @@ PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/Perc
 }
 SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
+  SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
+   m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
+   m_BudgetType CAMPAIGN
+   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{61D626470298C266}" {
+    m_sSlotFlatSmallLayout "{7FD4E6A668B4537A}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFLatSmall.et"
+    m_sSlotFlatMediumLayout "{579FF731013436B5}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatMedium.et"
+    m_sSlotFlatLargeLayout "{ED9D7F29497B9BF7}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatLarge.et"
+    m_sSlotRoadSmallLayout "{8DBA7E7BF662A393}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadSmall.et"
+    m_sSlotRoadMediumLayout "{3A5E87ADA26C6940}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadMedium.et"
+    m_sSlotRoadLargeLayout "{D06D9D47008E794F}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadLarge.et"
+   }
+   m_sPrefabsToBuildResource "{D2527D9AA5B4A33E}Configs/Editor/PlaceableEntities/Compositions/Compositions_FreeRoamBuilding.conf"
+  }
   SCR_DataCollectorComponent "{5ADE83EE64329989}" {
    m_aModules {
     SCR_DataCollectorBasicActionsModule "{5AE097A82ED69A98}" {
@@ -105,6 +118,9 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   SCR_GroupsManagerComponent "{5706EC99934496F5}" {
    m_sDefaultGroupPrefab "{8B4D49A9F324E7D5}Prefabs/Groups/PlayableGroup.et"
    m_iPlayableGroupFrequencyOffset 500
+  }
+  SCR_HintManagerComponent "{5702B54C6CBC9D7F}" {
+   m_bIgnoreHintSettings 1
   }
   SCR_NametagConfigComponent "{571AA9E54FC9210D}" {
    m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
@@ -189,6 +205,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
 }
 SCR_FactionManager FactionManager : "{A242612865F2A48E}Prefabs/MP/Managers/Factions/FactionManager_Base.et" {
  coords 4403.627 1.651 11048.855
+ Flags 2097152
  Factions {
   SCR_Faction "{618569368AF59548}" : "{E7B7EA4823DD81F0}Configs/Factions/BLUFOR.conf" {
    UIInfo SCR_FactionUIInfo "{618569362B043C55}" {
@@ -232,6 +249,18 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
 RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
  coords 7114.537 74.093 6405.884
 }
+SCR_CampaignFactionManager CampaignFactionManager1 : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
+ coords 1926.914 51.6 3080.659
+ Factions {
+  SCR_Faction "{60DCF47AEF40BD72}" {
+   m_bIsPlayable 1
+   m_bIsMilitary 1
+   m_bFriendlyToSelf 0
+   m_aFriendlyFactionsIds {
+   }
+  }
+ }
+}
 ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
  coords 7114.537 73.625 6407.884
 }
@@ -241,17 +270,17 @@ SCR_LoadoutManager LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loado
   SCR_FactionPlayerLoadout "{6185692023D7D44C}" {
    m_sLoadoutName "Soldier"
    m_sLoadoutResource "{2F912ED6E399FF47}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Unarmed.et"
-   m_sAffiliatedFaction "BLUFOR"
+   m_sAffiliatedFaction "US"
   }
   SCR_FactionPlayerLoadout "{6185692CD3CC4212}" {
    m_sLoadoutName "Soldier"
    m_sLoadoutResource "{98EB9CDD85B8C92C}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Unarmed.et"
-   m_sAffiliatedFaction "OPFOR"
+   m_sAffiliatedFaction "USSR"
   }
   SCR_FactionPlayerLoadout "{6185692CB2A9B958}" {
    m_sLoadoutName "Soldier"
-   m_sLoadoutResource "{854C04F0EA2129CC}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Unarmed.et"
-   m_sAffiliatedFaction "INDFOR"
+   m_sLoadoutResource "{0AF2CBBF8F89E86E}Prefabs/Characters/Factions/CIV/Dockworker/WR_Character_CIV_Unarmed.et"
+   m_sAffiliatedFaction "CIV"
   }
  }
 }
