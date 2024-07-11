@@ -21,41 +21,24 @@ SCR_BaseGameMode GameMode_Base1 : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_B
 SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
  coords 174.139 1 38.523
 }
-Vehicle M1 : "{5674FAEB9AB7BDD0}Prefabs/Vehicles/Wheeled/M998/M998.et" {
- components {
-  SCR_CampaignBuildingProviderComponent "{61D429ABCB975640}" : "{9B3C57876865DE66}Prefabs/BaseBuilding/SCR_CampaignBuildingProviderComponent.ct" {
-  }
-  SCR_ResourceComponent "{5D8356123028E721}" {
-   Enabled 0
-  }
-  SCR_ResourceComponent "{61D429AC04913C1B}" : "{D81399A6EF08CFA9}SCR_ResourceComponent.ct" {
-  }
-  ActionsManagerComponent "{C97BE5489221AE18}" {
-   additionalActions {
-    SCR_CampaignBuildingStartUserAction "{61D429ABBF005D9D}" {
-     ParentContextList {
-      "cargo"
-     }
-     UIInfo SCR_ActionUIInfo "{61D429AB96B8D22A}" {
-      Name "#AR-Campaign_Action_ShowBuildPreview-UC"
-      m_sIconName "use"
-     }
-     Duration 1
-    }
-   }
-  }
- }
- coords 96.242 1 167.954
-}
 WR_SpawnAreaEntity SpawnArea_StPhillipe : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  components {
   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
-   vehiclesFlatRate 3
+   vehiclesFlatRate 8
   }
  }
- coords 124.134 -4.014 134.163
+ coords 124.134 -2.496 134.163
  SphereRadius 25
 }
-GenericEntity : "{FB186A7EAB2ADE68}Prefabs/Vehicles/Wheeled/M923A1/VehParts/M923A1_engineer_box.et" {
- coords 89.812 1 181.408
+Vehicle UH1H1 : "{70BAEEFC2D3FEE64}Prefabs/Vehicles/Helicopters/UH1H/UH1H.et" {
+ coords 189.561 1 113.467
+}
+GenericEntity : "{760BD4105816358C}Prefabs/Compositions/Slotted/SlotFlatMedium/FieldHospital_M_FIA_01.et" {
+ coords 125.091 1 176.559
+}
+Vehicle Ural4320_FIA_transport_covered1 : "{B70E6D12A8EC2410}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_transport_covered.et" {
+ coords 134.953 1 183.613
+}
+Vehicle Mi8MT_unarmed_transport1 : "{DF5CCB7C0FF049F4}Prefabs/Vehicles/Helicopters/Mi8MT/Mi8MT_unarmed_transport.et" {
+ coords 165.507 1 121.87
 }

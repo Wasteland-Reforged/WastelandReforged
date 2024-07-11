@@ -13,6 +13,14 @@ class WR_Utils
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	static vector GetRandomPointOnCircle(vector center, float radius)
+	{
+		vector randomDirection = GetRandomHorizontalDirectionAngles().AnglesToVector();
+		
+		return center + radius * randomDirection;
+	}
+	
+	//------------------------------------------------------------------------------------------------
 	static vector GetRandomHorizontalDirectionAngles()
 	{
 		return Vector(Math.RandomFloat(0, 360), 0, 0);

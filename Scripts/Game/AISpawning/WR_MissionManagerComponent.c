@@ -22,6 +22,12 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Convoy missions", "0 10 1")]
 	protected float convoyMissionWeight;
 	
+	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Abandoned Heli missions", "0 10 1")]
+	protected float abandonedHeliMissionWeight;
+	
+	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Capture Heli missions", "0 10 1")]
+	protected float captureHeliMissionWeight;
+	
 	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of all other missions", "0 10 1")]
 	protected float regularMissionWeight;
 	
@@ -64,6 +70,12 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 			case "capturebase":
 				activeMissionList.Insert(new WR_AIMission("CaptureBase", getRandomMissionLocation({"AIWaypointBase"})));
 				break;
+			case "captureheli":
+				activeMissionList.Insert(new WR_AIMission("CaptureHeli", getRandomMissionLocation({"AIWaypointBase"})));
+				break;
+			case "abandonedheli":
+				activeMissionList.Insert(new WR_AbandonedHeli("AbandonedHeli", getRandomMissionLocation({"AIWaypointBase"})));
+				break;
 			case "convoy":
 				activeMissionList.Insert(new WR_ConvoyMission("Convoy", getRandomMissionLocation({"AIWaypoint"})));	//Mission location get overriden immediately anyways
 				break;
@@ -86,7 +98,9 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 		WR_WeightedItemArray<string> missionWeights = new WR_WeightedItemArray<string>();
 		missionWeights.AddItem(geocacheMissionWeight, "geocache");
 		missionWeights.AddItem(captureBaseMissionWeight, "capturebase");
+		missionWeights.AddItem(captureHeliMissionWeight, "captureheli");
 		missionWeights.AddItem(convoyMissionWeight, "convoy");
+		missionWeights.AddItem(abandonedHeliMissionWeight, "abandonedheli");
 		missionWeights.AddItem(regularMissionWeight, "regular");
 		return missionWeights.GetRandomItem();
 	}

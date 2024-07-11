@@ -15,8 +15,8 @@ class WR_Mission
 		missionEntityList = {};
 		
 		//Send out notification to server
-		//SCR_NotificationsComponent.SendToEveryone(ENotification.WR_MISSION_CREATED);
-		//AudioSystem.PlaySound("{06C02AFB2CA882EB}Sounds/UI/Samples/Menu/UI_Task_Created.wav");
+		SCR_NotificationsComponent.SendToEveryone(ENotification.WR_MISSION_CREATED);
+		AudioSystem.PlaySound("{06C02AFB2CA882EB}Sounds/UI/Samples/Menu/UI_Task_Created.wav");
 		
 		SCR_HintManagerComponent.ShowCustomHint("Hint Body", "Hint Title", 10);
 	}

@@ -1,5 +1,6 @@
 GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
  ID "5282DCB5DFC8538F"
+ coords 1738.075 39 2865.039
  {
   GenericEntity {
    ID "5D1ED93EDDB90264"

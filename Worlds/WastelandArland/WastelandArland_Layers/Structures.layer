@@ -8784,7 +8784,7 @@ SCR_DestructibleBuildingEntity : "{87D032F62D9FF82F}Prefabs/Structures/Houses/Fa
  angleY 99.603
 }
 StaticModelEntity : "{8A31FBB992F930E4}Prefabs/Structures/Agriculture/Manure/ManurePile_01.et" {
- coords 1633.42 0.349 889.795
+ coords 1633.264 0.022 888.824
 }
 SCR_DestructibleBuildingEntity : "{92AC652FED0FC35A}Prefabs/Structures/Houses/Village/House_Village_E_1I02/House_Village_E_1I02_white.et" {
  coords 1591.761 0.392 931.295
@@ -8926,7 +8926,7 @@ $grp GenericEntity : "{CCB969FC21B21EC8}PrefabsEditable/Auto/Props/Forest/WoodPi
 }
 $grp SCR_DestructibleBuildingEntity : "{CD370ECB385DE67A}Prefabs/Structures/Houses/Farm/FarmHouse_E_1L01/FarmHouse_E_1L01.et" {
  {
-  coords 1641.761 -0.085 873.43
+  coords 1641.761 0.121 873.43
   angleY 94.682
  }
  {

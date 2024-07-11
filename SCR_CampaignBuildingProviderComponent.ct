@@ -3,13 +3,13 @@ SCR_CampaignBuildingProviderComponent {
  m_bUserActionActivationOnly 1
  m_fBuildingRadius 35
  m_aBudgetsToEvaluate {
-  SCR_CampaignBuildingBudgetToEvaluateData "{61C655BBB8250E14}" {
+  SCR_CampaignBuildingBudgetToEvaluateData "{61D4FA8D6AF5FD42}" {
    m_eBudget CAMPAIGN
   }
-  SCR_CampaignBuildingRankBudgetToEvaluateData "{61C655BBB8250E6F}" {
+  SCR_CampaignBuildingRankBudgetToEvaluateData "{61D4FA8D6AF5FD5E}" {
    m_eBudget RANK_CORPORAL
   }
-  SCR_CampaignBuildingRankBudgetToEvaluateData "{61C655BBB8250E72}" {
+  SCR_CampaignBuildingRankBudgetToEvaluateData "{61D4FA8D6AF5FD50}" {
    m_eBudget RANK_SERGEANT
   }
  }
