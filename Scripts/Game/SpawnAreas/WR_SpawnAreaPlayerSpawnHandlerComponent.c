@@ -98,24 +98,16 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 
 	static SCR_FreeSpawnData GetSpawnData(string factionKey)
 	{
-//		PlayerController playerController = GetGame().GetPlayerController();
-//		IEntity originalPlayerEntity = playerController.GetControlledEntity();
-//		
-//		SCR_RespawnComponent respawnComponent = SCR_RespawnComponent.Cast(playerController.GetRespawnComponent());
-//		if (!respawnComponent) return null;
-		
-		//Dynamic Character Prefab Selection
-		ResourceName characterPrefab;
-		SCR_ChimeraCharacter playerChar = SCR_ChimeraCharacter.Cast(originalPlayerEntity);
-		switch (playerChar.GetFactionKey()) {
+		ResourceName characterPrefabName;
+		switch (factionKey) {
 			case "US":
-				characterPrefab = "{B39F86B378284BFC}Prefabs/Characters/Factions/BLUFOR/US_Army/WR_Character_US_Base.et";
+				characterPrefabName = "{B39F86B378284BFC}Prefabs/Characters/Factions/BLUFOR/US_Army/WR_Character_US_Base.et";
 				break;
 			case "USSR":
-				characterPrefab = "{8449DECFA1B5831F}Prefabs/Characters/Factions/OPFOR/USSR_Army/WR_Character_USSR_Base.et";
+				characterPrefabName = "{8449DECFA1B5831F}Prefabs/Characters/Factions/OPFOR/USSR_Army/WR_Character_USSR_Base.et";
 				break;
 			case "CIV":
-				characterPrefab = "{CEE7531F4FBAEB38}Prefabs/Characters/Factions/CIV/Dockworker/WR_Character_CIV_Base.et";
+				characterPrefabName = "{CEE7531F4FBAEB38}Prefabs/Characters/Factions/CIV/Dockworker/WR_Character_CIV_Base.et";
 				break;
 			default:
 				Print("[WR_SpawnAreaPlayerSpawnHandlerComponent] Unknown Faction Key!", LogLevel.ERROR);
