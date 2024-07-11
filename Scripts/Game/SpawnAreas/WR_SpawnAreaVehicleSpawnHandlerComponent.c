@@ -81,7 +81,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			
 			IEntity vehicle = GetGame().SpawnEntityPrefab(vehResourceName, false, GetGame().GetWorld(), spawnParams);
 			vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
-			
+				
 			// Get vehicle inventory components
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
 			auto inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));

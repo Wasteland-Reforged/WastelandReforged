@@ -1,0 +1,10 @@
+GenericEntity : "{11037F1D2CCE0ED7}Prefabs/Vehicles/Wheeled/Ural4320/VehParts/Ural4320_engineer_box.et" {
+ ID "4B42E71698F5739C"
+ components {
+  SCR_CampaignBuildingProviderComponent "{5DF54421B01A7FF8}" {
+   m_aAvailableTraits +{
+   }
+  }
+ }
+ coords 54.647 1 186.069
+}

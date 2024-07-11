@@ -1,0 +1,131 @@
+$grp GenericEntity : "{934A3C3A870634DC}PrefabsEditable/System/E_Comment.et" {
+ AIWaypoint1 {
+  coords 1386.418 39.323 2245.261
+ }
+ AIWaypoint2 {
+  coords 1075.55 37.917 2904.659
+ }
+ AIWaypoint3 {
+  coords 1355.099 38 2917.602
+ }
+ AIWaypointBase1 {
+  coords 1593.828 39.729 2465.326
+ }
+ AIWaypointBase2 {
+  coords 1309.206 39 2201.736
+ }
+ AIWaypointBase3 {
+  coords 1349.572 38.859 2818.622
+ }
+ AIWaypointBase4 {
+  coords 2126.067 50.243 2755.814
+ }
+ AIWaypointBase5 {
+  coords 2121.568 53.649 2952.998
+ }
+ AIWaypointBase6 {
+  coords 3275.24 40.833 2478.216
+ }
+ AIWaypointBase7 {
+  coords 2926.985 43.54 2490.502
+ }
+ AIWaypointBase8 {
+  coords 2829.545 62.797 2031.93
+ }
+ AIWaypointBase9 {
+  coords 2748.071 67.639 1902.453
+ }
+ AIWaypointBase10 {
+  coords 2556.214 88.219 1830.199
+ }
+ AIWaypointBase11 {
+  coords 2929.32 66.244 1738.565
+ }
+ AIWaypointBase12 {
+  coords 3088.809 59.612 1806.591
+ }
+ AIWaypointBase13 {
+  coords 2814.007 32.635 1335.184
+ }
+ AIWaypointBase14 {
+  coords 2270.434 76.616 1143.963
+ }
+ AIWaypoint4 {
+  coords 3268.217 2.18 2874.249
+ }
+ AIWaypoint5 {
+  coords 3468.968 39.822 2592.39
+ }
+ AIWaypoint6 {
+  coords 3237.299 4.453 1228.044
+ }
+ AIWaypoint7 {
+  coords 2601.814 111.075 2495.402
+ }
+ AIWaypoint8 {
+  coords 2638.276 17.556 3126.982
+ }
+ AIWaypoint9 {
+  coords 3049.281 2.754 3197.537
+ }
+ AIWaypoint10 {
+  coords 1828.602 50.629 1089.061
+ }
+ AIWaypointBase15 {
+  coords 3174.287 32.493 2010.516
+ }
+ AIWaypoint11 {
+  coords 930.211 6.565 3506.953
+ }
+ AIWaypoint12 {
+  coords 2004.418 10.502 1861.139
+ }
+ AIWaypointBase16 {
+  coords 1858.847 26.804 1937.821
+ }
+ AIWaypointConvoy1 {
+  coords 1458.145 36.125 2287.141
+ }
+ AIWaypointConvoy2 {
+  coords 1632.16 7.654 1991.365
+ }
+ AIWaypointConvoy3 {
+  coords 1863.038 29.593 1990.691
+ }
+ AIWaypointConvoy4 {
+  coords 2360.092 63.558 1668.568
+ }
+ AIWaypointConvoy5 {
+  coords 1948.567 15.875 1451.434
+ }
+ AIWaypointConvoy6 {
+  coords 1976.601 59.381 1249.827
+ }
+ AIWaypointConvoy7 {
+  coords 2534.5 76.02 1712.779
+ }
+ AIWaypointConvoy8 {
+  coords 2673.466 77.366 1698.923
+ }
+ AIWaypointConvoy9 {
+  coords 3160.275 11.468 2779.932
+ }
+ AIWaypointConvoy10 {
+  coords 2647.939 19.617 3100.687
+ }
+ AIWaypointConvoy11 {
+  coords 1702.28 18.058 3388.153
+ }
+ AIWaypointConvoy12 {
+  coords 1691.731 45.383 3158.238
+ }
+ AIWaypointConvoy13 {
+  coords 1184.853 36.563 2950.062
+ }
+ AIWaypointConvoy14 {
+  coords 1204.406 37.332 2640.622
+ }
+ AIWaypointConvoy15 {
+  coords 1294.043 39.001 2329.804
+ }
+}

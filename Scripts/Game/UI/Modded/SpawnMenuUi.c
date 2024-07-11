@@ -109,7 +109,7 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 	protected void RespawnPlayer()
 	{
 		vector respawnPos;
-		bool respawnSuccessful = WR_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
+		//bool respawnSuccessful = WR_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
 	}
 	
 	//------------------------------------------------------------------------------------------------

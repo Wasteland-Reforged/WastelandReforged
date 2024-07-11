@@ -1,0 +1,47 @@
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
+ SpawnArea_Beauregard {
+  coords 3108.757 -12.036 2761.699
+  SphereRadius 150
+  DrawShape 0
+  m_Name "Beauregard"
+ }
+ SpawnArea_Arleville {
+  coords 2786.313 11.503 1691.942
+  SphereRadius 150
+  DrawShape 0
+  m_Name "Arleville"
+ }
+ SpawnArea_Foxdale {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1690.33 -29.523 837.35
+  SphereRadius 150
+  DrawShape 0
+  m_Name "Foxdale"
+ }
+ SpawnArea_Norwich {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1976.935 3.516 3085.651
+  SphereRadius 100
+  DrawShape 0
+  m_Name "Norwich"
+ }
+ SpawnArea_Military {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1361.083 3.225 2368.671
+  SphereRadius 75
+  DrawShape 0
+  m_Name "Military"
+ }
+}

@@ -1,0 +1,39 @@
+GenericEntity {
+ ID "61C6483719AF540C"
+ components {
+  SCR_CampaignBuildingProviderComponent "{61C655BBD706F477}" : "{9B3C57876865DE66}Prefabs/BaseBuilding/SCR_CampaignBuildingProviderComponent.ct" {
+   m_bIsMasterProvider 1
+  }
+  SCR_ResourceComponent "{61C9509D727B3C8A}" : "{D81399A6EF08CFA9}SCR_ResourceComponent.ct" {
+  }
+  ActionsManagerComponent "{61C64836F0DADDA9}" {
+   ActionContexts {
+    UserActionContext "{5DE2DEF320BD8480}" {
+     UIInfo SCR_ActionContextUIInfo "{61C648306BEB0E24}" {
+     }
+     ContextName "cargo"
+     Position PointInfo "{61C655BB0C785CEA}" {
+      Offset 0 1 -2.5
+     }
+     Radius 0.5
+    }
+   }
+   additionalActions {
+    SCR_CampaignBuildingStartUserAction "{61C648370D70BE5D}" {
+     ParentContextList {
+      "cargo"
+     }
+     UIInfo SCR_ActionContextUIInfo "{61C655BB3C2A6D41}" {
+      Name "#AR-Campaign_Action_ShowBuildPreview-UC"
+     }
+     Duration 0.7
+    }
+   }
+  }
+  RplComponent "{61C6483248150111}" {
+  }
+  Hierarchy "{61C6483256DF0C6C}" {
+  }
+ }
+ coords 115.001 1.457 106.931
+}

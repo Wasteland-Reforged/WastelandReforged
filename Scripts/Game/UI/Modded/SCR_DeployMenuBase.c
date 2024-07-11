@@ -47,11 +47,13 @@ modded class SCR_DeployMenuMain
 //			Debug.Error("No player loadout assigned!");
 //			return;
 //		}
+		
+		string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
 
 		m_fCurrentDeployTimeOut = DEPLOY_TIME_OUT;
 		
 		//SCR_SpawnPointSpawnData rspData = new SCR_SpawnPointSpawnData(resourcePrefab, m_iSelectedSpawnPointId);
-		SCR_FreeSpawnData rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData();
+		SCR_FreeSpawnData rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey);
 		if (rspData)
 			m_SpawnRequestManager.RequestSpawn(rspData);
 	}

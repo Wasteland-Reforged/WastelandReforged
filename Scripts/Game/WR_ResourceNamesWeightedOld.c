@@ -106,11 +106,8 @@ class WR_ResourceNamesWeightedOld
 
 		// Ural 4320 (Russian transport truck)
 		array<ResourceName> uralTransportMilitary = {
-			"{16C1F16C9B053801}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport.et",
 			"{D9B91FAB817A6033}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport_covered.et",
-			"{16E32C3ABEAFC2C6}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_transport.et",
 			"{B70E6D12A8EC2410}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_transport_covered.et"
-
 		};
 		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, uralTransportMilitary);
 
@@ -122,26 +119,24 @@ class WR_ResourceNamesWeightedOld
 			"{34178E3A92776DA6}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_repair_FIA.et",
 			"{DC1C2350CF665F9E}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_tanker.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, uralUtilityMilitary);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(4.0, uralUtilityMilitary);
 
 		array<ResourceName> uralTransportCiv = {
 			"{F66EAD0D2016B6BA}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport_covered_CIV_blue.et",
 			"{66241E0CEDFCEDFF}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport_covered_CIV_orange.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, uralTransportCiv);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(30.0, uralTransportCiv);
 
 		array<ResourceName> uralUtilityCiv = {
 			"{4A59DAEFE645E8A0}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_tanker_CIV_orange.et",
 			"{B3C8EC88E7782C78}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_tanker_CIV_pohona.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, uralUtilityCiv);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(4.0, uralUtilityCiv);
 
 		// M923A1 (American transport truck)
 		array<ResourceName> m923a1Transport = {
-			"{F1FBD0972FA5FE09}Prefabs/Vehicles/Wheeled/M923A1/M923A1_transport.et",
 			"{81FDAD5EB644CC3D}Prefabs/Vehicles/Wheeled/M923A1/M923A1_transport_covered.et",
-			"{3F2AA823B6C65E1E}Prefabs/Vehicles/Wheeled/M923A1/M923A1_transport_MERDC.et",
-			"{04BDACC0BB83284E}Prefabs/Vehicles/Wheeled/M923A1/M923A1_transport_covered_MERDC.et",
+			"{04BDACC0BB83284E}Prefabs/Vehicles/Wheeled/M923A1/M923A1_transport_covered_MERDC.et"
 		};
 		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, m923a1Transport);
 
@@ -153,7 +148,7 @@ class WR_ResourceNamesWeightedOld
 			"{C8656AECF5DF41D9}Prefabs/Vehicles/Wheeled/M923A1/M923A1_repair_MERDC.et",
 			"{26013123314183EA}Prefabs/Vehicles/Wheeled/M923A1/M923A1_tanker_MERDC.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, m923a1Utility);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(4.0, m923a1Utility);
 
 
 		//// Armed vehicles ////

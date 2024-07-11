@@ -1,0 +1,44 @@
+SCR_BaseGameMode GameMode_Base1 : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+ components {
+  SCR_CampaignBuildingManagerComponent "{61CAE96D304E606D}" {
+   m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
+   m_BudgetType CAMPAIGN
+   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{61CAE96D040627F9}" {
+    m_sSlotFlatSmallLayout "{7FD4E6A668B4537A}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFLatSmall.et"
+    m_sSlotFlatMediumLayout "{579FF731013436B5}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatMedium.et"
+    m_sSlotFlatLargeLayout "{ED9D7F29497B9BF7}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatLarge.et"
+    m_sSlotRoadSmallLayout "{8DBA7E7BF662A393}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadSmall.et"
+    m_sSlotRoadMediumLayout "{3A5E87ADA26C6940}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadMedium.et"
+    m_sSlotRoadLargeLayout "{D06D9D47008E794F}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadLarge.et"
+   }
+   m_sPrefabsToBuildResource "{D2527D9AA5B4A33E}Configs/Editor/PlaceableEntities/Compositions/Compositions_FreeRoamBuilding.conf"
+  }
+  WR_SpawnAreaControllerComponent "{61CAE96DEB8F2F1D}" {
+  }
+ }
+ coords 167.43 1 40.376
+}
+SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
+ coords 174.139 1 38.523
+}
+WR_SpawnAreaEntity SpawnArea_StPhillipe : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
+ components {
+  WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   vehiclesFlatRate 8
+  }
+ }
+ coords 124.134 -2.496 134.163
+ SphereRadius 25
+}
+Vehicle UH1H1 : "{70BAEEFC2D3FEE64}Prefabs/Vehicles/Helicopters/UH1H/UH1H.et" {
+ coords 189.561 1 113.467
+}
+GenericEntity : "{760BD4105816358C}Prefabs/Compositions/Slotted/SlotFlatMedium/FieldHospital_M_FIA_01.et" {
+ coords 125.091 1 176.559
+}
+Vehicle Ural4320_FIA_transport_covered1 : "{B70E6D12A8EC2410}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_transport_covered.et" {
+ coords 134.953 1 183.613
+}
+Vehicle Mi8MT_unarmed_transport1 : "{DF5CCB7C0FF049F4}Prefabs/Vehicles/Helicopters/Mi8MT/Mi8MT_unarmed_transport.et" {
+ coords 165.507 1 121.87
+}
