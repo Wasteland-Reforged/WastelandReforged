@@ -31,7 +31,9 @@ class WR_Utils
 	\return True if position was found
 	*/
 	static bool TryGetSafePos(out vector safePos, vector centerPos, float radiusToSelectPointsWithin, float radiusToCheckAroundInitiallySelectedPos, float xzPaddingRadius = 0.5, float yPaddingDistance = 2)
-	{			
+	{					
+		// TODO: The code in this function is very repetitive and needs to be refactored.
+		
 		vector posToCheck = WR_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
 		
 		// Calculate safe pos
@@ -39,6 +41,9 @@ class WR_Utils
 		bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
 
 		// Check if selected position is underwater
+		// TODO: This does not account for points in terrain that dip below sea level.
+		// I'm not sure if it's possible to have terrain like that in Enfusion, but it
+		// would be worth improving this logic if it is.
 		bool isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
 		
 		// If it is, try to find another empty position.
@@ -49,7 +54,15 @@ class WR_Utils
 			isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
 		}
 		
-		//selectedPos[1] = selectedPos[1] + 2; // Add a constant to y component to prevent vehicles spawning underground
+		// If selected position is too far above ground, find another one
+		float maxAllowedHeightAboveGround = 2.0;
+		bool isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
+		while (isPosUnderWater)
+		{
+			posToCheck = WR_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
+			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
+			isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
+		}
 		
 		safePos = selectedPos;
 		return foundSafePos;
@@ -67,7 +80,7 @@ class WR_Utils
 		}
 		
 		// If not in map, find the resource name
-		// TODO: There's gotta be a more efficient way of doing this. Will figure it out later.
+		// TODO: There's gotta be a more efficient way of getting a weapon's default/compatible magazines. Will figure it out later.
 		Resource resource = Resource.Load(weaponResourceName);
 		IEntity weaponEntity = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld());
 		WeaponComponent weaponComponent = WeaponComponent.Cast(weaponEntity.FindComponent(WeaponComponent));

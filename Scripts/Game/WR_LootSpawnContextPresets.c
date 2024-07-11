@@ -1,4 +1,4 @@
-// TODO: See if we can turn this class into a workbench config. If not, just have it read from a file somewhere.
+// TODO: See if this class can be turned into a workbench config. If not, eventually just have these values get read from a file somewhere.
 class WR_LootSpawnContextPresets
 {
     static WR_LootSpawnContext GetLootBoxContext()
