@@ -197,7 +197,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    Streamable Disabled
   }
  }
- coords 4400.008 1.605 11042.771
+ coords 4400.008 1.868 11042.771
 }
 SCR_FactionManager FactionManager : "{A242612865F2A48E}Prefabs/MP/Managers/Factions/FactionManager_Base.et" {
  coords 4403.627 1.651 11048.855
@@ -235,10 +235,9 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
  WeatherParameters "{0ADCC05C873A9F29}Terrains/Common/WeatherPresets/WR_WeatherParameters.conf"
  "Day Duration" 10800
  "UTC TimeZone" 6
- "Initial Day Time" 11.139
- Year 2024
- "Month of the Year" 7
- "Day of the Month" 5
+ "Initial Day Time" 8
+ "Month of the Year" 6
+ "Day of the Month" 19
  "Internal variant transition" 0
  "Internal subvariant 0" 0
  "Internal subvariant 1" 0

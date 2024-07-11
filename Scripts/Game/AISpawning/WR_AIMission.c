@@ -35,6 +35,10 @@ class WR_AIMission : WR_Mission
 				groupPrefabName = "{6183140797E9A8EF}Prefabs/Groups/US/WR_AIGroupLarge.et";
 				spawnCaptureBase();
 				break;
+			case "CaptureHeli":
+				groupPrefabName = "{6183140797E9A8EF}Prefabs/Groups/US/WR_AIGroupLarge.et";
+				spawnArmedHeli();
+				break;
 			case "SniperSquad":
 				groupPrefabName = "{D807C7047E818488}Prefabs/Groups/BLUFOR/WR_AISniperTeam.et";
 				break;
@@ -132,6 +136,32 @@ class WR_AIMission : WR_Mission
 		missionEntityList.Insert(wreck);
 	}
 	
+	void spawnArmedHeli()
+	{
+		//Get list of prefabs of the possible vehicle wrecks
+		array<ResourceName> heliList = {
+			"{7BD282AF716ED639}Prefabs/Vehicles/Helicopters/Mi8MT/Mi8MT_armed.et",
+			"{DDDD9B51F1234DF3}Prefabs/Vehicles/Helicopters/UH1H/UH1H_armed.et"
+		};
+		
+		//Find sage position to spawn wreck
+		vector spawnPos;
+		bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(spawnPos, missionLocation, 25, 5, 5);
+		if (!foundSafePos) {
+			Print("[WR_AIMission]: Could not find safe place to spawn heli");
+			return;
+		}
+		
+		//Load resource and generate spawn parameters
+		Resource resource = Resource.Load(heliList.GetRandomElement());
+		EntitySpawnParams params = GenerateSpawnParameters(missionLocation);
+		
+		//Spawn wreck and give it a random rotation
+		IEntity heli = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld(), params);
+		heli.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
+		missionEntityList.Insert(heli);
+	}
+	
 	void spawnCaptureBase()
 	{
 		array<ResourceName> baseList = {
@@ -173,7 +203,6 @@ class WR_AIMission : WR_Mission
 				spawnEquipmentCrates("Medical", 2, 10, 15);
 				break;
 			case "CaptureBase":
-				Print("On Empty Capture Base");
 				spawnEquipmentCrates("Regular", 1, 10, 15);
 				break;
 			default:

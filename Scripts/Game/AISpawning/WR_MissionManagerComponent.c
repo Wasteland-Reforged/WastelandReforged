@@ -22,6 +22,12 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Convoy missions", "0 10 1")]
 	protected float convoyMissionWeight;
 	
+	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Abandoned Heli missions", "0 10 1")]
+	protected float abandonedHeliMissionWeight;
+	
+	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Capture Heli missions", "0 10 1")]
+	protected float captureHeliMissionWeight;
+	
 	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of all other missions", "0 10 1")]
 	protected float regularMissionWeight;
 	
@@ -62,23 +68,29 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 		//Choose a random mission type, instantiate that mission object, and add it to the active mission list
 		switch(getRandomMissionType()) {
 			case "geocache":
-				activeMissionList.Insert(new WR_GeocacheMission("Geocache", getRandomMissionLocation("AIWaypoint")));
+				activeMissionList.Insert(new WR_GeocacheMission("Geocache", getRandomMissionLocation({"AIWaypoint"})));
 				break;
 			case "capturebase":
-				activeMissionList.Insert(new WR_AIMission("CaptureBase", getRandomMissionLocation("AIWaypointBase")));
+				activeMissionList.Insert(new WR_AIMission("CaptureBase", getRandomMissionLocation({"AIWaypointBase"})));
+				break;
+			case "captureheli":
+				activeMissionList.Insert(new WR_AIMission("CaptureHeli", getRandomMissionLocation({"AIWaypointBase"})));
+				break;
+			case "abandonedheli":
+				activeMissionList.Insert(new WR_AbandonedHeli("AbandonedHeli", getRandomMissionLocation({"AIWaypointBase"})));
 				break;
 			case "convoy":
-				activeMissionList.Insert(new WR_ConvoyMission("Convoy", getRandomMissionLocation("AIWaypoint")));	//Mission location get overriden immediately anyways
+				activeMissionList.Insert(new WR_ConvoyMission("Convoy", getRandomMissionLocation({"AIWaypoint"})));	//Mission location get overriden immediately anyways
 				break;
 			default:
-				activeMissionList.Insert(new WR_AIMission(getRandomRegularMission(), getRandomMissionLocation("AIWaypoint")));
+				activeMissionList.Insert(new WR_AIMission(getRandomRegularMission(), getRandomMissionLocation({"AIWaypoint"})));
 		}
 	}
 	
 	protected void startInitialMissions()
 	{
 		//Create a new mission every X milliseconds until we have reached the max number of missions
-		int timeBetweenSpawns = 1000;
+		int timeBetweenSpawns = 3000;
 		for (int i = 0; i < maxActiveMissions; i++) {
 			GetGame().GetCallqueue().CallLater(startRandomMission, timeBetweenSpawns*i, false);
 		}
@@ -95,7 +107,9 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 		WR_WeightedItemArray<string> missionWeights = new WR_WeightedItemArray<string>();
 		missionWeights.AddItem(geocacheMissionWeight, "geocache");
 		missionWeights.AddItem(captureBaseMissionWeight, "capturebase");
+		missionWeights.AddItem(captureHeliMissionWeight, "captureheli");
 		missionWeights.AddItem(convoyMissionWeight, "convoy");
+		missionWeights.AddItem(abandonedHeliMissionWeight, "abandonedheli");
 		missionWeights.AddItem(regularMissionWeight, "regular");
 		return missionWeights.GetRandomItem();
 	}
@@ -111,19 +125,23 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 		return missionWeights.GetRandomItem();
 	}
 	
-	protected vector getRandomMissionLocation(string waypointType)
+	protected vector getRandomMissionLocation(array<string> waypointTypes)
 	{
 		array<vector> allLocations = {};
 		string locationName;
-		int locationNameCounter = 1;
+		int locationNameCounter;
 		
-		//Gather all locations by iterating over every comment entity with the name "AIWaypointX", and adding their origin location to the array
-		while (true) {
-			locationName = (waypointType + locationNameCounter);
-			IEntity newLocation = GetGame().GetWorld().FindEntityByName(locationName);
-			if (!newLocation) break;
-			allLocations.Insert(newLocation.GetOrigin());
-			locationNameCounter++;
+		foreach (string waypointType : waypointTypes) {
+			locationNameCounter = 1;
+			
+			//Gather all locations by iterating over every comment entity with the name "AIWaypointX", and adding their origin location to the array
+			while (true) {
+				locationName = (waypointType + locationNameCounter);
+				IEntity newLocation = GetGame().GetWorld().FindEntityByName(locationName);
+				if (!newLocation) break;
+				allLocations.Insert(newLocation.GetOrigin());
+				locationNameCounter++;
+			}
 		}
 		
 		//Remove all locations that belong to a mission that is currently active

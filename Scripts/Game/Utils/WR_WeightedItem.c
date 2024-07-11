@@ -57,7 +57,7 @@ class WR_WeightedItemArray<Class T>
 		WR_WeightedItem<T> weightedItem = GetRandomWeightedItem();
 		
 		// TODO: handle this potentially null value!
-		// if (!weightedItem) return null; // Can't return null for type T. Need to find the right way to handle this
+		// if (!weightedItem) return null; // Can't return null for type T. Need to find the right way to handle this in Enforce script.
 
 		return weightedItem.m_tItem;
     }

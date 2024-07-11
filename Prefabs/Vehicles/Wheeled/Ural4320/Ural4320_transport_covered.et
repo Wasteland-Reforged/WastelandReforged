@@ -1,0 +1,13 @@
+Vehicle : "{16C1F16C9B053801}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport.et" {
+ ID "BBCBA43A9778AE21"
+ components {
+  SlotManagerComponent "{55BCE45E438E4CFF}" {
+   Slots {
+    RegisteringComponentSlotInfo Cargo {
+     Prefab "{11037F1D2CCE0ED7}Prefabs/Vehicles/Wheeled/Ural4320/VehParts/Ural4320_engineer_box.et"
+    }
+   }
+  }
+ }
+ coords 136.321 1 190.759
+}

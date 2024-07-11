@@ -74,14 +74,14 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			if (!foundSafePos) continue;
 
 			// Spawn the vehicle
-			Resource resource = Resource.Load(vehicleResourceNames.GetRandomItem());
+			ResourceName vehResourceName = vehicleResourceNames.GetRandomItem();
 			
 			EntitySpawnParams spawnParams = new EntitySpawnParams();
 			spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
 			
-			IEntity vehicle = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld(), spawnParams);
+			IEntity vehicle = GetGame().SpawnEntityPrefab(vehResourceName, false, GetGame().GetWorld(), spawnParams);
 			vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
-			
+				
 			// Get vehicle inventory components
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
 			auto inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));

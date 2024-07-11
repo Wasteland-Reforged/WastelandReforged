@@ -157,18 +157,21 @@ $grp SCR_SpawnPoint : "{E7F4D5562F48DDE4}Prefabs/MP/Spawning/SpawnPoint_Base.et"
  {
   coords 110.969 333 198.255
   angleY 180
+  Flags 2097155
   m_fSpawnRadius 1
   m_sFaction "US"
  }
  {
   coords 111.422 333 198.236
   angleY 180
+  Flags 2097155
   m_fSpawnRadius 1
   m_sFaction "USSR"
  }
  {
   coords 111.185 333 197.98
   angleY 180
+  Flags 2097155
   m_fSpawnRadius 1
   m_sFaction "CIV"
  }

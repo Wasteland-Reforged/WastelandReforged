@@ -17,8 +17,10 @@ class WR_Mission
 		//Send out notification to server
 		SCR_NotificationsComponent.SendToEveryone(ENotification.WR_MISSION_CREATED);
 		AudioSystem.PlaySound("{06C02AFB2CA882EB}Sounds/UI/Samples/Menu/UI_Task_Created.wav");
+		
+		SCR_HintManagerComponent.ShowCustomHint("Hint Body", "Hint Title", 10);
 	}
-	
+
 	protected void createMissionMarker(int colorEntry, int iconEntry)
 	{
 		markerManager =  SCR_MapMarkerManagerComponent.GetInstance();
