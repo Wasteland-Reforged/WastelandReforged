@@ -4,23 +4,6 @@ class WR_Utils
 	private static ref map<ResourceName, int> Weapons;
 	
 	//------------------------------------------------------------------------------------------------
-	static vector GetRandomPointWithinCircle(vector center, float radius)
-	{
-		float randomDisplacement = Math.RandomFloat(0, radius);
-		vector randomDirection = GetRandomHorizontalDirectionAngles().AnglesToVector();
-		
-		return center + randomDisplacement * randomDirection;
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	static vector GetRandomPointOnCircle(vector center, float radius)
-	{
-		vector randomDirection = GetRandomHorizontalDirectionAngles().AnglesToVector();
-		
-		return center + radius * randomDirection;
-	}
-	
-	//------------------------------------------------------------------------------------------------
 	static vector GetRandomHorizontalDirectionAngles()
 	{
 		return Vector(Math.RandomFloat(0, 360), 0, 0);
@@ -42,14 +25,15 @@ class WR_Utils
 	{					
 		// TODO: The code in this function is very repetitive and needs to be refactored.
 		
-		vector posToCheck = WR_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
+		RandomGenerator gen = new RandomGenerator();
+		vector posToCheck = gen.GenerateRandomPointInRadius(0, radiusToCheckAroundInitiallySelectedPos, centerPos);
 		
 		// Calculate safe pos
 		vector selectedPos;
 		bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
 
 		// Check if selected position is underwater
-		// TODO: This does not account for points in terrain that dip below sea level.
+		// TODO - Paul: This does not account for points in terrain that dip below sea level.
 		// I'm not sure if it's possible to have terrain like that in Enfusion, but it
 		// would be worth improving this logic if it is.
 		bool isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
@@ -57,7 +41,7 @@ class WR_Utils
 		// If it is, try to find another empty position.
 		while (isPosUnderWater)
 		{
-			posToCheck = WR_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
+			posToCheck = gen.GenerateRandomPointInRadius(0, radiusToCheckAroundInitiallySelectedPos, centerPos);
 			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
 			isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
 		}
@@ -67,7 +51,7 @@ class WR_Utils
 		bool isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
 		while (isPosTooFarAboveGround)
 		{
-			posToCheck = WR_Utils.GetRandomPointWithinCircle(centerPos, radiusToSelectPointsWithin);
+			posToCheck = gen.GenerateRandomPointInRadius(0, radiusToCheckAroundInitiallySelectedPos, centerPos);
 			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
 			isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
 		}
