@@ -189,7 +189,7 @@ class WR_ResourceNamesWeightedOld
 			"{34178E3A92776DA6}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_repair_FIA.et",
 			"{DC1C2350CF665F9E}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_tanker.et"
 		};
-		CaptureVehiclesWeighted.AddItemsDistributedWeight(20.0, uralUtilityMilitary);
+		CaptureVehiclesWeighted.AddItemsDistributedWeight(0.0, uralUtilityMilitary);
 		
 		//M923A1 Utility
 		array<ResourceName> m923a1Utility = {
@@ -200,7 +200,7 @@ class WR_ResourceNamesWeightedOld
 			"{C8656AECF5DF41D9}Prefabs/Vehicles/Wheeled/M923A1/M923A1_repair_MERDC.et",
 			"{26013123314183EA}Prefabs/Vehicles/Wheeled/M923A1/M923A1_tanker_MERDC.et"
 		};
-		CaptureVehiclesWeighted.AddItemsDistributedWeight(20.0, m923a1Utility);
+		CaptureVehiclesWeighted.AddItemsDistributedWeight(0.0, m923a1Utility);
 		
 		// BTR-70 (Russian APC)
 		CaptureVehiclesWeighted.AddItem(2.0, "{C012BB3488BEA0C2}Prefabs/Vehicles/Wheeled/BTR70/BTR70.et");

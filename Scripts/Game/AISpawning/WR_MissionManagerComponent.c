@@ -28,12 +28,23 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Capture Heli missions", "0 10 1")]
 	protected float captureHeliMissionWeight;
 	
-	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of all other missions", "0 10 1")]
-	protected float regularMissionWeight;
+	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Capture Vehicle missions", "0 10 1")]
+	protected float captureVehicleMissionWeight;
+	
+	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Vehicle Wreck missions", "0 10 1")]
+	protected float vehicleWreckMissionWeight;
+	
+	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Heavy Weapons missions", "0 10 1")]
+	protected float heavyWeaponsMissionWeight;
+	
+	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Medical Supplies missions", "0 10 1")]
+	protected float medicalSuppliesMissionWeight;
+	
+	[Attribute("5", UIWidgets.Slider, "Weighted Spawn Chance of Sniper Squad missions", "0 10 1")]
+	protected float sniperSquadMissionWeight;
 	
 	protected int numActiveMissions, missionRespawnInMS, missionCheckInMS;
 	protected ref array<ref WR_Mission> activeMissionList;
-	protected ref WR_CastleMission castleMission;
 	
 	override void OnGameModeStart()
 	{
@@ -48,6 +59,15 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 		GetGame().GetCallqueue().CallLater(checkMissions, missionCheckInMS, true);
 		
 		//startCastleMission();
+	}
+	
+	protected void startInitialMissions()
+	{
+		//Create a new mission every X milliseconds until we have reached the max number of missions
+		int timeBetweenSpawns = 3000;
+		for (int i = 0; i < maxActiveMissions; i++) {
+			GetGame().GetCallqueue().CallLater(startRandomMission, timeBetweenSpawns*i, false);
+		}
 	}
 	
 	protected void checkMissions()
@@ -65,64 +85,36 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 	
 	protected void startRandomMission()
 	{
-		//Choose a random mission type, instantiate that mission object, and add it to the active mission list
-		switch(getRandomMissionType()) {
-			case "geocache":
-				activeMissionList.Insert(new WR_GeocacheMission("Geocache", getRandomMissionLocation({"AIWaypoint"})));
-				break;
-			case "capturebase":
-				activeMissionList.Insert(new WR_AIMission("CaptureBase", getRandomMissionLocation({"AIWaypointBase"})));
-				break;
-			case "captureheli":
-				activeMissionList.Insert(new WR_AIMission("CaptureHeli", getRandomMissionLocation({"AIWaypointBase"})));
-				break;
-			case "abandonedheli":
-				activeMissionList.Insert(new WR_AbandonedHeli("AbandonedHeli", getRandomMissionLocation({"AIWaypointBase"})));
-				break;
-			case "convoy":
-				activeMissionList.Insert(new WR_ConvoyMission("Convoy", getRandomMissionLocation({"AIWaypoint"})));	//Mission location get overriden immediately anyways
-				break;
-			default:
-				activeMissionList.Insert(new WR_AIMission(getRandomRegularMission(), getRandomMissionLocation({"AIWaypoint"})));
-		}
-	}
-	
-	protected void startInitialMissions()
-	{
-		//Create a new mission every X milliseconds until we have reached the max number of missions
-		int timeBetweenSpawns = 3000;
-		for (int i = 0; i < maxActiveMissions; i++) {
-			GetGame().GetCallqueue().CallLater(startRandomMission, timeBetweenSpawns*i, false);
-		}
-	}
-	
-	protected void startCastleMission()
-	{
-		IEntity castleWaypoint = GetGame().GetWorld().FindEntityByName("CastleDefenderWaypoint1");
-		castleMission = new WR_CastleMission("Fort Karl", castleWaypoint.GetOrigin());
-	}
-	
-	protected string getRandomMissionType()
-	{
 		WR_WeightedItemArray<string> missionWeights = new WR_WeightedItemArray<string>();
 		missionWeights.AddItem(geocacheMissionWeight, "geocache");
 		missionWeights.AddItem(captureBaseMissionWeight, "capturebase");
 		missionWeights.AddItem(captureHeliMissionWeight, "captureheli");
 		missionWeights.AddItem(convoyMissionWeight, "convoy");
 		missionWeights.AddItem(abandonedHeliMissionWeight, "abandonedheli");
-		missionWeights.AddItem(regularMissionWeight, "regular");
-		return missionWeights.GetRandomItem();
-	}
-	
-	protected string getRandomRegularMission()
-	{
-		WR_WeightedItemArray<string> missionWeights = new WR_WeightedItemArray<string>();
-		missionWeights.AddItem(5, "VehicleWreck");
-		missionWeights.AddItem(4, "CaptureVehicle");
-		missionWeights.AddItem(4, "MedicalSupplies");
-		missionWeights.AddItem(3, "SniperSquad");
-		missionWeights.AddItem(3, "HeavyWeapons");
-		return missionWeights.GetRandomItem();
+		missionWeights.AddItem(captureBaseMissionWeight, "capturevehicle");
+		missionWeights.AddItem(captureHeliMissionWeight, "vehiclewreck");
+		missionWeights.AddItem(convoyMissionWeight, "heavyweapons");
+		missionWeights.AddItem(abandonedHeliMissionWeight, "medicalsupplies");
+		missionWeights.AddItem(sniperSquadMissionWeight, "snipersquad");
+		
+		//Choose a random mission type, instantiate that mission object, and add it to the active mission list
+		string missionName = missionWeights.GetRandomItem();
+		switch(missionName) {
+			case "capturebase":
+				activeMissionList.Insert(new WR_Mission("capturebase", getRandomMissionLocation({"AIWaypointBase"})));
+				break;
+			case "captureheli":
+				activeMissionList.Insert(new WR_Mission("captureheli", getRandomMissionLocation({"AIWaypointBase"})));
+				break;
+			case "abandonedheli":
+				activeMissionList.Insert(new WR_Mission("abandonedheli", getRandomMissionLocation({"AIWaypointBase"})));
+				break;
+			case "convoy":
+				activeMissionList.Insert(new WR_ConvoyMission("convoy", getRandomMissionLocation({"AIWaypointConvoy"})));
+				break;
+			default:
+				activeMissionList.Insert(new WR_Mission(missionName, getRandomMissionLocation({"AIWaypoint"})));
+		}
 	}
 	
 	protected vector getRandomMissionLocation(array<string> waypointTypes)

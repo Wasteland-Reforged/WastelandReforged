@@ -84,48 +84,39 @@ $grp GenericEntity : "{934A3C3A870634DC}PrefabsEditable/System/E_Comment.et" {
   coords 1858.847 26.804 1937.821
  }
  AIWaypointConvoy1 {
-  coords 1458.145 36.125 2287.141
+  coords 1584.883 40.022 2681.846
  }
  AIWaypointConvoy2 {
-  coords 1632.16 7.654 1991.365
+  coords 1642.966 7.935 2007.87
  }
  AIWaypointConvoy3 {
-  coords 1863.038 29.593 1990.691
+  coords 1894.529 25.911 1954.479
  }
  AIWaypointConvoy4 {
-  coords 2360.092 63.558 1668.568
+  coords 2042.214 22.784 1551.268
  }
  AIWaypointConvoy5 {
-  coords 1948.567 15.875 1451.434
+  coords 1701.269 45.199 1096.519
  }
  AIWaypointConvoy6 {
-  coords 1976.601 59.381 1249.827
+  coords 1864.67 9.198 884.672
  }
  AIWaypointConvoy7 {
-  coords 2534.5 76.02 1712.779
+  coords 2722.026 5.344 924.775
  }
  AIWaypointConvoy8 {
-  coords 2673.466 77.366 1698.923
+  coords 3462.61 3.805 1476.946
  }
  AIWaypointConvoy9 {
-  coords 3160.275 11.468 2779.932
+  coords 3343.488 3.747 2068.179
  }
  AIWaypointConvoy10 {
-  coords 2647.939 19.617 3100.687
+  coords 3335.343 37.469 2535.979
  }
  AIWaypointConvoy11 {
-  coords 1702.28 18.058 3388.153
+  coords 2828.696 36.366 3177.45
  }
  AIWaypointConvoy12 {
-  coords 1691.731 45.383 3158.238
- }
- AIWaypointConvoy13 {
-  coords 1184.853 36.563 2950.062
- }
- AIWaypointConvoy14 {
-  coords 1204.406 37.332 2640.622
- }
- AIWaypointConvoy15 {
-  coords 1294.043 39.001 2329.804
+  coords 1721.438 17.599 3400.803
  }
 }
