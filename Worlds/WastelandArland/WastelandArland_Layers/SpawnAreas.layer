@@ -1,47 +1,93 @@
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  SpawnArea_Beauregard {
-  coords 3108.757 -12.036 2761.699
-  SphereRadius 150
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 250
+    vehiclesFlatRate 12
+   }
+  }
+  coords 3138.043 11.594 2785.487
+  SphereRadius 175
   DrawShape 0
   m_Name "Beauregard"
  }
  SpawnArea_Arleville {
-  coords 2786.313 11.503 1691.942
-  SphereRadius 150
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 250
+    vehiclesFlatRate 12
+   }
+  }
+  coords 2757.651 77.281 1648.436
+  SphereRadius 140
   DrawShape 0
   m_Name "Arleville"
  }
- SpawnArea_Foxdale {
+ SpawnArea_Foxdale_Players {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
-    vehiclesFlatRate 4
+    Enabled 0
+    vehiclesPerSqKm 250
+    vehiclesFlatRate 12
    }
   }
-  coords 1690.33 -29.523 837.35
-  SphereRadius 150
+  coords 1703.784 0.928 827.63
+  SphereRadius 175
   DrawShape 0
   m_Name "Foxdale"
  }
  SpawnArea_Norwich {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
-    vehiclesFlatRate 4
+    vehiclesPerSqKm 250
+    vehiclesFlatRate 12
    }
   }
-  coords 1976.935 3.516 3085.651
-  SphereRadius 100
+  coords 1946.853 51.01 3097.615
+  SphereRadius 125
   DrawShape 0
   m_Name "Norwich"
  }
  SpawnArea_Military {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
-    vehiclesFlatRate 4
+    vehiclesPerSqKm 250
+    vehiclesFlatRate 12
    }
   }
-  coords 1361.083 3.225 2368.671
-  SphereRadius 75
+  coords 1371.327 36.385 2374.652
+  SphereRadius 100
   DrawShape 0
   m_Name "Military"
+ }
+ SpawnArea_Foxdale_Vehicles {
+  components {
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 250
+    vehiclesFlatRate 6
+   }
+  }
+  coords 1647.831 3.944 912.29
+  SphereRadius 75
+  DrawShape 0
+  m_Name "Foxdale 1"
+ }
+ SpawnArea_Foxdale_Vehicles2 {
+  components {
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 250
+    vehiclesFlatRate 6
+   }
+  }
+  coords 1761.333 5.06 895.104
+  SphereRadius 75
+  DrawShape 0
+  m_Name "Foxdale 2"
  }
 }
