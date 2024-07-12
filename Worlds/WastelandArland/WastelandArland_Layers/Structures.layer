@@ -358,7 +358,7 @@ $grp SplineShapeEntity {
     Position -38.59 0.166 20.302
    }
    ShapePoint "{61D805DFF0BD11A9}" {
-    Position -51.521 0 5.877
+    Position -53.889 0 -4.56
    }
   }
   {
@@ -381,7 +381,7 @@ $grp SplineShapeEntity {
         Position -38.59 0.166 20.302
        }
        ShapePoint "{61D805DFF0BE7F3D}" {
-        Position -51.521 0 5.877
+        Position -53.889 0 -4.56
        }
       }
       IsClosedSpline 0
@@ -8629,6 +8629,49 @@ $grp SplineShapeEntity {
      SCR_DestructibleEntity : "{9A7FC9D9A8206B74}Prefabs/Structures/Walls/Stone/StoneWall_01/StoneWall_01_start.et" {
       coords -0.001 -0.13 -1.104
       angleY -166.35
+     }
+    }
+   }
+  }
+ }
+ {
+  coords 1906.644 52.282 3079.365
+  Points {
+   ShapePoint "{61D90781A0478302}" {
+    Position -4.978 0.336 2.84
+   }
+   ShapePoint "{61D9078153DBA48B}" {
+    Position 1.609 -0.092 -0.273
+   }
+   ShapePoint "{61D90781A0464E1B}" {
+    Position 6.056 -0.304 -1.664
+   }
+   ShapePoint "{61D907819E167728}" {
+    Position 12.95 -0.551 0.639
+   }
+  }
+  {
+   RoadGeneratorEntity : "{8E83BBD5CEC42A11}Prefabs/WEGenerators/Roads/Dirt/RG_Road_Dirt_01.et" {
+    coords 0 0 0
+    {
+     RoadEntity {
+      ID "523EAA80CAA6C6B5"
+      SplinePoints {
+       ShapePoint "{52346539D885C296}" {
+        Position -4.978 0.336 2.84
+       }
+       ShapePoint "{52346539D885C1A2}" {
+        Position 1.609 -0.092 -0.273
+       }
+       ShapePoint "{61D9078188744B9A}" {
+        Position 6.056 -0.304 -1.664
+       }
+       ShapePoint "{61D9078153DB8394}" {
+        Position 12.95 -0.551 0.639
+       }
+      }
+      IsClosedSpline 0
+      Width 4
      }
     }
    }

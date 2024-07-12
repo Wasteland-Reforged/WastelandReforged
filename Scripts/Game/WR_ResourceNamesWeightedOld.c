@@ -109,7 +109,7 @@ class WR_ResourceNamesWeightedOld
 			"{D9B91FAB817A6033}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport_covered.et",
 			"{B70E6D12A8EC2410}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_transport_covered.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, uralTransportMilitary);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(16.0, uralTransportMilitary);
 
 		array<ResourceName> uralUtilityMilitary = {
 			"{3336BE330C4F355B}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_ammo.et",
@@ -119,7 +119,7 @@ class WR_ResourceNamesWeightedOld
 			"{34178E3A92776DA6}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_repair_FIA.et",
 			"{DC1C2350CF665F9E}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_FIA_tanker.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(4.0, uralUtilityMilitary);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, uralUtilityMilitary);
 
 		array<ResourceName> uralTransportCiv = {
 			"{F66EAD0D2016B6BA}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport_covered_CIV_blue.et",
@@ -131,14 +131,14 @@ class WR_ResourceNamesWeightedOld
 			"{4A59DAEFE645E8A0}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_tanker_CIV_orange.et",
 			"{B3C8EC88E7782C78}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_tanker_CIV_pohona.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(4.0, uralUtilityCiv);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(8.0, uralUtilityCiv);
 
 		// M923A1 (American transport truck)
 		array<ResourceName> m923a1Transport = {
 			"{81FDAD5EB644CC3D}Prefabs/Vehicles/Wheeled/M923A1/M923A1_transport_covered.et",
 			"{04BDACC0BB83284E}Prefabs/Vehicles/Wheeled/M923A1/M923A1_transport_covered_MERDC.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, m923a1Transport);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(18.0, m923a1Transport);
 
 		array<ResourceName> m923a1Utility = {
 			"{92264FF932676C13}Prefabs/Vehicles/Wheeled/M923A1/M923A1_ammo.et",
@@ -148,28 +148,28 @@ class WR_ResourceNamesWeightedOld
 			"{C8656AECF5DF41D9}Prefabs/Vehicles/Wheeled/M923A1/M923A1_repair_MERDC.et",
 			"{26013123314183EA}Prefabs/Vehicles/Wheeled/M923A1/M923A1_tanker_MERDC.et"
 		};
-		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(4.0, m923a1Utility);
+		SpawnAreaVehiclesWeighted.AddItemsDistributedWeight(10.0, m923a1Utility);
 
 
 		//// Armed vehicles ////
 
 
 		// BTR-70 (Russian APC)
-		SpawnAreaVehiclesWeighted.AddItem(2.0, "{C012BB3488BEA0C2}Prefabs/Vehicles/Wheeled/BTR70/BTR70.et");
-		SpawnAreaVehiclesWeighted.AddItem(2.0, "{B47110AA1A806556}Prefabs/Vehicles/Wheeled/BTR70/BTR70_FIA.et");
+		SpawnAreaVehiclesWeighted.AddItem(5.0, "{C012BB3488BEA0C2}Prefabs/Vehicles/Wheeled/BTR70/BTR70.et");
+		SpawnAreaVehiclesWeighted.AddItem(5.0, "{B47110AA1A806556}Prefabs/Vehicles/Wheeled/BTR70/BTR70_FIA.et");
 
 		// UAZ 469 (Russian jeep)
-		SpawnAreaVehiclesWeighted.AddItem(5.0, "{0B4DEA8078B78A9B}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM.et");
-		SpawnAreaVehiclesWeighted.AddItem(5.0, "{22B327C6752EC4D4}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM_FIA.et");
-		SpawnAreaVehiclesWeighted.AddItem(7.5, "{E72D78E7F45532EC}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_UK59_FIA.et");
+		SpawnAreaVehiclesWeighted.AddItem(12.0, "{0B4DEA8078B78A9B}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM.et");
+		SpawnAreaVehiclesWeighted.AddItem(12.0, "{22B327C6752EC4D4}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM_FIA.et");
+		SpawnAreaVehiclesWeighted.AddItem(15.0, "{E72D78E7F45532EC}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_UK59_FIA.et");
 
 		// M1025 (Humvee)
-		SpawnAreaVehiclesWeighted.AddItem(3.0, "{3EA6F47D95867114}Prefabs/Vehicles/Wheeled/M998/M1025_armed_M2HB.et");
-		SpawnAreaVehiclesWeighted.AddItem(3.0, "{DD774A8FD0989A78}Prefabs/Vehicles/Wheeled/M998/M1025_armed_M2HB_MERDC.et");
+		SpawnAreaVehiclesWeighted.AddItem(7.0, "{3EA6F47D95867114}Prefabs/Vehicles/Wheeled/M998/M1025_armed_M2HB.et");
+		SpawnAreaVehiclesWeighted.AddItem(7.0, "{DD774A8FD0989A78}Prefabs/Vehicles/Wheeled/M998/M1025_armed_M2HB_MERDC.et");
 
 		// M151A2 (American jeep)
-		SpawnAreaVehiclesWeighted.AddItem(5.0, "{F6B23D17D5067C11}Prefabs/Vehicles/Wheeled/M151A2/M151A2_M2HB.et");
-		SpawnAreaVehiclesWeighted.AddItem(5.0, "{5168FEA3054D6D15}Prefabs/Vehicles/Wheeled/M151A2/M151A2_M2HB_MERDC.et");
+		SpawnAreaVehiclesWeighted.AddItem(10.0, "{F6B23D17D5067C11}Prefabs/Vehicles/Wheeled/M151A2/M151A2_M2HB.et");
+		SpawnAreaVehiclesWeighted.AddItem(10.0, "{5168FEA3054D6D15}Prefabs/Vehicles/Wheeled/M151A2/M151A2_M2HB_MERDC.et");
 
 		
 		return SpawnAreaVehiclesWeighted;

@@ -81,8 +81,6 @@ class WR_WeightedItemArray<Class T>
 	
 	private void RecalculateTotalWeight()
 	{
-		float m_totalItemWeight = 0;
-		
 		foreach (auto item : m_items)
 			m_totalItemWeight += item.m_fWeight;
 	}

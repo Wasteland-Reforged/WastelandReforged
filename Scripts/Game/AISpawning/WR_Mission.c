@@ -110,7 +110,7 @@ class WR_Mission
 				//Everything for this mission is handled in WR_ConvoyMission
 				break;
 			default:
-				Print("[WR_Mission]: Unrecognized mission name!");
+				Print("[WASTELAND] WR_Mission: Unrecognized mission name!", LogLevel.ERROR);
 		}
 	}
 	
@@ -131,7 +131,7 @@ class WR_Mission
 		vector spawnPos;
 		bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(spawnPos, missionLocation, 25, 5, 5);
 		if (!foundSafePos) {
-			Print("[WR_AIMission]: Could not find safe place to spawn wreck");
+			Print("[WASTELAND] WR_Mission: Unable to find safe position to spawn vehicle wreck!", LogLevel.ERROR);
 			return;
 		}
 		
@@ -194,14 +194,13 @@ class WR_Mission
 	
 		//Find a safe place to spawn box
 		vector spawnPos;
-		vector randomPoint = WR_Utils.GetRandomPointWithinCircle(missionLocation, 5);
-		bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(spawnPos, randomPoint, 35, 4, 4);
+		bool foundSafePos = WR_Utils.TryGetSafePos(spawnPos, missionLocation, 5, 5);
 		if (!foundSafePos) {
-			Print("[WR_AIMission]: Could not find safe place to spawn item");
+			Print("[WASTELAND] WR_Mission: Unable to find safe position to spawn mission reward!", LogLevel.ERROR);
 			return;
 		}
 			
-		Print("[WR_Mission]: Reward box of type " + lootBoxType + " being spawned at: " + spawnPos);
+		Print("[WASTELAND] WR_Mission: Spawning box of type " + lootBoxType + " at: " + spawnPos);
 			
 		//Load resource and generate spawn parameters
 		Resource resource = Resource.Load("{2E6EB383EEFDDC4F}Prefabs/Props/Military/Arsenal/ArsenalBoxes/US/WR_BigLootBox_US.et");
@@ -210,7 +209,7 @@ class WR_Mission
 		//Create box
 		IEntity box = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld(), params);
 		if (!box) {
-			Print("Box was not spawned!");
+			Print("[WASTELAND] WR_Mission: Mission reward was not spawned!", LogLevel.ERROR);
 		}
 			
 		//Setup inventory and fill it with random items taken from the loot context we selected earlier
@@ -255,7 +254,7 @@ class WR_Mission
 	
 	void clearMissionEntities()
 	{
-		Print("Clearing mission entities..");
+		Print("[WASTELAND] WR_Mission: Clearing mission entities...");
 		foreach (IEntity itemToClear : missionEntityList) {
 			SCR_EntityHelper.DeleteEntityAndChildren(itemToClear);
 		}
