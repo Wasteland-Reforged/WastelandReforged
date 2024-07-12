@@ -181,12 +181,16 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    m_SpawnLogic SCR_MenuSpawnLogic "{61A3204EF0E2117B}" {
    }
   }
+  SCR_TimeAndWeatherHandlerComponent "{61D805F9F5E6DB16}" {
+   m_fDayTimeAcceleration 6
+   m_fNightTimeAcceleration 12
+  }
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
    percentageLootBoxesToSpawn 1
   }
   WR_MissionManagerComponent "{61A6C3FDAD54B287}" {
-   maxActiveMissions 10
-   missionRespawnTimer 1
+   maxActiveMissions 3
+   missionRespawnTimer 5
    geocacheMissionWeight 2
    captureBaseMissionWeight 4
    convoyMissionWeight 3
@@ -202,36 +206,6 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   }
  }
  coords 4400.008 1.868 11042.771
-}
-SCR_FactionManager FactionManager : "{A242612865F2A48E}Prefabs/MP/Managers/Factions/FactionManager_Base.et" {
- coords 4403.627 1.651 11048.855
- Flags 2097152
- Factions {
-  SCR_Faction "{618569368AF59548}" : "{E7B7EA4823DD81F0}Configs/Factions/BLUFOR.conf" {
-   UIInfo SCR_FactionUIInfo "{618569362B043C55}" {
-    Name "BLUFOR"
-   }
-   m_sFactionFlag "{63B14DDAFE978612}Art/Icon/Faction/blufor.edds"
-  }
-  SCR_Faction "{618569366D4D3A8D}" : "{B122E3B10BB3404B}Configs/Factions/OPFOR.conf" {
-   UIInfo SCR_FactionUIInfo "{6185693631EF6478}" {
-    Name "OPFOR"
-   }
-   m_sFactionFlag "{988CDDA6B03FF507}Art/Icon/Faction/opfor.edds"
-  }
-  SCR_Faction "{618569366A454228}" : "{277AE7613D88A55B}Configs/Factions/INDFOR.conf" {
-   UIInfo SCR_FactionUIInfo "{61856936368FE6B7}" {
-    Name "INDFOR"
-   }
-   m_sFactionFlag "{A37C40F3E0C2A2B9}Art/Icon/Faction/indfor.edds"
-   m_sGroupFlagsImageSet "{301FC1A2A46D3E0D}UI/Textures/GroupManagement/FlagIcons/GroupFlagsIndfor.imageset"
-  }
-  SCR_Faction "{61A6C3D1A9728251}" {
-   FactionKey "US"
-   m_bIsPlayable 0
-   m_bShowInWelcomeScreenIfNonPlayable 0
-  }
- }
 }
 TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
  coords 4399.965 1.614 11043.354
@@ -249,11 +223,26 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
 RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
  coords 7114.537 74.093 6405.884
 }
-SCR_CampaignFactionManager CampaignFactionManager1 : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
+SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
  coords 1926.914 51.6 3080.659
  Factions {
+  SCR_CampaignFaction "{50B30C3AF4BFD934}" {
+   UIInfo SCR_FactionUIInfo "{528C96127F8B6B08}" {
+    Name "OPFOR"
+    m_sNameUpper "OPFOR"
+   }
+  }
+  SCR_CampaignFaction "{50B30C3ADB052C80}" {
+   UIInfo SCR_FactionUIInfo "{528C961236B7DCD3}" {
+    Name "BLUFOR"
+    m_sNameUpper "BLUFOR"
+   }
+  }
   SCR_Faction "{60DCF47AEF40BD72}" {
-   m_bIsPlayable 1
+   UIInfo SCR_FactionUIInfo "{56B49118D8D0A9C5}" {
+    Name "Independent"
+    m_sNameUpper "Independent"
+   }
    m_bIsMilitary 1
    m_bFriendlyToSelf 0
    m_aFriendlyFactionsIds {
