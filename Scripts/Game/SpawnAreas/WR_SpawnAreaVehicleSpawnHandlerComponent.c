@@ -52,7 +52,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		// Configure spawn position parameters
 		float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
-		float xzPaddingRadius = 15;		// Minimum radius of empty space to have around the chosen position
+		float xzPaddingRadius = 3;		// Minimum radius of empty space to have around the chosen position
 		float yPaddingDistance = 10; 		// Minimum distance of empty space to have above and below the chosen position 
 
 		// Get loot spawning context
