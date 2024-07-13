@@ -185,8 +185,63 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    m_fDayTimeAcceleration 6
    m_fNightTimeAcceleration 12
   }
+  SCR_WelcomeScreenComponent "{61D95A1AC290E806}" {
+   m_BaseLayout SCR_WelcomeScreenThreeHorizontalColumns "{61D95A1ABEEC0771}" {
+    m_LeftColumn SCR_WelcomeScreenFactionContent "{61D95A1AB6E14B29}" {
+     m_sTitleText "Available Factions"
+     m_sBottomTitleText "More factions"
+    }
+    m_MiddleColumn SCR_WelcomeScreenMissionObjectivesContent "{61D95A1A6E05BCD6}" {
+     m_sTitleText "Objectives"
+     m_aMissionObjectives {
+      SCR_WelcomeScreenMissionObjectives "{61D95A1A6C800903}" {
+       m_sObjectiveQuadName "Custom"
+       m_sDescription "Search vehicles to find weapons and equipment"
+      }
+      SCR_WelcomeScreenMissionObjectives "{61D95A0C6A0A115F}" {
+       m_sObjectiveQuadName "Seize"
+       m_sDescription "Complete missions to acquire better gear"
+      }
+      SCR_WelcomeScreenMissionObjectives "{61D95A0C6A4F7C0B}" {
+       m_sObjectiveQuadName "Defend"
+       m_sDescription "Build a base and defend your stash"
+      }
+      SCR_WelcomeScreenMissionObjectives "{61D95A0C9975B9DC}" {
+       m_sObjectiveQuadName "Sabotage"
+       m_sDescription "Rise to the top and rule the island"
+      }
+     }
+    }
+    m_RightColumn SCR_WelcomeScreenIntroductionContent "{61D95A032730D1FB}" {
+     m_bIsInteractible 1
+     m_sTitleText "Introduction"
+     m_aIntroduction {
+      SCR_WelcomeScreenIntroduction "{61D95A031FE7E425}" {
+       m_sContentImage "{F355C5692BEDC1E5}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_loadScreen_UI.edds"
+       m_sContentTitleText "What is Wasteland?"
+       m_sContentDescriptionText "Wasteland is a PvP sandbox gamemode."\
+       ""\
+       "Collect weapons, vehicles, and equipment to use in battle against other players. Gather supplies and build a base to store your loot."\
+       ""\
+       "With no specific end goal, compete with other players to claim mission rewards and become the dominant force."
+      }
+      SCR_WelcomeScreenIntroduction "{61D95A057B852C71}" {
+       m_sContentImage "{EFF804FB17026599}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_service_antenna_UI.edds"
+       m_sContentTitleText "What can I do in Wasteland?"
+       m_sContentDescriptionText "Wasteland is totally free-form. Players are free to play however they like."\
+       ""\
+       "Maybe you’ll establish a large fortress with your team as BLUFOR or OPFOR. Or, maybe you’ll go solo and be a thorn in the side of the larger factions as an Independent. Maybe you’ll set up a roadblock to ambush enemy players. Or, maybe you’ll go for every mission you can and hoard the weapons and gear you earn. "\
+       ""\
+       "It’s all possible in Wasteland. The choice is yours."\
+       ""
+      }
+     }
+    }
+   }
+  }
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
-   percentageLootBoxesToSpawn 1
+   minLootBoxItems 10
+   maxLootBoxItems 20
   }
   WR_MissionManagerComponent "{61A6C3FDAD54B287}" {
    maxActiveMissions 3
@@ -227,12 +282,21 @@ SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campai
     Name "OPFOR"
     m_sNameUpper "OPFOR"
    }
+   m_sFactionFlag "{71E3850AED91D5AE}opfor-saturated.edds"
   }
   SCR_CampaignFaction "{50B30C3ADB052C80}" {
    UIInfo SCR_FactionUIInfo "{528C961236B7DCD3}" {
     Name "BLUFOR"
     m_sNameUpper "BLUFOR"
    }
+   m_sFactionFlag "{11599C68893A71E3}blufor-saturated.edds"
+  }
+  SCR_CampaignFaction "{56F0C3A6336375DC}" {
+   UIInfo SCR_FactionUIInfo "{5570936866E0AD08}" {
+    Name "Independent"
+   }
+   m_bIsPlayable 1
+   m_sFactionFlag "{4A69586A3A1F7E6F}indfor-saturated.edds"
   }
   SCR_Faction "{60DCF47AEF40BD72}" {
    UIInfo SCR_FactionUIInfo "{56B49118D8D0A9C5}" {

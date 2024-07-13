@@ -1,8 +1,0 @@
-GameProject {
- ID "WastelandReforged"
- GUID "618D7DF5FAEB33F1"
- TITLE "WastelandReforged"
- Dependencies {
-  "58D0FB3206B6F859"
- }
-}

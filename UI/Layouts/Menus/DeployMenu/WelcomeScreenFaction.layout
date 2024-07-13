@@ -1,0 +1,13 @@
+HorizontalLayoutWidgetClass {
+ {
+  VerticalLayoutWidgetClass "{5CE2BA730F5D608B}" {
+   Prefab "{5CE2BA730F5D608B}"
+   {
+    ImageWidgetClass "{5CE2BA730F5D6088}" {
+     Prefab "{5CE2BA730F5D6088}"
+     Color 0.366 0.366 0.366 1
+    }
+   }
+  }
+ }
+}

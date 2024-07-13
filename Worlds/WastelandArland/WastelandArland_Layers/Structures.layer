@@ -8809,7 +8809,7 @@ SCR_DestructibleBuildingEntity : "{748640C90A664E29}Prefabs/Structures/Houses/Wo
  angleY -25.02
 }
 GenericEntity : "{75FEF1CA582431F3}Prefabs/Props/Wrecks/BTR70_wreck.et" {
- coords 1633.551 5.569 927.06
+ coords 1633.644 5.72 932.804
  angleX 4.463
  angleY -0.14
  angleZ -1.795
