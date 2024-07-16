@@ -26,7 +26,7 @@ class WR_Utils
 		// TODO: The code in this function is very repetitive and needs to be refactored.
 		
 		RandomGenerator gen = new RandomGenerator();
-		vector posToCheck = gen.GenerateRandomPointInRadius(0, radiusToCheckAroundInitiallySelectedPos, centerPos);
+		vector posToCheck = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
 		
 		// Calculate safe pos
 		vector selectedPos;
@@ -41,7 +41,7 @@ class WR_Utils
 		// If it is, try to find another empty position.
 		while (isPosUnderWater)
 		{
-			posToCheck = gen.GenerateRandomPointInRadius(0, radiusToCheckAroundInitiallySelectedPos, centerPos);
+			posToCheck = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
 			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
 			isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
 		}
@@ -51,7 +51,7 @@ class WR_Utils
 		bool isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
 		while (isPosTooFarAboveGround)
 		{
-			posToCheck = gen.GenerateRandomPointInRadius(0, radiusToCheckAroundInitiallySelectedPos, centerPos);
+			posToCheck = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
 			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
 			isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
 		}

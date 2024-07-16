@@ -7,11 +7,22 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 {
 	[Attribute(defvalue: "true", desc: "Spawn vehicles in spawn areas.")]
 	protected bool spawnVehicles;
+	protected IEntity _parent;
+	
+	override void OnPostInit(IEntity owner)
+	{
+		_parent = owner;
+	}
 	
 	override void OnGameModeStart()
 	{
-		if (spawnVehicles)
-			SpawnVehiclesInSpawnAreas();
+		BaseRplComponent rplComponent = BaseRplComponent.Cast(parent.FindComponent(BaseRplComponent));
+		
+		if (rplComponent.Role() == RplRole.Authority)
+		{
+			if (spawnVehicles)
+				SpawnVehiclesInSpawnAreas();			
+		}
 	}
 	
 	private void SpawnVehiclesInSpawnAreas()

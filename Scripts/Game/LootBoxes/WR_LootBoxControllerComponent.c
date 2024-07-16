@@ -16,18 +16,29 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 	[Attribute("15", UIWidgets.Slider, "Maximum number of items to spawn in a loot box", "0 20 1")]
 	protected float maxLootBoxItems;
 	
-	
+	protected SCR_BaseGameMode _parent;
+
 	override void OnPostInit(IEntity owner)
 	{
+		_parent = SCR_BaseGameMode.Cast(owner);
+		if (!_parent)
+		{
+			Print("[WASTELAND] Parent entity of WR_LootBoxControllerComponent must be a SCR_BaseGameMode!", LogLevel.ERROR);
+			return;
+		}
+
 		if (minLootBoxItems > maxLootBoxItems)
 		{
-			Print("[WASTELAND] Minimum amount of loot items must be smaller than maximum amount! Setting maximum to match minimum...");
+			Print("[WASTELAND] Minimum amount of loot items must be smaller than maximum amount! Setting maximum to match minimum...", LogLevel.WARNING);
 			maxLootBoxItems = minLootBoxItems;
 		}
 	}
 
 	override void OnGameModeStart()
 	{
+		BaseRplComponent rplComponent = BaseRplComponent.Cast(_parent.FindComponent(BaseRplComponent));
+		if (rplComponent.Role() != RplRole.Authority) return;
+
 		SpawnItemsInLootBoxes();
 	}
 	
