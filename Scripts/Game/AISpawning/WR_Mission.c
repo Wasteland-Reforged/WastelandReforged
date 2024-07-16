@@ -42,7 +42,7 @@ class WR_Mission
 		
 		parseMissionType();
 		
-		AudioSystem.PlaySound("{06C02AFB2CA882EB}Sounds/UI/Samples/Menu/UI_Task_Created.wav");	
+		//AudioSystem.PlaySound("{06C02AFB2CA882EB}Sounds/UI/Samples/Menu/UI_Task_Created.wav");	
 		SCR_HintManagerComponent.ShowCustomHint(("A new " + missionName + " mission has spawned!"), "New Mission Created", 3);
 	}
 	

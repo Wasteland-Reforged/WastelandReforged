@@ -204,7 +204,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
       }
       SCR_WelcomeScreenMissionObjectives "{61D95A0C6A4F7C0B}" {
        m_sObjectiveQuadName "Defend"
-       m_sDescription "Build a base and defend your stash"
+       m_sDescription "Construct a base and defend your stash"
       }
       SCR_WelcomeScreenMissionObjectives "{61D95A0C9975B9DC}" {
        m_sObjectiveQuadName "Sabotage"
@@ -232,8 +232,33 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
        ""\
        "Maybe you’ll establish a large fortress with your team as BLUFOR or OPFOR. Or, maybe you’ll go solo and be a thorn in the side of the larger factions as an Independent. Maybe you’ll set up a roadblock to ambush enemy players. Or, maybe you’ll go for every mission you can and hoard the weapons and gear you earn. "\
        ""\
-       "It’s all possible in Wasteland. The choice is yours."\
-       ""
+       "It’s all possible in Wasteland. The choice is yours."
+      }
+      SCR_WelcomeScreenIntroduction "{61DD76E902E823C4}" {
+       m_sContentImage "{CD6F257891AD02AB}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_service_barracks_UI.edds"
+       m_sContentTitleText "Factions"
+       m_sContentDescriptionText "BLUFOR and OPFOR — Team factions. Members are required to work together. Killing or griefing allies is prohibited when playing on either of these factions. The positions of allies are visible on the map at all times."\
+       ""\
+       "Independent — Free-for-all faction. Players may engage anyone in any faction, including other Independents. All other players’ positions are hidden on the map, unless they are members of the same group."
+      }
+      SCR_WelcomeScreenIntroduction "{61DE1D58F6317CA3}" {
+       m_sContentImage "{8F4B90379C37C647}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_ranks_UI.edds"
+       m_sContentTitleText "Gearing up"
+       m_sContentDescriptionText "When you spawn, you’ll find yourself in one of the towns on the island. First, you’ll want to look around for vehicles nearby. Weapons and equipment can be found in vehicle inventories. You’ll want to make sure you find a capable vehicle to get yourself around the map and transport whatever loot you gather."
+      }
+      SCR_WelcomeScreenIntroduction "{61DE1954A137F713}" {
+       m_sContentImage "{AC37AA3EE3DB4853}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_service_encapment_UI.edds"
+       m_sContentTitleText "Missions"
+       m_sContentDescriptionText "A random selection of missions are regularly available around the island. They offer valuable rewards, but are usually guarded by a squad of NPCs. Rewards range from crates full of weapons to armored vehicles or bases full of supplies."\
+       ""\
+       "Be careful: locations of missions are always marked on every player’s map, so getting away with the spoils can get competitive."
+      }
+      SCR_WelcomeScreenIntroduction "{61DE19549EBC324B}" {
+       m_sContentImage "{93DA5875BC0B827E}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_building_interface_previews_UI.edds"
+       m_sContentTitleText "Base building"
+       m_sContentDescriptionText "Base building is currently available in Wasteland using Construction Trucks. Find one, load it up with supplies, then construct a base anywhere in the world."\
+       ""\
+       "See ‘Free Roam Building’ in the ‘Conflict’ section of the Field Manual for more information on how to build bases."
       }
      }
     }
@@ -276,27 +301,29 @@ RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.
 }
 SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
  coords 1926.914 51.6 3080.659
+ scale 0.005
  Factions {
   SCR_CampaignFaction "{50B30C3AF4BFD934}" {
    UIInfo SCR_FactionUIInfo "{528C96127F8B6B08}" {
     Name "OPFOR"
     m_sNameUpper "OPFOR"
    }
-   m_sFactionFlag "{71E3850AED91D5AE}opfor-saturated.edds"
+   m_sFactionFlag "{71E3850AED91D5AE}Art/Flags/opfor-saturated.edds"
   }
   SCR_CampaignFaction "{50B30C3ADB052C80}" {
    UIInfo SCR_FactionUIInfo "{528C961236B7DCD3}" {
     Name "BLUFOR"
     m_sNameUpper "BLUFOR"
    }
-   m_sFactionFlag "{11599C68893A71E3}blufor-saturated.edds"
+   m_sFactionFlag "{11599C68893A71E3}Art/Flags/blufor-saturated.edds"
   }
   SCR_CampaignFaction "{56F0C3A6336375DC}" {
    UIInfo SCR_FactionUIInfo "{5570936866E0AD08}" {
     Name "Independent"
    }
    m_bIsPlayable 1
-   m_sFactionFlag "{4A69586A3A1F7E6F}indfor-saturated.edds"
+   m_sFactionFlag "{4A69586A3A1F7E6F}Art/Flags/indfor-saturated.edds"
+   m_bFriendlyToSelf 0
   }
   SCR_Faction "{60DCF47AEF40BD72}" {
    UIInfo SCR_FactionUIInfo "{56B49118D8D0A9C5}" {
@@ -304,7 +331,6 @@ SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campai
     m_sNameUpper "Independent"
    }
    m_bIsMilitary 1
-   m_bFriendlyToSelf 0
    m_aFriendlyFactionsIds {
    }
   }
@@ -329,7 +355,7 @@ SCR_LoadoutManager LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loado
   SCR_FactionPlayerLoadout "{6185692CB2A9B958}" {
    m_sLoadoutName "Soldier"
    m_sLoadoutResource "{0AF2CBBF8F89E86E}Prefabs/Characters/Factions/CIV/Dockworker/WR_Character_CIV_Unarmed.et"
-   m_sAffiliatedFaction "CIV"
+   m_sAffiliatedFaction "FIA"
   }
  }
 }
