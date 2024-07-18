@@ -6,7 +6,7 @@ class WR_MissionManagerComponentClass : SCR_BaseGameModeComponentClass
 
 class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 {	
-	[Attribute("5", UIWidgets.Slider, "Max # of missions that can be active at once", "0 60 1")]
+	[Attribute("3", UIWidgets.Slider, "Max # of missions that can be active at once", "0 10 1")]
 	protected int maxActiveMissions;
 	
 	//This only triggers AFTER the mission entities are cleaned up, which is already some minutes after a player completes the mission
@@ -48,17 +48,17 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 	
 	override void OnGameModeStart()
 	{
-		numActiveMissions = 0;
-		activeMissionList = {};
-		startInitialMissions();
-		
-		missionRespawnInMS = missionRespawnTimer * 60 * 1000;
-		missionCheckInMS = 5000;
-		
-		//Every X milliseconds, check the current mission list to see if any have been completed and need to be replaced (The "true" parameter makes this function repeat endlessly)
-		GetGame().GetCallqueue().CallLater(checkMissions, missionCheckInMS, true);
-		
-		//startCastleMission();
+//		numActiveMissions = 0;
+//		activeMissionList = {};
+//		startInitialMissions();
+//		
+//		missionRespawnInMS = missionRespawnTimer * 60 * 1000;
+//		missionCheckInMS = 5000;
+//		
+//		//Every X milliseconds, check the current mission list to see if any have been completed and need to be replaced (The "true" parameter makes this function repeat endlessly)
+//		GetGame().GetCallqueue().CallLater(checkMissions, missionCheckInMS, true);
+//		
+//		//startCastleMission();
 	}
 	
 	protected void startInitialMissions()
@@ -144,16 +144,4 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 		//Return a random location from the remaining ones
 		return allLocations.GetRandomElement();
 	}
-	
 }
-
-
-
-
-
-
-
-
-
-
-
