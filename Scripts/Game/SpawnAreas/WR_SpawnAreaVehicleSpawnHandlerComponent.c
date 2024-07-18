@@ -21,18 +21,18 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] Parent entity of WR_SpawnAreaVehicleSpawnHandlerComponent must be a WR_SpawnAreaEntity!");
+			Print("[WASTELAND] Parent entity of WR_SpawnAreaVehicleSpawnHandlerComponent must be a WR_SpawnAreaEntity!", LogLevel.ERROR);
 			return;
 		}
 		
 		if (!VehicleSpawnHandlerComponents)
 		{
 			VehicleSpawnHandlerComponents = {};
-			Print("[WASTELAND] Initialized vehicle spawn area handler component list.");
+			Print("[WASTELAND] Initialized vehicle spawn area handler component list.", LogLevel.NORMAL);
 		}
 		
 		VehicleSpawnHandlerComponents.Insert(this);
-		Print("[WASTELAND] Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list");
+		Print("[WASTELAND] Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list", LogLevel.SPAM);
 	}
 	
 	void SpawnVehicles(out int successfulVehSpawnCount)
@@ -102,7 +102,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			successfulVehSpawnCount++;
 		}
 		
-		Print("[WASTELAND] Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + desiredVehCount + " attempted at " + _parent.GetSpawnAreaName());
+		Print("[WASTELAND] Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + desiredVehCount + " attempted at " + _parent.GetSpawnAreaName(), LogLevel.SPAM);
 	}
 
 	private int GetVehicleCountPerSqKm()

@@ -47,11 +47,12 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 		array<WR_LootBoxComponent> lootBoxComponents = WR_LootBoxComponent.LootBoxComponents;
 		if (!lootBoxComponents || lootBoxComponents.Count() == 0) return;
 		
-		Print("[WASTELAND] Filling loot box(es)...");
+		Print("[WASTELAND] Spawning loot box(es)...", LogLevel.NORMAL);
 		
 		// Get loot spawning context
 		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootBoxContext();
 		
+		int lootBoxesSpawned = 0;
 		foreach (WR_LootBoxComponent boxComponent : lootBoxComponents)
 		{
 			if (!boxComponent) continue;
@@ -65,6 +66,8 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 				continue;
 			}
 			
+			lootBoxesSpawned += 1;
+			
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(boxOwner.FindComponent(SCR_UniversalInventoryStorageComponent));
 			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(boxOwner.FindComponent(SCR_InventoryStorageManagerComponent));
 
@@ -72,5 +75,7 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 			foreach (ResourceName item : items)
 				inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
 		}
+		
+		Print("[WASTELAND] Spawned a total of " + lootBoxesSpawned + " loot box(es).", LogLevel.NORMAL);
 	}
 }

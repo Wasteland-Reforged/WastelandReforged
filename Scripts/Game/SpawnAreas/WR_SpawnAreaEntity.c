@@ -1,4 +1,4 @@
-[EntityEditorProps(category: "SPHCU/Wasteland", description: "Marks a circular area players can spawn inside.")]
+[EntityEditorProps(category: "WastelandReforged", description: "Marks a spherical area players can spawn inside.")]
 class WR_SpawnAreaEntityClass : BaseGameTriggerEntityClass
 {
 	
@@ -17,7 +17,7 @@ class WR_SpawnAreaEntity : BaseGameTriggerEntity
 
 	override void EOnInit(IEntity owner)
 	{
-		Print("[WASTELAND] Initializing " + GetSpawnAreaName() + " spawn area entity...");
+		Print("[WASTELAND] Initializing " + GetSpawnAreaName() + " spawn area entity...", LogLevel.SPAM);
 	}
 	
 	string GetSpawnAreaName()
