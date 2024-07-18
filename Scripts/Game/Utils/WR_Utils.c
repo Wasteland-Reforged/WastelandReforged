@@ -130,4 +130,8 @@ class WR_Utils
 
 	}
 	
+	static WorldTimestamp TimestampNow()
+	{
+		return GetGame().GetWorld().GetTimestamp();
+	}
 }

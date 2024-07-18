@@ -1,3 +1,6 @@
+PAND_MissionLocationEntity {
+ coords 3457.322 39.439 2582.146
+}
 $grp GenericEntity : "{934A3C3A870634DC}PrefabsEditable/System/E_Comment.et" {
  AIWaypoint1 {
   coords 1386.418 39.323 2245.261

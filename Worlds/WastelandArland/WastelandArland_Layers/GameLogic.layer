@@ -41,6 +41,9 @@ PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/Perc
 }
 SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
+  PAND_MissionManagerComponent "{61E06E1C415776F0}" {
+   m_iMaxActiveMissions 1
+  }
   SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
    m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
    m_BudgetType CAMPAIGN
@@ -249,7 +252,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
       SCR_WelcomeScreenIntroduction "{61DE1954A137F713}" {
        m_sContentImage "{AC37AA3EE3DB4853}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_service_encapment_UI.edds"
        m_sContentTitleText "Missions"
-       m_sContentDescriptionText "A random selection of missions are regularly available around the island. They offer valuable rewards, but are usually guarded by a squad of NPCs. Rewards range from crates full of weapons to armored vehicles or bases full of supplies."\
+       m_sContentDescriptionText "A random selection of missions are regularly available around the island. They offer valuable rewards, but are usually guarded by a squad of armed NPCs. Rewards range from crates full of weapons to armored vehicles or bases full of supplies."\
        ""\
        "Be careful: locations of missions are always marked on every player’s map, so getting away with the spoils can get competitive."
       }
