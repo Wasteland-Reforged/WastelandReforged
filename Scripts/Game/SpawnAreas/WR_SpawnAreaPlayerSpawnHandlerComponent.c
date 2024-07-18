@@ -15,18 +15,18 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] Parent entity of WR_SpawnAreaPlayerSpawnHandlerComponent must be a WR_SpawnAreaEntity!");
+			Print("[WASTELAND] Parent entity of WR_SpawnAreaPlayerSpawnHandlerComponent must be a WR_SpawnAreaEntity!", LogLevel.ERROR);
 			return;
 		}
 		
 		if (!PlayerSpawnHandlerComponents)
 		{
 			PlayerSpawnHandlerComponents = {};
-			Print("[WASTELAND] Initialized player spawn area handler component list.");
+			Print("[WASTELAND] Initialized player spawn area handler component list.", LogLevel.NORMAL);
 		}
 		
 		PlayerSpawnHandlerComponents.Insert(this);
-		Print("[WASTELAND] Inserted " + GetSpawnAreaName() + " into the player spawn handler component list.");
+		Print("[WASTELAND] Inserted " + GetSpawnAreaName() + " into the player spawn handler component list.", LogLevel.SPAM);
 	}
 
 	static SCR_FreeSpawnData GetSpawnData(string factionKey)

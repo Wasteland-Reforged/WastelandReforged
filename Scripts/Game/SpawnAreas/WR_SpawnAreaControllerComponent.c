@@ -16,7 +16,7 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 	
 	override void OnGameModeStart()
 	{
-		BaseRplComponent rplComponent = BaseRplComponent.Cast(parent.FindComponent(BaseRplComponent));
+		BaseRplComponent rplComponent = BaseRplComponent.Cast(_parent.FindComponent(BaseRplComponent));
 		
 		if (rplComponent.Role() == RplRole.Authority)
 		{
