@@ -9,6 +9,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   coords 3138.043 11.594 2785.487
   SphereRadius 175
   DrawShape 0
+  ShapeColor 0 0.591 1 0.102
   m_Name "Beauregard"
  }
  SpawnArea_Arleville {
@@ -21,6 +22,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   coords 2757.651 77.281 1648.436
   SphereRadius 140
   DrawShape 0
+  ShapeColor 0 0.591 1 0.102
   m_Name "Arleville"
  }
  SpawnArea_Foxdale_Players {
@@ -34,6 +36,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   coords 1703.784 0.928 827.63
   SphereRadius 175
   DrawShape 0
+  ShapeColor 0 0.591 1 0.102
   m_Name "Foxdale"
  }
  SpawnArea_Norwich {
@@ -46,6 +49,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   coords 1946.853 51.01 3097.615
   SphereRadius 125
   DrawShape 0
+  ShapeColor 0 0.591 1 0.102
   m_Name "Norwich"
  }
  SpawnArea_Military {
@@ -58,6 +62,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   coords 1371.327 36.385 2374.652
   SphereRadius 100
   DrawShape 0
+  ShapeColor 0 0.591 1 0.102
   m_Name "Military"
  }
  SpawnArea_Foxdale_Vehicles {
@@ -73,6 +78,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   coords 1647.831 3.944 912.29
   SphereRadius 75
   DrawShape 0
+  ShapeColor 0 0.591 1 0.102
   m_Name "Foxdale 1"
  }
  SpawnArea_Foxdale_Vehicles2 {
@@ -88,6 +94,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   coords 1761.333 5.06 895.104
   SphereRadius 75
   DrawShape 0
+  ShapeColor 0 0.591 1 0.102
   m_Name "Foxdale 2"
  }
 }

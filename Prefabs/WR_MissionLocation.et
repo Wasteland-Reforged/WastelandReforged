@@ -1,0 +1,9 @@
+PAND_MissionLocationEntity {
+ ID "61E663933A40348D"
+ coords 1353.689 39 2224.558
+ TriggerShapeType Sphere
+ SphereRadius 15
+ DrawShape 1
+ ShapeColor 1 0 0 0
+ PeriodicQueries 1
+}

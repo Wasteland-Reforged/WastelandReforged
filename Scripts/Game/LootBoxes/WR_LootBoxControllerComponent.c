@@ -23,13 +23,13 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 		_parent = SCR_BaseGameMode.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] Parent entity of WR_LootBoxControllerComponent must be a SCR_BaseGameMode!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_LootBoxControllerComponent: Parent entity of WR_LootBoxControllerComponent must be a SCR_BaseGameMode!", LogLevel.ERROR);
 			return;
 		}
 
 		if (minLootBoxItems > maxLootBoxItems)
 		{
-			Print("[WASTELAND] Minimum amount of loot items must be smaller than maximum amount! Setting maximum to match minimum...", LogLevel.WARNING);
+			Print("[WASTELAND] WR_LootBoxControllerComponent: Minimum amount of loot items must be smaller than maximum amount! Setting maximum to match minimum...", LogLevel.WARNING);
 			maxLootBoxItems = minLootBoxItems;
 		}
 	}
@@ -47,7 +47,7 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 		array<WR_LootBoxComponent> lootBoxComponents = WR_LootBoxComponent.LootBoxComponents;
 		if (!lootBoxComponents || lootBoxComponents.Count() == 0) return;
 		
-		Print("[WASTELAND] Spawning loot box(es)...", LogLevel.NORMAL);
+		Print("[WASTELAND] WR_LootBoxControllerComponent: Spawning loot box(es)...", LogLevel.NORMAL);
 		
 		// Get loot spawning context
 		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootBoxContext();
@@ -76,6 +76,6 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 				inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
 		}
 		
-		Print("[WASTELAND] Spawned a total of " + lootBoxesSpawned + " loot box(es).", LogLevel.NORMAL);
+		Print("[WASTELAND] WR_LootBoxControllerComponent: Spawned a total of " + lootBoxesSpawned + " loot box(es).", LogLevel.NORMAL);
 	}
 }

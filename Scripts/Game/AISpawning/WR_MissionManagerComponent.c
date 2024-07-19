@@ -48,15 +48,17 @@ class WR_MissionManagerComponent : SCR_BaseGameModeComponent
 	
 	override void OnGameModeStart()
 	{
-//		numActiveMissions = 0;
-//		activeMissionList = {};
-//		startInitialMissions();
-//		
-//		missionRespawnInMS = missionRespawnTimer * 60 * 1000;
-//		missionCheckInMS = 5000;
-//		
-//		//Every X milliseconds, check the current mission list to see if any have been completed and need to be replaced (The "true" parameter makes this function repeat endlessly)
-//		GetGame().GetCallqueue().CallLater(checkMissions, missionCheckInMS, true);
+		return; // debug
+		
+		numActiveMissions = 0;
+		activeMissionList = {};
+		startInitialMissions();
+		
+		missionRespawnInMS = missionRespawnTimer * 60 * 1000;
+		missionCheckInMS = 5000;
+		
+		//Every X milliseconds, check the current mission list to see if any have been completed and need to be replaced (The "true" parameter makes this function repeat endlessly)
+		GetGame().GetCallqueue().CallLater(checkMissions, missionCheckInMS, true);
 //		
 //		//startCastleMission();
 	}

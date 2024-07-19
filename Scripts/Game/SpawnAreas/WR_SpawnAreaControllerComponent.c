@@ -27,7 +27,7 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 	
 	private void SpawnVehiclesInSpawnAreas()
 	{
-		Print("[WASTELAND] Spawning vehicles...");
+		Print("[WASTELAND] WR_SpawnAreaControllerComponent: Spawning vehicles...");
 		int totalVehiclesSpawned = 0;
 	
 		foreach (auto vehicleSpawnHandler : WR_SpawnAreaVehicleSpawnHandlerComponent.VehicleSpawnHandlerComponents)
@@ -37,6 +37,6 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 			totalVehiclesSpawned += successfulVehSpawnCount;
 		}
 		
-		Print("[WASTELAND] Spawned a total of " + totalVehiclesSpawned + " vehicle(s).");
+		Print("[WASTELAND] WR_SpawnAreaControllerComponent: Spawned a total of " + totalVehiclesSpawned + " vehicle(s).");
 	}
 }

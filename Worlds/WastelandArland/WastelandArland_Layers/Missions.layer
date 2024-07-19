@@ -1,125 +1,277 @@
-PAND_MissionLocationEntity {
- coords 3457.322 39.439 2582.146
-}
-$grp GenericEntity : "{934A3C3A870634DC}PrefabsEditable/System/E_Comment.et" {
- AIWaypoint1 {
-  coords 1386.418 39.323 2245.261
+$grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.et" {
+ MissionSpawnLocation1 {
+  coords 1337.928 39 2260.668
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypoint2 {
-  coords 1075.55 37.917 2904.659
- }
- AIWaypoint3 {
-  coords 1355.099 38 2917.602
- }
- AIWaypointBase1 {
-  coords 1593.828 39.729 2465.326
- }
- AIWaypointBase2 {
-  coords 1309.206 39 2201.736
- }
- AIWaypointBase3 {
-  coords 1349.572 38.859 2818.622
- }
- AIWaypointBase4 {
-  coords 2126.067 50.243 2755.814
- }
- AIWaypointBase5 {
-  coords 2121.568 53.649 2952.998
- }
- AIWaypointBase6 {
-  coords 3275.24 40.833 2478.216
- }
- AIWaypointBase7 {
-  coords 2926.985 43.54 2490.502
- }
- AIWaypointBase8 {
-  coords 2829.545 62.797 2031.93
- }
- AIWaypointBase9 {
-  coords 2748.071 67.639 1902.453
- }
- AIWaypointBase10 {
-  coords 2556.214 88.219 1830.199
- }
- AIWaypointBase11 {
-  coords 2929.32 66.244 1738.565
- }
- AIWaypointBase12 {
-  coords 3088.809 59.612 1806.591
- }
- AIWaypointBase13 {
-  coords 2814.007 32.635 1335.184
- }
- AIWaypointBase14 {
-  coords 2270.434 76.616 1143.963
- }
- AIWaypoint4 {
-  coords 3268.217 2.18 2874.249
- }
- AIWaypoint5 {
-  coords 3468.968 39.822 2592.39
- }
- AIWaypoint6 {
-  coords 3237.299 4.453 1228.044
- }
- AIWaypoint7 {
-  coords 2601.814 111.075 2495.402
- }
- AIWaypoint8 {
-  coords 2638.276 17.556 3126.982
- }
- AIWaypoint9 {
-  coords 3049.281 2.754 3197.537
- }
- AIWaypoint10 {
+ MissionSpawnLocation10 {
   coords 1828.602 50.629 1089.061
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointBase15 {
-  coords 3174.287 32.493 2010.516
+ MissionSpawnLocation11 {
+  coords 930.211 6.564 3506.953
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypoint11 {
-  coords 930.211 6.565 3506.953
- }
- AIWaypoint12 {
+ MissionSpawnLocation12 {
   coords 2004.418 10.502 1861.139
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointBase16 {
+ MissionSpawnLocation2 {
+  coords 1075.55 37.917 2904.659
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation3 {
+  coords 1355.099 38 2917.602
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation4 {
+  coords 3268.217 2.18 2874.249
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation5 {
+  coords 3468.968 39.821 2592.39
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation6 {
+  coords 3237.299 4.453 1228.044
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation7 {
+  coords 2601.814 111.075 2495.402
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation8 {
+  coords 2638.276 17.556 3126.982
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation9 {
+  coords 3054 2.753 3190.031
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Base1 {
+  coords 1593.828 39.729 2465.326
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Base10 {
+  coords 2556.214 88.219 1830.199
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Base11 {
+  coords 2929.32 66.244 1738.565
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Base12 {
+  coords 3088.809 59.612 1806.591
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Base13 {
+  coords 2814.007 32.635 1335.184
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Base14 {
+  coords 2270.434 76.616 1143.963
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Base15 {
+  coords 3174.287 32.493 2010.516
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Base16 {
   coords 1858.847 26.804 1937.821
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy1 {
-  coords 1584.883 40.022 2681.846
+ MissionSpawnLocation_Base2 {
+  coords 343.437 0.938 2288.834
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy2 {
-  coords 1642.966 7.935 2007.87
+ MissionSpawnLocation_Base3 {
+  coords 943.466 38.859 2705.906
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy3 {
-  coords 1894.529 25.911 1954.479
+ MissionSpawnLocation_Base4 {
+  coords 2126.067 50.244 2755.814
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy4 {
-  coords 2042.214 22.784 1551.268
+ MissionSpawnLocation_Base5 {
+  coords 2121.568 53.65 2952.998
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy5 {
-  coords 1701.269 45.199 1096.519
+ MissionSpawnLocation_Base6 {
+  coords 3275.24 40.833 2478.216
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy6 {
-  coords 1864.67 9.198 884.672
+ MissionSpawnLocation_Base7 {
+  coords 2926.985 43.54 2490.502
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy7 {
-  coords 2722.026 5.344 924.775
+ MissionSpawnLocation_Base8 {
+  coords 2829.545 62.797 2031.93
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy8 {
-  coords 3462.61 3.805 1476.946
+ MissionSpawnLocation_Base9 {
+  coords 2748.071 67.639 1902.453
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy9 {
-  coords 3343.488 3.747 2068.179
+ MissionSpawnLocation_Convoy1 {
+  coords 1584.883 39.512 2681.846
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy10 {
+ MissionSpawnLocation_Convoy10 {
   coords 3335.343 37.469 2535.979
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy11 {
-  coords 2828.696 36.366 3177.45
+ MissionSpawnLocation_Convoy11 {
+  coords 2828.696 36.367 3177.45
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
- AIWaypointConvoy12 {
+ MissionSpawnLocation_Convoy12 {
   coords 1721.438 17.599 3400.803
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Convoy2 {
+  coords 1642.966 7.948 2007.87
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Convoy3 {
+  coords 1894.529 25.912 1954.479
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Convoy4 {
+  coords 2042.214 22.81 1551.268
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Convoy5 {
+  coords 1701.269 45.199 1096.519
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Convoy6 {
+  coords 1864.67 9.198 884.672
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Convoy7 {
+  coords 2722.026 5.344 924.775
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Convoy8 {
+  coords 3462.61 3.805 1476.946
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation_Convoy9 {
+  coords 3343.488 3.747 2068.179
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation13 {
+  coords 2153.724 69.039 2479.604
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation14 {
+  coords 502.17 1.583 2917.2
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation15 {
+  coords 1230.427 7.022 3328.141
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation16 {
+  coords 2021.81 54.996 3285.406
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation17 {
+  coords 2997.242 18.306 2812.465
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation18 {
+  coords 3026.17 71.018 1575.099
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation19 {
+  coords 2763.863 72.751 1559.545
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation20 {
+  coords 1814.94 31.092 1360.953
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation21 {
+  coords 1320.002 1.472 1094.417
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation22 {
+  coords 919.873 21.898 2231.163
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation23 {
+  coords 2429.679 87.714 1403.363
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation24 {
+  coords 2425.832 9.109 797.513
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation25 {
+  coords 1758.089 6.558 871.585
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation26 {
+  coords 3102.109 22.835 2608.583
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
+ }
+ MissionSpawnLocation27 {
+  coords 1926.435 51.507 3072.605
+  DrawShape 0
+  ShapeColor 1 0.513 0 0.102
  }
 }

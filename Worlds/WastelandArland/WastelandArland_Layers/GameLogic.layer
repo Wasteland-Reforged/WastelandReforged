@@ -42,7 +42,7 @@ PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/Perc
 SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
   PAND_MissionManagerComponent "{61E06E1C415776F0}" {
-   m_iMaxActiveMissions 1
+   m_iMaxActiveMissions 3
   }
   SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
    m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
@@ -187,6 +187,12 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   SCR_TimeAndWeatherHandlerComponent "{61D805F9F5E6DB16}" {
    m_fDayTimeAcceleration 6
    m_fNightTimeAcceleration 12
+   m_aStartingWeatherAndTime {
+    SCR_TimeAndWeatherState "{61E562A3250E1D7D}" {
+     m_sWeatherPresetName "Cloudy"
+    }
+   }
+   m_bRandomWeatherChanges 1
   }
   SCR_WelcomeScreenComponent "{61D95A1AC290E806}" {
    m_BaseLayout SCR_WelcomeScreenThreeHorizontalColumns "{61D95A1ABEEC0771}" {
@@ -288,6 +294,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
 }
 TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
  coords 4399.965 1.614 11043.354
+ Flags 2097155
  WeatherStateMachine "{E7BBEF5A7CB63F57}Terrains/Common/WeatherPresets/StateMachine/WR_WeatherStates.conf"
  WeatherParameters "{0ADCC05C873A9F29}Terrains/Common/WeatherPresets/WR_WeatherParameters.conf"
  "Day Duration" 10800

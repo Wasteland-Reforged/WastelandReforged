@@ -21,18 +21,18 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] Parent entity of WR_SpawnAreaVehicleSpawnHandlerComponent must be a WR_SpawnAreaEntity!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Parent entity of WR_SpawnAreaVehicleSpawnHandlerComponent must be a WR_SpawnAreaEntity!", LogLevel.ERROR);
 			return;
 		}
 		
 		if (!VehicleSpawnHandlerComponents)
 		{
 			VehicleSpawnHandlerComponents = {};
-			Print("[WASTELAND] Initialized vehicle spawn area handler component list.", LogLevel.NORMAL);
+			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Initialized vehicle spawn area handler component list.", LogLevel.NORMAL);
 		}
 		
 		VehicleSpawnHandlerComponents.Insert(this);
-		Print("[WASTELAND] Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list", LogLevel.SPAM);
+		Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list", LogLevel.SPAM);
 	}
 	
 	void SpawnVehicles(out int successfulVehSpawnCount)
@@ -41,7 +41,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		if (!vehicleResourceNames || vehicleResourceNames.Count() == 0)
 		{
-			Print("[WASTELAND] No spawn area vehicle resource names were supplied! Please provide at least one resource name.");
+			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: No spawn area vehicle resource names were supplied! Please provide at least one resource name.");
 			return;
 		}
 		
@@ -102,7 +102,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			successfulVehSpawnCount++;
 		}
 		
-		Print("[WASTELAND] Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + desiredVehCount + " attempted at " + _parent.GetSpawnAreaName(), LogLevel.SPAM);
+		Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + desiredVehCount + " attempted at " + _parent.GetSpawnAreaName(), LogLevel.SPAM);
 	}
 
 	private int GetVehicleCountPerSqKm()
