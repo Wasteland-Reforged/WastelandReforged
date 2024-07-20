@@ -1,36 +1,48 @@
 [EntityEditorProps(category: "WastelandReforged", description: "Marks a location where objectives can spawn.")]
-class PAND_MissionLocationEntityClass : BaseGameTriggerEntityClass
+class PAND_MissionLocationEntityClass : SCR_ScenarioFrameworkTriggerEntityClass
 {
 	
 }
 
-class PAND_MissionLocationEntity : BaseGameTriggerEntity
+class PAND_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGameTriggerEntity
 {
 	// Categories
-	private const string CATEGORY_MISSIONLOCATION = "Mission Location";
+	private const string CATEGORY_MISSION_LOCATION = "Mission Location";
 	
-	[Attribute(defvalue: "true", desc: "Determines if missions should spawn here", category: CATEGORY_MISSIONLOCATION)]
-	private bool m_bIsActive;
-	
-	private bool m_bIsHostingMission;
-
 	private static ref array<PAND_MissionLocationEntity> MissionLocationEntities;
 	
-	void PAND_MissionLocationEntity(IEntitySource src, IEntity parent)
-	{
-		SetEventMask(EntityEvent.INIT);
-	}
+	protected BaseRplComponent m_RplComponent;
+	
+	[Attribute(defvalue: "true", desc: "Determines if missions should spawn here", category: CATEGORY_MISSION_LOCATION)]
+	private bool m_bIsActive;
+	
+	private PAND_Mission m_CurrentMission;
+	private bool m_bIsHostingMission;
+	
+//	void PAND_MissionLocationEntity(IEntitySource src, IEntity parent)
+//	{
+//		SetEventMask(EntityEvent.INIT | EntityEvent.FRAME);
+//	}
 	
 	override void EOnInit(IEntity owner)
 	{
+		super.EOnInit(owner);
+		
 		if (!MissionLocationEntities)
 		{
 			MissionLocationEntities = {};
 			Print("[WASTELAND] PAND_MissionLocationEntity: Initialized mission location list.");
 		}
 		
-		float triggerRadius = 15.0; // used to detect when players are nearby to trigger mission completion
-		SetSphereRadius(triggerRadius);
+		m_RplComponent = BaseRplComponent.Cast(FindComponent(BaseRplComponent));
+		if (!m_RplComponent)
+		{
+			Print("[WASTELAND] PAND_MissionLocationEntity: Parent entity must have RplComponent!", LogLevel.ERROR);
+			return;
+		}
+		
+		SetActivationPresence(SCR_EScenarioFrameworkTriggerActivation.PLAYER);
+		GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
 		
 		MissionLocationEntities.Insert(this);
 	}
@@ -70,5 +82,27 @@ class PAND_MissionLocationEntity : BaseGameTriggerEntity
 	void SetIsHostingMission(bool isHostingMission)
 	{
 		m_bIsHostingMission = isHostingMission;
+	}
+	
+	PAND_Mission GetCurrentMission()
+	{
+		return m_CurrentMission;
+	}
+	
+	void SetCurrentMission(PAND_Mission mission)
+	{
+		m_CurrentMission = mission;
+		m_bIsHostingMission = mission != null;
+	}
+	
+	// I have no idea if this will work properly on multiplayer
+	void OnPlayerEnteredMissionLocation()
+	{
+		if (m_RplComponent.Role() != RplRole.Authority) return;
+		if (!m_bIsHostingMission) return;
+		
+		PAND_MissionControllerComponent missionController = PAND_MissionControllerComponent.	Cast(GetGame().GetGameMode().FindComponent(PAND_MissionControllerComponent));
+		
+		missionController.OnPlayerEnteredMissionZone(m_CurrentMission, this);
 	}
 }

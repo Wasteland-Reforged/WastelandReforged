@@ -24,4 +24,8 @@ class PAND_MissionDefinition
 	// TODO: add options for mission marker icon and color.
 	// If left blank, default to what's specified in the controller DSConfig
 	// And if that's blank, then use the classic red cross
+	
+	// TODO: add options for loot contexts, amount of loot to spawn, etc.
+	
+	// TODO: see if we can add categories to this config
 }

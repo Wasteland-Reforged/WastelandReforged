@@ -41,8 +41,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			return;
 		}
 
-		
-		Print("[WASTELAND] PAND_MissionManagerComponent: Initialized", LogLevel.NORMAL);
+		Print("[WASTELAND] PAND_MissionManagerComponent: Initialized.", LogLevel.NORMAL);
 	}
 	
 	override void OnGameModeStart()
@@ -51,8 +50,14 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		{
 			// TODO: upgrade this to start multiple missions, track existing missions, give "mission about to start hint", etc.
 			// GetGame().GetCallqueue().CallLater(StartRandomMission, 5*1000, false);
-			for (int i = 0; i < m_Config.m_iMaxActiveMissions; i++) {
-				GetGame().GetCallqueue().CallLater(StartRandomMission, i*3000, false);
+			
+			float initialDelayMs = m_Config.m_fInitialMissionDelay * 60 * 1000;
+			float delayBetweenMissionStartMs = 5000;
+			
+			for (int i = 0; i < m_Config.m_iMaxActiveMissions; i++)
+			{
+				//GetGame().GetCallqueue().CallLater(StartRandomMission, initialDelayMs + i * delayBetweenMissionStartMs, false);
+				GetGame().GetCallqueue().CallLater(StartRandomMission, 0 + i * delayBetweenMissionStartMs, false);
 			}
 		}
 	}
@@ -71,24 +76,46 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
         // Create mission record
 		int missionId = GetNewMissionId();
 		PAND_MissionType missionType = GetRandomMissionType();
-		vector missionLocation = GetRandomVacantMissionLocation();
+		PAND_MissionLocationEntity missionLocation = GetRandomVacantMissionLocation();
         
-		if (missionLocation == vector.Zero)
+		if (!missionLocation)
 		{
-			Print("[WASTELAND] PAND_MissionManagerComponent: Unable to get location for new mission! Aborting mission creation.", LogLevel.ERROR);
+			Print("[WASTELAND] PAND_MissionManagerComponent: Unable to get location for new mission! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
 			return;
 		}
 		
-		m_lastUpdatedMission = PAND_Mission.CreateMission(missionId, missionType, missionLocation);
+		// Create mission record
+		m_lastUpdatedMission = PAND_Mission.CreateMission(missionId, missionType, missionLocation.GetOrigin());
+		missionLocation.SetCurrentMission(m_lastUpdatedMission);
+		
+		// Find mission definition corresponding to selected mission type
+		PAND_MissionDefinition missionDefinition = FindMissionDefinitionByMissionType(m_lastUpdatedMission.GetType());
+		if (!missionDefinition)
+		{
+			Print("[WASTELAND] PAND_MissionControllerComponent: No definition found for provided type! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+		}
+		m_lastUpdatedMission.SetDefinition(missionDefinition);
 		
 		// Run mission on server (for in-game hosted servers)
-		InstantiateMissionWorldObjects(m_lastUpdatedMission);
+		bool areObjectsCreated = InstantiateMissionWorldObjects(m_lastUpdatedMission);
+		if (!areObjectsCreated)
+		{
+			Print("[WASTELAND] PAND_MissionControllerComponent: Failed to instantiate mission world objects! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+			DestroyMission(m_lastUpdatedMission);
+		}
+		
+//		bool isMissionRecordCreated = HandleNewMissionRecord(m_lastUpdatedMission);
+//		if (!areObjectsCreated)
+//		{
+//			Print("[WASTELAND] PAND_MissionControllerComponent: Failed to create mission record! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+//			DestroyMission(m_lastUpdatedMission);
+//		}
 		HandleNewMissionRecord(m_lastUpdatedMission);
 		
-		// Update clients
+		// Update clients with mission record
 		Replication.BumpMe();
 		
-		Print("[WASTELAND] PAND_MissionManagerComponent: New mission started (ID: " + missionId + ")", LogLevel.NORMAL);
+		Print("[WASTELAND] PAND_MissionManagerComponent: New mission started: " + GetMissionName(m_lastUpdatedMission) + " (ID: " + missionId + ")", LogLevel.NORMAL);
     }
 
 	protected void OnNewMissionReceived()
@@ -116,30 +143,21 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		{
 			mission = newMission;
 			
-			PAND_MissionDefinition missionDefinition = FindMissionDefinitionByMissionType(mission.GetType());
-			if (!missionDefinition)
-			{
-				// TODO: improve error logging
-				Print("No definition found for provided type!", LogLevel.ERROR);
-			}
-			
-			mission.SetDefinition(missionDefinition);
-			
-			if (m_RplComponent.Role() == RplRole.Authority)
-			{
-				// Spawn mission world objects on authority only
-				bool missionObjectsSpawnedSuccessfully = InstantiateMissionWorldObjects(mission);
-				if (!missionObjectsSpawnedSuccessfully)
-				{
-					Print("[WASTELAND] WR_MissionManagerComponent: Unable to spawn mission objects! (ID: " + mission.GetMissionId() + ") Aborting mission creation.", LogLevel.ERROR); 
-					return;
-				}
-			}
+//			if (m_RplComponent.Role() == RplRole.Authority)
+//			{
+//				// Spawn mission world objects on authority only
+//				bool missionObjectsSpawnedSuccessfully = InstantiateMissionWorldObjects(mission);
+//				if (!missionObjectsSpawnedSuccessfully)
+//				{
+//					Print("[WASTELAND] WR_MissionManagerComponent: Unable to spawn mission objects! (ID: " + mission.GetMissionId() + ") Aborting mission creation.", LogLevel.ERROR); 
+//					return;
+//				}
+//			}
 			
 			m_mActiveMissions.Insert(mission.GetMissionId(), mission);
 
 			CreateMarker(mission);
-			CreateHint(mission);
+			ShowHintMissionStarted(mission);
 			PlaySound();
 		}
 		else
@@ -167,11 +185,11 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 
 		if (!isRewardSpawned || !isPropSpawned || !areAiGroupsSpawned)
 		{
-			// TODO: improve error logging
-			Print("Failed to spawn all mission objects in the world!");
-			DestroyMission(mission);
+			Print("[WASTELAND] PAND_MissionControllerComponent: Failed to spawn mission objects in the world! (mission ID: " + mission.GetMissionId() + ")");
 			return false;
 		}
+		
+		mission.SetMissionEntities(rewardEntities, propEntity, aiGroups);
 
 		return true;
 	}
@@ -179,7 +197,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	// TODO: maybe change this to be a create or update method?
 	private void CreateMarker(PAND_Mission mission)
 	{
-		SCR_MapMarkerBase marker = new SCR_MapMarkerBase();
+		ref SCR_MapMarkerBase marker = new SCR_MapMarkerBase();
 		
 		marker.SetType(SCR_EMapMarkerType.PLACED_CUSTOM);
 		marker.SetCustomText(GetMissionName(mission));
@@ -201,11 +219,21 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		markerManager.InsertStaticMarker(marker, isLocal: false, isServerMarker: true);
 	}
 	
-	private void CreateHint(PAND_Mission mission)
+	private void ShowHintMissionStarted(PAND_Mission mission)
+	{
+		ShowHint("New Objective: " + GetMissionName(mission), GetMissionDescription(mission));
+	}
+	
+	private void ShowHintMissionCompleted(PAND_Mission mission)
+	{
+		ShowHint("Objective Complete: " + GetMissionName(mission), "The mission has been completed!");
+	}
+	
+	private void ShowHint(string title, string description)
 	{
 		SCR_HintUIInfo hintInfo = SCR_HintUIInfo.CreateInfo(
-			GetMissionDescription(mission),
-			GetMissionName(mission),
+			description,
+			title,
 			10, // TODO: read from config
 			EHint.UNDEFINED,
 			EFieldManualEntryId.NONE,
@@ -245,8 +273,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		foreach (PAND_MissionDefinition definition : m_Config.m_aMissionDefinitions)
 			if (mission.GetType() == definition.m_eType) return definition.m_sName;
 		
-		// TODO: improve error logging
-		Print("Unable to get mission name!", LogLevel.ERROR);
+		Print("[WASTELAND] PAND_MissionControllerComponent: Unable to get mission name!", LogLevel.ERROR);
 		return "";
 	}
 	
@@ -256,8 +283,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		foreach (PAND_MissionDefinition definition : m_Config.m_aMissionDefinitions)
 			if (mission.GetType() == definition.m_eType) return definition.m_sDescription;
 		
-		// TODO: improve error logging
-		Print("Unable to get mission description!", LogLevel.ERROR);
+		Print("[WASTELAND] PAND_MissionControllerComponent: Unable to get mission description!", LogLevel.ERROR);
 		return "";
 	}
 	
@@ -267,19 +293,19 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
         return definition.m_eType;
     }
 			
-	protected vector GetRandomVacantMissionLocation()
+	protected PAND_MissionLocationEntity GetRandomVacantMissionLocation()
 	{	
 		array<PAND_MissionLocationEntity> vacantLocations = PAND_MissionLocationEntity.GetAllVacantLocations();
 		if (vacantLocations.Count() == 0)
 		{
 			Print("[WASTELAND] WR_MissionManagerComponent: No vacant mission locations!", LogLevel.ERROR);
-			return Vector(0, 0, 0);
+			return null;
 		}
 		
 		PAND_MissionLocationEntity randomLocation = vacantLocations.GetRandomElement();
 		// TODO: check if there are any entities inside/nearby this mission location's trigger zone. We don't want to spawn missions on people's heads
-		randomLocation.SetIsHostingMission(true); // This must be set to false once the mission finishes
-		return randomLocation.GetOrigin();
+
+		return randomLocation;
 	}
 	
 	private PAND_MissionDefinition FindMissionDefinitionByMissionType(PAND_MissionType type)
@@ -297,9 +323,8 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	{
 		if (!mission.GetDefinition())
 		{
-			// TODO: improve error logging
-			Print("Tried to spawn mission prop, but no mission definition was found!", LogLevel.ERROR);
-			return null;
+			Print("[WASTELAND] PAND_MissionControllerComponent: Tried to spawn mission prop, but no mission definition was found!", LogLevel.ERROR);
+			return false;
 		}
 		
 		ResourceName propResource = mission.GetDefinition().m_sPropPrefab;
@@ -308,16 +333,15 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		propEntity = WR_Utils.SpawnPrefabInWorld(propResource, mission.GetPosition());
 		propEntity.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 		
-		return propEntity;
+		return true;
 	}
 	
 	private bool SpawnAiGroups(PAND_Mission mission, out array<SCR_AIGroup> aiGroups)
 	{
 		if (!mission.GetDefinition())
 		{
-			// TODO: improve error logging
-			Print("Tried to spawn mission AI groups, but no mission definition was found!", LogLevel.ERROR);
-			return null;
+			Print("[WASTELAND] PAND_MissionControllerComponent: Tried to spawn mission AI groups, but no mission definition was found!", LogLevel.ERROR);
+			return false;
 		}
 		
 		array<ResourceName> aiGroupResources = mission.GetDefinition().m_aAIGroupPrefabs;
@@ -335,14 +359,16 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			//bool safePosFound =
 //			if (!safePosFound)
 //			{
-//				// TODO: improve error logging
-//				Print("A safe spawn position was unable to be found for this mission's AI!", LogLevel.ERROR);
+//				Print("[WASTELAND] PAND_MissionControllerComponent: A safe spawn position was unable to be found for this mission's AI!", LogLevel.ERROR);
 //				return false;
 //			}
 			
 			// Spawn the group prefab
 			IEntity aiGroupEntity = WR_Utils.SpawnPrefabInWorld(aiGroupResource, spawnPos);
-			SCR_AIGroup aiGroupInstance = SCR_AIGroup.Cast(aiGroupEntity);	
+			SCR_AIGroup aiGroupInstance = SCR_AIGroup.Cast(aiGroupEntity);
+			
+			// All NPC fighters should be on civilian faction
+			aiGroupInstance.SetFaction(GetGame().GetFactionManager().GetFactionByKey("CIV"));	
 	
 			// Command the group to defend the mission location
 			ResourceName waypointResource = "{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et";
@@ -363,41 +389,57 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	{
 		if (!mission.GetDefinition())
 		{
-			// TODO: improve error logging
-			Print("Tried to spawn mission reward, but no mission definition was found!", LogLevel.ERROR);
-			return null;
+			Print("[WASTELAND] PAND_MissionControllerComponent: Tried to spawn mission reward, but no mission definition was found!", LogLevel.ERROR);
+			return false;
 		}
 		
 		array<ResourceName> rewardPrefabs = mission.GetDefinition().m_sRewardPrefabs;
 		
 		if (!rewardPrefabs || rewardPrefabs.Count() == 0)
 		{
-			// TODO: improve error logging
-			Print("Tried to spawn mission reward, but no rewards were defined!", LogLevel.ERROR);
-			return null;
+			Print("[WASTELAND] PAND_MissionControllerComponent: Tried to spawn mission reward, but no rewards were defined!", LogLevel.ERROR);
+			return false;
 		}
 		
 		rewardEntities = {};
-		
-		// Spawn first reward prefab at exact mission position
-		IEntity initialRewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefabs[0], mission.GetPosition());
-		rewardEntities.Insert(initialRewardEntity);
-		
-		// Spawn the rest at random nearby positions
-		for (int i = 1; i < rewardPrefabs.Count(); i++)
+		for (int i = 0; i < rewardPrefabs.Count(); i++)
 		{
-			// Find a safe spot
-			vector spawnPos;
-			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
-			if (!safePosFound)
+			vector spawnPos = mission.GetPosition();
+			
+			// Spawn all subsequent rewards beyond the first one at random nearby positions
+			if (i > 0)
 			{
-				// TODO: improve error logging
-				Print("Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
-				return false;
+				
+				bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
+				if (!safePosFound)
+				{
+					Print("[WASTELAND] PAND_MissionControllerComponent: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
+					return false;
+				}	
 			}
 			
 			// Spawn the reward prefab
 			IEntity rewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefabs[i], spawnPos);
+			rewardEntity.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
+			
+			// Fill reward boxes with loot
+			// TODO: make this dynamic with loot contexts and configs
+			int minItems = 6;
+			int maxItems = 10;
+			WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetHeavyWeaponBoxContext();
+			
+			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));
+			if (inventoryStorageManager)
+			{
+				auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
+				
+				array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), maxExtraMagsToIncludeForWeapons: 10);
+				foreach (ResourceName item : items)
+				{
+					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
+				}
+			}
+			
 			rewardEntities.Insert(rewardEntity);
 		}
 		
@@ -407,5 +449,42 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	private void DestroyMission(PAND_Mission mission)
 	{
 		// This method cleans up a mission record and ALL items related to it, including its markers and rewards!
+		
+		// TODO: make sure to remove the reference to this mission on the mission location entity
+	}
+	
+	void OnPlayerEnteredMissionZone(PAND_Mission mission, PAND_MissionLocationEntity location)
+	{
+		if (m_RplComponent.Role() != RplRole.Authority) return;
+		
+		Print("[WASTELAND] PAND_MissionControllerComponent: Player entered mission zone.");
+		
+		if (!GetAreAllNpcsDead(mission)) return;
+		
+		CompleteMission(mission);
+		location.SetCurrentMission(null);
+	}
+	
+	bool GetAreAllNpcsDead(PAND_Mission mission)
+	{
+		array<SCR_AIGroup> aiGroups = mission.GetAiGroups();
+
+		foreach (SCR_AIGroup group : aiGroups)
+			if (group) return false; // AI groups become null when last man dies
+		
+		return true;
+	}
+	
+	void CompleteMission(PAND_Mission mission)
+	{
+		SCR_MapMarkerManagerComponent markerManager = SCR_MapMarkerManagerComponent.GetInstance();
+		
+		markerManager.RemoveStaticMarker(mission.GetMarker());
+		ShowHintMissionCompleted(mission);
+		
+		m_mActiveMissions.Remove(mission.GetMissionId());
+		
+		// TODO: move this logic into a central place that will check the amount of active missions and schedule replacements
+		GetGame().GetCallqueue().CallLater(StartRandomMission, m_Config.m_fNewMissionDelay * 60 * 1000, false);
 	}
 }

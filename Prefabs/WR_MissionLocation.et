@@ -1,5 +1,9 @@
 PAND_MissionLocationEntity {
  ID "61E663933A40348D"
+ components {
+  RplComponent "{61E94A05631D30FA}" {
+  }
+ }
  coords 1353.689 39 2224.558
  TriggerShapeType Sphere
  SphereRadius 15
