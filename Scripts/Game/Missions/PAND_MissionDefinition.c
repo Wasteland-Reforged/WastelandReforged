@@ -18,6 +18,10 @@ class PAND_MissionDefinition
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Prop to spawn at mission site (crashed helicopter, abandoned base)", params: "et")]
 	ResourceName m_sPropPrefab;
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Mission reward (i.e. weapon crate, APC, helicopter). ", params: "et")]
-	ResourceName m_sRewardPrefab;
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "List of mission rewards (i.e. weapon crate, APC, helicopter). \nPUT PRIMARY REWARD FIRST IN THIS LIST!", params: "et")]
+	ref array<ResourceName> m_sRewardPrefabs;
+	
+	// TODO: add options for mission marker icon and color.
+	// If left blank, default to what's specified in the controller DSConfig
+	// And if that's blank, then use the classic red cross
 }

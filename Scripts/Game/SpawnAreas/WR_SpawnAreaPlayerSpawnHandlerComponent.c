@@ -58,7 +58,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		float yPaddingDistance = 2; 		// Minimum distance of empty space to have above and below the chosen position 
 		
 		vector respawnPos;
-		bool foundSafePos = WR_Utils.TryGetSafePos(
+		bool foundSafePos = WR_Utils.TryGetRandomSafePosWithinRadius(
 												respawnPos
 												, spawnArea._parent.GetOrigin()
 												, spawnArea._parent.GetSphereRadius()

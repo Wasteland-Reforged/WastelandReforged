@@ -21,7 +21,7 @@ class WR_Utils
 	\param yPadding Height of the cylinder that we are attempting to find a safe position for. 
 	\return True if position was found
 	*/
-	static bool TryGetSafePos(out vector safePos, vector centerPos, float radiusToSelectPointsWithin, float radiusToCheckAroundInitiallySelectedPos, float xzPaddingRadius = 0.5, float yPaddingDistance = 2)
+	static bool TryGetRandomSafePosWithinRadius(out vector safePos, vector centerPos, float radiusToSelectPointsWithin, float radiusToCheckAroundInitiallySelectedPos, float xzPaddingRadius = 0.5, float yPaddingDistance = 2)
 	{					
 		// TODO: The code in this function is very repetitive and needs to be refactored.
 		
@@ -133,5 +133,29 @@ class WR_Utils
 	static WorldTimestamp TimestampNow()
 	{
 		return GetGame().GetWorld().GetTimestamp();
+	}
+	
+	static EntitySpawnParams GetEntityWorldSpawnParams(vector position)
+	{
+		EntitySpawnParams params = new EntitySpawnParams();
+		
+		params.TransformMode = ETransformMode.WORLD;
+		params.Transform[3] = position;
+		
+		return params;
+	}
+	
+	static IEntity SpawnPrefabInWorld(ResourceName resourceName, vector position)
+	{
+		EntitySpawnParams spawnParams = GetEntityWorldSpawnParams(position);
+		
+		IEntity entity = GetGame().SpawnEntityPrefab(
+			resourceName,
+			false,
+			GetGame().GetWorld(),
+			spawnParams
+		);
+		
+		return entity;
 	}
 }

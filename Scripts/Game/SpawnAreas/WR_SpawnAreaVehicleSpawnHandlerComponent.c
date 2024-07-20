@@ -64,7 +64,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		{
 			// Select a random position				
 			vector spawnPos;
-			bool foundSafePos = WR_Utils.TryGetSafePos(
+			bool foundSafePos = WR_Utils.TryGetRandomSafePosWithinRadius(
 												spawnPos
 												, _parent.GetOrigin()
 												, _parent.GetSphereRadius()

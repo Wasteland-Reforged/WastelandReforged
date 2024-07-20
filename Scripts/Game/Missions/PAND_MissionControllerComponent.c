@@ -68,7 +68,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			return;
 		}
 
-        // Create mission object
+        // Create mission record
 		int missionId = GetNewMissionId();
 		PAND_MissionType missionType = GetRandomMissionType();
 		vector missionLocation = GetRandomVacantMissionLocation();
@@ -82,7 +82,8 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		m_lastUpdatedMission = PAND_Mission.CreateMission(missionId, missionType, missionLocation);
 		
 		// Run mission on server (for in-game hosted servers)
-		HandleNewMission(m_lastUpdatedMission);
+		InstantiateMissionWorldObjects(m_lastUpdatedMission);
+		HandleNewMissionRecord(m_lastUpdatedMission);
 		
 		// Update clients
 		Replication.BumpMe();
@@ -97,19 +98,15 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	
     protected void ReceiveNewMissionOnProxy()
     {
-		// Ensure we are a proxy here
         if (m_RplComponent.Role() != RplRole.Proxy) return;
-		
 		if (!m_mActiveMissions) return;
-			
 		if (m_lastUpdatedMission.IsEmptyMission()) return;
 		
-		//////// Try to wrap as much of this logic up into one function that can be called from both the server (for in-game hosting) and the client
 		Print("[WASTELAND] PAND_MissionManagerComponent: New mission received from authority (ID: " + m_lastUpdatedMission.GetMissionId() + ")", LogLevel.NORMAL);
-		HandleNewMission(m_lastUpdatedMission);
+		HandleNewMissionRecord(m_lastUpdatedMission);
     }
 	
-	protected void HandleNewMission(PAND_Mission newMission)
+	protected void HandleNewMissionRecord(PAND_Mission newMission)
 	{
 		// We've never received this mission ID, so initialize a new mission.
 		ref PAND_Mission mission;
@@ -119,13 +116,28 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		{
 			mission = newMission;
 			
-			bool success = m_mActiveMissions.Insert(mission.GetMissionId(), mission);
-			if (!success)
+			PAND_MissionDefinition missionDefinition = FindMissionDefinitionByMissionType(mission.GetType());
+			if (!missionDefinition)
 			{
-				Print("[WASTELAND] WR_MissionManagerComponent: Unable to insert mission into active mission list! (ID: " + mission.GetMissionId() + ") Aborting mission creation.", LogLevel.ERROR); 
-				return;
+				// TODO: improve error logging
+				Print("No definition found for provided type!", LogLevel.ERROR);
 			}
 			
+			mission.SetDefinition(missionDefinition);
+			
+			if (m_RplComponent.Role() == RplRole.Authority)
+			{
+				// Spawn mission world objects on authority only
+				bool missionObjectsSpawnedSuccessfully = InstantiateMissionWorldObjects(mission);
+				if (!missionObjectsSpawnedSuccessfully)
+				{
+					Print("[WASTELAND] WR_MissionManagerComponent: Unable to spawn mission objects! (ID: " + mission.GetMissionId() + ") Aborting mission creation.", LogLevel.ERROR); 
+					return;
+				}
+			}
+			
+			m_mActiveMissions.Insert(mission.GetMissionId(), mission);
+
 			CreateMarker(mission);
 			CreateHint(mission);
 			PlaySound();
@@ -133,17 +145,35 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		else
 		{
 			// We have received a mission with this ID before, so update or delete existing mission record as required.
+			// TODO: implement all this
 		}
+	}
+	
+	private bool InstantiateMissionWorldObjects(PAND_Mission mission)
+	{
+		// I don't think we need to handle replication for these entities. I think the game will do it automatically when players get close to the mission. Not sure though. Will require research/testing)
 		
+		// Spawn rewards
+		array<IEntity> rewardEntities;
+		bool isRewardSpawned = SpawnReward(mission, rewardEntities);
 		
-		// Ensure we are the authority here
-        if (m_RplComponent.Role() != RplRole.Authority) return;
-		
-		
-		// Authority stuff down here (spawning NPCs, spawning rewards, etc)
-		// Instantiate mission NPCs and rewards in the world (I don't think we need to handle replication for this. I think the game will do it automatically when players get close to the mission. Not sure though. Will require research/testing)
-		// TODO: implement this
-		
+		// Spawn props
+		IEntity propEntity;
+		bool isPropSpawned = SpawnProp(mission, propEntity);
+
+		// Spawn NPCs
+		ref array<SCR_AIGroup> aiGroups;
+		bool areAiGroupsSpawned = SpawnAiGroups(mission, aiGroups);
+
+		if (!isRewardSpawned || !isPropSpawned || !areAiGroupsSpawned)
+		{
+			// TODO: improve error logging
+			Print("Failed to spawn all mission objects in the world!");
+			DestroyMission(mission);
+			return false;
+		}
+
+		return true;
 	}
 	
 	// TODO: maybe change this to be a create or update method?
@@ -152,7 +182,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		SCR_MapMarkerBase marker = new SCR_MapMarkerBase();
 		
 		marker.SetType(SCR_EMapMarkerType.PLACED_CUSTOM);
-		marker.SetCustomText(mission.GetName());
+		marker.SetCustomText(GetMissionName(mission));
 		marker.SetIconEntry(WR_MapMarkerConfigQuadIndices.TargetReferencePoint2);
 		marker.SetColorEntry(WR_MapMarkerConfigColorIndices.Red);
 		marker.SetWorldPos(mission.GetPosition()[0], mission.GetPosition()[2]);
@@ -174,8 +204,8 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	private void CreateHint(PAND_Mission mission)
 	{
 		SCR_HintUIInfo hintInfo = SCR_HintUIInfo.CreateInfo(
-			mission.GetDescription(),
-			mission.GetName(),
+			GetMissionDescription(mission),
+			GetMissionName(mission),
 			10, // TODO: read from config
 			EHint.UNDEFINED,
 			EFieldManualEntryId.NONE,
@@ -209,41 +239,34 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		//Placeholder. It's certainly not as simple as just returning the list. Need to find out how we can transfer a specific variable on-demand from authority to proxy.
     }
 
+	string GetMissionName(PAND_Mission mission)
+	{
+		// TODO: maybe we can improve this at some point by storing mission defs in a map. Should be fine for now with how small the data set is, though
+		foreach (PAND_MissionDefinition definition : m_Config.m_aMissionDefinitions)
+			if (mission.GetType() == definition.m_eType) return definition.m_sName;
+		
+		// TODO: improve error logging
+		Print("Unable to get mission name!", LogLevel.ERROR);
+		return "";
+	}
+	
+	string GetMissionDescription(PAND_Mission mission)
+	{
+		// TODO: maybe we can improve this at some point by storing mission defs in a map. Should be fine for now with how small the data set is, though
+		foreach (PAND_MissionDefinition definition : m_Config.m_aMissionDefinitions)
+			if (mission.GetType() == definition.m_eType) return definition.m_sDescription;
+		
+		// TODO: improve error logging
+		Print("Unable to get mission description!", LogLevel.ERROR);
+		return "";
+	}
+	
     PAND_MissionType GetRandomMissionType()
     {
-		// TODO: read from config
-        array<PAND_MissionType> missionTypes =
-        {
-            PAND_MissionType.CAPTURE_WEAPONS,
-            PAND_MissionType.CAPTURE_VEHICLE,
-			PAND_MissionType.CAPTURE_BASE
-        };
-
-        return missionTypes.GetRandomElement();
+		PAND_MissionDefinition definition = m_Config.m_aMissionDefinitions.GetRandomElement();
+        return definition.m_eType;
     }
-
-    vector GetRandomMissionPosition()
-    {
-        // TODO: make this choose from a list of mission locations
-        return "0 0 0";
-    }
-	
-//	protected SCR_AIGroup pawnMissionGroup(PAND_Mission mission)
-//	{
-//		EntitySpawnParams spawnParams = new EntitySpawnParams();
-//		spawnParams.TransformMode = ETransformMode.WORLD;
-//		spawnParams.Transform[3] = mission.GetPosition();
-//		
-//		Resource groupResource = Resource.Load(groupPrefabName);
-//		SCR_AIGroup newGroup = SCR_AIGroup.Cast(GetGame().SpawnEntityPrefab(groupResource, GetGame().GetWorld(), spawnParams));	
-//
-//		Resource waypointResource = Resource.Load("{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et");
-//		SCR_AIWaypoint waypoint = SCR_AIWaypoint.Cast(GetGame().SpawnEntityPrefab(waypointResource, GetGame().GetWorld(), GenerateSpawnParameters(missionLocation)));
-//
-//		newGroup.AddWaypoint(waypoint);
-//		return newGroup;
-//	}
-//		
+			
 	protected vector GetRandomVacantMissionLocation()
 	{	
 		array<PAND_MissionLocationEntity> vacantLocations = PAND_MissionLocationEntity.GetAllVacantLocations();
@@ -254,7 +277,135 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		}
 		
 		PAND_MissionLocationEntity randomLocation = vacantLocations.GetRandomElement();
+		// TODO: check if there are any entities inside/nearby this mission location's trigger zone. We don't want to spawn missions on people's heads
 		randomLocation.SetIsHostingMission(true); // This must be set to false once the mission finishes
 		return randomLocation.GetOrigin();
+	}
+	
+	private PAND_MissionDefinition FindMissionDefinitionByMissionType(PAND_MissionType type)
+	{
+		if (!m_Config) return null; // TODO: add error logging
+		if (!m_Config.m_aMissionDefinitions) return null; // TODO: add error logging
+		
+		foreach (PAND_MissionDefinition definition : m_Config.m_aMissionDefinitions)
+			if (definition.m_eType == type) return definition;
+		
+		return null;
+	}
+	
+	private bool SpawnProp(PAND_Mission mission, out IEntity propEntity)
+	{
+		if (!mission.GetDefinition())
+		{
+			// TODO: improve error logging
+			Print("Tried to spawn mission prop, but no mission definition was found!", LogLevel.ERROR);
+			return null;
+		}
+		
+		ResourceName propResource = mission.GetDefinition().m_sPropPrefab;
+		if (!propResource) return true; // Props are not required, so exit successfully
+
+		propEntity = WR_Utils.SpawnPrefabInWorld(propResource, mission.GetPosition());
+		propEntity.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
+		
+		return propEntity;
+	}
+	
+	private bool SpawnAiGroups(PAND_Mission mission, out array<SCR_AIGroup> aiGroups)
+	{
+		if (!mission.GetDefinition())
+		{
+			// TODO: improve error logging
+			Print("Tried to spawn mission AI groups, but no mission definition was found!", LogLevel.ERROR);
+			return null;
+		}
+		
+		array<ResourceName> aiGroupResources = mission.GetDefinition().m_aAIGroupPrefabs;
+		if (!aiGroupResources) return true; // NPCs are not required, so exit successfully
+		// TODO: need to make sure missions without AI can still be completed by just walking up to them 
+		
+		aiGroups = {};
+		foreach (ResourceName aiGroupResource : aiGroupResources)
+		{
+			// Find a safe spot for the NPCs to spawn
+			vector spawnPos;
+			WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
+			
+			// The return value of TryGetRandomSafePosWithinRadius is kinda broken, so disabling the safePosFound check for now. Fix that method!!!
+			//bool safePosFound =
+//			if (!safePosFound)
+//			{
+//				// TODO: improve error logging
+//				Print("A safe spawn position was unable to be found for this mission's AI!", LogLevel.ERROR);
+//				return false;
+//			}
+			
+			// Spawn the group prefab
+			IEntity aiGroupEntity = WR_Utils.SpawnPrefabInWorld(aiGroupResource, spawnPos);
+			SCR_AIGroup aiGroupInstance = SCR_AIGroup.Cast(aiGroupEntity);	
+	
+			// Command the group to defend the mission location
+			ResourceName waypointResource = "{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et";
+			IEntity waypointEntity = WR_Utils.SpawnPrefabInWorld(waypointResource, mission.GetPosition());
+			SCR_AIWaypoint waypoint = SCR_AIWaypoint.Cast(waypointEntity);
+			aiGroupInstance.AddWaypoint(waypoint);
+			
+			aiGroups.Insert(aiGroupInstance);
+		}
+		
+		return true;
+	}
+	
+	// TODO: consider making it so this method ensures the reward's spawn position is safe
+	// If it's not safe, make it find a position within a certain radius. (and update the mission record with the new pos so markers are accurate)
+	// If no safe pos can be found, the function returns false
+	private bool SpawnReward(PAND_Mission mission, out array<IEntity> rewardEntities)
+	{
+		if (!mission.GetDefinition())
+		{
+			// TODO: improve error logging
+			Print("Tried to spawn mission reward, but no mission definition was found!", LogLevel.ERROR);
+			return null;
+		}
+		
+		array<ResourceName> rewardPrefabs = mission.GetDefinition().m_sRewardPrefabs;
+		
+		if (!rewardPrefabs || rewardPrefabs.Count() == 0)
+		{
+			// TODO: improve error logging
+			Print("Tried to spawn mission reward, but no rewards were defined!", LogLevel.ERROR);
+			return null;
+		}
+		
+		rewardEntities = {};
+		
+		// Spawn first reward prefab at exact mission position
+		IEntity initialRewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefabs[0], mission.GetPosition());
+		rewardEntities.Insert(initialRewardEntity);
+		
+		// Spawn the rest at random nearby positions
+		for (int i = 1; i < rewardPrefabs.Count(); i++)
+		{
+			// Find a safe spot
+			vector spawnPos;
+			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
+			if (!safePosFound)
+			{
+				// TODO: improve error logging
+				Print("Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
+				return false;
+			}
+			
+			// Spawn the reward prefab
+			IEntity rewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefabs[i], spawnPos);
+			rewardEntities.Insert(rewardEntity);
+		}
+		
+		return true;
+	}
+	
+	private void DestroyMission(PAND_Mission mission)
+	{
+		// This method cleans up a mission record and ALL items related to it, including its markers and rewards!
 	}
 }

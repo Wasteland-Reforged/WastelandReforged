@@ -9,7 +9,13 @@ class PAND_Mission
 	protected bool m_bIsSuccessful;
 	
 	// Other properties
-	protected SCR_MapMarkerBase m_Marker;
+	protected PAND_MissionDefinition m_Definition; // Contains info about mission reward, NPCs, props, etc.
+	protected SCR_MapMarkerBase m_Marker; // Map marker indicating location and status
+	
+	// Entities - the entities for which this mission is responsible (props, AI, etc.) are tracked for clean-up purposes
+	protected ref array<IEntity> m_aRewards;
+	protected ref array<IEntity> m_aProps;
+	protected ref array<SCR_AIGroup> m_aAiGroups;
 
 	static PAND_Mission CreateMission(int id, PAND_MissionType type, vector position)
 	{
@@ -43,6 +49,11 @@ class PAND_Mission
 	vector GetPosition()
 	{
 		return m_vPosition;
+	}
+	
+	void SetPosition(vector position)
+	{
+		m_vPosition = position;
 	}
 	
 	WorldTimestamp GetCreatedAtTime()
@@ -100,6 +111,16 @@ class PAND_Mission
 		return "";
 	}
 	
+	PAND_MissionDefinition GetDefinition()
+	{
+		return m_Definition;	
+	}
+	
+	void SetDefinition(PAND_MissionDefinition definition)
+	{
+		m_Definition = definition;
+	}
+	
 	SCR_MapMarkerBase GetMarker()
 	{
 		return m_Marker;
@@ -108,6 +129,13 @@ class PAND_Mission
 	void SetMarker(SCR_MapMarkerBase marker)
 	{
 		m_Marker = marker;
+	}
+	
+	void SetMissionEntities(array<IEntity> rewards, array<IEntity> props, array<SCR_AIGroup> aiGroups)
+	{
+		m_aRewards = rewards;
+		m_aProps = props;
+		m_aAiGroups = aiGroups;
 	}
 	
 	/////////////////////////////
