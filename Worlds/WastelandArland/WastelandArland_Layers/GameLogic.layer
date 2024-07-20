@@ -41,8 +41,10 @@ PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/Perc
 }
 SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
-  PAND_MissionManagerComponent "{61E06E1C415776F0}" {
-   m_iMaxActiveMissions 3
+  PAND_MissionControllerComponent "{61E85922C998A746}" {
+   m_Config PAND_MissionControllerConfig "{61E85922665002DE}" {
+    m_fInitialMissionDelay 4
+   }
   }
   SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
    m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
@@ -189,7 +191,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    m_fNightTimeAcceleration 12
    m_aStartingWeatherAndTime {
     SCR_TimeAndWeatherState "{61E562A3250E1D7D}" {
-     m_sWeatherPresetName "Cloudy"
+     m_sWeatherPresetName "Clear"
     }
    }
    m_bRandomWeatherChanges 1
@@ -276,12 +278,6 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
    minLootBoxItems 10
    maxLootBoxItems 20
-  }
-  WR_MissionManagerComponent "{61A6C3FDAD54B287}" {
-   maxActiveMissions 3
-   missionRespawnTimer 5
-   convoyMissionWeight 3
-   captureHeliMissionWeight 3
   }
   WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }

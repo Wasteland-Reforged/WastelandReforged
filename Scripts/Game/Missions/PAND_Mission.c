@@ -2,7 +2,7 @@ class PAND_Mission
 {
 	// Replicated properties
 	protected int m_iMissionId;
-	protected PAND_MissionType m_eType = PAND_MissionType.Empty;
+	protected PAND_MissionType m_eType = PAND_MissionType.EMPTY;
 	protected PAND_MissionStatus m_eStatus;
 	protected vector m_vPosition;
 	protected WorldTimestamp m_CreatedAtTime;
@@ -21,8 +21,6 @@ class PAND_Mission
 		mission.m_CreatedAtTime = WR_Utils.TimestampNow(); // Is this the best way of tracking when a mission was started? Will this be prone to bugs if server/client are out of sync regarding world time?
 		mission.m_eStatus = PAND_MissionStatus.InProgress;
 		mission.m_bIsSuccessful = false;
-
-		// Should we also trigger mission setup (spawning NPCs and loot) here? Not sure yet.
 		
 		return mission;
 	}
@@ -62,10 +60,12 @@ class PAND_Mission
 		// TODO: make this reference a config file or something
 		switch (m_eType)
 		{
-			case PAND_MissionType.CaptureWeapons:
-				return "Capture Weapons";
-			case PAND_MissionType.CaptureVehicle:
-				return "Capture Vehicle";
+			case PAND_MissionType.CAPTURE_WEAPONS:
+				return "(from script) Capture Weapons";
+			case PAND_MissionType.CAPTURE_VEHICLE:
+				return "(from script) Capture Vehicle";
+			case PAND_MissionType.CAPTURE_BASE:
+				return "(from script) Capture Base";
 			default:
 			{
 				Print("[WASTELAND] PAND_Mission: Invalid mission type!", LogLevel.ERROR);
@@ -77,7 +77,7 @@ class PAND_Mission
 	
 	bool IsEmptyMission()
 	{
-		return m_eType == PAND_MissionType.Empty;
+		return m_eType == PAND_MissionType.EMPTY;
 	}
 	
 	string GetDescription()
@@ -85,10 +85,12 @@ class PAND_Mission
 		// TODO: read these from a config somewhere
 		switch (m_eType)
 		{
-			case PAND_MissionType.CaptureWeapons:
-				return "A weapon cache has been spotted and is available for capture!";
-			case PAND_MissionType.CaptureVehicle:
-				return "A vehicle has been disabled and is available for capture!";
+			case PAND_MissionType.CAPTURE_WEAPONS:
+				return "(from script) A weapon cache has been spotted and is available for capture!";
+			case PAND_MissionType.CAPTURE_VEHICLE:
+				return "(from script) A vehicle has been disabled and is available for capture!";
+			case PAND_MissionType.CAPTURE_BASE:
+				return "(from script) An outpost has been built and is available for capture!";
 			default:
 			{
 				Print("[WASTELAND] PAND_Mission: Invalid mission type!", LogLevel.ERROR);

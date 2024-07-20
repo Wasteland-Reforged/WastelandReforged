@@ -1,12 +1,12 @@
-class PAND_MissionManagerComponentClass : SCR_BaseGameModeComponentClass
+class PAND_MissionControllerComponentClass : SCR_BaseGameModeComponentClass
 {
 	
 }
 
-class PAND_MissionManagerComponent : SCR_BaseGameModeComponent
+class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 {
-    [Attribute("3", UIWidgets.Slider, "Max number of missions that can be active at once", "0 10 1")]
-	protected int m_iMaxActiveMissions;
+	[Attribute("", UIWidgets.Object, "Mission controller config")]
+	protected ref PAND_MissionControllerConfig m_Config;
     
 	protected SCR_BaseGameMode m_Parent;
 	protected BaseRplComponent m_RplComponent;
@@ -35,6 +35,13 @@ class PAND_MissionManagerComponent : SCR_BaseGameModeComponent
 			return;
 		}
 		
+		if (!m_Config)
+		{
+			Print("[WASTELAND] PAND_MissionManagerComponent: Mission controller must have a valid config!", LogLevel.ERROR);
+			return;
+		}
+
+		
 		Print("[WASTELAND] PAND_MissionManagerComponent: Initialized", LogLevel.NORMAL);
 	}
 	
@@ -44,7 +51,7 @@ class PAND_MissionManagerComponent : SCR_BaseGameModeComponent
 		{
 			// TODO: upgrade this to start multiple missions, track existing missions, give "mission about to start hint", etc.
 			// GetGame().GetCallqueue().CallLater(StartRandomMission, 5*1000, false);
-			for (int i = 0; i < m_iMaxActiveMissions; i++) {
+			for (int i = 0; i < m_Config.m_iMaxActiveMissions; i++) {
 				GetGame().GetCallqueue().CallLater(StartRandomMission, i*3000, false);
 			}
 		}
@@ -55,7 +62,7 @@ class PAND_MissionManagerComponent : SCR_BaseGameModeComponent
 		// Ensure we are the authority here
         if (m_RplComponent.Role() != RplRole.Authority) return;
 
-        if (m_iMaxActiveMissions == 0 || m_mActiveMissions.Count() >= m_iMaxActiveMissions)
+        if (m_Config.m_iMaxActiveMissions == 0 || m_mActiveMissions.Count() >= m_Config.m_iMaxActiveMissions)
 		{
 			Print("[WASTELAND] PAND_MissionManagerComponent: Not enough capacity to start a new mission! Aborting mission creation.", LogLevel.ERROR);
 			return;
@@ -204,10 +211,12 @@ class PAND_MissionManagerComponent : SCR_BaseGameModeComponent
 
     PAND_MissionType GetRandomMissionType()
     {
+		// TODO: read from config
         array<PAND_MissionType> missionTypes =
         {
-            PAND_MissionType.CaptureWeapons,
-            PAND_MissionType.CaptureVehicle
+            PAND_MissionType.CAPTURE_WEAPONS,
+            PAND_MissionType.CAPTURE_VEHICLE,
+			PAND_MissionType.CAPTURE_BASE
         };
 
         return missionTypes.GetRandomElement();
@@ -219,7 +228,7 @@ class PAND_MissionManagerComponent : SCR_BaseGameModeComponent
         return "0 0 0";
     }
 	
-//	protected SCR_AIGroup spawnMissionGroup(PAND_Mission mission)
+//	protected SCR_AIGroup pawnMissionGroup(PAND_Mission mission)
 //	{
 //		EntitySpawnParams spawnParams = new EntitySpawnParams();
 //		spawnParams.TransformMode = ETransformMode.WORLD;
@@ -234,7 +243,7 @@ class PAND_MissionManagerComponent : SCR_BaseGameModeComponent
 //		newGroup.AddWaypoint(waypoint);
 //		return newGroup;
 //	}
-		
+//		
 	protected vector GetRandomVacantMissionLocation()
 	{	
 		array<PAND_MissionLocationEntity> vacantLocations = PAND_MissionLocationEntity.GetAllVacantLocations();
