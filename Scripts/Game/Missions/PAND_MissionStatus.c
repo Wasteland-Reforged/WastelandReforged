@@ -1,6 +1,6 @@
 enum PAND_MissionStatus
 {
-    NotStarted,
-    InProgress,
-    Finished
+    InProgress = 1,
+    Complete = 2,
+	Failed = 4
 }

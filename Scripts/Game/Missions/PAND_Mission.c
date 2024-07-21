@@ -36,14 +36,29 @@ class PAND_Mission
 		return m_iMissionId;
 	}
 	
+	void SetMissionId(int missionId)
+	{
+		m_iMissionId = missionId;
+	}
+	
 	PAND_MissionType GetType()
 	{
 		return m_eType;
 	}
 	
+	void SetType(PAND_MissionType type)
+	{
+		m_eType = type;
+	}
+	
 	PAND_MissionStatus GetStatus()
 	{
 		return m_eStatus;
+	}
+	
+	void SetStatus(PAND_MissionStatus status)
+	{
+		m_eStatus = status;
 	}
 	
 	vector GetPosition()
@@ -56,6 +71,11 @@ class PAND_Mission
 		m_vPosition = position;
 	}
 	
+	void SetCreatedAtTime(WorldTimestamp createdAtTime)
+	{
+		m_CreatedAtTime = createdAtTime;
+	}
+	
 	WorldTimestamp GetCreatedAtTime()
 	{
 		return m_CreatedAtTime;
@@ -66,24 +86,36 @@ class PAND_Mission
 		return m_bIsSuccessful;
 	}
 	
+	void SetIsSuccessful(bool isSuccessful)
+	{
+		m_bIsSuccessful = isSuccessful;
+	}
+	
 	string GetName()
 	{
-		// TODO: make this reference a config file or something
-		switch (m_eType)
+		if (!m_Definition)
 		{
-			case PAND_MissionType.CAPTURE_WEAPONS:
-				return "(from script) Capture Weapons";
-			case PAND_MissionType.CAPTURE_VEHICLE:
-				return "(from script) Capture Vehicle";
-			case PAND_MissionType.CAPTURE_BASE:
-				return "(from script) Capture Base";
-			default:
-			{
-				Print("[WASTELAND] PAND_Mission: Invalid mission type!", LogLevel.ERROR);
-				return "";	
-			}
+			Print("[WASTELAND] PAND_Mission: Cannot retrieve mission name! Mission definition is missing", LogLevel.ERROR);
+			return "";
 		}
-		return "";
+		
+		return m_Definition.m_sName;
+		
+//		switch (m_eType)
+//		{
+//			case PAND_MissionType.CAPTURE_WEAPONS:
+//				return "(from script) Capture Weapons";
+//			case PAND_MissionType.CAPTURE_VEHICLE:
+//				return "(from script) Capture Vehicle";
+//			case PAND_MissionType.CAPTURE_BASE:
+//				return "(from script) Capture Base";
+//			default:
+//			{
+//				Print("[WASTELAND] PAND_Mission: Invalid mission type!", LogLevel.ERROR);
+//				return "";	
+//			}
+//		}
+//		return "";
 	}
 	
 	bool IsEmptyMission()
@@ -93,22 +125,30 @@ class PAND_Mission
 	
 	string GetDescription()
 	{
-		// TODO: read these from a config somewhere
-		switch (m_eType)
+		if (!m_Definition)
 		{
-			case PAND_MissionType.CAPTURE_WEAPONS:
-				return "(from script) A weapon cache has been spotted and is available for capture!";
-			case PAND_MissionType.CAPTURE_VEHICLE:
-				return "(from script) A vehicle has been disabled and is available for capture!";
-			case PAND_MissionType.CAPTURE_BASE:
-				return "(from script) An outpost has been built and is available for capture!";
-			default:
-			{
-				Print("[WASTELAND] PAND_Mission: Invalid mission type!", LogLevel.ERROR);
-				return "";	
-			}
+			Print("[WASTELAND] PAND_Mission: Cannot retrieve mission description! Mission definition is missing", LogLevel.ERROR);
+			return "";
 		}
-		return "";
+		
+		return m_Definition.m_sDescription;
+		
+		
+//		switch (m_eType)
+//		{
+//			case PAND_MissionType.CAPTURE_WEAPONS:
+//				return "(from script) A weapon cache has been spotted and is available for capture!";
+//			case PAND_MissionType.CAPTURE_VEHICLE:
+//				return "(from script) A vehicle has been disabled and is available for capture!";
+//			case PAND_MissionType.CAPTURE_BASE:
+//				return "(from script) An outpost has been built and is available for capture!";
+//			default:
+//			{
+//				Print("[WASTELAND] PAND_Mission: Invalid mission type!", LogLevel.ERROR);
+//				return "";	
+//			}
+//		}
+//		return "";
 	}
 	
 	PAND_MissionDefinition GetDefinition()
