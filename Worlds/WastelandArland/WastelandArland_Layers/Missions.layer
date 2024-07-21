@@ -6,7 +6,7 @@ $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.
   m_bOnce 0
  }
  MissionSpawnLocation10 {
-  coords 1828.602 50.629 1089.061
+  coords 2048.387 58.285 1055.366
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   TriggerActivationType "All changes"
@@ -70,7 +70,7 @@ $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.
   m_bOnce 0
  }
  MissionSpawnLocation9 {
-  coords 3054 2.753 3190.031
+  coords 3054 2.78 3190.031
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -130,13 +130,13 @@ $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.
   m_bOnce 0
  }
  MissionSpawnLocation_Base3 {
-  coords 943.466 38.859 2705.906
+  coords 943.466 39.269 2705.906
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation_Base4 {
-  coords 2126.067 50.244 2755.814
+  coords 2126.067 50.243 2755.814
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -172,7 +172,7 @@ $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.
   m_bOnce 0
  }
  MissionSpawnLocation_Convoy1 {
-  coords 1584.883 39.512 2681.846
+  coords 1584.883 39.511 2681.846
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -184,7 +184,7 @@ $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.
   m_bOnce 0
  }
  MissionSpawnLocation_Convoy11 {
-  coords 2828.696 36.367 3177.45
+  coords 2828.697 36.366 3177.45
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -202,7 +202,7 @@ $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.
   m_bOnce 0
  }
  MissionSpawnLocation_Convoy3 {
-  coords 1894.529 25.912 1954.479
+  coords 1894.529 25.911 1954.479
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -250,13 +250,13 @@ $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.
   m_bOnce 0
  }
  MissionSpawnLocation14 {
-  coords 502.17 1.583 2917.2
+  coords 502.17 0.927 2917.2
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation15 {
-  coords 1230.427 7.022 3328.141
+  coords 1230.427 7.023 3328.141
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -268,37 +268,37 @@ $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.
   m_bOnce 0
  }
  MissionSpawnLocation17 {
-  coords 2997.242 18.306 2812.465
+  coords 2997.242 18.307 2812.465
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation18 {
-  coords 2391.89 3.025 3268.228
+  coords 2391.89 1.647 3268.228
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation19 {
-  coords 2763.863 72.751 1559.545
+  coords 2763.863 72.614 1559.545
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation20 {
-  coords 1814.94 31.092 1360.953
+  coords 1814.94 31.405 1360.953
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation21 {
-  coords 1320.002 1.472 1094.417
+  coords 1320.002 2.469 1094.417
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation22 {
-  coords 919.873 21.898 2231.163
+  coords 919.873 22.295 2231.163
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -310,25 +310,25 @@ $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.
   m_bOnce 0
  }
  MissionSpawnLocation24 {
-  coords 2425.832 9.109 797.513
+  coords 2425.832 9.262 797.513
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation25 {
-  coords 1758.089 6.558 871.585
+  coords 1614.645 6.88 908.575
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation26 {
-  coords 3102.109 22.835 2608.583
+  coords 3102.109 22.836 2608.583
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
  }
  MissionSpawnLocation27 {
-  coords 1926.435 51.507 3072.605
+  coords 1926.435 51.539 3072.605
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0

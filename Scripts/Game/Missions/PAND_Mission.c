@@ -5,8 +5,8 @@ class PAND_Mission
 	protected PAND_MissionType m_eType = PAND_MissionType.EMPTY;
 	protected PAND_MissionStatus m_eStatus;
 	protected vector m_vPosition;
-	protected WorldTimestamp m_CreatedAtTime;
-	protected bool m_bIsSuccessful;
+//	protected WorldTimestamp m_CreatedAtTime;
+//	protected bool m_bIsSuccessful;
 	
 	// Other properties
 	protected ref PAND_MissionDefinition m_Definition; // Contains info about mission reward, NPCs, props, etc.
@@ -24,9 +24,9 @@ class PAND_Mission
 		mission.m_iMissionId = id;
 		mission.m_eType = type;
 		mission.m_vPosition = position;
-		mission.m_CreatedAtTime = WR_Utils.TimestampNow(); // Is this the best way of tracking when a mission was started? Will this be prone to bugs if server/client are out of sync regarding world time?
 		mission.m_eStatus = PAND_MissionStatus.InProgress;
-		mission.m_bIsSuccessful = false;
+//		mission.m_CreatedAtTime = WR_Utils.TimestampNow(); // Is this the best way of tracking when a mission was started? Will this be prone to bugs if server/client are out of sync regarding world time?
+//		mission.m_bIsSuccessful = false;
 		
 		return mission;
 	}
@@ -71,26 +71,6 @@ class PAND_Mission
 		m_vPosition = position;
 	}
 	
-	void SetCreatedAtTime(WorldTimestamp createdAtTime)
-	{
-		m_CreatedAtTime = createdAtTime;
-	}
-	
-	WorldTimestamp GetCreatedAtTime()
-	{
-		return m_CreatedAtTime;
-	}
-	
-	bool GetIsSuccessful()
-	{
-		return m_bIsSuccessful;
-	}
-	
-	void SetIsSuccessful(bool isSuccessful)
-	{
-		m_bIsSuccessful = isSuccessful;
-	}
-	
 	string GetName()
 	{
 		if (!m_Definition)
@@ -100,22 +80,6 @@ class PAND_Mission
 		}
 		
 		return m_Definition.m_sName;
-		
-//		switch (m_eType)
-//		{
-//			case PAND_MissionType.CAPTURE_WEAPONS:
-//				return "(from script) Capture Weapons";
-//			case PAND_MissionType.CAPTURE_VEHICLE:
-//				return "(from script) Capture Vehicle";
-//			case PAND_MissionType.CAPTURE_BASE:
-//				return "(from script) Capture Base";
-//			default:
-//			{
-//				Print("[WASTELAND] PAND_Mission: Invalid mission type!", LogLevel.ERROR);
-//				return "";	
-//			}
-//		}
-//		return "";
 	}
 	
 	bool IsEmptyMission()
@@ -132,23 +96,6 @@ class PAND_Mission
 		}
 		
 		return m_Definition.m_sDescription;
-		
-		
-//		switch (m_eType)
-//		{
-//			case PAND_MissionType.CAPTURE_WEAPONS:
-//				return "(from script) A weapon cache has been spotted and is available for capture!";
-//			case PAND_MissionType.CAPTURE_VEHICLE:
-//				return "(from script) A vehicle has been disabled and is available for capture!";
-//			case PAND_MissionType.CAPTURE_BASE:
-//				return "(from script) An outpost has been built and is available for capture!";
-//			default:
-//			{
-//				Print("[WASTELAND] PAND_Mission: Invalid mission type!", LogLevel.ERROR);
-//				return "";	
-//			}
-//		}
-//		return "";
 	}
 	
 	PAND_MissionDefinition GetDefinition()
@@ -194,8 +141,6 @@ class PAND_Mission
 		snapshot.SerializeInt(instance.m_eType);
 		snapshot.SerializeInt(instance.m_eStatus);
 		snapshot.SerializeVector(instance.m_vPosition);
-		snapshot.SerializeBytes(instance.m_CreatedAtTime, 8);
-		snapshot.SerializeBool(instance.m_bIsSuccessful);
 
 		return true;
     }
@@ -207,8 +152,6 @@ class PAND_Mission
         snapshot.SerializeInt(instance.m_eType);
         snapshot.SerializeInt(instance.m_eStatus);
         snapshot.SerializeVector(instance.m_vPosition);
-        snapshot.SerializeBytes(instance.m_CreatedAtTime, 8);
-        snapshot.SerializeBool(instance.m_bIsSuccessful);
         
 		return true;
     }
@@ -220,8 +163,6 @@ class PAND_Mission
         snapshot.EncodeInt(packet);
         snapshot.EncodeInt(packet);
         snapshot.EncodeVector(packet);
-        snapshot.Serialize(packet, 8);
-        snapshot.EncodeBool(packet);
     }
  
     static bool Decode(ScriptBitSerializer packet, ScriptCtx ctx, SSnapSerializerBase snapshot)
@@ -231,8 +172,6 @@ class PAND_Mission
         snapshot.DecodeInt(packet);
         snapshot.DecodeInt(packet);
         snapshot.DecodeVector(packet);
-        snapshot.Serialize(packet, 8);
-        snapshot.DecodeBool(packet);
         
 		return true;
     }
@@ -240,7 +179,7 @@ class PAND_Mission
     static bool SnapCompare(SSnapSerializerBase lhs, SSnapSerializerBase rhs, ScriptCtx ctx)
     {	
 		// Compare two snapshots
-		return lhs.CompareSnapshots(rhs, 4+4+4+12+4);   // int32, int32, int32, vector, bool
+		return lhs.CompareSnapshots(rhs, 4+4+4+12);   // int32, int32, int32, vector
     }
  
     static bool PropCompare(PAND_Mission instance, SSnapSerializerBase snapshot, ScriptCtx ctx)
@@ -250,9 +189,7 @@ class PAND_Mission
 			snapshot.CompareInt(instance.m_iMissionId)
 			&& snapshot.CompareInt(instance.m_eType)
 			&& snapshot.CompareInt(instance.m_eStatus)
-			&& snapshot.CompareVector(instance.m_vPosition)
-			&& snapshot.Compare(instance.m_CreatedAtTime, 8)
-			&& snapshot.CompareBool(instance.m_bIsSuccessful);
+			&& snapshot.CompareVector(instance.m_vPosition);
 		
 		return result;
     }

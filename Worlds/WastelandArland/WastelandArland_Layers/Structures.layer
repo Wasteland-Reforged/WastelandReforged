@@ -205,22 +205,22 @@ $grp SplineShapeEntity {
   }
   {
    RoadGeneratorEntity : "{8E83BBD5CEC42A11}Prefabs/WEGenerators/Roads/Dirt/RG_Road_Dirt_01.et" {
-    coords 0 0 0
+    coords 0 102.799 0
     {
      RoadEntity {
       ID "523EAA80CAA6C6B5"
       SplinePoints {
        ShapePoint "{52346539D885C296}" {
-        Position -2.633 0 -1.717
+        Position -2.633 -102.799 -1.717
        }
        ShapePoint "{52346539D885C1A2}" {
-        Position -2.445 -1.015 -14.838
+        Position -2.445 -103.814 -14.838
        }
        ShapePoint "{61C80432FA2F418A}" {
-        Position -13.581 -2.189 -22.929
+        Position -13.581 -104.988 -22.929
        }
        ShapePoint "{61C80432FA2F4029}" {
-        Position -45.816 -3.833 -22.022
+        Position -45.816 -106.632 -22.022
        }
       }
       IsClosedSpline 0

@@ -14,7 +14,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
     protected int m_iMissionCounter;
     
 	protected ref map<int, ref PAND_Mission> m_mActiveMissions = new map<int, ref PAND_Mission>();
-   	// TODO: Of course, we will also need to provide means for clients to get the full list of missions when they connect to the game.
+//	protected ref map<int, PAND_Mission> m_mActiveMissions = new map<int, PAND_Mission>();
 	
 	protected ref map<PAND_MissionType, PAND_MissionDefinition> m_mMissionDefinitions = new map<PAND_MissionType, PAND_MissionDefinition>();
 	
@@ -50,14 +50,6 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		foreach (PAND_MissionDefinition definition : m_Config.m_aMissionDefinitions)
 			m_mMissionDefinitions.Insert(definition.m_eType, definition);
 
-		
-		// Proxies should request a copy of the authority's map of active missions, then handle them locally
-//		if (m_RplComponent.Role() == RplRole.Proxy)
-//		{	
-//			Rpc(RpcAsk_Authority_Method, true);
-//		}
-
-		
 		Print("[WASTELAND] PAND_MissionControllerComponent: Mission controller initialized.", LogLevel.NORMAL);
 	}
 	
@@ -71,99 +63,16 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		return null;
 	}
 	
-	// Called on the authority when an entity gets streamed
-	override bool RplSave(ScriptBitWriter writer)
-	{
-		// Write active mission count as header so proxy knows how many values it's receiving
-		writer.WriteInt(m_mActiveMissions.Count());
-
-		foreach (PAND_Mission mission : m_mActiveMissions)
-		{
-			Print("[WASTELAND] RplSave: " + mission.GetMissionId());
-			Print("[WASTELAND] RplSave: " + mission.GetType());
-			Print("[WASTELAND] RplSave: " + mission.GetStatus());
-			Print("[WASTELAND] RplSave: " + mission.GetPosition());
-			Print("[WASTELAND] RplSave: " + mission.GetCreatedAtTime());
-			Print("[WASTELAND] RplSave: " + mission.GetIsSuccessful());
-			
-			writer.WriteInt(mission.GetMissionId());
-			writer.WriteInt(mission.GetType());
-			writer.WriteInt(mission.GetStatus());
-			writer.WriteVector(mission.GetPosition());
-			writer.Write(mission.GetCreatedAtTime(), 64);
-			writer.WriteBool(mission.GetIsSuccessful());
-		}
-
-		return true;
-	}
-	
-	// Called on the streamed proxy
-	override bool RplLoad(ScriptBitReader reader)
-	{
-		Print("[WASTELAND] PAND_MissionControllerComponent: RplLoad called on proxy.", LogLevel.WARNING);
-		
-		int activeMissionCount;
-		if (!reader.ReadInt(activeMissionCount)) return false;
-		
-		for (int i = 0; i < activeMissionCount; i++)
-		{
-			int id;
-			if (!reader.ReadInt(id)) return false;
-			
-			PAND_MissionType type;
-			if (!reader.ReadInt(type)) return false;
-			
-			PAND_MissionStatus status;
-			if (!reader.ReadInt(status)) return false;
-			
-			vector pos;
-			if (!reader.ReadVector(pos)) return false;
-			
-			WorldTimestamp createdAtTime;
-			if (!reader.Read(createdAtTime, 64)) return false;
-			
-			bool isSuccessful;
-			if (!reader.ReadBool(isSuccessful)) return false;
-
-			Print("[WASTELAND] RplLoad: " + id);
-			Print("[WASTELAND] RplLoad: " + type);
-			Print("[WASTELAND] RplLoad: " + status);
-			Print("[WASTELAND] RplLoad: " + pos);
-			Print("[WASTELAND] RplLoad: " + createdAtTime);
-			Print("[WASTELAND] RplLoad: " + isSuccessful);
-						
-			PAND_Mission mission = new PAND_Mission();
-
-			mission.SetMissionId(id);
-			mission.SetType(type);
-			mission.SetStatus(status);
-			mission.SetPosition(pos);
-			mission.SetCreatedAtTime(createdAtTime);
-			mission.SetIsSuccessful(isSuccessful);
-			
-			HandleUpdatedMissionRecord(mission, true);
-		}
-		
-		foreach (PAND_Mission mission : m_mActiveMissions)
-		{
-			Print("[WASTELAND] RplLoad: ID = " + mission.GetMissionId() + " Name = " + mission.GetName());
-		}
-		
-		return true;
-	}
-	
 	override void OnGameModeStart()
 	{
 		if (m_RplComponent.Role() == RplRole.Authority)
 		{
-			// TODO: upgrade this to start multiple missions, track existing missions, give "mission about to start hint", etc.
-			// GetGame().GetCallqueue().CallLater(StartRandomMission, 5*1000, false);
-			
 			float initialDelayMs = m_Config.m_fInitialMissionDelay * 60 * 1000;
 			float delayBetweenMissionStartMs = 0 * 1000;
 			
 			for (int i = 0; i < m_Config.m_iMaxActiveMissions; i++)
 			{
+				// TODO: upgrade this to start multiple missions, track existing missions, give "mission about to start hint", etc.
 				//GetGame().GetCallqueue().CallLater(StartRandomMission, initialDelayMs + i * delayBetweenMissionStartMs, false);
 				GetGame().GetCallqueue().CallLater(StartRandomMission, 0 + i * delayBetweenMissionStartMs, false);
 			}
@@ -218,11 +127,6 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		
 		Print("[WASTELAND] PAND_MissionManagerComponent: New mission started: " + m_lastUpdatedMission.GetName() + " (ID: " + missionId + ")", LogLevel.NORMAL);
     }
-
-	protected void OnNewMissionReceived()
-    {
-		ReceiveNewMissionOnProxy();
-	}
 	
     protected void ReceiveNewMissionOnProxy()
     {
@@ -235,32 +139,36 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		HandleUpdatedMissionRecord(m_lastUpdatedMission, false);
     }
 	
-	protected void HandleUpdatedMissionRecord(PAND_Mission newMission, bool isJipRplLoad)
+	protected void HandleUpdatedMissionRecord(PAND_Mission mission, bool isJipRplLoad)
 	{
-		ref PAND_Mission mission;
-		bool missionExists = m_mActiveMissions.Find(newMission.GetMissionId(), mission);
+		PAND_Mission newMission = mission;
+		//bool missionExists = m_mActiveMissions.Find(newMission.GetMissionId(), mission);
+		bool missionExists = m_mActiveMissions.Contains(newMission.GetMissionId());
 		
 		// Populate mission definition from local config file
 		PAND_MissionDefinition definition = GetMissionDefinition(newMission.GetType());
 		newMission.SetDefinition(definition); 
 		
+		//mission = newMission;
 		if (!missionExists)
 		{
-			// We've never received this mission ID, so initialize a new mission.
-			mission = newMission;
-			
-			m_mActiveMissions.Insert(mission.GetMissionId(), mission);
+			// We've never received this mission ID, so add it to the list of active missions.
+			m_mActiveMissions.Set(newMission.GetMissionId(), newMission);
 
-			PAND_MissionUiElementHelper.CreateMarker(mission);
+			// Markers should only be created on the authority, since Reforger already includes infrastructure to replicate them
+			if (m_RplComponent.Role() == RplRole.Authority)
+			{
+				PAND_MissionUiElementHelper.CreateMarker(newMission);	
+			}
 			
 			// Only active player should see notifications, not JIP clients who are receiving initial mission info
 			if (!isJipRplLoad)
-				PAND_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
+				PAND_MissionUiElementHelper.SendMissionNotificationByStatus(newMission);
 		}
 		else
 		{
 			// We have received a mission with this ID before, so update or delete existing mission record as required
-			PAND_MissionStatus currStatus = mission.GetStatus();
+			PAND_MissionStatus currStatus = newMission.GetStatus();
 			switch	(currStatus)
 			{
 				case PAND_MissionStatus.Complete:
@@ -268,15 +176,23 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 				{
 					SCR_MapMarkerManagerComponent markerManager = SCR_MapMarkerManagerComponent.GetInstance();
 					
-					PAND_MissionUiElementHelper.DeleteMarker(mission);
-					PAND_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
+					if (m_RplComponent.Role() == RplRole.Authority)
+					{
+						PAND_MissionUiElementHelper.DeleteMarker(newMission);
+					}
+					
+					// Only active players should see notifications, not JIP clients who are receiving initial mission info
+					if (!isJipRplLoad)
+						PAND_MissionUiElementHelper.SendMissionNotificationByStatus(newMission);
 		
-					m_mActiveMissions.Remove(mission.GetMissionId());
+					m_mActiveMissions.Take(newMission.GetMissionId(), newMission);
 					
 					break;
 				}
 			}
 		}
+		
+		Print("[WASTELAND] PAND_MissionManagerComponent: ID = " + newMission.GetMissionId() + " Status = " + newMission.GetStatus());
 	}
 	
 	private bool InstantiateMissionWorldObjects(PAND_Mission mission)
@@ -310,17 +226,6 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
     {
         m_iMissionCounter += 1;
         return m_iMissionCounter;
-    }
-
-    protected map<int, ref PAND_Mission> GetActiveMissions()
-    {
-        // Used when a player connects JIP or reconnects after lagging/desyncing in order to make sure they have an up-to-date list of active missions.
-        
-		// Convert m_mActiveMissions to map<int, ref PAND_MissionDto>
-		if (!m_mActiveMissions) return null;
-			
-		return m_mActiveMissions;
-		//Placeholder. It's certainly not as simple as just returning the list. Need to find out how we can transfer a specific variable on-demand from authority to proxy.
     }
 	
     PAND_MissionType GetRandomMissionType()
@@ -528,22 +433,17 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		// TODO: move this logic into a central place that will check the amount of active missions and schedule replacements
 		GetGame().GetCallqueue().CallLater(StartRandomMission, m_Config.m_fNewMissionDelay * 60 * 1000, false);
 		
+		// Send updated mission to proxies
+		m_lastUpdatedMission = mission;
+		Print("[WASTELAND] m_lastUpdatedMission Status just before bumping: " + mission.GetStatus() + " (ID: " + mission.GetMissionId() + ")");
+		Replication.BumpMe();
+		
 		// Handle update on server's proxy
 		HandleUpdatedMissionRecord(mission, false);
-		
-		// Send updated mission to proxies
-		Replication.BumpMe();
+		// TODO: HandleUpdatedMissionRecord sets 'mission' parameter to null when the mission is removed from the active mission map
+		// I'm not sure why this is happening. Inside the function, the variable still has a value. Only when the function exits back
+		// here does mission become null. Need to fix this down the line sometime.
 	}
-	
-//	void HandleCompleteMission()
-//	{
-//		SCR_MapMarkerManagerComponent markerManager = SCR_MapMarkerManagerComponent.GetInstance();
-//		
-//		PAND_MissionUiElementHelper.DeleteMarker(mission);
-//		PAND_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
-//		
-//		m_mActiveMissions.Remove(mission.GetMissionId());
-//	}
 	
 	static PAND_MissionControllerComponent GetInstance()
 	{
@@ -551,29 +451,83 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		return missionController;
 	}
 	
-//	private string GetMissionName(PAND_Mission mission)
-//	{
-//		PAND_MissionDefinition definition = GetMissionDefinition(mission);
-//		
-//		if (!definition)
-//		{
-//			Print("[WASTELAND] PAND_MissionControllerComponent: Unable to get mission name!", LogLevel.ERROR);
-//			return "";
-//		}
-//		
-//		return definition.m_sName;
-//	}
-//	
-//	private string GetMissionDescription(PAND_Mission mission)
-//	{
-//		PAND_MissionDefinition definition = GetMissionDefinition(mission);
-//		
-//		if (!definition)
-//		{
-//			Print("[WASTELAND] PAND_MissionControllerComponent: Unable to get mission description!", LogLevel.ERROR);
-//			return "";
-//		}
-//		
-//		return definition.m_sDescription;
-//	}
+	/////////////////////////////
+	/* Replication logic below */
+	/////////////////////////////
+	
+	protected void OnNewMissionReceived()
+    {
+		ReceiveNewMissionOnProxy();
+	}
+	
+	// Called on the authority when an entity gets streamed (connects JIP)
+	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
+	override bool RplSave(ScriptBitWriter writer)
+	{
+		// Write active mission count as header so proxy knows how many values it's receiving
+		writer.Write(m_mActiveMissions.Count(), 8);
+
+		foreach (PAND_Mission mission : m_mActiveMissions)
+		{
+			Print("[WASTELAND] RplSave: Mission ID     " + mission.GetMissionId(), LogLevel.DEBUG);
+			Print("[WASTELAND] RplSave: Type           " + mission.GetType(), LogLevel.DEBUG);
+			Print("[WASTELAND] RplSave: Status         " + mission.GetStatus(), LogLevel.DEBUG);
+			Print("[WASTELAND] RplSave: Position       " + mission.GetPosition(), LogLevel.DEBUG);
+			Print("\n", LogLevel.DEBUG);
+			
+			writer.WriteInt(mission.GetMissionId());
+			writer.WriteInt(mission.GetType());
+			writer.WriteInt(mission.GetStatus());
+			writer.WriteVector(mission.GetPosition());
+		}
+
+		return true;
+	}
+	
+	// Called on the streamed proxy
+	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
+	override bool RplLoad(ScriptBitReader reader)
+	{
+		Print("[WASTELAND] PAND_MissionControllerComponent: RplLoad called on proxy.", LogLevel.WARNING);
+		
+		int activeMissionCount;
+		if (!reader.Read(activeMissionCount, 8)) return false;
+		
+		for (int i = 0; i < activeMissionCount; i++)
+		{
+			int id;
+			if (!reader.ReadInt(id)) return false;
+			
+			PAND_MissionType type;
+			if (!reader.ReadInt(type)) return false;
+			
+			PAND_MissionStatus status;
+			if (!reader.ReadInt(status)) return false;
+			
+			vector pos;
+			if (!reader.ReadVector(pos)) return false;
+	
+			Print("[WASTELAND] RplLoad: Mission ID     " + id, LogLevel.DEBUG);
+			Print("[WASTELAND] RplLoad: Type           " + type, LogLevel.DEBUG);
+			Print("[WASTELAND] RplLoad: Status         " + status, LogLevel.DEBUG);
+			Print("[WASTELAND] RplLoad: Position       " + pos, LogLevel.DEBUG);
+			Print("\n", LogLevel.DEBUG);
+						
+			PAND_Mission mission = new PAND_Mission();
+
+			mission.SetMissionId(id);
+			mission.SetType(type);
+			mission.SetStatus(status);
+			mission.SetPosition(pos);
+			
+			HandleUpdatedMissionRecord(mission, true);
+		}
+		
+		foreach (PAND_Mission mission : m_mActiveMissions)
+		{
+			Print("[WASTELAND] RplLoad: ID = " + mission.GetMissionId() + " Name = " + mission.GetName());
+		}
+		
+		return true;
+	}
 }
