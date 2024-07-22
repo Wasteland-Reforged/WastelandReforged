@@ -22,7 +22,7 @@ SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
    }
   }
  }
- coords 7114.537 75.031 6401.884
+ coords 1004.604 37.406 2846.798
  {
   CommentEntity {
    coords 0 1 0
@@ -37,15 +37,14 @@ SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
  }
 }
 PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
- coords 7114.537 73.859 6406.884
+ coords 999.47 37.406 2846.971
 }
 SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
   PAND_MissionControllerComponent "{61E85922C998A746}" {
    m_Config PAND_MissionControllerConfig "{61E85BEA5B03049B}" : "{19B3601955874CA9}Configs/Missions/WR_MissionControllerConfigDefault.conf" {
-    m_iMaxActiveMissions 5
-    m_fInitialMissionDelay 0
-    m_fNewMissionDelay 20.25
+    m_iMaxActiveMissions 2
+    m_fInitialMissionDelay 1
    }
   }
   SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
@@ -288,7 +287,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    Streamable Disabled
   }
  }
- coords 4400.008 1.868 11042.771
+ coords 999.617 37.382 2851.944
 }
 TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
  coords 4399.965 1.614 11043.354
@@ -305,10 +304,10 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
  "Internal subvariant 1" 0
 }
 RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
- coords 7114.537 74.093 6405.884
+ coords 1002.49 37.406 2849.554
 }
 SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
- coords 1926.914 51.6 3080.659
+ coords 1002.805 37.406 2848.145
  scale 0.005
  Factions {
   SCR_CampaignFaction "{50B30C3AF4BFD934}" {
@@ -345,10 +344,10 @@ SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campai
  }
 }
 ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
- coords 7114.537 73.625 6407.884
+ coords 1001.836 37.406 2844.786
 }
 SCR_LoadoutManager LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
- coords 4407.758 1.67 11045.12
+ coords 997.467 37.406 2850.215
  m_aPlayerLoadouts {
   SCR_FactionPlayerLoadout "{6185692023D7D44C}" {
    m_sLoadoutName "Soldier"

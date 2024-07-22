@@ -14,7 +14,6 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
     protected int m_iMissionCounter;
     
 	protected ref map<int, ref PAND_Mission> m_mActiveMissions = new map<int, ref PAND_Mission>();
-//	protected ref map<int, PAND_Mission> m_mActiveMissions = new map<int, PAND_Mission>();
 	
 	protected ref map<PAND_MissionType, PAND_MissionDefinition> m_mMissionDefinitions = new map<PAND_MissionType, PAND_MissionDefinition>();
 	
@@ -68,13 +67,12 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		if (m_RplComponent.Role() == RplRole.Authority)
 		{
 			float initialDelayMs = m_Config.m_fInitialMissionDelay * 60 * 1000;
-			float delayBetweenMissionStartMs = 0 * 1000;
+			float delayBetweenMissionStartMs = 20 * 1000;
 			
 			for (int i = 0; i < m_Config.m_iMaxActiveMissions; i++)
 			{
 				// TODO: upgrade this to start multiple missions, track existing missions, give "mission about to start hint", etc.
-				//GetGame().GetCallqueue().CallLater(StartRandomMission, initialDelayMs + i * delayBetweenMissionStartMs, false);
-				GetGame().GetCallqueue().CallLater(StartRandomMission, 0 + i * delayBetweenMissionStartMs, false);
+				GetGame().GetCallqueue().CallLater(StartRandomMission, initialDelayMs + i * delayBetweenMissionStartMs, false);
 			}
 		}
 	}
