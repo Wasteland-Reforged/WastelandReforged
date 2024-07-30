@@ -13,7 +13,7 @@ class WR_LootBoxComponent : ScriptComponent
 		if (!LootBoxComponents)
 		{
 			LootBoxComponents = {};
-			Print("[WASTELAND] Initialized loot box component list.");
+			Print("[WASTELAND] WR_LootBoxComponent: Initialized loot box component list.");
 		}
 		
 		LootBoxComponents.Insert(this);

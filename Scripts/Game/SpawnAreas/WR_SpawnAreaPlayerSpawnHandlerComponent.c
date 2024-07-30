@@ -15,14 +15,14 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] Parent entity of WR_SpawnAreaPlayerSpawnHandlerComponent must be a WR_SpawnAreaEntity!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: Parent entity of WR_SpawnAreaPlayerSpawnHandlerComponent must be a WR_SpawnAreaEntity!", LogLevel.ERROR);
 			return;
 		}
 		
 		if (!PlayerSpawnHandlerComponents)
 		{
 			PlayerSpawnHandlerComponents = {};
-			Print("[WASTELAND] Initialized player spawn area handler component list.", LogLevel.NORMAL);
+			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: Initialized player spawn area handler component list.", LogLevel.NORMAL);
 		}
 		
 		PlayerSpawnHandlerComponents.Insert(this);
@@ -58,7 +58,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		float yPaddingDistance = 2; 		// Minimum distance of empty space to have above and below the chosen position 
 		
 		vector respawnPos;
-		bool foundSafePos = WR_Utils.TryGetSafePos(
+		bool foundSafePos = WR_Utils.TryGetRandomSafePosWithinRadius(
 												respawnPos
 												, spawnArea._parent.GetOrigin()
 												, spawnArea._parent.GetSphereRadius()
@@ -81,12 +81,12 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		// Perform validation
 		if (!spawnAreas)
 		{
-			Print("[WASTELAND] The player spawn area list is null!");
+			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: The player spawn area list is null!");
 			return null;
 		}
 		else if (spawnAreas.Count() < 1)
 		{
-			Print("[WASTELAND] The player spawn area list is empty! Place one or more spawn areas with player spawn handler components attached.");
+			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: The player spawn area list is empty! Place one or more spawn areas with player spawn handler components attached.");
 			return null;
 		}
 

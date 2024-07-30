@@ -1,1 +1,4 @@
-resourceDatabase.rdb
+resourceDatabase.*
+data.*
+WastelandReforged.gproj*
+meta

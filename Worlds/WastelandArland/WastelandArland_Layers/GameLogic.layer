@@ -22,7 +22,7 @@ SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
    }
   }
  }
- coords 7114.537 75.031 6401.884
+ coords 1004.604 37.406 2846.798
  {
   CommentEntity {
    coords 0 1 0
@@ -37,10 +37,16 @@ SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
  }
 }
 PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
- coords 7114.537 73.859 6406.884
+ coords 999.47 37.406 2846.971
 }
 SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
+  PAND_MissionControllerComponent "{61E85922C998A746}" {
+   m_Config PAND_MissionControllerConfig "{61E85BEA5B03049B}" : "{19B3601955874CA9}Configs/Missions/WR_MissionControllerConfigDefault.conf" {
+    m_iMaxActiveMissions 2
+    m_fInitialMissionDelay 1
+   }
+  }
   SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
    m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
    m_BudgetType CAMPAIGN
@@ -109,7 +115,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    }
   }
   SCR_GameModeHealthSettings "{5A22E11F9ACBB1DF}" {
-   m_bPermitUnconsciousness 0
+   m_bPermitUnconsciousVON 1
   }
   SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
    m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" : "{651583FFFB7FC765}Configs/GameOverScreen/GameOverScreensConfig.conf" {
@@ -184,6 +190,12 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   SCR_TimeAndWeatherHandlerComponent "{61D805F9F5E6DB16}" {
    m_fDayTimeAcceleration 6
    m_fNightTimeAcceleration 12
+   m_aStartingWeatherAndTime {
+    SCR_TimeAndWeatherState "{61E562A3250E1D7D}" {
+     m_sWeatherPresetName "Clear"
+    }
+   }
+   m_bRandomWeatherChanges 1
   }
   SCR_WelcomeScreenComponent "{61D95A1AC290E806}" {
    m_BaseLayout SCR_WelcomeScreenThreeHorizontalColumns "{61D95A1ABEEC0771}" {
@@ -249,7 +261,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
       SCR_WelcomeScreenIntroduction "{61DE1954A137F713}" {
        m_sContentImage "{AC37AA3EE3DB4853}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_service_encapment_UI.edds"
        m_sContentTitleText "Missions"
-       m_sContentDescriptionText "A random selection of missions are regularly available around the island. They offer valuable rewards, but are usually guarded by a squad of NPCs. Rewards range from crates full of weapons to armored vehicles or bases full of supplies."\
+       m_sContentDescriptionText "A random selection of missions are regularly available around the island. They offer valuable rewards, but are usually guarded by a squad of armed NPCs. Rewards range from crates full of weapons to armored vehicles or bases full of supplies."\
        ""\
        "Be careful: locations of missions are always marked on every player’s map, so getting away with the spoils can get competitive."
       }
@@ -268,12 +280,6 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    minLootBoxItems 10
    maxLootBoxItems 20
   }
-  WR_MissionManagerComponent "{61A6C3FDAD54B287}" {
-   maxActiveMissions 3
-   missionRespawnTimer 5
-   convoyMissionWeight 3
-   captureHeliMissionWeight 3
-  }
   WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }
   RplComponent "{56B2B4793BF2E1B4}" {
@@ -281,10 +287,11 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    Streamable Disabled
   }
  }
- coords 4400.008 1.868 11042.771
+ coords 999.617 37.382 2851.944
 }
 TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
  coords 4399.965 1.614 11043.354
+ Flags 2097155
  WeatherStateMachine "{E7BBEF5A7CB63F57}Terrains/Common/WeatherPresets/StateMachine/WR_WeatherStates.conf"
  WeatherParameters "{0ADCC05C873A9F29}Terrains/Common/WeatherPresets/WR_WeatherParameters.conf"
  "Day Duration" 10800
@@ -297,10 +304,10 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager : "{A3BAF78F6F03315B}Prefabs/W
  "Internal subvariant 1" 0
 }
 RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
- coords 7114.537 74.093 6405.884
+ coords 1002.49 37.406 2849.554
 }
 SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
- coords 1926.914 51.6 3080.659
+ coords 1002.805 37.406 2848.145
  scale 0.005
  Factions {
   SCR_CampaignFaction "{50B30C3AF4BFD934}" {
@@ -327,8 +334,8 @@ SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campai
   }
   SCR_Faction "{60DCF47AEF40BD72}" {
    UIInfo SCR_FactionUIInfo "{56B49118D8D0A9C5}" {
-    Name "Independent"
-    m_sNameUpper "Independent"
+    Name "Civilian"
+    m_sNameUpper "CIVILIAN"
    }
    m_bIsMilitary 1
    m_aFriendlyFactionsIds {
@@ -337,10 +344,10 @@ SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campai
  }
 }
 ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
- coords 7114.537 73.625 6407.884
+ coords 1001.836 37.406 2844.786
 }
 SCR_LoadoutManager LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
- coords 4407.758 1.67 11045.12
+ coords 997.467 37.406 2850.215
  m_aPlayerLoadouts {
   SCR_FactionPlayerLoadout "{6185692023D7D44C}" {
    m_sLoadoutName "Soldier"

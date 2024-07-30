@@ -194,7 +194,7 @@ class WR_Mission
 	
 		//Find a safe place to spawn box
 		vector spawnPos;
-		bool foundSafePos = WR_Utils.TryGetSafePos(spawnPos, missionLocation, 5, 5);
+		bool foundSafePos = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, missionLocation, 5, 5);
 		if (!foundSafePos) {
 			Print("[WASTELAND] WR_Mission: Unable to find safe position to spawn mission reward!", LogLevel.ERROR);
 			return;
