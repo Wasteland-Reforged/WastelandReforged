@@ -3,7 +3,7 @@ GameProject {
  GUID "618D7DF5FAEB33F1"
  TITLE "Wasteland Reforged"
  Dependencies {
-  "58D0FB3206B6F859" "5E92F5A4A1B75A75"
+  "58D0FB3206B6F859"
  }
  Configurations {
   GameProjectConfig PC {

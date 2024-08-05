@@ -1,3 +1,6 @@
+SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
+ coords 2706.601 74.679 1808.497
+}
 $grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.et" {
  MissionSpawnLocation1 {
   coords 1337.928 39 2260.668

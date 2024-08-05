@@ -1,6 +1,9 @@
 SCR_ChimeraCharacter : "{B692B5F052AA3EF1}Prefabs/Characters/Factions/CIV/Dockworker/Character_CIV_Dockworker_Base.et" {
  ID "520EC961A090B1EE"
  components {
+  FactionAffiliationComponent "{60DC952FF79A02F1}" {
+   "faction affiliation" "FIA"
+  }
   SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
     m_Image "{1D329CF027A551C6}UI/Textures/EditorPreviews/Characters/CIV/Character_CIV_DockWorker_6.edds"
