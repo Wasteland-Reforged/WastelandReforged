@@ -1,6 +1,9 @@
 SCR_ChimeraCharacter : "{B692B5F052AA3EF1}Prefabs/Characters/Factions/CIV/Dockworker/Character_CIV_Dockworker_Base.et" {
  ID "520EC961A090B1EE"
  components {
+  FactionAffiliationComponent "{60DC952FF79A02F1}" {
+   "faction affiliation" "FIA"
+  }
   SCR_CharacterStaminaComponent "{520EA1D2F659C824}" {
    StaminaRegainPerS 0.3
    StaminaDrainRun 0
