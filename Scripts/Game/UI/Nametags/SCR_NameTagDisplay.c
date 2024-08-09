@@ -93,22 +93,6 @@ modded class SCR_NameTagDisplay : SCR_InfoDisplayExtended
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	override protected void OnGroupJoined(SCR_AIGroup group, int playerID)
-	{
-		IEntity ent = m_PlayerManager.GetPlayerControlledEntity(playerID);
-		if (ent)
-		{
-			SCR_NameTagData tagData = m_aNameTagEntities.Get(ent);
-			if (tagData)
-				tagData.SetGroup(group);
-		}
-
-		SCR_NameTagData data = m_aNameTagEntities.Get(ent);
-		if (data)
-			CleanupTag(data);
-	}
-	
-	//------------------------------------------------------------------------------------------------
 	override protected void OnGroupLeft(SCR_AIGroup group, int playerID)
 	{
 		IEntity ent = m_PlayerManager.GetPlayerControlledEntity(playerID);
