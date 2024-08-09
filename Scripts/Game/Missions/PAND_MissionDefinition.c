@@ -18,8 +18,20 @@ class PAND_MissionDefinition
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Prop to spawn at mission site (crashed helicopter, abandoned base)", params: "et")]
 	ResourceName m_sPropPrefab;
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "List of mission rewards (i.e. weapon crate, APC, helicopter). \nPUT PRIMARY REWARD FIRST IN THIS LIST!", params: "et")]
-	ref array<ResourceName> m_sRewardPrefabs;
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Possible mission rewards. Rewards are chosen from this list at random", params: "et")]
+	ref array<ResourceName> m_sRewardPrefabChoices;
+	
+	[Attribute(defvalue: "1", uiwidget: UIWidgets.Slider, params: "0 5 1", desc: "Number of rewards to spawn.")]
+	int m_iNumberOfRewards;
+	
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for reward loot boxes (set to None if no boxes are to be spawned)", enums: ParamEnumArray.FromEnum(PAND_MissionLootContext))]
+	int m_eLootContext;
+	
+	[Attribute(defvalue: "3", uiwidget: UIWidgets.Slider, params: "0 15 1", desc: "Minimum items to spawn from loot context.")]
+	int m_iMinItemsInBox;
+	
+	[Attribute(defvalue: "6", uiwidget: UIWidgets.Slider, params: "0 15 1", desc: "Maximum items to spawn from loot context.")]
+	int m_iMaxItemsInBox;
 	
 	// TODO: add options for mission marker icon and color.
 	// If left blank, default to what's specified in the controller DSConfig

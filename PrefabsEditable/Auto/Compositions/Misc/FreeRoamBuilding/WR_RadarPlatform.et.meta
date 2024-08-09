@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{5C4C7C3BFA64D896}PrefabsEditable/Auto/Compositions/Misc/FreeRoamBuilding/WR_RadarPlatform.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

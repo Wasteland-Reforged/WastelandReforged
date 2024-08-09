@@ -13,7 +13,7 @@ class PAND_Mission
 	protected ref SCR_MapMarkerBase m_Marker; // Map marker indicating location and status
 	
 	// Entities - the entities for which this mission is responsible (props, AI, etc.) are tracked for clean-up purposes
-	protected ref array<IEntity> m_aRewards;
+	protected IEntity m_aRewards;
 	protected IEntity m_Prop;
 	protected ref array<SCR_AIGroup> m_aAiGroups;
 
@@ -118,7 +118,7 @@ class PAND_Mission
 		m_Marker = marker;
 	}
 	
-	void SetMissionEntities(array<IEntity> rewards, IEntity prop, array<SCR_AIGroup> aiGroups)
+	void SetMissionEntities(IEntity rewards, IEntity prop, array<SCR_AIGroup> aiGroups)
 	{
 		m_aRewards = rewards;
 		m_Prop = prop;

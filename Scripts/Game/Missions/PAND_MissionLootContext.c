@@ -1,0 +1,8 @@
+enum PAND_MissionLootContext
+{
+	NONE,
+	DEFAULT,
+	WEAPONS,
+	HEAVYWEAPONS,
+	MEDICAL
+}

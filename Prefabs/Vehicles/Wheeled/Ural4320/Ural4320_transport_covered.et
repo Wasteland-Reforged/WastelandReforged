@@ -1,6 +1,9 @@
 Vehicle : "{16C1F16C9B053801}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport.et" {
  ID "BBCBA43A9778AE21"
  components {
+  SCR_VehicleFactionAffiliationComponent "{5882CBD9AC741CEC}" {
+   "faction affiliation" "US"
+  }
   SlotManagerComponent "{55BCE45E438E4CFF}" {
    Slots {
     RegisteringComponentSlotInfo Cargo {
@@ -9,5 +12,5 @@ Vehicle : "{16C1F16C9B053801}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transpor
    }
   }
  }
- coords 136.321 1 190.759
+ coords 1491.716 39 2768.116
 }
