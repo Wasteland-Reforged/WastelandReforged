@@ -174,23 +174,23 @@ class WR_Mission
 		
 		//Setup loot contexts depending on which box needs to be spawned (lootBoxType is set by parseMissionType())
 		WR_LootSpawnContext lootContext;
-		switch (lootBoxType) {
-			case "Weapon":
-				lootContext = WR_LootSpawnContextPresets.GetWeaponBoxContext();
-				break;
-			case "HeavyWeapon":
-				lootContext = WR_LootSpawnContextPresets.GetHeavyWeaponBoxContext();
-				break;
-			case "Medical":
-				lootContext = WR_LootSpawnContextPresets.GetMedicalBoxContext();
-				minItems = 8; maxItems = 12;
-				break;
-			case "Misc":
-				lootContext = WR_LootSpawnContextPresets.GetLootBoxContext();
-				break;
-			default:
-				return;
-		}
+//		switch (lootBoxType) {
+//			case "Weapon":
+//				lootContext = WR_LootSpawnContextPresets.GetWeaponBoxContext();
+//				break;
+//			case "HeavyWeapon":
+//				lootContext = WR_LootSpawnContextPresets.GetHeavyWeaponBoxContext();
+//				break;
+//			case "Medical":
+//				lootContext = WR_LootSpawnContextPresets.GetMedicalBoxContext();
+//				minItems = 8; maxItems = 12;
+//				break;
+//			case "Misc":
+//				lootContext = WR_LootSpawnContextPresets.GetLootBoxContext();
+//				break;
+//			default:
+//				return;
+//		}
 	
 		//Find a safe place to spawn box
 		vector spawnPos;

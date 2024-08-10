@@ -1,8 +1,10 @@
-enum PAND_MissionLootContext
+enum PAND_LootContextType
 {
 	NONE,
 	DEFAULT,
 	WEAPONS,
-	HEAVYWEAPONS,
-	MEDICAL
+	HEAVY_WEAPONS,
+	MEDICAL,
+	RANDOM_VEHICLE,
+	LOOT_BOX
 }

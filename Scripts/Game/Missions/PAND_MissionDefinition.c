@@ -24,7 +24,7 @@ class PAND_MissionDefinition
 	[Attribute(defvalue: "1", uiwidget: UIWidgets.Slider, params: "0 5 1", desc: "Number of rewards to spawn.")]
 	int m_iNumberOfRewards;
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for reward loot boxes (set to None if no boxes are to be spawned)", enums: ParamEnumArray.FromEnum(PAND_MissionLootContext))]
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for reward loot boxes (set to None if no boxes are to be spawned)", enums: ParamEnumArray.FromEnum(PAND_LootContextType))]
 	int m_eLootContext;
 	
 	[Attribute(defvalue: "3", uiwidget: UIWidgets.Slider, params: "0 15 1", desc: "Minimum items to spawn from loot context.")]

@@ -294,7 +294,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			vector spawnPos;
 			WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
 			
-			// The return value of TryGetRandomSafePosWithinRadius is kinda broken, so disabling the safePosFound check for now. Fix that method!!!
+			// TODO: The return value of TryGetRandomSafePosWithinRadius is kinda broken, so disabling the safePosFound check for now. Fix that method!!!
 			//bool safePosFound =
 //			if (!safePosFound)
 //			{
@@ -358,7 +358,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			rewardEntity.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 			
 			// If loot context is set to NONE, do not fill inventory with loot
-			if (mission.GetDefinition().m_eLootContext == PAND_MissionLootContext.NONE)
+			if (mission.GetDefinition().m_eLootContext == PAND_LootContextType.NONE)
 			{
 				return true;
 			}
@@ -367,21 +367,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			int minItems = mission.GetDefinition().m_iMinItemsInBox;
 			int maxItems = mission.GetDefinition().m_iMaxItemsInBox;
 			
-			WR_LootSpawnContext lootContext;
-			switch(mission.GetDefinition().m_eLootContext)
-			{
-				case PAND_MissionLootContext.WEAPONS:
-					lootContext = WR_LootSpawnContextPresets.GetWeaponBoxContext();
-					break;
-				case PAND_MissionLootContext.HEAVYWEAPONS:
-					lootContext = WR_LootSpawnContextPresets.GetHeavyWeaponBoxContext();
-					break;
-				case PAND_MissionLootContext.MEDICAL:
-					lootContext = WR_LootSpawnContextPresets.GetMedicalBoxContext();
-					break;
-				default:
-					lootContext = WR_LootSpawnContextPresets.GetLootBoxContext();
-			}
+			WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(mission.GetDefinition().m_eLootContext);
 			
 			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));
 			if (inventoryStorageManager)
@@ -421,6 +407,8 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	{
 		array<SCR_AIGroup> aiGroups = mission.GetAiGroups();
 
+		if (!aiGroups) return false;
+		
 		foreach (SCR_AIGroup group : aiGroups)
 			if (group) return false; // AI groups become null when last man dies
 		

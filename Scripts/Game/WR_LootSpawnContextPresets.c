@@ -1,7 +1,48 @@
 // TODO: See if this class can be turned into a workbench config. If not, eventually just have these values get read from a file somewhere.
 class WR_LootSpawnContextPresets
 {
-    static WR_LootSpawnContext GetLootBoxContext()
+	static ref map<PAND_LootContextType, ref WR_LootSpawnContext> LootContexts;
+	
+	static WR_LootSpawnContext GetLootContextByType(PAND_LootContextType type)
+	{
+		if (!LootContexts)
+			LootContexts = new map<PAND_LootContextType, ref WR_LootSpawnContext>();
+		
+		WR_LootSpawnContext context;
+		
+		bool found = LootContexts.Find(type, context);
+		
+		if (!found)
+		{
+			switch (type)
+			{
+				case PAND_LootContextType.WEAPONS:
+					context = GetWeaponBoxContext();
+					break;
+				case PAND_LootContextType.HEAVY_WEAPONS:
+					context = GetHeavyWeaponBoxContext();
+					break;
+				case PAND_LootContextType.MEDICAL:
+					context = GetMedicalBoxContext();
+					break;
+				case PAND_LootContextType.RANDOM_VEHICLE:
+					context = GetRandomVehicleContext();
+					break;
+				case PAND_LootContextType.LOOT_BOX:
+					context = GetLootBoxContext();
+					break;
+				default:
+					context = GetLootBoxContext();
+			}
+			
+			// Cache the context in the map so we don't have to regenerate it every time we need it
+			LootContexts.Insert(type, context);
+		}
+		
+		return context;
+	}
+	
+    private static WR_LootSpawnContext GetLootBoxContext()
     {
         return new WR_LootSpawnContext
         (
@@ -21,7 +62,7 @@ class WR_LootSpawnContextPresets
         );
     }
 
-    static WR_LootSpawnContext GetRandomVehicleContext()
+    private static WR_LootSpawnContext GetRandomVehicleContext()
     {
         return new WR_LootSpawnContext
         (
@@ -41,7 +82,7 @@ class WR_LootSpawnContextPresets
         );
     }
 	
-	static WR_LootSpawnContext GetWeaponBoxContext()
+	private static WR_LootSpawnContext GetWeaponBoxContext()
     {
         return new WR_LootSpawnContext
         (
@@ -61,7 +102,7 @@ class WR_LootSpawnContextPresets
         );
     }
 	
-	static WR_LootSpawnContext GetHeavyWeaponBoxContext()
+	private static WR_LootSpawnContext GetHeavyWeaponBoxContext()
     {
         return new WR_LootSpawnContext
         (
@@ -69,7 +110,7 @@ class WR_LootSpawnContextPresets
             machineGunWeight: 10.0,
             sniperWeight: 10.0,
             handgunWeight: 0.0,
-            launcherWeight: 5.0,
+            launcherWeight: 7.5,
             ordnanceWeight: 0.0,
             attachmentWeight: 10.0,
             utilItemWeight: 0.0,
@@ -81,7 +122,7 @@ class WR_LootSpawnContextPresets
         );
     }
 	
-	static WR_LootSpawnContext GetMedicalBoxContext()
+	private static WR_LootSpawnContext GetMedicalBoxContext()
     {
         return new WR_LootSpawnContext
         (
