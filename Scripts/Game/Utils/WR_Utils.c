@@ -88,14 +88,13 @@ class WR_Utils
 		
 		return ammoResourceName;
 	}
-
-	// TODO: unite the Weapons map with the WeaponAmmoResouceName map. If something is a weapon, it probably takes ammo, so just use the weapon-ammo map
-	// TODO: also maybe upgrade this to check for IsReloadableWeapon instead of just IsWeapon. Then we can exclude things like bayonets and non-reloadable weapons like the M72 launcher
-	static bool IsWeapon(ResourceName resourceName)
+	
+	static bool IsReloadableWeapon(ResourceName resourceName)
 	{
 		if (!Weapons)
 		{
-			Weapons = new map<ResourceName, int>(); // This map is simply for checking if a given resource name is a weapon. The int value is a throwaway.
+			// This map is simply for checking if a given resource name is a weapon. The int value is a throwaway.
+			Weapons = new map<ResourceName, int>(); 
 
 			array<ResourceName> weaponResourceNames = {};
 			
@@ -106,28 +105,14 @@ class WR_Utils
 			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetLaunchers().GetAllItems());
 
 			foreach (ResourceName rn : weaponResourceNames)
-				Weapons.Insert(rn, 0);
+			{
+				// Only include weapons that are not included in the non-reloadable category of resource names
+				if (!WR_ResourceNamesWeighted.GetNonReloadableWeapons().Contains(rn))
+					Weapons.Insert(rn, 0);
+			}
 		}
 		
 		return Weapons.Contains(resourceName);
-	}
-	
-	static void giveVehicleBaseBuilding(IEntity vehicle)
-	{
-		//Disable Original Resource Component
-		SCR_ResourceComponent rc = SCR_ResourceComponent.Cast(vehicle.FindComponent(SCR_ResourceComponent));
-		rc.Deactivate(vehicle);
-			
-		//Add SCR_ResourceComponent
-		
-			
-		//Add SCR_CampaignBuildingProviderComponent
-			
-			
-		//Add SCR_CampaignBuildingStartUserAction to ActionsManagerComponents
-			//Additional Actions -> CampaignBuildingStartUser Action; Parent = cargo; UIInfo = SCR_ActionUIInfo; Name = #AR-Campaign_Action_ShowBuildPreview-UC; Icon Name = use; Duration = 1; 
-			
-
 	}
 	
 	static WorldTimestamp TimestampNow()
