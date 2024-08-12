@@ -1,0 +1,20 @@
+GenericEntity : "{FB186A7EAB2ADE68}Prefabs/Vehicles/Wheeled/M923A1/VehParts/M923A1_engineer_box.et" {
+ ID "4B42E71698F5739C"
+ components {
+  SCR_CampaignBuildingProviderComponent "{5DF54421B01A7FF8}" {
+   m_bIsMasterProvider 0
+   m_aAvailableTraits {
+    28 108
+   }
+  }
+  SCR_ResourceComponent "{5D82E3A391ED9E1F}" {
+   m_aContainers {
+    SCR_ResourceContainer "{5D82E3A393410F0A}" {
+     m_eResourceRights ALL
+     m_fResourceValueCurrent 550
+    }
+   }
+  }
+ }
+ coords 1485.785 39 2770.951
+}

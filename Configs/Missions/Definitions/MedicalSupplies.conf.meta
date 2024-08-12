@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{A6138EDCD5BCB179}Scripts/Game/Missions/asdf.conf"
+ Name "{F1683233FBDAA581}Configs/Missions/Definitions/MedicalSupplies.conf"
  Configurations {
   CONFResourceClass PC {
   }

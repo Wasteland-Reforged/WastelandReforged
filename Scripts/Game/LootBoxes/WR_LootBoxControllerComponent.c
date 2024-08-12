@@ -50,7 +50,7 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 		Print("[WASTELAND] WR_LootBoxControllerComponent: Spawning loot box(es)...", LogLevel.NORMAL);
 		
 		// Get loot spawning context
-		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootBoxContext();
+		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(PAND_LootContextType.LOOT_BOX);
 		
 		int lootBoxesSpawned = 0;
 		foreach (WR_LootBoxComponent boxComponent : lootBoxComponents)

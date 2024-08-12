@@ -56,7 +56,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		float yPaddingDistance = 10; 		// Minimum distance of empty space to have above and below the chosen position 
 
 		// Get loot spawning context
-		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetRandomVehicleContext();
+		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(PAND_LootContextType.RANDOM_VEHICLE);
 		int minItems = 2; // TODO: add validation and make these read from a global config
 		int maxItems = 6;
 		

@@ -1,0 +1,54 @@
+GenericEntity : "{F3DE8994BAE6915A}Prefabs/Compositions/Misc/FreeRoamBuilding/CzechHedgehogPainted_S_01.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_EditableEntityComponent "{5E5072792A7E3394}" : "{8B8F72167C615EAA}Prefabs/Editor/Components/Compositions_SCR_EditableEntityComponent.ct" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "Bridge"
+    m_Image "{53C663CD8E57076C}UI/Textures/EditorPreviews/Auto/Structures/Cultural/Castles/E_Castle_01_Bridge.edds"
+    m_sFaction "US"
+    m_aAuthoredLabels {
+     108 11
+    }
+    m_aAutoLabels {
+     1 121
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{6212F21146D41C29}" {
+      m_BudgetType CAMPAIGN
+      m_Value 75
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{6212F21146D41C38}" {
+      m_BudgetType PROPS
+      m_Value 1
+     }
+    }
+   }
+  }
+  SCR_EditorLinkComponent "{6212F21146D41C36}" {
+   m_aEntries {
+    SCR_EditorLinkEntry "{6212F21146D41C0A}" {
+     m_Prefab "{3076BD4F789C39B7}PrefabLibrary/Structures/Landmarks/Castle_01_Bridge.et"
+     m_vPosition -0.064 0 0.038
+     m_vAngles 0 0 0
+     m_fScale 1
+    }
+   }
+  }
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   additionalActions {
+    SCR_CampaignBuildingDisassemblyUserAction "{5D66ED1086234C38}" {
+     Duration 20
+    }
+   }
+  }
+ }
+ coords 1466.44 39 2775.664
+ {
+  StaticModelEntity {
+   ID "5D6C81577507452B"
+   Flags 1048576
+  }
+ }
+}

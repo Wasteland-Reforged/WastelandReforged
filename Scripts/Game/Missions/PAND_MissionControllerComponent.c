@@ -198,7 +198,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		// I don't think we need to handle replication for these entities. I think the game will do it automatically when players get close to the mission. Not sure though. Will require research/testing)
 		
 		// Spawn rewards
-		array<IEntity> rewardEntities;
+		IEntity rewardEntities;
 		bool isRewardSpawned = SpawnReward(mission, rewardEntities);
 		
 		// Spawn props
@@ -294,7 +294,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			vector spawnPos;
 			WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
 			
-			// The return value of TryGetRandomSafePosWithinRadius is kinda broken, so disabling the safePosFound check for now. Fix that method!!!
+			// TODO: The return value of TryGetRandomSafePosWithinRadius is kinda broken, so disabling the safePosFound check for now. Fix that method!!!
 			//bool safePosFound =
 //			if (!safePosFound)
 //			{
@@ -324,7 +324,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	// TODO: consider making it so this method ensures the reward's spawn position is safe
 	// If it's not safe, make it find a position within a certain radius. (and update the mission record with the new pos so markers are accurate)
 	// If no safe pos can be found, the function returns false
-	private bool SpawnReward(PAND_Mission mission, out array<IEntity> rewardEntities)
+	private bool SpawnReward(PAND_Mission mission, out IEntity rewardEntity)
 	{
 		if (!mission.GetDefinition())
 		{
@@ -332,40 +332,42 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			return false;
 		}
 		
-		array<ResourceName> rewardPrefabs = mission.GetDefinition().m_sRewardPrefabs;
-		
+		array<ResourceName> rewardPrefabs = mission.GetDefinition().m_sRewardPrefabChoices;	
 		if (!rewardPrefabs || rewardPrefabs.Count() == 0)
 		{
 			Print("[WASTELAND] PAND_MissionControllerComponent: Tried to spawn mission reward, but no rewards were defined!", LogLevel.ERROR);
 			return false;
 		}
-		
-		rewardEntities = {};
-		for (int i = 0; i < rewardPrefabs.Count(); i++)
-		{
-			vector spawnPos = mission.GetPosition();
+
+		//For each reward to be spawned, a random one is selected from the list of reward prefabs
+		for (int i = 0; i < mission.GetDefinition().m_iNumberOfRewards; i++) {
 			
-			// Spawn all subsequent rewards beyond the first one at random nearby positions
-			if (i > 0)
+			ResourceName rewardPrefab = rewardPrefabs.GetRandomElement();
+	
+			//Find safe position within 15m
+			vector spawnPos = mission.GetPosition();
+			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
+			if (!safePosFound)
 			{
-				
-				bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
-				if (!safePosFound)
-				{
-					Print("[WASTELAND] PAND_MissionControllerComponent: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
-					return false;
-				}	
-			}
+				Print("[WASTELAND] PAND_MissionControllerComponent: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
+				return false;
+			}	
 			
 			// Spawn the reward prefab
-			IEntity rewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefabs[i], spawnPos);
+			rewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefab, spawnPos);
 			rewardEntity.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 			
+			// If loot context is set to NONE, do not fill inventory with loot
+			if (mission.GetDefinition().m_eLootContext == PAND_LootContextType.NONE)
+			{
+				return true;
+			}
+			
 			// Fill reward boxes with loot
-			// TODO: make this dynamic with loot contexts and configs
-			int minItems = 6;
-			int maxItems = 10;
-			WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetHeavyWeaponBoxContext();
+			int minItems = mission.GetDefinition().m_iMinItemsInBox;
+			int maxItems = mission.GetDefinition().m_iMaxItemsInBox;
+			
+			WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(mission.GetDefinition().m_eLootContext);
 			
 			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));
 			if (inventoryStorageManager)
@@ -379,7 +381,6 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 				}
 			}
 			
-			rewardEntities.Insert(rewardEntity);
 		}
 		
 		return true;
@@ -406,6 +407,8 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	{
 		array<SCR_AIGroup> aiGroups = mission.GetAiGroups();
 
+		if (!aiGroups) return false;
+		
 		foreach (SCR_AIGroup group : aiGroups)
 			if (group) return false; // AI groups become null when last man dies
 		
