@@ -128,6 +128,11 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   SCR_HintManagerComponent "{5702B54C6CBC9D7F}" {
    m_bIgnoreHintSettings 1
   }
+  SCR_InitWeatherComponent "{62182B4329BA306B}" {
+   m_sInitialStartingWeatherId "Clear"
+   m_initialWeatherDurationMin 0.5
+   m_initialWeatherDurationMax 1
+  }
   SCR_NametagConfigComponent "{571AA9E54FC9210D}" {
    m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
   }
