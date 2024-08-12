@@ -2,6 +2,7 @@ class WR_Utils
 {
 	private static ref map<ResourceName, ResourceName> WeaponAmmoResourceNames;
 	private static ref map<ResourceName, int> Weapons;
+	private static ref map<ResourceName, int> WeaponsNonReloadable;
 	
 	//------------------------------------------------------------------------------------------------
 	static vector GetRandomHorizontalDirectionAngles()
@@ -105,14 +106,25 @@ class WR_Utils
 			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetLaunchers().GetAllItems());
 
 			foreach (ResourceName rn : weaponResourceNames)
+				Weapons.Insert(rn, 0);
+		}
+
+		if (!WeaponsNonReloadable)
+		{
+			// This map is simply for checking if a given resource name is a weapon. The int value is a throwaway.
+			WeaponsNonReloadable = new map<ResourceName, int>(); 
+
+			// TODO: generate this list dynamically or read it from a config
+			array<ResourceName> nonReloadableWeaponResourceNames =
 			{
-				// Only include weapons that are not included in the non-reloadable category of resource names
-				if (!WR_ResourceNamesWeighted.GetNonReloadableWeapons().Contains(rn))
-					Weapons.Insert(rn, 0);
-			}
+				"{9C5C20FB0E01E64F}Prefabs/Weapons/Launchers/M72/Launcher_M72A3.et"
+			};
+
+			foreach (ResourceName rn : nonReloadableWeaponResourceNames)
+				WeaponsNonReloadable.Insert(rn, 0);
 		}
 		
-		return Weapons.Contains(resourceName);
+		return Weapons.Contains(resourceName) && !WeaponsNonReloadable.Contains(resourceName);
 	}
 	
 	static WorldTimestamp TimestampNow()

@@ -13,7 +13,6 @@ class WR_ResourceNamesWeighted
     private static ref WR_WeightedItemArray<ResourceName> Helmets;
     private static ref WR_WeightedItemArray<ResourceName> Hats;
     private static ref WR_WeightedItemArray<ResourceName> Backpacks;
-    private static ref WR_WeightedItemArray<ResourceName> NonReloadableWeapons;
 	
 	static WR_WeightedItemArray<ResourceName> GetRifles()
 	{
@@ -343,15 +342,5 @@ class WR_ResourceNamesWeighted
 		Backpacks.AddItem(1.0, "{3DE0155EC9767B98}Prefabs/Items/Equipment/Backpacks/Backpack_Veshmeshok.et");
 
 		return Backpacks;	
-	}
-	
-	static WR_WeightedItemArray<ResourceName> GetNonReloadableWeapons()
-	{
-		if (Rifles) return Rifles;
-		Rifles = new WR_WeightedItemArray<ResourceName>();
-
-		NonReloadableWeapons.AddItem(1.0, "{9C5C20FB0E01E64F}Prefabs/Weapons/Launchers/M72/Launcher_M72A3.et");
-
-		return Rifles;	
 	}
 }
