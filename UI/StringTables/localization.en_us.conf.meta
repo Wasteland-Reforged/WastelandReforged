@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{F7B25375F1E6A1F3}test.en_us.conf"
+ Name "{F7B25375F1E6A1F3}UI/StringTables/localization.en_us.conf"
  Configurations {
   CONFResourceClass PC {
   }
