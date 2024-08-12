@@ -2,6 +2,7 @@ class WR_Utils
 {
 	private static ref map<ResourceName, ResourceName> WeaponAmmoResourceNames;
 	private static ref map<ResourceName, int> Weapons;
+	private static ref map<ResourceName, int> WeaponsNonReloadable;
 	
 	//------------------------------------------------------------------------------------------------
 	static vector GetRandomHorizontalDirectionAngles()
@@ -88,14 +89,13 @@ class WR_Utils
 		
 		return ammoResourceName;
 	}
-
-	// TODO: unite the Weapons map with the WeaponAmmoResouceName map. If something is a weapon, it probably takes ammo, so just use the weapon-ammo map
-	// TODO: also maybe upgrade this to check for IsReloadableWeapon instead of just IsWeapon. Then we can exclude things like bayonets and non-reloadable weapons like the M72 launcher
-	static bool IsWeapon(ResourceName resourceName)
+	
+	static bool IsReloadableWeapon(ResourceName resourceName)
 	{
 		if (!Weapons)
 		{
-			Weapons = new map<ResourceName, int>(); // This map is simply for checking if a given resource name is a weapon. The int value is a throwaway.
+			// This map is simply for checking if a given resource name is a weapon. The int value is a throwaway.
+			Weapons = new map<ResourceName, int>(); 
 
 			array<ResourceName> weaponResourceNames = {};
 			
@@ -108,26 +108,23 @@ class WR_Utils
 			foreach (ResourceName rn : weaponResourceNames)
 				Weapons.Insert(rn, 0);
 		}
-		
-		return Weapons.Contains(resourceName);
-	}
-	
-	static void giveVehicleBaseBuilding(IEntity vehicle)
-	{
-		//Disable Original Resource Component
-		SCR_ResourceComponent rc = SCR_ResourceComponent.Cast(vehicle.FindComponent(SCR_ResourceComponent));
-		rc.Deactivate(vehicle);
-			
-		//Add SCR_ResourceComponent
-		
-			
-		//Add SCR_CampaignBuildingProviderComponent
-			
-			
-		//Add SCR_CampaignBuildingStartUserAction to ActionsManagerComponents
-			//Additional Actions -> CampaignBuildingStartUser Action; Parent = cargo; UIInfo = SCR_ActionUIInfo; Name = #AR-Campaign_Action_ShowBuildPreview-UC; Icon Name = use; Duration = 1; 
-			
 
+		if (!WeaponsNonReloadable)
+		{
+			// This map is simply for checking if a given resource name is a weapon. The int value is a throwaway.
+			WeaponsNonReloadable = new map<ResourceName, int>(); 
+
+			// TODO: generate this list dynamically or read it from a config
+			array<ResourceName> nonReloadableWeaponResourceNames =
+			{
+				"{9C5C20FB0E01E64F}Prefabs/Weapons/Launchers/M72/Launcher_M72A3.et"
+			};
+
+			foreach (ResourceName rn : nonReloadableWeaponResourceNames)
+				WeaponsNonReloadable.Insert(rn, 0);
+		}
+		
+		return Weapons.Contains(resourceName) && !WeaponsNonReloadable.Contains(resourceName);
 	}
 	
 	static WorldTimestamp TimestampNow()

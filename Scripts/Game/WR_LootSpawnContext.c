@@ -52,7 +52,7 @@ class WR_LootSpawnContext
             items.Insert(item);
 
             // If this item is a weapon, spawn some extra ammo
-            if (maxExtraMagsToIncludeForWeapons > 0 && WR_Utils.IsWeapon(item))
+            if (maxExtraMagsToIncludeForWeapons > 0 && WR_Utils.IsReloadableWeapon(item))
             {
                 int ammoCount = Math.RandomIntInclusive(0, maxExtraMagsToIncludeForWeapons);
                 if (ammoCount > 0)
