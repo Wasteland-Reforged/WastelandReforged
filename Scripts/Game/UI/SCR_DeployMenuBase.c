@@ -115,11 +115,7 @@ modded class SCR_DeployMenuMain
 	
 	protected void SetInitialMapFocus()
 	{
-		// Focus map somewhere around the center of the island
-		vector focusPos = Vector(5170, 0, 6050);
-		
-		m_MapEntity.SetZoom(m_MapEntity.GetMinZoom(), true);
-		FocusOnPoint(focusPos, false);
+		m_MapEntity.CenterMap();
 	}
 }
 
