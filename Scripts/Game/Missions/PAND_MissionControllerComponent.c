@@ -346,7 +346,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	
 			//Find safe position within 15m
 			vector spawnPos = mission.GetPosition();
-			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
+			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 1.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
 			if (!safePosFound)
 			{
 				Print("[WASTELAND] PAND_MissionControllerComponent: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
