@@ -11,6 +11,7 @@ class PAND_Mission
 	// Other properties
 	protected ref PAND_MissionDefinition m_Definition; // Contains info about mission reward, NPCs, props, etc.
 	protected ref SCR_MapMarkerBase m_Marker; // Map marker indicating location and status
+	protected PAND_MissionLocationEntity m_MissionLocation;
 	
 	// Entities - the entities for which this mission is responsible (props, AI, etc.) are tracked for clean-up purposes
 	protected IEntity m_aRewards;
@@ -25,8 +26,6 @@ class PAND_Mission
 		mission.m_eType = type;
 		mission.m_vPosition = position;
 		mission.m_eStatus = PAND_MissionStatus.InProgress;
-//		mission.m_CreatedAtTime = WR_Utils.TimestampNow(); // Is this the best way of tracking when a mission was started? Will this be prone to bugs if server/client are out of sync regarding world time?
-//		mission.m_bIsSuccessful = false;
 		
 		return mission;
 	}
@@ -118,6 +117,20 @@ class PAND_Mission
 		m_Marker = marker;
 	}
 	
+	array<IEntity> GetMissionEntities()
+	{
+		array<IEntity> entities = {};
+		
+		entities.Insert(m_aRewards);
+		entities.Insert(m_Prop);
+		
+		// Have to insert one by one because array does not auto upcast when using InsertAll
+		foreach (SCR_AIGroup group : m_aAiGroups)
+			entities.Insert(group);
+		
+		return entities;
+	}
+	
 	void SetMissionEntities(IEntity rewards, IEntity prop, array<SCR_AIGroup> aiGroups)
 	{
 		m_aRewards = rewards;
@@ -128,6 +141,16 @@ class PAND_Mission
 	ref array<SCR_AIGroup> GetAiGroups()
 	{
 		return m_aAiGroups;
+	}
+	
+	PAND_MissionLocationEntity GetMissionLocation()
+	{
+		return m_MissionLocation;
+	}
+	
+	void SetMissionLocation(PAND_MissionLocationEntity location)
+	{
+		m_MissionLocation = location;
 	}
 	
 	/////////////////////////////

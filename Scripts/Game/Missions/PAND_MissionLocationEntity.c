@@ -19,11 +19,6 @@ class PAND_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGame
 	private PAND_Mission m_CurrentMission;
 	private bool m_bIsHostingMission;
 	
-//	void PAND_MissionLocationEntity(IEntitySource src, IEntity parent)
-//	{
-//		SetEventMask(EntityEvent.INIT | EntityEvent.FRAME);
-//	}
-	
 	override void EOnInit(IEntity owner)
 	{
 		super.EOnInit(owner);
