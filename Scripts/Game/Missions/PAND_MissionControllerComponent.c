@@ -67,7 +67,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		if (m_RplComponent.Role() == RplRole.Authority)
 		{
 			float initialDelayMs = m_Config.m_fInitialMissionDelay * 60 * 1000;
-			float delayBetweenMissionStartMs = 20 * 1000;
+			float delayBetweenMissionStartMs = m_Config.m_fNewMissionDelay * 60 * 1000;
 			
 			for (int i = 0; i < m_Config.m_iMaxActiveMissions; i++)
 			{
@@ -100,6 +100,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		
 		// Create mission record
 		m_lastUpdatedMission = PAND_Mission.CreateMission(missionId, missionType, missionLocation.GetOrigin());
+		m_lastUpdatedMission.SetMissionLocation(missionLocation); // TODO: make CreateMission just take the mission location itself instead of its origin
 		missionLocation.SetCurrentMission(m_lastUpdatedMission);
 		
 		// Find mission definition corresponding to selected mission type
@@ -115,7 +116,12 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		if (!areObjectsCreated)
 		{
 			Print("[WASTELAND] PAND_MissionControllerComponent: Failed to instantiate mission world objects! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+			
+			// Destroy this mission and queue another one to be started.
 			DestroyMission(m_lastUpdatedMission);
+			GetGame().GetCallqueue().CallLater(StartRandomMission, m_Config.m_fNewMissionDelay * 60 * 1000, false); // TODO: make the delay pull from a member var
+			
+			return;
 		}
 		
 		HandleUpdatedMissionRecord(m_lastUpdatedMission, false);
@@ -189,14 +195,10 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 				}
 			}
 		}
-		
-		Print("[WASTELAND] PAND_MissionManagerComponent: ID = " + newMission.GetMissionId() + " Status = " + newMission.GetStatus());
 	}
 	
 	private bool InstantiateMissionWorldObjects(PAND_Mission mission)
 	{
-		// I don't think we need to handle replication for these entities. I think the game will do it automatically when players get close to the mission. Not sure though. Will require research/testing)
-		
 		// Spawn rewards
 		IEntity rewardEntities;
 		bool isRewardSpawned = SpawnReward(mission, rewardEntities);
@@ -209,13 +211,13 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		ref array<SCR_AIGroup> aiGroups;
 		bool areAiGroupsSpawned = SpawnAiGroups(mission, aiGroups);
 
-		if (!isRewardSpawned || !isPropSpawned || !areAiGroupsSpawned)
+		mission.SetMissionEntities(rewardEntities, propEntity, aiGroups);
+		
+		if (!(isRewardSpawned && isPropSpawned && areAiGroupsSpawned))
 		{
 			Print("[WASTELAND] PAND_MissionControllerComponent: Failed to spawn mission objects in the world! (mission ID: " + mission.GetMissionId() + ")");
 			return false;
 		}
-		
-		mission.SetMissionEntities(rewardEntities, propEntity, aiGroups);
 
 		return true;
 	}
@@ -333,18 +335,19 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		}
 		
 		array<ResourceName> rewardPrefabs = mission.GetDefinition().m_sRewardPrefabChoices;	
+		
 		if (!rewardPrefabs || rewardPrefabs.Count() == 0)
 		{
-			Print("[WASTELAND] PAND_MissionControllerComponent: Tried to spawn mission reward, but no rewards were defined!", LogLevel.ERROR);
-			return false;
+			// No mission rewards defined, so we can exit successfully
+			return true;
 		}
-
-		//For each reward to be spawned, a random one is selected from the list of reward prefabs
-		for (int i = 0; i < mission.GetDefinition().m_iNumberOfRewards; i++) {
-			
+		
+		// For each reward to be spawned, a random one is selected from the list of reward prefabs
+		for (int i = 0; i < mission.GetDefinition().m_iNumberOfRewards; i++)
+		{	
 			ResourceName rewardPrefab = rewardPrefabs.GetRandomElement();
 	
-			//Find safe position within 15m
+			// Find safe position within 15 m
 			vector spawnPos = mission.GetPosition();
 			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 1.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
 			if (!safePosFound)
@@ -388,9 +391,20 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	
 	private void DestroyMission(PAND_Mission mission)
 	{
-		// This method cleans up a mission record and ALL items related to it, including its markers and rewards!
+		// This method cleans up a mission record and ALL items related to it, including its markers and rewards! USE SPARINGLY.
 		
-		// TODO: make sure to remove the reference to this mission on the mission location entity
+		// Delete all entities tied to this mission record.
+		array<IEntity> missionEntities = mission.GetMissionEntities();
+		foreach (IEntity missionEntity : missionEntities)
+			SCR_EntityHelper.DeleteEntityAndChildren(missionEntity);
+		
+		// Mark the mission location entity as available again
+		mission.GetMissionLocation().SetCurrentMission(null);
+		
+		// Remove mission record from map of active missions.
+		m_mActiveMissions.Remove(mission.GetMissionId());
+		
+		Replication.BumpMe();
 	}
 	
 	void OnPlayerEnteredMissionZone(PAND_Mission mission, PAND_MissionLocationEntity location)
