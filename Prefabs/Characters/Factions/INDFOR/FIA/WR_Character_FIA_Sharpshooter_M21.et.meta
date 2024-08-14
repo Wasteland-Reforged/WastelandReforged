@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{2F40ED5D1F63A58F}Prefabs/Characters/Factions/INDFOR/FIA/WR_Character_FIA_Sharpshooter_M21.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}
