@@ -39,7 +39,7 @@ class WR_LootSpawnContext
 		ItemCategories.AddItem(hatWeight,    		WR_ResourceNamesWeighted.GetHats());
     }
 
-    array<ResourceName> GetRandomItems(int itemCount, int maxExtraMagsToIncludeForWeapons = 3)
+    array<ResourceName> GetRandomItems(int itemCount, int minExtraMags = 0, int maxExtraMags = 3)
     {
         if (!ItemCategories) return {};
         
@@ -52,9 +52,12 @@ class WR_LootSpawnContext
             items.Insert(item);
 
             // If this item is a weapon, spawn some extra ammo
-            if (maxExtraMagsToIncludeForWeapons > 0 && WR_Utils.IsReloadableWeapon(item))
+            if (maxExtraMags > 0 && WR_Utils.IsReloadableWeapon(item))
             {
-                int ammoCount = Math.RandomIntInclusive(0, maxExtraMagsToIncludeForWeapons);
+                // If maxExtraMags is set improperly, default it to 0.
+                if (maxExtraMags < minExtraMags) maxExtraMags = minExtraMags;
+                
+                int ammoCount = Math.RandomIntInclusive(minExtraMags, maxExtraMags);
                 if (ammoCount > 0)
                 {
                     ResourceName ammo = WR_Utils.GetDefaultAmmo(item);
