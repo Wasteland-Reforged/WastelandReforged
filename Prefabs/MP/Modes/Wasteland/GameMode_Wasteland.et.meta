@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{295E3CC0BB41A71F}Prefabs/Groups/US/WR_AIGroupSmallc.et"
+ Name "{F396CD22253A0A00}Prefabs/MP/Modes/Wasteland/GameMode_Wasteland.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }
