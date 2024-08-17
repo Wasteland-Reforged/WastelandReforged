@@ -5,8 +5,6 @@ class PAND_Mission
 	protected PAND_MissionType m_eType = PAND_MissionType.EMPTY;
 	protected PAND_MissionStatus m_eStatus;
 	protected vector m_vPosition;
-//	protected WorldTimestamp m_CreatedAtTime;
-//	protected bool m_bIsSuccessful;
 	
 	// Other properties
 	protected ref PAND_MissionDefinition m_Definition; // Contains info about mission reward, NPCs, props, etc.
@@ -16,15 +14,14 @@ class PAND_Mission
 	// Entities - the entities for which this mission is responsible (props, AI, etc.) are tracked for clean-up purposes
 	protected IEntity m_aRewards;
 	protected IEntity m_Prop;
-	protected ref array<SCR_AIGroup> m_aAiGroups;
+	protected ref array<SCR_AIGroup> m_aAiGroups = {};
 
-	static PAND_Mission CreateMission(int id, PAND_MissionType type, vector position)
+	static PAND_Mission CreateMission(int id, PAND_MissionType type)
 	{
 		PAND_Mission mission = new PAND_Mission();
 		
 		mission.m_iMissionId = id;
 		mission.m_eType = type;
-		mission.m_vPosition = position;
 		mission.m_eStatus = PAND_MissionStatus.InProgress;
 		
 		return mission;
@@ -151,6 +148,7 @@ class PAND_Mission
 	void SetMissionLocation(PAND_MissionLocationEntity location)
 	{
 		m_MissionLocation = location;
+		m_vPosition = location.GetOrigin();
 	}
 	
 	/////////////////////////////

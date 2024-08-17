@@ -33,6 +33,9 @@ class PAND_MissionDefinition
 	[Attribute(defvalue: "6", uiwidget: UIWidgets.Slider, params: "0 15 1", desc: "Maximum items to spawn from loot context.")]
 	int m_iMaxItemsInBox;
 	
+	[Attribute(defvalue: "LARGE", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(PAND_MissionLocationSize))]
+	int m_eSize;
+	
 	// TODO: add options for mission marker icon and color.
 	// If left blank, default to what's specified in the controller DSConfig
 	// And if that's blank, then use the classic red cross

@@ -18,6 +18,9 @@ class PAND_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGame
 	
 	private PAND_Mission m_CurrentMission;
 	private bool m_bIsHostingMission;
+
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(PAND_MissionLocationSize), category: CATEGORY_MISSION_LOCATION)]
+	private PAND_MissionLocationSize m_eSize;
 	
 	override void EOnInit(IEntity owner)
 	{
@@ -82,6 +85,11 @@ class PAND_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGame
 	PAND_Mission GetCurrentMission()
 	{
 		return m_CurrentMission;
+	}
+	
+	PAND_MissionLocationSize GetSize()
+	{
+		return m_eSize;
 	}
 	
 	void SetCurrentMission(PAND_Mission mission)
