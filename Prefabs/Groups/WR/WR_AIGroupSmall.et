@@ -1,0 +1,19 @@
+SCR_AIGroup : "{412A7767B11310C5}Prefabs/Groups/Campaign/Group_US.et" {
+ ID "13BAA835F61E3602"
+ components {
+  AIPathfindingComponent "{518A98842FFC190E}" {
+   "Use Road Network" 1
+  }
+  SCR_AIGroupMovementComponent "{6126A0E02097C7FF}" {
+   "Min Speed" 20
+  }
+ }
+ DangerEventRange 100
+ m_faction "FIA"
+ m_aUnitPrefabSlots {
+  "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et"
+ }
+ m_bSpawnImmediately 1
+ m_iMaxMembers 5
+ m_bDeleteIfNoPlayer 0
+}

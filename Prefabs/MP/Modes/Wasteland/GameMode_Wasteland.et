@@ -1,4 +1,5 @@
-SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+SCR_BaseGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+ ID "56B2B479C6B96951"
  components {
   SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
    m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
@@ -231,7 +232,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   }
   WR_MissionControllerComponent "{61E85922C998A746}" {
    m_Config WR_MissionControllerConfig "{62231B494170D802}" {
-    m_iMaxActiveMissions 1
+    m_iMaxActiveMissions 10
     m_fInitialMissionDelay 0
     m_fNewMissionDelay 0.01
     m_aMissionDefinitions {
@@ -249,51 +250,16 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
  }
  coords 999.617 37.382 2851.944
  {
-  SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
-   components {
-    NavmeshWorldComponent "{5584F30E67F617AD}" {
-     NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
-      NavmeshFilesConfig BaseNavmeshFilesConfig "{619D6D672639D722}" {
-       NavmeshFile "{D8EF7131FB31AF97}worlds/GameMaster/Navmeshes/GM_Arland.nmn"
-      }
-     }
-    }
-    NavmeshWorldComponent "{5584F30EEFEE1223}" {
-     NavmeshSettings ChimeraNavmeshWorld "{50FC63BEBE3973C5}" {
-      NavmeshFilesConfig BaseNavmeshFilesConfig "{60CA9BE5536BF701}" {
-       NavmeshFile "{D8EF7131FB31AF97}worlds/GameMaster/Navmeshes/GM_Arland.nmn"
-      }
-     }
-    }
-    NavmeshWorldComponent "{5C8C9B750D124A63}" {
-     NavmeshSettings NavmeshWorld "{5C8C9B750B60C6E2}" {
-      NavmeshFilesConfig BaseNavmeshFilesConfig "{5C90BD0EC793647D}" {
-       NavmeshFile "{804386FFEB7B7EFD}worlds/MP/Navmeshes/LowResArland.nmn"
-      }
-     }
-    }
-   }
-   coords 4.987 0.024 -5.146
-   {
-    CommentEntity {
-     coords 0 1 0
-     m_Comment "SCR_AIWorld: "\
-     "Configure navigation mesh"
-     m_Color 0 0 0
-     m_FaceCamera 1
-     m_TextBackground 1
-     m_BackgroundColor 1 0.6 0
-     m_BackgroundTransparency 0
-    }
-   }
-  }
   PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+   ID "62235EC280FAC08D"
    coords -0.147 0.024 -4.973
   }
   RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
+   ID "62235EC280FAC0B1"
    coords 2.873 0.024 -2.39
   }
   SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
+   ID "62235EC280FAC0B2"
    coords 3.188 0.024 -3.799
    scale 0.005
    Factions {
@@ -331,15 +297,18 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    }
   }
   ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
+   ID "62235EC280FAC0B4"
    coords 2.219 0.024 -7.158
   }
   SCR_EditorSettingsEntity {
+   ID "62235EC280FA8A89"
    coords 2046.599 28.123 -973.396
    m_bIsUnlimitedEditorLegal 1
    m_bOverrideBaseModes 1
    m_BaseModes PHOTO
   }
   SCR_LoadoutManager LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
+   ID "62235EC280FA8A8B"
    coords -2.15 0.024 -1.729
    m_aPlayerLoadouts {
     SCR_FactionPlayerLoadout "{6185692023D7D44C}" {
