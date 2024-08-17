@@ -1,4 +1,4 @@
-enum PAND_LootContextType
+enum WR_LootContextType
 {
 	NONE,
 	DEFAULT,

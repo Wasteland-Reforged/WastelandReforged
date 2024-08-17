@@ -1,5 +1,5 @@
 [BaseContainerProps(configRoot: true)]
-class PAND_MissionControllerConfig
+class WR_MissionControllerConfig
 {
 	[Attribute(defvalue: "3", uiwidget: UIWidgets.Slider, params: "0 10 1", desc: "Maximum number of missions that can be in progress simultaneously.")]
 	int m_iMaxActiveMissions;
@@ -11,5 +11,5 @@ class PAND_MissionControllerConfig
 	float m_fNewMissionDelay;
 	
 	[Attribute("", UIWidgets.Object, desc: "List of all mission definitions that can spawn.")]
-	ref array<ref PAND_MissionDefinition> m_aMissionDefinitions;
+	ref array<ref WR_MissionDefinition> m_aMissionDefinitions;
 }

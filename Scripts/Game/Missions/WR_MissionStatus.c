@@ -1,4 +1,4 @@
-enum PAND_MissionStatus
+enum WR_MissionStatus
 {
     InProgress = 1,
     Complete = 2,

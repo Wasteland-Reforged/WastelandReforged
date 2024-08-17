@@ -1,4 +1,4 @@
-enum PAND_MissionType
+enum WR_MissionType
 {
     EMPTY, // DO NOT USE! This status indicates to a proxy that the mission object it is receiving is a placeholder.
 	GEOCACHE,

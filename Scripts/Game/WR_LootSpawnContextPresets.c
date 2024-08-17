@@ -1,12 +1,12 @@
 // TODO: See if this class can be turned into a workbench config. If not, eventually just have these values get read from a file somewhere.
 class WR_LootSpawnContextPresets
 {
-	static ref map<PAND_LootContextType, ref WR_LootSpawnContext> LootContexts;
+	static ref map<WR_LootContextType, ref WR_LootSpawnContext> LootContexts;
 	
-	static WR_LootSpawnContext GetLootContextByType(PAND_LootContextType type)
+	static WR_LootSpawnContext GetLootContextByType(WR_LootContextType type)
 	{
 		if (!LootContexts)
-			LootContexts = new map<PAND_LootContextType, ref WR_LootSpawnContext>();
+			LootContexts = new map<WR_LootContextType, ref WR_LootSpawnContext>();
 		
 		WR_LootSpawnContext context;
 		
@@ -16,19 +16,19 @@ class WR_LootSpawnContextPresets
 		{
 			switch (type)
 			{
-				case PAND_LootContextType.WEAPONS:
+				case WR_LootContextType.WEAPONS:
 					context = GetWeaponBoxContext();
 					break;
-				case PAND_LootContextType.HEAVY_WEAPONS:
+				case WR_LootContextType.HEAVY_WEAPONS:
 					context = GetHeavyWeaponBoxContext();
 					break;
-				case PAND_LootContextType.MEDICAL:
+				case WR_LootContextType.MEDICAL:
 					context = GetMedicalBoxContext();
 					break;
-				case PAND_LootContextType.RANDOM_VEHICLE:
+				case WR_LootContextType.RANDOM_VEHICLE:
 					context = GetRandomVehicleContext();
 					break;
-				case PAND_LootContextType.LOOT_BOX:
+				case WR_LootContextType.LOOT_BOX:
 					context = GetLootBoxContext();
 					break;
 				default:

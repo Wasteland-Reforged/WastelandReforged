@@ -1,4 +1,4 @@
-PAND_MissionLocationEntity {
+WR_MissionLocationEntity {
  ID "61E663933A40348D"
  components {
   RplComponent "{61E94A05631D30FA}" {
