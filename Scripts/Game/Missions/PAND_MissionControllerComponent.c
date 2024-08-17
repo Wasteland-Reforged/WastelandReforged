@@ -90,18 +90,9 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 
 		int missionId = GetNewMissionId();
 		PAND_MissionType missionType = GetRandomMissionType();
-		PAND_MissionLocationEntity missionLocation = GetRandomVacantMissionLocation();
-        
-		if (!missionLocation)
-		{
-			Print("[WASTELAND] PAND_MissionManagerComponent: Unable to get location for new mission! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
-			return;
-		}
 		
 		// Create mission record
-		m_lastUpdatedMission = PAND_Mission.CreateMission(missionId, missionType, missionLocation.GetOrigin());
-		m_lastUpdatedMission.SetMissionLocation(missionLocation); // TODO: make CreateMission just take the mission location itself instead of its origin
-		missionLocation.SetCurrentMission(m_lastUpdatedMission);
+		m_lastUpdatedMission = PAND_Mission.CreateMission(missionId, missionType);
 		
 		// Find mission definition corresponding to selected mission type
 		PAND_MissionDefinition missionDefinition = FindMissionDefinitionByMissionType(m_lastUpdatedMission.GetType());
@@ -110,6 +101,25 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			Print("[WASTELAND] PAND_MissionControllerComponent: No definition found for provided type! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
 		}
 		m_lastUpdatedMission.SetDefinition(missionDefinition);
+		
+		Print("[WASTELAND] PAND_MissionManagerComponent: Starting new mission: " + missionDefinition.m_sName + " (ID: " + missionId + ")", LogLevel.NORMAL);
+		
+		// Find a location for this mission
+		PAND_MissionLocationEntity missionLocation = GetRandomVacantMissionLocation(missionDefinition.m_eSize);
+
+		if (!missionLocation)
+		{
+			Print("[WASTELAND] PAND_MissionManagerComponent: Unable to get location for new mission! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+			
+			// Destroy this mission and queue another one to be started.
+			DestroyMission(m_lastUpdatedMission);
+			GetGame().GetCallqueue().CallLater(StartRandomMission, m_Config.m_fNewMissionDelay * 60 * 1000, false); // TODO: make the delay pull from a member var
+			
+			return;
+		}
+
+		m_lastUpdatedMission.SetMissionLocation(missionLocation); // TODO: make CreateMission just take the mission location itself instead of its origin
+		missionLocation.SetCurrentMission(m_lastUpdatedMission);		
 		
 		// Run mission on server (for in-game hosted servers)
 		bool areObjectsCreated = InstantiateMissionWorldObjects(m_lastUpdatedMission);
@@ -129,7 +139,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		// Send updated mission record to proxies
 		Replication.BumpMe();
 		
-		Print("[WASTELAND] PAND_MissionManagerComponent: New mission started: " + m_lastUpdatedMission.GetName() + " (ID: " + missionId + ")", LogLevel.NORMAL);
+		Print("[WASTELAND] PAND_MissionManagerComponent: Mission started successfully: " + m_lastUpdatedMission.GetName() + " (ID: " + missionId + ")", LogLevel.NORMAL);
     }
 	
     protected void ReceiveNewMissionOnProxy()
@@ -234,8 +244,8 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
         return definition.m_eType;
     }
 			
-	protected PAND_MissionLocationEntity GetRandomVacantMissionLocation()
-	{	
+	protected PAND_MissionLocationEntity GetRandomVacantMissionLocation(PAND_MissionLocationSize requiredSize)
+	{			
 		array<PAND_MissionLocationEntity> vacantLocations = PAND_MissionLocationEntity.GetAllVacantLocations();
 		if (vacantLocations.Count() == 0)
 		{
@@ -243,7 +253,18 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			return null;
 		}
 		
-		PAND_MissionLocationEntity randomLocation = vacantLocations.GetRandomElement();
+		PAND_MissionLocationEntity randomLocation;
+		
+		// TODO: this is a lame, unoptimized way of doing it, but it works for now.
+		int attempts = 1;
+		while (!randomLocation || requiredSize != randomLocation.GetSize())
+		{
+			if (attempts == 10) return null;
+			
+			randomLocation = vacantLocations.GetRandomElement();
+			attempts++;
+		}
+		
 		// TODO: check if there are any entities inside/nearby this mission location's trigger zone. We don't want to spawn missions on people's heads
 
 		return randomLocation;
@@ -399,7 +420,9 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			SCR_EntityHelper.DeleteEntityAndChildren(missionEntity);
 		
 		// Mark the mission location entity as available again
-		mission.GetMissionLocation().SetCurrentMission(null);
+		PAND_MissionLocationEntity location = mission.GetMissionLocation();
+		if (location)
+			location.SetCurrentMission(null);
 		
 		// Remove mission record from map of active missions.
 		m_mActiveMissions.Remove(mission.GetMissionId());
