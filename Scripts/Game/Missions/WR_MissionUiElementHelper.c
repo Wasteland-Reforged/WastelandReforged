@@ -1,20 +1,20 @@
-class PAND_MissionUiElementHelper
+class WR_MissionUiElementHelper
 {
 	// TODO: make this configurable from world editor
 	private static string m_sSoundEventNameNotification = "SOUND_HUD_TASK_CREATED";
 	
-	static void SendMissionNotificationByStatus(PAND_Mission mission)
+	static void SendMissionNotificationByStatus(WR_Mission mission)
 	{
 		string title = "";
 		string description = "";
 		
 		switch (mission.GetStatus())
 		{
-			case PAND_MissionStatus.InProgress:
+			case WR_MissionStatus.InProgress:
 				title = "New Objective: " + mission.GetName();
 				description = mission.GetDescription();
 				break;
-			case PAND_MissionStatus.Complete:
+			case WR_MissionStatus.Complete:
 				title = "Objective Complete: " + mission.GetName();
 				description = "The mission was completed.";
 				break;
@@ -48,7 +48,7 @@ class PAND_MissionUiElementHelper
 	}
 	
 	// TODO: maybe change this to be a create or update method?
-	static void CreateMarker(PAND_Mission mission)
+	static void CreateMarker(WR_Mission mission)
 	{
 		ref SCR_MapMarkerBase marker = new SCR_MapMarkerBase();
 		
@@ -74,7 +74,7 @@ class PAND_MissionUiElementHelper
 		markerManager.InsertStaticMarker(marker, isLocal: false, isServerMarker: true);
 	}
 	
-	static void DeleteMarker(PAND_Mission mission)
+	static void DeleteMarker(WR_Mission mission)
 	{
 		SCR_MapMarkerManagerComponent markerManager = SCR_MapMarkerManagerComponent.GetInstance();
 		markerManager.RemoveStaticMarker(mission.GetMarker());

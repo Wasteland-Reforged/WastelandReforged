@@ -1,28 +1,28 @@
-class PAND_Mission
+class WR_Mission
 {
 	// Replicated properties
 	protected int m_iMissionId;
-	protected PAND_MissionType m_eType = PAND_MissionType.EMPTY;
-	protected PAND_MissionStatus m_eStatus;
+	protected WR_MissionType m_eType = WR_MissionType.EMPTY;
+	protected WR_MissionStatus m_eStatus;
 	protected vector m_vPosition;
 	
 	// Other properties
-	protected ref PAND_MissionDefinition m_Definition; // Contains info about mission reward, NPCs, props, etc.
+	protected ref WR_MissionDefinition m_Definition; // Contains info about mission reward, NPCs, props, etc.
 	protected ref SCR_MapMarkerBase m_Marker; // Map marker indicating location and status
-	protected PAND_MissionLocationEntity m_MissionLocation;
+	protected WR_MissionLocationEntity m_MissionLocation;
 	
 	// Entities - the entities for which this mission is responsible (props, AI, etc.) are tracked for clean-up purposes
 	protected IEntity m_aRewards;
 	protected IEntity m_Prop;
 	protected ref array<SCR_AIGroup> m_aAiGroups = {};
 
-	static PAND_Mission CreateMission(int id, PAND_MissionType type)
+	static WR_Mission CreateMission(int id, WR_MissionType type)
 	{
-		PAND_Mission mission = new PAND_Mission();
+		WR_Mission mission = new WR_Mission();
 		
 		mission.m_iMissionId = id;
 		mission.m_eType = type;
-		mission.m_eStatus = PAND_MissionStatus.InProgress;
+		mission.m_eStatus = WR_MissionStatus.InProgress;
 		
 		return mission;
 	}
@@ -37,22 +37,22 @@ class PAND_Mission
 		m_iMissionId = missionId;
 	}
 	
-	PAND_MissionType GetType()
+	WR_MissionType GetType()
 	{
 		return m_eType;
 	}
 	
-	void SetType(PAND_MissionType type)
+	void SetType(WR_MissionType type)
 	{
 		m_eType = type;
 	}
 	
-	PAND_MissionStatus GetStatus()
+	WR_MissionStatus GetStatus()
 	{
 		return m_eStatus;
 	}
 	
-	void SetStatus(PAND_MissionStatus status)
+	void SetStatus(WR_MissionStatus status)
 	{
 		m_eStatus = status;
 	}
@@ -71,7 +71,7 @@ class PAND_Mission
 	{
 		if (!m_Definition)
 		{
-			Print("[WASTELAND] PAND_Mission: Cannot retrieve mission name! Mission definition is missing", LogLevel.ERROR);
+			Print("[WASTELAND] WR_Mission: Cannot retrieve mission name! Mission definition is missing", LogLevel.ERROR);
 			return "";
 		}
 		
@@ -80,26 +80,26 @@ class PAND_Mission
 	
 	bool IsEmptyMission()
 	{
-		return m_eType == PAND_MissionType.EMPTY;
+		return m_eType == WR_MissionType.EMPTY;
 	}
 	
 	string GetDescription()
 	{
 		if (!m_Definition)
 		{
-			Print("[WASTELAND] PAND_Mission: Cannot retrieve mission description! Mission definition is missing", LogLevel.ERROR);
+			Print("[WASTELAND] WR_Mission: Cannot retrieve mission description! Mission definition is missing", LogLevel.ERROR);
 			return "";
 		}
 		
 		return m_Definition.m_sDescription;
 	}
 	
-	PAND_MissionDefinition GetDefinition()
+	WR_MissionDefinition GetDefinition()
 	{
 		return m_Definition;	
 	}
 	
-	void SetDefinition(PAND_MissionDefinition definition)
+	void SetDefinition(WR_MissionDefinition definition)
 	{
 		m_Definition = definition;
 	}
@@ -140,12 +140,12 @@ class PAND_Mission
 		return m_aAiGroups;
 	}
 	
-	PAND_MissionLocationEntity GetMissionLocation()
+	WR_MissionLocationEntity GetMissionLocation()
 	{
 		return m_MissionLocation;
 	}
 	
-	void SetMissionLocation(PAND_MissionLocationEntity location)
+	void SetMissionLocation(WR_MissionLocationEntity location)
 	{
 		m_MissionLocation = location;
 		m_vPosition = location.GetOrigin();
@@ -155,7 +155,7 @@ class PAND_Mission
 	/* Replication codec below */
 	/////////////////////////////
 	
-	static bool Extract(PAND_Mission instance, ScriptCtx ctx, SSnapSerializerBase snapshot)
+	static bool Extract(WR_Mission instance, ScriptCtx ctx, SSnapSerializerBase snapshot)
     {
 		// Convert instance to snapshot
 		snapshot.SerializeInt(instance.m_iMissionId);
@@ -166,7 +166,7 @@ class PAND_Mission
 		return true;
     }
  
-    static bool Inject(SSnapSerializerBase snapshot, ScriptCtx ctx, PAND_Mission instance)
+    static bool Inject(SSnapSerializerBase snapshot, ScriptCtx ctx, WR_Mission instance)
     {
 		// Convert snapshot to instance
         snapshot.SerializeInt(instance.m_iMissionId);
@@ -203,7 +203,7 @@ class PAND_Mission
 		return lhs.CompareSnapshots(rhs, 4+4+4+12);   // int32, int32, int32, vector
     }
  
-    static bool PropCompare(PAND_Mission instance, SSnapSerializerBase snapshot, ScriptCtx ctx)
+    static bool PropCompare(WR_Mission instance, SSnapSerializerBase snapshot, ScriptCtx ctx)
     {
 		// Compare instance and snapshot
         bool result =

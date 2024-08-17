@@ -1,26 +1,26 @@
-class PAND_MissionControllerComponentClass : SCR_BaseGameModeComponentClass
+class WR_MissionControllerComponentClass : SCR_BaseGameModeComponentClass
 {
 	
 }
 
-class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
+class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 {
 	[Attribute("", UIWidgets.Object, "Mission controller config")]
-	protected ref PAND_MissionControllerConfig m_Config;
+	protected ref WR_MissionControllerConfig m_Config;
     
 	protected SCR_BaseGameMode m_Parent;
 	protected BaseRplComponent m_RplComponent;
 	
     protected int m_iMissionCounter;
     
-	protected ref map<int, ref PAND_Mission> m_mActiveMissions = new map<int, ref PAND_Mission>();
+	protected ref map<int, ref WR_Mission> m_mActiveMissions = new map<int, ref WR_Mission>();
 	
-	protected ref map<PAND_MissionType, PAND_MissionDefinition> m_mMissionDefinitions = new map<PAND_MissionType, PAND_MissionDefinition>();
+	protected ref map<WR_MissionType, WR_MissionDefinition> m_mMissionDefinitions = new map<WR_MissionType, WR_MissionDefinition>();
 	
 	[RplProp(onRplName: "OnNewMissionReceived")]
-	protected ref PAND_Mission m_lastUpdatedMission = new PAND_Mission();
+	protected ref WR_Mission m_lastUpdatedMission = new WR_Mission();
 	
-	protected ref PAND_MissionUiElementHelper uiHelper;
+	protected ref WR_MissionUiElementHelper uiHelper;
 
 	private bool m_bIsInitialRplLoadDone = false;
 	
@@ -29,36 +29,36 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		m_Parent = SCR_BaseGameMode.Cast(owner);
 		if (!m_Parent)
 		{
-			Print("[WASTELAND] PAND_MissionManagerComponent Parent entity must be SCR_BaseGameMode!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionManagerComponent Parent entity must be SCR_BaseGameMode!", LogLevel.ERROR);
 			return;
 		}
 		
 		m_RplComponent = BaseRplComponent.Cast(m_Parent.FindComponent(BaseRplComponent));
 		if (!m_RplComponent)
 		{
-			Print("[WASTELAND] PAND_MissionManagerComponent: Parent entity must have RplComponent!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionManagerComponent: Parent entity must have RplComponent!", LogLevel.ERROR);
 			return;
 		}
 		
 		if (!m_Config)
 		{
-			Print("[WASTELAND] PAND_MissionManagerComponent: Mission controller must have a valid config!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionManagerComponent: Mission controller must have a valid config!", LogLevel.ERROR);
 			return;
 		}
 		
-		foreach (PAND_MissionDefinition definition : m_Config.m_aMissionDefinitions)
+		foreach (WR_MissionDefinition definition : m_Config.m_aMissionDefinitions)
 			m_mMissionDefinitions.Insert(definition.m_eType, definition);
 
-		Print("[WASTELAND] PAND_MissionControllerComponent: Mission controller initialized.", LogLevel.NORMAL);
+		Print("[WASTELAND] WR_MissionControllerComponent: Mission controller initialized.", LogLevel.NORMAL);
 	}
 	
-	PAND_MissionDefinition GetMissionDefinition(PAND_MissionType type)
+	WR_MissionDefinition GetMissionDefinition(WR_MissionType type)
 	{
-		PAND_MissionDefinition definition;
+		WR_MissionDefinition definition;
 		if (m_mMissionDefinitions.Find(type, definition))
 			return definition;
 		
-		Print("[WASTELAND] PAND_MissionControllerComponent: Mission definition not found for mission type " + type + "!", LogLevel.ERROR);
+		Print("[WASTELAND] WR_MissionControllerComponent: Mission definition not found for mission type " + type + "!", LogLevel.ERROR);
 		return null;
 	}
 	
@@ -84,32 +84,32 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 
         if (m_Config.m_iMaxActiveMissions == 0 || m_mActiveMissions.Count() >= m_Config.m_iMaxActiveMissions)
 		{
-			Print("[WASTELAND] PAND_MissionManagerComponent: Not enough capacity to start a new mission! Aborting mission creation.", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionManagerComponent: Not enough capacity to start a new mission! Aborting mission creation.", LogLevel.ERROR);
 			return;
 		}
 
 		int missionId = GetNewMissionId();
-		PAND_MissionType missionType = GetRandomMissionType();
+		WR_MissionType missionType = GetRandomMissionType();
 		
 		// Create mission record
-		m_lastUpdatedMission = PAND_Mission.CreateMission(missionId, missionType);
+		m_lastUpdatedMission = WR_Mission.CreateMission(missionId, missionType);
 		
 		// Find mission definition corresponding to selected mission type
-		PAND_MissionDefinition missionDefinition = FindMissionDefinitionByMissionType(m_lastUpdatedMission.GetType());
+		WR_MissionDefinition missionDefinition = FindMissionDefinitionByMissionType(m_lastUpdatedMission.GetType());
 		if (!missionDefinition)
 		{
-			Print("[WASTELAND] PAND_MissionControllerComponent: No definition found for provided type! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionControllerComponent: No definition found for provided type! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
 		}
 		m_lastUpdatedMission.SetDefinition(missionDefinition);
 		
-		Print("[WASTELAND] PAND_MissionManagerComponent: Starting new mission: " + missionDefinition.m_sName + " (ID: " + missionId + ")", LogLevel.NORMAL);
+		Print("[WASTELAND] WR_MissionManagerComponent: Starting new mission: " + missionDefinition.m_sName + " (ID: " + missionId + ")", LogLevel.NORMAL);
 		
 		// Find a location for this mission
-		PAND_MissionLocationEntity missionLocation = GetRandomVacantMissionLocation(missionDefinition.m_eSize);
+		WR_MissionLocationEntity missionLocation = GetRandomVacantMissionLocation(missionDefinition.m_eSize);
 
 		if (!missionLocation)
 		{
-			Print("[WASTELAND] PAND_MissionManagerComponent: Unable to get location for new mission! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionManagerComponent: Unable to get location for new mission! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
 			
 			// Destroy this mission and queue another one to be started.
 			DestroyMission(m_lastUpdatedMission);
@@ -125,7 +125,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		bool areObjectsCreated = InstantiateMissionWorldObjects(m_lastUpdatedMission);
 		if (!areObjectsCreated)
 		{
-			Print("[WASTELAND] PAND_MissionControllerComponent: Failed to instantiate mission world objects! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionControllerComponent: Failed to instantiate mission world objects! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
 			
 			// Destroy this mission and queue another one to be started.
 			DestroyMission(m_lastUpdatedMission);
@@ -139,7 +139,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		// Send updated mission record to proxies
 		Replication.BumpMe();
 		
-		Print("[WASTELAND] PAND_MissionManagerComponent: Mission started successfully: " + m_lastUpdatedMission.GetName() + " (ID: " + missionId + ")", LogLevel.NORMAL);
+		Print("[WASTELAND] WR_MissionManagerComponent: Mission started successfully: " + m_lastUpdatedMission.GetName() + " (ID: " + missionId + ")", LogLevel.NORMAL);
     }
 	
     protected void ReceiveNewMissionOnProxy()
@@ -148,19 +148,19 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		if (!m_mActiveMissions) return;
 		if (m_lastUpdatedMission.IsEmptyMission()) return;
 		
-		Print("[WASTELAND] PAND_MissionManagerComponent: New mission received from authority (ID: " + m_lastUpdatedMission.GetMissionId() + ")", LogLevel.NORMAL);
+		Print("[WASTELAND] WR_MissionManagerComponent: New mission received from authority (ID: " + m_lastUpdatedMission.GetMissionId() + ")", LogLevel.NORMAL);
 		
 		HandleUpdatedMissionRecord(m_lastUpdatedMission, false);
     }
 	
-	protected void HandleUpdatedMissionRecord(PAND_Mission mission, bool isJipRplLoad)
+	protected void HandleUpdatedMissionRecord(WR_Mission mission, bool isJipRplLoad)
 	{
-		PAND_Mission newMission = mission;
+		WR_Mission newMission = mission;
 		//bool missionExists = m_mActiveMissions.Find(newMission.GetMissionId(), mission);
 		bool missionExists = m_mActiveMissions.Contains(newMission.GetMissionId());
 		
 		// Populate mission definition from local config file
-		PAND_MissionDefinition definition = GetMissionDefinition(newMission.GetType());
+		WR_MissionDefinition definition = GetMissionDefinition(newMission.GetType());
 		newMission.SetDefinition(definition); 
 		
 		//mission = newMission;
@@ -172,32 +172,32 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			// Markers should only be created on the authority, since Reforger already includes infrastructure to replicate them
 			if (m_RplComponent.Role() == RplRole.Authority)
 			{
-				PAND_MissionUiElementHelper.CreateMarker(newMission);	
+				WR_MissionUiElementHelper.CreateMarker(newMission);	
 			}
 			
 			// Only active player should see notifications, not JIP clients who are receiving initial mission info
 			if (!isJipRplLoad)
-				PAND_MissionUiElementHelper.SendMissionNotificationByStatus(newMission);
+				WR_MissionUiElementHelper.SendMissionNotificationByStatus(newMission);
 		}
 		else
 		{
 			// We have received a mission with this ID before, so update or delete existing mission record as required
-			PAND_MissionStatus currStatus = newMission.GetStatus();
+			WR_MissionStatus currStatus = newMission.GetStatus();
 			switch	(currStatus)
 			{
-				case PAND_MissionStatus.Complete:
-				case PAND_MissionStatus.Failed:
+				case WR_MissionStatus.Complete:
+				case WR_MissionStatus.Failed:
 				{
 					SCR_MapMarkerManagerComponent markerManager = SCR_MapMarkerManagerComponent.GetInstance();
 					
 					if (m_RplComponent.Role() == RplRole.Authority)
 					{
-						PAND_MissionUiElementHelper.DeleteMarker(newMission);
+						WR_MissionUiElementHelper.DeleteMarker(newMission);
 					}
 					
 					// Only active players should see notifications, not JIP clients who are receiving initial mission info
 					if (!isJipRplLoad)
-						PAND_MissionUiElementHelper.SendMissionNotificationByStatus(newMission);
+						WR_MissionUiElementHelper.SendMissionNotificationByStatus(newMission);
 		
 					m_mActiveMissions.Take(newMission.GetMissionId(), newMission);
 					
@@ -207,7 +207,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		}
 	}
 	
-	private bool InstantiateMissionWorldObjects(PAND_Mission mission)
+	private bool InstantiateMissionWorldObjects(WR_Mission mission)
 	{
 		// Spawn rewards
 		IEntity rewardEntities;
@@ -225,7 +225,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		
 		if (!(isRewardSpawned && isPropSpawned && areAiGroupsSpawned))
 		{
-			Print("[WASTELAND] PAND_MissionControllerComponent: Failed to spawn mission objects in the world! (mission ID: " + mission.GetMissionId() + ")");
+			Print("[WASTELAND] WR_MissionControllerComponent: Failed to spawn mission objects in the world! (mission ID: " + mission.GetMissionId() + ")");
 			return false;
 		}
 
@@ -238,22 +238,22 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
         return m_iMissionCounter;
     }
 	
-    PAND_MissionType GetRandomMissionType()
+    WR_MissionType GetRandomMissionType()
     {
-		PAND_MissionDefinition definition = m_Config.m_aMissionDefinitions.GetRandomElement();
+		WR_MissionDefinition definition = m_Config.m_aMissionDefinitions.GetRandomElement();
         return definition.m_eType;
     }
 			
-	protected PAND_MissionLocationEntity GetRandomVacantMissionLocation(PAND_MissionLocationSize requiredSize)
+	protected WR_MissionLocationEntity GetRandomVacantMissionLocation(WR_MissionLocationSize requiredSize)
 	{			
-		array<PAND_MissionLocationEntity> vacantLocations = PAND_MissionLocationEntity.GetAllVacantLocations();
+		array<WR_MissionLocationEntity> vacantLocations = WR_MissionLocationEntity.GetAllVacantLocations();
 		if (vacantLocations.Count() == 0)
 		{
 			Print("[WASTELAND] WR_MissionManagerComponent: No vacant mission locations!", LogLevel.ERROR);
 			return null;
 		}
 		
-		PAND_MissionLocationEntity randomLocation;
+		WR_MissionLocationEntity randomLocation;
 		
 		// TODO: this is a lame, unoptimized way of doing it, but it works for now.
 		int attempts = 1;
@@ -270,22 +270,22 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		return randomLocation;
 	}
 	
-	private PAND_MissionDefinition FindMissionDefinitionByMissionType(PAND_MissionType type)
+	private WR_MissionDefinition FindMissionDefinitionByMissionType(WR_MissionType type)
 	{
 		if (!m_Config) return null; // TODO: add error logging
 		if (!m_Config.m_aMissionDefinitions) return null; // TODO: add error logging
 		
-		foreach (PAND_MissionDefinition definition : m_Config.m_aMissionDefinitions)
+		foreach (WR_MissionDefinition definition : m_Config.m_aMissionDefinitions)
 			if (definition.m_eType == type) return definition;
 		
 		return null;
 	}
 	
-	private bool SpawnProp(PAND_Mission mission, out IEntity propEntity)
+	private bool SpawnProp(WR_Mission mission, out IEntity propEntity)
 	{
 		if (!mission.GetDefinition())
 		{
-			Print("[WASTELAND] PAND_MissionControllerComponent: Tried to spawn mission prop, but no mission definition was found!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionControllerComponent: Tried to spawn mission prop, but no mission definition was found!", LogLevel.ERROR);
 			return false;
 		}
 		
@@ -310,11 +310,11 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		return true;
 	}
 	
-	private bool SpawnAiGroups(PAND_Mission mission, out array<SCR_AIGroup> aiGroups)
+	private bool SpawnAiGroups(WR_Mission mission, out array<SCR_AIGroup> aiGroups)
 	{
 		if (!mission.GetDefinition())
 		{
-			Print("[WASTELAND] PAND_MissionControllerComponent: Tried to spawn mission AI groups, but no mission definition was found!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionControllerComponent: Tried to spawn mission AI groups, but no mission definition was found!", LogLevel.ERROR);
 			return false;
 		}
 		
@@ -333,7 +333,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			//bool safePosFound =
 //			if (!safePosFound)
 //			{
-//				Print("[WASTELAND] PAND_MissionControllerComponent: A safe spawn position was unable to be found for this mission's AI!", LogLevel.ERROR);
+//				Print("[WASTELAND] WR_MissionControllerComponent: A safe spawn position was unable to be found for this mission's AI!", LogLevel.ERROR);
 //				return false;
 //			}
 			
@@ -359,11 +359,11 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	// TODO: consider making it so this method ensures the reward's spawn position is safe
 	// If it's not safe, make it find a position within a certain radius. (and update the mission record with the new pos so markers are accurate)
 	// If no safe pos can be found, the function returns false
-	private bool SpawnReward(PAND_Mission mission, out IEntity rewardEntity)
+	private bool SpawnReward(WR_Mission mission, out IEntity rewardEntity)
 	{
 		if (!mission.GetDefinition())
 		{
-			Print("[WASTELAND] PAND_MissionControllerComponent: Tried to spawn mission reward, but no mission definition was found!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionControllerComponent: Tried to spawn mission reward, but no mission definition was found!", LogLevel.ERROR);
 			return false;
 		}
 		
@@ -385,7 +385,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 1.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
 			if (!safePosFound)
 			{
-				Print("[WASTELAND] PAND_MissionControllerComponent: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
+				Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
 				return false;
 			}	
 			
@@ -409,7 +409,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			}
 			
 			// If loot context is set to NONE, do not fill inventory with loot
-			if (mission.GetDefinition().m_eLootContext == PAND_LootContextType.NONE)
+			if (mission.GetDefinition().m_eLootContext == WR_LootContextType.NONE)
 			{
 				return true;
 			}
@@ -437,7 +437,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		return true;
 	}
 	
-	private void DestroyMission(PAND_Mission mission)
+	private void DestroyMission(WR_Mission mission)
 	{
 		// This method cleans up a mission record and ALL items related to it, including its markers and rewards! USE SPARINGLY.
 		
@@ -447,7 +447,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			SCR_EntityHelper.DeleteEntityAndChildren(missionEntity);
 		
 		// Mark the mission location entity as available again
-		PAND_MissionLocationEntity location = mission.GetMissionLocation();
+		WR_MissionLocationEntity location = mission.GetMissionLocation();
 		if (location)
 			location.SetCurrentMission(null);
 		
@@ -457,7 +457,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		Replication.BumpMe();
 	}
 	
-	void OnPlayerEnteredMissionZone(PAND_Mission mission, PAND_MissionLocationEntity location)
+	void OnPlayerEnteredMissionZone(WR_Mission mission, WR_MissionLocationEntity location)
 	{
 		if (m_RplComponent.Role() != RplRole.Authority) return;
 		
@@ -467,7 +467,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		location.SetCurrentMission(null);
 	}
 	
-	bool GetAreAllNpcsDead(PAND_Mission mission)
+	bool GetAreAllNpcsDead(WR_Mission mission)
 	{
 		array<SCR_AIGroup> aiGroups = mission.GetAiGroups();
 
@@ -479,18 +479,18 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		return true;
 	}
 	
-	void EndMission(PAND_Mission mission, bool isCompleted)
+	void EndMission(WR_Mission mission, bool isCompleted)
 	{
-		PAND_MissionStatus status;
+		WR_MissionStatus status;
 		if (isCompleted)
 		{
-			status = PAND_MissionStatus.Complete;
-			Print("[WASTELAND] PAND_MissionControllerComponent: Mission complete: " + mission.GetName() + " (ID: " + mission.GetMissionId() + ")");
+			status = WR_MissionStatus.Complete;
+			Print("[WASTELAND] WR_MissionControllerComponent: Mission complete: " + mission.GetName() + " (ID: " + mission.GetMissionId() + ")");
 		}
 		else
 		{
-			status = PAND_MissionStatus.Failed;
-			Print("[WASTELAND] PAND_MissionControllerComponent: Mission failed: " + mission.GetName() + " (ID: " + mission.GetMissionId() + ")");
+			status = WR_MissionStatus.Failed;
+			Print("[WASTELAND] WR_MissionControllerComponent: Mission failed: " + mission.GetName() + " (ID: " + mission.GetMissionId() + ")");
 		}
 		
 		mission.SetStatus(status);
@@ -510,9 +510,9 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		// here does mission become null. Need to fix this down the line sometime.
 	}
 	
-	static PAND_MissionControllerComponent GetInstance()
+	static WR_MissionControllerComponent GetInstance()
 	{
-		PAND_MissionControllerComponent missionController = PAND_MissionControllerComponent.Cast(GetGame().GetGameMode().FindComponent(PAND_MissionControllerComponent));
+		WR_MissionControllerComponent missionController = WR_MissionControllerComponent.Cast(GetGame().GetGameMode().FindComponent(WR_MissionControllerComponent));
 		return missionController;
 	}
 	
@@ -532,7 +532,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		// Write active mission count as header so proxy knows how many values it's receiving
 		writer.Write(m_mActiveMissions.Count(), 8);
 
-		foreach (PAND_Mission mission : m_mActiveMissions)
+		foreach (WR_Mission mission : m_mActiveMissions)
 		{
 			Print("[WASTELAND] RplSave: Mission ID     " + mission.GetMissionId(), LogLevel.DEBUG);
 			Print("[WASTELAND] RplSave: Type           " + mission.GetType(), LogLevel.DEBUG);
@@ -553,7 +553,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
 	override bool RplLoad(ScriptBitReader reader)
 	{
-		Print("[WASTELAND] PAND_MissionControllerComponent: RplLoad called on proxy.", LogLevel.WARNING);
+		Print("[WASTELAND] WR_MissionControllerComponent: RplLoad called on proxy.", LogLevel.WARNING);
 		
 		int activeMissionCount;
 		if (!reader.Read(activeMissionCount, 8)) return false;
@@ -563,10 +563,10 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			int id;
 			if (!reader.ReadInt(id)) return false;
 			
-			PAND_MissionType type;
+			WR_MissionType type;
 			if (!reader.ReadInt(type)) return false;
 			
-			PAND_MissionStatus status;
+			WR_MissionStatus status;
 			if (!reader.ReadInt(status)) return false;
 			
 			vector pos;
@@ -578,7 +578,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			Print("[WASTELAND] RplLoad: Position       " + pos, LogLevel.DEBUG);
 			Print("\n", LogLevel.DEBUG);
 						
-			PAND_Mission mission = new PAND_Mission();
+			WR_Mission mission = new WR_Mission();
 
 			mission.SetMissionId(id);
 			mission.SetType(type);
@@ -588,7 +588,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			HandleUpdatedMissionRecord(mission, true);
 		}
 		
-		foreach (PAND_Mission mission : m_mActiveMissions)
+		foreach (WR_Mission mission : m_mActiveMissions)
 		{
 			Print("[WASTELAND] RplLoad: ID = " + mission.GetMissionId() + " Name = " + mission.GetName());
 		}

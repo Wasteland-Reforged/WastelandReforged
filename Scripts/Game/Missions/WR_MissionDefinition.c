@@ -1,9 +1,9 @@
 [BaseContainerProps(configRoot: true), BaseContainerCustomTitleField("m_sName")]
-class PAND_MissionDefinition
+class WR_MissionDefinition
 {
 	const string CATEGORY_MISSION = "Mission";
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Mission type. When designing a new mission, add your mission type in WR_MissionType.c", enums: ParamEnumArray.FromEnum(PAND_MissionType))]
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Mission type. When designing a new mission, add your mission type in WR_MissionType.c", enums: ParamEnumArray.FromEnum(WR_MissionType))]
 	int m_eType;
 	
 	[Attribute(defvalue: "", desc: "Mission name. Displayed on the map and in hint notifications.", category: "Mission")]
@@ -24,7 +24,7 @@ class PAND_MissionDefinition
 	[Attribute(defvalue: "1", uiwidget: UIWidgets.Slider, params: "0 5 1", desc: "Number of rewards to spawn.")]
 	int m_iNumberOfRewards;
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for reward loot boxes (set to None if no boxes are to be spawned)", enums: ParamEnumArray.FromEnum(PAND_LootContextType))]
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for reward loot boxes (set to None if no boxes are to be spawned)", enums: ParamEnumArray.FromEnum(WR_LootContextType))]
 	int m_eLootContext;
 	
 	[Attribute(defvalue: "3", uiwidget: UIWidgets.Slider, params: "0 15 1", desc: "Minimum items to spawn from loot context.")]
@@ -33,7 +33,7 @@ class PAND_MissionDefinition
 	[Attribute(defvalue: "6", uiwidget: UIWidgets.Slider, params: "0 15 1", desc: "Maximum items to spawn from loot context.")]
 	int m_iMaxItemsInBox;
 	
-	[Attribute(defvalue: "LARGE", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(PAND_MissionLocationSize))]
+	[Attribute(defvalue: "LARGE", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(WR_MissionLocationSize))]
 	int m_eSize;
 	
 	// TODO: add options for mission marker icon and color.

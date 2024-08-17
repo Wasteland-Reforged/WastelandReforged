@@ -1,26 +1,26 @@
 [EntityEditorProps(category: "WastelandReforged", description: "Marks a location where objectives can spawn.")]
-class PAND_MissionLocationEntityClass : SCR_ScenarioFrameworkTriggerEntityClass
+class WR_MissionLocationEntityClass : SCR_ScenarioFrameworkTriggerEntityClass
 {
 	
 }
 
-class PAND_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGameTriggerEntity
+class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGameTriggerEntity
 {
 	// Categories
 	private const string CATEGORY_MISSION_LOCATION = "Mission Location";
 	
-	private static ref array<PAND_MissionLocationEntity> MissionLocationEntities;
+	private static ref array<WR_MissionLocationEntity> MissionLocationEntities;
 	
 	protected BaseRplComponent m_RplComponent;
 	
 	[Attribute(defvalue: "true", desc: "Determines if missions should spawn here", category: CATEGORY_MISSION_LOCATION)]
 	private bool m_bIsActive;
 	
-	private PAND_Mission m_CurrentMission;
+	private WR_Mission m_CurrentMission;
 	private bool m_bIsHostingMission;
 
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(PAND_MissionLocationSize), category: CATEGORY_MISSION_LOCATION)]
-	private PAND_MissionLocationSize m_eSize;
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(WR_MissionLocationSize), category: CATEGORY_MISSION_LOCATION)]
+	private WR_MissionLocationSize m_eSize;
 	
 	override void EOnInit(IEntity owner)
 	{
@@ -29,13 +29,13 @@ class PAND_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGame
 		if (!MissionLocationEntities)
 		{
 			MissionLocationEntities = {};
-			Print("[WASTELAND] PAND_MissionLocationEntity: Initialized mission location list.");
+			Print("[WASTELAND] WR_MissionLocationEntity: Initialized mission location list.");
 		}
 		
 		m_RplComponent = BaseRplComponent.Cast(FindComponent(BaseRplComponent));
 		if (!m_RplComponent)
 		{
-			Print("[WASTELAND] PAND_MissionLocationEntity: Parent entity must have RplComponent!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionLocationEntity: Parent entity must have RplComponent!", LogLevel.ERROR);
 			return;
 		}
 		
@@ -45,19 +45,19 @@ class PAND_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGame
 		MissionLocationEntities.Insert(this);
 	}
 	
-	void ~PAND_MissionLocationEntity()
+	void ~WR_MissionLocationEntity()
 	{
 		MissionLocationEntities = null;
 	}
 	
-	static array<PAND_MissionLocationEntity> GetAllLocations()
+	static array<WR_MissionLocationEntity> GetAllLocations()
 	{
 		return MissionLocationEntities;
 	}
 	
-	static array<PAND_MissionLocationEntity> GetAllVacantLocations()
+	static array<WR_MissionLocationEntity> GetAllVacantLocations()
 	{
-		array<PAND_MissionLocationEntity> vacantLocations = {};
+		array<WR_MissionLocationEntity> vacantLocations = {};
 		
 		foreach (auto location : MissionLocationEntities)
 		{
@@ -82,17 +82,17 @@ class PAND_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGame
 		m_bIsHostingMission = isHostingMission;
 	}
 	
-	PAND_Mission GetCurrentMission()
+	WR_Mission GetCurrentMission()
 	{
 		return m_CurrentMission;
 	}
 	
-	PAND_MissionLocationSize GetSize()
+	WR_MissionLocationSize GetSize()
 	{
 		return m_eSize;
 	}
 	
-	void SetCurrentMission(PAND_Mission mission)
+	void SetCurrentMission(WR_Mission mission)
 	{
 		m_CurrentMission = mission;
 		m_bIsHostingMission = mission != null;
@@ -104,7 +104,7 @@ class PAND_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGame
 		if (m_RplComponent.Role() != RplRole.Authority) return;
 		if (!m_bIsHostingMission) return;
 		
-		PAND_MissionControllerComponent missionController = PAND_MissionControllerComponent.	Cast(GetGame().GetGameMode().FindComponent(PAND_MissionControllerComponent));
+		WR_MissionControllerComponent missionController = WR_MissionControllerComponent.	Cast(GetGame().GetGameMode().FindComponent(WR_MissionControllerComponent));
 		
 		missionController.OnPlayerEnteredMissionZone(m_CurrentMission, this);
 	}

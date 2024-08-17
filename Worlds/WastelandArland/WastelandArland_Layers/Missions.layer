@@ -1,4 +1,4 @@
-$grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.et" {
+$grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.et" {
  MissionSpawnLocation1 {
   coords 1337.928 39 2260.668
   ShapeColor 1 0.513 0 0.102
