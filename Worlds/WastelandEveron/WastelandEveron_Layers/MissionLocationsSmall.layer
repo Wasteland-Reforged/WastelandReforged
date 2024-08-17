@@ -1,0 +1,186 @@
+$grp PAND_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.et" {
+ {
+  coords 4949.951 28.248 11926.229
+  m_eSize SMALL
+ }
+ {
+  coords 4403.25 1.478 11042.056
+  m_eSize SMALL
+ }
+ {
+  coords 4552.578 16.49 10541.969
+  m_eSize SMALL
+ }
+ {
+  coords 4650.185 27.711 11130.753
+  m_eSize SMALL
+ }
+ {
+  coords 4310.803 1.125 9539.099
+  m_eSize SMALL
+ }
+ {
+  coords 5897.601 4.563 9730.028
+  m_eSize SMALL
+ }
+ {
+  coords 5043.166 27.866 10842.854
+  m_eSize SMALL
+ }
+ {
+  coords 5026.15 47.411 9477.432
+  m_eSize SMALL
+ }
+ {
+  coords 1061.045 2.803 6184.703
+  m_eSize SMALL
+ }
+ {
+  coords 5134.882 175.794 7045.476
+  m_eSize SMALL
+ }
+ {
+  coords 4860.042 52.931 5676.376
+  m_eSize SMALL
+ }
+ {
+  coords 2249.613 17.878 7541.438
+  m_eSize SMALL
+ }
+ {
+  coords 3494.102 179.775 5795.64
+  m_eSize SMALL
+ }
+ {
+  coords 4046.814 34.681 7651.203
+  m_eSize SMALL
+ }
+ {
+  coords 3828.272 12.062 8463.425
+  m_eSize SMALL
+ }
+ {
+  coords 4543.636 155.812 6843.293
+  m_eSize SMALL
+ }
+ {
+  coords 3253.213 115.29 4416.085
+  m_eSize SMALL
+ }
+ {
+  coords 2490.762 10.406 4236.795
+  m_eSize SMALL
+ }
+ {
+  coords 3299.49 8.187 3611.618
+  m_eSize SMALL
+ }
+ {
+  coords 4826.441 84.509 4460.986
+  m_eSize SMALL
+ }
+ {
+  coords 5770.875 6.063 3502.526
+  m_eSize SMALL
+ }
+ {
+  coords 5151.654 14.42 4020.29
+  m_eSize SMALL
+ }
+ {
+  coords 7570.369 166.157 4248.582
+  m_eSize SMALL
+ }
+ {
+  coords 7496.556 131.888 4809.93
+  m_eSize SMALL
+ }
+ {
+  coords 7341.962 122.99 5142.33
+  m_eSize SMALL
+ }
+ {
+  coords 7540.271 2.488 6689.667
+  m_eSize SMALL
+ }
+ {
+  coords 7471.965 7.598 6708.356
+  m_eSize SMALL
+ }
+ {
+  coords 6644.033 109.594 5870.514
+  m_eSize SMALL
+ }
+ {
+  coords 6878.303 123.302 6599.017
+  m_eSize SMALL
+ }
+ {
+  coords 7258.052 46.869 7681.449
+  m_eSize SMALL
+ }
+ {
+  coords 7735.586 13.724 8147.199
+  m_eSize SMALL
+ }
+ {
+  coords 6948.786 86.125 8316.717
+  m_eSize SMALL
+ }
+ {
+  coords 5690.714 91.85 5894.805
+  m_eSize SMALL
+ }
+ {
+  coords 4502.297 56.447 6215.341
+  m_eSize SMALL
+ }
+ {
+  coords 5233.759 54.793 5449.622
+  m_eSize SMALL
+ }
+ {
+  coords 3117.826 118.867 5226.755
+  m_eSize SMALL
+ }
+ {
+  coords 7085.043 156.734 2085.815
+  m_eSize SMALL
+ }
+ {
+  coords 8229.853 223.113 2171.406
+  m_eSize SMALL
+ }
+ {
+  coords 6632.397 5.636 3111.146
+  m_eSize SMALL
+ }
+ {
+  coords 7684.091 340.875 3091.838
+  m_eSize SMALL
+ }
+ {
+  coords 9984.96 2.124 1531.313
+  m_eSize SMALL
+ }
+ {
+  coords 9100.444 79.213 2317.089
+  m_eSize SMALL
+ }
+ {
+  coords 8891.163 96.228 2829.337
+  m_eSize SMALL
+ }
+ {
+  coords 10645.309 144.359 2247.599
+  m_eSize SMALL
+ }
+ {
+  coords 6224.333 107.95 5096.114
+  m_eSize SMALL
+ }
+ {
+  coords 7287.798 135.719 2265.667
+  m_eSize SMALL
+ }
+}
