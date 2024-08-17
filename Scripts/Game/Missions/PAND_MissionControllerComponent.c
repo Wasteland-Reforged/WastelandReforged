@@ -290,10 +290,22 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 		}
 		
 		ResourceName propResource = mission.GetDefinition().m_sPropPrefab;
-		if (!propResource) return true; // Props are not required, so exit successfully
+		if (!propResource) return true; // Props are not required, so exit successfully if none are defined
 
-		propEntity = WR_Utils.SpawnPrefabInWorld(propResource, mission.GetPosition());
-		propEntity.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
+		// Get safe pos
+		vector safePos;
+		WR_Utils.TryGetRandomSafePosWithinRadius(safePos, mission.GetPosition(), mission.GetMissionLocation().GetSphereRadius(), 10.0, 10.0, 2.0);
+		propEntity = WR_Utils.SpawnPrefabInWorld(propResource, safePos);
+		
+		// Set random heading
+		vector randomDir = WR_Utils.GetRandomHorizontalDirectionAngles();
+		propEntity.SetYawPitchRoll(randomDir);
+		
+		// Orient the object to terrain normal
+		vector transform[4];
+		propEntity.GetTransform(transform);
+		SCR_TerrainHelper.OrientToTerrain(transform);
+		propEntity.SetTransform(transform);
 		
 		return true;
 	}
@@ -379,10 +391,19 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			
 			// Spawn the reward prefab
 			rewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefab, spawnPos);
-			rewardEntity.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 			
-			//Remove Initial Items
-			if (!WR_Utils.removeAllItemsFromVehicle(rewardEntity))
+			// Set random heading
+			vector randomDir = WR_Utils.GetRandomHorizontalDirectionAngles();
+			rewardEntity.SetYawPitchRoll(randomDir);
+			
+			// Orient the object to terrain normal
+			vector transform[4];
+			rewardEntity.GetTransform(transform);
+			SCR_TerrainHelper.OrientToTerrain(transform);
+			rewardEntity.SetTransform(transform);
+			
+			// Remove initial Items
+			if (!WR_Utils.RemoveAllItemsFromVehicle(rewardEntity))
 			{
 				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
 			}
@@ -404,7 +425,7 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			{
 				auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
 				
-				array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), maxExtraMagsToIncludeForWeapons: 10);
+				array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 5,  maxExtraMags: 12);
 				foreach (ResourceName item : items)
 				{
 					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
