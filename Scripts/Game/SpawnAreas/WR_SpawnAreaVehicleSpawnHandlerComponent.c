@@ -83,16 +83,15 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			if (!vehicle) continue;
 			
 			vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
-				
-			// Get vehicle inventory components
+			
+			//Remove intial items
+			if (!WR_Utils.removeAllItemsFromVehicle(vehicle))
+			{
+				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
+			}
+			
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
 			auto inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
-			
-			// Remove all items from inventory
-			array<IEntity> currItems = {};
-			inventoryStorageManager.GetItems(currItems);
-			foreach (IEntity item : currItems)
-				inventoryStorageManager.TryDeleteItem(item);
 			
 			// Place weapons and items in inventory			
 			array<ResourceName> itemResourceNamesToSpawn = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems));

@@ -155,4 +155,20 @@ class WR_Utils
 		
 		return entity;
 	}
+	
+	static bool removeAllItemsFromVehicle(IEntity vehicle)
+	{
+		// Get vehicle inventory components
+			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
+			auto inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+			if (!inventoryStorage || !inventoryStorageManager) return false;
+			
+		// Remove all items from inventory
+			array<IEntity> currItems = {};
+			inventoryStorageManager.GetItems(currItems);
+			foreach (IEntity item : currItems)
+				inventoryStorageManager.TryDeleteItem(item);
+		
+		return true;
+	}
 }
