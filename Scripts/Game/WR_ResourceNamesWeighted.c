@@ -89,10 +89,10 @@ class WR_ResourceNamesWeighted
 
 		// Smoke grenades
 		Ordnance.AddItem(3.0, "{9DB69176CEF0EE97}Prefabs/Weapons/Grenades/Smoke_ANM8HC.et");
-		Ordnance.AddItem(1.5, "{3343A055A83CB30D}Prefabs/Weapons/Grenades/M18/Smoke_M18_Red.et");
-		Ordnance.AddItem(1.5, "{D41D22DD1B8E921E}Prefabs/Weapons/Grenades/M18/Smoke_M18_Green.et");
-		Ordnance.AddItem(1.5, "{14C1A0F061D9DDEE}Prefabs/Weapons/Grenades/M18/Smoke_M18_Violet.et");
-		Ordnance.AddItem(1.5, "{9BBDEE253A16CC66}Prefabs/Weapons/Grenades/M18/Smoke_M18_Yellow.et");
+		Ordnance.AddItem(3.0, "{3343A055A83CB30D}Prefabs/Weapons/Grenades/M18/Smoke_M18_Red.et");
+		Ordnance.AddItem(3.0, "{D41D22DD1B8E921E}Prefabs/Weapons/Grenades/M18/Smoke_M18_Green.et");
+		Ordnance.AddItem(3.0, "{14C1A0F061D9DDEE}Prefabs/Weapons/Grenades/M18/Smoke_M18_Violet.et");
+		Ordnance.AddItem(3.0, "{9BBDEE253A16CC66}Prefabs/Weapons/Grenades/M18/Smoke_M18_Yellow.et");
 		Ordnance.AddItem(3.0, "{77EAE5E07DC4678A}Prefabs/Weapons/Grenades/Smoke_RDG2.et");
 
 		// UGL frag ammo
@@ -191,11 +191,11 @@ class WR_ResourceNamesWeighted
 		MedicalItems = new WR_WeightedItemArray<ResourceName>();
 
 		MedicalItems.AddItem(4.0, "{A81F501D3EF6F38E}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_US_01.et");
-		MedicalItems.AddItem(3.0, "{AF3411AAF94D18C2}Prefabs/Items/Medicine/Gauze_02/Gauze_02.et");
+		//MedicalItems.AddItem(0.0, "{AF3411AAF94D18C2}Prefabs/Items/Medicine/Gauze_02/Gauze_02.et");
 		MedicalItems.AddItem(4.0, "{0D9A5DCF89AE7AA9}Prefabs/Items/Medicine/MorphineInjection_01/MorphineInjection_01.et");
-		MedicalItems.AddItem(3.0, "{66C501240A143DBF}Prefabs/Items/Medicine/PressureBandage_01/PressureBandage_01.et");
+		//MedicalItems.AddItem(0.0, "{66C501240A143DBF}Prefabs/Items/Medicine/PressureBandage_01/PressureBandage_01.et");
 		MedicalItems.AddItem(2.0, "{00E36F41CA310E2A}Prefabs/Items/Medicine/SalineBag_01/SalineBag_US_01.et");
-		MedicalItems.AddItem(4.0, "{FEF9FA4072013B5B}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et");
+		//MedicalItems.AddItem(0.0, "{FEF9FA4072013B5B}Prefabs/Items/Medicine/Tourniquet_01/Tourniquet_USSR_01.et");
 
 		return MedicalItems;	
 	}

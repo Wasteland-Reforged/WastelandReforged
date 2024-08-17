@@ -357,6 +357,12 @@ class PAND_MissionControllerComponent : SCR_BaseGameModeComponent
 			rewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefab, spawnPos);
 			rewardEntity.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 			
+			//Remove Initial Items
+			if (!WR_Utils.removeAllItemsFromVehicle(rewardEntity))
+			{
+				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
+			}
+			
 			// If loot context is set to NONE, do not fill inventory with loot
 			if (mission.GetDefinition().m_eLootContext == PAND_LootContextType.NONE)
 			{
