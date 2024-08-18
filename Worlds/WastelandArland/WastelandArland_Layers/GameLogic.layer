@@ -333,12 +333,6 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
    coords 2.219 0.024 -7.158
   }
-  SCR_EditorSettingsEntity {
-   coords 2046.599 28.123 -973.396
-   m_bIsUnlimitedEditorLegal 1
-   m_bOverrideBaseModes 1
-   m_BaseModes PHOTO
-  }
   SCR_LoadoutManager LoadoutManager : "{AA4E7419A1FF65B0}Prefabs/MP/Managers/Loadouts/LoadoutManager_Base.et" {
    coords -2.15 0.024 -1.729
    m_aPlayerLoadouts {
