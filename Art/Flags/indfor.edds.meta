@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{0CB3CAB8754E98A5}indfor.edds"
+ Name "{0CB3CAB8754E98A5}Art/Flags/indfor.edds"
  Configurations {
   PNGResourceClass PC : "{DC555BD399D92412}Configs/System/ResourceTypes/PC/TextureUnspecified.conf" {
   }

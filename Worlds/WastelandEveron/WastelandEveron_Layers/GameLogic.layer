@@ -40,9 +40,9 @@ SCR_BaseGameMode GameMode_Wasteland1 : "{F396CD22253A0A00}Prefabs/MP/Modes/Waste
  components {
   WR_MissionControllerComponent "{61E85922C998A746}" {
    m_Config WR_MissionControllerConfig "{62231B494170D802}" : "{19B3601955874CA9}Configs/Missions/WR_MissionControllerConfigDefault.conf" {
-    m_iMaxActiveMissions 3
+    m_iMaxActiveMissions 10
     m_fInitialMissionDelay 0.01
-    m_fNewMissionDelay 0.5
+    m_fNewMissionDelay 0.01
    }
   }
  }

@@ -339,18 +339,21 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 			
 			// Spawn the group prefab
 			IEntity aiGroupEntity = WR_Utils.SpawnPrefabInWorld(aiGroupResource, spawnPos);
-			SCR_AIGroup aiGroupInstance = SCR_AIGroup.Cast(aiGroupEntity);
+			SCR_AIGroup aiGroup = SCR_AIGroup.Cast(aiGroupEntity);
+			
+			// Guarantee this group becomes null when last member dies
+			aiGroup.SetDeleteWhenEmpty(true);
 			
 			// All NPC fighters should be on civilian faction
-			aiGroupInstance.SetFaction(GetGame().GetFactionManager().GetFactionByKey("CIV"));	
+			aiGroup.SetFaction(GetGame().GetFactionManager().GetFactionByKey("CIV"));	
 	
 			// Command the group to defend the mission location
 			ResourceName waypointResource = "{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et";
 			IEntity waypointEntity = WR_Utils.SpawnPrefabInWorld(waypointResource, mission.GetPosition());
 			SCR_AIWaypoint waypoint = SCR_AIWaypoint.Cast(waypointEntity);
-			aiGroupInstance.AddWaypoint(waypoint);
+			aiGroup.AddWaypoint(waypoint);
 			
-			aiGroups.Insert(aiGroupInstance);
+			aiGroups.Insert(aiGroup);
 		}
 		
 		return true;
@@ -457,7 +460,7 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 		Replication.BumpMe();
 	}
 	
-	void OnPlayerEnteredMissionZone(WR_Mission mission, WR_MissionLocationEntity location)
+	void OnPlayerEnteredMissionLocation(WR_Mission mission, WR_MissionLocationEntity location)
 	{
 		if (m_RplComponent.Role() != RplRole.Authority) return;
 		
@@ -471,10 +474,12 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 	{
 		array<SCR_AIGroup> aiGroups = mission.GetAiGroups();
 
-		if (!aiGroups) return false;
+		// If array of groups doesn't exist, there are no AI
+		if (!aiGroups || aiGroups.Count() == 0) return true;
 		
 		foreach (SCR_AIGroup group : aiGroups)
 			if (group) return false; // AI groups become null when last man dies
+		
 		
 		return true;
 	}

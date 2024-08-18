@@ -1,6 +1,6 @@
 GameProject {
  ID "WastelandReforged"
- GUID "618D7DF5FAEB33F1"
+ GUID "6224095AF0060FC8"
  TITLE "Wasteland Reforged"
  Dependencies {
   "58D0FB3206B6F859"

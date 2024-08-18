@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{CC7EC7916B1BBC0E}blufor.edds"
+ Name "{CC7EC7916B1BBC0E}Art/Flags/blufor.edds"
  Configurations {
   PNGResourceClass PC : "{DC555BD399D92412}Configs/System/ResourceTypes/PC/TextureUnspecified.conf" {
   }

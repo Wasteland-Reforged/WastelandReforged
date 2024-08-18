@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{71E3850AED91D5AE}opfor-saturated.edds"
+ Name "{71E3850AED91D5AE}Art/Flags/opfor-saturated.edds"
  Configurations {
   PNGResourceClass PC : "{DC555BD399D92412}Configs/System/ResourceTypes/PC/TextureUnspecified.conf" {
   }
