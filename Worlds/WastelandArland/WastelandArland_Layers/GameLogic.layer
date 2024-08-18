@@ -142,7 +142,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    }
   }
   SCR_RespawnBriefingComponent "{621369C835E532F8}" {
-   m_sJournalConfigPath "{9E3CBC1592DCE5C1}Configs/Journal/JournalWasteland.conf"
+   m_sJournalConfigPath "{9E3CBC1592DCE5C1}Configs/Journal/JournalSetupWasteland.conf"
    m_Info SCR_UIInfo "{6213697E57BEB700}" {
    }
   }
