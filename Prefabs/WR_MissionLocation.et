@@ -8,6 +8,8 @@ WR_MissionLocationEntity {
  TriggerShapeType Sphere
  SphereRadius 15
  DrawShape 1
- ShapeColor 1 0 0 0
+ ShapeColor 1 0.496 0 0.206
+ TriggerActivationType "Every query"
  PeriodicQueries 1
+ m_bOnce 0
 }

@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{11599C68893A71E3}blufor-saturated.edds"
+ Name "{11599C68893A71E3}Art/Flags/blufor-saturated.edds"
  Configurations {
   PNGResourceClass PC : "{DC555BD399D92412}Configs/System/ResourceTypes/PC/TextureUnspecified.conf" {
   }

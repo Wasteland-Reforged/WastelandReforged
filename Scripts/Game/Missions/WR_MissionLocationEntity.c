@@ -104,8 +104,8 @@ class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGameTr
 		if (m_RplComponent.Role() != RplRole.Authority) return;
 		if (!m_bIsHostingMission) return;
 		
-		WR_MissionControllerComponent missionController = WR_MissionControllerComponent.	Cast(GetGame().GetGameMode().FindComponent(WR_MissionControllerComponent));
+		WR_MissionControllerComponent missionController = WR_MissionControllerComponent.Cast(GetGame().GetGameMode().FindComponent(WR_MissionControllerComponent));
 		
-		missionController.OnPlayerEnteredMissionZone(m_CurrentMission, this);
+		missionController.OnPlayerEnteredMissionLocation(m_CurrentMission, this);
 	}
 }

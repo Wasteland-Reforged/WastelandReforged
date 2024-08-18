@@ -1,172 +1,138 @@
 $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.et" {
  {
   coords 3911.499 15.344 8441.579
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 5003.837 47.3 8943.87
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 4956.651 24.674 10073.62
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 4876.743 28.594 11790.561
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 4836.342 27.842 11079.666
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 5187.583 37.499 11440.81
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 5260.037 34.589 10694.34
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 4541.099 16.156 10601.026
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 6036.287 13.821 9838.256
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 6939.992 78.675 8508.111
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 4074.454 36.569 7895.047
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 5998.389 217.543 7178.314
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 5514.265 85.595 5607.823
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 5049.074 174.555 7099.711
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 6547.69 159.921 6416.411
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 2883.225 76.962 6490.289
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 3799.717 59.781 7018.932
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 4434.497 64.953 5616.74
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 1587.719 62.067 5850.91
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 2718.468 97.562 5260.249
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 4966.519 2.188 3867.173
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 6367.846 90.822 4868.547
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 7469.785 164.562 4321.657
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 7747.524 132.597 4914.954
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 8694.827 123.29 3250.053
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 8345.606 157.387 3599.893
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 8699.185 111.983 2883.261
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 9252.167 69.751 2204.588
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 9562.489 29.51 1685.516
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 10155.124 2.438 1500.143
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 11915.145 19.95 1886.52
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 7224.347 138.759 2455.66
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 1073.415 2.718 6037.397
-  DrawShape 0
   m_eSize LARGE
  }
  {
   coords 4490.294 62.991 5013.09
-  DrawShape 0
   m_eSize LARGE
  }
 }

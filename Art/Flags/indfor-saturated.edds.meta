@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{4A69586A3A1F7E6F}indfor-saturated.edds"
+ Name "{4A69586A3A1F7E6F}Art/Flags/indfor-saturated.edds"
  Configurations {
   PNGResourceClass PC : "{DC555BD399D92412}Configs/System/ResourceTypes/PC/TextureUnspecified.conf" {
   }
