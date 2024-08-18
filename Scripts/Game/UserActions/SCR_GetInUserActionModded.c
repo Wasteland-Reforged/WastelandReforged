@@ -1,6 +1,43 @@
+
+
+
 //------------------------------------------------------------------------------------------------
 modded class SCR_GetInUserAction : SCR_CompartmentUserAction
 {
+	//------------------------------------------------------------------------------------------------
+	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
+	{
+		if (!pOwnerEntity || !pUserEntity)
+			return;
+		
+		ChimeraCharacter character = ChimeraCharacter.Cast(pUserEntity);
+		if (!character)
+			return;
+		
+		BaseCompartmentSlot targetCompartment = GetCompartmentSlot();
+		if (!targetCompartment)
+			return;
+		
+		CompartmentAccessComponent compartmentAccess = character.GetCompartmentAccessComponent();
+		if (!compartmentAccess)
+			return;
+		Vehicle vehicle = Vehicle.Cast(SCR_EntityHelper.GetMainParent(pOwnerEntity, true));
+		FactionKey origFaction; 
+		if (!vehicle)
+			return;
+			
+		SCR_VehicleFactionAffiliationComponent affiliation = vehicle.GetFactionAffiliation();
+		origFaction = affiliation.GetAffiliatedFactionKey();
+		affiliation.SetAffiliatedFactionByKey("friendly");
+		
+		if (!compartmentAccess.GetInVehicle(pOwnerEntity, targetCompartment, false, GetRelevantDoorIndex(pUserEntity), ECloseDoorAfterActions.RETURN_TO_PREVIOUS_STATE, false))
+			return;
+		
+		affiliation.SetAffiliatedFactionByKey(origFaction);
+		
+		super.PerformAction(pOwnerEntity, pUserEntity);
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	// Override to allow players to enter vehicles occupied by enemies
 	override bool CanBePerformedScript(IEntity user)

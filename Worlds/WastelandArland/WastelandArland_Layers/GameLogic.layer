@@ -328,6 +328,11 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
      m_aFriendlyFactionsIds {
      }
     }
+    SCR_Faction "{6225169B34D2688F}" {
+     FactionKey "friendly"
+     m_bIsPlayable 0
+     m_bShowInWelcomeScreenIfNonPlayable 0
+    }
    }
   }
   ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
@@ -360,4 +365,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    }
   }
  }
+}
+Vehicle M1 : "{5674FAEB9AB7BDD0}Prefabs/Vehicles/Wheeled/M998/M998.et" {
+ coords 1143.346 38 2833.219
 }
