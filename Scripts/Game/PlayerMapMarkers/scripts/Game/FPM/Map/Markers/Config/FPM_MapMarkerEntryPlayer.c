@@ -49,9 +49,9 @@ class FPM_MapMarkerEntryPlayer : SCR_MapMarkerEntryDynamic
 	{
 		string name = GetGame().GetPlayerManager().GetPlayerName(playerId);
 		
-		string rank = SCR_CharacterRankComponent.GetCharacterRankNameShort(player);
-		if (rank)
-			return string.Format("%1 %2", rank, name);
+//		string rank = SCR_CharacterRankComponent.GetCharacterRankNameShort(player);
+//		if (rank)
+//			return string.Format("%1 %2", rank, name);
 		
 		return name;
 	}
