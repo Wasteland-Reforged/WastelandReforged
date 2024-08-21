@@ -96,6 +96,8 @@ modded class SCR_DeployMenuMain
 	//------------------------------------------------------------------------------------------------
 	protected override void OnMapOpen(MapConfiguration config)
 	{
+		m_MapEntity.SetZoom(0.1);
+		
 		// note@lk: temporary hotfix for duplicite journal entries, better solution is on the way
 		Widget toolMenu = m_wMenuFrame.FindAnyWidget("ToolMenuVert");
 		Widget child = toolMenu.GetChildren();
@@ -109,7 +111,7 @@ modded class SCR_DeployMenuMain
 		m_UIElementContainer = SCR_MapUIElementContainer.Cast(m_MapEntity.GetMapUIComponent(SCR_MapUIElementContainer));
 		if (m_UIElementContainer)
 			m_UIElementContainer.GetOnSpawnPointSelected().Insert(SetSpawnPointExt);
-	
+
 		GetGame().GetCallqueue().CallLater(SetInitialMapFocus);
 	}
 	
