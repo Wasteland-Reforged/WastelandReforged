@@ -2,7 +2,9 @@
 enum WR_MapMarkerConfigColorIndices
 {
 	White = 0,
+	Yellow = 1,
 	Amber = 2,
+	DarkRed = 3,
 	Red = 4,
 	Green = 5,
 	Blue = 7,

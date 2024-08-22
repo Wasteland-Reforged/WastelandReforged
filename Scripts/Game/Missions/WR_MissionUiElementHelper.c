@@ -54,8 +54,8 @@ class WR_MissionUiElementHelper
 		
 		marker.SetType(SCR_EMapMarkerType.PLACED_CUSTOM);
 		marker.SetCustomText(mission.GetName());
-		marker.SetIconEntry(WR_MapMarkerConfigQuadIndices.TargetReferencePoint2);
-		marker.SetColorEntry(WR_MapMarkerConfigColorIndices.Red);
+		marker.SetIconEntry(mission.GetDefinition().m_eMissionIcon);
+		marker.SetColorEntry(mission.GetDefinition().m_eMissionColor);
 		marker.SetWorldPos(mission.GetPosition()[0], mission.GetPosition()[2]);
 		
 		// Save marker record to mission object so we can update or delete it from the map later
