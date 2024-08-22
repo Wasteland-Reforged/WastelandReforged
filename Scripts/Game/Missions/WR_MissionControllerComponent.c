@@ -404,12 +404,13 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 			rewardEntity.GetTransform(transform);
 			SCR_TerrainHelper.OrientToTerrain(transform);
 			rewardEntity.SetTransform(transform);
-			
-			// Remove initial Items
-			if (!WR_Utils.RemoveAllItemsFromVehicle(rewardEntity))
-			{
-				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
-			}
+	
+			// TODO: disabled until we find out how to make sure armed reward vehicles spawn with ammo
+//			// Remove initial Items
+//			if (!WR_Utils.RemoveAllItemsFromVehicle(rewardEntity))
+//			{
+//				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
+//			}
 			
 			// If loot context is set to NONE, do not fill inventory with loot
 			if (mission.GetDefinition().m_eLootContext == WR_LootContextType.NONE)
