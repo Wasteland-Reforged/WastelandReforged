@@ -43,6 +43,10 @@ SCR_BaseGameMode GameMode_Wasteland1 : "{F396CD22253A0A00}Prefabs/MP/Modes/Waste
     m_iMaxActiveMissions 10
     m_fInitialMissionDelay 0.01
     m_fNewMissionDelay 0.01
+    m_aMissionDefinitions {
+     WR_MissionDefinition "{622B188EF2620CEA}" : "{EB6001FFD85B0371}Configs/Missions/Definitions/CaptureOutpost.conf" {
+     }
+    }
    }
   }
  }

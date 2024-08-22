@@ -36,6 +36,12 @@ class WR_MissionDefinition
 	[Attribute(defvalue: "LARGE", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(WR_MissionLocationSize))]
 	int m_eSize;
 	
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which icon shape to use for the mission on the map", enums: ParamEnumArray.FromEnum(WR_MapMarkerConfigQuadIndices))]
+	int m_eMissionIcon;
+	
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which icon color to use for the mission on the map", enums: ParamEnumArray.FromEnum(WR_MapMarkerConfigColorIndices))]
+	int m_eMissionColor;
+	
 	// TODO: add options for mission marker icon and color.
 	// If left blank, default to what's specified in the controller DSConfig
 	// And if that's blank, then use the classic red cross

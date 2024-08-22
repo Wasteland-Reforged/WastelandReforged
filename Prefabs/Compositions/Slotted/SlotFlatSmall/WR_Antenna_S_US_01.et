@@ -1,0 +1,155 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  FactionAffiliationComponent "{622B18B0E27CCEFE}" {
+   "faction affiliation" "US"
+  }
+  RigidBody "{5E96A067A67C5029}" {
+   Geometries {
+    PhysicsBoxGeometry UserAction {
+     Extents 5 0.5 5
+    }
+   }
+  }
+  SCR_CampaignBuildingCompositionComponent "{5E96A067C097D570}" {
+   Enabled 0
+   m_AudioSourceConfigurationSpawn SCR_AudioSourceConfiguration "{5E96A067C355978C}" {
+    m_sSoundEventName "SOUND_BUILD_ANTENNA"
+   }
+  }
+  Hierarchy "{622B18B0E27CCE07}" {
+   Enabled 1
+  }
+ }
+ coords 0 0 0
+ {
+  GenericEntity : "{6CD65604C7945A66}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Patch_03.et" {
+   ID "622B18B0E27C761B"
+   coords -0.005 0.1 2.063
+   angleY 34.761
+  }
+  GenericEntity : "{77F90F896D5145C8}Prefabs/Compositions/Slotted/SlotFlatSmall/LivingArea_S_US_01.et" {
+   ID "622B188F7E11F6DB"
+   components {
+    SCR_CampaignBuildingCompositionComponent "{5E96A067C097D570}" {
+     Enabled 0
+    }
+   }
+   coords 13.412 0 5.574
+   angleY -46.168
+  }
+  GenericEntity : "{7F671B405CDBF0A2}Prefabs/Props/Airport/GeneratorAirfield_US_01/GeneratorAirfield_US_01.et" {
+   ID "622B18B0E27C761D"
+   components {
+    Hierarchy "{622B18B0E27CCE18}" {
+     Enabled 1
+    }
+   }
+   coords -0.566 0 -3.254
+   angleY -161.536
+  }
+  GenericEntity : "{9D720679B696FEE1}Prefabs/Compositions/Slotted/SlotFlatSmall/MachineGunNest_S_US_01_M2HB.et" {
+   ID "622B18B0A7F91E8D"
+   components {
+    SCR_CampaignBuildingCompositionComponent "{5E96A067C097D570}" {
+     Enabled 0
+    }
+   }
+   coords 3.892 0 12.57
+   angleY -25.74
+  }
+  $grp GenericEntity : "{A419F4547954DA05}Prefabs/Props/Construction/CableReel/CableReelWooden_01.et" {
+   {
+    ID "622B18B0E27C7600"
+    components {
+     Hierarchy "{622B18B0E27CCE16}" {
+      Enabled 1
+     }
+    }
+    coords -3.229 0 4.056
+   }
+   {
+    ID "622B18B0E27CAD24"
+    components {
+     Hierarchy "{622B18B0E27CCE12}" {
+      Enabled 1
+     }
+    }
+    coords -3.667 0 2.472
+    angleY 64.577
+   }
+  }
+  GenericEntity : "{B89C671B75B43849}Prefabs/Structures/Military/CamoNets/US/CamoNet_Medium_US.et" {
+   ID "622B18B0E27CAD21"
+   coords 0 0 0
+  }
+  GenericEntity : "{CF4F7AEE0BFA7B25}Prefabs/Props/Military/Compositions/US/Antenna_01_US.et" {
+   ID "622B18B0E27CAD2D"
+   coords 0 0 0
+   angleY 38.558
+  }
+  GenericEntity : "{E105D2F87098E1D8}Prefabs/Systems/Compositions/PatrolPoint/PatrolPoint_LoiterPoint.et" {
+   ID "622B18B0E27CAD29"
+   components {
+    Hierarchy "{622B18B0E27CCE28}" {
+    }
+   }
+   coords -3.006 0.1 1.32
+   angleY 61.473
+  }
+  $grp GenericEntity : "{EFA7233213E77C2E}Prefabs/Systems/SpawnPoints/SpawnPosition.et" {
+   {
+    ID "622B18B0E27CAD15"
+    components {
+     Hierarchy "{622B18B0E27CCE26}" {
+      Enabled 1
+     }
+    }
+    coords -2.583 0.01 -2.04
+    angleY 14.578
+   }
+   {
+    ID "622B18B0E27CCEED"
+    components {
+     Hierarchy "{622B18B0E27CCE22}" {
+      Enabled 1
+     }
+    }
+    coords 2.856 0.01 -0.099
+    angleY -36.778
+   }
+  }
+  $grp GenericEntity : "{F0DCB55B7FDB746B}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Footprints_02.et" {
+   {
+    ID "622B18B0E27CCEE9"
+    coords -4.076 0.1 -0.987
+    angleY 14.107
+   }
+   {
+    ID "622B18B0E27CCEEF"
+    coords -5.779 0.1 -1.598
+    angleY -36.565
+   }
+  }
+  $grp GenericEntity : "{F76BD5785C7FE191}Prefabs/Systems/Compositions/PatrolPoint/PatrolPoint_ObservationPoint.et" {
+   {
+    ID "622B18B0E27CCEE6"
+    components {
+     Hierarchy "{622B18B0E27CCE39}" {
+     }
+    }
+    coords -1.514 0.1 6.154
+    angleY -81.559
+   }
+   {
+    ID "622B18B0E27CCEE7"
+    components {
+     Hierarchy "{622B18B0E27CCE37}" {
+     }
+    }
+    coords 1.549 0.1 6.737
+    angleY -95.154
+   }
+  }
+ }
+}
