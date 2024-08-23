@@ -278,15 +278,9 @@ $grp SCR_DestructibleBuildingEntity : "{85D22B7ED8C8024C}Prefabs/Structures/Cult
   scale 2.5
  }
 }
-$grp Turret : "{887DB60486A18575}Prefabs/Weapons/Tripods/Tripod_M122_MG_M60.et" {
- {
-  coords 8868.008 205.229 3945.569
-  angleY 133.796
- }
- {
-  coords 8787.576 197.678 3888.816
-  angleY -142.674
- }
+Turret : "{887DB60486A18575}Prefabs/Weapons/Tripods/Tripod_M122_MG_M60.et" {
+ coords 8787.576 197.678 3888.816
+ angleY -142.674
 }
 GenericEntity : "{8E1DF47DD56E69E6}Prefabs/Compositions/Slotted/SlotFlatSmall/SandbagPosition_S_USSR_01.et" {
  coords 8798.896 196.554 3889.815
