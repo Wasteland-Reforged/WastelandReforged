@@ -1,6 +1,8 @@
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  SpawnArea_Beauregard {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{6230D003C4B364FC}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -14,6 +16,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Arleville {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{6230D0066FD4D6E4}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -27,6 +31,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Foxdale_Players {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B46ED875628}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     Enabled 0
     vehiclesPerSqKm 250
@@ -41,6 +47,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Norwich {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B46D89EF22B}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -54,6 +62,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Military {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B46DCB52405}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12

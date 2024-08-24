@@ -3,6 +3,10 @@ SCR_ChimeraCharacter : "{DE3786C0C6C978D4}Prefabs/Characters/Factions/INDFOR/FIA
  components {
   ChimeraAIControlComponent "{520EA1D2DB109F34}" {
    components {
+    PerceptionComponent "{54A2CBC75F06064B}" {
+     ForgetEnemyTime 25
+     VehicleThreatCollisionTime 3
+    }
     SCR_AICombatComponent "{55A2C9BE343B2EA1}" {
      m_eAISkillDefault ROOKIE
     }

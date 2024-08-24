@@ -1,0 +1,68 @@
+SCR_ChimeraCharacter : "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" {
+ ID "520EC961A090B1EE"
+ components {
+  ChimeraAIControlComponent "{520EA1D2DB109F34}" {
+   components {
+    PerceptionComponent "{54A2CBC75F06064B}" {
+     ForgetEnemyTime 25
+     VehicleThreatCollisionTime 3
+    }
+    SCR_AICombatComponent "{55A2C9BE343B2EA1}" {
+     m_eAISkillDefault ROOKIE
+    }
+   }
+  }
+  SCR_CharacterDamageManagerComponent "{55872AD7B4E959F2}" {
+   m_bPermitUnconsciousness 0
+  }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_VariantData SCR_EditableEntityVariantData "{60F6DBAA196151FD}" {
+    m_aVariants {
+     SCR_EditableEntityVariant "{60F6DBAA18241624}" {
+      m_iRandomizerWeight 1
+     }
+     SCR_EditableEntityVariant "{60F6DBAA18193D3E}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{60F6DBAA180B438E}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{60F6DBAA18FE69E3}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{60F6DBAA18EEDF36}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{60F6DBAA18C30F94}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{60F6DBAA2FD1F6C0}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{60F6DBAA2D63151A}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{60F6DBAA578EAA17}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{623013E6E1B9E2CD}" {
+      m_sVariantPrefab "{4CDBE7DBBFC309EF}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Pistol.et"
+      m_iRandomizerWeight 2
+     }
+     SCR_EditableEntityVariant "{623013E6E20214DA}" {
+      m_sVariantPrefab "{6DC265DBBDA17CD7}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Pistol2.et"
+      m_iRandomizerWeight 2
+     }
+    }
+   }
+  }
+  SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
+   InitialInventoryItems {
+    ItemsInitConfigurationItem "{5D7CC173FAA7C00E}" {
+     PrefabsToSpawn +{
+     }
+    }
+   }
+  }
+ }
+}
