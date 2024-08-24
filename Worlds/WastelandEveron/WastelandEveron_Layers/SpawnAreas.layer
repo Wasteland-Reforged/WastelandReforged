@@ -1,6 +1,8 @@
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  SpawnArea_Chotain {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B4375502599}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -14,6 +16,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Durras {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B437BD3DE75}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -27,6 +31,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_EntreDeux {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B436601FAC3}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -40,6 +46,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Etoupe {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B4360E7771A}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -53,6 +61,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Figari {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B43636BBA96}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -66,6 +76,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Gravette {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B436D9DDBA4}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -79,6 +91,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Kermovan {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B4368C54DAA}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -92,6 +106,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Lamentin {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B436AB4774F}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -105,6 +121,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Laruns {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B43551F61D2}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -118,6 +136,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_LeMoule {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B4357E5B46D}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -131,6 +151,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Levie {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B435220DB89}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -144,6 +166,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Meaux {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B435CFF2D14}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -157,6 +181,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Montignac {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B435F36CA9F}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -170,6 +196,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Morton {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B4359B35962}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -183,6 +211,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Provins {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B43443C40A7}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -196,6 +226,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Regina {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B4346AE16D5}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -209,6 +241,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_StPhillipe {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B4341C93029}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -222,6 +256,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_StPierre {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B4343B45BCD}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -235,6 +271,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Tyrone {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B434E35F22B}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -248,6 +286,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Vernon {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B4348A15252}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -261,6 +301,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Villeneuf {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62311B434B34AB45}" {
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }

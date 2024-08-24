@@ -1,0 +1,20 @@
+SCR_AIGroup : "{D4A1576757665D02}Prefabs/Groups/WR/WR_AIGroupSmall.et" {
+ ID "13BAA835F61E3602"
+ components {
+  AIPathfindingComponent "{518A98842FFC190E}" {
+   "Use Road Network" 1
+  }
+  SCR_AIGroupMovementComponent "{6126A0E02097C7FF}" {
+   "Min Speed" 8
+   "Max Speed" 8
+  }
+ }
+ DangerEventRange 35
+ m_faction "FIA"
+ m_aUnitPrefabSlots {
+  "{FF0A236A1E7184B9}Prefabs/Characters/Factions/INDFOR/FIA/Character_Scav_Randomized.et" "{FF0A236A1E7184B9}Prefabs/Characters/Factions/INDFOR/FIA/Character_Scav_Randomized.et"
+ }
+ m_bSpawnImmediately 1
+ m_iMaxMembers 2
+ m_bDeleteIfNoPlayer 0
+}

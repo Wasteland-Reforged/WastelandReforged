@@ -7,6 +7,10 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 {
 	[Attribute(defvalue: "true", desc: "Spawn vehicles in spawn areas.")]
 	protected bool spawnVehicles;
+	
+	[Attribute(defvalue: "true", desc: "Spawn roaming AI in spawn areas.")]
+	protected bool spawnAI;
+	
 	protected IEntity _parent;
 	
 	override void OnPostInit(IEntity owner)
@@ -21,7 +25,10 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 		if (rplComponent.Role() == RplRole.Authority)
 		{
 			if (spawnVehicles)
-				SpawnVehiclesInSpawnAreas();			
+				SpawnVehiclesInSpawnAreas();
+			
+			if (spawnAI)
+				SpawnAIInSpawnAreas();	
 		}
 	}
 	
@@ -38,5 +45,20 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 		}
 		
 		Print("[WASTELAND] WR_SpawnAreaControllerComponent: Spawned a total of " + totalVehiclesSpawned + " vehicle(s).");
+	}
+	
+	private void SpawnAIInSpawnAreas()
+	{
+		Print("[WASTELAND] WR_SpawnAreaControllerComponent: Spawning AI...");
+		int totalAIGroupsSpawned = 0;
+	
+		foreach (auto AISpawnHandler : WR_SpawnAreaAISpawnHandlerComponent.AISpawnHandlerComponents)
+		{
+			int successfulAIGroupSpawnCount;
+			AISpawnHandler.SpawnInitialAIGroups(successfulAIGroupSpawnCount);
+			totalAIGroupsSpawned += successfulAIGroupSpawnCount;
+		}
+		
+		Print("[WASTELAND] WR_SpawnAreaControllerComponent: Spawned a total of " + totalAIGroupsSpawned + " roaming bot groups.");
 	}
 }
