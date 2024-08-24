@@ -16,6 +16,9 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	[Attribute(defvalue: "7", desc: "Number of vehicles guaranteed to spawn inside this spawn area. Overrides vehiclesPerSqKm if it is less than this value.")]
 	protected int vehiclesFlatRate;
 	
+	[Attribute(defvalue: "0.5", desc: "Chance for vehicle to spawn with a random amount of supplies")]
+	protected float vehiclesSupplyChance;
+	
 	override void OnPostInit(IEntity owner)
 	{
 		_parent = WR_SpawnAreaEntity.Cast(owner);
@@ -99,6 +102,22 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 				inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
 
 			successfulVehSpawnCount++;
+			
+			// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
+			if (Math.RandomFloat01() <= vehiclesSupplyChance) 
+			{
+				auto supplyStorage = SCR_ResourceComponent.Cast(vehicle.FindComponent(SCR_ResourceComponent));
+				
+				if (supplyStorage && supplyStorage.GetContainers()) {
+					foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers()) {
+						int supplyToAdd = Math.RandomIntInclusive(2,7) * 25;
+						suppContainer.IncreaseResourceValue(supplyToAdd);
+					}
+				}
+				else {
+					Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not find supply storage for town vehicle");
+				}
+			}
 		}
 		
 		Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + desiredVehCount + " attempted at " + _parent.GetSpawnAreaName(), LogLevel.SPAM);

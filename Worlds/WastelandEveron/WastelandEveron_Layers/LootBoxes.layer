@@ -404,9 +404,6 @@ $grp GenericEntity : "{2E6EB383EEFDDC4F}Prefabs/Props/Military/Arsenal/ArsenalBo
   coords 6754.53 89.888 5650.739
  }
  {
-  coords 8858.778 204.293 3942.608
- }
- {
   coords 8833.964 208.892 3963.209
   angleY -54.786
  }
@@ -432,5 +429,17 @@ $grp GenericEntity : "{2E6EB383EEFDDC4F}Prefabs/Props/Military/Arsenal/ArsenalBo
  }
  {
   coords 3843.075 162.993 4310.751
+ }
+ {
+  coords 8846.274 203.58 3939.725
+  angleY 136.688
+ }
+ {
+  coords 8825.728 205.103 3943.986
+  angleY -54.786
+ }
+ {
+  coords 8800.228 196.594 3901.81
+  angleY -127.132
  }
 }
