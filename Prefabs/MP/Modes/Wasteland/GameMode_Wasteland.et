@@ -194,33 +194,33 @@ SCR_BaseGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
      m_aIntroduction {
       SCR_WelcomeScreenIntroduction "{61D95A031FE7E425}" {
        m_sContentImage "{F355C5692BEDC1E5}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_loadScreen_UI.edds"
-       m_sContentTitleText "#AR-WR_Briefing_Intro_1_Title"
-       m_sContentDescriptionText "#AR-WR_Briefing_Intro_1_Desc"
+       m_sContentTitleText "#WR_Briefing_Intro_1_Title"
+       m_sContentDescriptionText "#WR_Briefing_Intro_1_Desc"
       }
       SCR_WelcomeScreenIntroduction "{61D95A057B852C71}" {
        m_sContentImage "{EFF804FB17026599}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_service_antenna_UI.edds"
-       m_sContentTitleText "#AR-WR_Briefing_Intro_2_Title"
-       m_sContentDescriptionText "#AR-WR_Briefing_Intro_2_Desc"
+       m_sContentTitleText "#WR_Briefing_Intro_2_Title"
+       m_sContentDescriptionText "#WR_Briefing_Intro_2_Desc"
       }
       SCR_WelcomeScreenIntroduction "{61DD76E902E823C4}" {
        m_sContentImage "{CD6F257891AD02AB}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_service_barracks_UI.edds"
-       m_sContentTitleText "#AR-WR_Briefing_Intro_3_Title"
-       m_sContentDescriptionText "#AR-WR_Briefing_Intro_3_Desc"
+       m_sContentTitleText "#WR_Briefing_Intro_3_Title"
+       m_sContentDescriptionText "#WR_Briefing_Intro_3_Desc"
       }
       SCR_WelcomeScreenIntroduction "{61DE1D58F6317CA3}" {
        m_sContentImage "{8F4B90379C37C647}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_ranks_UI.edds"
-       m_sContentTitleText "#AR-WR_Briefing_Intro_4_Title"
-       m_sContentDescriptionText "#AR-WR_Briefing_Intro_4_Desc"
+       m_sContentTitleText "#WR_Briefing_Intro_4_Title"
+       m_sContentDescriptionText "#WR_Briefing_Intro_4_Desc"
       }
       SCR_WelcomeScreenIntroduction "{61DE1954A137F713}" {
        m_sContentImage "{AC37AA3EE3DB4853}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_service_encapment_UI.edds"
-       m_sContentTitleText "#AR-WR_Briefing_Intro_5_Title"
-       m_sContentDescriptionText "#AR-WR_Briefing_Intro_5_Desc"
+       m_sContentTitleText "#WR_Briefing_Intro_5_Title"
+       m_sContentDescriptionText "#WR_Briefing_Intro_5_Desc"
       }
       SCR_WelcomeScreenIntroduction "{61DE19549EBC324B}" {
        m_sContentImage "{93DA5875BC0B827E}UI/Textures/FieldManual/MPModes/Conflict/Images/Conflict_building_interface_previews_UI.edds"
-       m_sContentTitleText "#AR-WR_Briefing_Intro_6_Title"
-       m_sContentDescriptionText "#AR-WR_Briefing_Intro_6_Desc"
+       m_sContentTitleText "#WR_Briefing_Intro_6_Title"
+       m_sContentDescriptionText "#WR_Briefing_Intro_6_Desc"
       }
      }
     }
