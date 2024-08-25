@@ -107,14 +107,21 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 	
 	void CheckRoamingAI()
 	{
+		//Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Checking Groups..");
 		foreach (auto aigroup : _aiGroups) {
 			if (!aigroup) {
-				Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Clearing dead AI Group..", LogLevel.SPAM);
-				GetGame().GetCallqueue().CallLater(spawnAIGroup, 3 * 60 * 1000, false);
-				_aiGroups.RemoveItemOrdered(aigroup);
+				//Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Clearing dead AI Group..");
+				GetGame().GetCallqueue().CallLater(spawnAIGroup, 2 * 60 * 1000, false);
+				GetGame().GetCallqueue().CallLater(removeGroup, 5 * 1000, false, aigroup);
 			}
 		}
 
+	}
+	
+	void removeGroup(SCR_AIGroup group) 
+	{
+		//Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Removing Group..");
+		_aiGroups.RemoveItem(group);
 	}
 	
 	private int GetAICountPerSqKm()

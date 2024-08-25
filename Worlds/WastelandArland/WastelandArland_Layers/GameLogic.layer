@@ -226,8 +226,9 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    }
   }
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
-   minLootBoxItems 10
-   maxLootBoxItems 20
+   percentageLootBoxesToSpawn 0.75
+   minLootBoxItems 4
+   maxLootBoxItems 12
   }
   WR_MissionControllerComponent "{61E85922C998A746}" {
    m_Config WR_MissionControllerConfig "{62231B494170D802}" {

@@ -25,5 +25,14 @@ GenericEntity : "{54986385A6AF77B2}Prefabs/Props/Military/Arsenal/ArsenalBoxes/A
   SCR_InventoryStorageManagerComponent "{56F2C6D1431ADBA8}" {
    Enabled 1
   }
+  ActionsManagerComponent "{56F2C6D1431ADB12}" {
+   additionalActions {
+    SCR_OpenStorageAction "{58EE8EA3E900BE40}" {
+     UIInfo UIInfo "{58EE8EA3E5E7D64D}" {
+      Name "Open Container"
+     }
+    }
+   }
+  }
  }
 }
