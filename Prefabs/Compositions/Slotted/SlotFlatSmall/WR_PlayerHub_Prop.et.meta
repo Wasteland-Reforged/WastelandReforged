@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{B47ED937C4D44857}Prefabs/Compositions/Slotted/SlotFlatSmall/WR_PlayerHub_Prop.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

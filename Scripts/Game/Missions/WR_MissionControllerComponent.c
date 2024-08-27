@@ -125,7 +125,7 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 		bool areObjectsCreated = InstantiateMissionWorldObjects(m_lastUpdatedMission);
 		if (!areObjectsCreated)
 		{
-			Print("[WASTELAND] WR_MissionControllerComponent: Failed to instantiate mission world objects! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionControllerComponent: Failed to instantiate mission world objects! (ID: " + missionId + ", Type: "  + missionDefinition.m_sName + ") Aborting mission creation.", LogLevel.ERROR);
 			
 			// Destroy this mission and queue another one to be started.
 			DestroyMission(m_lastUpdatedMission);
@@ -297,7 +297,7 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 		bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(safePos, mission.GetPosition(), mission.GetMissionLocation().GetSphereRadius(), 10.0, 10.0, 2.0);
 		if (!safePosFound)
 		{
-			Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for a mission AI Group!", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for a mission prop!", LogLevel.ERROR);
 			return false;
 		}	
 		
@@ -339,7 +339,7 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 		{
 			// Find a safe spot for the NPCs to spawn
 			vector spawnPos;
-			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 1.0, 10.0, 10.0, 2.0);
+			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 1.0, 10.0, 1.0, 1.0);
 			
 			if (!safePosFound)
 			{
