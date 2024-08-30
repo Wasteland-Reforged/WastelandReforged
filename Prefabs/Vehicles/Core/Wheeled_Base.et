@@ -1,0 +1,36 @@
+Vehicle : "{4085446E2B406849}Prefabs/Vehicles/Core/Vehicle_Base.et" {
+ ID "BBCBA43A9778AE21"
+ components {
+  SCR_CampaignBuildingProviderComponent "{623AEC0F8F3CE9A8}" {
+   m_sProviderDisplayName "Wheeled Base Building Provider"
+   m_bUserActionActivationOnly 1
+   m_bIsMasterProvider 1
+   m_bRegisterAtBase 1
+   m_fBuildingRadius 75
+   m_aBudgetsToEvaluate {
+    SCR_CampaignBuildingBudgetToEvaluateData "{623AEC0E5A3A228B}" {
+     m_eBudget CAMPAIGN
+    }
+   }
+   m_aAvailableTraits {
+    28 108
+   }
+  }
+  ActionsManagerComponent "{C97BE5489221AE18}" {
+   additionalActions {
+    SCR_CampaignBuildingStartUserAction "{623AEC0DA7F696B4}" {
+     ParentContextList {
+      "Unflipper"
+     }
+     UIInfo SCR_ActionUIInfo "{623AEC0DA98DAB19}" {
+      Name "#AR-Campaign_Action_ShowBuildPreview-UC"
+     }
+     VisibilityRange 10
+     Duration 1.5
+     m_sActionNameNoSupplies "#AR-Campaign_Action_ShowBuildPreview_NoSupplies-UC"
+    }
+   }
+  }
+ }
+ coords 1629.996 39 2838.888
+}

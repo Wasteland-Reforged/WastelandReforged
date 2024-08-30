@@ -59,10 +59,7 @@ SCR_BaseGameMode GameMode_Wasteland1 : "{F396CD22253A0A00}Prefabs/MP/Modes/Waste
    m_iDayTimescale 8
   }
   WR_MissionControllerComponent "{61E85922C998A746}" {
-   m_Config WR_MissionControllerConfig "{62231B494170D802}" : "{19B3601955874CA9}Configs/Missions/WR_MissionControllerConfigDefault.conf" {
-    m_iMaxActiveMissions 2
-    m_fInitialMissionDelay 0.5
-    m_fNewMissionDelay 0.5
+   m_Config WR_MissionControllerConfig "{6236BE2E95220EFC}" : "{19B3601955874CA9}Configs/Missions/WR_MissionControllerConfigDefault.conf" {
    }
   }
  }

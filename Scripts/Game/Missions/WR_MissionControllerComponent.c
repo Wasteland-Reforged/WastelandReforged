@@ -125,7 +125,7 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 		bool areObjectsCreated = InstantiateMissionWorldObjects(m_lastUpdatedMission);
 		if (!areObjectsCreated)
 		{
-			Print("[WASTELAND] WR_MissionControllerComponent: Failed to instantiate mission world objects! (ID: " + missionId + ") Aborting mission creation.", LogLevel.ERROR);
+			Print("[WASTELAND] WR_MissionControllerComponent: Failed to instantiate mission world objects! (ID: " + missionId + ", Type: "  + missionDefinition.m_sName + ") Aborting mission creation.", LogLevel.ERROR);
 			
 			// Destroy this mission and queue another one to be started.
 			DestroyMission(m_lastUpdatedMission);
@@ -294,10 +294,22 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 
 		// Get safe pos
 		vector safePos;
-		WR_Utils.TryGetRandomSafePosWithinRadius(safePos, mission.GetPosition(), mission.GetMissionLocation().GetSphereRadius(), 10.0, 10.0, 2.0);
-		propEntity = WR_Utils.SpawnPrefabInWorld(propResource, safePos);
+		bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(safePos, mission.GetPosition(), mission.GetMissionLocation().GetSphereRadius(), 10.0, 10.0, 2.0);
+		if (!safePosFound)
+		{
+			Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for a mission prop!", LogLevel.ERROR);
+			return false;
+		}	
 		
-		// Set random heading
+		// Spawn prop
+		propEntity = WR_Utils.SpawnPrefabInWorld(propResource, safePos);
+		if (!propEntity)
+		{
+			Print("[WASTELAND] WR_MissionControllerComponent: Mission prop was not spawned!", LogLevel.ERROR);
+			return false;
+		}
+		
+		// Orient prop
 		vector randomDir = WR_Utils.GetRandomHorizontalDirectionAngles();
 		propEntity.SetYawPitchRoll(randomDir);
 		
@@ -327,19 +339,23 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 		{
 			// Find a safe spot for the NPCs to spawn
 			vector spawnPos;
-			WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 15.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
+			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 1.0, 10.0, 1.0, 1.0);
 			
-			// TODO: The return value of TryGetRandomSafePosWithinRadius is kinda broken, so disabling the safePosFound check for now. Fix that method!!!
-			//bool safePosFound =
-//			if (!safePosFound)
-//			{
-//				Print("[WASTELAND] WR_MissionControllerComponent: A safe spawn position was unable to be found for this mission's AI!", LogLevel.ERROR);
-//				return false;
-//			}
+			if (!safePosFound)
+			{
+				Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for a mission AI Group!", LogLevel.ERROR);
+				return false;
+			}	
 			
 			// Spawn the group prefab
 			IEntity aiGroupEntity = WR_Utils.SpawnPrefabInWorld(aiGroupResource, spawnPos);
 			SCR_AIGroup aiGroup = SCR_AIGroup.Cast(aiGroupEntity);
+			
+			if (!aiGroup)
+			{
+				Print("[WASTELAND] WR_MissionControllerComponent: AI Group was not spawned!", LogLevel.ERROR);
+				return false;
+			}	
 			
 			// Guarantee this group becomes null when last member dies
 			aiGroup.SetDeleteWhenEmpty(true);
@@ -383,9 +399,9 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 		{	
 			ResourceName rewardPrefab = rewardPrefabs.GetRandomElement();
 	
-			// Find safe position within 15 m
+			// Find safe position for rewards
 			vector spawnPos = mission.GetPosition();
-			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 1.0, 10.0, 10.0, 2.0); // TODO: read these floats from a config
+			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, mission.GetPosition(), 1.0, 10.0, 10.0, 2.0);
 			if (!safePosFound)
 			{
 				Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
@@ -394,6 +410,12 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 			
 			// Spawn the reward prefab
 			rewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefab, spawnPos);
+			
+			if (!rewardEntity)
+			{
+				Print("[WASTELAND] WR_MissionControllerComponent: Mission Reward was not spawned!", LogLevel.ERROR);
+				return false;
+			}	
 			
 			// Set random heading
 			vector randomDir = WR_Utils.GetRandomHorizontalDirectionAngles();
