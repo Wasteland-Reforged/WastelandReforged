@@ -1,0 +1,19 @@
+StaticModelEntity : "{1A1020205E2B1710}Prefabs/Props/Military/Furniture/TableMilitary_USSR_01.et" {
+ coords 150.361 0.988 128.735
+ angleY 0
+}
+Vehicle Ural4320_Arsenal1 : "{32E77EC32ED2B6D1}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_Arsenal.et" {
+ coords 142.148 1 131.133
+ angleY -84.841
+}
+GenericEntity : "{403E2B0BE16D6CC9}Prefabs/ItemShop_Base.et" {
+ components {
+  ADM_ShopComponent "{5D775155BFB12BA4}" {
+   m_ShopConfig "{365845681049D78D}Configs/Shops/GunStore.conf"
+   m_Categories {
+    "{06CF3558777CEBF5}Configs/ShopCategories/Handguns.conf" "{BD4950A18820150A}Configs/ShopCategories/Rifles.conf" "{F33BFD2C8453B27F}Configs/ShopCategories/MachineGuns.conf" "{5B0BEAAB218CD7D9}Configs/ShopCategories/Launchers.conf" "{3F39EFFFE7E8E754}Configs/ShopCategories/Magazines.conf" "{6A0CDFB7108A69E8}Configs/ShopCategories/Attachments.conf" "{211556D7ACE2140C}Configs/ShopCategories/Ordnance.conf" "{12D49A8067E51A27}Configs/ShopCategories/Items.conf"
+   }
+  }
+ }
+ coords 148.289 1 127.923
+}
