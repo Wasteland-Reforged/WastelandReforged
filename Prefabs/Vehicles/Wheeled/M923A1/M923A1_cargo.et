@@ -1,0 +1,66 @@
+GenericEntity : "{278E487E19D82680}Prefabs/Vehicles/Core/Vehicle_Cargo_Base.et" {
+ ID "4B42E71698F5739C"
+ components {
+  SCR_ResourceComponent "{5D8356131CA904DC}" {
+   m_aConsumers {
+    SCR_ResourceConsumer "{623B28858DA07187}" {
+     m_sDebugName "Base Building - Consumer"
+     m_eResourceRights ALL
+     m_eGeneratorIdentifier DEFAULT
+     m_fResourceRange 75
+     m_fBuyMultiplier 0
+     m_ContainerQueue SCR_ResourceConsumerContainerQueue "{623B2884778ABF2B}" {
+      m_StoragePolicies {
+       SCR_ResourceConsumerStoragePolicy "{623B2884709E8188}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{623B28847C481CCA}" {
+        }
+       }
+       SCR_ResourceConsumerStoragePolicy "{623B288471FCEA57}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{623B28847D34C07B}" {
+        }
+        m_eStorageType STORED
+       }
+       SCR_ResourceConsumerStoragePolicy "{623B2884726BA89E}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{623B28847F12927F}" {
+        }
+        m_eStorageType CARGO_PROP
+       }
+       SCR_ResourceConsumerStoragePolicy "{623B288472F9D31E}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{623B2884793F9901}" {
+        }
+        m_eStorageType CARGO_VEHICLE
+       }
+      }
+     }
+    }
+   }
+   m_aGenerators {
+    SCR_ResourceGenerator "{623B288464AB42E0}" {
+     m_sDebugName "Base Building - Generator"
+     m_eResourceRights ALL
+     m_fStorageRange 75
+     m_ContainerQueue SCR_ResourceGeneratorContainerQueue "{623B288462810809}" {
+      m_StoragePolicies {
+       SCR_ResourceGeneratorStoragePolicy "{623B28846C7362B2}" {
+        m_StorageQueue SCR_ResourceGeneratorContainerStorageQueueExtended "{623B28846E7D14A1}" {
+        }
+       }
+       SCR_ResourceGeneratorStoragePolicy "{623B28846C949D34}" {
+        m_StorageQueue SCR_ResourceGeneratorContainerStorageQueueExtended "{623B28846FFE8B07}" {
+        }
+        m_eStorageType STORED
+       }
+      }
+     }
+     m_aActions {
+      SCR_ResourceGeneratorActionStore "{623B28846906225F}" {
+      }
+      SCR_ResourceGeneratorActionDropContainers "{623B28846A5915D2}" {
+      }
+     }
+    }
+   }
+  }
+ }
+ coords 4868.075 28.541 11783.691
+}

@@ -1,5 +1,18 @@
 SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
+  SCR_CampaignBuildingManagerComponent "{623AEC144895D766}" {
+   m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
+   m_BudgetType CAMPAIGN
+   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{623AEC14C72BDFF7}" {
+    m_sSlotFlatSmallLayout "{7FD4E6A668B4537A}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFLatSmall.et"
+    m_sSlotFlatMediumLayout "{579FF731013436B5}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatMedium.et"
+    m_sSlotFlatLargeLayout "{ED9D7F29497B9BF7}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatLarge.et"
+    m_sSlotRoadSmallLayout "{8DBA7E7BF662A393}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadSmall.et"
+    m_sSlotRoadMediumLayout "{3A5E87ADA26C6940}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadMedium.et"
+    m_sSlotRoadLargeLayout "{D06D9D47008E794F}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadLarge.et"
+   }
+   m_sPrefabsToBuildResource "{D2527D9AA5B4A33E}Configs/Editor/PlaceableEntities/Compositions/Compositions_FreeRoamBuilding.conf"
+  }
   WR_MissionControllerComponent "{61E85922C998A746}" {
    m_Config WR_MissionControllerConfig "{6236BE2EC9684DDB}" : "{19B3601955874CA9}Configs/Missions/WR_MissionControllerConfigDefault.conf" {
    }
