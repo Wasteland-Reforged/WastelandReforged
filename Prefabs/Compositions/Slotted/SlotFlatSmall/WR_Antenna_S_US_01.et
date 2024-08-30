@@ -21,7 +21,7 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    Enabled 1
   }
  }
- coords 0 0 0
+ coords 1221.855 38.914 2711.559
  {
   GenericEntity : "{6CD65604C7945A66}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Patch_03.et" {
    ID "622B18B0E27C761B"
@@ -96,28 +96,6 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    }
    coords -3.006 0.1 1.32
    angleY 61.473
-  }
-  $grp GenericEntity : "{EFA7233213E77C2E}Prefabs/Systems/SpawnPoints/SpawnPosition.et" {
-   {
-    ID "622B18B0E27CAD15"
-    components {
-     Hierarchy "{622B18B0E27CCE26}" {
-      Enabled 1
-     }
-    }
-    coords -2.583 0.01 -2.04
-    angleY 14.578
-   }
-   {
-    ID "622B18B0E27CCEED"
-    components {
-     Hierarchy "{622B18B0E27CCE22}" {
-      Enabled 1
-     }
-    }
-    coords 2.856 0.01 -0.099
-    angleY -36.778
-   }
   }
   $grp GenericEntity : "{F0DCB55B7FDB746B}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Footprints_02.et" {
    {
