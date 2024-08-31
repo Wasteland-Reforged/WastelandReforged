@@ -1,4 +1,4 @@
-GenericEntity : "{3260189525F39062}Prefabs/Props/Military/SupplyBox/SupplyStack/SupplyStack_Large_01/SupplyStack_Large_01_base.et" {
+GenericEntity : "{1406B18033A3FFB1}Prefabs/Props/Military/SupplyBox/SupplyStack/SupplyStack_Base.et" {
  ID "F0DBA538AC2A0552"
  components {
   SCR_ResourceComponent "{5D247A59598D71AE}" {
@@ -10,5 +10,5 @@ GenericEntity : "{3260189525F39062}Prefabs/Props/Military/SupplyBox/SupplyStack/
    }
   }
  }
- coords 4903.75 28.594 11763.717
+ coords 1271.903 37.466 2940.181
 }

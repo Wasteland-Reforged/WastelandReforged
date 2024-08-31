@@ -11,10 +11,11 @@ GenericEntity : "{FB186A7EAB2ADE68}Prefabs/Vehicles/Wheeled/M923A1/VehParts/M923
    m_aContainers {
     SCR_ResourceContainer "{5D82E3A393410F0A}" {
      m_eResourceRights ALL
-     m_fResourceValueCurrent 550
+     m_fResourceValueCurrent 800
+     m_fResourceValueMax 800
     }
    }
   }
  }
- coords 1485.785 39 2770.951
+ coords 1272.517 37.452 2941.087
 }

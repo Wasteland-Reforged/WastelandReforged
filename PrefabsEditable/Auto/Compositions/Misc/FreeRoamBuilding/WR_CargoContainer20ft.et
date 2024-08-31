@@ -41,10 +41,22 @@ GenericEntity : "{F3DE8994BAE6915A}Prefabs/Compositions/Misc/FreeRoamBuilding/Cz
     SCR_CampaignBuildingDisassemblyUserAction "{5D66ED1086234C38}" {
      Duration 20
     }
+    SCR_OpenStorageAction "{623F34A67C89E648}" {
+     ParentContextList {
+      "Disassembly"
+     }
+     UIInfo UIInfo "{623F34A679CF1F1A}" {
+      Name "Open Container"
+     }
+    }
    }
   }
+  UniversalInventoryStorageComponent "{623F34A675B252C8}" {
+  }
+  SCR_InventoryStorageManagerComponent "{623F34A670A92EF8}" {
+  }
  }
- coords 1475.635 39.009 2770.012
+ coords 1277.164 37.457 2940.777
  {
   StaticModelEntity {
    ID "5D6C81577507452B"
