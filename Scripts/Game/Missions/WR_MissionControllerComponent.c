@@ -446,7 +446,7 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 			
 			WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(mission.GetDefinition().m_eLootContext);
 			
-			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));
+			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));	
 			if (inventoryStorageManager)
 			{
 				auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
@@ -455,6 +455,20 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 				foreach (ResourceName item : items)
 				{
 					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
+				}
+			}
+			else
+			{
+				auto vehicleStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+				if (vehicleStorageManager)
+				{
+					auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
+					
+					array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 5,  maxExtraMags: 12);
+					foreach (ResourceName item : items)
+					{
+						vehicleStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
+					}
 				}
 			}
 			

@@ -28,10 +28,6 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    coords 7.864 0 5.523
    angleY 90.196
   }
-  GameEntity : "{2521D0D11FB543C7}PrefabsEditable/Auto/Props/Civilian/E_Fireplace_01.et" {
-   ID "623F34A13B68446D"
-   coords 8.181 0 6.674
-  }
   GenericEntity : "{6CD65604C7945A66}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Patch_03.et" {
    ID "622B18B0E27C761B"
    coords -0.005 0.1 2.063
