@@ -1,9 +1,9 @@
 SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
-  SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
+  SCR_CampaignBuildingManagerComponent "{623AEC144895D766}" {
    m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
    m_BudgetType CAMPAIGN
-   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{61D626470298C266}" {
+   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{623AEC14C72BDFF7}" {
     m_sSlotFlatSmallLayout "{7FD4E6A668B4537A}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFLatSmall.et"
     m_sSlotFlatMediumLayout "{579FF731013436B5}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatMedium.et"
     m_sSlotFlatLargeLayout "{ED9D7F29497B9BF7}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatLarge.et"
@@ -231,21 +231,21 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    maxLootBoxItems 12
   }
   WR_MissionControllerComponent "{61E85922C998A746}" {
-   m_Config WR_MissionControllerConfig "{62231B494170D802}" {
-    m_iMaxActiveMissions 1
-    m_fInitialMissionDelay 0
+   m_Config WR_MissionControllerConfig "{62482631BBBC5EB9}" {
+    m_iMaxActiveMissions 10
+    m_fInitialMissionDelay 0.1
     m_fNewMissionDelay 0.01
     m_aMissionDefinitions {
-     WR_MissionDefinition "{62231B493E37442D}" : "{2FAC805DD001EAF5}Configs/Missions/Definitions/WeaponCache.conf" {
+     WR_MissionDefinition "{62482631AA5E5A27}" : "{C7CCC94799477142}Configs/Missions/Definitions/CaptureBase.conf" {
+     }
+     WR_MissionDefinition "{62482631966D7D2D}" : "{EB6001FFD85B0371}Configs/Missions/Definitions/CaptureOutpost.conf" {
+     }
+     WR_MissionDefinition "{6248263191BFC743}" : "{F1683233FBDAA581}Configs/Missions/Definitions/MedicalSupplies.conf" {
      }
     }
    }
   }
-  WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
-  }
-  RplComponent "{56B2B4793BF2E1B4}" {
-   "Rpl State Override" None
-   Streamable Disabled
+  WR_SpawnAreaControllerComponent "{6248263D747D74BE}" {
   }
  }
  coords 999.617 37.382 2851.944

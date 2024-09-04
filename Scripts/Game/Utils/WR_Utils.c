@@ -24,8 +24,6 @@ class WR_Utils
 	*/
 	static bool TryGetRandomSafePosWithinRadius(out vector safePos, vector centerPos, float radiusToSelectPointsWithin, float radiusToCheckAroundInitiallySelectedPos, float xzPaddingRadius = 0.5, float yPaddingDistance = 2)
 	{					
-		// TODO: The code in this function is very repetitive and needs to be refactored.
-		
 		RandomGenerator gen = new RandomGenerator();
 		vector posToCheck = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
 		
@@ -33,33 +31,54 @@ class WR_Utils
 		vector selectedPos;
 		bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
 
-		// Check if selected position is underwater
-		// TODO - Paul: This does not account for points in terrain that dip below sea level.
-		// I'm not sure if it's possible to have terrain like that in Enfusion, but it
-		// would be worth improving this logic if it is.
+		// Check if selected position is underwater, too far above ground, or too close to player characters	
 		bool isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
 		
-		// If it is, try to find another empty position.
-		while (isPosUnderWater)
-		{
-			posToCheck = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
-			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
-			isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
-		}
-		
-		// If selected position is too far above ground, find another one
 		float maxAllowedHeightAboveGround = 2.0;
 		bool isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
-		while (isPosTooFarAboveGround)
-		{
+		
+		float desiredDistanceFromPlayers = 50;
+		bool posIsNearPlayers = nearPlayersToVector(selectedPos, desiredDistanceFromPlayers);
+		
+		int currentAttempts = 0, maxAttempts = 5;
+		
+		// If it is, try to find another empty position.
+		while (isPosUnderWater || isPosTooFarAboveGround || posIsNearPlayers)
+		{	
+			// Generate new point
 			posToCheck = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
 			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
+			
+			// Retry checks
+			isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
 			isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
+			posIsNearPlayers = nearPlayersToVector(selectedPos, desiredDistanceFromPlayers);
+			
+			// Break loop if too many attempts
+			currentAttempts++;
+			if (currentAttempts >= maxAttempts) return false;
 		}
 		
 		safePos = selectedPos;
 		return foundSafePos;
 	}
+	
+	static bool nearPlayersToVector(vector v, int distance)
+	{
+		array<int> players = {};
+		GetGame().GetPlayerManager().GetPlayers(players);
+		foreach(int playerId : players)
+		{
+			IEntity pce = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId);
+			if (!pce) continue;
+			if (vector.Distance(v, pce.GetOrigin()) <= distance) {
+				Print("[WR_Utils]: Player found too close to spawned entity; aborting..", LogLevel.WARNING);
+				return true;
+			}
+		}
+		return false;
+	}
+
 
 	static ResourceName GetDefaultAmmo(ResourceName weaponResourceName)
 	{

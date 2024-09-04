@@ -1,0 +1,14 @@
+GenericEntity : "{EDAD1E516C1E553E}Prefabs/Props/Military/SupplyBox/SupplyCrate/SupplyCrate_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SCR_ResourceComponent "{5D247A59598D71AE}" {
+   m_aContainers {
+    SCR_ResourceContainer "{5D3CDAE74F1A6127}" {
+     m_fResourceValueCurrent 80
+     m_fResourceValueMax 80
+    }
+   }
+  }
+ }
+ coords 1272.868 37.494 2937.277
+}

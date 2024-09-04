@@ -21,22 +21,17 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    Enabled 1
   }
  }
- coords 0 0 0
+ coords 1228.422 39 2714.538
  {
+  GenericEntity : "{18B92018CF634D22}Prefabs/Compositions/Slotted/SlotFlatSmall/SandbagPosition_S_US_03.et" {
+   ID "623F34A14B31ABC0"
+   coords 7.864 0 5.523
+   angleY 90.196
+  }
   GenericEntity : "{6CD65604C7945A66}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Patch_03.et" {
    ID "622B18B0E27C761B"
    coords -0.005 0.1 2.063
    angleY 34.761
-  }
-  GenericEntity : "{77F90F896D5145C8}Prefabs/Compositions/Slotted/SlotFlatSmall/LivingArea_S_US_01.et" {
-   ID "622B188F7E11F6DB"
-   components {
-    SCR_CampaignBuildingCompositionComponent "{5E96A067C097D570}" {
-     Enabled 0
-    }
-   }
-   coords 13.412 0 5.574
-   angleY -46.168
   }
   GenericEntity : "{7F671B405CDBF0A2}Prefabs/Props/Airport/GeneratorAirfield_US_01/GeneratorAirfield_US_01.et" {
    ID "622B18B0E27C761D"
@@ -47,16 +42,6 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    }
    coords -0.566 0 -3.254
    angleY -161.536
-  }
-  GenericEntity : "{9D720679B696FEE1}Prefabs/Compositions/Slotted/SlotFlatSmall/MachineGunNest_S_US_01_M2HB.et" {
-   ID "622B18B0A7F91E8D"
-   components {
-    SCR_CampaignBuildingCompositionComponent "{5E96A067C097D570}" {
-     Enabled 0
-    }
-   }
-   coords 3.892 0 12.57
-   angleY -25.74
   }
   $grp GenericEntity : "{A419F4547954DA05}Prefabs/Props/Construction/CableReel/CableReelWooden_01.et" {
    {
@@ -79,9 +64,36 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
     angleY 64.577
    }
   }
+  GenericEntity : "{A99435932630972C}Prefabs/Compositions/Misc/SubCompositions/Storage/Slotted/Shelter_Supplies_US_01.et" {
+   ID "623F34A078CBF464"
+   coords 7.118 0 -2.255
+   {
+    GenericEntity {
+     ID "5D82CDCACC77FB9A"
+     components {
+      SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+       m_aEncapsulators {
+        SCR_ResourceEncapsulator "{5DAD1D48DACE9DE8}" {
+         m_aActions {
+          SCR_ResourceEncapsulatorActionChangeResourceValue "{5DE296D4C353664B}" {
+           m_fResourceValueCurrent 1000
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
   GenericEntity : "{B89C671B75B43849}Prefabs/Structures/Military/CamoNets/US/CamoNet_Medium_US.et" {
    ID "622B18B0E27CAD21"
    coords 0 0 0
+  }
+  GenericEntity : "{C0D09A53EEA441D6}Prefabs/Compositions/Slotted/SlotFlatSmall/MachineGunNest_S_US_02.et" {
+   ID "623F34A149C998C7"
+   coords -4.646 0 7.5
+   angleY -19.512
   }
   GenericEntity : "{CF4F7AEE0BFA7B25}Prefabs/Props/Military/Compositions/US/Antenna_01_US.et" {
    ID "622B18B0E27CAD2D"
@@ -96,28 +108,6 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    }
    coords -3.006 0.1 1.32
    angleY 61.473
-  }
-  $grp GenericEntity : "{EFA7233213E77C2E}Prefabs/Systems/SpawnPoints/SpawnPosition.et" {
-   {
-    ID "622B18B0E27CAD15"
-    components {
-     Hierarchy "{622B18B0E27CCE26}" {
-      Enabled 1
-     }
-    }
-    coords -2.583 0.01 -2.04
-    angleY 14.578
-   }
-   {
-    ID "622B18B0E27CCEED"
-    components {
-     Hierarchy "{622B18B0E27CCE22}" {
-      Enabled 1
-     }
-    }
-    coords 2.856 0.01 -0.099
-    angleY -36.778
-   }
   }
   $grp GenericEntity : "{F0DCB55B7FDB746B}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Footprints_02.et" {
    {

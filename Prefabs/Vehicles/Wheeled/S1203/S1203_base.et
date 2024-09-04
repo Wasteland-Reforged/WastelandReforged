@@ -1,0 +1,69 @@
+Vehicle : "{1F9BB80C3EC3C891}Prefabs/Vehicles/Core/Wheeled_Car_Base.et" {
+ ID "BBCBA43A9778AE21"
+ components {
+  SCR_ResourceComponent "{5D83561B5E01449A}" {
+   m_aConsumers {
+    SCR_ResourceConsumer "{623B28856C4FBD2D}" {
+     m_sDebugName "Base Building - Consumer"
+     m_eResourceRights ALL
+     m_eGeneratorIdentifier DEFAULT
+     m_fResourceRange 50
+     m_fBuyMultiplier 0
+     m_ContainerQueue SCR_ResourceConsumerContainerQueue "{623B288554CE954B}" {
+      m_StoragePolicies {
+       SCR_ResourceConsumerStoragePolicy "{623B288555D8179F}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{623B288550DC01F2}" {
+        }
+       }
+       SCR_ResourceConsumerStoragePolicy "{623B2885566B3608}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{623B28855254BCFF}" {
+        }
+        m_eStorageType STORED
+       }
+       SCR_ResourceConsumerStoragePolicy "{623B28855685E91D}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{623B28855C492573}" {
+        }
+        m_eStorageType CARGO_PROP
+       }
+       SCR_ResourceConsumerStoragePolicy "{623B2885570645E4}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{623B28855EEFCC12}" {
+        }
+        m_eStorageType CARGO_VEHICLE
+       }
+      }
+     }
+    }
+   }
+   m_aGenerators {
+    SCR_ResourceGenerator "{623B288558016B67}" {
+     m_sDebugName "Base Building - Generator"
+     m_eResourceRights ALL
+     m_fStorageRange 50
+     m_ContainerQueue SCR_ResourceGeneratorContainerQueue "{623B2885400E4FBA}" {
+      m_StoragePolicies {
+       SCR_ResourceGeneratorStoragePolicy "{623B288541F474CD}" {
+        m_StorageQueue SCR_ResourceGeneratorContainerStorageQueueExtended "{623B28854C5DF092}" {
+        }
+       }
+       SCR_ResourceGeneratorStoragePolicy "{623B288542E8BFBC}" {
+        m_StorageQueue SCR_ResourceGeneratorContainerStorageQueueExtended "{623B28854D2568A9}" {
+        }
+        m_eStorageType STORED
+       }
+      }
+     }
+     m_aActions {
+      SCR_ResourceGeneratorActionDropContainers "{623B28854FD6E54B}" {
+      }
+      SCR_ResourceGeneratorActionStore "{623B288548C4622E}" {
+      }
+     }
+    }
+   }
+  }
+  SCR_VehicleFactionAffiliationComponent "{5882CBD9AC741CEC}" {
+   "faction affiliation" ""
+  }
+ }
+ coords 4872.906 28.594 11762.881
+}

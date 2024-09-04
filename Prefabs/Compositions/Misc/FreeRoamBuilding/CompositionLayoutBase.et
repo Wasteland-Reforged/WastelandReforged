@@ -1,0 +1,14 @@
+GenericEntity {
+ ID "5D6CA46CF033D8B7"
+ components {
+  ActionsManagerComponent "{5D6CA46D33CBCC29}" {
+   additionalActions {
+    SCR_CampaignBuildingBuildUserAction "{5D6CA46D23446DFB}" {
+     Duration -1
+     m_fLoopActionHoldDuration 0.01
+    }
+   }
+  }
+ }
+ coords 1604.596 39 2824.678
+}
