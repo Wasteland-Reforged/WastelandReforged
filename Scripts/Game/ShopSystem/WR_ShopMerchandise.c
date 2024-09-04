@@ -2,9 +2,9 @@ modded class ADM_ShopMerchandise: ScriptAndConfig
 {
 	override array<ref ADM_PaymentMethodBase> GetSellPayment()
 	{
-		float sellPriceCoef = 0.5;
+		float sellPriceCoef = 0.8;
 		
-		array<ref ADM_PaymentMethodElCash> sellPayments = {};
+		array<ref ADM_PaymentMethodBase> sellPayments = {};
 		
 		foreach (ADM_PaymentMethodBase buyPaymentMethod : GetBuyPayment())
 		{
