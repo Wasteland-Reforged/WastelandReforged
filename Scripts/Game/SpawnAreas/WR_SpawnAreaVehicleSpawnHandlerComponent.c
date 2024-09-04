@@ -19,6 +19,15 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	[Attribute(defvalue: "0.5", desc: "Chance for vehicle to spawn with a random amount of supplies")]
 	protected float vehiclesSupplyChance;
 	
+	[Attribute(defvalue: "1", desc: "Amount of minutes to wait before checking if vehicles need respawning")]
+	protected float vehiclesRespawnTimer;
+	
+	[Attribute(defvalue: "25", desc: "Amount of supplies to round to when adding supplies to town vehicles")]
+	protected int vehicleSupplyStepSize;
+	
+	protected int _currentVehicles = 0;
+	protected int _desiredVehCount = 0;
+	
 	override void OnPostInit(IEntity owner)
 	{
 		_parent = WR_SpawnAreaEntity.Cast(owner);
@@ -38,20 +47,15 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list", LogLevel.SPAM);
 	}
 	
-	void SpawnVehicles(out int successfulVehSpawnCount)
+	bool SpawnTownVehicle()
 	{
+		// Get Vehicle Resource Names
 		WR_WeightedItemArray<ResourceName> vehicleResourceNames = WR_ResourceNamesWeighted.GetSpawnAreaVehicles();
-		
 		if (!vehicleResourceNames || vehicleResourceNames.Count() == 0)
 		{
 			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: No spawn area vehicle resource names were supplied! Please provide at least one resource name.");
-			return;
+			return false;
 		}
-		
-		int desiredVehCount = GetVehicleCountPerSqKm();
-		if (desiredVehCount < vehiclesFlatRate) desiredVehCount = vehiclesFlatRate;
-		
-		successfulVehSpawnCount = 0;
 		
 		// Configure spawn position parameters
 		float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
@@ -63,64 +67,101 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		int minItems = 2; // TODO: add validation and make these read from a global config
 		int maxItems = 6;
 		
-		for (int i = 0; i < desiredVehCount; i++)
+		// Select a random position				
+		vector spawnPos;
+		bool foundSafePos = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, _parent.GetOrigin(), _parent.GetSphereRadius(), areaToCheck
+																	, xzPaddingRadius, yPaddingDistance);
+		
+		if (!foundSafePos) return false;
+		
+		// Spawn and orient the vehicle
+		ResourceName vehResourceName = vehicleResourceNames.GetRandomItem();
+			
+		EntitySpawnParams spawnParams = new EntitySpawnParams();
+		spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
+					
+		IEntity vehicle = GetGame().SpawnEntityPrefab(vehResourceName, false, GetGame().GetWorld(), spawnParams);
+		if (!vehicle) return false;
+		
+		vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
+		
+		//Remove initial items
+		if (!WR_Utils.RemoveAllItemsFromVehicle(vehicle))
 		{
-			// Select a random position				
-			vector spawnPos;
-			bool foundSafePos = WR_Utils.TryGetRandomSafePosWithinRadius(
-												spawnPos
-												, _parent.GetOrigin()
-												, _parent.GetSphereRadius()
-												, areaToCheck
-												, xzPaddingRadius
-												, yPaddingDistance);
-			if (!foundSafePos) continue;
-
-			// Spawn the vehicle
-			ResourceName vehResourceName = vehicleResourceNames.GetRandomItem();
-			
-			EntitySpawnParams spawnParams = new EntitySpawnParams();
-			spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
-			
-			IEntity vehicle = GetGame().SpawnEntityPrefab(vehResourceName, false, GetGame().GetWorld(), spawnParams);
-			if (!vehicle) continue;
-			
-			vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
-			
-			//Remove initial items
-			if (!WR_Utils.RemoveAllItemsFromVehicle(vehicle))
-			{
-				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
-			}
-			
-			// Place weapons and items in inventory
-			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
-			auto inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
+		}
+		
+		// Place weapons and items in inventory
+		auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
+		auto inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
 						
-			array<ResourceName> itemResourceNamesToSpawn = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 0, maxExtraMags: 4);
-			foreach (ResourceName name : itemResourceNamesToSpawn)
-				inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
-
-			successfulVehSpawnCount++;
-			
-			// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
-			if (Math.RandomFloat01() <= vehiclesSupplyChance) 
-			{
-				auto supplyStorage = SCR_ResourceComponent.Cast(vehicle.FindComponent(SCR_ResourceComponent));
+		array<ResourceName> itemResourceNamesToSpawn = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 0, maxExtraMags: 4);
+		foreach (ResourceName name : itemResourceNamesToSpawn)
+			inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
+		
+		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
+		if (Math.RandomFloat01() <= vehiclesSupplyChance) 
+		{
+			auto supplyStorage = SCR_ResourceComponent.Cast(vehicle.FindComponent(SCR_ResourceComponent));
 				
-				if (supplyStorage && supplyStorage.GetContainers()) {
-					foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers()) {
-						int supplyToAdd = Math.RandomIntInclusive(2,7) * 25;
-						suppContainer.IncreaseResourceValue(supplyToAdd);
-					}
+			if (supplyStorage && supplyStorage.GetContainers()) {
+				foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers()) {
+					int maxSteps = suppContainer.GetMaxResourceValue()/vehicleSupplyStepSize;
+					int supplyToAdd = Math.RandomIntInclusive(2, maxSteps) * vehicleSupplyStepSize;
+					suppContainer.IncreaseResourceValue(supplyToAdd);
 				}
-				else {
-					Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not find supply storage for town vehicle");
-				}
+			}
+			else {
+				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not find supply storage for town vehicle");
 			}
 		}
 		
-		Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + desiredVehCount + " attempted at " + _parent.GetSpawnAreaName(), LogLevel.SPAM);
+		// Add function call to remove vehicle from current count when deleted
+		SCR_AIVehicleUsageComponent vehicleUsageComp = SCR_AIVehicleUsageComponent.FindOnNearestParent(vehicle, vehicle);
+		if (!vehicleUsageComp)
+		{
+			SCR_AIVehicleUsageComponent.ErrorNoComponent(vehicle);
+			return false;
+		}
+		vehicleUsageComp.GetOnDeleted().Insert(OnVehicleDeleted);
+		
+		_currentVehicles++;
+		return true;
+	}
+	
+	protected void OnVehicleDeleted(SCR_AIVehicleUsageComponent comp)
+	{
+		_currentVehicles--;
+	}
+	
+	void SpawnInitialVehicles(out int successfulVehSpawnCount)
+	{
+		// Initialize max/current vehicle counts
+		_desiredVehCount = getMaxTownVehicles();
+		successfulVehSpawnCount = 0;
+		
+		// Loop through all vehicles that need to be spawned
+		for (int i = 0; i < _desiredVehCount; i++)
+		{
+			if (!SpawnTownVehicle()) {
+				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Vehicle was not spawned", LogLevel.SPAM);
+			}
+			else {
+				successfulVehSpawnCount++;
+			}
+		}
+		
+		//Attempt to respawn town vehicles every X minutes
+		GetGame().GetCallqueue().CallLater(checkVehicles, vehiclesRespawnTimer * 60 * 1000, true);
+			
+		Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + _desiredVehCount + " attempted at " + _parent.GetSpawnAreaName(), LogLevel.SPAM);
+	}
+	
+	private void checkVehicles()
+	{
+		while (_currentVehicles < _desiredVehCount) {
+			SpawnTownVehicle();
+		}
 	}
 
 	private int GetVehicleCountPerSqKm()
@@ -130,6 +171,11 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		float areaSqKm = (Math.PI * spawnAreaRadius * spawnAreaRadius) / (1000 * 1000);
 
 		return Math.Floor(areaSqKm * vehiclesPerSqKm);
+	}
+	
+	private int getMaxTownVehicles()
+	{
+		return Math.Max(GetVehicleCountPerSqKm(), vehiclesFlatRate);
 	}
 	
 	string GetSpawnAreaName()

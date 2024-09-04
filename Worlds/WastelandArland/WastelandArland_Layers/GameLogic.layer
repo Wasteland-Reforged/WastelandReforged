@@ -28,6 +28,8 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
     }
    }
   }
+  WR_SpawnAreaControllerComponent "{6248263D747D74BE}" {
+  }
  }
  coords 999.617 37.382 2851.944
  {

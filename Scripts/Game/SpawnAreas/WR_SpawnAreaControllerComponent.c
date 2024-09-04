@@ -40,7 +40,7 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 		foreach (auto vehicleSpawnHandler : WR_SpawnAreaVehicleSpawnHandlerComponent.VehicleSpawnHandlerComponents)
 		{
 			int successfulVehSpawnCount;
-			vehicleSpawnHandler.SpawnVehicles(successfulVehSpawnCount);
+			vehicleSpawnHandler.SpawnInitialVehicles(successfulVehSpawnCount);
 			totalVehiclesSpawned += successfulVehSpawnCount;
 		}
 		
