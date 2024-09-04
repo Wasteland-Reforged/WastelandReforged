@@ -7,7 +7,7 @@ Vehicle : "{543A50BF3A42AD47}Prefabs/Vehicles/Core/Wheeled_APC_Base.et" {
      m_sDebugName "Base Building - Consumer"
      m_eResourceRights ALL
      m_eGeneratorIdentifier DEFAULT
-     m_fResourceRange 75
+     m_fResourceRange 50
      m_fBuyMultiplier 0
      m_ContainerQueue SCR_ResourceConsumerContainerQueue "{623B289C6C037470}" {
       m_StoragePolicies {
@@ -38,7 +38,7 @@ Vehicle : "{543A50BF3A42AD47}Prefabs/Vehicles/Core/Wheeled_APC_Base.et" {
     SCR_ResourceGenerator "{623B289C514ABFB7}" {
      m_sDebugName "Base Building - Generator"
      m_eResourceRights ALL
-     m_fStorageRange 75
+     m_fStorageRange 50
      m_ContainerQueue SCR_ResourceGeneratorContainerQueue "{623B289C5F1CC909}" {
       m_StoragePolicies {
        SCR_ResourceGeneratorStoragePolicy "{623B289C58104839}" {
@@ -65,5 +65,5 @@ Vehicle : "{543A50BF3A42AD47}Prefabs/Vehicles/Core/Wheeled_APC_Base.et" {
    "faction affiliation" ""
   }
  }
- coords 4863.468 28.594 11768.805
+ coords 4851.24 28.594 11764.45
 }

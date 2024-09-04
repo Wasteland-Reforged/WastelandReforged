@@ -293,16 +293,16 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 		if (!propResource) return true; // Props are not required, so exit successfully if none are defined
 
 		// Get safe pos
-		vector safePos;
-		bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(safePos, mission.GetPosition(), mission.GetMissionLocation().GetSphereRadius(), 10.0, 10.0, 2.0);
-		if (!safePosFound)
-		{
-			Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for a mission prop!", LogLevel.ERROR);
-			return false;
-		}	
+		// vector safePos;
+		// bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(safePos, mission.GetPosition(), mission.GetMissionLocation().GetSphereRadius(), 10.0, 10.0, 2.0);
+		// if (!safePosFound)
+		// {
+		// 	 Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for a mission prop!", LogLevel.ERROR);
+		// 	 return false;
+		// }	
 		
 		// Spawn prop
-		propEntity = WR_Utils.SpawnPrefabInWorld(propResource, safePos);
+		propEntity = WR_Utils.SpawnPrefabInWorld(propResource, mission.GetPosition());
 		if (!propEntity)
 		{
 			Print("[WASTELAND] WR_MissionControllerComponent: Mission prop was not spawned!", LogLevel.ERROR);
@@ -310,14 +310,14 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 		}
 		
 		// Orient prop
-		vector randomDir = WR_Utils.GetRandomHorizontalDirectionAngles();
-		propEntity.SetYawPitchRoll(randomDir);
+		// vector randomDir = WR_Utils.GetRandomHorizontalDirectionAngles();
+		// propEntity.SetYawPitchRoll(randomDir);
 		
 		// Orient the object to terrain normal
-		vector transform[4];
-		propEntity.GetTransform(transform);
-		SCR_TerrainHelper.OrientToTerrain(transform);
-		propEntity.SetTransform(transform);
+		// vector transform[4];
+		// propEntity.GetTransform(transform);
+		// SCR_TerrainHelper.OrientToTerrain(transform);
+		// propEntity.SetTransform(transform);
 		
 		return true;
 	}
@@ -446,7 +446,7 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 			
 			WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(mission.GetDefinition().m_eLootContext);
 			
-			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));
+			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));	
 			if (inventoryStorageManager)
 			{
 				auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
@@ -455,6 +455,20 @@ class WR_MissionControllerComponent : SCR_BaseGameModeComponent
 				foreach (ResourceName item : items)
 				{
 					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
+				}
+			}
+			else
+			{
+				auto vehicleStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+				if (vehicleStorageManager)
+				{
+					auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
+					
+					array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 5,  maxExtraMags: 12);
+					foreach (ResourceName item : items)
+					{
+						vehicleStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
+					}
 				}
 			}
 			

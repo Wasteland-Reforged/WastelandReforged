@@ -7,7 +7,7 @@ Vehicle : "{1F9BB80C3EC3C891}Prefabs/Vehicles/Core/Wheeled_Car_Base.et" {
      m_sDebugName "Base Building - Consumer"
      m_eResourceRights ALL
      m_eGeneratorIdentifier DEFAULT
-     m_fResourceRange 75
+     m_fResourceRange 50
      m_fBuyMultiplier 0
      m_ContainerQueue SCR_ResourceConsumerContainerQueue "{623B2885397CC3A2}" {
       m_StoragePolicies {
@@ -38,7 +38,7 @@ Vehicle : "{1F9BB80C3EC3C891}Prefabs/Vehicles/Core/Wheeled_Car_Base.et" {
     SCR_ResourceGenerator "{623B28852EEB4011}" {
      m_sDebugName "Base Building - Generator"
      m_eResourceRights ALL
-     m_fStorageRange 75
+     m_fStorageRange 50
      m_ContainerQueue SCR_ResourceGeneratorContainerQueue "{623B2885176AE2F0}" {
       m_StoragePolicies {
        SCR_ResourceGeneratorStoragePolicy "{623B28851090D33F}" {
@@ -62,5 +62,5 @@ Vehicle : "{1F9BB80C3EC3C891}Prefabs/Vehicles/Core/Wheeled_Car_Base.et" {
    }
   }
  }
- coords 4889.253 28.594 11767.345
+ coords 4877.465 28.594 11763.226
 }

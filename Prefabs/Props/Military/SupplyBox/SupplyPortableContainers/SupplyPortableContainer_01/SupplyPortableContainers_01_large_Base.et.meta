@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{11E588E215EBCF23}Prefabs/Props/Military/SupplyBox/SupplyCrate/SupplyCrate_01/SupplyCrate_01_Vehicle.et"
+ Name "{4E866C1E6F114AB4}Prefabs/Props/Military/SupplyBox/SupplyPortableContainers/SupplyPortableContainer_01/SupplyPortableContainers_01_large_Base.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

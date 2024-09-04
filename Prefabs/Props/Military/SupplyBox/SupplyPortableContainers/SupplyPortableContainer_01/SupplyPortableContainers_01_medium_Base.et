@@ -1,4 +1,4 @@
-GenericEntity : "{E058C9E1B2738709}Prefabs/Props/Military/SupplyBox/SupplyPortableContainers/SupplyPortableContainer_01/SupplyPortableContainers_01_medium_Base.et" {
+GenericEntity : "{FE665E2CCDD1C1F0}Prefabs/Props/Military/SupplyBox/SupplyPortableContainers/SupplyPortableContainer_01/SupplyPortableContainers_01_Base.et" {
  ID "F0DBA538AC2A0552"
  components {
   SCR_ResourceComponent "{5D247A59598D71AE}" {
@@ -10,5 +10,5 @@ GenericEntity : "{E058C9E1B2738709}Prefabs/Props/Military/SupplyBox/SupplyPortab
    }
   }
  }
- coords 4882.109 28.594 11757.702
+ coords 1278.134 37.538 2935.536
 }

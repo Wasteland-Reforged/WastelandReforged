@@ -16,6 +16,9 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 	[Attribute(defvalue: "2", desc: "Minimum number of roaming bot groups in this spawn area")]
 	protected int AIGroupsFlatRate;
 	
+	[Attribute(defvalue: "5", desc: "How long to wait before respawning AI (in minutes)")]
+	protected int AIGroupRespawnWaitMinutes;
+	
 	[Attribute(defvalue: "0.25", desc: "Chance per group to spawn 2 scavs instead of 1")]
 	protected float chanceOfLargerGroup;
 	
@@ -111,7 +114,7 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		foreach (auto aigroup : _aiGroups) {
 			if (!aigroup) {
 				//Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Clearing dead AI Group..");
-				GetGame().GetCallqueue().CallLater(spawnAIGroup, 2 * 60 * 1000, false);
+				GetGame().GetCallqueue().CallLater(spawnAIGroup, AIGroupRespawnWaitMinutes * 60 * 1000, false);
 				GetGame().GetCallqueue().CallLater(removeGroup, 5 * 1000, false, aigroup);
 			}
 		}
