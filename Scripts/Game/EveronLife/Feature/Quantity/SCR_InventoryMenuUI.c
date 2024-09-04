@@ -363,7 +363,7 @@ modded class SCR_InventoryMenuUI
 			if (!storage) continue;
 			foreach(SCR_InventorySlotUI slot : storage.GetUISlots())
 			{
-				if (!slot.GetWidget().IsVisible()) continue;
+				if (!slot || !slot.GetWidget().IsVisible()) continue;
 				InventoryItemComponent item = slot.GetInventoryItemComponent();
 				if (item && item.GetOwner() == m_pELQuantitySplitSource)
 				{
