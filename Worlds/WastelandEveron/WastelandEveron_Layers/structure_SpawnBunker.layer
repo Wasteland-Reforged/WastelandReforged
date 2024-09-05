@@ -79,7 +79,7 @@ GenericEntity : "{533CDABD77C4C43E}Prefabs/Rocks/Granite/GraniteCliff_02.et" {
  angleZ -90
  scale 2
 }
-GenericEntity : "{5CF603986376EAA9}Prefabs/Items/Misc/IntelligenceFolder_E_01/IntelligenceFolder_E_01_base.et" {
+GenericEntity IntelligenceFolder_E_01_base_624A3712A6A0A0C8 : "{5CF603986376EAA9}Prefabs/Items/Misc/IntelligenceFolder_E_01/IntelligenceFolder_E_01_base.et" {
  coords 104.743 332.533 187.889
  angleY -139.366
 }

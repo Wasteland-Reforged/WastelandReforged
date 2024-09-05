@@ -1,0 +1,20 @@
+$grp GenericEntity : "{0C218EEDC33AE65D}GunStoreMan.et" {
+ GunStore_BonfireHill {
+  coords 5241.778 130.942 4601.813
+  angleY -67.823
+  {
+   SCR_DestructibleBuildingEntity : "{5943A8F87263D906}Prefabs/Structures/Agriculture/Barn/Barn_E_01_old.et" {
+    coords 1.628 0 3.911
+    angleY -97.455
+   }
+  }
+ }
+ GunStore_StPierre {
+  coords 9835.233 5.147 1331.774
+  angleY 39.176
+ }
+ GunStore_StPhillipe {
+  coords 4181.148 15.673 10574.272
+  angleY -89.831
+ }
+}
