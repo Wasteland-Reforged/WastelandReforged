@@ -36,7 +36,7 @@ SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
   }
  }
 }
-TimeAndWeatherManagerEntity : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
+TimeAndWeatherManagerEntity TimeAndWeatherManager_624A3712A6AF9AD4 : "{A3BAF78F6F03315B}Prefabs/World/Game/TimeAndWeatherManager.et" {
  coords 0 0 0
  WeatherStateMachine "{E7BBEF5A7CB63F57}Terrains/Common/WeatherPresets/StateMachine/WR_WeatherStates.conf"
  "UTC TimeZone" -2

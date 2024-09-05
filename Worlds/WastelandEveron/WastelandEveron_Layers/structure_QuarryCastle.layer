@@ -278,7 +278,7 @@ $grp SCR_DestructibleBuildingEntity : "{85D22B7ED8C8024C}Prefabs/Structures/Cult
   scale 2.5
  }
 }
-Turret : "{887DB60486A18575}Prefabs/Weapons/Tripods/Tripod_M122_MG_M60.et" {
+Turret Tripod_M122_MG_M60_624A3712A6AF4D3D : "{887DB60486A18575}Prefabs/Weapons/Tripods/Tripod_M122_MG_M60.et" {
  coords 8787.576 197.678 3888.816
  angleY -142.674
 }
