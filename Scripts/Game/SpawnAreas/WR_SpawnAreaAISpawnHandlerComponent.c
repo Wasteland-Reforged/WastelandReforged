@@ -10,10 +10,10 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 	ref static array<WR_SpawnAreaAISpawnHandlerComponent> AISpawnHandlerComponents;
 	ref array<SCR_AIGroup> _aiGroups = {};
 	
-	[Attribute(defvalue: "50", desc: "Number of roaming bot groups to spawn per square kilometer of surface area inside this spawn area.")]
+	[Attribute(defvalue: "30", desc: "Number of roaming bot groups to spawn per square kilometer of surface area inside this spawn area.")]
 	protected int botsPerSqKm;
 	
-	[Attribute(defvalue: "2", desc: "Minimum number of roaming bot groups in this spawn area")]
+	[Attribute(defvalue: "1", desc: "Minimum number of roaming bot groups in this spawn area")]
 	protected int AIGroupsFlatRate;
 	
 	[Attribute(defvalue: "5", desc: "How long to wait before respawning AI (in minutes)")]

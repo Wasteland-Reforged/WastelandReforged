@@ -90,7 +90,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 			return null;
 		}
 
-		return WR_SpawnAreaPlayerSpawnHandlerComponent.PlayerSpawnHandlerComponents.GetRandomElement();
+		return spawnAreas.GetRandomElement();
 	}
 
 	string GetSpawnAreaName()

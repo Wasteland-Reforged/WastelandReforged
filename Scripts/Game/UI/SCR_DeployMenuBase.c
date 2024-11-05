@@ -1,5 +1,7 @@
 modded class SCR_DeployMenuMain
 {
+	/*
+	
 	//------------------------------------------------------------------------------------------------
 	//! Opens deploy menu.
 	static override SCR_DeployMenuMain OpenDeployMenu()
@@ -24,6 +26,8 @@ modded class SCR_DeployMenuMain
 	{
 		return SCR_DeployMenuMain.Cast(GetGame().GetMenuManager().FindMenuByPreset(ChimeraMenuPreset.WR_RespawnMenu));
 	}
+	
+	*/
 	
 	//! Sends a respawn request based on assigned loadout and selected spawn point.
 	protected override void RequestRespawn()

@@ -1,0 +1,10 @@
+SCR_EditorLinkComponent {
+ m_aEntries {
+  SCR_EditorLinkEntry "{625201560EA304E6}" {
+   m_Prefab "{571E92E7B51831C9}PrefabsEditable/Auto/Props/Military/Fortification/E_CzechHedgehog_01_painted.et"
+   m_vPosition -0.064 0 0.038
+   m_vAngles 0 0 0
+   m_fScale 1
+  }
+ }
+}

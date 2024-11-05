@@ -1,0 +1,232 @@
+$grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.et" {
+ {
+  coords 589.396 8.125 2240.093
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 669.084 7.836 2224.036
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 909.663 10.375 2133.133
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 1689.835 0.688 2734.46
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 1920.95 2 2904.458
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 1650.465 2.001 2914.44
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 1237.418 0.875 3099.324
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 1152.525 3.687 3135.046
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 2595.075 26.186 1751.862
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 2771.309 2 1204.269
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 2787.638 2 1071.882
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 1554.559 1.812 1518.82
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 1667.348 3.365 1452.95
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 929.769 59.938 1323.151
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 758.176 2.198 189.457
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 814.849 2.125 151.573
+  DrawShape 0
+  m_eSize LARGE
+ }
+ {
+  coords 2581.074 2.813 231.69
+  DrawShape 0
+  m_eSize LARGE
+ }
+ WR_MissionLocationSmall {
+  coords 2816.462 2.688 176.214
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall2 {
+  coords 2554.807 14.469 337.455
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall3 {
+  coords 2493.24 11.188 886.893
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall4 {
+  coords 2738.75 2 967.919
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall5 {
+  coords 2654.588 2 1112.639
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall6 {
+  coords 2133.3 61.758 1316.265
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall7 {
+  coords 2012.37 30.219 1645.626
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall8 {
+  coords 1162.491 1.029 1571.303
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall9 {
+  coords 997.28 59.937 1327.586
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall10 {
+  coords 757.24 111.125 809.955
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall11 {
+  coords 484.819 7.513 394.503
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 636.75 3.423 272.772
+  DrawShape 0
+  m_eSize LARGE
+ }
+ WR_MissionLocationSmall12 {
+  coords 910.874 2.125 163.326
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall13 {
+  coords 818.834 2.247 254.782
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall14 {
+  coords 1531.309 50.324 315.202
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall15 {
+  coords 2007.256 68.624 372.183
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall16 {
+  coords 2276.713 12.905 997.049
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall17 {
+  coords 2112.144 14.115 2209.013
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall18 {
+  coords 1705.645 8.648 2310.123
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall19 {
+  coords 1592.521 2.063 2956.626
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall20 {
+  coords 1325.858 0.875 3045.208
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall21 {
+  coords 1124.275 10.844 2984.734
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall22 {
+  coords 607.194 72.719 3044.026
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall23 {
+  coords 1445.948 61.563 2580.507
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall24 {
+  coords 422.67 3.416 1983.619
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall25 {
+  coords 1093.906 0.725 2091.696
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall26 {
+  coords 2674.738 25.938 1780.061
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall27 {
+  coords 1658.407 2.656 1120.471
+  DrawShape 0
+  m_eSize SMALL
+ }
+ WR_MissionLocationSmall28 {
+  coords 1376.458 2.4 456.678
+  DrawShape 0
+  m_eSize SMALL
+ }
+}

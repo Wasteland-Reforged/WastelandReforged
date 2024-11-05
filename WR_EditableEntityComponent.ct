@@ -1,0 +1,27 @@
+SCR_EditableEntityComponent : "{8B8F72167C615EAA}Prefabs/Editor/Components/Compositions_SCR_EditableEntityComponent.ct" {
+ m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+  Name "#AR-EditableEntity_CzechHedgehog_01_painted_Name"
+  m_Image "{F2548460DAD2CCBF}UI/Textures/EditorPreviews/Auto/Compositions/Misc/FreeRoamBuilding/E_CzechHedgehog_S_01_painted.edds"
+  m_sFaction "USSR"
+  m_aAuthoredLabels {
+   108
+   10
+  }
+  m_aAutoLabels {
+   1
+   121
+  }
+  m_EntityBudgetCost {
+   SCR_EntityBudgetValue "{6252015600635925}" {
+    m_BudgetType CAMPAIGN
+    m_Value 50
+   }
+  }
+  m_EntityChildrenBudgetCost {
+   SCR_EntityBudgetValue "{625201560063590B}" {
+    m_BudgetType PROPS
+    m_Value 1
+   }
+  }
+ }
+}

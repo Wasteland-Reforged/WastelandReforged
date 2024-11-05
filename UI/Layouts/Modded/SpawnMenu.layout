@@ -5,27 +5,30 @@ FrameWidgetClass {
    Name "TextTitle"
    Slot FrameWidgetSlot "{618A3A1C016038AD}" {
     PositionX 774.477
-    OffsetLeft 774.477
-    PositionY 457.528
-    OffsetTop 457.528
+    OffsetLeft 774.5
+    PositionY 550
+    OffsetTop 550
     SizeX 404.489
-    OffsetRight -1178.97
+    OffsetRight -1179
     SizeY 60.119
-    OffsetBottom -517.647
+    OffsetBottom -610.1
    }
-   Text "Choose a spawn point"
+   Text "Choose A Spawn Point"
+   "Font Size" 45
+   "Horizontal Alignment" Center
+   "Vertical Alignment" Center
   }
   ButtonWidgetClass "{618A3A1C19376640}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
    Name "ButtonClose"
    Slot FrameWidgetSlot "{618A3A1C19376671}" {
-    PositionX 1056.58
-    OffsetLeft 1056.58
-    PositionY 655.153
-    OffsetTop 655.153
+    PositionX 914.3
+    OffsetLeft 914.3
+    PositionY 750
+    OffsetTop 750
     SizeX 119.681
-    OffsetRight -1176.26
+    OffsetRight -1034
     SizeY 64.191
-    OffsetBottom -719.344
+    OffsetBottom -814.2
    }
    components {
     SCR_ButtonTextComponent "{5548F0143AE99095}" {
@@ -34,7 +37,7 @@ FrameWidgetClass {
    }
   }
   ButtonWidgetClass "{618A3A1D892387C4}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
-   Name "ButtonChange"
+   Name "ButtonRespawnNorth"
    Slot FrameWidgetSlot "{618A3A1C19376671}" {
     PositionX 775.258
     OffsetLeft 775.258
@@ -47,12 +50,12 @@ FrameWidgetClass {
    }
    components {
     SCR_ButtonTextComponent "{5548F0143AE99095}" {
-     m_sText "Change text"
+     m_sText "Random (North)"
     }
    }
   }
   ButtonWidgetClass "{618A3A19A9F33485}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
-   Name "ButtonRespawn"
+   Name "ButtonRespawnCentral"
    Slot FrameWidgetSlot "{618A3A1C19376671}" {
     PositionX 914.302
     OffsetLeft 914.302
@@ -65,7 +68,25 @@ FrameWidgetClass {
    }
    components {
     SCR_ButtonTextComponent "{5548F0143AE99095}" {
-     m_sText "Respawn"
+     m_sText "Random (Central)"
+    }
+   }
+  }
+  ButtonWidgetClass "{62AD53D938DC8EE1}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+   Name "ButtonRespawnSouth"
+   Slot FrameWidgetSlot "{618A3A1C19376671}" {
+    PositionX 1055
+    OffsetLeft 1055
+    PositionY 655.153
+    OffsetTop 655.2
+    SizeX 119.68
+    OffsetRight -1174.7
+    SizeY 64.191
+    OffsetBottom -719.3
+   }
+   components {
+    SCR_ButtonTextComponent "{5548F0143AE99095}" {
+     m_sText "Random (South)"
     }
    }
   }

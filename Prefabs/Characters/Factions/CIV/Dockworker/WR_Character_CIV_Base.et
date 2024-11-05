@@ -16,6 +16,7 @@ SCR_ChimeraCharacter : "{B692B5F052AA3EF1}Prefabs/Characters/Factions/CIV/Dockwo
   BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
    Slots {
     LoadoutSlotInfo Hat {
+     Enabled 0
      Prefab "{E97A86BB050ED6D1}Prefabs/Characters/HeadGear/Hat_FlatCap_01/Hat_FlatCap_01_blue_Dirty.et"
     }
     LoadoutSlotInfo Jacket {
@@ -25,6 +26,7 @@ SCR_ChimeraCharacter : "{B692B5F052AA3EF1}Prefabs/Characters/Factions/CIV/Dockwo
      Prefab "{DCF980831E880F6A}Prefabs/Characters/Uniforms/Pants_M88.et"
     }
     LoadoutSlotInfo Vest {
+     Enabled 0
      Prefab "{ED5574EA7F63B457}Prefabs/Characters/Vests/Vest_Type56/Vest_Type56.et"
     }
    }

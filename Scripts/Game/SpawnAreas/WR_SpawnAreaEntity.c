@@ -12,6 +12,9 @@ class WR_SpawnAreaEntity : BaseGameTriggerEntity
 	[Attribute(defvalue: "", desc: "Name of the spawn area", category: CATEGORY_SPAWNAREA)]
 	protected string m_Name;
 	
+	[Attribute("", UIWidgets.ComboBox, enums: ParamEnumArray.FromEnum(SpawnAreaCategories), category: CATEGORY_SPAWNAREA)]
+	SpawnAreaCategories spawnAreaCategory;
+	
 	[Attribute(defvalue: "true", desc: "Determines if players should spawn here", category: CATEGORY_SPAWNAREA)]
 	protected bool m_IsActive;
 

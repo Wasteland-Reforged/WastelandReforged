@@ -28,11 +28,8 @@ class WR_LootSpawnContextPresets
 				case WR_LootContextType.RANDOM_VEHICLE:
 					context = GetRandomVehicleContext();
 					break;
-				case WR_LootContextType.LOOT_BOX:
-					context = GetLootBoxContext();
-					break;
 				default:
-					context = GetLootBoxContext();
+					context = GetDefaultContext();
 			}
 			
 			// Cache the context in the map so we don't have to regenerate it every time we need it
@@ -42,23 +39,23 @@ class WR_LootSpawnContextPresets
 		return context;
 	}
 	
-    private static WR_LootSpawnContext GetLootBoxContext()
+    private static WR_LootSpawnContext GetDefaultContext()
     {
         return new WR_LootSpawnContext
         (
-            rifleWeight: 5.0,
-            machineGunWeight: 1.0,
-            sniperWeight: 1.0,
-            handgunWeight: 5.0,
-            launcherWeight: 1.0,
-            ordnanceWeight: 30.0,
-            attachmentWeight: 10.0,
-            utilItemWeight: 5.0,
-            mediItemWeight: 10.0,
-            backpackWeight: 5.0,
-            vestWeight: 5.0,
-            helmetWeight: 5.0,
-            hatWeight: 1.0
+            rifleWeight: 		5.0,
+            machineGunWeight: 	1.0,
+            sniperWeight: 		0.5,
+            handgunWeight: 		5.0,
+            launcherWeight: 	1.0,
+            ordnanceWeight: 	8.0,
+            attachmentWeight: 	5.0,
+            utilItemWeight: 	5.0,
+            mediItemWeight: 	8.0,
+            backpackWeight: 	5.0,
+            vestWeight: 		5.0,
+            helmetWeight: 		5.0,
+            hatWeight: 			5.0
         );
     }
 
@@ -66,19 +63,19 @@ class WR_LootSpawnContextPresets
     {
         return new WR_LootSpawnContext
         (
-            rifleWeight: 10.0,
-            machineGunWeight: 1.5,
-            sniperWeight: 1.0,
-            handgunWeight: 4.0,
-            launcherWeight: 1.0,
-            ordnanceWeight: 5.0,
-            attachmentWeight: 5.0,
-            utilItemWeight: 8.0,
-            mediItemWeight: 7.0,
-            backpackWeight: 2.5,
-            vestWeight: 2.5,
-            helmetWeight: 2.5,
-            hatWeight: 3.0
+            rifleWeight: 		5.0,
+            machineGunWeight: 	1.0,
+            sniperWeight: 		0.5,
+            handgunWeight: 		5.0,
+            launcherWeight: 	1.0,
+            ordnanceWeight: 	8.0,
+            attachmentWeight: 	5.0,
+            utilItemWeight: 	5.0,
+            mediItemWeight: 	8.0,
+            backpackWeight: 	5.0,
+            vestWeight: 		5.0,
+            helmetWeight: 		5.0,
+            hatWeight: 			5.0
         );
     }
 	
@@ -86,19 +83,19 @@ class WR_LootSpawnContextPresets
     {
         return new WR_LootSpawnContext
         (
-            rifleWeight: 7.0,
-            machineGunWeight: 1.0,
-            sniperWeight: 1.0,
-            handgunWeight: 5.0,
-            launcherWeight: 1.0,
-            ordnanceWeight: 0.0,
-            attachmentWeight: 10.0,
-            utilItemWeight: 0.0,
-            mediItemWeight: 0.0,
-            backpackWeight: 5.0,
-            vestWeight: 2.0,
-            helmetWeight: 1.0,
-            hatWeight: 1.0
+            rifleWeight: 		10.0,
+            machineGunWeight: 	4.0,
+            sniperWeight: 		2.0,
+            handgunWeight: 		5.0,
+            launcherWeight: 	2.0,
+            ordnanceWeight: 	5.0,
+            attachmentWeight: 	5.0,
+            utilItemWeight: 	0.0,
+            mediItemWeight: 	0.0,
+            backpackWeight: 	5.0,
+            vestWeight: 		5.0,
+            helmetWeight: 		5.0,
+            hatWeight: 			0.0
         );
     }
 	
@@ -106,19 +103,19 @@ class WR_LootSpawnContextPresets
     {
         return new WR_LootSpawnContext
         (
-            rifleWeight: 5.5,
-            machineGunWeight: 8.0,
-            sniperWeight: 11.0,
-            handgunWeight: 0.0,
-            launcherWeight: 7.5,
-            ordnanceWeight: 5.0,
-            attachmentWeight: 15.0,
-            utilItemWeight: 2.0,
-            mediItemWeight: 0.0,
-            backpackWeight: 5.0,
-            vestWeight: 2.5,
-            helmetWeight: 1.0,
-            hatWeight: 1.0
+            rifleWeight: 		10.0,
+            machineGunWeight: 	10.0,
+            sniperWeight: 		10.0,
+            handgunWeight: 		5.0,
+            launcherWeight: 	2.0,
+            ordnanceWeight: 	5.0,
+            attachmentWeight: 	5.0,
+            utilItemWeight: 	0.0,
+            mediItemWeight: 	0.0,
+            backpackWeight: 	5.0,
+            vestWeight: 		5.0,
+            helmetWeight: 		5.0,
+            hatWeight: 			0.0
         );
     }
 	
@@ -126,19 +123,19 @@ class WR_LootSpawnContextPresets
     {
         return new WR_LootSpawnContext
         (
-            rifleWeight: 0.0,
-            machineGunWeight: 0.0,
-            sniperWeight: 0.0,
-            handgunWeight: 0.0,
-            launcherWeight: 0.0,
-            ordnanceWeight: 0.0,
-            attachmentWeight: 0.0,
-            utilItemWeight: 0.0,
-            mediItemWeight: 15.0,
-            backpackWeight: 5.0,
-            vestWeight: 0.0,
-            helmetWeight: 0.0,
-            hatWeight: 0.0
+            rifleWeight: 		0.0,
+            machineGunWeight: 	0.0,
+            sniperWeight: 		0.0,
+            handgunWeight: 		0.0,
+            launcherWeight: 	0.0,
+            ordnanceWeight: 	0.0,
+            attachmentWeight: 	0.0,
+            utilItemWeight: 	5.0,
+            mediItemWeight: 	15.0,
+            backpackWeight: 	5.0,
+            vestWeight: 		5.0,
+            helmetWeight: 		0.0,
+            hatWeight: 			0.0
         );
     }
 }

@@ -54,18 +54,17 @@ class WR_LootSpawnContext
             // If this item is a weapon, spawn some extra ammo
             if (maxExtraMags > 0 && WR_Utils.IsReloadableWeapon(item))
             {
-                // If maxExtraMags is set improperly, default it to 0.
+                // maxExtraMags cannot be less than the min
                 if (maxExtraMags < minExtraMags) maxExtraMags = minExtraMags;
                 
                 int ammoCount = Math.RandomIntInclusive(minExtraMags, maxExtraMags);
-                if (ammoCount > 0)
-                {
-                    ResourceName ammo = WR_Utils.GetDefaultAmmo(item);
-                    for (int j = 0; j < ammoCount; j++) items.Insert(ammo);
-                }
+                ResourceName ammo = WR_Utils.GetDefaultAmmo(item);
+                for (int j = 0; j < ammoCount; j++) 
+					items.Insert(ammo);
             }
         }
 		
 		return items;
     }
+	
 }
