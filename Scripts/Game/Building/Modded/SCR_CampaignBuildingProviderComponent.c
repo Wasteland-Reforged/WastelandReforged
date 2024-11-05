@@ -4,19 +4,6 @@ modded class SCR_CampaignBuildingProviderComponentClass : SCR_MilitaryBaseLogicC
 
 modded class SCR_CampaignBuildingProviderComponent : SCR_MilitaryBaseLogicComponent
 {
-	override SCR_CampaignBuildingBudgetToEvaluateData GetBudgetData(EEditableEntityBudget budget)
-	{
-		/*
-		foreach (SCR_CampaignBuildingBudgetToEvaluateData budgetData : m_aBudgetsToEvaluate)
-		{
-			if (budgetData.GetBudget() == budget)
-				return budgetData;
-		}
-		*/
-		return null;
-	}
-	
-	
 	override bool IsCharacterFactionSame(notnull IEntity character)
 	{
 		return true;
