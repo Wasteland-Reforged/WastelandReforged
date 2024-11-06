@@ -1,4 +1,4 @@
-enum SpawnAreaCategories
+enum SpawnAreaCategory
 {
 	SPAWN_NORTH,
 	SPAWN_CENTRAL,

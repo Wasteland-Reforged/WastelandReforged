@@ -89,25 +89,34 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 	protected void RespawnPlayerNorth()
 	{
 		Print("[Wasteland]: Entered RespawnPlayerNorth()");
-		
-		vector respawnPos;
-		//bool respawnSuccessful = WR_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
+		RequestCustomRespawn(SpawnAreaCategory.SPAWN_NORTH);
 	}
 	
 	protected void RespawnPlayerCentral()
 	{
 		Print("[Wasteland]: Entered RespawnPlayerCentral()");
-		
-		vector respawnPos;
-		//bool respawnSuccessful = WR_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
+		RequestCustomRespawn(SpawnAreaCategory.SPAWN_CENTRAL);
 	}
 	
 	protected void RespawnPlayerSouth()
 	{
 		Print("[Wasteland]: Entered RespawnPlayerSouth()");
+		RequestCustomRespawn(SpawnAreaCategory.SPAWN_SOUTH);
+	}
+	
+	protected void RequestCustomRespawn(SpawnAreaCategory spawnCategory)
+	{
+		Close();
 		
-		vector respawnPos;
-		//bool respawnSuccessful = WR_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
+		PlayerController pc = GetGame().GetPlayerController();
+		SCR_RespawnComponent m_SpawnRequestManager = SCR_RespawnComponent.Cast(pc.GetRespawnComponent());
+		
+		SCR_PlayerFactionAffiliationComponent m_PlyFactionAffilComp = SCR_PlayerFactionAffiliationComponent.Cast(pc.FindComponent(SCR_PlayerFactionAffiliationComponent));
+		string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
+		
+		SCR_FreeSpawnData rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey);
+		if (rspData)
+			m_SpawnRequestManager.RequestSpawn(rspData);
 	}
 	
 }

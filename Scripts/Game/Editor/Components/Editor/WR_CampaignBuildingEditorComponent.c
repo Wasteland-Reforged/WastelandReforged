@@ -4,9 +4,8 @@ modded class SCR_CampaignBuildingEditorComponentClass : SCR_BaseEditorComponentC
 
 modded class SCR_CampaignBuildingEditorComponent : SCR_BaseEditorComponent
 {
-	SCR_FactionAffiliationComponent GetProviderFactionComponent()
+	override SCR_FactionAffiliationComponent GetProviderFactionComponent()
 	{
-
 		return null;
 	}
 }

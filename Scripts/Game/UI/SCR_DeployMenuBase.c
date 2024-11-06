@@ -30,27 +30,14 @@ modded class SCR_DeployMenuMain
 	*/
 	
 	//! Sends a respawn request based on assigned loadout and selected spawn point.
+	
+	/*
 	protected override void RequestRespawn()
 	{
 		UpdateRespawnButton();
 		
 		if (!m_RespawnButton.IsEnabled())
 			return;
-
-//		if (!m_iSelectedSpawnPointId.IsValid())
-//		{
-//			Debug.Error("Selected SpawnPointId is invalid!");
-//			return;
-//		}
-
-//		ResourceName resourcePrefab = ResourceName.Empty;
-//		if (m_LoadoutRequestUIHandler.GetPlayerLoadout())
-//			resourcePrefab = m_LoadoutRequestUIHandler.GetPlayerLoadout().GetLoadoutResource();
-//		else
-//		{
-//			Debug.Error("No player loadout assigned!");
-//			return;
-//		}
 		
 		string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
 
@@ -61,6 +48,7 @@ modded class SCR_DeployMenuMain
 		if (rspData)
 			m_SpawnRequestManager.RequestSpawn(rspData);
 	}
+	*/
 	
 	//------------------------------------------------------------------------------------------------
 	//! Sets respawn button enabled based on certain conditions.
