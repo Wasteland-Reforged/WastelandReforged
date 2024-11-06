@@ -11,6 +11,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Beauregard"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Arleville {
   components {
@@ -24,6 +25,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Arleville"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Foxdale_Players {
   components {
@@ -38,6 +40,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Foxdale"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_Norwich {
   components {
@@ -51,6 +54,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Norwich"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Military {
   components {
@@ -64,6 +68,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Military"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Foxdale_Vehicles {
   components {
