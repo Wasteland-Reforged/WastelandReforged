@@ -834,7 +834,6 @@ $grp PolylineShapeEntity {
        angleX -0.945
        angleY 141.585
        angleZ -0.763
-       scale 1
       }
       {
        coords 5.652 -1.961 -47.507
@@ -2379,7 +2378,7 @@ $grp GenericEntity : "{0C218EEDC33AE65D}GunStoreMan.et" {
   angleY -74.134
  }
  GunStore_StPierre {
-  coords 9835.232 5.147 1333.068
+  coords 9835.172 5.147 1332.023
   angleY 39.176
  }
  GunStore_StPhillipe {
