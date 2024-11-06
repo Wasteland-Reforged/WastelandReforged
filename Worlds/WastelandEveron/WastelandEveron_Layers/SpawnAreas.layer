@@ -11,6 +11,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Chotain"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Durras {
   components {
@@ -24,6 +25,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Durras"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_EntreDeux {
   components {
@@ -37,6 +39,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Entre Deux"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Etoupe {
   components {
@@ -57,6 +60,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Etoupe"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Figari {
   components {
@@ -70,6 +74,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Figari"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Gravette {
   components {
@@ -83,6 +88,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Gravette"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Kermovan {
   components {
@@ -96,6 +102,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Kermovan"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Lamentin {
   components {
@@ -109,6 +116,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Lamentin"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Laruns {
   components {
@@ -122,6 +130,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Laruns"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_LeMoule {
   components {
@@ -135,6 +144,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Le Moule"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Levie {
   components {
@@ -148,6 +158,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Levie"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_Meaux {
   components {
@@ -161,6 +172,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Meaux"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Montignac {
   components {
@@ -174,6 +186,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Montignac"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Morton {
   components {
@@ -187,6 +200,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Morton"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Provins {
   components {
@@ -200,6 +214,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Provins"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Regina {
   components {
@@ -213,6 +228,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Regina"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_StPhillipe {
   components {
@@ -226,6 +242,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "St. Phillipe"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_StPierre {
   components {
@@ -239,6 +256,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "St. Pierre"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_Tyrone {
   components {
@@ -251,7 +269,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   SphereRadius 100
   DrawShape 0
   ShapeColor 0 0 0 0
-  m_Name "Meaux"
+  m_Name "Tyrone"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Vernon {
   components {
@@ -265,6 +284,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Vernon"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_Villeneuf {
   components {
@@ -278,5 +298,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Villeneuf"
+  spawnAreaCategory SPAWN_CENTRAL
  }
 }

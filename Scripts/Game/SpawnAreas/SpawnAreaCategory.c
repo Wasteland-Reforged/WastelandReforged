@@ -2,5 +2,5 @@ enum SpawnAreaCategory
 {
 	SPAWN_NORTH,
 	SPAWN_CENTRAL,
-	SPAWN_SOUTH,
+	SPAWN_SOUTH
 }

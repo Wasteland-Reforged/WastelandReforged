@@ -5,6 +5,13 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 	protected static const string BUTTON_RESPAWN_NORTH = "ButtonRespawnNorth";
 	protected static const string BUTTON_RESPAWN_CENTRAL = "ButtonRespawnCentral";
 	protected static const string BUTTON_RESPAWN_SOUTH = "ButtonRespawnSouth";
+	
+	SCR_ButtonTextComponent buttonClose;
+	SCR_ButtonTextComponent buttonRespawnNorth;
+	SCR_ButtonTextComponent buttonRespawnCentral;
+	SCR_ButtonTextComponent buttonRespawnSouth;
+	PlayerController pc;
+	IEntity lastChar;
 
 	//------------------------------------------------------------------------------------------------
 	protected override void OnMenuOpen()
@@ -12,35 +19,31 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 		Print("OnMenuOpen: menu/dialog opened!", LogLevel.NORMAL);
 
 		Widget rootWidget = GetRootWidget();
-		if (!rootWidget)
-		{
-			Print("Error in Layout Tutorial layout creation", LogLevel.ERROR);
-			return;
-		}
+		if (!rootWidget) return;
 
 		//Close Menu
-		SCR_ButtonTextComponent buttonClose = SCR_ButtonTextComponent.GetButtonText(BUTTON_CLOSE, rootWidget);
+		buttonClose = SCR_ButtonTextComponent.GetButtonText(BUTTON_CLOSE, rootWidget);
 		if (buttonClose)
 			buttonClose.m_OnClicked.Insert(Close);
 		else
 			Print("Button Close not found - won't be able to exit by button", LogLevel.WARNING);
 		
 		//RespawnNorth button
-		SCR_ButtonTextComponent buttonRespawnNorth = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_NORTH, rootWidget);
+		buttonRespawnNorth = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_NORTH, rootWidget);
 		if (buttonRespawnNorth)
 			buttonRespawnNorth.m_OnClicked.Insert(RespawnPlayerNorth);
 		else
 			Print("Button RespawnNorth not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
 		
 		//RespawnCentral button
-		SCR_ButtonTextComponent buttonRespawnCentral = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_CENTRAL, rootWidget);
+		buttonRespawnCentral = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_CENTRAL, rootWidget);
 		if (buttonRespawnCentral)
 			buttonRespawnCentral.m_OnClicked.Insert(RespawnPlayerCentral);
 		else
 			Print("Button RespawnCentral not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
 		
 		//RespawnSouth button
-		SCR_ButtonTextComponent buttonRespawnSouth = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_SOUTH, rootWidget);
+		buttonRespawnSouth = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_SOUTH, rootWidget);
 		if (buttonRespawnSouth)
 			buttonRespawnSouth.m_OnClicked.Insert(RespawnPlayerSouth);
 		else
@@ -88,35 +91,53 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 	//------------------------------------------------------------------------------------------------
 	protected void RespawnPlayerNorth()
 	{
-		Print("[Wasteland]: Entered RespawnPlayerNorth()");
 		RequestCustomRespawn(SpawnAreaCategory.SPAWN_NORTH);
 	}
 	
 	protected void RespawnPlayerCentral()
 	{
-		Print("[Wasteland]: Entered RespawnPlayerCentral()");
 		RequestCustomRespawn(SpawnAreaCategory.SPAWN_CENTRAL);
 	}
 	
 	protected void RespawnPlayerSouth()
 	{
-		Print("[Wasteland]: Entered RespawnPlayerSouth()");
 		RequestCustomRespawn(SpawnAreaCategory.SPAWN_SOUTH);
 	}
 	
 	protected void RequestCustomRespawn(SpawnAreaCategory spawnCategory)
 	{
-		Close();
+		Widget rootWidget = GetRootWidget();
+		if (!rootWidget) return;
 		
-		PlayerController pc = GetGame().GetPlayerController();
+		//Change Title Text
+		TextWidget textTitle = TextWidget.Cast(rootWidget.FindWidget(TEXT_TITLE));
+		textTitle.SetText("Waiting for respawn...");
+		
+		//Disable buttons while waiting for respawn
+		buttonRespawnNorth.m_OnClicked.Clear();
+		buttonRespawnCentral.m_OnClicked.Clear();
+		buttonRespawnSouth.m_OnClicked.Clear();
+		buttonClose.m_OnClicked.Clear();
+		
+		//Respawn Player
+		pc = GetGame().GetPlayerController();
 		SCR_RespawnComponent m_SpawnRequestManager = SCR_RespawnComponent.Cast(pc.GetRespawnComponent());
 		
 		SCR_PlayerFactionAffiliationComponent m_PlyFactionAffilComp = SCR_PlayerFactionAffiliationComponent.Cast(pc.FindComponent(SCR_PlayerFactionAffiliationComponent));
 		string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
-		
-		SCR_FreeSpawnData rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey);
+
+		SCR_FreeSpawnData rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey, spawnCategory);
 		if (rspData)
 			m_SpawnRequestManager.RequestSpawn(rspData);
+		
+		m_SpawnRequestManager.SGetOnLocalPlayerSpawned().Insert(Close);
+		lastChar = pc.GetControlledEntity();
+		m_SpawnRequestManager.SGetOnLocalPlayerSpawned().Insert(DeleteLastChar);
+		
+	}
+	
+	protected void DeleteLastChar() {
+		delete lastChar;
 	}
 	
 }
