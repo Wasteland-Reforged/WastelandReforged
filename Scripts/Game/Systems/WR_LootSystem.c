@@ -1,11 +1,21 @@
 class WR_LootSystem : GameSystem
 {
-	float m_fTimeElaspedS = 0.0;
+	float m_fTimeElaspedS = 0;
 	
-	float m_tickRateS = 60*3;
+	float m_tickRateS = 30;
 	
-	ref array<WR_LootSpawner> m_aLootSpawners = {};
+	private static int m_iSuccessfulSpawns = 0;
+	
+	static ref array<WR_LootSpawner> m_aLootSpawners;
+	
+	private const string LogPrefix = "WR_LootSystem: ";
 
+	protected override void OnStarted()
+	{
+		WR_Logger.LogNormal(LogPrefix + "Loot system started.");
+		RefreshAllLootSpawners();
+	}
+	
 	protected override void OnUpdate(ESystemPoint point)
 	{
 		float timeSlice = GetWorld().GetTimeSlice();
@@ -14,35 +24,44 @@ class WR_LootSystem : GameSystem
 		if (m_fTimeElaspedS >= m_tickRateS)
 		{
 			BeginUpdate();
-			Print("[WASTELAND] Spawning loot at " + m_aLootSpawners.Count() + " loot spawners...");
 			
-			int successfulSpawns;
-			RefreshAllLootSpawners(successfulSpawns);
+			RefreshAllLootSpawners();
 			
-			Update(); //< This is the call where entities are updated in batch
+			Update();
 			EndUpdate();
 			
-			Print("[WASTELAND] Loot spawned at " + successfulSpawns + " loot spawners.");
 			m_fTimeElaspedS = 0.0;
 		}
 	}
 	
-	protected int RefreshAllLootSpawners(out int successfulSpawns)
+	protected override void OnCleanup()
 	{
-		int itemsSpawned = 0;
+		m_aLootSpawners = null;
+		WR_Logger.LogNormal(LogPrefix + "Loot system cleaned up.");
+	}
+	
+	protected void RefreshAllLootSpawners()
+	{
+		if (!m_aLootSpawners || m_aLootSpawners.Count() == 0)
+			return;
+		
+		WR_Logger.LogNormal(LogPrefix + "Spawning items at loot spawners...");
+		m_iSuccessfulSpawns = 0;
 		
 		foreach (WR_LootSpawner ls : m_aLootSpawners)
 		{
-			bool success = ls.SpawnItem();
+			if (!ls)
+				continue;
+			
+			ls.TrySpawnLoot();
 			AddEntity(ls);
-			if (success) itemsSpawned++;
 		}
 		
-		return itemsSpawned;
+		WR_Logger.LogNormal(LogPrefix + "Items spawned at " + m_iSuccessfulSpawns + " of " + m_aLootSpawners.Count() + " loot spawners.");
 	}
-}
 
-class WR_LootSpawner : IEntity
-{
-	bool SpawnItem() {}
+	void IncreaseSuccessfulSpawns()
+	{
+		m_iSuccessfulSpawns++;
+	}
 }

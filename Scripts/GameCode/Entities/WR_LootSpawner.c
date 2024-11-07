@@ -3,29 +3,23 @@ class WR_LootSpawnerClass : GenericEntityClass{}
 
 class WR_LootSpawner : GenericEntity
 {
-	
     [Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContextType))]
 	WR_LootContextType m_LootContextType;
 
-	ref static array<WR_LootSpawner> lootSpawners;
 	vector m_WorldTransform[4];
 	
-    void ZEL_StaticLootSpawner(IEntitySource src, IEntity parent)
-    {
-		SetEventMask(EntityEvent.INIT);
-    }
-		
-	protected override void EOnInit(IEntity owner)
+	protected override void EOnActivate(IEntity owner)
 	{
-		super.EOnInit(owner);
+		super.EOnActivate(owner);
 		
-		if (!lootSpawners) 
+		if (!WR_LootSystem.m_aLootSpawners) 
 		{
-			lootSpawners = {};
-			Print("[Wasteland]: Initialized Loot Spawner Array");
+			WR_LootSystem.m_aLootSpawners = {};
+			WR_Logger.LogDebug("Initialized loot spawner array in loot system.");
 		}
 		
-		lootSpawners.Insert(this);
+		WR_LootSystem.m_aLootSpawners.Insert(this);
+		WR_Logger.LogDebug("Initialized loot spawner: " + this);
 	}
 
 	bool TrySpawnLoot()
@@ -58,14 +52,7 @@ class WR_LootSpawner : GenericEntity
 			AddChild(newEnt, -1, EAddChildFlags.NONE);
 		}
 		
+		WR_LootSystem.m_iSuccessfulSpawns++;
 		return true;
 	}
-	
-	void ~WR_LootSpawner()
-    {
-    }
-	
 }
-
-
-
