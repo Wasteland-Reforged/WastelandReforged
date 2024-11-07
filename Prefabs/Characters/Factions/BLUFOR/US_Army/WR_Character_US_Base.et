@@ -30,12 +30,14 @@ SCR_ChimeraCharacter : "{284E735C6C70DAD2}Prefabs/Characters/Factions/BLUFOR/US_
   BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
    Slots {
     LoadoutSlotInfo Hat {
+     Enabled 0
      Prefab "{F545C1BE7C99954A}Prefabs/Characters/HeadGear/Hat_Patrol_US_01/Hat_Patrol_US_01.et"
     }
     LoadoutSlotInfo Jacket {
      Prefab "{3CCA7A9BB4FD3197}Prefabs/Characters/Uniforms/Jacket_US_BDU_rolledup.et"
     }
     LoadoutSlotInfo Vest {
+     Enabled 0
      Prefab "{ED5574EA7F63B457}Prefabs/Characters/Vests/Vest_Type56/Vest_Type56.et"
     }
    }
@@ -53,7 +55,7 @@ SCR_ChimeraCharacter : "{284E735C6C70DAD2}Prefabs/Characters/Factions/BLUFOR/US_
      }
     }
     ItemsInitConfigurationItem "{621B2D25A7D4BA6A}" {
-     TargetStorage "Prefabs/Characters/Vests/Vest_Type56/Vest_Type56.et"
+     TargetStorage "Prefabs/Characters/Uniforms/Jacket_US_BDU_rolledup.et"
      PrefabsToSpawn {
       "{9C05543A503DB80E}Prefabs/Weapons/Magazines/Magazine_9x19_M9_15rnd_Ball.et" "{9C05543A503DB80E}Prefabs/Weapons/Magazines/Magazine_9x19_M9_15rnd_Ball.et" "{D41D22DD1B8E921E}Prefabs/Weapons/Grenades/M18/Smoke_M18_Green.et" "{3A421547BC29F679}Prefabs/Items/Equipment/Flashlights/Flashlight_MX991/Flashlight_MX991.et"
      }

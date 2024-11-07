@@ -1,0 +1,15 @@
+SCR_PreviewEntityComponent : "{6CADA7A88A6265FD}Prefabs/Editor/Components/PreviewEntityComponentClass.ct" {
+ m_bRuntime 0
+ m_aEntries {
+  SCR_BasePreviewEntry "{62520151D6555C1B}" {
+   m_iParentID -1
+   m_Mesh "{D28E5A40C135463E}Assets/Props/Military/Fortification/CzechHedgehog_01/CzechHedgehog_01.xob"
+   m_Flags EDITABLE
+   m_Shape MESH
+   m_iPivotID ""
+   m_vScale 1 1 1
+   m_vPosition 0 0 0
+   m_vAngles 0 0 0
+  }
+ }
+}

@@ -6,7 +6,7 @@ Vehicle : "{4085446E2B406849}Prefabs/Vehicles/Core/Vehicle_Base.et" {
    m_bUserActionActivationOnly 1
    m_bIsMasterProvider 1
    m_bRegisterAtBase 1
-   m_fBuildingRadius 75
+   m_fBuildingRadius 50
    m_aBudgetsToEvaluate {
     SCR_CampaignBuildingBudgetToEvaluateData "{623AEC0E5A3A228B}" {
      m_eBudget CAMPAIGN
@@ -32,5 +32,5 @@ Vehicle : "{4085446E2B406849}Prefabs/Vehicles/Core/Vehicle_Base.et" {
    }
   }
  }
- coords 1629.996 39 2838.888
+ coords 1364.805 39 2763.8
 }

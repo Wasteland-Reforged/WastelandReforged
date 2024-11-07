@@ -1,0 +1,31 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_EditableEntityComponent "{625216836BCD6C1F}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "TEST"
+    m_Image "{0DD84CC4F1E2885C}UI/Imagesets/game_template.edds"
+    m_sFaction "US"
+    m_aAuthoredLabels {
+     108 11
+    }
+    m_aAutoLabels {
+     1 121
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{62521683A63264C2}" {
+      m_BudgetType CAMPAIGN
+      m_Value 50
+     }
+    }
+   }
+  }
+  SCR_EditorLinkComponent "{62521683547C6D53}" {
+   m_aEntries {
+    SCR_EditorLinkEntry "{62521683A8B80316}" {
+    }
+   }
+  }
+ }
+ coords 1306.409 39 2737.607
+}

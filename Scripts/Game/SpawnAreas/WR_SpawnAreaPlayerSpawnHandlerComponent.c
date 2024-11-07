@@ -29,7 +29,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		Print("[WASTELAND] Inserted " + GetSpawnAreaName() + " into the player spawn handler component list.", LogLevel.SPAM);
 	}
 
-	static SCR_FreeSpawnData GetSpawnData(string factionKey)
+	static SCR_FreeSpawnData GetSpawnData(string factionKey, SpawnAreaCategory spawnCategory)
 	{
 		ResourceName characterPrefabName;
 		switch (factionKey)
@@ -49,7 +49,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		}
 
 		// Choose a spawn area and find a safe spawn position inside it
-		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = GetRandomSpawnArea();
+		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = GetRandomSpawnArea(spawnCategory);
 		if (!spawnArea) return null; // Fail if no spawn area found
 		
 		// Configure spawn position parameters
@@ -74,7 +74,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		return new SCR_FreeSpawnData(characterPrefabName, respawnPos, heading);
 	}
 
-	private static WR_SpawnAreaPlayerSpawnHandlerComponent GetRandomSpawnArea()
+	private static WR_SpawnAreaPlayerSpawnHandlerComponent GetRandomSpawnArea(SpawnAreaCategory spawnCategory)
 	{
 		array<WR_SpawnAreaPlayerSpawnHandlerComponent> spawnAreas = WR_SpawnAreaPlayerSpawnHandlerComponent.PlayerSpawnHandlerComponents;
 		
@@ -90,12 +90,23 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 			return null;
 		}
 
-		return WR_SpawnAreaPlayerSpawnHandlerComponent.PlayerSpawnHandlerComponents.GetRandomElement();
+		//Roll a random spawn area until it picks one in the selected region; Cannot handle null value for category
+		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = spawnAreas.GetRandomElement();
+		while (spawnArea.GetSpawnAreaCategory() != spawnCategory) {
+			spawnArea = spawnAreas.GetRandomElement();
+		}
+		
+		return spawnArea;
 	}
 
 	string GetSpawnAreaName()
 	{
 		return _parent.GetSpawnAreaName();
+	}
+	
+	SpawnAreaCategory GetSpawnAreaCategory()
+	{
+		return _parent.GetSpawnAreaCategory();
 	}
 	
 	void ~WR_SpawnAreaPlayerSpawnHandlerComponent()

@@ -1,8 +1,6 @@
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  SpawnArea_Chotain {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B4375502599}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -13,11 +11,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Chotain"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Durras {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B437BD3DE75}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -28,11 +25,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Durras"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_EntreDeux {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B436601FAC3}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -43,12 +39,18 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Entre Deux"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Etoupe {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B4360E7771A}" {
+   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+    Enabled 0
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
    }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    Enabled 0
     vehiclesPerSqKm 100
    }
   }
@@ -58,11 +60,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Etoupe"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Figari {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B43636BBA96}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -73,11 +74,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Figari"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Gravette {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B436D9DDBA4}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -88,11 +88,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Gravette"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Kermovan {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B4368C54DAA}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -103,11 +102,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Kermovan"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Lamentin {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B436AB4774F}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -118,11 +116,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Lamentin"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Laruns {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B43551F61D2}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -133,11 +130,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Laruns"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_LeMoule {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B4357E5B46D}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -148,11 +144,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Le Moule"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Levie {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B435220DB89}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -163,11 +158,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Levie"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_Meaux {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B435CFF2D14}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -178,11 +172,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Meaux"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Montignac {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B435F36CA9F}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -193,11 +186,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Montignac"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Morton {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B4359B35962}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -208,11 +200,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Morton"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Provins {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B43443C40A7}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -223,11 +214,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Provins"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Regina {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B4346AE16D5}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -238,11 +228,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Regina"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_StPhillipe {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B4341C93029}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -253,11 +242,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "St. Phillipe"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_StPierre {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B4343B45BCD}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -268,11 +256,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "St. Pierre"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_Tyrone {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B434E35F22B}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -282,12 +269,11 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   SphereRadius 100
   DrawShape 0
   ShapeColor 0 0 0 0
-  m_Name "Meaux"
+  m_Name "Tyrone"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Vernon {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B4348A15252}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -298,11 +284,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Vernon"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_Villeneuf {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B434B34AB45}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 100
    }
@@ -313,5 +298,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0 0 0
   m_Name "Villeneuf"
+  spawnAreaCategory SPAWN_CENTRAL
  }
 }

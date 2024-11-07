@@ -1,9 +1,9 @@
-SCR_AIGroup : "{D4A1576757665D02}Prefabs/Groups/US/WR_AIGroupSmall.et" {
+SCR_AIGroup : "{D4A1576757665D02}Prefabs/Groups/WR/WR_AIGroupSmall.et" {
  ID "13BAA835F61E3602"
  DangerEventRange 100
  m_faction "FIA"
  m_aUnitPrefabSlots + {
-  "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et"
+  "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et" "{8515E8BD26A5D5F8}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Randomized.et"
  }
  m_bSpawnImmediately 1
 }

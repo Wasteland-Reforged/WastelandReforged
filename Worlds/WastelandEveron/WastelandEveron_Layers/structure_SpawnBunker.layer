@@ -79,10 +79,6 @@ GenericEntity : "{533CDABD77C4C43E}Prefabs/Rocks/Granite/GraniteCliff_02.et" {
  angleZ -90
  scale 2
 }
-GenericEntity IntelligenceFolder_E_01_base_624A3712A6A0A0C8 : "{5CF603986376EAA9}Prefabs/Items/Misc/IntelligenceFolder_E_01/IntelligenceFolder_E_01_base.et" {
- coords 104.743 332.533 187.889
- angleY -139.366
-}
 GameEntity : "{616F4E93658E5A3A}Prefabs/Props/Military/Generators/GeneratorFloodlight_USSR_01.et" {
  coords 105.55 331.656 194.396
  angleY 56.721
@@ -157,23 +153,20 @@ $grp SCR_SpawnPoint : "{E7F4D5562F48DDE4}Prefabs/MP/Spawning/SpawnPoint_Base.et"
  {
   coords 110.969 333 198.255
   angleY 180
-  Flags 2097155
   m_fSpawnRadius 1
   m_sFaction "US"
  }
  {
   coords 111.422 333 198.236
   angleY 180
-  Flags 2097155
   m_fSpawnRadius 1
   m_sFaction "USSR"
  }
  {
   coords 111.185 333 197.98
   angleY 180
-  Flags 2097155
   m_fSpawnRadius 1
-  m_sFaction "CIV"
+  m_sFaction "FIA"
  }
 }
 GenericEntity : "{FDA8F11B3BD0C445}PrefabsEditable/Auto/Props/Construction/CableReel/E_CableReelWooden_01.et" {

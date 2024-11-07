@@ -2,8 +2,16 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 {
 	protected static const string TEXT_TITLE = "TextTitle";
 	protected static const string BUTTON_CLOSE = "ButtonClose";
-	protected static const string BUTTON_CHANGE = "ButtonChange";
-	protected static const string BUTTON_RESPAWN = "ButtonRespawn";
+	protected static const string BUTTON_RESPAWN_NORTH = "ButtonRespawnNorth";
+	protected static const string BUTTON_RESPAWN_CENTRAL = "ButtonRespawnCentral";
+	protected static const string BUTTON_RESPAWN_SOUTH = "ButtonRespawnSouth";
+	
+	SCR_ButtonTextComponent buttonClose;
+	SCR_ButtonTextComponent buttonRespawnNorth;
+	SCR_ButtonTextComponent buttonRespawnCentral;
+	SCR_ButtonTextComponent buttonRespawnSouth;
+	PlayerController pc;
+	IEntity lastChar;
 
 	//------------------------------------------------------------------------------------------------
 	protected override void OnMenuOpen()
@@ -11,33 +19,35 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 		Print("OnMenuOpen: menu/dialog opened!", LogLevel.NORMAL);
 
 		Widget rootWidget = GetRootWidget();
-		if (!rootWidget)
-		{
-			Print("Error in Layout Tutorial layout creation", LogLevel.ERROR);
-			return;
-		}
+		if (!rootWidget) return;
 
 		//Close Menu
-		SCR_ButtonTextComponent buttonClose = SCR_ButtonTextComponent.GetButtonText(BUTTON_CLOSE, rootWidget);
+		buttonClose = SCR_ButtonTextComponent.GetButtonText(BUTTON_CLOSE, rootWidget);
 		if (buttonClose)
 			buttonClose.m_OnClicked.Insert(Close);
 		else
 			Print("Button Close not found - won't be able to exit by button", LogLevel.WARNING);
-
-		/* Change button
-		SCR_ButtonTextComponent buttonChange = SCR_ButtonTextComponent.GetButtonText(BUTTON_CHANGE, rootWidget);
-		if (buttonChange)
-			buttonChange.m_OnClicked.Insert(AddItemToVehicle);
-		else
-			Print("Button Change not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
-		*/
 		
-		//Respawn button
-		SCR_ButtonTextComponent buttonRespawn = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN, rootWidget);
-		if (buttonRespawn)
-			buttonRespawn.m_OnClicked.Insert(RespawnPlayer);
+		//RespawnNorth button
+		buttonRespawnNorth = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_NORTH, rootWidget);
+		if (buttonRespawnNorth)
+			buttonRespawnNorth.m_OnClicked.Insert(RespawnPlayerNorth);
 		else
-			Print("Button Respawn not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
+			Print("Button RespawnNorth not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
+		
+		//RespawnCentral button
+		buttonRespawnCentral = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_CENTRAL, rootWidget);
+		if (buttonRespawnCentral)
+			buttonRespawnCentral.m_OnClicked.Insert(RespawnPlayerCentral);
+		else
+			Print("Button RespawnCentral not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
+		
+		//RespawnSouth button
+		buttonRespawnSouth = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_SOUTH, rootWidget);
+		if (buttonRespawnSouth)
+			buttonRespawnSouth.m_OnClicked.Insert(RespawnPlayerSouth);
+		else
+			Print("Button RespawnSouth not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
 
 
 		//ESC/Start listener
@@ -79,62 +89,57 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 	}
 
 	//------------------------------------------------------------------------------------------------
-	protected void ChangeText()
+	protected void RespawnPlayerNorth()
+	{
+		RequestCustomRespawn(SpawnAreaCategory.SPAWN_NORTH);
+	}
+	
+	protected void RespawnPlayerCentral()
+	{
+		RequestCustomRespawn(SpawnAreaCategory.SPAWN_CENTRAL);
+	}
+	
+	protected void RespawnPlayerSouth()
+	{
+		RequestCustomRespawn(SpawnAreaCategory.SPAWN_SOUTH);
+	}
+	
+	protected void RequestCustomRespawn(SpawnAreaCategory spawnCategory)
 	{
 		Widget rootWidget = GetRootWidget();
-		if (!rootWidget)
-			return;
-
+		if (!rootWidget) return;
+		
+		//Change Title Text
 		TextWidget textTitle = TextWidget.Cast(rootWidget.FindWidget(TEXT_TITLE));
-		if (!textTitle)
-		{
-			Print("Title as TextWidget could not be found", LogLevel.WARNING);
-			return;
-		}
+		textTitle.SetText("Waiting for respawn...");
+		
+		//Disable buttons while waiting for respawn
+		buttonRespawnNorth.m_OnClicked.Clear();
+		buttonRespawnCentral.m_OnClicked.Clear();
+		buttonRespawnSouth.m_OnClicked.Clear();
+		buttonClose.m_OnClicked.Clear();
+		
+		//Respawn Player
+		pc = GetGame().GetPlayerController();
+		SCR_RespawnComponent m_SpawnRequestManager = SCR_RespawnComponent.Cast(pc.GetRespawnComponent());
+		
+		SCR_PlayerFactionAffiliationComponent m_PlyFactionAffilComp = SCR_PlayerFactionAffiliationComponent.Cast(pc.FindComponent(SCR_PlayerFactionAffiliationComponent));
+		string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
 
-		string result;
-		switch (Math.RandomInt(1, 6))
-		{
-			case 1: result = "This is a title"; break;
-			case 2: result = "Random text"; break;
-			case 3: result = "Third text, actually"; break;
-			case 4: result = "Bonjour"; break;
-			case 5: result = "I like trains"; break;
-		}
-
-		textTitle.SetText(result);
+		SCR_FreeSpawnData rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey, spawnCategory);
+		if (rspData)
+			m_SpawnRequestManager.RequestSpawn(rspData);
+		
+		m_SpawnRequestManager.SGetOnLocalPlayerSpawned().Insert(Close);
+		lastChar = pc.GetControlledEntity();
+		m_SpawnRequestManager.SGetOnLocalPlayerSpawned().Insert(DeleteLastChar);
+		
 	}
 	
-	//------------------------------------------------------------------------------------------------
-	protected void RespawnPlayer()
-	{
-		vector respawnPos;
-		//bool respawnSuccessful = WR_SpawnAreaPlayerSpawnHandlerComponent.TryRespawnPlayer(respawnPos);
+	protected void DeleteLastChar() {
+		delete lastChar;
 	}
 	
-	//------------------------------------------------------------------------------------------------
-	protected void AddItemToVehicle()
-	{
-		string entityToFind = "PalletJack_Debug";
-		//string entityToFind = "Humvee";
-		IEntity storageEntity = GetGame().GetWorld().FindEntityByName(entityToFind);
-		SCR_UniversalInventoryStorageComponent storage = SCR_UniversalInventoryStorageComponent.Cast(storageEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
-		
-		SCR_InventoryStorageManagerComponent inventoryManager = SCR_InventoryStorageManagerComponent.Cast(storageEntity.FindComponent(SCR_InventoryStorageManagerComponent));
-		//SCR_VehicleInventoryStorageManagerComponent inventoryManager = SCR_VehicleInventoryStorageManagerComponent.Cast(storageEntity.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
-		
-		string prefab = "{3E413771E1834D2F}Prefabs/Weapons/Rifles/M16/Rifle_M16A2.et";
-		
-		//Resource resource = Resource.Load(prefab);
-		//ResourceName resourceName = new ResourceName(prefab);
-		
-		//IEntity item = GetGame().SpawnEntityPrefab(resource);
-		//bool successfullyInsertedItem = inventoryManager.TryInsertItem(item);
-		//bool successfullyInsertedItem = inventoryManager.TryInsertItemInStorage(item, storage);
-		bool successfullyInsertedItem = inventoryManager.TrySpawnPrefabToStorage(prefab, storage);
-		
-		Print(successfullyInsertedItem);
-	}
 }
 
 modded enum ChimeraMenuPreset

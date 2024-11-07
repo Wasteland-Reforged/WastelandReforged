@@ -7,7 +7,7 @@ class WR_LootBoxControllerComponentClass : SCR_BaseGameModeComponentClass
 class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 {	
 	// TODO: add validation and make these read from a global config
-	[Attribute("0.5", UIWidgets.Slider, "Average percentage of loot boxes to spawn on game start", "0 1 0.01")]
+	[Attribute("1", UIWidgets.Slider, "Average percentage of loot boxes to spawn on game start", "0 1 0.01")]
 	protected float percentageLootBoxesToSpawn;
 	
 	[Attribute("5", UIWidgets.Slider, "Minimum number of items to spawn in a loot box", "0 10 1")]
@@ -50,7 +50,7 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 		Print("[WASTELAND] WR_LootBoxControllerComponent: Spawning loot box(es)...", LogLevel.NORMAL);
 		
 		// Get loot spawning context
-		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(WR_LootContextType.LOOT_BOX);
+		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(WR_LootContextType.WEAPONS);
 		
 		int lootBoxesSpawned = 0;
 		foreach (WR_LootBoxComponent boxComponent : lootBoxComponents)
@@ -71,7 +71,7 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(boxOwner.FindComponent(SCR_UniversalInventoryStorageComponent));
 			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(boxOwner.FindComponent(SCR_InventoryStorageManagerComponent));
 
-			array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minLootBoxItems, maxLootBoxItems),  minExtraMags: 5, maxExtraMags: 15);
+			array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minLootBoxItems, maxLootBoxItems),  minExtraMags: 2, maxExtraMags: 5);
 			foreach (ResourceName item : items)
 				inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
 		}

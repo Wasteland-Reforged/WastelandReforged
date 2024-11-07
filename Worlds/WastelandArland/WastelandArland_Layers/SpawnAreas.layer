@@ -1,8 +1,6 @@
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  SpawnArea_Beauregard {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{6230D003C4B364FC}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -13,11 +11,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Beauregard"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Arleville {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{6230D0066FD4D6E4}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -28,11 +25,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Arleville"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Foxdale_Players {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B46ED875628}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     Enabled 0
     vehiclesPerSqKm 250
@@ -44,11 +40,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Foxdale"
+  spawnAreaCategory SPAWN_SOUTH
  }
  SpawnArea_Norwich {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B46D89EF22B}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -59,11 +54,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Norwich"
+  spawnAreaCategory SPAWN_NORTH
  }
  SpawnArea_Military {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62311B46DCB52405}" {
-   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -74,9 +68,13 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Military"
+  spawnAreaCategory SPAWN_CENTRAL
  }
  SpawnArea_Foxdale_Vehicles {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+    Enabled 0
+   }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
    }
@@ -93,6 +91,9 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Foxdale_Vehicles2 {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+    Enabled 0
+   }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
    }
