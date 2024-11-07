@@ -52,6 +52,10 @@ TimeAndWeatherManagerEntity TimeAndWeatherManager_624A3712A6AF9AD4 : "{A3BAF78F6
 }
 SCR_BaseGameMode GameMode_Wasteland1 : "{F396CD22253A0A00}Prefabs/MP/Modes/Wasteland/GameMode_Wasteland.et" {
  components {
+  ADM_ShopBaseComponent "{62CC5B7261CECB07}" {
+   m_ShopName ""
+   m_ShopConfig "{C747AFB6B750CE9A}Configs/System/chimeraMenus.conf"
+  }
   SCR_InitWeatherComponent "{62182B4329BA306B}" {
    Enabled 0
   }
