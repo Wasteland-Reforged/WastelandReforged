@@ -61,11 +61,6 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
 		float xzPaddingRadius = 3;		// Minimum radius of empty space to have around the chosen position
 		float yPaddingDistance = 10; 		// Minimum distance of empty space to have above and below the chosen position 
-
-		// Get loot spawning context
-		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(WR_LootContextType.RANDOM_VEHICLE);
-		int minItems = 2; // TODO: add validation and make these read from a global config
-		int maxItems = 6;
 		
 		// Select a random position				
 		vector spawnPos;
@@ -85,19 +80,10 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 		
-		//Remove initial items
-		if (!WR_Utils.RemoveAllItemsFromVehicle(vehicle))
-		{
-			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
-		}
+		SpawnVehicleLoot(vehicle);
 		
-		// Place weapons and items in inventory
-		auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
-		auto inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
-						
-		array<ResourceName> itemResourceNamesToSpawn = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 0, maxExtraMags: 4);
-		foreach (ResourceName name : itemResourceNamesToSpawn)
-			inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
+		//inventoryStorageManager.m_OnItemAddedInvoker.Insert(RespawnVehicleLoot);
+		//inventoryStorageManager.m_OnItemRemovedInvoker.Insert(RespawnVehicleLoot);
 		
 		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
 		if (Math.RandomFloat01() <= vehiclesSupplyChance) 
@@ -132,6 +118,33 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	protected void OnVehicleDeleted(SCR_AIVehicleUsageComponent comp)
 	{
 		_currentVehicles--;
+	}
+	
+	protected void RespawnVehicleLoot(IEntity item, BaseInventoryStorageComponent storageOwner)
+	{
+		IEntity vehicle = storageOwner.GetOwner();
+		
+	}
+	
+	protected void SpawnVehicleLoot(IEntity vehicle)
+	{
+		//Remove initial items
+		if (!WR_Utils.RemoveAllItemsFromVehicle(vehicle))
+		{
+			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
+		}
+		
+		SCR_UniversalInventoryStorageComponent inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
+		SCR_VehicleInventoryStorageManagerComponent inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+		
+		// Get loot spawning context
+		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(WR_LootContextType.RANDOM_VEHICLE);
+		int minItems = 2; // TODO: add validation and make these read from a global config
+		int maxItems = 6;
+		
+		array<ResourceName> itemResourceNamesToSpawn = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 0, maxExtraMags: 4);
+		foreach (ResourceName name : itemResourceNamesToSpawn)
+			inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
 	}
 	
 	void SpawnInitialVehicles(out int successfulVehSpawnCount)
