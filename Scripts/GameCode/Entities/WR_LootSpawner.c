@@ -52,7 +52,7 @@ class WR_LootSpawner : GenericEntity
 			AddChild(newEnt, -1, EAddChildFlags.NONE);
 		}
 		
-		WR_LootSystem.m_iSuccessfulSpawns++;
+		WR_LootSystem.CountSuccessfulSpawn();
 		return true;
 	}
 }

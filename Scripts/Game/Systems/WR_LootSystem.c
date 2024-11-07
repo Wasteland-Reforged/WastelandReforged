@@ -60,7 +60,7 @@ class WR_LootSystem : GameSystem
 		WR_Logger.LogNormal(LogPrefix + "Items spawned at " + m_iSuccessfulSpawns + " of " + m_aLootSpawners.Count() + " loot spawners.");
 	}
 
-	void IncreaseSuccessfulSpawns()
+	static void CountSuccessfulSpawn()
 	{
 		m_iSuccessfulSpawns++;
 	}
