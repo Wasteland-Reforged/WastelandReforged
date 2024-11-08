@@ -1,0 +1,24 @@
+GenericEntity : "{42894F191BC9EDE1}Prefabs/Props/Core/AmmoBox_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SCR_UniversalInventoryStorageComponent "{5476A2F100DF4EFF}" {
+   Attributes SCR_ItemAttributeCollection "{5476CDB2EAD8225E}" {
+    ItemPhysAttributes ItemPhysicalAttributes "{62D029530E492688}" {
+     Weight 15
+     SizeSetupStrategy Manual
+     ItemVolume 25002
+    }
+   }
+  }
+  UniversalInventoryStorageComponent "{58A17A341AB8F069}" {
+   Attributes SCR_ItemAttributeCollection "{58A17A346E386320}" {
+    ItemPhysAttributes ItemPhysicalAttributes "{62D02952880E636D}" {
+     Weight 15
+     SizeSetupStrategy Manual
+     ItemVolume 25002
+    }
+    m_bDraggable 1
+   }
+  }
+ }
+}
