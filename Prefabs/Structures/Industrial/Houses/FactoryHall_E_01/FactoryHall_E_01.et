@@ -1,0 +1,47 @@
+SCR_DestructibleBuildingEntity : "{A31C6EAC2D6E8BA2}Prefabs/Structures/Industrial/Houses/FactoryHall_E_01/FactoryHall_E_01_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF13E83D8E043"
+    coords -14.17 7.096 -3.828
+    m_LootContextType NONE
+   }
+   {
+    ID "62CEF13E83D8E052"
+    coords -7.183 7.193 -5.987
+    m_LootContextType NONE
+   }
+   {
+    ID "62CEF13E83D8E069"
+    coords -2.582 1.25 2.519
+    m_LootContextType NONE
+   }
+   {
+    ID "62CEF13E83D8E089"
+    coords 17.052 7.19 -0.231
+    m_LootContextType NONE
+   }
+   {
+    ID "62CEF13E83D8E09A"
+    coords -8.351 7.141 13.662
+    m_LootContextType NONE
+   }
+   {
+    ID "62CEF13E83D8E0AF"
+    coords 1.304 6.77 0.861
+    m_LootContextType NONE
+   }
+   {
+    ID "62CEF13E83D8E0BE"
+    coords 0.233 7.209 9.923
+    m_LootContextType NONE
+   }
+   {
+    ID "62CEF13E83D8E0EA"
+    coords 9.393 0.325 4.11
+    m_LootContextType NONE
+   }
+  }
+ }
+}

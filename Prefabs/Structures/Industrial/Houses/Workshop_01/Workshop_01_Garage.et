@@ -1,0 +1,15 @@
+SCR_DestructibleBuildingEntity : "{85C6B051DE85112B}Prefabs/Structures/Industrial/Houses/Workshop_01/Workshop_01_Garage_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF1208CF684D1"
+    coords -0.964 0.19 -1.099
+   }
+   {
+    ID "62CEF1208CF68708"
+    coords 1.723 0.326 1.865
+   }
+  }
+ }
+}

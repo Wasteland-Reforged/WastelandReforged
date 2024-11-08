@@ -1,0 +1,15 @@
+SCR_DestructibleBuildingEntity : "{8F342A3BBEADECD3}Prefabs/Structures/Recreation/Houses/Cottage_E_01/Cottage_E_01_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12D57562022"
+    coords -1.984 1.93 -1.585
+   }
+   {
+    ID "62CEF12D575621CB"
+    coords 1.961 1.51 -2.125
+   }
+  }
+ }
+}

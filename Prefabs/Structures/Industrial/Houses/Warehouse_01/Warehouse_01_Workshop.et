@@ -1,0 +1,15 @@
+SCR_DestructibleBuildingEntity : "{A43A100E3C377DB2}Prefabs/Structures/Core/Building_Base.et" {
+ ID "51DC7DF1A4094579"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF120985DC19C"
+    coords -0.506 1.01 -1.522
+   }
+   {
+    ID "62CEF120985DC1A2"
+    coords 2.712 0.695 -0.886
+   }
+  }
+ }
+}

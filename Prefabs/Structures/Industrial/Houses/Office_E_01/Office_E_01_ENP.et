@@ -1,0 +1,31 @@
+SCR_DestructibleBuildingEntity : "{74CBD673D67C58FF}Prefabs/Structures/Industrial/Houses/Office_E_01/Office_E_01_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12040183E18"
+    coords 0.884 4.254 -3.667
+   }
+   {
+    ID "62CEF12040183E2E"
+    coords -3.962 5.159 4.31
+   }
+   {
+    ID "62CEF12040183E34"
+    coords 6.028 4.725 2.062
+   }
+   {
+    ID "62CEF12040183E65"
+    coords -1.338 2.053 -2.754
+   }
+   {
+    ID "62CEF12040183FB0"
+    coords -6.936 1.528 5.551
+   }
+   {
+    ID "62CEF12040183FCF"
+    coords 6.205 2.067 5.53
+   }
+  }
+ }
+}

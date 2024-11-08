@@ -1,0 +1,35 @@
+SCR_DestructibleBuildingEntity : "{5094A4257B7F4FB4}Prefabs/Structures/Houses/Villa/Villa_E_2I01/Villa_E_2I01_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF15A929B10CD"
+    coords 2.388 4.212 4.892
+   }
+   {
+    ID "62CEF15A929B10D7"
+    coords 5.151 4.257 -1.502
+   }
+   {
+    ID "62CEF15A929B10EE"
+    coords 4.356 0.907 -0.855
+   }
+   {
+    ID "62CEF15A929B1301"
+    coords -5.631 7.3 1.54
+   }
+   {
+    ID "62CEF15A929B1310"
+    coords -2.814 1 0.004
+   }
+   {
+    ID "62CEF15A929B1326"
+    coords -1.318 4.3 -1.049
+   }
+   {
+    ID "62CEF15A929B1331"
+    coords 1.856 8.206 2.946
+   }
+  }
+ }
+}

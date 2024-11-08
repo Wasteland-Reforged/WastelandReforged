@@ -2,9 +2,11 @@ class WR_LootSystem : GameSystem
 {
 	float m_fTimeElaspedS = 0;
 	
-	float m_tickRateS = 30;
+	float m_tickRateS = 60;
 	
 	private static int m_iSuccessfulSpawns = 0;
+	private static float subsequentLootSpawnChance = 0.01;
+	private static float initialLootSpawnChance = 0.40;
 	
 	static ref array<WR_LootSpawner> m_aLootSpawners;
 	
@@ -13,7 +15,7 @@ class WR_LootSystem : GameSystem
 	protected override void OnStarted()
 	{
 		WR_Logger.LogNormal(LogPrefix + "Loot system started.");
-		RefreshAllLootSpawners();
+		RefreshLootSpawners(initialLootSpawnChance);
 	}
 	
 	protected override void OnUpdate(ESystemPoint point)
@@ -25,7 +27,7 @@ class WR_LootSystem : GameSystem
 		{
 			BeginUpdate();
 			
-			RefreshAllLootSpawners();
+			RefreshLootSpawners(subsequentLootSpawnChance);
 			
 			Update();
 			EndUpdate();
@@ -40,7 +42,7 @@ class WR_LootSystem : GameSystem
 		WR_Logger.LogNormal(LogPrefix + "Loot system cleaned up.");
 	}
 	
-	protected void RefreshAllLootSpawners()
+	protected void RefreshLootSpawners(float spawnChance)
 	{
 		if (!m_aLootSpawners || m_aLootSpawners.Count() == 0)
 			return;
@@ -51,6 +53,8 @@ class WR_LootSystem : GameSystem
 		foreach (WR_LootSpawner ls : m_aLootSpawners)
 		{
 			if (!ls)
+				continue;
+			if (Math.RandomFloat01() > spawnChance)
 				continue;
 			
 			ls.TrySpawnLoot();

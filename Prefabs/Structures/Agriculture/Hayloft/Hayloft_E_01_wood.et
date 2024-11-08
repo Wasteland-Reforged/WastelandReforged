@@ -1,0 +1,19 @@
+SCR_DestructibleBuildingEntity : "{DD1503B65ED9DA65}Prefabs/Structures/Agriculture/Hayloft/Hayloft_E_01_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12BACD58AB6"
+    coords -8.874 0.133 4.532
+   }
+   {
+    ID "62CEF12BACD58ACB"
+    coords 7.947 3.05 -1.064
+   }
+   {
+    ID "62CEF12BACD58AE3"
+    coords 7.585 1.003 -4.384
+   }
+  }
+ }
+}

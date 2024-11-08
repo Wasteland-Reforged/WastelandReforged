@@ -1,0 +1,15 @@
+SCR_DestructibleBuildingEntity : "{B1C6B4A379D1BB77}Prefabs/Structures/Houses/Garage/Garage_E_01/Garage_E_01_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF15004F5D92D"
+    coords -1.038 0.003 1.592
+   }
+   {
+    ID "62CEF1501B8EE080"
+    coords 0.831 0.003 -2.845
+   }
+  }
+ }
+}
