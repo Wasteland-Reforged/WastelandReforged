@@ -1,0 +1,19 @@
+SCR_DestructibleBuildingEntity : "{94D0F5E4365E59C7}Prefabs/Structures/Infrastructure/Power/TransformerStation_E_01/TransformerStation_E_01_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12C95260E64"
+    coords 2.213 0.04 1.012
+   }
+   {
+    ID "62CEF12C95260EAA"
+    coords 9.302 0.84 2.13
+   }
+   {
+    ID "62CEF12C95260EB7"
+    coords -9.775 0.04 -2.307
+   }
+  }
+ }
+}

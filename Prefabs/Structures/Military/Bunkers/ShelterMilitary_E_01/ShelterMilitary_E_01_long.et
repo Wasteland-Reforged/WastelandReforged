@@ -1,0 +1,15 @@
+SCR_DestructibleBuildingEntity : "{26A4193702B0EC4A}Prefabs/Structures/Military/Bunkers/ShelterMilitary_E_01/ShelterMilitary_E_01_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12F8312B62E"
+    coords -1.314 1.047 1.435
+   }
+   {
+    ID "62CEF12F8312B7F4"
+    coords 4.326 0.096 2.739
+   }
+  }
+ }
+}

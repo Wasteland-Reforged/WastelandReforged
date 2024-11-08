@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{26D21E6AD994B0D2}Prefabs/Structures/Military/Houses/GarageMilitary_E_01/GarageMilitary_E_01_V1.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

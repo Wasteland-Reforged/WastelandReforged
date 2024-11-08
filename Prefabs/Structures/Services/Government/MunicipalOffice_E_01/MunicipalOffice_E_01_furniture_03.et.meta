@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{43C3B523D286A513}Prefabs/Structures/Services/Government/MunicipalOffice_E_01/MunicipalOffice_E_01_furniture_03.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

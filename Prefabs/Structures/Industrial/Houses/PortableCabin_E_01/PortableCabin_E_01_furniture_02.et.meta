@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{FCC09B8751C55E41}Prefabs/Structures/Industrial/Houses/PortableCabin_E_01/PortableCabin_E_01_furniture_02.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

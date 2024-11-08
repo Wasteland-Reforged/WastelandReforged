@@ -1,0 +1,27 @@
+SCR_DestructibleBuildingEntity : "{E35EA41864A3B0ED}Prefabs/Structures/Industrial/Houses/Warehouse_01/Warehouse_01_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF120BE81B008"
+    coords -6.518 0.431 -3.503
+   }
+   {
+    ID "62CEF120BE81B04A"
+    coords 7.344 0.431 -5.61
+   }
+   {
+    ID "62CEF120BE81B05B"
+    coords 15.065 1.007 3.308
+   }
+   {
+    ID "62CEF120BE81B061"
+    coords 2.759 0.431 5.43
+   }
+   {
+    ID "62CEF120BE81B0AA"
+    coords -19.203 0.853 -3.113
+   }
+  }
+ }
+}

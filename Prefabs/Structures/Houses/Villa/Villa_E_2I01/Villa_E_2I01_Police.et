@@ -1,0 +1,43 @@
+SCR_DestructibleBuildingEntity : "{29CABA57BEA2A188}Prefabs/Structures/Houses/Villa/Villa_E_2I01/Villa_E_2I01_Police_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF15B6360DA23"
+    coords -2.999 -0 0.674
+   }
+   {
+    ID "62CEF15B6360DB8F"
+    coords 2.39 0.906 -2.098
+   }
+   {
+    ID "62CEF15B6360DB9C"
+    coords -5.675 0.467 -1.208
+   }
+   {
+    ID "62CEF15B6360DBAA"
+    coords 4.68 0.906 1.016
+   }
+   {
+    ID "62CEF15B6360DBC6"
+    coords 3.423 7.716 -0.545
+   }
+   {
+    ID "62CEF15B6360DBCB"
+    coords -5.053 4.402 -3.291
+   }
+   {
+    ID "62CEF15B6360DBD1"
+    coords -4.725 8.2 1.988
+   }
+   {
+    ID "62CEF15B6360DBE9"
+    coords 3.15 3.8 3.503
+   }
+   {
+    ID "62CEF15B6360DBFB"
+    coords 4.5 4.706 -2.362
+   }
+  }
+ }
+}

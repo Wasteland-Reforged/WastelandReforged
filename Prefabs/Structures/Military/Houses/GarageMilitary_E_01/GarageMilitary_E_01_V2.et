@@ -1,0 +1,31 @@
+SCR_DestructibleBuildingEntity : "{1E7AC996BD3B73A7}Prefabs/Structures/Military/Houses/GarageMilitary_E_01/GarageMilitary_E_01_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12FE5C1A4D2"
+    coords 0.573 1.245 7.722
+   }
+   {
+    ID "62CEF12FE5C1A4FA"
+    coords -1.965 1.392 -4.336
+   }
+   {
+    ID "62CEF12FE5C1A70F"
+    coords 23.352 0.824 -6.06
+   }
+   {
+    ID "62CEF12FE5C1A71D"
+    coords -17.116 1.453 -1.777
+   }
+   {
+    ID "62CEF12FE5C1A722"
+    coords 7.636 0.575 -5.853
+   }
+   {
+    ID "62CEF12FE5C1A733"
+    coords 18.766 0.824 -0.071
+   }
+  }
+ }
+}

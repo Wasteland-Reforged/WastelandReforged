@@ -1,0 +1,39 @@
+SCR_DestructibleBuildingEntity : "{9ABD5AF92E43D2AA}Prefabs/Structures/Commercial/Shops/ShopModern_E_01_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF15ABEF3C080"
+    coords 9.784 0.907 -12.377
+   }
+   {
+    ID "62CEF15ABEF3C0C6"
+    coords -1.74 0.804 -9.802
+   }
+   {
+    ID "62CEF15ABEF3C0D3"
+    coords -4.024 0.645 -2.404
+   }
+   {
+    ID "62CEF15ABEF3C0E0"
+    coords 5.091 1.153 -10.167
+   }
+   {
+    ID "62CEF15ABEF3C0F0"
+    coords 3.246 -0 -0.303
+   }
+   {
+    ID "62CEF15ABEF3C309"
+    coords 10.392 1.039 1.517
+   }
+   {
+    ID "62CEF15ABEF3C32D"
+    coords -10.567 0.647 -7.093
+   }
+   {
+    ID "62CEF15ABEF3C33E"
+    coords 1.183 0 -11.486
+   }
+  }
+ }
+}

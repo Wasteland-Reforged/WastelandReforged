@@ -1,0 +1,47 @@
+SCR_DestructibleBuildingEntity : "{80F53B22769563A5}Prefabs/Structures/Services/Hotels/MountainHotel_01/MountainHotel_01_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12D91CF0808"
+    coords -5.085 3.9 -8.341
+   }
+   {
+    ID "62CEF12D91CF081A"
+    coords -9.628 4.328 -2.021
+   }
+   {
+    ID "62CEF12D91CF0820"
+    coords 10.307 3.876 -8.444
+   }
+   {
+    ID "62CEF12D91CF083F"
+    coords 2.2 3.98 -8.263
+   }
+   {
+    ID "62CEF12D91CF086A"
+    coords 3.575 0.38 -4.722
+   }
+   {
+    ID "62CEF12D91CF09BF"
+    coords 9.387 0.801 -1.64
+   }
+   {
+    ID "62CEF12D91CF09C2"
+    coords -12.169 0.647 2.367
+   }
+   {
+    ID "62CEF12D91CF09D2"
+    coords -1.032 3.853 -2.314
+   }
+   {
+    ID "62CEF12D91CF09EB"
+    coords 10.842 0.899 -9.163
+   }
+   {
+    ID "62CEF12D91CF09F9"
+    coords -12.684 0.897 -8.503
+   }
+  }
+ }
+}

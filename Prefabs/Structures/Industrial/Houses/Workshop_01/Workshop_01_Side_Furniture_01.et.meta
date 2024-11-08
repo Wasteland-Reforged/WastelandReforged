@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{0CD51F336F1DEDAF}Prefabs/Structures/Industrial/Houses/Workshop_01/Workshop_01_Side_Furniture_01.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

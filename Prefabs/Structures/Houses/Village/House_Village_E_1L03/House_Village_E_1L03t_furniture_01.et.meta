@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{61D46D733A12F950}Prefabs/Structures/Houses/Village/House_Village_E_1L03/House_Village_E_1L03t_furniture_01.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

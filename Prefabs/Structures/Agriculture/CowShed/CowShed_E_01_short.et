@@ -1,0 +1,19 @@
+SCR_DestructibleBuildingEntity : "{07452F959762A7C0}Prefabs/Structures/Agriculture/CowShed/CowShed_E_01_short_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12BC82F6895"
+    coords -5.473 1.003 20.096
+   }
+   {
+    ID "62CEF12BC82F68DC"
+    coords -6.821 0.132 -10.962
+   }
+   {
+    ID "62CEF12BC82F6B25"
+    coords 4.583 0.901 20.622
+   }
+  }
+ }
+}

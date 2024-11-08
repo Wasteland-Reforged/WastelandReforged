@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{738932BF742FCD8A}Prefabs/Structures/Houses/Village/House_Mountain_E_1I01/House_Mountain_E_1I01_furniture_01.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

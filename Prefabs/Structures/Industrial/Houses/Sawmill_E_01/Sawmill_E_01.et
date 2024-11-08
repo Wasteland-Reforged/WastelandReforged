@@ -1,0 +1,19 @@
+SCR_DestructibleBuildingEntity : "{63F42771BBDF3915}Prefabs/Structures/Industrial/Houses/Sawmill_E_01/Sawmill_E_01_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF120029F249B"
+    coords -6.799 0.926 -11.835
+   }
+   {
+    ID "62CEF120029F24A2"
+    coords 2.879 1.13 1.838
+   }
+   {
+    ID "62CEF120029F24E8"
+    coords -4.51 1.022 15.264
+   }
+  }
+ }
+}

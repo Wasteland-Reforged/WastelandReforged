@@ -1,0 +1,19 @@
+SCR_DestructibleBuildingEntity : "{906CB40C3D7DBA68}Prefabs/Structures/Military/Houses/GuardHouse_02/GuardHouse_02_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12FCB440D8D"
+    coords 5.028 1.007 -4.435
+   }
+   {
+    ID "62CEF12FCB440D91"
+    coords -4.947 0.36 4.166
+   }
+   {
+    ID "62CEF12FCB440DAC"
+    coords 5.033 1.06 1.463
+   }
+  }
+ }
+}

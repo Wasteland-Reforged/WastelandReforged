@@ -1,0 +1,47 @@
+SCR_DestructibleBuildingEntity : "{A5E49CC9C7C6E1E3}Prefabs/Structures/Infrastructure/Power/DieselPowerPlant_01/DieselPowerPlant_01_Base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12CDDECCC50"
+    coords 13.969 1.215 6.496
+   }
+   {
+    ID "62CEF12CDDECCC78"
+    coords 7.715 1.07 15.415
+   }
+   {
+    ID "62CEF12CDDECCC80"
+    coords 1.926 0.322 2.936
+   }
+   {
+    ID "62CEF12CDDECCCA6"
+    coords 12.014 1.583 3.056
+   }
+   {
+    ID "62CEF12CDDECCCB0"
+    coords 9.989 1.457 -6.923
+   }
+   {
+    ID "62CEF12CDDECCCC0"
+    coords 10.624 9.076 1.9
+   }
+   {
+    ID "62CEF12CDDECCCDD"
+    coords 10.282 12.776 9.064
+   }
+   {
+    ID "62CEF12CDDECCCE4"
+    coords 12.238 4.861 4.238
+   }
+   {
+    ID "62CEF12CDDECCCEB"
+    coords 7.102 4.37 -8.56
+   }
+   {
+    ID "62CEF12CDDECCCF6"
+    coords 10.041 9.076 6.901
+   }
+  }
+ }
+}

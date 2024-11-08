@@ -1,0 +1,9 @@
+WR_LootSpawner {
+ ID "62CE37A24481F0A6"
+ components {
+  RplComponent "{62CE37A24481F0BF}" {
+  }
+ }
+ coords -0.022 6.986 0.455
+ m_LootContextType NONE
+}

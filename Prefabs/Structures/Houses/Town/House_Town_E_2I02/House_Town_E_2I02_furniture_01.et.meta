@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{D81A03126A4E3067}Prefabs/Structures/Houses/Town/House_Town_E_2I02/House_Town_E_2I02_furniture_01.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

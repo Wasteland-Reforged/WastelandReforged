@@ -1,0 +1,35 @@
+GenericEntity : "{28411B0C79460DF8}Prefabs/Structures/Core/BuildingFurniture_base.et" {
+ ID "56A8CBB92342240A"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF151BF755145"
+    coords -2.501 5.207 -3.348
+   }
+   {
+    ID "62CEF151BF75514A"
+    coords 4.206 0.69 -1.682
+   }
+   {
+    ID "62CEF151BF755155"
+    coords -4.886 4.802 5.435
+   }
+   {
+    ID "62CEF151BF75516F"
+    coords 4.02 1.098 5.056
+   }
+   {
+    ID "62CEF151BF75518E"
+    coords -2.549 7.607 4.956
+   }
+   {
+    ID "62CEF151BF7551A6"
+    coords 0.174 5.2 5.992
+   }
+   {
+    ID "62CEF151BF7551B3"
+    coords 5.321 8.014 -0.564
+   }
+  }
+ }
+}

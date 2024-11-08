@@ -1,0 +1,35 @@
+GenericEntity {
+ ID "567C948ADE788C83"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF152447B9A22"
+    coords 1.238 6.812 -2.264
+   }
+   {
+    ID "62CEF152447B9B81"
+    coords -6.872 1.214 -4.571
+   }
+   {
+    ID "62CEF152447B9B95"
+    coords 7.782 1.097 -0.282
+   }
+   {
+    ID "62CEF152447B9BA0"
+    coords -6.513 0.678 1.778
+   }
+   {
+    ID "62CEF152447B9BC9"
+    coords -5.605 4.396 3.9
+   }
+   {
+    ID "62CEF152447B9BDC"
+    coords -3.959 3.987 -1.121
+   }
+   {
+    ID "62CEF152447B9BFA"
+    coords 1.354 4.397 1.42
+   }
+  }
+ }
+}

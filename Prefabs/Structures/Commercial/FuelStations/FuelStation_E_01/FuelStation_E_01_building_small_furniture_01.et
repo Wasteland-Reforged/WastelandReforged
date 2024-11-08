@@ -1,0 +1,9 @@
+GenericEntity : "{28411B0C79460DF8}Prefabs/Structures/Core/BuildingFurniture_base.et" {
+ ID "56A8CBB92342240A"
+ {
+  WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   ID "62CEF1504C132FCE"
+   coords 0.831 0.436 -0.871
+  }
+ }
+}

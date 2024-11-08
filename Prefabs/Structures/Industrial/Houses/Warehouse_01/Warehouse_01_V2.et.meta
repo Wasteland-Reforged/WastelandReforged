@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{F6CCBBDD7EDF3BEC}Prefabs/Structures/Industrial/Houses/Warehouse_01/Warehouse_01_V2.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

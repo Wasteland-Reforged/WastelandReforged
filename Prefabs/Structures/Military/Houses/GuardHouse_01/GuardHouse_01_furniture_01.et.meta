@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{48CE21CDFAA1AB54}Prefabs/Structures/Military/Houses/GuardHouse_01/GuardHouse_01_furniture_01.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

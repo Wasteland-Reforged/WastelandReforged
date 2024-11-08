@@ -1,0 +1,15 @@
+SCR_DestructibleBuildingEntity : "{F3C04211BAE932F2}Prefabs/Structures/Agriculture/WeightStation/WeightStation_01_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "62CEF12B84B21551"
+    coords -1.445 0.885 2.767
+   }
+   {
+    ID "62CEF12B84B2158B"
+    coords -1.26 1.013 -2.971
+   }
+  }
+ }
+}
