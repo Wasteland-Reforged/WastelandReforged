@@ -1,6 +1,10 @@
 enum WR_MissionStatus
-{
-    InProgress = 1,
-    Complete = 2,
-	Failed = 4
+{ 
+	Created,
+    Pending,
+	InProgress,
+    Complete,
+	Failed,
+	Deleted,
+	AwaitingCleanup
 }

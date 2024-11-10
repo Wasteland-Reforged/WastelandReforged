@@ -1,44 +1,51 @@
-class WR_Logger
+// TODO: come up with a nice way to call this class in static methods
+class WR_Logger<Class T>
 {
 	private const string m_sLogPrefix = "[WASTELAND] ";
+	private string m_sLoggingContextName;
 	
-	static void LogSpam(string msg)
+	void WR_Logger(T tInstance)
+	{
+		m_sLoggingContextName = tInstance.ClassName() + ": ";
+	}
+
+	void LogSpam(string msg)
 	{
 		Print(FormatMessage(msg), LogLevel.SPAM);
 	}
 	
-	static void LogVerbose(string msg)
+	void LogVerbose(string msg)
 	{
 		Print(FormatMessage(msg), LogLevel.VERBOSE);
 	}
 	
-	static void LogDebug(string msg)
+	void LogDebug(string msg)
 	{
 		Print(FormatMessage(msg), LogLevel.DEBUG);
 	}
 	
-	static void LogNormal(string msg)
+	void LogNormal(string msg)
 	{
 		Print(FormatMessage(msg), LogLevel.NORMAL);
 	}
 	
-	static void LogWarning(string msg)
+	void LogWarning(string msg)
 	{
 		Print(FormatMessage(msg), LogLevel.WARNING);
 	}
 	
-	static void LogError(string msg)
+	void LogError(string msg)
 	{
 		Print(FormatMessage(msg), LogLevel.ERROR);
 	}
 	
-	static void LogFatal(string msg)
+	void LogFatal(string msg)
 	{
 		Print(FormatMessage(msg), LogLevel.VERBOSE);
 	}
 	
-	private static string FormatMessage(string msg)
+	private string FormatMessage(string msg)
 	{
-		return m_sLogPrefix + msg;
+		return m_sLogPrefix + m_sLoggingContextName + msg;
 	}
 }

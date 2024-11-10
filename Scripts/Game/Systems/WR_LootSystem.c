@@ -1,5 +1,7 @@
 class WR_LootSystem : GameSystem
 {
+	ref WR_Logger<WR_LootSystem> logger = new WR_Logger<WR_LootSystem>(this);
+	
 	float m_fTimeElaspedS = 0;
 	
 	float m_tickRateS = 60;
@@ -14,7 +16,7 @@ class WR_LootSystem : GameSystem
 
 	protected override void OnStarted()
 	{
-		WR_Logger.LogNormal(LogPrefix + "Loot system started.");
+		logger.LogNormal("Loot system started.");
 		RefreshLootSpawners(initialLootSpawnChance);
 	}
 	
@@ -39,7 +41,7 @@ class WR_LootSystem : GameSystem
 	protected override void OnCleanup()
 	{
 		m_aLootSpawners = null;
-		WR_Logger.LogNormal(LogPrefix + "Loot system cleaned up.");
+		logger.LogNormal("Loot system cleaned up.");
 	}
 	
 	protected void RefreshLootSpawners(float spawnChance)
@@ -47,7 +49,7 @@ class WR_LootSystem : GameSystem
 		if (!m_aLootSpawners || m_aLootSpawners.Count() == 0)
 			return;
 		
-		WR_Logger.LogNormal(LogPrefix + "Spawning items at loot spawners...");
+		logger.LogNormal("Spawning items at loot spawners...");
 		m_iSuccessfulSpawns = 0;
 		
 		foreach (WR_LootSpawner ls : m_aLootSpawners)
@@ -61,7 +63,7 @@ class WR_LootSystem : GameSystem
 			AddEntity(ls);
 		}
 		
-		WR_Logger.LogNormal(LogPrefix + "Items spawned at " + m_iSuccessfulSpawns + " of " + m_aLootSpawners.Count() + " loot spawners.");
+		logger.LogNormal("Items spawned at " + m_iSuccessfulSpawns + " of " + m_aLootSpawners.Count() + " loot spawners.");
 	}
 
 	static void CountSuccessfulSpawn()

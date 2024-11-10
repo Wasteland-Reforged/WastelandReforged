@@ -231,6 +231,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    maxLootBoxItems 12
   }
   WR_MissionControllerComponent "{61E85922C998A746}" {
+   Enabled 0
    m_Config WR_MissionControllerConfig "{62482631BBBC5EB9}" {
     m_iMaxActiveMissions 1
     m_fInitialMissionDelay 0.1
