@@ -1,228 +1,180 @@
 class WR_Mission
 {
-	// Replicated properties
-	protected int m_iMissionId;
-	protected WR_MissionType m_eType = WR_MissionType.EMPTY;
-	protected WR_MissionStatus m_eStatus;
-	protected vector m_vPosition;
-	
-	// Other properties
-	protected ref WR_MissionDefinition m_Definition; // Contains info about mission reward, NPCs, props, etc.
-	protected ref SCR_MapMarkerBase m_Marker; // Map marker indicating location and status
-	protected WR_MissionLocationEntity m_MissionLocation;
-	protected WorldTimestamp m_LastStepCompletedTime;
-	
-	// Entities - the entities for which this mission is responsible (props, AI, etc.) are tracked for clean-up purposes
-	protected IEntity m_aRewards;
-	protected IEntity m_Prop;
-	protected ref array<SCR_AIGroup> m_aAiGroups = {};
+	WR_MissionLocationEntity m_Location;
+	WR_MissionDefinition m_Definition;
+	WR_MissionStatus m_eStatus;
+	int m_iCompletedByPlayerId;
 
-	static WR_Mission CreateMission(int id, WR_MissionType type)
+	IEntity m_PropEntity;
+	array<IEntity> m_aRewards;
+	array<SCR_AIGroup> m_aGroups;
+
+	void WR_Mission(notnull WR_MissionLocationEntity location, notnull WR_MissionDefinition definition)
 	{
-		WR_Mission mission = new WR_Mission();
-		
-		mission.m_iMissionId = id;
-		mission.m_eType = type;
-		mission.m_eStatus = WR_MissionStatus.InProgress;
-		
-		return mission;
-	}
-	
-	int GetMissionId()
-	{
-		return m_iMissionId;
-	}
-	
-	void SetMissionId(int missionId)
-	{
-		m_iMissionId = missionId;
-	}
-	
-	WR_MissionType GetType()
-	{
-		return m_eType;
-	}
-	
-	void SetType(WR_MissionType type)
-	{
-		m_eType = type;
-	}
-	
-	WR_MissionStatus GetStatus()
-	{
-		return m_eStatus;
-	}
-	
-	void SetStatus(WR_MissionStatus status)
-	{
-		m_eStatus = status;
-	}
-	
-	vector GetPosition()
-	{
-		return m_vPosition;
-	}
-	
-	void SetPosition(vector position)
-	{
-		m_vPosition = position;
-	}
-	
-	string GetName()
-	{
-		if (!m_Definition)
-		{
-			Print("[WASTELAND] WR_Mission: Cannot retrieve mission name! Mission definition is missing", LogLevel.ERROR);
-			return "";
-		}
-		
-		return m_Definition.m_sName;
-	}
-	
-	bool IsEmptyMission()
-	{
-		return m_eType == WR_MissionType.EMPTY;
-	}
-	
-	string GetDescription()
-	{
-		if (!m_Definition)
-		{
-			Print("[WASTELAND] WR_Mission: Cannot retrieve mission description! Mission definition is missing", LogLevel.ERROR);
-			return "";
-		}
-		
-		return m_Definition.m_sDescription;
-	}
-	
-	WR_MissionDefinition GetDefinition()
-	{
-		return m_Definition;	
-	}
-	
-	void SetDefinition(WR_MissionDefinition definition)
-	{
+		m_Location = location;
 		m_Definition = definition;
 	}
 	
-	SCR_MapMarkerBase GetMarker()
+	protected bool StartMission()
 	{
-		return m_Marker;
-	}
-	
-	void SetMarker(SCR_MapMarkerBase marker)
-	{
-		m_Marker = marker;
-	}
-	
-	array<IEntity> GetMissionEntities()
-	{
-		array<IEntity> entities = {};
+		if (!SpawnProp() || !SpawnRewards() || !SpawnAIGroups())
+		{
+			m_eStatus = WR_MissionStatus.Failed;
+			DeleteMissionEntities();
+			return false;
+		}
 		
-		entities.Insert(m_aRewards);
-		entities.Insert(m_Prop);
+		m_eStatus = WR_MissionStatus.InProgress;
+		return true;
+	}
+	
+	protected bool SpawnProp()
+	{
+		ResourceName propResource = m_Definition.m_sPropPrefab;
+		if (!propResource) return true;
 		
-		// Have to insert one by one because array does not auto upcast when using InsertAll
-		foreach (SCR_AIGroup group : m_aAiGroups)
-			entities.Insert(group);
+		m_PropEntity = WR_Utils.SpawnPrefabInWorld(propResource, m_Location.GetOrigin());
+		if (!m_PropEntity) {
+			Print("[WASTELAND]: WR_Mission: Mission prop failed to spawn!", LogLevel.ERROR);
+			return false;
+		}
 		
-		return entities;
+		return true;
 	}
 	
-	void SetMissionEntities(IEntity rewards, IEntity prop, array<SCR_AIGroup> aiGroups)
+	protected bool SpawnRewards()
 	{
-		m_aRewards = rewards;
-		m_Prop = prop;
-		m_aAiGroups = aiGroups;
+		for (int i = 0; i < m_Definition.m_iNumberOfRewards; i++)
+		{
+			// Get Random Reward Resource
+			ResourceName rewardPrefab = m_Definition.m_sRewardPrefabChoices.GetRandomElement();
+			if (!rewardPrefab) {
+				Print("[WASTELAND]: WR_Mission: No reward prefabs defined for mission that requires rewards", LogLevel.ERROR);
+				return false;
+			}
+			
+			// Get Random Safe Position
+			vector spawnPos;
+			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, m_Location.GetOrigin(), 1.0, 10.0, 10.0, 2.0);
+			if (!safePosFound) {
+				Print("[WASTELAND] WR_Mission: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
+				return false;
+			}
+			
+			// Attempt to Spawn Reward
+			IEntity rewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefab, spawnPos);
+			if (!rewardEntity) {
+				Print("[WASTELAND] WR_Mission: Mission reward failed to spawn!", LogLevel.ERROR);
+				return false;
+			}
+			
+			WR_Utils.RandomlyRotateAndOrientEntity(rewardEntity);
+			m_aRewards.Insert(rewardEntity);
+			
+			// Check if we need to fill reward with loot
+			if (m_Definition.m_eLootContext == WR_LootContextType.NONE) continue;
+			
+			// Fill with Loot----------------------------------------------------------------------------------------------------------------------------------
+			WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(m_Definition.m_eLootContext);
+			int minItems = m_Definition.m_iMinItemsInBox;
+			int maxItems = m_Definition.m_iMaxItemsInBox;
+			
+			// Find the prefabs InventoryStorageManager, which may be a regular one, or a vehicle one
+			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));
+			if (!inventoryStorageManager) 
+				inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+			
+			// Insert Randomly Selected Items
+			if (inventoryStorageManager)
+			{
+				auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
+				
+				array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 5,  maxExtraMags: 12);
+				foreach (ResourceName item : items) {
+					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
+				}
+			}
+			
+			//Insert OnDestroy function for vehicles
+			auto vehicleDamageManager = SCR_VehicleDamageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleDamageManagerComponent));
+			if (vehicleDamageManager)
+				vehicleDamageManager.GetOnVehicleDestroyed().Insert(OnRewardDestroyed);
+		}
+		
+		return true;
 	}
 	
-	ref array<SCR_AIGroup> GetAiGroups()
+	protected bool SpawnAIGroups()
 	{
-		return m_aAiGroups;
-	}
-	
-	WR_MissionLocationEntity GetMissionLocation()
-	{
-		return m_MissionLocation;
-	}
-	
-	void SetMissionLocation(WR_MissionLocationEntity location)
-	{
-		m_MissionLocation = location;
-		m_vPosition = location.GetOrigin();
-	}
-	
-	WorldTimestamp GetLastStepCompletedTime()
-	{
-		return m_LastStepCompletedTime;
-	}
-	
-	void SetLastStepCompletedTime(WorldTimestamp time)
-	{
-		m_LastStepCompletedTime = time;
-	}
-	
-	/////////////////////////////
-	/* Replication codec below */
-	/////////////////////////////
-	
-	static bool Extract(WR_Mission instance, ScriptCtx ctx, SSnapSerializerBase snapshot)
-    {
-		// Convert instance to snapshot
-		snapshot.SerializeInt(instance.m_iMissionId);
-		snapshot.SerializeInt(instance.m_eType);
-		snapshot.SerializeInt(instance.m_eStatus);
-		snapshot.SerializeVector(instance.m_vPosition);
+		foreach (ResourceName aiGroupResource : m_Definition.m_aAIGroupPrefabs)
+		{
+			// Find a safe spot for the NPCs to spawn
+			vector spawnPos;
+			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, m_Location.GetOrigin(), 1.0, 10.0, 1.0, 1.0);
+			if (!safePosFound) {
+				Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for a mission AI Group!", LogLevel.ERROR);
+				return false;
+			}	
+			
+			// Spawn the group prefab
+			IEntity aiGroupEntity = WR_Utils.SpawnPrefabInWorld(aiGroupResource, spawnPos);
+			SCR_AIGroup aiGroup = SCR_AIGroup.Cast(aiGroupEntity);
+			if (!aiGroup) {
+				Print("[WASTELAND] WR_MissionControllerComponent: AI Group was not spawned!", LogLevel.ERROR);
+				return false;
+			}	
+			
+			// Configure Group
+			aiGroup.SetDeleteWhenEmpty(true);
+			aiGroup.SetFaction(GetGame().GetFactionManager().GetFactionByKey("CIV"));	
 
+			// Set group waypoint to defend mission location
+			ResourceName waypointResource = "{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et";
+			IEntity waypointEntity = WR_Utils.SpawnPrefabInWorld(waypointResource, m_Location.GetOrigin());
+			SCR_AIWaypoint waypoint = SCR_AIWaypoint.Cast(waypointEntity);
+			aiGroup.AddWaypoint(waypoint);
+			
+			m_aGroups.Insert(aiGroup);
+		}
 		return true;
-    }
- 
-    static bool Inject(SSnapSerializerBase snapshot, ScriptCtx ctx, WR_Mission instance)
-    {
-		// Convert snapshot to instance
-        snapshot.SerializeInt(instance.m_iMissionId);
-        snapshot.SerializeInt(instance.m_eType);
-        snapshot.SerializeInt(instance.m_eStatus);
-        snapshot.SerializeVector(instance.m_vPosition);
-        
-		return true;
-    }
- 
-    static void Encode(SSnapSerializerBase snapshot, ScriptCtx ctx, ScriptBitSerializer packet)
-    {
-		// Compress snapshot into packet
-        snapshot.EncodeInt(packet);
-        snapshot.EncodeInt(packet);
-        snapshot.EncodeInt(packet);
-        snapshot.EncodeVector(packet);
-    }
- 
-    static bool Decode(ScriptBitSerializer packet, ScriptCtx ctx, SSnapSerializerBase snapshot)
-    {
-		// Decompress packet into snapshot
-        snapshot.DecodeInt(packet);
-        snapshot.DecodeInt(packet);
-        snapshot.DecodeInt(packet);
-        snapshot.DecodeVector(packet);
-        
-		return true;
-    }
- 
-    static bool SnapCompare(SSnapSerializerBase lhs, SSnapSerializerBase rhs, ScriptCtx ctx)
-    {	
-		// Compare two snapshots
-		return lhs.CompareSnapshots(rhs, 4+4+4+12);   // int32, int32, int32, vector
-    }
- 
-    static bool PropCompare(WR_Mission instance, SSnapSerializerBase snapshot, ScriptCtx ctx)
-    {
-		// Compare instance and snapshot
-        bool result =
-			snapshot.CompareInt(instance.m_iMissionId)
-			&& snapshot.CompareInt(instance.m_eType)
-			&& snapshot.CompareInt(instance.m_eStatus)
-			&& snapshot.CompareVector(instance.m_vPosition);
+	}
+	
+	protected bool AreAllNPCsDead()
+	{
+		foreach (SCR_AIGroup group : m_aGroups)
+			if (group) return false;
 		
-		return result;
-    }
+		return true;
+	}
+	
+	protected void OnPlayerEnteredMissionLocation()
+	{
+		if (!AreAllNPCsDead()) 
+			return;
+		
+		m_eStatus = WR_MissionStatus.Complete;
+		//m_iCompletedByPlayerId = ?
+	}
+	
+	protected void OnRewardDestroyed(int playerID)
+	{
+		//If Mission was already completed, we don't care if reward is destroyed
+		if (m_eStatus == WR_MissionStatus.Complete) return;
+		
+		m_eStatus = WR_MissionStatus.Failed;
+	}
+	
+	protected void DeleteMissionEntities()
+	{
+		//Delete Prop and AI Groups
+		SCR_EntityHelper.DeleteEntityAndChildren(m_PropEntity);
+		foreach (SCR_AIGroup group : m_aGroups)
+			SCR_EntityHelper.DeleteEntityAndChildren(group);
+		
+		//If mission was completed, we do not need to clean up rewards
+		if (m_eStatus == WR_MissionStatus.Complete) return;
+		foreach (IEntity ent : m_aRewards)
+			SCR_EntityHelper.DeleteEntityAndChildren(ent);
+	}
+
 }
