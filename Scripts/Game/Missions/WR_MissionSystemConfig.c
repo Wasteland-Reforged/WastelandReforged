@@ -19,6 +19,9 @@ class WR_MissionSystemConfig
 	[Attribute(defvalue: "5", uiwidget: UIWidgets.Slider, params: "0 60 0.01", desc: "(minutes) How long to wait to delete mission entities after it ends.")]
 	float m_fMissionCleanupDelay;
 	
+	[Attribute(defvalue: "60", uiwidget: UIWidgets.Slider, params: "0 120 1", desc: "(minutes) Time limit for missions. (0 -> no time limit")]
+	float m_fMissionTimeLimit;
+	
 	[Attribute(defvalue: "0", uiwidget: UIWidgets.Slider, params: "0 128 1", desc: "Array of server player count thresholds that determine how many mission slots are open. Each number in the array represents a threshold at which another mission slot will open. This list will always automatically be sorted in ascending order.\n\nExample: [0, 20, 50] -> 1 mission slot at 0 players, 2 mission slots at 20 players, and 3 mission slots at 50 players.\nExample: [0, 0] -> There are always 2 mission slots available, regardless of the number of players on the server.\n\n")]
 	ref array<int> m_aPlayercountMissionThresholds;
 }

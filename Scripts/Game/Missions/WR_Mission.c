@@ -10,6 +10,7 @@ class WR_Mission
 	protected ref WR_MissionDefinition m_Definition; // Contains info about mission reward, NPCs, props, etc.
 	protected ref SCR_MapMarkerBase m_Marker; // Map marker indicating location and status
 	protected WR_MissionLocationEntity m_MissionLocation;
+	protected WorldTimestamp m_LastStepCompletedTime;
 	
 	// Entities - the entities for which this mission is responsible (props, AI, etc.) are tracked for clean-up purposes
 	protected IEntity m_aRewards;
@@ -149,6 +150,16 @@ class WR_Mission
 	{
 		m_MissionLocation = location;
 		m_vPosition = location.GetOrigin();
+	}
+	
+	WorldTimestamp GetLastStepCompletedTime()
+	{
+		return m_LastStepCompletedTime;
+	}
+	
+	void SetLastStepCompletedTime(WorldTimestamp time)
+	{
+		m_LastStepCompletedTime = time;
 	}
 	
 	/////////////////////////////

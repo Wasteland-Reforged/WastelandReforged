@@ -11,6 +11,6 @@ class WR_MissionNotificationService
 	
 	void OnNotificationReceived()
 	{
-		WR_MissionUiElementHelper.SendMissionNotificationByStatus
+		//WR_MissionUiElementHelper.SendMissionNotificationByStatus
 	}
 }

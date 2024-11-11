@@ -1,8 +1,11 @@
+// TODO: get rid of this class. put m_LastStepCompletedTime in WR_Mission 
 class WR_MissionSlot
 {
 	WR_Mission m_Mission;
-	WorldTimestamp m_CreatedAtTime;
-	WorldTimestamp m_CompletedAtTime;
+//	WorldTimestamp m_CreatedAtTime;
+//	WorldTimestamp m_CompletedAtTime;
+	
+	WorldTimestamp m_LastStepCompletedTime;
 	
 	void WR_MissionSlot(WR_Mission mission)
 	{
@@ -19,23 +22,34 @@ class WR_MissionSlot
 		m_Mission = mission;
 	}
 	
-	WorldTimestamp GetCreatedAtTime()
+	WorldTimestamp GetLastStepCompletedTime()
 	{
-		return m_CreatedAtTime;
+		return m_LastStepCompletedTime;
 	}
 	
-	void SetCreatedAtTime(WorldTimestamp time)
+	void SetLastStepCompletedTime(WorldTimestamp time)
 	{
-		m_CreatedAtTime = time;
+		m_LastStepCompletedTime = time;
 	}
 	
-	WorldTimestamp GetCompletedAtTime()
-	{
-		return m_CompletedAtTime;
-	}
 	
-	void SetCompletedAtTime(WorldTimestamp time)
-	{
-		m_CompletedAtTime = time;
-	}
+//	WorldTimestamp GetCreatedAtTime()
+//	{
+//		return m_CreatedAtTime;
+//	}
+//	
+//	void SetCreatedAtTime(WorldTimestamp time)
+//	{
+//		m_CreatedAtTime = time;
+//	}
+//	
+//	WorldTimestamp GetCompletedAtTime()
+//	{
+//		return m_CompletedAtTime;
+//	}
+//	
+//	void SetCompletedAtTime(WorldTimestamp time)
+//	{
+//		m_CompletedAtTime = time;
+//	}
 }

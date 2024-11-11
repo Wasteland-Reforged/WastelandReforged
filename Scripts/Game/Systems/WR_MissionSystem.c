@@ -10,7 +10,8 @@ class WR_MissionSystem : GameSystem
 	//const float m_fTimeBetweenConsecutiveMissionCreationMs = 15000; // Time to wait to start missions in quick succession to prevent overlap of notification hints
 	
 	WorldTimestamp m_LatestMissionCreatedAtTime;
-	ref array<WR_MissionSlot> m_aMissionSlots = {};
+	//ref array<WR_MissionSlot> m_aMissionSlots = {};
+	ref array<WR_Mission> m_aMissions = {};
 	
 	private override void OnStarted()
 	{
@@ -29,81 +30,155 @@ class WR_MissionSystem : GameSystem
 		logger.LogNormal("Mission system cleaned up.");
 	}
 	
+//	private override void OnUpdate(ESystemPoint point)
+//	{
+//		// 1) Try to create a new mission
+//		if (m_fMissionCreationTickrateTimeElaspedS >= m_fMissionCreationTickrateS)
+//		{
+//			if (GetNumberActiveMissionSlots() < GetMaxActiveMissionSlots())
+//				TryStartNewMission();
+//			
+//			m_fMissionCreationTickrateTimeElaspedS = 0;
+//		}
+//		
+//		// 2) Update existing missions
+//		//    a) Start 'pending' missions
+//		//    b) Update markers of 'completed' missions
+//		//    c) Clean up 'completed' missions if they were completed long enough ago
+//		
+//		foreach (WR_MissionSlot slot : m_aMissionSlots)
+//		{
+//			WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
+//			WR_MissionStatus lifecycleStatus = slot.GetMission().GetStatus();
+//			
+//			switch (lifecycleStatus)
+//			{
+//				case lifecycleStatus == WR_MissionStatus.Pending:
+//				{
+//					float timeDiff = now.DiffMilliseconds(slot.GetCreatedAtTime());
+//					
+//					if (timeDiff >= m_Config.m_fNewMissionNotificationDelay)
+//					{
+//						slot.GetMission();//.StartMission();
+//						// Send hint
+//					}
+//					break;
+//				}
+//				case lifecycleStatus == WR_MissionStatus.Complete:
+//				{
+//					// Grey out markers of missions that were just completed
+//				
+//					// Mark 
+//					slot.GetMission().SetStatus(WR_MissionStatus.AwaitingCleanup);
+//					
+//					break;
+//				}
+//				case lifecycleStatus == WR_MissionStatus.AwaitingCleanup:
+//				{
+//					float timeDiff = now.DiffMilliseconds(slot.GetCompletedAtTime());
+//					
+//					if (slot.GetMission().GetMarker())
+//					{
+//						// Delete markers
+//						if (timeDiff >= m_Config.m_fMissionMapMarkerCleanupDelay)
+//						{
+//							slot.GetMission();//.DeleteMarker();
+//						}
+//					}
+//					
+//					if (timeDiff >= m_Config.m_fMissionCleanupDelay)
+//					{
+//						slot.GetMission();//.Cleanup();
+//					}
+//					
+//					break;
+//				}
+//			}
+//		}
+//
+//		// Update timers
+//		float timeSlice = GetWorld().GetTimeSlice();
+//		m_fMissionCreationTickrateTimeElaspedS += timeSlice;
+//	}
+	
+	private float GetDelayByStatus(WR_MissionStatus status)
+	{
+		switch (status)
+		{
+			case WR_MissionStatus.Pending: return m_Config.m_fInitialMissionDelay;
+			case WR_MissionStatus.InProgress: return m_Config.m_fMissionTimeLimit;
+			case WR_MissionStatus.Complete: return m_Config.m_fMissionMapMarkerCleanupDelay;
+			case WR_MissionStatus.AwaitingCleanup: return m_Config.m_fMissionCleanupDelay;
+			default: 
+		}
+		return 0;
+	}
+	
 	private override void OnUpdate(ESystemPoint point)
 	{
-		// 1) Try to create a new mission
+		// 1) Try creating a new mission
 		if (m_fMissionCreationTickrateTimeElaspedS >= m_fMissionCreationTickrateS)
 		{
 			if (GetNumberActiveMissionSlots() < GetMaxActiveMissionSlots())
-				TryStartNewMission();
+				TryCreateNewMission();
 			
 			m_fMissionCreationTickrateTimeElaspedS = 0;
 		}
 		
-		// 2) Update existing missions
-		//    a) Start 'pending' missions
-		//    b) Update markers of 'completed' missions
-		//    c) Clean up 'completed' missions if they were completed long enough ago
-		
-		foreach (WR_MissionSlot slot : m_aMissionSlots)
+		// 2) Update existing missions 
+		WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
+		foreach (WR_Mission mission : m_aMissions)
 		{
-			WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
-			WR_MissionStatus lifecycleStatus = slot.GetMission().GetStatus();
+			float lifecycleStatus = mission.GetStatus();
+			float delay = GetDelayByStatus(lifecycleStatus);
+			float timeDiff = now.DiffMilliseconds(mission.GetLastStepCompletedTime());
 			
-			switch (lifecycleStatus)
+			// Update occurs if a mission has been waiting in its current status for long enough
+			if (timeDiff >= delay)
 			{
-				case lifecycleStatus == WR_MissionStatus.Pending:
+				switch (lifecycleStatus)
 				{
-					float timeDiff = now.DiffMilliseconds(slot.GetCreatedAtTime());
-					
-					if (timeDiff >= m_Config.m_fNewMissionNotificationDelay)
+					case lifecycleStatus == WR_MissionStatus.Pending:
 					{
-						slot.GetMission();//.StartMission();
+						//mission.StartMission();
 						// Send hint
+						break;
 					}
-					break;
-				}
-				case lifecycleStatus == WR_MissionStatus.Complete:
-				{
-					// Grey out markers of missions that were just completed
-				
-					// Mark 
-					slot.GetMission().SetStatus(WR_MissionStatus.AwaitingCleanup);
-					
-					break;
-				}
-				case lifecycleStatus == WR_MissionStatus.AwaitingCleanup:
-				{
-					float timeDiff = now.DiffMilliseconds(slot.GetCompletedAtTime());
-					
-					if (slot.GetMission().GetMarker())
+					case lifecycleStatus == WR_MissionStatus.Complete:
 					{
-						// Delete markers
-						if (timeDiff >= m_Config.m_fMissionMapMarkerCleanupDelay)
+						// Grey out markers of missions that were just completed
+					
+						// Mark 
+						mission.SetStatus(WR_MissionStatus.AwaitingCleanup);
+						
+						break;
+					}
+					case lifecycleStatus == WR_MissionStatus.AwaitingCleanup:
+					{
+						float timeDiff = now.DiffMilliseconds(slot.GetCompletedAtTime());
+						
+						if (slot.GetMission().GetMarker())
 						{
-							slot.GetMission();//.DeleteMarker();
+							// Delete markers
+							if (timeDiff >= m_Config.m_fMissionMapMarkerCleanupDelay)
+							{
+								slot.GetMission();//.DeleteMarker();
+							}
 						}
+						
+						if (timeDiff >= m_Config.m_fMissionCleanupDelay)
+						{
+							slot.GetMission();//.Cleanup();
+						}
+						
+						break;
 					}
-					
-					if (timeDiff >= m_Config.m_fMissionCleanupDelay)
-					{
-						slot.GetMission();//.Cleanup();
-					}
-					
-					break;
 				}
 			}
 		}
-
-		
-		
-		
-		// Update timers
-		float timeSlice = GetWorld().GetTimeSlice();
-		m_fMissionCreationTickrateTimeElaspedS += timeSlice;
 	}
 	
-	private void TryStartNewMission()
+	private void TryCreateNewMission()
 	{
 		// Choose a mission definition
 		WR_MissionDefinition definition = GetRandomMissionDefinition();
