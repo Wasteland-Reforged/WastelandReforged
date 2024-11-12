@@ -3,29 +3,36 @@ class WR_Mission
 	WR_MissionLocationEntity m_Location;
 	WR_MissionDefinition m_Definition;
 	WR_MissionStatus m_eStatus;
-	int m_iCompletedByPlayerId;
+	WorldTimestamp timeSinceLastStatusChange;
+	
+	int m_iCompletingPlayerId;
+	int m_iDestroyingPlayerId;
 
 	IEntity m_PropEntity;
-	array<IEntity> m_aRewards;
-	array<SCR_AIGroup> m_aGroups;
+	ref array<IEntity> m_aRewards = {};
+	ref array<SCR_AIGroup> m_aGroups = {};
 
 	void WR_Mission(notnull WR_MissionLocationEntity location, notnull WR_MissionDefinition definition)
 	{
 		m_Location = location;
 		m_Definition = definition;
+		ChangeMissionStatus(WR_MissionStatus.Pending);
 	}
 	
-	protected bool StartMission()
+	void StartMission()
 	{
 		if (!SpawnProp() || !SpawnRewards() || !SpawnAIGroups())
-		{
-			m_eStatus = WR_MissionStatus.Failed;
-			DeleteMissionEntities();
-			return false;
+			ChangeMissionStatus(WR_MissionStatus.FailedToSpawn);
+		else {
+			ChangeMissionStatus(WR_MissionStatus.InProgress);
+			m_Location.GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
 		}
-		
-		m_eStatus = WR_MissionStatus.InProgress;
-		return true;
+	}
+	
+	void ChangeMissionStatus(WR_MissionStatus newStatus)
+	{
+		m_eStatus = newStatus;
+		timeSinceLastStatusChange = GetGame().GetWorld().GetTimestamp();
 	}
 	
 	protected bool SpawnProp()
@@ -152,29 +159,57 @@ class WR_Mission
 		if (!AreAllNPCsDead()) 
 			return;
 		
-		m_eStatus = WR_MissionStatus.Complete;
-		//m_iCompletedByPlayerId = ?
+		//m_iCompletingPlayerId = ?
+		ChangeMissionStatus(WR_MissionStatus.Complete);
 	}
 	
 	protected void OnRewardDestroyed(int playerID)
 	{
-		//If Mission was already completed, we don't care if reward is destroyed
-		if (m_eStatus == WR_MissionStatus.Complete) return;
+		// We only care about this if the mission is still in progress
+		if (m_eStatus != WR_MissionStatus.InProgress) return;
 		
-		m_eStatus = WR_MissionStatus.Failed;
+		m_iDestroyingPlayerId = playerID;
+		ChangeMissionStatus(WR_MissionStatus.RewardDestroyed);
 	}
 	
-	protected void DeleteMissionEntities()
+	void DeleteMissionEntities(bool includeRewards)
 	{
-		//Delete Prop and AI Groups
+		// Delete Prop and AI Groups
 		SCR_EntityHelper.DeleteEntityAndChildren(m_PropEntity);
 		foreach (SCR_AIGroup group : m_aGroups)
 			SCR_EntityHelper.DeleteEntityAndChildren(group);
 		
-		//If mission was completed, we do not need to clean up rewards
-		if (m_eStatus == WR_MissionStatus.Complete) return;
+		// Conditionally delete rewards		Missions fail on: Failed to Spawn, Timeout, Reward Destroyed
+		if (!includeRewards) return;
 		foreach (IEntity ent : m_aRewards)
 			SCR_EntityHelper.DeleteEntityAndChildren(ent);
+
+	}
+	
+	WR_MissionLocationEntity getLocation()
+	{
+		return m_Location;
+	}
+	
+	WR_MissionDefinition getDefinition()
+	{
+		return m_Definition;
+	}
+	
+	WR_MissionStatus getStatus()
+	{
+		return m_eStatus;
+	}
+	
+	WorldTimestamp getLastTimestamp()
+	{
+		return timeSinceLastStatusChange;
+	}
+	
+	void ~WR_Mission()
+	{
+		delete m_aGroups;
+		delete m_aRewards;
 	}
 
 }

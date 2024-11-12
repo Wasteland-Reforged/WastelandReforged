@@ -5,177 +5,105 @@ class WR_MissionSystem : GameSystem
 	[Attribute("", UIWidgets.Object, "Mission system config")]
 	protected ref WR_MissionSystemConfig m_Config;
 	
-	float m_fMissionCreationTickrateTimeElaspedS = 0;
+	float m_fMissionCreationTimeElaspedS = 0;
 	float m_fMissionCreationTickrateS = 30;
-	//const float m_fTimeBetweenConsecutiveMissionCreationMs = 15000; // Time to wait to start missions in quick succession to prevent overlap of notification hints
-	
-	WorldTimestamp m_LatestMissionCreatedAtTime;
-	//ref array<WR_MissionSlot> m_aMissionSlots = {};
+
+	int currentActiveMissions = 0;
 	ref array<WR_Mission> m_aMissions = {};
+	bool doPreNotif = false;
 	
 	private override void OnStarted()
 	{
-		// Initialize m_LatestMissionCreatedAtTime to the delay between consecutive missions so we don't have a delay on gamemode start.
-		// TODO: maybe there is a smarter way to handle all this and I am just dumb and tired.
-		//m_LatestMissionCreatedAtTime = m_LatestMissionCreatedAtTime.PlusMilliseconds(-m_fTimeBetweenConsecutiveMissionCreationMs);
-		
 		logger.LogNormal("Mission system started.");
-	}
-	
-	private override void OnCleanup()
-	{
-		// TODO: should we force end all missions?
-		// Not sure if this is needed since this system should only be cleaned up on server close
-		
-		logger.LogNormal("Mission system cleaned up.");
-	}
-	
-//	private override void OnUpdate(ESystemPoint point)
-//	{
-//		// 1) Try to create a new mission
-//		if (m_fMissionCreationTickrateTimeElaspedS >= m_fMissionCreationTickrateS)
-//		{
-//			if (GetNumberActiveMissionSlots() < GetMaxActiveMissionSlots())
-//				TryStartNewMission();
-//			
-//			m_fMissionCreationTickrateTimeElaspedS = 0;
-//		}
-//		
-//		// 2) Update existing missions
-//		//    a) Start 'pending' missions
-//		//    b) Update markers of 'completed' missions
-//		//    c) Clean up 'completed' missions if they were completed long enough ago
-//		
-//		foreach (WR_MissionSlot slot : m_aMissionSlots)
-//		{
-//			WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
-//			WR_MissionStatus lifecycleStatus = slot.GetMission().GetStatus();
-//			
-//			switch (lifecycleStatus)
-//			{
-//				case lifecycleStatus == WR_MissionStatus.Pending:
-//				{
-//					float timeDiff = now.DiffMilliseconds(slot.GetCreatedAtTime());
-//					
-//					if (timeDiff >= m_Config.m_fNewMissionNotificationDelay)
-//					{
-//						slot.GetMission();//.StartMission();
-//						// Send hint
-//					}
-//					break;
-//				}
-//				case lifecycleStatus == WR_MissionStatus.Complete:
-//				{
-//					// Grey out markers of missions that were just completed
-//				
-//					// Mark 
-//					slot.GetMission().SetStatus(WR_MissionStatus.AwaitingCleanup);
-//					
-//					break;
-//				}
-//				case lifecycleStatus == WR_MissionStatus.AwaitingCleanup:
-//				{
-//					float timeDiff = now.DiffMilliseconds(slot.GetCompletedAtTime());
-//					
-//					if (slot.GetMission().GetMarker())
-//					{
-//						// Delete markers
-//						if (timeDiff >= m_Config.m_fMissionMapMarkerCleanupDelay)
-//						{
-//							slot.GetMission();//.DeleteMarker();
-//						}
-//					}
-//					
-//					if (timeDiff >= m_Config.m_fMissionCleanupDelay)
-//					{
-//						slot.GetMission();//.Cleanup();
-//					}
-//					
-//					break;
-//				}
-//			}
-//		}
-//
-//		// Update timers
-//		float timeSlice = GetWorld().GetTimeSlice();
-//		m_fMissionCreationTickrateTimeElaspedS += timeSlice;
-//	}
-	
-	private float GetDelayByStatus(WR_MissionStatus status)
-	{
-		switch (status)
-		{
-			case WR_MissionStatus.Pending: return m_Config.m_fInitialMissionDelay;
-			case WR_MissionStatus.InProgress: return m_Config.m_fMissionTimeLimit;
-			case WR_MissionStatus.Complete: return m_Config.m_fMissionMapMarkerCleanupDelay;
-			case WR_MissionStatus.AwaitingCleanup: return m_Config.m_fMissionCleanupDelay;
-			default: 
-		}
-		return 0;
 	}
 	
 	private override void OnUpdate(ESystemPoint point)
 	{
-		// 1) Try creating a new mission
-		if (m_fMissionCreationTickrateTimeElaspedS >= m_fMissionCreationTickrateS)
-		{
-			if (GetNumberActiveMissionSlots() < GetMaxActiveMissionSlots())
-				TryCreateNewMission();
-			
-			m_fMissionCreationTickrateTimeElaspedS = 0;
-		}
+		// Advance time elapsed
+		float timeSlice = GetWorld().GetTimeSlice();
+		m_fMissionCreationTimeElaspedS += timeSlice;
 		
-		// 2) Update existing missions 
-		WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
+		// Advance mission statuses
 		foreach (WR_Mission mission : m_aMissions)
 		{
-			float lifecycleStatus = mission.GetStatus();
-			float delay = GetDelayByStatus(lifecycleStatus);
-			float timeDiff = now.DiffMilliseconds(mission.GetLastStepCompletedTime());
-			
-			// Update occurs if a mission has been waiting in its current status for long enough
-			if (timeDiff >= delay)
-			{
-				switch (lifecycleStatus)
-				{
-					case lifecycleStatus == WR_MissionStatus.Pending:
-					{
-						//mission.StartMission();
-						// Send hint
-						break;
-					}
-					case lifecycleStatus == WR_MissionStatus.Complete:
-					{
-						// Grey out markers of missions that were just completed
-					
-						// Mark 
-						mission.SetStatus(WR_MissionStatus.AwaitingCleanup);
-						
-						break;
-					}
-					case lifecycleStatus == WR_MissionStatus.AwaitingCleanup:
-					{
-						float timeDiff = now.DiffMilliseconds(slot.GetCompletedAtTime());
-						
-						if (slot.GetMission().GetMarker())
-						{
-							// Delete markers
-							if (timeDiff >= m_Config.m_fMissionMapMarkerCleanupDelay)
-							{
-								slot.GetMission();//.DeleteMarker();
-							}
-						}
-						
-						if (timeDiff >= m_Config.m_fMissionCleanupDelay)
-						{
-							slot.GetMission();//.Cleanup();
-						}
-						
-						break;
-					}
-				}
-			}
+			CheckForMissionUpdate(mission);
 		}
+		
+		// Check if mission needs creation
+		if (m_fMissionCreationTimeElaspedS >= m_fMissionCreationTickrateS)
+		{
+			if (currentActiveMissions < GetMaxActiveMissionSlots())
+				TryCreateNewMission();
+			
+			m_fMissionCreationTimeElaspedS = 0;
+		}
+	}
+	
+	private override void OnCleanup()
+	{
+		logger.LogNormal("Mission system cleaned up.");
+	}
+	
+	private float CheckForMissionUpdate(WR_Mission mission)
+	{
+		float delay;
+		WorldTimestamp ts = GetGame().GetWorld().GetTimestamp();
+		
+		switch (mission.getStatus())
+		{
+			case WR_MissionStatus.FailedToSpawn:
+				ConcludeMission(mission, true);
+				break;
+			
+			case WR_MissionStatus.Pending: 
+				delay = m_Config.m_fInitialMissionDelay;
+				if (ts.DiffMilliseconds(mission.getLastTimestamp()) > delay) {
+					mission.StartMission();
+					// Send Mission Start Notification
+					// Create Marker
+				}
+				break;
+			
+			case WR_MissionStatus.InProgress: 
+				delay = m_Config.m_fMissionTimeLimit;
+				if (ts.DiffMilliseconds(mission.getLastTimestamp()) > delay) {
+					// Send Timeout Notification
+					// Delete Marker
+					ConcludeMission(mission, true);
+				}
+				break;
+			
+			case WR_MissionStatus.Complete: 
+				// Grey Out Marker
+				// Send Completion Notif
+				mission.ChangeMissionStatus(WR_MissionStatus.AwaitingMarkerDeletion);
+				break;
+			
+			case WR_MissionStatus.RewardDestroyed:
+				// Grey Out Marker
+				// Send Reward Destroyed Notif
+				mission.ChangeMissionStatus(WR_MissionStatus.AwaitingMarkerDeletion);
+				break;
+			
+			case WR_MissionStatus.AwaitingMarkerDeletion:
+				delay = m_Config.m_fMissionMapMarkerCleanupDelay;
+				if (ts.DiffMilliseconds(mission.getLastTimestamp()) > delay) {
+					// Delete Marker
+					currentActiveMissions -= 1;
+					mission.ChangeMissionStatus(WR_MissionStatus.AwaitingCleanup);
+				}
+				break;
+			
+			case WR_MissionStatus.AwaitingCleanup: 
+				delay = m_Config.m_fMissionCleanupDelay;
+				if (ts.DiffMilliseconds(mission.getLastTimestamp()) > delay) {
+					ConcludeMission(mission, false);
+				}
+				break;
+			
+			default: 
+		}
+		return 0;
 	}
 	
 	private void TryCreateNewMission()
@@ -183,21 +111,27 @@ class WR_MissionSystem : GameSystem
 		// Choose a mission definition
 		WR_MissionDefinition definition = GetRandomMissionDefinition();
 		
-		// Choose a location for the mission
-		// TODO: change this to use a getter for the size on the mission
+		// Choose a random vacant location for the mission
 		WR_MissionLocationEntity location = GetRandomVacantMissionLocation(definition.m_eSize);
-		if (!location)
-		{
+		if (!location) {
 			logger.LogError("No vacant mission locations! Cannot start new mission.");
 			return;
 		}
 		
-		WR_Mission mission = new WR_Mission(); //new WR_Mission(definition, location);
-		mission.SetDefinition(definition);
-		// TODO: make sure missions are created with the PENDING status, or with the INPROGRESS status if no pre-notif is enabled
-		RegisterMissionInSlot(mission);
+		WR_Mission mission = new WR_Mission(location, definition);
+		m_aMissions.Insert(mission);
+		currentActiveMissions += 1;
 		
-		logger.LogNormal("Mission started successfully: " + mission.GetName() + " (ID: " + mission.GetMissionId() + ")");
+		if (!doPreNotif) mission.StartMission();
+		
+		logger.LogNormal("Mission started successfully: " + mission.m_Definition.m_sName);
+	}
+	
+	private void ConcludeMission(WR_Mission mission, bool deleteRewards)
+	{
+		mission.DeleteMissionEntities(true);
+		m_aMissions.RemoveItem(mission);
+		delete mission;
 	}
 	
 	private int GetMaxActiveMissionSlots()
@@ -221,11 +155,6 @@ class WR_MissionSystem : GameSystem
 		return slots;
 	}
 	
-	private int GetNumberActiveMissionSlots()
-	{
-		return m_aMissionSlots.Count();
-	}
-	
 	private WR_MissionDefinition GetRandomMissionDefinition()
 	{
 		// TODO: let's make this use a weighted array
@@ -234,40 +163,9 @@ class WR_MissionSystem : GameSystem
 	
 	private WR_MissionLocationEntity GetRandomVacantMissionLocation(WR_MissionLocationSize requiredSize)
 	{			
-		array<WR_MissionLocationEntity> vacantLocations = WR_MissionLocationEntity.GetAllVacantLocations();
-		if (vacantLocations.Count() == 0)
-		{
-			return null;
-		}
-		
-		WR_MissionLocationEntity randomLocation;
-		
-		// TODO: this is a lame, unoptimized way of doing it, but it works for now.
-		int attempts = 1;
-		while (!randomLocation || requiredSize != randomLocation.GetSize())
-		{
-			if (attempts == 10)
-				return null;
-			
-			randomLocation = vacantLocations.GetRandomElement();
-			attempts++;
-		}
-		
-		// TODO: check if there are any entities inside/nearby this mission location's trigger zone. We don't want to spawn missions on people's heads
+		array<WR_MissionLocationEntity> vacantLocations = WR_MissionLocationEntity.GetAllVacantLocations(requiredSize);
+		if (vacantLocations.Count() == 0) return null;
 
-		return randomLocation;
-	}
-	
-	private void RegisterMissionInSlot(WR_Mission mission)
-	{
-		WorldTimestamp createdAtTime = GetGame().GetWorld().GetTimestamp();
-		
-		WR_MissionSlot slot = new WR_MissionSlot(mission);
-		slot.SetCreatedAtTime(createdAtTime);
-		
-		m_aMissionSlots.Insert(slot);
-		
-		WR_MissionUiElementHelper.ShowHintWithSound("New mission", mission.GetName());
-		m_LatestMissionCreatedAtTime = createdAtTime;
+		return vacantLocations.GetRandomElement();
 	}
 }

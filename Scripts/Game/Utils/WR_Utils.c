@@ -175,6 +175,18 @@ class WR_Utils
 		return entity;
 	}
 	
+	static void RandomlyRotateAndOrientEntity(IEntity ent)
+	{
+		vector randomDir = WR_Utils.GetRandomHorizontalDirectionAngles();
+		ent.SetYawPitchRoll(randomDir);
+			
+		// Orient the object to terrain normal
+		vector transform[4];
+		ent.GetTransform(transform);
+		SCR_TerrainHelper.OrientToTerrain(transform);
+		ent.SetTransform(transform);
+	}
+	
 	static bool RemoveAllItemsFromVehicle(IEntity vehicle)
 	{
 		// Get vehicle inventory components
