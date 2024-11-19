@@ -6,7 +6,7 @@ class WR_MissionSystem : GameSystem
 	protected ref WR_MissionSystemConfig m_Config;
 	
 	float m_fMissionCreationTimeElaspedS = 0;
-	float m_fMissionCreationTickrateS = 10;
+	float m_fMissionCreationTickrateS = 30;
 
 	int currentActiveMissions = 0;
 	ref map<ref WR_Mission, SCR_MapMarkerBase> m_aMissions = new map<ref WR_Mission, SCR_MapMarkerBase>;
@@ -67,7 +67,7 @@ class WR_MissionSystem : GameSystem
 				if (ts.DiffMilliseconds(mission.GetLastTimestamp()) > delay) {
 					mission.StartMission();
 					WR_MissionUiElementHelper.ShowMarker(marker);
-					// Send Mission Start Notification
+					WR_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
 				}
 				break;
 			
@@ -75,17 +75,18 @@ class WR_MissionSystem : GameSystem
 				delay = WR_Utils.minutesToMS(m_Config.m_fMissionTimeLimit);
 				if (ts.DiffMilliseconds(mission.GetLastTimestamp()) > delay) {
 					WR_MissionUiElementHelper.DeleteMarker(marker);
-					// Send Timeout Notification
+					WR_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
 					ConcludeMission(mission, true);
 					logger.LogNormal("Mission timed out.");
 				}
 				break;
 			
-			case WR_MissionStatus.Complete: 		//Needs its own status because we only change the marker and send the notification ONCE
+			case WR_MissionStatus.Complete: 		//Needs its own status for effects that only happen once
 				WR_MissionUiElementHelper.UpdateMarkerColor(marker, 5);
-				// Send Completion Notif
+				WR_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
+				currentActiveMissions -= 1;
+				logger.LogNormal("Mission completed. Decremented active missions to: " + currentActiveMissions);
 				mission.ChangeMissionStatus(WR_MissionStatus.AwaitingMarkerCleanup);
-				logger.LogNormal("Mission completed.");
 				break;
 			
 			case WR_MissionStatus.AwaitingMarkerCleanup: 
@@ -129,7 +130,7 @@ class WR_MissionSystem : GameSystem
 		WR_Mission mission = new WR_Mission(location, definition);
 
 		currentActiveMissions += 1;
-		logger.LogNormal("Incremented active missions to: " + currentActiveMissions);
+		logger.LogNormal("Mission created. Incremented active missions to: " + currentActiveMissions);
 			
 		SCR_MapMarkerBase marker = WR_MissionUiElementHelper.CreateMarker(mission);
 		
@@ -137,6 +138,7 @@ class WR_MissionSystem : GameSystem
 		if (!doPreNotif) {
 			mission.StartMission();
 			WR_MissionUiElementHelper.ShowMarker(marker);
+			WR_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
 		}
 		
 		m_aMissions.Insert(mission, marker);
@@ -144,9 +146,6 @@ class WR_MissionSystem : GameSystem
 	
 	private void ConcludeMission(WR_Mission mission, bool deleteRewards)
 	{
-		currentActiveMissions -= 1;
-		logger.LogNormal("Decremented active missions to: " + currentActiveMissions);
-		
 		mission.DeleteMissionEntities(deleteRewards);
 		m_aMissions.Remove(mission);
 

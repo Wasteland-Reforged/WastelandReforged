@@ -16,7 +16,7 @@ class WR_MissionSystemConfig
 	[Attribute(defvalue: "0.5", uiwidget: UIWidgets.Slider, params: "0 5 0.1", desc: "(minutes) How long to wait to delete a mission's map marker after it ends.")]
 	float m_fMissionMapMarkerCleanupDelay;
 	
-	[Attribute(defvalue: "0.5", uiwidget: UIWidgets.Slider, params: "0 60 0.01", desc: "(minutes) How long to wait to delete mission entities after it ends.")]
+	[Attribute(defvalue: "5", uiwidget: UIWidgets.Slider, params: "0 60 0.01", desc: "(minutes) How long to wait to delete mission entities after it ends.")]
 	float m_fMissionCleanupDelay;
 	
 	[Attribute(defvalue: "60", uiwidget: UIWidgets.Slider, params: "0 120 1", desc: "(minutes) Time limit for missions. (0 -> no time limit")]

@@ -48,27 +48,26 @@ class WR_MissionUiElementHelper
 		marker.SetColorEntry(color);
 	}
 	
-	/*
-	
 	// TODO: make this configurable from world editor
 	private static string m_sSoundEventNameNotification = "SOUND_HUD_TASK_CREATED";
 	
 	static void SendMissionNotificationByStatus(WR_Mission mission)
 	{
-		string title = "";
-		string description = "";
+		string title, description;
 		
 		switch (mission.GetStatus())
 		{
 			case WR_MissionStatus.InProgress:
-				title = "New Objective: " + mission.GetName();
-				description = mission.GetDescription();
+				title = "New Objective: " + mission.GetDefinition().m_sName;
+				description = mission.GetDefinition().m_sDescription;
 				break;
 			case WR_MissionStatus.Complete:
-				title = "Objective Complete: " + mission.GetName();
+				title = "Objective Complete: " + mission.GetDefinition().m_sName;
 				description = "The mission was completed.";
 				break;
 			default:
+				title = "Objective Timeout: " + mission.GetDefinition().m_sName;
+				description = "The mission was not completed in time.";
 				break;
 		}
 				
