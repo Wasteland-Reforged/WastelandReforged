@@ -1,10 +1,9 @@
 enum WR_MissionStatus
 { 
+	Pending,
 	FailedToSpawn,
-    Pending,
 	InProgress,
     Complete,
-	RewardDestroyed,
-	AwaitingMarkerDeletion,
+	AwaitingMarkerCleanup,
 	AwaitingCleanup
 }

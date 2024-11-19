@@ -203,4 +203,9 @@ class WR_Utils
 		
 		return true;
 	}
+	
+	static float minutesToMS(float minutes)
+	{
+		return minutes*60*1000;
+	}
 }

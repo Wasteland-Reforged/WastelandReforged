@@ -1,5 +1,7 @@
 class WR_Mission
 {
+	ref WR_Logger<WR_Mission> logger = new WR_Logger<WR_Mission>(this);
+	
 	WR_MissionLocationEntity m_Location;
 	WR_MissionDefinition m_Definition;
 	WR_MissionStatus m_eStatus;
@@ -11,6 +13,8 @@ class WR_Mission
 	IEntity m_PropEntity;
 	ref array<IEntity> m_aRewards = {};
 	ref array<SCR_AIGroup> m_aGroups = {};
+	
+	SCR_MapMarkerBase m_Marker;
 
 	void WR_Mission(notnull WR_MissionLocationEntity location, notnull WR_MissionDefinition definition)
 	{
@@ -19,18 +23,25 @@ class WR_Mission
 		ChangeMissionStatus(WR_MissionStatus.Pending);
 	}
 	
-	void StartMission()
+	bool StartMission()
 	{
-		if (!SpawnProp() || !SpawnRewards() || !SpawnAIGroups())
+		if (!SpawnProp() || !SpawnRewards() || !SpawnAIGroups()) {
 			ChangeMissionStatus(WR_MissionStatus.FailedToSpawn);
+			logger.LogNormal("Mission failed to spawn: " + m_Definition.m_sName);
+			return false;
+		}
 		else {
 			ChangeMissionStatus(WR_MissionStatus.InProgress);
 			m_Location.GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
+			logger.LogNormal("Mission started successfully: " + m_Definition.m_sName);
+			return true;
 		}
 	}
 	
 	void ChangeMissionStatus(WR_MissionStatus newStatus)
 	{
+		logger.LogNormal("Changing " + m_Definition.m_sName + " status to " + newStatus);
+		
 		m_eStatus = newStatus;
 		timeSinceLastStatusChange = GetGame().GetWorld().GetTimestamp();
 	}
@@ -62,7 +73,7 @@ class WR_Mission
 			
 			// Get Random Safe Position
 			vector spawnPos;
-			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, m_Location.GetOrigin(), 1.0, 10.0, 10.0, 2.0);
+			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, m_Location.GetOrigin(), 1.0, 10.0, 1.0, 1.0);
 			if (!safePosFound) {
 				Print("[WASTELAND] WR_Mission: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
 				return false;
@@ -151,11 +162,18 @@ class WR_Mission
 		foreach (SCR_AIGroup group : m_aGroups)
 			if (group) return false;
 		
+		logger.LogNormal("All AI are dead at mission: " + m_Definition.m_sName);
+		
 		return true;
 	}
 	
 	protected void OnPlayerEnteredMissionLocation()
 	{
+		if (m_eStatus != WR_MissionStatus.InProgress)
+			return;
+		
+		logger.LogNormal("Player entered mission location for: " + m_Definition.m_sName);
+		
 		if (!AreAllNPCsDead()) 
 			return;
 		
@@ -165,15 +183,19 @@ class WR_Mission
 	
 	protected void OnRewardDestroyed(int playerID)
 	{
+		logger.LogNormal("Reward Destroyed at mission:" + m_Definition.m_sName);
+		
 		// We only care about this if the mission is still in progress
 		if (m_eStatus != WR_MissionStatus.InProgress) return;
 		
 		m_iDestroyingPlayerId = playerID;
-		ChangeMissionStatus(WR_MissionStatus.RewardDestroyed);
+		ChangeMissionStatus(WR_MissionStatus.Complete);
 	}
 	
 	void DeleteMissionEntities(bool includeRewards)
 	{
+		logger.LogNormal("Deleting Mission Entities for mission: " + m_Definition.m_sName);
+		
 		// Delete Prop and AI Groups
 		SCR_EntityHelper.DeleteEntityAndChildren(m_PropEntity);
 		foreach (SCR_AIGroup group : m_aGroups)
@@ -186,28 +208,39 @@ class WR_Mission
 
 	}
 	
-	WR_MissionLocationEntity getLocation()
+	WR_MissionLocationEntity GetLocation()
 	{
 		return m_Location;
 	}
 	
-	WR_MissionDefinition getDefinition()
+	WR_MissionDefinition GetDefinition()
 	{
 		return m_Definition;
 	}
 	
-	WR_MissionStatus getStatus()
+	WR_MissionStatus GetStatus()
 	{
 		return m_eStatus;
 	}
 	
-	WorldTimestamp getLastTimestamp()
+	WorldTimestamp GetLastTimestamp()
 	{
 		return timeSinceLastStatusChange;
 	}
 	
+	SCR_MapMarkerBase GetMarker()
+	{
+		return m_Marker;
+	}
+	
+	void SetMarker(SCR_MapMarkerBase m)
+	{
+		m_Marker = m;
+	}
+	
 	void ~WR_Mission()
 	{
+		//logger.LogNormal("Destructor for Mission: " + m_Definition.m_sName);
 		delete m_aGroups;
 		delete m_aRewards;
 	}
