@@ -62,6 +62,8 @@ class WR_Mission
 	
 	protected bool SpawnRewards()
 	{
+		if (m_Definition.m_sRewardPrefabChoices.Count() == 0) return true;
+		
 		for (int i = 0; i < m_Definition.m_iNumberOfRewards; i++)
 		{
 			// Get Random Reward Resource
