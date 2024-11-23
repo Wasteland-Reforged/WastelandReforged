@@ -1,6 +1,15 @@
 Vehicle : "{1F9BB80C3EC3C891}Prefabs/Vehicles/Core/Wheeled_Car_Base.et" {
  ID "BBCBA43A9778AE21"
  components {
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     ThrottleCurve +{
+     }
+     ThrottleReactionTime 1
+    }
+   }
+  }
   SCR_ResourceComponent "{5D8356123028E721}" {
    m_aConsumers {
     SCR_ResourceConsumer "{623B289C88DCAE53}" {
@@ -65,5 +74,6 @@ Vehicle : "{1F9BB80C3EC3C891}Prefabs/Vehicles/Core/Wheeled_Car_Base.et" {
    "faction affiliation" ""
   }
  }
- coords 4865.669 28.594 11763.426
+ coords 1441.389 29.75 1140.09
+ angleY 91.501
 }
