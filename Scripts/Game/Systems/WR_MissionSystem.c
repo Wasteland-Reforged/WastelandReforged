@@ -67,7 +67,7 @@ class WR_MissionSystem : GameSystem
 				if (ts.DiffMilliseconds(mission.GetLastTimestamp()) > delay) {
 					mission.StartMission();
 					WR_MissionUiElementHelper.ShowMarker(marker);
-					WR_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
+					WR_MissionUiElementHelper.SendMissionNotificationStarted(mission);
 				}
 				break;
 			
@@ -75,15 +75,18 @@ class WR_MissionSystem : GameSystem
 				delay = WR_Utils.minutesToMS(m_Config.m_fMissionTimeLimit);
 				if (ts.DiffMilliseconds(mission.GetLastTimestamp()) > delay) {
 					WR_MissionUiElementHelper.DeleteMarker(marker);
-					WR_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
+					WR_MissionUiElementHelper.SendMissionNotificationTimeout(mission);
 					ConcludeMission(mission, true);
 					logger.LogNormal("Mission timed out.");
 				}
 				break;
 			
-			case WR_MissionStatus.Complete: 		//Needs its own status for effects that only happen once
-				WR_MissionUiElementHelper.UpdateMarkerColor(marker, 5);
-				WR_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
+			case WR_MissionStatus.Complete:
+				WR_MissionUiElementHelper.UpdateMarkerColor(marker, 13);
+				if (mission.GetCompletionType() == WR_MissionCompletionType.Success)
+					WR_MissionUiElementHelper.SendMissionNotificationCompleted(mission);
+				else
+					WR_MissionUiElementHelper.SendMissionNotificationDestroyed(mission);
 				currentActiveMissions -= 1;
 				logger.LogNormal("Mission completed. Decremented active missions to: " + currentActiveMissions);
 				mission.ChangeMissionStatus(WR_MissionStatus.AwaitingMarkerCleanup);
@@ -138,7 +141,10 @@ class WR_MissionSystem : GameSystem
 		if (!doPreNotif) {
 			mission.StartMission();
 			WR_MissionUiElementHelper.ShowMarker(marker);
-			WR_MissionUiElementHelper.SendMissionNotificationByStatus(mission);
+			WR_MissionUiElementHelper.SendMissionNotificationStarted(mission);
+		}
+		else {
+			WR_MissionUiElementHelper.SendMissionNotificationPending(mission, m_Config.m_fNewMissionNotificationDelay);
 		}
 		
 		m_aMissions.Insert(mission, marker);

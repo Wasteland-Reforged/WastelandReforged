@@ -5,6 +5,7 @@ class WR_Mission
 	WR_MissionLocationEntity m_Location;
 	WR_MissionDefinition m_Definition;
 	WR_MissionStatus m_eStatus;
+	WR_MissionCompletionType m_eCompletionType = null;
 	WorldTimestamp timeSinceLastStatusChange;
 	
 	int m_iCompletingPlayerId;
@@ -91,6 +92,12 @@ class WR_Mission
 			WR_Utils.RandomlyRotateAndOrientEntity(rewardEntity);
 			m_aRewards.Insert(rewardEntity);
 			
+			//Insert OnDestroy function for vehicles
+			auto vehicleDamageManager = SCR_VehicleDamageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleDamageManagerComponent));
+			if (vehicleDamageManager) {
+				vehicleDamageManager.GetOnVehicleDestroyed().Insert(OnRewardDestroyed);
+			}
+			
 			// Check if we need to fill reward with loot
 			if (m_Definition.m_eLootContext == WR_LootContextType.NONE) continue;
 			
@@ -114,11 +121,7 @@ class WR_Mission
 					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
 				}
 			}
-			
-			//Insert OnDestroy function for vehicles
-			auto vehicleDamageManager = SCR_VehicleDamageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleDamageManagerComponent));
-			if (vehicleDamageManager)
-				vehicleDamageManager.GetOnVehicleDestroyed().Insert(OnRewardDestroyed);
+		
 		}
 		
 		return true;
@@ -180,6 +183,7 @@ class WR_Mission
 			return;
 		
 		//m_iCompletingPlayerId = ?
+		m_eCompletionType = WR_MissionCompletionType.Success;
 		ChangeMissionStatus(WR_MissionStatus.Complete);
 	}
 	
@@ -191,6 +195,7 @@ class WR_Mission
 		if (m_eStatus != WR_MissionStatus.InProgress) return;
 		
 		m_iDestroyingPlayerId = playerID;
+		m_eCompletionType = WR_MissionCompletionType.Destroyed;
 		ChangeMissionStatus(WR_MissionStatus.Complete);
 	}
 	
@@ -223,6 +228,11 @@ class WR_Mission
 	WR_MissionStatus GetStatus()
 	{
 		return m_eStatus;
+	}
+	
+	WR_MissionCompletionType GetCompletionType()
+	{
+		return m_eCompletionType;
 	}
 	
 	WorldTimestamp GetLastTimestamp()

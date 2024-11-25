@@ -51,26 +51,43 @@ class WR_MissionUiElementHelper
 	// TODO: make this configurable from world editor
 	private static string m_sSoundEventNameNotification = "SOUND_HUD_TASK_CREATED";
 	
-	static void SendMissionNotificationByStatus(WR_Mission mission)
+	static void SendMissionNotificationPending(WR_Mission mission, float delayInMinutes)
 	{
-		string title, description;
+		string title = "Objective starting soon: " + mission.GetDefinition().m_sName;
+		string description = "Starting in: " + delayInMinutes + " minutes.";
 		
-		switch (mission.GetStatus())
-		{
-			case WR_MissionStatus.InProgress:
-				title = "New Objective: " + mission.GetDefinition().m_sName;
-				description = mission.GetDefinition().m_sDescription;
-				break;
-			case WR_MissionStatus.Complete:
-				title = "Objective Complete: " + mission.GetDefinition().m_sName;
-				description = "The mission was completed.";
-				break;
-			default:
-				title = "Objective Timeout: " + mission.GetDefinition().m_sName;
-				description = "The mission was not completed in time.";
-				break;
-		}
-				
+		ShowHintWithSound(title, description);
+	}
+	
+	static void SendMissionNotificationStarted(WR_Mission mission)
+	{
+		string title = "New Objective Started: " + mission.GetDefinition().m_sName;
+		string description = mission.GetDefinition().m_sDescription;
+		
+		ShowHintWithSound(title, description);
+	}
+	
+	static void SendMissionNotificationCompleted(WR_Mission mission)
+	{
+		string title = "Objective Complete: " + mission.GetDefinition().m_sName;
+		string description = "The mission was completed.";
+		
+		ShowHintWithSound(title, description);
+	}
+	
+	static void SendMissionNotificationTimeout(WR_Mission mission)
+	{
+		string title = "Objective Timed out: " + mission.GetDefinition().m_sName;
+		string description = "The mission was not completed in time.";
+		
+		ShowHintWithSound(title, description);
+	}
+	
+	static void SendMissionNotificationDestroyed(WR_Mission mission)
+	{
+		string title = "Objective Destroyed: " + mission.GetDefinition().m_sName;
+		string description = "Someone destroyed the mission reward";
+		
 		ShowHintWithSound(title, description);
 	}
 	
