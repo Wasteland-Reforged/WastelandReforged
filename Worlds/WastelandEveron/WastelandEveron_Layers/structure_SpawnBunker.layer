@@ -17,6 +17,9 @@ GenericEntity SpawnBoard : "{4BF528DF7A469909}Prefabs/Props/Construction/PalletJ
   MeshObject "{5872F0EB7FA40561}" {
    Object "{62C27FEBF2823AE3}Assets/Props/Civilian/NoticeBoardCork_01/NoticeBoardCork_01.xob"
   }
+  SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" {
+   Enabled 0
+  }
   SCR_UniversalInventoryStorageComponent "{61941D59467DAAAA}" {
    Attributes SCR_ItemAttributeCollection "{61941D588FBA6278}" {
     ItemDisplayName SCR_InventoryUIInfo "{61941D58824B02FF}" {
@@ -151,21 +154,21 @@ GameEntity : "{E3F157551B0501FE}Prefabs/Props/Military/Generators/GeneratorMilit
 }
 $grp SCR_SpawnPoint : "{E7F4D5562F48DDE4}Prefabs/MP/Spawning/SpawnPoint_Base.et" {
  {
-  coords 110.969 333 198.255
+  coords 110.175 333 198.255
   angleY 180
-  m_fSpawnRadius 1
+  m_fSpawnRadius 5
   m_sFaction "US"
  }
  {
-  coords 111.422 333 198.236
+  coords 112.215 333 198.236
   angleY 180
-  m_fSpawnRadius 1
+  m_fSpawnRadius 5
   m_sFaction "USSR"
  }
  {
   coords 111.185 333 197.98
   angleY 180
-  m_fSpawnRadius 1
+  m_fSpawnRadius 5
   m_sFaction "FIA"
  }
 }
