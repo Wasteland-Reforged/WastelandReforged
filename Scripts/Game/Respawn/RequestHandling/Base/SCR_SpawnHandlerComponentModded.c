@@ -21,8 +21,19 @@ modded class SCR_SpawnHandlerComponent : ScriptComponent
 
 		playerController.SetInitialMainEntity(entity);
 		
-		delete previous;
-
+		ChimeraCharacter character = ChimeraCharacter.Cast(previous);
+		if (character)
+		{
+			SCR_CharacterControllerComponent characterController = SCR_CharacterControllerComponent.Cast(character.GetCharacterController());
+			if (characterController)
+			{
+				if (characterController.GetLifeState() != ECharacterLifeState.DEAD)
+				{
+					delete previous;
+				}
+			}
+		}
+		
 		// Notify the system of change
 		HandleEntityChange_S(requestComponent, previous, entity, data);
 		
