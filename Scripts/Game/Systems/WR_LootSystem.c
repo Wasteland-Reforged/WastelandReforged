@@ -8,7 +8,7 @@ class WR_LootSystem : GameSystem
 	
 	private static int m_iSuccessfulSpawns = 0;
 	private static float subsequentLootSpawnChance = 0.01;
-	private static float initialLootSpawnChance = 0.40;
+	private static float initialLootSpawnChance = 0.75;
 	
 	static ref array<WR_LootSpawner> m_aLootSpawners;
 	
