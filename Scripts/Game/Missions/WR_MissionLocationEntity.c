@@ -40,7 +40,7 @@ class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGameTr
 		}
 		
 		SetActivationPresence(SCR_EScenarioFrameworkTriggerActivation.PLAYER);
-		GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
+		//GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
 		
 		MissionLocationEntities.Insert(this);
 	}
@@ -55,13 +55,13 @@ class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGameTr
 		return MissionLocationEntities;
 	}
 	
-	static array<WR_MissionLocationEntity> GetAllVacantLocations()
+	static array<WR_MissionLocationEntity> GetAllVacantLocations(WR_MissionLocationSize requiredSize)
 	{
 		array<WR_MissionLocationEntity> vacantLocations = {};
 		
 		foreach (auto location : MissionLocationEntities)
 		{
-			if (!location.m_bIsHostingMission)
+			if (!location.m_bIsHostingMission && location.GetSize() == requiredSize)
 				vacantLocations.Insert(location);
 		}
 		return vacantLocations;
@@ -97,15 +97,5 @@ class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGameTr
 		m_CurrentMission = mission;
 		m_bIsHostingMission = mission != null;
 	}
-	
-	// I have no idea if this will work properly on multiplayer
-	void OnPlayerEnteredMissionLocation()
-	{
-		if (m_RplComponent.Role() != RplRole.Authority) return;
-		if (!m_bIsHostingMission) return;
-		
-		WR_MissionControllerComponent missionController = WR_MissionControllerComponent.Cast(GetGame().GetGameMode().FindComponent(WR_MissionControllerComponent));
-		
-		missionController.OnPlayerEnteredMissionLocation(m_CurrentMission, this);
-	}
+
 }

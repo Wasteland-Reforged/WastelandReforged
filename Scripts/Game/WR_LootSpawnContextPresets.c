@@ -43,7 +43,7 @@ class WR_LootSpawnContextPresets
     {
         return new WR_LootSpawnContext
         (
-            rifleWeight: 		14.0,
+            rifleWeight: 		20.0,
             machineGunWeight: 	1.0,
             sniperWeight: 		1.5,
             handgunWeight: 		5.0,

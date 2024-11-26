@@ -134,9 +134,9 @@ class WR_ResourceNamesWeighted
 		Attachments.AddItem(4.0, "{C850A33226B8F9C1}Prefabs/Weapons/Attachments/Optics/Optic_PSO1/Optic_PSO1.et");
 
 		// Muzzle attachments
-		Attachments.AddItem(6.0, "{4A815EB8B824974A}Prefabs/Weapons/Attachments/Muzzle/FlashHider_AK74/FlashHider_AK74.et");
-		Attachments.AddItem(6.0, "{06D4C36A6D585275}Prefabs/Weapons/Attachments/Muzzle/FlashHider_AKS74u/FlashHider_AKS74u.et");
-		Attachments.AddItem(6.0, "{6288A1F1A5E3AC37}Prefabs/Weapons/Attachments/Muzzle/FlashHider_M16A2/FlashHider_M16.et");
+		//Attachments.AddItem(6.0, "{4A815EB8B824974A}Prefabs/Weapons/Attachments/Muzzle/FlashHider_AK74/FlashHider_AK74.et");
+		//Attachments.AddItem(6.0, "{06D4C36A6D585275}Prefabs/Weapons/Attachments/Muzzle/FlashHider_AKS74u/FlashHider_AKS74u.et");
+		//Attachments.AddItem(6.0, "{6288A1F1A5E3AC37}Prefabs/Weapons/Attachments/Muzzle/FlashHider_M16A2/FlashHider_M16.et");
 
 		// Underbarrel attachments
 		Attachments.AddItem(3.0, "{1ABABE3551512B0A}Prefabs/Weapons/Attachments/Underbarrel/UGL_GP25.et");
@@ -167,10 +167,10 @@ class WR_ResourceNamesWeighted
 		UtilityItems.AddItem(2.0, "{CE0AF733722B3978}Prefabs/Items/Equipment/Detonators/BlastingMachine_M34/BlastingMachine_M34.et");
 		UtilityItems.AddItem(2.0, "{90976DC90A223095}Prefabs/Items/Equipment/Detonators/BlastingMachine_KPM_3U1/BlastingMachine_KPM_3U1.et");
 		
-		UtilityItems.AddItem(2.0, "{630FB4AD4A735264}Prefabs/Items/Equipment/Canteens/Canteen_US_01.et");
-		UtilityItems.AddItem(2.0, "{70BC751317551D9B}Prefabs/Items/Equipment/Canteens/Canteen_Soviet_01.et");
-		UtilityItems.AddItem(2.0, "{50A68300B537EDFA}Prefabs/Items/Food/ArmyCrackers_Soviet_01.et");
-		UtilityItems.AddItem(2.0, "{EB21D26B8D5A3232}Prefabs/Items/Food/MRE.et");
+		//UtilityItems.AddItem(2.0, "{630FB4AD4A735264}Prefabs/Items/Equipment/Canteens/Canteen_US_01.et");
+		//UtilityItems.AddItem(2.0, "{70BC751317551D9B}Prefabs/Items/Equipment/Canteens/Canteen_Soviet_01.et");
+		//UtilityItems.AddItem(2.0, "{50A68300B537EDFA}Prefabs/Items/Food/ArmyCrackers_Soviet_01.et");
+		//UtilityItems.AddItem(2.0, "{EB21D26B8D5A3232}Prefabs/Items/Food/MRE.et");
 		UtilityItems.AddItem(2.0, "{6D56FED1E55A8F84}Prefabs/Items/Misc/IntelligenceFolder_E_01/IntelligenceFolder_E_01.et");
 
 		return UtilityItems;	

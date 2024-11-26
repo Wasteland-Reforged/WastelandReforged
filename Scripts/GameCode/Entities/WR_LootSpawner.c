@@ -1,9 +1,13 @@
-class WR_LootSpawnerClass : GenericEntityClass{}
-
+class WR_LootSpawnerClass : GenericEntityClass
+{
+	
+}
 
 class WR_LootSpawner : GenericEntity
 {
-    [Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContextType))]
+    ref WR_Logger<WR_LootSpawner> logger = new WR_Logger<WR_LootSpawner>(this);
+	
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContextType))]
 	WR_LootContextType m_LootContextType;
 	
 	[Attribute("0 0 90", UIWidgets.EditBox, desc: "Rotation of item when spawned", category: "Loot")]
@@ -18,11 +22,11 @@ class WR_LootSpawner : GenericEntity
 		if (!WR_LootSystem.m_aLootSpawners) 
 		{
 			WR_LootSystem.m_aLootSpawners = {};
-			WR_Logger.LogDebug("Initialized loot spawner array in loot system.");
+			logger.LogDebug("Initialized loot spawner array in loot system.");
 		}
 		
 		WR_LootSystem.m_aLootSpawners.Insert(this);
-		WR_Logger.LogDebug("Initialized loot spawner: " + this);
+		logger.LogDebug("Initialized loot spawner: " + this);
 	}
 
 	bool TrySpawnLoot()

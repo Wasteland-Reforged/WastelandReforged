@@ -11,7 +11,7 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 	SCR_ButtonTextComponent buttonRespawnCentral;
 	SCR_ButtonTextComponent buttonRespawnSouth;
 	PlayerController pc;
-	IEntity lastChar;
+	IEntity oldChar;
 
 	//------------------------------------------------------------------------------------------------
 	protected override void OnMenuOpen()
@@ -125,19 +125,19 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 		
 		SCR_PlayerFactionAffiliationComponent m_PlyFactionAffilComp = SCR_PlayerFactionAffiliationComponent.Cast(pc.FindComponent(SCR_PlayerFactionAffiliationComponent));
 		string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
+		
+		m_SpawnRequestManager.SGetOnLocalPlayerSpawned().Insert(Close);
+		//oldChar = pc.GetControlledEntity();
+		//m_SpawnRequestManager.SGetOnLocalPlayerSpawned().Insert(DeleteOldChar);
 
 		SCR_FreeSpawnData rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey, spawnCategory);
 		if (rspData)
-			m_SpawnRequestManager.RequestSpawn(rspData);
-		
-		m_SpawnRequestManager.SGetOnLocalPlayerSpawned().Insert(Close);
-		lastChar = pc.GetControlledEntity();
-		m_SpawnRequestManager.SGetOnLocalPlayerSpawned().Insert(DeleteLastChar);
+			m_SpawnRequestManager.RequestSpawn(rspData);	
 		
 	}
 	
-	protected void DeleteLastChar() {
-		delete lastChar;
+	protected void DeleteOldChar() {
+		delete oldChar;
 	}
 	
 }

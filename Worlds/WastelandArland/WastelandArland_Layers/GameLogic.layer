@@ -1,18 +1,5 @@
-SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+WR_GameModeWasteland GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  components {
-  SCR_CampaignBuildingManagerComponent "{623AEC144895D766}" {
-   m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
-   m_BudgetType CAMPAIGN
-   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{623AEC14C72BDFF7}" {
-    m_sSlotFlatSmallLayout "{7FD4E6A668B4537A}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFLatSmall.et"
-    m_sSlotFlatMediumLayout "{579FF731013436B5}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatMedium.et"
-    m_sSlotFlatLargeLayout "{ED9D7F29497B9BF7}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatLarge.et"
-    m_sSlotRoadSmallLayout "{8DBA7E7BF662A393}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadSmall.et"
-    m_sSlotRoadMediumLayout "{3A5E87ADA26C6940}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadMedium.et"
-    m_sSlotRoadLargeLayout "{D06D9D47008E794F}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadLarge.et"
-   }
-   m_sPrefabsToBuildResource "{D2527D9AA5B4A33E}Configs/Editor/PlaceableEntities/Compositions/Compositions_FreeRoamBuilding.conf"
-  }
   SCR_DataCollectorComponent "{5ADE83EE64329989}" {
    m_aModules {
     SCR_DataCollectorBasicActionsModule "{5AE097A82ED69A98}" {
@@ -57,13 +44,13 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   }
   SCR_EntityCatalogManagerComponent "{5C9AD18D91F9E87E}" {
    m_aEntityCatalogs {
-    SCR_EntityCatalogMultiList "{5C9AD18D9D38E99E}" : "{EAD206A79A774696}Configs/EntityCatalog/FactionLess/Characters_EntityCatalog_Factionless.conf" {
+    SCR_EntityCatalogMultiList "{5C9AD18D9D38E99E}" {
     }
-    SCR_EntityCatalogMultiList "{5C9AD18D9B68853E}" : "{77243A71AF0E5A75}Configs/EntityCatalog/FactionLess/Vehicles_EntityCatalog_Factionless.conf" {
+    SCR_EntityCatalogMultiList "{5C9AD18D9B68853E}" {
     }
-    SCR_EntityCatalogMultiList "{5C9AD18D98F9181C}" : "{BB12292052E2F5B8}Configs/EntityCatalog/FactionLess/InventoryItems_EntityCatalog_Factionless.conf" {
+    SCR_EntityCatalogMultiList "{5C9AD18D98F9181C}" {
     }
-    SCR_EntityCatalog "{5C9EDDD29E61EF44}" : "{B80293331FB7BFCF}Configs/EntityCatalog/FactionLess/SupplyContainerItems_EntityCatalog_Factionless.conf" {
+    SCR_EntityCatalog "{5C9EDDD29E61EF44}" {
     }
    }
   }
@@ -71,7 +58,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    m_bPermitUnconsciousVON 1
   }
   SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
-   m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" : "{651583FFFB7FC765}Configs/GameOverScreen/GameOverScreensConfig.conf" {
+   m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" {
    }
   }
   SCR_GroupsManagerComponent "{5706EC99934496F5}" {
@@ -81,13 +68,12 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
   SCR_HintManagerComponent "{5702B54C6CBC9D7F}" {
    m_bIgnoreHintSettings 1
   }
-  SCR_InitWeatherComponent "{62182B4329BA306B}" {
-   m_sInitialStartingWeatherId "Clear"
-   m_initialWeatherDurationMin 0.5
-   m_initialWeatherDurationMax 1
-  }
   SCR_NametagConfigComponent "{571AA9E54FC9210D}" {
    m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
+  }
+  SCR_NightModeGameModeComponent "{5D50E84688D5A408}" {
+   m_bAllowGlobalNightMode 1
+   m_iEVValueNormalMode 2
   }
   SCR_NotificationSenderComponent "{56FA84B04BE7D4C0}" {
    m_iKillFeedType FULL
@@ -128,7 +114,7 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
      m_sKillfeedReceiveTypeName "#AR-Notification_KillfeedReceiveType_ENEMIES_ONLY"
     }
    }
-   m_PlayerKickReasonsConfig SCR_ConfigurableDialogUiPresets "{5AD6C337FC7F76C0}" : "{D3BFEE28E7D5B6A1}Configs/ServerBrowser/KickDialogs.conf" {
+   m_PlayerKickReasonsConfig SCR_ConfigurableDialogUiPresets "{5AD6C337FC7F76C0}" {
    }
   }
   SCR_RadialMenuItemsComponent "{5C92B03271ABD8AA}" {
@@ -141,13 +127,31 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
     }
    }
   }
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{61A3204EF0E2117B}" {
+   }
+  }
+  SCR_CampaignBuildingManagerComponent "{623AEC144895D766}" {
+   m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
+   m_BudgetType CAMPAIGN
+   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{623AEC14C72BDFF7}" {
+    m_sSlotFlatSmallLayout "{7FD4E6A668B4537A}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFLatSmall.et"
+    m_sSlotFlatMediumLayout "{579FF731013436B5}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatMedium.et"
+    m_sSlotFlatLargeLayout "{ED9D7F29497B9BF7}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatLarge.et"
+    m_sSlotRoadSmallLayout "{8DBA7E7BF662A393}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadSmall.et"
+    m_sSlotRoadMediumLayout "{3A5E87ADA26C6940}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadMedium.et"
+    m_sSlotRoadLargeLayout "{D06D9D47008E794F}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadLarge.et"
+   }
+   m_sPrefabsToBuildResource "{D2527D9AA5B4A33E}Configs/Editor/PlaceableEntities/Compositions/Compositions_FreeRoamBuilding.conf"
+  }
+  SCR_InitWeatherComponent "{62182B4329BA306B}" {
+   m_sInitialStartingWeatherId "Clear"
+   m_initialWeatherDurationMin 0.5
+   m_initialWeatherDurationMax 1
+  }
   SCR_RespawnBriefingComponent "{621369C835E532F8}" {
    m_sJournalConfigPath "{9E3CBC1592DCE5C1}Configs/Journal/JournalSetupWasteland.conf"
    m_Info SCR_UIInfo "{6213697E57BEB700}" {
-   }
-  }
-  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
-   m_SpawnLogic SCR_MenuSpawnLogic "{61A3204EF0E2117B}" {
    }
   }
   SCR_TimeAndWeatherHandlerComponent "{61D805F9F5E6DB16}" {
@@ -230,25 +234,11 @@ SCR_BaseGameMode GameMode_Wasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMo
    minLootBoxItems 4
    maxLootBoxItems 12
   }
-  WR_MissionControllerComponent "{61E85922C998A746}" {
-   m_Config WR_MissionControllerConfig "{62482631BBBC5EB9}" {
-    m_iMaxActiveMissions 1
-    m_fInitialMissionDelay 0.1
-    m_fNewMissionDelay 0.01
-    m_aMissionDefinitions {
-     WR_MissionDefinition "{62482631AA5E5A27}" : "{C7CCC94799477142}Configs/Missions/Definitions/CaptureBase.conf" {
-     }
-     WR_MissionDefinition "{62482631966D7D2D}" : "{EB6001FFD85B0371}Configs/Missions/Definitions/CaptureOutpost.conf" {
-     }
-     WR_MissionDefinition "{6248263191BFC743}" : "{F1683233FBDAA581}Configs/Missions/Definitions/MedicalSupplies.conf" {
-     }
-    }
-   }
-  }
   WR_SpawnAreaControllerComponent "{6248263D747D74BE}" {
   }
  }
  coords 999.617 37.382 2851.944
+ m_bEnableBrightNightMode 1
  {
   SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
    components {
