@@ -82,6 +82,10 @@ GenericEntity : "{533CDABD77C4C43E}Prefabs/Rocks/Granite/GraniteCliff_02.et" {
  angleZ -90
  scale 2
 }
+WR_SafezoneEntity : "{5AF7AD250A60D208}Prefabs/Zones/Safe/WR_Safezone.et" {
+ coords 111.771 331.656 194.767
+ SphereRadius 20
+}
 GameEntity : "{616F4E93658E5A3A}Prefabs/Props/Military/Generators/GeneratorFloodlight_USSR_01.et" {
  coords 105.55 331.656 194.396
  angleY 56.721
