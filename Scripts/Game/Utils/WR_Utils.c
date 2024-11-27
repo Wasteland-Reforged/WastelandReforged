@@ -204,8 +204,20 @@ class WR_Utils
 		return true;
 	}
 	
-	static float minutesToMS(float minutes)
+	static float MinutesToMilliseconds(float m)
 	{
-		return minutes*60*1000;
+		float s = MinutesToSeconds(m);
+		float ms = SecondsToMilliseconds(s);
+		return ms;
+	}
+	
+	static float MinutesToSeconds(float m)
+	{
+		return m * 60;
+	}
+	
+	static float SecondsToMilliseconds(float s)
+	{
+		return s * 1000;
 	}
 }

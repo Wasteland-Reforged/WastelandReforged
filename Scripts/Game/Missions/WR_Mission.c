@@ -1,48 +1,55 @@
 class WR_Mission
 {
 	ref WR_Logger<WR_Mission> logger = new WR_Logger<WR_Mission>(this);
+	private static int s_iMissionCounter;
 	
+	int m_iMissionId;
 	WR_MissionLocationEntity m_Location;
 	WR_MissionDefinition m_Definition;
 	WR_MissionStatus m_eStatus;
-	WR_MissionCompletionType m_eCompletionType = null;
 	WorldTimestamp timeSinceLastStatusChange;
 	
+	WR_MissionCompletionType m_eCompletionType = null;
 	int m_iCompletingPlayerId;
-	int m_iDestroyingPlayerId;
 
 	IEntity m_PropEntity;
 	ref array<IEntity> m_aRewards = {};
 	ref array<SCR_AIGroup> m_aGroups = {};
 	
-	SCR_MapMarkerBase m_Marker;
+	ref SCR_MapMarkerBase m_Marker;
 
 	void WR_Mission(notnull WR_MissionLocationEntity location, notnull WR_MissionDefinition definition)
 	{
+		s_iMissionCounter += 1;
+		
+		m_iMissionId = s_iMissionCounter;
 		m_Location = location;
 		m_Definition = definition;
-		ChangeMissionStatus(WR_MissionStatus.Pending);
+		
+		SetMissionStatus(WR_MissionStatus.Pending);
 	}
 	
 	bool StartMission()
 	{
-		if (!SpawnProp() || !SpawnRewards() || !SpawnAIGroups()) {
-			ChangeMissionStatus(WR_MissionStatus.FailedToSpawn);
-			logger.LogNormal("Mission failed to spawn: " + m_Definition.m_sName);
-			return false;
-		}
-		else {
-			ChangeMissionStatus(WR_MissionStatus.InProgress);
+		bool entitiesDidSpawn = SpawnProp() && SpawnRewards() && SpawnNpcGroups();
+		
+		if (entitiesDidSpawn)
+		{
+			SetMissionStatus(WR_MissionStatus.InProgress);
 			m_Location.GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
-			logger.LogNormal("Mission started successfully: " + m_Definition.m_sName);
-			return true;
+			logger.LogNormal(string.Format("Mission started successfully: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 		}
+		else
+		{
+			SetMissionStatus(WR_MissionStatus.Malformed);
+			logger.LogWarning(string.Format("Mission failed to spawn: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
+		}
+		
+		return entitiesDidSpawn;
 	}
 	
-	void ChangeMissionStatus(WR_MissionStatus newStatus)
+	void SetMissionStatus(WR_MissionStatus newStatus)
 	{
-		logger.LogNormal("Changing " + m_Definition.m_sName + " status to " + newStatus);
-		
 		m_eStatus = newStatus;
 		timeSinceLastStatusChange = GetGame().GetWorld().GetTimestamp();
 	}
@@ -53,8 +60,9 @@ class WR_Mission
 		if (!propResource) return true;
 		
 		m_PropEntity = WR_Utils.SpawnPrefabInWorld(propResource, m_Location.GetOrigin());
-		if (!m_PropEntity) {
-			Print("[WASTELAND]: WR_Mission: Mission prop failed to spawn!", LogLevel.ERROR);
+		if (!m_PropEntity)
+		{
+			logger.LogError(string.Format("Prop failed to spawn! (ID: %1)", m_iMissionId)); 
 			return false;
 		}
 		
@@ -69,32 +77,36 @@ class WR_Mission
 		{
 			// Get Random Reward Resource
 			ResourceName rewardPrefab = m_Definition.m_sRewardPrefabChoices.GetRandomElement();
-			if (!rewardPrefab) {
-				Print("[WASTELAND]: WR_Mission: No reward prefabs defined for mission that requires rewards", LogLevel.ERROR);
+			if (!rewardPrefab)
+			{
+				logger.LogError(string.Format("No reward prefabs defined for mission that requires rewards (ID: %1)", m_iMissionId));
 				return false;
 			}
 			
-			// Get Random Safe Position
+			// Get random safe position
 			vector spawnPos;
 			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, m_Location.GetOrigin(), 1.0, 10.0, 1.0, 1.0);
-			if (!safePosFound) {
-				Print("[WASTELAND] WR_Mission: Unable to find a safe spawn position for this mission's reward!", LogLevel.ERROR);
+			if (!safePosFound)
+			{
+				logger.LogError(string.Format("Unable to find a safe spawn position for this mission's reward! (ID: %1)", m_iMissionId));
 				return false;
 			}
 			
-			// Attempt to Spawn Reward
+			// Attempt to spawn reward
 			IEntity rewardEntity = WR_Utils.SpawnPrefabInWorld(rewardPrefab, spawnPos);
-			if (!rewardEntity) {
-				Print("[WASTELAND] WR_Mission: Mission reward failed to spawn!", LogLevel.ERROR);
+			if (!rewardEntity)
+			{
+				logger.LogError(string.Format("Mission reward failed to spawn! (ID: %1)", m_iMissionId));
 				return false;
 			}
 			
 			WR_Utils.RandomlyRotateAndOrientEntity(rewardEntity);
 			m_aRewards.Insert(rewardEntity);
 			
-			//Insert OnDestroy function for vehicles
+			// Insert OnDestroy function for vehicles
 			auto vehicleDamageManager = SCR_VehicleDamageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleDamageManagerComponent));
-			if (vehicleDamageManager) {
+			if (vehicleDamageManager)
+			{
 				vehicleDamageManager.GetOnVehicleDestroyed().Insert(OnRewardDestroyed);
 			}
 			
@@ -117,7 +129,8 @@ class WR_Mission
 				auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
 				
 				array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 5,  maxExtraMags: 12);
-				foreach (ResourceName item : items) {
+				foreach (ResourceName item : items)
+				{
 					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
 				}
 			}
@@ -127,42 +140,44 @@ class WR_Mission
 		return true;
 	}
 	
-	protected bool SpawnAIGroups()
+	protected bool SpawnNpcGroups()
 	{
 		foreach (ResourceName aiGroupResource : m_Definition.m_aAIGroupPrefabs)
 		{
 			// Find a safe spot for the NPCs to spawn
 			vector spawnPos;
 			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, m_Location.GetOrigin(), 1.0, 10.0, 1.0, 1.0);
-			if (!safePosFound) {
-				Print("[WASTELAND] WR_MissionControllerComponent: Unable to find a safe spawn position for a mission AI Group!", LogLevel.ERROR);
+			if (!safePosFound)
+			{
+				logger.LogError(string.Format("Unable to find a safe spawn position for a mission AI Group! (ID: %1)", m_iMissionId));
 				return false;
 			}	
 			
 			// Spawn the group prefab
 			IEntity aiGroupEntity = WR_Utils.SpawnPrefabInWorld(aiGroupResource, spawnPos);
-			SCR_AIGroup aiGroup = SCR_AIGroup.Cast(aiGroupEntity);
-			if (!aiGroup) {
-				Print("[WASTELAND] WR_MissionControllerComponent: AI Group was not spawned!", LogLevel.ERROR);
+			SCR_AIGroup group = SCR_AIGroup.Cast(aiGroupEntity);
+			if (!group)
+			{
+				logger.LogError(string.Format("AI Group was not spawned! (ID: %1)", m_iMissionId));
 				return false;
 			}	
 			
-			// Configure Group
-			aiGroup.SetDeleteWhenEmpty(true);
-			aiGroup.SetFaction(GetGame().GetFactionManager().GetFactionByKey("CIV"));	
+			// Configure group
+			group.SetDeleteWhenEmpty(true);
+			group.SetFaction(GetGame().GetFactionManager().GetFactionByKey("CIV"));	
 
 			// Set group waypoint to defend mission location
 			ResourceName waypointResource = "{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et";
 			IEntity waypointEntity = WR_Utils.SpawnPrefabInWorld(waypointResource, m_Location.GetOrigin());
 			SCR_AIWaypoint waypoint = SCR_AIWaypoint.Cast(waypointEntity);
-			aiGroup.AddWaypoint(waypoint);
+			group.AddWaypoint(waypoint);
 			
-			m_aGroups.Insert(aiGroup);
+			m_aGroups.Insert(group);
 		}
 		return true;
 	}
 	
-	protected bool AreAllNPCsDead()
+	protected bool AreAllNpcsDead()
 	{
 		foreach (SCR_AIGroup group : m_aGroups)
 			if (group) return false;
@@ -177,42 +192,48 @@ class WR_Mission
 		if (m_eStatus != WR_MissionStatus.InProgress)
 			return;
 		
-		logger.LogNormal("Player entered mission location for: " + m_Definition.m_sName);
-		
-		if (!AreAllNPCsDead()) 
+		if (!AreAllNpcsDead()) 
 			return;
 		
-		//m_iCompletingPlayerId = ?
+		array<IEntity> playersInTrigger = {};
+		m_Location.GetPlayersByFactionInsideTrigger(playersInTrigger);
+		if (playersInTrigger.Count() > 0)
+		{
+			PlayerManager playerManager = GetGame().GetPlayerManager();
+			m_iCompletingPlayerId = playerManager.GetPlayerIdFromControlledEntity(playersInTrigger[0]);
+		}
+		
 		m_eCompletionType = WR_MissionCompletionType.Success;
-		ChangeMissionStatus(WR_MissionStatus.Complete);
+		SetMissionStatus(WR_MissionStatus.Complete);
 	}
 	
-	protected void OnRewardDestroyed(int playerID)
+	protected void OnRewardDestroyed(int playerId)
 	{
-		logger.LogNormal("Reward Destroyed at mission:" + m_Definition.m_sName);
+		logger.LogNormal(string.Format("Reward destroyed at mission: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 		
 		// We only care about this if the mission is still in progress
 		if (m_eStatus != WR_MissionStatus.InProgress) return;
 		
-		m_iDestroyingPlayerId = playerID;
+		m_iCompletingPlayerId = playerId;
 		m_eCompletionType = WR_MissionCompletionType.Destroyed;
-		ChangeMissionStatus(WR_MissionStatus.Complete);
+		SetMissionStatus(WR_MissionStatus.Complete);
 	}
 	
 	void DeleteMissionEntities(bool includeRewards)
 	{
-		logger.LogNormal("Deleting Mission Entities for mission: " + m_Definition.m_sName);
+		logger.LogNormal(string.Format("Deleting mission entities for mission: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 		
-		// Delete Prop and AI Groups
+		// Delete prop and NPCs
 		SCR_EntityHelper.DeleteEntityAndChildren(m_PropEntity);
 		foreach (SCR_AIGroup group : m_aGroups)
 			SCR_EntityHelper.DeleteEntityAndChildren(group);
 		
-		// Conditionally delete rewards		Missions fail on: Failed to Spawn, Timeout, Reward Destroyed
-		if (!includeRewards) return;
+		// Conditionally delete rewards
+		if (!includeRewards)
+			return;
+		
 		foreach (IEntity ent : m_aRewards)
 			SCR_EntityHelper.DeleteEntityAndChildren(ent);
-
 	}
 	
 	WR_MissionLocationEntity GetLocation()
@@ -223,6 +244,11 @@ class WR_Mission
 	WR_MissionDefinition GetDefinition()
 	{
 		return m_Definition;
+	}
+	
+	WR_MissionType GetType()
+	{
+		return m_Definition.m_eType;
 	}
 	
 	WR_MissionStatus GetStatus()
@@ -250,9 +276,23 @@ class WR_Mission
 		m_Marker = m;
 	}
 	
+	int GetCompletingPlayerId()
+	{
+		return m_iCompletingPlayerId;
+	}
+	
+	int GetMissionId()
+	{
+		return m_iMissionId;
+	}
+	
+	void SetCompletionType(WR_MissionCompletionType type)
+	{
+		m_eCompletionType = type;
+	}
+	
 	void ~WR_Mission()
 	{
-		//logger.LogNormal("Destructor for Mission: " + m_Definition.m_sName);
 		delete m_aGroups;
 		delete m_aRewards;
 	}

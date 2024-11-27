@@ -334,3 +334,6 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/WR_MissionLocation.et
   m_eSize LARGE
  }
 }
+GenericEntity : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
+ coords -4048.345 110.377 -860.28
+}
