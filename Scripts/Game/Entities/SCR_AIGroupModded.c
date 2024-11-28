@@ -108,4 +108,19 @@ modded class SCR_AIGroup : ChimeraAIGroup
 		return true;
 	}
 	
+	string GetDisplayName()
+	{
+		if (m_sCustomName && m_sCustomName.Length() > 0)
+		{
+			return m_sCustomName;
+		}
+		else
+		{
+			string company, platoon, squad, character, format;
+			GetCallsigns(company, platoon, squad, character, format);
+			string callsign = string.Format(format, WidgetManager.Translate(company), platoon, squad, character);
+			
+			return callsign;
+		}
+	}
 }

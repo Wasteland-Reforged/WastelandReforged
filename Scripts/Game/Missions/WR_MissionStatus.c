@@ -1,7 +1,7 @@
 enum WR_MissionStatus
 { 
 	Pending,
-	FailedToSpawn,
+	Malformed,
 	InProgress,
     Complete,
 	AwaitingMarkerCleanup,

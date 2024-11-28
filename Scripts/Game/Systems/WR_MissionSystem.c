@@ -2,18 +2,35 @@ class WR_MissionSystem : GameSystem
 {
 	ref WR_Logger<WR_MissionSystem> logger = new WR_Logger<WR_MissionSystem>(this);
 	
-	[Attribute("", UIWidgets.Object, "Mission system config")]
+	//[Attribute("", UIWidgets.Object, "Mission system config")]
 	protected ref WR_MissionSystemConfig m_Config;
 	
 	float m_fMissionCreationTimeElaspedS = 0;
-	float m_fMissionCreationTickrateS = 30;
+	float m_fMissionCreationTickrateS = 15;
 
-	int currentActiveMissions = 0;
-	ref map<ref WR_Mission, SCR_MapMarkerBase> m_aMissions = new map<ref WR_Mission, SCR_MapMarkerBase>;
-	bool doPreNotif = false;
+	ref array<ref WR_Mission> m_aMissions = {};
+	
+	WR_MissionNotificationComponent m_NotifComponent;
 	
 	private override void OnStarted()
 	{
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (!gameMode)
+			logger.LogError("Wasteland game mode entity not found! Cannot send mission notifications. Place a 'GameMode_Wasteland' prefab in the world to resolve.");
+//		
+//		WR_MissionNotificationComponent notifComponent = WR_MissionNotificationComponent.Cast(gameMode.FindComponent(WR_MissionNotificationComponent));
+//		if (!notifComponent)
+//			logger.LogError("Mission notification component not found on game mode! Cannot send mission notifications. Add a 'WR_MissionNotificationComponent' to the game mode to resolve.");
+		
+		//m_NotifComponent = notifComponent;
+		m_Config = gameMode.GetMissionSystemConfig();
+		if (!m_Config)
+		{
+			logger.LogError("No mission system config could be found on the Wasteland game mode. Destroying mission system.");
+			this.Enable(false);
+		}
+		
+		
 		logger.LogNormal("Mission system started.");
 	}
 	
@@ -26,21 +43,24 @@ class WR_MissionSystem : GameSystem
 		// Check if mission needs creation
 		if (m_fMissionCreationTimeElaspedS >= m_fMissionCreationTickrateS)
 		{
-			if (currentActiveMissions < GetMaxActiveMissionSlots())
+			if (GetActiveMissionCount() < GetMaxActiveMissionSlots())
 				TryCreateNewMission();
 			
 			m_fMissionCreationTimeElaspedS = 0;
 		}
 		
+		if (!m_aMissions || m_aMissions.Count() == 0)
+			return;
+		
 		// Advance mission statuses
-		if (!m_aMissions || m_aMissions.Count() == 0) return;
-		foreach (WR_Mission mission, SCR_MapMarkerBase marker : m_aMissions)
+		for (int i = 0; i < m_aMissions.Count();)
 		{
-			if (mission) {
-				CheckForMissionUpdate(mission);
-				if (!mission)						//If a mission gets deleted (and removed from the array) mid update, this foreach loop goes out of bounds, hence we need a break
-					break;
-			}
+			AdvanceMissionStatus(m_aMissions[i]);
+			
+			// Only increment index if the mission was not deleted.
+			// Avoids index out of bounds errors.
+			if (m_aMissions[i])
+				i++;
 		}
 	}
 	
@@ -49,67 +69,99 @@ class WR_MissionSystem : GameSystem
 		logger.LogNormal("Mission system cleaned up.");
 	}
 	
-	private void CheckForMissionUpdate(WR_Mission mission)
+	private void AdvanceMissionStatus(WR_Mission mission)
 	{
+		if (!m_NotifComponent)
+			SetMissionNotificationComponent();
+		
 		float delay;
-		WorldTimestamp ts = GetGame().GetWorld().GetTimestamp();
-		SCR_MapMarkerBase marker = m_aMissions.Get(mission);
+		WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
+		SCR_MapMarkerBase marker = mission.GetMarker();
 		
 		switch (mission.GetStatus())
 		{
-			case WR_MissionStatus.FailedToSpawn:
-				WR_MissionUiElementHelper.DeleteMarker(marker);
-				ConcludeMission(mission, true);
+			case WR_MissionStatus.Malformed:
+			{
+				WR_MissionMarkerHelper.DeleteMarker(marker);
+				
+				//ConcludeMission(mission, true);
+				mission.DeleteMissionEntities(includeRewards: true);
+				
 				break;
-			
-			case WR_MissionStatus.Pending: 
-				delay = WR_Utils.minutesToMS(m_Config.m_fInitialMissionDelay);
-				if (ts.DiffMilliseconds(mission.GetLastTimestamp()) > delay) {
+			}
+			case WR_MissionStatus.Pending:
+			{
+				delay = WR_Utils.MinutesToMilliseconds(m_Config.m_fNewMissionNotificationDelayM);
+				
+				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
+				{
 					mission.StartMission();
-					WR_MissionUiElementHelper.ShowMarker(marker);
-					WR_MissionUiElementHelper.SendMissionNotificationStarted(mission);
+					WR_MissionMarkerHelper.ShowMarker(marker);
+					m_NotifComponent.SendNotification(mission);
 				}
+				
 				break;
-			
-			case WR_MissionStatus.InProgress: 
-				delay = WR_Utils.minutesToMS(m_Config.m_fMissionTimeLimit);
-				if (ts.DiffMilliseconds(mission.GetLastTimestamp()) > delay) {
-					WR_MissionUiElementHelper.DeleteMarker(marker);
-					WR_MissionUiElementHelper.SendMissionNotificationTimeout(mission);
-					ConcludeMission(mission, true);
-					logger.LogNormal("Mission timed out.");
+			}
+			case WR_MissionStatus.InProgress:
+			{
+				delay = WR_Utils.MinutesToMilliseconds(m_Config.m_fMissionTimeLimitM);
+				
+				// Check for mission timeout
+				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
+				{
+					mission.SetMissionStatus(WR_MissionStatus.Complete);
+					mission.SetCompletionType(WR_MissionCompletionType.TimedOut);
+//					WR_MissionMarkerHelper.UpdateMarkerColor(marker);
+//					m_NotifComponent.SendNotification(mission);
+					//ConcludeMission(mission, true);
+					mission.DeleteMissionEntities(includeRewards: true);
 				}
+				
 				break;
-			
+			}
 			case WR_MissionStatus.Complete:
-				WR_MissionUiElementHelper.UpdateMarkerColor(marker, 13);
-				if (mission.GetCompletionType() == WR_MissionCompletionType.Success)
-					WR_MissionUiElementHelper.SendMissionNotificationCompleted(mission);
-				else
-					WR_MissionUiElementHelper.SendMissionNotificationDestroyed(mission);
-				currentActiveMissions -= 1;
-				logger.LogNormal("Mission completed. Decremented active missions to: " + currentActiveMissions);
-				mission.ChangeMissionStatus(WR_MissionStatus.AwaitingMarkerCleanup);
+			{
+				WR_MissionMarkerHelper.UpdateMarkerColor(marker, 13);
+				
+				m_NotifComponent.SendNotification(mission);
+				
+				logger.LogNormal(string.Format("Mission ended: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
+				mission.SetMissionStatus(WR_MissionStatus.AwaitingMarkerCleanup);
+				
 				break;
-			
-			case WR_MissionStatus.AwaitingMarkerCleanup: 
-				delay = WR_Utils.minutesToMS(m_Config.m_fMissionMapMarkerCleanupDelay);
-				if (ts.DiffMilliseconds(mission.GetLastTimestamp()) > delay) {
-					WR_MissionUiElementHelper.DeleteMarker(marker);
-					mission.ChangeMissionStatus(WR_MissionStatus.AwaitingCleanup);
-					logger.LogNormal("Cleaned map marker.");
+			}
+
+			case WR_MissionStatus.AwaitingMarkerCleanup:
+			{
+				delay = WR_Utils.MinutesToMilliseconds(m_Config.m_fMissionMapMarkerCleanupDelayM);
+				
+				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
+				{
+					WR_MissionMarkerHelper.DeleteMarker(marker);
+					mission.SetMissionStatus(WR_MissionStatus.AwaitingCleanup);
+					logger.LogNormal(string.Format("Deleted mission map marker: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
+				}
+				
+				break;
+			}
+			case WR_MissionStatus.AwaitingCleanup:
+			{
+				delay = WR_Utils.MinutesToMilliseconds(m_Config.m_fMissionCleanupDelayM);
+				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
+				{
+					//ConcludeMission(mission, false);
+					mission.DeleteMissionEntities(includeRewards: false);
+					logger.LogNormal(string.Format("Mission entities cleaned up: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
+					//m_aMissions.RemoveItem(mission);
+					m_aMissions.RemoveItemOrdered(mission);
+					//delete mission;
 				}
 				break;
-			
-			case WR_MissionStatus.AwaitingCleanup: 
-				delay = WR_Utils.minutesToMS(m_Config.m_fMissionCleanupDelay);
-				if (ts.DiffMilliseconds(mission.GetLastTimestamp()) > delay) {
-					ConcludeMission(mission, false);
-					logger.LogNormal("Cleaned mission.");
-				}
-				break;
-			
-			default: 
+			}
+			default:
+			{
+				logger.LogError(string.Format("Invalid mission status: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
+			}
 		}
 	}
 	
@@ -117,45 +169,58 @@ class WR_MissionSystem : GameSystem
 	{
 		// Choose a mission definition
 		WR_MissionDefinition definition = GetRandomMissionDefinition();
-		if (!definition) {
+		if (!definition)
+		{
 			logger.LogError("No mission definitions have been defined! Cannot start new mission.");
 			return;
 		}
 		
 		// Choose a random vacant location for the mission
 		WR_MissionLocationEntity location = GetRandomVacantMissionLocation(definition.m_eSize);
-		if (!location) {
+		if (!location)
+		{
 			logger.LogError("No vacant mission locations! Cannot start new mission.");
 			return;
 		}
 		
-		//Initialize new mission and increment mission count. If mission fails to spawn, CheckForMissionUpdate catches it next frame anyways so we dont handle it here
+		// Initialize new mission and increment mission count. If mission fails to spawn, AdvanceMissionStatuses catches it next frame anyways so we dont handle it here
 		WR_Mission mission = new WR_Mission(location, definition);
 
-		currentActiveMissions += 1;
-		logger.LogNormal("Mission created. Incremented active missions to: " + currentActiveMissions);
+		logger.LogNormal(string.Format("Mission created: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
 			
-		SCR_MapMarkerBase marker = WR_MissionUiElementHelper.CreateMarker(mission);
+		SCR_MapMarkerBase marker = WR_MissionMarkerHelper.CreateMarker(mission);
+		mission.SetMarker(marker);
 		
-		// If future mission notifications is disabled, start mission right away and show its marker
-		if (!doPreNotif) {
-			mission.StartMission();
-			WR_MissionUiElementHelper.ShowMarker(marker);
-			WR_MissionUiElementHelper.SendMissionNotificationStarted(mission);
+		// Send preliminary notification if a mission start delay exists
+		if (m_Config.m_fNewMissionNotificationDelayM > 0)
+		{
+			if (!m_NotifComponent)
+				SetMissionNotificationComponent();
+
+			m_NotifComponent.SendNotification(mission);
 		}
-		else {
-			WR_MissionUiElementHelper.SendMissionNotificationPending(mission, m_Config.m_fNewMissionNotificationDelay);
-		}
-		
-		m_aMissions.Insert(mission, marker);
+
+		m_aMissions.Insert(mission);
 	}
 	
-	private void ConcludeMission(WR_Mission mission, bool deleteRewards)
+	private void SetMissionNotificationComponent()
 	{
-		mission.DeleteMissionEntities(deleteRewards);
-		m_aMissions.Remove(mission);
-
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (!gameMode)
+			logger.LogError("Wasteland game mode entity not found! Cannot send mission notifications. Place a 'GameMode_Wasteland' prefab in the world to resolve.");
+		
+		WR_MissionNotificationComponent notifComponent = WR_MissionNotificationComponent.Cast(gameMode.FindComponent(WR_MissionNotificationComponent));
+		if (!notifComponent)
+			logger.LogError("Mission notification component not found on game mode! Cannot send mission notifications. Add a 'WR_MissionNotificationComponent' to the game mode to resolve.");
+		
+		m_NotifComponent = notifComponent;
 	}
+	
+//	private void ConcludeMission(WR_Mission mission, bool deleteRewards)
+//	{
+//		mission.DeleteMissionEntities(deleteRewards);
+//		m_aMissions.RemoveItem(mission);
+//	}
 	
 	private int GetMaxActiveMissionSlots()
 	{
@@ -178,6 +243,22 @@ class WR_MissionSystem : GameSystem
 		return slots;
 	}
 	
+	private int GetActiveMissionCount()
+	{
+		int count = 0;
+		foreach (WR_Mission mission : m_aMissions)
+		{
+			WR_MissionStatus status = mission.GetStatus();
+			if (
+				status == WR_MissionStatus.Pending
+				|| status == WR_MissionStatus.InProgress
+			)
+			count += 1;
+		}
+		
+		return count;
+	}
+	
 	private WR_MissionDefinition GetRandomMissionDefinition()
 	{
 		// TODO: let's make this use a weighted array
@@ -190,5 +271,10 @@ class WR_MissionSystem : GameSystem
 		if (vacantLocations.Count() == 0) return null;
 
 		return vacantLocations.GetRandomElement();
+	}
+	
+	WR_MissionSystemConfig GetConfig()
+	{
+		return m_Config;
 	}
 }
