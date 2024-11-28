@@ -73,7 +73,7 @@ class WR_MissionNotificationComponent : ScriptComponent
 		{
 			case WR_MissionStatus.Pending:
 			{
-				float delayM = m_MissionSystemConfig.m_fNewMissionDelayM;
+				float delayM = m_MissionSystemConfig.m_fNewMissionNotificationDelayM;
 				
 				title = string.Format("Upcoming Objective: %1", definition.m_sName);
 				if (delayM == 1)

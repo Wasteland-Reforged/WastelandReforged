@@ -2373,17 +2373,32 @@ $grp PolylineShapeEntity {
  }
 }
 $grp GenericEntity : "{0C218EEDC33AE65D}GunStoreMan.et" {
- GunStore_BonfireHill {
-  coords 5240.289 130.942 4600.599
-  angleY -74.134
- }
- GunStore_StPierre {
-  coords 9835.172 5.147 1332.023
-  angleY 39.176
- }
  GunStore_StPhillipe {
-  coords 4181.452 15.673 10571.279
-  angleY -66.523
+  components {
+   WR_MapMarkerComponent "{624A4600681E62AA}" {
+    m_eIcon ObjectiveMarker
+   }
+  }
+  coords 4572.211 22.014 10497.195
+  angleY -118.234
+ }
+ GunStore_Quarry {
+  components {
+   WR_MapMarkerComponent "{624A4600681E62AA}" {
+    m_eIcon ObjectiveMarker
+   }
+  }
+  coords 8835.475 213.895 3965.547
+  angleY 125.161
+ }
+ GunStore_BonfireHill {
+  components {
+   WR_MapMarkerComponent "{624A4600681E62AA}" {
+    m_eIcon ObjectiveMarker
+   }
+  }
+  coords 3074.603 118.503 5243.599
+  angleY 54.447
  }
 }
 GenericEntity : "{13FD3EC5D111AD6D}Prefabs/Props/Forest/WoodPile/WoodPile_01_A.et" {
@@ -2423,15 +2438,9 @@ Tree : "{A975A81D02F4862C}Prefabs/Vegetation/Tree/t_picea_abies_2s.et" {
 GenericEntity : "{C7BE6D1395342D32}Prefabs/Props/Agriculture/WaterTank_01_v1.et" {
  coords 5226.537 130.017 4585.625
 }
-$grp StaticModelEntity : "{EE4B50DE2035B007}PrefabsEditable/Auto/Compositions/Misc/SubCompositions/E_Table_Ashtray_USSR_01.et" {
- {
-  coords 5239.664 130.942 4600.966
-  angleY 117.938
- }
- {
-  coords 4180.731 15.673 10571.719
-  angleY 117.938
- }
+StaticModelEntity : "{EE4B50DE2035B007}PrefabsEditable/Auto/Compositions/Misc/SubCompositions/E_Table_Ashtray_USSR_01.et" {
+ coords 8836.022 213.9 3965.079
+ angleY 127.505
 }
 SCR_DestructibleBuildingEntity : "{F08D8E78433D713A}Prefabs/Structures/Houses/Shed/Shed_01/Shed_01.et" {
  coords 5228.082 -0.326 4606.145

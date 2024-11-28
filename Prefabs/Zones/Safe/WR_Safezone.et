@@ -1,0 +1,15 @@
+WR_SafezoneEntity {
+ ID "62F55B8EDA9D5BF9"
+ components {
+  RplComponent "{62F55B8EDA9D5222}" {
+  }
+ }
+ coords 132.87 -1.685 130.007
+ TriggerShapeType Sphere
+ SphereRadius 10
+ BoxMaxs 10 10 10
+ DrawShape 1
+ ShapeColor 1 1 1 0.176
+ TriggerActivationType "All changes"
+ PeriodicQueries 1
+}

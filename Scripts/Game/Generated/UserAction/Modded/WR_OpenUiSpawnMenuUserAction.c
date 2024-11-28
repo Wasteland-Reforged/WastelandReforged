@@ -7,7 +7,7 @@ class WR_OpenUiSpawnMenuUserAction : ScriptedUserAction
 		
 		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.WR_SpawnMenuUi_Id); 
 		
-		SCR_HintManagerComponent.GetInstance().ShowCustomHint("Opened Spawn Menu layout", "Layout Opened", 0);
+		//SCR_HintManagerComponent.GetInstance().ShowCustomHint("Opened Spawn Menu layout", "Layout Opened", 0);
 	}
 
 	//------------------------------------------------------------------------------------------------
