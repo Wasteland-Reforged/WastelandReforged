@@ -8678,6 +8678,10 @@ $grp SplineShapeEntity {
   }
  }
 }
+GenericEntity : "{02D53C3EA1C76E4D}PrefabsEditable/Auto/Props/Wrecks/E_M151A2_wreck.et" {
+ coords 2605.87 110.619 2515.606
+ angleY -94.481
+}
 GenericEntity : "{0542578CA422287A}PrefabsEditable/Auto/Props/Industrial/Repair/E_VehicleGarbage_01_pile_medium.et" {
  coords 1925.277 54.534 3191.773
  angleY -79.764
@@ -8740,6 +8744,9 @@ $grp Tree : "{20C4A23B039DFCF3}PrefabLibrary/Vegetation/Trees/t_picea_abies_3s.e
   scale 1.049
  }
 }
+GenericEntity : "{25B265F3E7CBDFC8}Prefabs/Props/Wrecks/BMP1_wreck.et" {
+ coords 2600.772 110.941 2493.616
+}
 SCR_DestructibleBuildingEntity : "{2863568293E03506}PrefabsEditable/Auto/Structures/Ruins/HouseRuins/E_HouseRuin_01_WoodPile.et" {
  coords 1906.454 0.099 3192.02
  scale 1.5
@@ -8751,6 +8758,9 @@ GenericEntity : "{2B07A2B8170DF481}Prefabs/Props/Agriculture/CultivatorWreck_01_
 SCR_DestructibleBuildingEntity : "{322D245123EEDC90}Prefabs/Structures/Houses/Village/House_Village_E_1I01/House_Village_E_1I01_V2.et" {
  coords 2010.511 0.445 3140.307
  angleY 149.116
+}
+GenericEntity : "{342E852E9A1847EA}Prefabs/Props/Industrial/Repair/VehicleGarbage_01_pile_medium.et" {
+ coords 2607.727 110.63 2513.982
 }
 SCR_DestructibleBuildingEntity : "{3DDDA2AAA7B32209}PrefabsEditable/Auto/Structures/Agriculture/Greenhouse/E_Greenhouse_01.et" {
  coords 1900.883 -0.187 3094.383
@@ -8773,6 +8783,10 @@ GenericEntity : "{4D1517866E9C2362}Prefabs/Props/Forest/WoodPile/WoodPile_02_A.e
 StaticModelEntity : "{4D37CF893371E83B}Prefabs/Structures/Agriculture/VegetableBed_01/VegetableBed_01_big.et" {
  coords 1588.587 0 918.35
  angleY 13.322
+}
+SCR_DestructibleBuildingEntity : "{525700C0EC3BA75B}Prefabs/Structures/Industrial/Sheds/ShedMetal_02/ShedMetal_02_short_base.et" {
+ coords 2603.105 0.138 2513.066
+ angleY -13.91
 }
 GenericEntity : "{57237781CE749464}Prefabs/Props/Agriculture/Farm/Trough_01.et" {
  coords 1913.844 52.489 3047.924
@@ -8800,6 +8814,10 @@ $grp Tree : "{59EDDDB5D3B5241F}PrefabLibrary/Vegetation/Trees/t_piceaabies_3f.et
   scale 1.064
  }
 }
+StaticModelEntity : "{64152ED9AA0AC2F5}Prefabs/Structures/Industrial/Sheds/ShedMetal_02/ShedMetal_02_BackWall.et" {
+ coords 2612.421 0.228 2506.725
+ angleY 75.972
+}
 SCR_DestructibleBuildingEntity : "{6FA58B435F69B179}Prefabs/Structures/Houses/Shed/Shed_02/Shed_02_big_V1.et" {
  coords 1833.199 0.225 853.472
  angleY -82.298
@@ -8817,6 +8835,14 @@ GenericEntity : "{75FEF1CA582431F3}Prefabs/Props/Wrecks/BTR70_wreck.et" {
 StaticModelEntity : "{7839491ACC2102B9}Prefabs/Structures/Agriculture/VegetableBed_01/VegetableBed_01_small.et" {
  coords 1586.359 0.152 914.782
  angleY 12.181
+}
+GenericEntity : "{795552B887CD50E7}Prefabs/Props/Industrial/ConcretePanel_01_stack.et" {
+ coords 2611.581 110.758 2503.889
+ angleY 67.866
+}
+StaticModelEntity : "{80DF3BD810D032AF}Prefabs/Structures/Industrial/Towers/LightTower_01/LightTower_01.et" {
+ coords 2610.864 110.736 2508.933
+ angleY -14.609
 }
 $grp SCR_DestructibleBuildingEntity : "{8533568101A29BE3}Prefabs/Structures/Houses/Shed/Shed_02/Shed_02_Base.et" {
  {
@@ -8875,6 +8901,10 @@ GenericEntity : "{A0FE92665EFAFB27}PrefabsEditable/Auto/Props/Wrecks/E_BoatWreck
  angleY 52.612
  angleZ 10.015
 }
+SCR_DestructibleBuildingEntity : "{A33B68467443EBAF}Prefabs/Structures/Industrial/Houses/Office_E_01/Office_E_01_ENP.et" {
+ coords 2608.537 0.016 2486.227
+ angleY 166.538
+}
 GenericEntity : "{A98BA618430E9BAA}Prefabs/Props/Agriculture/PlowWreck_01.et" {
  coords 1949.763 52.322 3060.381
  angleY 0
@@ -8910,6 +8940,14 @@ $grp Tree : "{B0382E039EBE672F}Prefabs/Vegetation/Tree/t_pinus_sylvestris_3f.et"
   angleZ 0.385
   scale 1.11
  }
+}
+GenericEntity : "{B350840088390760}Prefabs/Compositions/Misc/SubCompositions/Decorations/Barrel_Group_Stack_01.et" {
+ coords 2610.231 110.671 2512.401
+ angleY -12.38
+}
+GenericEntity : "{B423187F6C8DEFFD}Prefabs/Compositions/Misc/SubCompositions/Decorations/Barrel_Group_Tire_01.et" {
+ coords 2595.633 110.987 2514.867
+ angleY 149.801
 }
 Tree : "{B6FEA2C769DA6395}PrefabLibrary/Vegetation/Trees/t_pinus_sylvestris_2s.et" {
  coords 1884.936 0 847.12

@@ -1,0 +1,36 @@
+GenericEntity : "{02D4A61D327D2BD9}Prefabs/Props/Furniture/Carpet_03_green.et" {
+ coords 1367.116 37.581 2355.285
+ angleY -87.682
+}
+GenericEntity : "{0C218EEDC33AE65D}GunStoreMan.et" {
+ components {
+  WR_MapMarkerComponent "{624A4600681E62AA}" {
+   m_eIcon ObjectiveMarker
+  }
+ }
+ coords 1366.575 37.581 2355.93
+ angleY 89.214
+}
+GenericEntity : "{1E98A2EEC901FCE4}Prefabs/Props/Commercial/Posters/PosterSet_E_04_Eden_V1.et" {
+ coords 1368.619 38.848 2358.753
+ angleY 180
+}
+GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et" {
+ coords 1367.471 38.481 2355.197
+}
+GenericEntity : "{51D31AB07AE3C1C7}Prefabs/Props/Commercial/CashierShop_01.et" {
+ coords 1367.361 38.482 2356.394
+ angleY -86.288
+}
+GenericEntity : "{53773B57CB3AF497}Prefabs/Props/Commercial/Posters/PosterSingle_A1_Cans_V3.et" {
+ coords 1365.993 38.925 2354.52
+ angleY 90
+}
+StaticModelEntity : "{785F322AC3DFD4B9}Prefabs/Compositions/Misc/SubCompositions/Furniture/Chair_Light_US_01.et" {
+ coords 1371.324 37.581 2358.344
+ angleY 42.306
+}
+GenericEntity : "{8FB2845D48F4E02A}Prefabs/Props/Furniture/TableOld_01/TableOld_01_white.et" {
+ coords 1367.459 37.581 2355.818
+ angleY -87.016
+}
