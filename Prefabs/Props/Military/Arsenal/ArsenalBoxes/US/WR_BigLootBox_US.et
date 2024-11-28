@@ -20,6 +20,17 @@ GenericEntity : "{54986385A6AF77B2}Prefabs/Props/Military/Arsenal/ArsenalBoxes/A
   SCR_ServicePointComponent "{5C7489C20C7B5D4B}" {
    Enabled 0
   }
+  UniversalInventoryStorageComponent "{56F2C6D15FE6C4CE}" {
+   Attributes SCR_ItemAttributeCollection "{56F2C6D6A36680FB}" {
+    ItemPhysAttributes ItemPhysicalAttributes "{56F2C6D6AC3D5013}" {
+     Weight 10
+     SizeSetupStrategy Manual
+     ItemDimensions 1 1 1
+    }
+    m_SlotType SLOT_LOOT_STORAGE
+    m_bDraggable 1
+   }
+  }
   WR_LootBoxComponent "{619C263714885DEB}" {
   }
   SCR_InventoryStorageManagerComponent "{56F2C6D1431ADBA8}" {
@@ -35,4 +46,5 @@ GenericEntity : "{54986385A6AF77B2}Prefabs/Props/Military/Arsenal/ArsenalBoxes/A
    }
   }
  }
+ coords 132.571 1 146.803
 }
