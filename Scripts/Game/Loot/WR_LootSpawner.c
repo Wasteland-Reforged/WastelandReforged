@@ -7,8 +7,8 @@ class WR_LootSpawner : GenericEntity
 {
     ref WR_Logger<WR_LootSpawner> logger = new WR_Logger<WR_LootSpawner>(this);
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContextType))]
-	WR_LootContextType m_LootContextType;
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContext))]
+	WR_LootContext m_LootContextType;
 	
 	[Attribute("0 0 90", UIWidgets.EditBox, desc: "Rotation of item when spawned", category: "Loot")]
 	vector m_vItemRotation;

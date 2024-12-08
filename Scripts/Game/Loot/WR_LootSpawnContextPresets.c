@@ -1,12 +1,12 @@
 // TODO: See if this class can be turned into a workbench config. If not, eventually just have these values get read from a file somewhere.
 class WR_LootSpawnContextPresets
 {
-	static ref map<WR_LootContextType, ref WR_LootSpawnContext> LootContexts;
+	static ref map<WR_LootContext, ref WR_LootSpawnContext> LootContexts;
 	
-	static WR_LootSpawnContext GetLootContextByType(WR_LootContextType type)
+	static WR_LootSpawnContext GetLootContextByType(WR_LootContext type)
 	{
 		if (!LootContexts)
-			LootContexts = new map<WR_LootContextType, ref WR_LootSpawnContext>();
+			LootContexts = new map<WR_LootContext, ref WR_LootSpawnContext>();
 		
 		WR_LootSpawnContext context;
 		
@@ -16,16 +16,16 @@ class WR_LootSpawnContextPresets
 		{
 			switch (type)
 			{
-				case WR_LootContextType.WEAPONS:
+				case WR_LootContext.WEAPON_BOX:
 					context = GetWeaponBoxContext();
 					break;
-				case WR_LootContextType.HEAVY_WEAPONS:
+				case WR_LootContext.HEAVY_WEAPON_BOX:
 					context = GetHeavyWeaponBoxContext();
 					break;
-				case WR_LootContextType.MEDICAL:
+				case WR_LootContext.MEDICAL:
 					context = GetMedicalBoxContext();
 					break;
-				case WR_LootContextType.RANDOM_VEHICLE:
+				case WR_LootContext.VEHICLE_LOOT:
 					context = GetRandomVehicleContext();
 					break;
 				default:

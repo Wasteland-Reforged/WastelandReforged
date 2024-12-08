@@ -111,7 +111,7 @@ class WR_Mission
 			}
 			
 			// Check if we need to fill reward with loot
-			if (m_Definition.m_eLootContext == WR_LootContextType.NONE) continue;
+			if (m_Definition.m_eLootContext == WR_LootContext.NONE) continue;
 			
 			// Fill with Loot----------------------------------------------------------------------------------------------------------------------------------
 			WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(m_Definition.m_eLootContext);

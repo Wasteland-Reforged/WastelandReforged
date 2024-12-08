@@ -138,7 +138,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		SCR_VehicleInventoryStorageManagerComponent inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
 		
 		// Get loot spawning context
-		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(WR_LootContextType.RANDOM_VEHICLE);
+		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(WR_LootContext.VEHICLE_LOOT);
 		int minItems = 2; // TODO: add validation and make these read from a global config
 		int maxItems = 6;
 		
