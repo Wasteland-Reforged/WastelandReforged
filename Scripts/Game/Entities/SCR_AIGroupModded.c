@@ -33,7 +33,7 @@ modded class SCR_AIGroup : ChimeraAIGroup
 		}
 		
 		
-		//Snap to the nearest navmesh point
+		// Snap to the nearest navmesh point
 		AIPathfindingComponent pathFindindingComponent = AIPathfindingComponent.Cast(this.FindComponent(AIPathfindingComponent));
 		
 		if (!editMode)
@@ -70,7 +70,7 @@ modded class SCR_AIGroup : ChimeraAIGroup
 		
 		spawnParams.Transform[3] = pos;
 		
-		IEntity member = GetGame().SpawnEntityPrefab(res, true, world, spawnParams);
+		IEntity member = GetGame().SpawnEntityPrefabEx(res, false, world, spawnParams);
 		if (!member)
 			return true;
 		

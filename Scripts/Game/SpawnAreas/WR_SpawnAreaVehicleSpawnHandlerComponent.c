@@ -72,8 +72,9 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		EntitySpawnParams spawnParams = new EntitySpawnParams();
 		spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
 					
-		IEntity vehicle = GetGame().SpawnEntityPrefab(vehResourceName, false, GetGame().GetWorld(), spawnParams);
-		if (!vehicle) return false;
+		IEntity vehicle = GetGame().SpawnEntityPrefabEx(vehResourceName, false, GetGame().GetWorld(), spawnParams);
+		if (!vehicle)
+			return false;
 		
 		vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 		
