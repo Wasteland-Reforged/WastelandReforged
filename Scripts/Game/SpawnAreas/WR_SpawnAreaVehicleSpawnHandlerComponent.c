@@ -49,13 +49,12 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	bool SpawnTownVehicle()
 	{
-		// Get Vehicle Resource Names
-		WR_WeightedItemArray<ResourceName> vehicleResourceNames = WR_ResourceNamesWeighted.GetSpawnAreaVehicles();
-		if (!vehicleResourceNames || vehicleResourceNames.Count() == 0)
-		{
-			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: No spawn area vehicle resource names were supplied! Please provide at least one resource name.");
+		// Get Random Vehicle Resource Name
+		WR_LootSpawningComponent lootSpawnComp = WR_LootSpawningComponent.GetInstance();
+		if (!lootSpawnComp)
 			return false;
-		}
+		
+		ResourceName vehResourceName = lootSpawnComp.GetRandomSingleItemFromCategory(WR_LootCategory.SpawnAreaVehicles);
 		
 		// Configure spawn position parameters
 		float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
@@ -69,9 +68,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		if (!foundSafePos) return false;
 		
-		// Spawn and orient the vehicle
-		ResourceName vehResourceName = vehicleResourceNames.GetRandomItem();
-			
+		// Spawn and orient the vehicle	
 		EntitySpawnParams spawnParams = new EntitySpawnParams();
 		spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
 					
@@ -81,9 +78,6 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 		
 		SpawnVehicleLoot(vehicle);
-		
-		//inventoryStorageManager.m_OnItemAddedInvoker.Insert(RespawnVehicleLoot);
-		//inventoryStorageManager.m_OnItemRemovedInvoker.Insert(RespawnVehicleLoot);
 		
 		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
 		if (Math.RandomFloat01() <= vehiclesSupplyChance) 

@@ -5,20 +5,28 @@ class WR_LootSpawningComponentClass : SCR_BaseGameModeComponentClass
 
 class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 {
+	const string CATEGORY_WR = "Wasteland";
+	
 	ref WR_Logger<WR_LootSpawningComponent> logger = new WR_Logger<WR_LootSpawningComponent>(this);
-	ref map<WR_LootCategory, SCR_WeightedArray<WR_LootItem>> masterLootMap = new map<WR_LootCategory, SCR_WeightedArray<WR_LootItem>>();
-	ref map<WR_LootContext, SCR_WeightedArray<WR_LootCategory>> masterContextMap = new map<WR_LootContext, SCR_WeightedArray<WR_LootCategory>>();
+	ref map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItem>> masterLootMap = new map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItem>>();
+	ref map<WR_LootContext, ref SCR_WeightedArray<WR_LootCategory>> masterContextMap = new map<WR_LootContext, ref SCR_WeightedArray<WR_LootCategory>>();
+	
+	[Attribute("", UIWidgets.Object, "Master Loot Config.", category: CATEGORY_WR)]
+	protected ref WR_MasterLootConfig m_MasterLootConfig;
+	
+	[Attribute("", UIWidgets.Object, "Master Loot Context Config.", category: CATEGORY_WR)]
+	protected ref WR_MasterContextConfig m_MasterContextConfig;
 
-	void InitializeLootMaps()
+	override void OnPostInit(IEntity owner)
 	{
-		//Find Gamemode
-		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
-		if (!gameMode)
-			logger.LogError("Wasteland game mode entity not found! Cannot send mission notifications. Place a 'GameMode_Wasteland' prefab in the world to resolve.");
-		
+		InitializeLootMaps();
+		Print("[WASTELAND] WR_LootSpawningComponent: Initialized Loot Maps");
+	}
+	
+	void InitializeLootMaps()
+	{		
 		//Populate Master Loot Map
-		WR_MasterLootConfig lootConf = gameMode.GetMasterLootConfig();
-		foreach (WR_LootItemConfig lootItemConfig : lootConf.m_aLootItemConfigs)
+		foreach (WR_LootItemConfig lootItemConfig : m_MasterLootConfig.m_aLootItemConfigs)
 		{
 			SCR_WeightedArray<WR_LootItem> lootArr;
 			masterLootMap.Find(lootItemConfig.m_eCategory, lootArr);
@@ -32,8 +40,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		}
 		
 		//Populate Master Loot Context Map
-		WR_MasterContextConfig contextConf = gameMode.GetMasterLootContextConfig();
-		foreach (WR_LootContextConfig lootContextConfig : contextConf.m_aLootContextConfigs)
+		foreach (WR_LootContextConfig lootContextConfig : m_MasterContextConfig.m_aLootContextConfigs)
 		{
 			SCR_WeightedArray<WR_LootCategory> categoryArr;
 			masterContextMap.Find(lootContextConfig.m_eContext, categoryArr);
@@ -64,7 +71,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		return cat;
 	}
 	
-	int GetRandomItemFromCategory(out array<ResourceName> items, WR_LootCategory category)		//Returns budget used, includes additional items
+	int GetRandomItemsFromCategory(out array<ResourceName> items, WR_LootCategory category)		//Returns budget used, includes additional items
 	{
 		SCR_WeightedArray<WR_LootItem> lootArr = masterLootMap.Get(category);
 		WR_LootItem newItem;
@@ -89,6 +96,22 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		return weight;
 	}
 	
+	ResourceName GetRandomSingleItemFromCategory(WR_LootCategory category)
+	{
+		SCR_WeightedArray<WR_LootItem> lootArr = masterLootMap.Get(category);
+		WR_LootItem newItem;
+		
+		if (lootArr) {
+			lootArr.GetRandomValue(newItem);
+		}
+		else {
+			logger.LogError("Cannot find Weighted Loot Item array for the provided Loot Category");
+		}
+		
+		return newItem.m_sItemPrefab;
+		
+	}
+	
 	array<ResourceName> GetRandomItemsByBudget(WR_LootContext lootContext, int totalBudget)
 	{
 		array<ResourceName> items = {};
@@ -97,12 +120,19 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		while (budgetUsed < totalBudget)
 		{
 			WR_LootCategory randomCat = GetRandomCategoryFromContext(lootContext);
-			budgetUsed += GetRandomItemFromCategory(items, randomCat);
+			budgetUsed += GetRandomItemsFromCategory(items, randomCat);
 		}
 		
 		return items;
 	}
 	
-	
+	static WR_LootSpawningComponent GetInstance()
+	{
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (!gameMode)
+			return null;
+		
+		return WR_LootSpawningComponent.Cast(gameMode.FindComponent(WR_LootSpawningComponent));
+	}
 	
 }

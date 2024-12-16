@@ -26,6 +26,14 @@ SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
  coords 1374.971 38.434 2930.119
 }
 WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland.et" {
+ components {
+  WR_LootSpawningComponent "{63141D97CE2DBD57}" {
+   m_MasterLootConfig WR_MasterLootConfig "{63141D9462D23B25}" : "{1D67C2146E5A651F}Configs/Loot/MasterLoot.conf" {
+   }
+   m_MasterContextConfig WR_MasterContextConfig "{63141D946167F62E}" : "{A5DF0BBA79651F7D}Configs/MasterContext.conf" {
+   }
+  }
+ }
  coords 1377.751 38.609 2929.999
  m_MissionSystemConfiguration WR_MissionSystemConfig "{62F778E6431EB8D4}" {
   m_fInitialMissionDelayM 1
