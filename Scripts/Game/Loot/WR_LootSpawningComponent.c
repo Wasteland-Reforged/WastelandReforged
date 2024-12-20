@@ -8,7 +8,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 	const string CATEGORY_WR = "Wasteland";
 	
 	ref WR_Logger<WR_LootSpawningComponent> logger = new WR_Logger<WR_LootSpawningComponent>(this);
-	ref map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItem>> masterLootMap = new map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItem>>();
+	ref map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItemConfig>> masterLootMap = new map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItemConfig>>();
 	ref map<WR_LootContext, ref SCR_WeightedArray<WR_LootCategory>> masterContextMap = new map<WR_LootContext, ref SCR_WeightedArray<WR_LootCategory>>();
 	
 	[Attribute("", UIWidgets.Object, "Master Loot Config.", category: CATEGORY_WR)]
@@ -28,15 +28,15 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		//Populate Master Loot Map
 		foreach (WR_LootItemConfig lootItemConfig : m_MasterLootConfig.m_aLootItemConfigs)
 		{
-			SCR_WeightedArray<WR_LootItem> lootArr;
+			SCR_WeightedArray<WR_LootItemConfig> lootArr;
 			masterLootMap.Find(lootItemConfig.m_eCategory, lootArr);
 			if (!lootArr)
 			{
-				lootArr = new SCR_WeightedArray<WR_LootItem>();
+				lootArr = new SCR_WeightedArray<WR_LootItemConfig>();
 				masterLootMap.Insert(lootItemConfig.m_eCategory, lootArr);
 			}
 			
-			lootArr.Insert(new WR_LootItem(lootItemConfig), lootItemConfig.m_iWeight);
+			lootArr.Insert(lootItemConfig, lootItemConfig.m_iWeight);
 		}
 		
 		//Populate Master Loot Context Map
@@ -73,9 +73,10 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 	
 	int GetRandomItemsFromCategory(out array<ResourceName> items, WR_LootCategory category)		//Returns budget used, includes additional items
 	{
-		SCR_WeightedArray<WR_LootItem> lootArr = masterLootMap.Get(category);
-		WR_LootItem newItem;
+		SCR_WeightedArray<WR_LootItemConfig> lootArr = masterLootMap.Get(category);
+		WR_LootItemConfig newItem;
 		int weight = 0;
+		
 		if (lootArr)
 		{
 			lootArr.GetRandomValue(newItem);
@@ -98,8 +99,8 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 	
 	ResourceName GetRandomSingleItemFromCategory(WR_LootCategory category)
 	{
-		SCR_WeightedArray<WR_LootItem> lootArr = masterLootMap.Get(category);
-		WR_LootItem newItem;
+		SCR_WeightedArray<WR_LootItemConfig> lootArr = masterLootMap.Get(category);
+		WR_LootItemConfig newItem;
 		
 		if (lootArr) {
 			lootArr.GetRandomValue(newItem);

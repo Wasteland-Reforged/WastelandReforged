@@ -88,7 +88,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			if (supplyStorage && supplyStorage.GetContainers()) {
 				foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers()) {
 					int maxSteps = suppContainer.GetMaxResourceValue()/vehicleSupplyStepSize;
-					int supplyToAdd = Math.RandomIntInclusive(2, maxSteps) * vehicleSupplyStepSize;
+					int supplyToAdd = Math.RandomIntInclusive(1, maxSteps) * vehicleSupplyStepSize;
 					suppContainer.IncreaseResourceValue(supplyToAdd);
 				}
 			}
