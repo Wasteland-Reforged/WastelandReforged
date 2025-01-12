@@ -113,15 +113,30 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		
 	}
 	
-	array<ResourceName> GetRandomItemsByBudget(WR_LootContext lootContext, int totalBudget)
+	array<ResourceName> GetRandomItemsByBudget(WR_LootContext lootContext, float totalBudget = 0.5)
 	{
 		array<ResourceName> items = {};
-		int budgetUsed = 0;
+		float budgetUsed = 0;
 		
 		while (budgetUsed < totalBudget)
 		{
 			WR_LootCategory randomCat = GetRandomCategoryFromContext(lootContext);
-			budgetUsed += GetRandomItemsFromCategory(items, randomCat);
+			float itemWeight = GetRandomItemsFromCategory(items, randomCat);
+			Print("[WR_LootSpawningComponent]: new item has a budget of " + itemWeight);
+			budgetUsed += 1 / itemWeight;
+		}
+		
+		return items;
+	}
+	
+	array<ResourceName> GetRandomItemsByCount(WR_LootContext lootContext, int minItems, int maxItems)
+	{
+		array<ResourceName> items = {};
+		
+		for (int i = 0; i < Math.RandomIntInclusive(minItems, maxItems); i++)
+		{
+			WR_LootCategory randomCat = GetRandomCategoryFromContext(lootContext);
+			GetRandomItemsFromCategory(items, randomCat);
 		}
 		
 		return items;

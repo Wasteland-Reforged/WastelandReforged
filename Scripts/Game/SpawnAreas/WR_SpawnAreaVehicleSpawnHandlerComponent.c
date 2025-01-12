@@ -132,12 +132,12 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		SCR_UniversalInventoryStorageComponent inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
 		SCR_VehicleInventoryStorageManagerComponent inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
 		
-		// Get loot spawning context
-		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(WR_LootContext.VEHICLE_LOOT);
-		int minItems = 2; // TODO: add validation and make these read from a global config
-		int maxItems = 6;
+		WR_LootSpawningComponent lootSpawnComp = WR_LootSpawningComponent.GetInstance();
+		if (!lootSpawnComp)
+			return;
 		
-		array<ResourceName> itemResourceNamesToSpawn = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 0, maxExtraMags: 4);
+		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(WR_LootContext.VEHICLE_LOOT);
+		
 		foreach (ResourceName name : itemResourceNamesToSpawn)
 			inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
 	}
