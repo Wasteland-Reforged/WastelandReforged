@@ -25,6 +25,9 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	[Attribute(defvalue: "10", desc: "Amount of supplies to round to when adding supplies to town vehicles")]
 	protected int vehicleSupplyStepSize;
 	
+	[Attribute(defvalue: "0.50", uiwidget: UIWidgets.Slider, params: "0 2.0 0.1", desc: "Amount of loot to spawn in the vehicle.")]
+	float m_fLootBoxBudget;
+	
 	protected int _currentVehicles = 0;
 	protected int _desiredVehCount = 0;
 	
@@ -136,7 +139,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		if (!lootSpawnComp)
 			return;
 		
-		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(WR_LootContext.VEHICLE_LOOT);
+		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(WR_LootContext.VEHICLE_LOOT, m_fLootBoxBudget);
 		
 		foreach (ResourceName name : itemResourceNamesToSpawn)
 			inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);

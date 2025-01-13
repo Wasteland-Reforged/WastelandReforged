@@ -82,7 +82,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 			lootArr.GetRandomValue(newItem);
 			items.Insert(newItem.m_sItemPrefab);
 			weight += newItem.m_iWeight;
-			if (newItem.m_aAdditionalItemChoices)
+			if (!newItem.m_aAdditionalItemChoices.IsEmpty())
 			{
 				auto additionalItem = newItem.m_aAdditionalItemChoices.GetRandomElement();
 				for (int i = 0; i < Math.RandomInt(newItem.m_iMinAdditionalItems * additionalItemsCoeff, newItem.m_iMaxAdditionalItems * additionalItemsCoeff); i++)
