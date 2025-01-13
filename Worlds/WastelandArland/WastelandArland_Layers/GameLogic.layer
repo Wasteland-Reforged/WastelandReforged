@@ -36,9 +36,9 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
  }
  coords 1377.751 38.609 2929.999
  m_MissionSystemConfiguration WR_MissionSystemConfig "{62F778E6431EB8D4}" {
-  m_fInitialMissionDelayM 1
-  m_fNewMissionDelayM 1
-  m_fNewMissionNotificationDelayM 2
+  m_fInitialMissionDelayM 0.01
+  m_fNewMissionDelayM 0.01
+  m_fNewMissionNotificationDelayM 0.01
   m_fMissionMapMarkerCleanupDelayM 1
   m_fMissionCleanupDelayM 10
   m_fMissionTimeLimitM 60

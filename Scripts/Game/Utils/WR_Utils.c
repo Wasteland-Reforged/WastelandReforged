@@ -167,7 +167,7 @@ class WR_Utils
 		
 		IEntity entity = GetGame().SpawnEntityPrefabEx(
 			resourceName,
-			false,
+			true,
 			GetGame().GetWorld(),
 			spawnParams
 		);

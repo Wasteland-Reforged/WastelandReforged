@@ -70,7 +70,7 @@ modded class SCR_AIGroup : ChimeraAIGroup
 		
 		spawnParams.Transform[3] = pos;
 		
-		IEntity member = GetGame().SpawnEntityPrefabEx(res, false, world, spawnParams);
+		IEntity member = GetGame().SpawnEntityPrefabEx(res, true, world, spawnParams);
 		if (!member)
 			return true;
 		

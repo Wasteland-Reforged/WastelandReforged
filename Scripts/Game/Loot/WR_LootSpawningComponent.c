@@ -122,7 +122,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		{
 			WR_LootCategory randomCat = GetRandomCategoryFromContext(lootContext);
 			float itemWeight = GetRandomItemsFromCategory(items, randomCat);
-			Print("[WR_LootSpawningComponent]: new item has a budget of " + itemWeight);
+			//Print("[WR_LootSpawningComponent]: new item has a budget of " + itemWeight);
 			budgetUsed += 1 / itemWeight;
 		}
 		
