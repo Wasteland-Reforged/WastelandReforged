@@ -111,13 +111,10 @@ class WR_Mission
 			}
 			
 			// Check if we need to fill reward with loot
-			if (m_Definition.m_eLootContext == WR_LootContext.NONE) continue;
+			if (m_Definition.m_eLootContext == WR_LootContext.NONE)
+				continue;
 			
 			// Fill with Loot----------------------------------------------------------------------------------------------------------------------------------
-			WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(m_Definition.m_eLootContext);
-			int minItems = m_Definition.m_iMinItemsInBox;
-			int maxItems = m_Definition.m_iMaxItemsInBox;
-			
 			// Find the prefabs InventoryStorageManager, which may be a regular one, or a vehicle one
 			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));
 			if (!inventoryStorageManager) 
@@ -128,11 +125,10 @@ class WR_Mission
 			{
 				auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
 				
-				array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 5,  maxExtraMags: 12);
+				WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
+				array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(m_Definition.m_eLootContext, 0.75, 1.5); // TODO: parameterize these floats. maybe make a lootbox reward config
 				foreach (ResourceName item : items)
-				{
 					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
-				}
 			}
 		
 		}

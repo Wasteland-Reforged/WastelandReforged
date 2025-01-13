@@ -30,17 +30,22 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
   WR_LootSpawningComponent "{63141D97CE2DBD57}" {
    m_MasterLootConfig WR_MasterLootConfig "{63141D9462D23B25}" : "{1D67C2146E5A651F}Configs/Loot/MasterLoot.conf" {
    }
-   m_MasterContextConfig WR_MasterContextConfig "{63141D946167F62E}" : "{A5DF0BBA79651F7D}Configs/MasterContext.conf" {
+   m_MasterContextConfig WR_MasterContextConfig "{63141D946167F62E}" : "{A5DF0BBA79651F7D}Configs/Loot/MasterContext.conf" {
    }
   }
  }
  coords 1377.751 38.609 2929.999
- m_MissionSystemConfiguration WR_MissionSystemConfig "{62F778E6431EB8D4}" {
+ m_MissionSystemConfiguration WR_MissionSystemConfig "{645A0175E4F16E15}" {
+  m_aMissionDefinitions {
+   WR_MissionDefinition "{645A0175E5CCCF47}" : "{2FAC805DD001EAF5}Configs/Missions/Definitions/WeaponCache.conf" {
+    m_eLootContext WEAPON_BOX
+   }
+  }
   m_fInitialMissionDelayM 0.01
   m_fNewMissionDelayM 0.01
-  m_fNewMissionNotificationDelayM 0.01
-  m_fMissionMapMarkerCleanupDelayM 1
-  m_fMissionCleanupDelayM 10
-  m_fMissionTimeLimitM 60
+  m_fNewMissionNotificationDelayM 0
+  m_aPlayercountMissionThresholds {
+   0
+  }
  }
 }
