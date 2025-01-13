@@ -49,31 +49,29 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 		
 		Print("[WASTELAND] WR_LootBoxControllerComponent: Spawning loot box(es)...", LogLevel.NORMAL);
 		
-		// Get loot spawning context
-		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(WR_LootContext.WEAPON_BOX);
-		
 		int lootBoxesSpawned = 0;
+		WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
 		foreach (WR_LootBoxComponent boxComponent : lootBoxComponents)
 		{
-			if (!boxComponent) continue;
+			if (!boxComponent)
+				continue;
 			
 			IEntity boxOwner = boxComponent.GetOwner();
 			
-			//Refactor at some point
 			if (Math.RandomFloat01() > percentageLootBoxesToSpawn)
 			{
 				delete boxOwner;
 				continue;
 			}
 			
-			lootBoxesSpawned += 1;
-			
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(boxOwner.FindComponent(SCR_UniversalInventoryStorageComponent));
 			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(boxOwner.FindComponent(SCR_InventoryStorageManagerComponent));
 
-			array<ResourceName> items = lootContext.GetRandomItems(Math.RandomIntInclusive(minLootBoxItems, maxLootBoxItems),  minExtraMags: 2, maxExtraMags: 5);
+			array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(WR_LootContext.WEAPON_BOX, 1.5, additionalItemsCoeff: 2.0);
 			foreach (ResourceName item : items)
 				inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
+			
+			lootBoxesSpawned += 1;
 		}
 		
 		Print("[WASTELAND] WR_LootBoxControllerComponent: Spawned a total of " + lootBoxesSpawned + " loot box(es).", LogLevel.NORMAL);

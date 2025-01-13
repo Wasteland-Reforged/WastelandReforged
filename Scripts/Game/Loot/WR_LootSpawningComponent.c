@@ -71,7 +71,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		return cat;
 	}
 	
-	int GetRandomItemsFromCategory(out array<ResourceName> items, WR_LootCategory category)		//Returns budget used, includes additional items
+	int GetRandomItemsFromCategory(out array<ResourceName> items, WR_LootCategory category, float additionalItemsCoeff = 1.0) // Returns budget used, includes additional items
 	{
 		SCR_WeightedArray<WR_LootItemConfig> lootArr = masterLootMap.Get(category);
 		WR_LootItemConfig newItem;
@@ -85,7 +85,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 			if (newItem.m_aAdditionalItemChoices)
 			{
 				auto additionalItem = newItem.m_aAdditionalItemChoices.GetRandomElement();
-				for (int i = 0; i < Math.RandomInt(newItem.m_iMinAdditionalItems, newItem.m_iMaxAdditionalItems); i++)
+				for (int i = 0; i < Math.RandomInt(newItem.m_iMinAdditionalItems * additionalItemsCoeff, newItem.m_iMaxAdditionalItems * additionalItemsCoeff); i++)
 					items.Insert(additionalItem);
 			}
 		}
@@ -113,7 +113,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		
 	}
 	
-	array<ResourceName> GetRandomItemsByBudget(WR_LootContext lootContext, float totalBudget = 0.5)
+	array<ResourceName> GetRandomItemsByBudget(WR_LootContext lootContext, float totalBudget = 0.5, float additionalItemsCoeff = 1.0)
 	{
 		array<ResourceName> items = {};
 		float budgetUsed = 0;
@@ -121,8 +121,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		while (budgetUsed < totalBudget)
 		{
 			WR_LootCategory randomCat = GetRandomCategoryFromContext(lootContext);
-			float itemWeight = GetRandomItemsFromCategory(items, randomCat);
-			//Print("[WR_LootSpawningComponent]: new item has a budget of " + itemWeight);
+			float itemWeight = GetRandomItemsFromCategory(items, randomCat, additionalItemsCoeff);
 			budgetUsed += 1 / itemWeight;
 		}
 		
