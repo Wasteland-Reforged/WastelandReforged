@@ -27,11 +27,11 @@ class WR_MissionDefinition
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for reward loot boxes (set to None if no boxes are to be spawned)", enums: ParamEnumArray.FromEnum(WR_LootContext))]
 	int m_eLootContext;
 	
-	[Attribute(defvalue: "3", uiwidget: UIWidgets.Slider, params: "0 15 1", desc: "Minimum items to spawn from loot context.")]
-	int m_iMinItemsInBox;
+	[Attribute(defvalue: "0.75", uiwidget: UIWidgets.Slider, params: "0 2.0 0.1", desc: "Amount of loot to spawn in the reward box (if there is one).")]
+	float m_fLootBoxBudget;
 	
-	[Attribute(defvalue: "6", uiwidget: UIWidgets.Slider, params: "0 15 1", desc: "Maximum items to spawn from loot context.")]
-	int m_iMaxItemsInBox;
+	[Attribute(defvalue: "1.0", uiwidget: UIWidgets.Slider, params: "0 3.0 0.1", desc: "Multiplier for magazines and meds in reward box (if there is one).")]
+	float m_fLootBoxAdditionalItemMultiplier;
 	
 	[Attribute(defvalue: "LARGE", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(WR_MissionLocationSize))]
 	int m_eSize;
