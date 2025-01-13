@@ -7,13 +7,15 @@ class WR_LootSpawner : GenericEntity
 {
     ref WR_Logger<WR_LootSpawner> logger = new WR_Logger<WR_LootSpawner>(this);
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContextType))]
-	WR_LootContextType m_LootContextType;
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContext))]
+	WR_LootContext m_LootContextType;
 	
 	[Attribute("0 0 90", UIWidgets.EditBox, desc: "Rotation of item when spawned", category: "Loot")]
 	vector m_vItemRotation;
 
 	vector m_WorldTransform[4];
+	
+	ref RandomGenerator rnd = new RandomGenerator();
 	
 	protected override void EOnActivate(IEntity owner)
 	{
@@ -33,12 +35,13 @@ class WR_LootSpawner : GenericEntity
 	{
 		if (!Replication.IsServer())
 			return false;
-		if(GetChildren())
+		
+		if (GetChildren())
 			return false;
 		
-		//Get Item Resource to be spawned
-		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(m_LootContextType);
-		array<ResourceName> itemsToSpawn = lootContext.GetRandomItems(1);
+		// Get item resource to be spawned
+		auto lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
+		array<ResourceName> itemsToSpawn = lootSpawningComponent.GetRandomItemsByCount(m_LootContextType, 1, 1);
 
 		foreach (ResourceName item : itemsToSpawn)
 		{	
@@ -57,16 +60,20 @@ class WR_LootSpawner : GenericEntity
 
 			SCR_EntityHelper.SnapToGround(newEnt);
 			
-			//Guns and Mags should be lifted slightly and on their sides. Mags should spawn a short distance away from their gun
+			// Guns and mags should be lifted slightly and on their sides. Mags should spawn a short distance away from their gun
 			if (newEnt.FindComponent(WeaponComponent))
 			{
 				newEnt.SetOrigin(newEnt.GetOrigin() + {0.0, 0.02, 0.0});
-				newEnt.SetYawPitchRoll(m_vItemRotation + GetYawPitchRoll());
+				newEnt.SetYawPitchRoll(m_vItemRotation + GetYawPitchRoll() + WR_Utils.GetRandomHorizontalDirectionAngles());
 			}
 			else if (newEnt.FindComponent(MagazineComponent))
 			{
+//				vector randomPos = rnd.GenerateRandomPointInRadius(0.1, 0.25, newEnt.GetOrigin());
+//				newEnt.SetOrigin(randomPos + {0.0, 0.02, 0.0});
+//				newEnt.SetYawPitchRoll(m_vItemRotation + GetYawPitchRoll() + WR_Utils.GetRandomHorizontalDirectionAngles());
+				
 				newEnt.SetOrigin(newEnt.GetOrigin() + getLootRandomOffset() + {0.0, 0.02, 0.0});
-				newEnt.SetYawPitchRoll(m_vItemRotation + GetYawPitchRoll());
+				newEnt.SetYawPitchRoll(m_vItemRotation + GetYawPitchRoll() + WR_Utils.GetRandomHorizontalDirectionAngles());
 			}
 		
 			AddChild(newEnt, -1, EAddChildFlags.NONE);

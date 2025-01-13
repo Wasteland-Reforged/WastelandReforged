@@ -33,7 +33,7 @@ class WR_GameModeWasteland : SCR_BaseGameMode
 				nightModeComponent.EnableGlobalNightMode(true);
 			}
 		}
-		
+
 		logger.LogNormal("Game mode started.");
 	}
 	

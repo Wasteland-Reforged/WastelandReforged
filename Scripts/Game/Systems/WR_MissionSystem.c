@@ -224,6 +224,12 @@ class WR_MissionSystem : GameSystem
 	
 	private int GetMaxActiveMissionSlots()
 	{
+		if (m_Config.m_aPlayercountMissionThresholds.Count() == 0)
+		{
+			logger.LogWarning("No player count thresholds set in the mission system config. Cannot start a mission.");
+			return 0;
+		}
+		
 		// Get number of players currently in the game
 		int playerCount = GetGame().GetPlayerManager().GetAllPlayerCount();
 		

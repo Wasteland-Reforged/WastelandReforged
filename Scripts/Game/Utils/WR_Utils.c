@@ -165,9 +165,9 @@ class WR_Utils
 	{
 		EntitySpawnParams spawnParams = GetEntityWorldSpawnParams(position);
 		
-		IEntity entity = GetGame().SpawnEntityPrefab(
+		IEntity entity = GetGame().SpawnEntityPrefabEx(
 			resourceName,
-			false,
+			true,
 			GetGame().GetWorld(),
 			spawnParams
 		);

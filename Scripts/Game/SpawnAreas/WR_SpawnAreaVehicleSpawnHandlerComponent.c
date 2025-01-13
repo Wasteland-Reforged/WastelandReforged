@@ -49,13 +49,12 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	bool SpawnTownVehicle()
 	{
-		// Get Vehicle Resource Names
-		WR_WeightedItemArray<ResourceName> vehicleResourceNames = WR_ResourceNamesWeighted.GetSpawnAreaVehicles();
-		if (!vehicleResourceNames || vehicleResourceNames.Count() == 0)
-		{
-			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: No spawn area vehicle resource names were supplied! Please provide at least one resource name.");
+		// Get Random Vehicle Resource Name
+		WR_LootSpawningComponent lootSpawnComp = WR_LootSpawningComponent.GetInstance();
+		if (!lootSpawnComp)
 			return false;
-		}
+		
+		ResourceName vehResourceName = lootSpawnComp.GetRandomSingleItemFromCategory(WR_LootCategory.SpawnAreaVehicles);
 		
 		// Configure spawn position parameters
 		float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
@@ -69,21 +68,17 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		if (!foundSafePos) return false;
 		
-		// Spawn and orient the vehicle
-		ResourceName vehResourceName = vehicleResourceNames.GetRandomItem();
-			
+		// Spawn and orient the vehicle	
 		EntitySpawnParams spawnParams = new EntitySpawnParams();
 		spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
 					
-		IEntity vehicle = GetGame().SpawnEntityPrefab(vehResourceName, false, GetGame().GetWorld(), spawnParams);
-		if (!vehicle) return false;
+		IEntity vehicle = GetGame().SpawnEntityPrefabEx(vehResourceName, false, GetGame().GetWorld(), spawnParams);
+		if (!vehicle)
+			return false;
 		
 		vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 		
 		SpawnVehicleLoot(vehicle);
-		
-		//inventoryStorageManager.m_OnItemAddedInvoker.Insert(RespawnVehicleLoot);
-		//inventoryStorageManager.m_OnItemRemovedInvoker.Insert(RespawnVehicleLoot);
 		
 		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
 		if (Math.RandomFloat01() <= vehiclesSupplyChance) 
@@ -93,7 +88,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			if (supplyStorage && supplyStorage.GetContainers()) {
 				foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers()) {
 					int maxSteps = suppContainer.GetMaxResourceValue()/vehicleSupplyStepSize;
-					int supplyToAdd = Math.RandomIntInclusive(2, maxSteps) * vehicleSupplyStepSize;
+					int supplyToAdd = Math.RandomIntInclusive(1, maxSteps) * vehicleSupplyStepSize;
 					suppContainer.IncreaseResourceValue(supplyToAdd);
 				}
 			}
@@ -137,12 +132,12 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		SCR_UniversalInventoryStorageComponent inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
 		SCR_VehicleInventoryStorageManagerComponent inventoryStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(vehicle.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
 		
-		// Get loot spawning context
-		WR_LootSpawnContext lootContext = WR_LootSpawnContextPresets.GetLootContextByType(WR_LootContextType.RANDOM_VEHICLE);
-		int minItems = 2; // TODO: add validation and make these read from a global config
-		int maxItems = 6;
+		WR_LootSpawningComponent lootSpawnComp = WR_LootSpawningComponent.GetInstance();
+		if (!lootSpawnComp)
+			return;
 		
-		array<ResourceName> itemResourceNamesToSpawn = lootContext.GetRandomItems(Math.RandomIntInclusive(minItems, maxItems), minExtraMags: 0, maxExtraMags: 4);
+		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(WR_LootContext.VEHICLE_LOOT);
+		
 		foreach (ResourceName name : itemResourceNamesToSpawn)
 			inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
 	}
