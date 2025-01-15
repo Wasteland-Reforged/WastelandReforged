@@ -1,12 +1,10 @@
 [ComponentEditorProps(category: "World Vehicle Spawning", description: "Handles the random spawning of vehicles in Towns on server restart")]
-class WR_SpawnAreaVehicleSpawnHandlerComponentClass : ScriptComponentClass
-{
-	
-}
+class WR_SpawnAreaVehicleSpawnHandlerComponentClass : ScriptComponentClass {}
 
 class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 {
 	private WR_SpawnAreaEntity _parent;
+	ref WR_Logger<WR_SpawnAreaVehicleSpawnHandlerComponent> logger = new WR_Logger<WR_SpawnAreaVehicleSpawnHandlerComponent>(this);
 	
 	ref static array<WR_SpawnAreaVehicleSpawnHandlerComponent> VehicleSpawnHandlerComponents;
 
@@ -95,8 +93,9 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 					suppContainer.IncreaseResourceValue(supplyToAdd);
 				}
 			}
-			else {
-				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not find supply storage for town vehicle");
+			else
+			{
+				logger.LogError("Could not find supply storage for town vehicle.");
 			}
 		}
 		
@@ -129,7 +128,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		//Remove initial items
 		if (!WR_Utils.RemoveAllItemsFromVehicle(vehicle))
 		{
-			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Could not remove initial items from vehicle");
+			logger.LogError("Could not remove initial items from vehicle.");
 		}
 		
 		SCR_UniversalInventoryStorageComponent inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(vehicle.FindComponent(SCR_UniversalInventoryStorageComponent));
@@ -154,18 +153,16 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		// Loop through all vehicles that need to be spawned
 		for (int i = 0; i < _desiredVehCount; i++)
 		{
-			if (!SpawnTownVehicle()) {
-				Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Vehicle was not spawned", LogLevel.SPAM);
-			}
-			else {
+			if (!SpawnTownVehicle())
+				logger.LogWarning("Vehicle was not spawned.");
+			else
 				successfulVehSpawnCount++;
-			}
 		}
 		
-		//Attempt to respawn town vehicles every X minutes
+		// Attempt to respawn town vehicles periodically
 		GetGame().GetCallqueue().CallLater(checkVehicles, vehiclesRespawnTimer * 60 * 1000, true);
 			
-		Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + _desiredVehCount + " attempted at " + _parent.GetSpawnAreaName(), LogLevel.SPAM);
+		logger.LogNormal("Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + _desiredVehCount + " attempted at " + _parent.GetSpawnAreaName());
 	}
 	
 	private void checkVehicles()
