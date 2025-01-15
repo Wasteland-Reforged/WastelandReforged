@@ -28,9 +28,9 @@ class WR_MissionDefinition
 	int m_eLootContext;
 	
 	[Attribute(defvalue: "0.75", uiwidget: UIWidgets.Slider, params: "0 2.0 0.1", desc: "Amount of loot to spawn in the reward box (if there is one).")]
-	float m_fLootBoxBudget;
+	float m_fLootBudget;
 	
-	[Attribute(defvalue: "1.0", uiwidget: UIWidgets.Slider, params: "0 3.0 0.1", desc: "Multiplier for magazines and meds in reward box (if there is one).")]
+	[Attribute(defvalue: "1.0", uiwidget: UIWidgets.Slider, params: "0 10.0 0.1", desc: "Multiplier for magazines and other additional items in reward box (if there is one).")]
 	float m_fLootBoxAdditionalItemMultiplier;
 	
 	[Attribute(defvalue: "LARGE", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(WR_MissionLocationSize))]

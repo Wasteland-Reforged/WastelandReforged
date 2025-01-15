@@ -126,7 +126,7 @@ class WR_Mission
 				auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
 				
 				WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
-				array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(m_Definition.m_eLootContext, 0.75, 1.5); // TODO: parameterize these floats. maybe make a lootbox reward config
+				array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(m_Definition.m_eLootContext, m_Definition.m_fLootBudget, m_Definition.m_fLootBoxAdditionalItemMultiplier); // TODO: parameterize these floats. maybe make a lootbox reward config
 				foreach (ResourceName item : items)
 					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
 			}
