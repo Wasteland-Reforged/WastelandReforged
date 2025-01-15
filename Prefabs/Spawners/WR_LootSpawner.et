@@ -5,5 +5,5 @@ WR_LootSpawner {
   }
  }
  coords -0.022 6.986 0.455
- m_LootContextType LOOSE_LOOT
+ m_LootContextType LOOSE
 }
