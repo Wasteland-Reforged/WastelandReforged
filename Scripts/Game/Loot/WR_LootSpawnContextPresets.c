@@ -1,4 +1,3 @@
-// TODO: See if this class can be turned into a workbench config. If not, eventually just have these values get read from a file somewhere.
 class WR_LootSpawnContextPresets
 {
 	static ref map<WR_LootContext, ref WR_LootSpawnContext> LootContexts;
@@ -19,13 +18,13 @@ class WR_LootSpawnContextPresets
 				case WR_LootContext.WEAPON_BOX:
 					context = GetWeaponBoxContext();
 					break;
-				case WR_LootContext.HEAVY_WEAPON_BOX:
+				case WR_LootContext.WEAPON_BOX_HEAVY:
 					context = GetHeavyWeaponBoxContext();
 					break;
 				case WR_LootContext.MEDICAL:
 					context = GetMedicalBoxContext();
 					break;
-				case WR_LootContext.VEHICLE_LOOT:
+				case WR_LootContext.RANDOM_VEHICLE:
 					context = GetRandomVehicleContext();
 					break;
 				default:
