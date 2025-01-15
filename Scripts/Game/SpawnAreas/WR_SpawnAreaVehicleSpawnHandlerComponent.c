@@ -139,7 +139,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		if (!lootSpawnComp)
 			return;
 		
-		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(WR_LootContext.VEHICLE_LOOT, m_fLootBoxBudget);
+		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(WR_LootContext.RANDOM_VEHICLE, m_fLootBoxBudget);
 		
 		foreach (ResourceName name : itemResourceNamesToSpawn)
 			inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
