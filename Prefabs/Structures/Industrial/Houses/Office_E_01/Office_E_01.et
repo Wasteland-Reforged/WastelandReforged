@@ -5,32 +5,32 @@ SCR_DestructibleBuildingEntity : "{74CBD673D67C58FF}Prefabs/Structures/Industria
    {
     ID "62CEF13F4AE1164B"
     coords -6.946 1.515 5.642
-    m_LootContextType NONE
+    m_LootContextType LOOSE
    }
    {
     ID "62CEF13F4AE11681"
     coords 6.077 4.729 2.045
-    m_LootContextType NONE
+    m_LootContextType LOOSE
    }
    {
     ID "62CEF13F4AE11693"
     coords 0.925 4.254 -3.647
-    m_LootContextType NONE
+    m_LootContextType LOOSE
    }
    {
     ID "62CEF13F4AE116AF"
     coords 6.156 2.073 5.599
-    m_LootContextType NONE
+    m_LootContextType LOOSE
    }
    {
     ID "62CEF13F4AE116B3"
     coords -3.833 5.159 4.336
-    m_LootContextType NONE
+    m_LootContextType LOOSE
    }
    {
     ID "62CEF13F4AE116E0"
     coords -1.273 2.053 -2.618
-    m_LootContextType NONE
+    m_LootContextType LOOSE
    }
   }
  }

@@ -274,7 +274,8 @@ class WR_MissionSystem : GameSystem
 	private WR_MissionLocationEntity GetRandomVacantMissionLocation(WR_MissionLocationSize requiredSize)
 	{			
 		array<WR_MissionLocationEntity> vacantLocations = WR_MissionLocationEntity.GetAllVacantLocations(requiredSize);
-		if (vacantLocations.Count() == 0) return null;
+		if (vacantLocations.Count() == 0)
+			return null;
 
 		return vacantLocations.GetRandomElement();
 	}
