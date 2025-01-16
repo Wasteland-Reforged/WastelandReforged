@@ -35,19 +35,6 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
   }
  }
  coords 1377.751 38.609 2929.999
- m_MissionSystemConfiguration WR_MissionSystemConfig "{645A0175E4F16E15}" {
-  m_aMissionDefinitions {
-   WR_MissionDefinition "{645E3EE8FCD8218D}" : "{2FAC805DD001EAF5}Configs/Missions/Definitions/WeaponCache.conf" {
-   }
-  }
-  m_fInitialMissionDelayM 0.01
-  m_fNewMissionDelayM 0.01
-  m_fNewMissionNotificationDelayM 0
-  m_fMissionMapMarkerCleanupDelayM 1
-  m_fMissionCleanupDelayM 5
-  m_fMissionTimeLimitM 30
-  m_aPlayercountMissionThresholds {
-   0 0
-  }
+ m_MissionSystemConfiguration WR_MissionSystemConfig "{646136DA9EAE2EDB}" : "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf" {
  }
 }

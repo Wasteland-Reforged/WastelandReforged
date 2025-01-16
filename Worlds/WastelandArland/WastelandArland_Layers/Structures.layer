@@ -8679,7 +8679,7 @@ $grp SplineShapeEntity {
  }
 }
 GenericEntity : "{02D53C3EA1C76E4D}PrefabsEditable/Auto/Props/Wrecks/E_M151A2_wreck.et" {
- coords 2605.87 110.619 2515.606
+ coords 2605.87 110.178 2515.606
  angleY -94.481
 }
 GenericEntity : "{0542578CA422287A}PrefabsEditable/Auto/Props/Industrial/Repair/E_VehicleGarbage_01_pile_medium.et" {
@@ -8745,7 +8745,9 @@ $grp Tree : "{20C4A23B039DFCF3}PrefabLibrary/Vegetation/Trees/t_picea_abies_3s.e
  }
 }
 GenericEntity : "{25B265F3E7CBDFC8}Prefabs/Props/Wrecks/BMP1_wreck.et" {
- coords 2600.772 110.941 2493.616
+ coords 2603.491 111.332 2473.771
+ angleX -2.758
+ angleY 25.991
 }
 SCR_DestructibleBuildingEntity : "{2863568293E03506}PrefabsEditable/Auto/Structures/Ruins/HouseRuins/E_HouseRuin_01_WoodPile.et" {
  coords 1906.454 0.099 3192.02
@@ -8783,10 +8785,6 @@ GenericEntity : "{4D1517866E9C2362}Prefabs/Props/Forest/WoodPile/WoodPile_02_A.e
 StaticModelEntity : "{4D37CF893371E83B}Prefabs/Structures/Agriculture/VegetableBed_01/VegetableBed_01_big.et" {
  coords 1588.587 0 918.35
  angleY 13.322
-}
-SCR_DestructibleBuildingEntity : "{525700C0EC3BA75B}Prefabs/Structures/Industrial/Sheds/ShedMetal_02/ShedMetal_02_short_base.et" {
- coords 2603.105 0.138 2513.066
- angleY -13.91
 }
 GenericEntity : "{57237781CE749464}Prefabs/Props/Agriculture/Farm/Trough_01.et" {
  coords 1913.844 52.489 3047.924
@@ -8837,7 +8835,7 @@ StaticModelEntity : "{7839491ACC2102B9}Prefabs/Structures/Agriculture/VegetableB
  angleY 12.181
 }
 GenericEntity : "{795552B887CD50E7}Prefabs/Props/Industrial/ConcretePanel_01_stack.et" {
- coords 2611.581 110.758 2503.889
+ coords 2611.581 110.722 2503.889
  angleY 67.866
 }
 StaticModelEntity : "{80DF3BD810D032AF}Prefabs/Structures/Industrial/Towers/LightTower_01/LightTower_01.et" {
@@ -8942,7 +8940,8 @@ $grp Tree : "{B0382E039EBE672F}Prefabs/Vegetation/Tree/t_pinus_sylvestris_3f.et"
  }
 }
 GenericEntity : "{B350840088390760}Prefabs/Compositions/Misc/SubCompositions/Decorations/Barrel_Group_Stack_01.et" {
- coords 2610.231 110.671 2512.401
+ coords 2610.231 110.624 2512.4
+ angleX -1.124
  angleY -12.38
 }
 GenericEntity : "{B423187F6C8DEFFD}Prefabs/Compositions/Misc/SubCompositions/Decorations/Barrel_Group_Tire_01.et" {

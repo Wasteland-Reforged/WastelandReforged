@@ -3,6 +3,7 @@ class WR_SafezoneEntityClass: ScriptedGameTriggerEntityClass{};
 class WR_SafezoneEntity: ScriptedGameTriggerEntity
 {
 	protected RplComponent m_RplComponent;
+	ref WR_Logger<WR_SafezoneEntity> logger = new WR_Logger<WR_SafezoneEntity>(this);
 	
 	override void EOnInit(IEntity owner)
 	{
@@ -13,15 +14,15 @@ class WR_SafezoneEntity: ScriptedGameTriggerEntity
 	
 	override protected void OnActivate(IEntity ent)
 	{
-		doGodmode(ent, true);
+		doGodmode(ent, false);
 	}
 	
 	override void OnDeactivate(IEntity ent)
 	{	
-		doGodmode(ent, false);
+		doGodmode(ent, true);
 	}
 	
-	void doGodmode(IEntity ent, bool isSafe)
+	void doGodmode(IEntity ent, bool takeDamage)
 	{
 		if (IsProxy()) return;
 		
@@ -30,7 +31,8 @@ class WR_SafezoneEntity: ScriptedGameTriggerEntity
 
 		SCR_DamageManagerComponent m_DamageManager = SCR_DamageManagerComponent.Cast(m_Character.FindComponent(SCR_DamageManagerComponent));
 		if(!m_DamageManager) return;
-		m_DamageManager.EnableDamageHandling(true);
+		
+		m_DamageManager.EnableDamageHandling(takeDamage);
 	}
 	
 	bool IsProxy()
