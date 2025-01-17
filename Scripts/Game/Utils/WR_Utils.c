@@ -25,42 +25,32 @@ class WR_Utils
 	static bool TryGetRandomSafePosWithinRadius(out vector safePos, vector centerPos, float radiusToSelectPointsWithin, float radiusToCheckAroundInitiallySelectedPos, float xzPaddingRadius = 0.5, float yPaddingDistance = 2)
 	{					
 		RandomGenerator gen = new RandomGenerator();
-		vector posToCheck = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
+		vector randomPoint, selectedPos;
 		
-		// Calculate safe pos
-		vector selectedPos;
-		bool foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
-
-		// Check if selected position is underwater, too far above ground, or too close to player characters	
-		bool isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
+		bool posUnderwater, posTooHigh, posNearPlayers = false;
+		const int MAX_ATTEMPTS = 10;
+		const float MAX_HEIGHT_ABOVE_GROUND = 2.0;
+		const float MIN_DISTANCE_FROM_PLAYERS = 50.0;
 		
-		float maxAllowedHeightAboveGround = 2.0;
-		bool isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
-		
-		float desiredDistanceFromPlayers = 50;
-		bool posIsNearPlayers = nearPlayersToVector(selectedPos, desiredDistanceFromPlayers);
-		
-		int currentAttempts = 0, maxAttempts = 5;
-		
-		// If it is, try to find another empty position.
-		while (isPosUnderWater || isPosTooFarAboveGround || posIsNearPlayers)
-		{	
+		for (int i = 0; i < MAX_ATTEMPTS; i++)
+		{
 			// Generate new point
-			posToCheck = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
-			foundSafePos = SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, posToCheck, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
+			randomPoint = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
+			SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, randomPoint, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
 			
 			// Retry checks
-			isPosUnderWater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
-			isPosTooFarAboveGround = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > maxAllowedHeightAboveGround;
-			posIsNearPlayers = nearPlayersToVector(selectedPos, desiredDistanceFromPlayers);
+			posUnderwater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
+			posTooHigh = selectedPos[1] - SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) > MAX_HEIGHT_ABOVE_GROUND;
+			posNearPlayers = nearPlayersToVector(selectedPos, MIN_DISTANCE_FROM_PLAYERS);
 			
-			// Break loop if too many attempts
-			currentAttempts++;
-			if (currentAttempts >= maxAttempts) return false;
+			if (!posUnderwater && !posTooHigh && !posNearPlayers)
+			{
+				safePos = selectedPos;
+				return true;
+			}
 		}
-		
-		safePos = selectedPos;
-		return foundSafePos;
+
+		return false;
 	}
 	
 	static bool nearPlayersToVector(vector v, int distance)
@@ -77,73 +67,6 @@ class WR_Utils
 			}
 		}
 		return false;
-	}
-
-
-	static ResourceName GetDefaultAmmo(ResourceName weaponResourceName)
-	{
-		ResourceName ammoResourceName;
-		
-		// Check map if we found the ammo for this gun already
-		if (WeaponAmmoResourceNames)
-		{
-			ammoResourceName = WeaponAmmoResourceNames.Get(weaponResourceName);
-			if (ammoResourceName) return ammoResourceName;
-		}
-		
-		// If not in map, find the resource name
-		// TODO: There's gotta be a more efficient way of getting a weapon's default/compatible magazines. Will figure it out later.
-		Resource resource = Resource.Load(weaponResourceName);
-		IEntity weaponEntity = GetGame().SpawnEntityPrefab(resource, GetGame().GetWorld());
-		WeaponComponent weaponComponent = WeaponComponent.Cast(weaponEntity.FindComponent(WeaponComponent));
-		BaseMuzzleComponent muzzleComponent = weaponComponent.GetCurrentMuzzle();
-		ammoResourceName = muzzleComponent.GetDefaultMagazineOrProjectileName();
-		
-		if (!ammoResourceName) return "";
-		
-		// Add found resource to map and return it
-		if (!WeaponAmmoResourceNames)
-			WeaponAmmoResourceNames = new map<ResourceName, ResourceName>();
-		WeaponAmmoResourceNames.Set(weaponResourceName, ammoResourceName);
-		
-		return ammoResourceName;
-	}
-	
-	static bool IsReloadableWeapon(ResourceName resourceName)
-	{
-		if (!Weapons)
-		{
-			// This map is simply for checking if a given resource name is a weapon. The int value is a throwaway.
-			Weapons = new map<ResourceName, int>(); 
-
-			array<ResourceName> weaponResourceNames = {};
-			
-			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetRifles().GetAllItems());
-			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetMachineGuns().GetAllItems());
-			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetSnipers().GetAllItems());
-			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetHandguns().GetAllItems());
-			weaponResourceNames.InsertAll(WR_ResourceNamesWeighted.GetLaunchers().GetAllItems());
-
-			foreach (ResourceName rn : weaponResourceNames)
-				Weapons.Insert(rn, 0);
-		}
-
-		if (!WeaponsNonReloadable)
-		{
-			// This map is simply for checking if a given resource name is a weapon. The int value is a throwaway.
-			WeaponsNonReloadable = new map<ResourceName, int>(); 
-
-			// TODO: generate this list dynamically or read it from a config
-			array<ResourceName> nonReloadableWeaponResourceNames =
-			{
-				"{9C5C20FB0E01E64F}Prefabs/Weapons/Launchers/M72/Launcher_M72A3.et"
-			};
-
-			foreach (ResourceName rn : nonReloadableWeaponResourceNames)
-				WeaponsNonReloadable.Insert(rn, 0);
-		}
-		
-		return Weapons.Contains(resourceName) && !WeaponsNonReloadable.Contains(resourceName);
 	}
 	
 	static WorldTimestamp TimestampNow()
