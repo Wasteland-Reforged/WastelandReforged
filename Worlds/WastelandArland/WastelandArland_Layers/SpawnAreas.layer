@@ -1,6 +1,10 @@
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  SpawnArea_Beauregard {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+    botsPerSqKm 50
+    AIGroupsFlatRate 2
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -15,6 +19,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Arleville {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+    botsPerSqKm 50
+    AIGroupsFlatRate 2
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -29,6 +37,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Foxdale_Players {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+    botsPerSqKm 50
+    AIGroupsFlatRate 2
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     Enabled 0
     vehiclesPerSqKm 250
@@ -44,6 +56,10 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
  }
  SpawnArea_Norwich {
   components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+    botsPerSqKm 50
+    AIGroupsFlatRate 2
+   }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
     vehiclesFlatRate 12
@@ -60,6 +76,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   components {
    WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
     Enabled 0
+    botsPerSqKm 50
+    AIGroupsFlatRate 2
    }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
@@ -82,6 +100,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   components {
    WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
     Enabled 0
+    botsPerSqKm 50
+    AIGroupsFlatRate 2
    }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
@@ -101,6 +121,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
   components {
    WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
     Enabled 0
+    botsPerSqKm 50
+    AIGroupsFlatRate 2
    }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0

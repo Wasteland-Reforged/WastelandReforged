@@ -6,68 +6,41 @@ class WR_SpawnAreaAISpawnHandlerComponentClass : ScriptComponentClass
 
 class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 {
-	private WR_SpawnAreaEntity _parent;
-	ref static array<WR_SpawnAreaAISpawnHandlerComponent> AISpawnHandlerComponents;
-	ref array<SCR_AIGroup> _aiGroups = {};
+	ref WR_Logger<WR_SpawnAreaAISpawnHandlerComponent> logger = new WR_Logger<WR_SpawnAreaAISpawnHandlerComponent>(this);
 	
-	[Attribute(defvalue: "30", desc: "Number of roaming bot groups to spawn per square kilometer of surface area inside this spawn area.")]
+	private WR_SpawnAreaEntity _parent;
+	ref array<SCR_AIGroup> _aiGroups = {};
+	static ref array<WR_SpawnAreaAISpawnHandlerComponent> m_aBotSpawnHandlers;
+	
+	[Attribute(defvalue: "50", desc: "Number of roaming bot groups to spawn per square kilometer of surface area inside this spawn area.")]
 	protected int botsPerSqKm;
 	
-	[Attribute(defvalue: "1", desc: "Minimum number of roaming bot groups in this spawn area")]
+	[Attribute(defvalue: "2", desc: "Minimum number of roaming bot groups in this spawn area")]
 	protected int AIGroupsFlatRate;
-	
-	[Attribute(defvalue: "5", desc: "How long to wait before respawning AI (in minutes)")]
-	protected int AIGroupRespawnWaitMinutes;
-	
-	[Attribute(defvalue: "0.25", desc: "Chance per group to spawn 2 scavs instead of 1")]
-	protected float chanceOfLargerGroup;
 	
 	override void OnPostInit(IEntity owner)
 	{
 		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Parent entity of WR_SpawnAreaAISpawnHandlerComponent must be a WR_SpawnAreaEntity!", LogLevel.ERROR);
+			logger.LogDebug("Parent entity of WR_SpawnAreaAISpawnHandlerComponent must be a WR_SpawnAreaEntity!");
 			return;
 		}
 		
-		if (!AISpawnHandlerComponents)
+		if (!m_aBotSpawnHandlers)
 		{
-			AISpawnHandlerComponents = {};
-			Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Initialized AI spawn area handler component list.", LogLevel.NORMAL);
+			m_aBotSpawnHandlers = {};
+			logger.LogNormal("Initialized bot spawn handler array");
 		}
 		
-		AISpawnHandlerComponents.Insert(this);
-		Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Inserted " + GetSpawnAreaName() + " into the AI spawn handler component list", LogLevel.SPAM);
+		m_aBotSpawnHandlers.Insert(this);
+		logger.LogNormal("Inserted " + GetSpawnAreaName() + " into the bot spawn handler component list");
 	}
 	
-	void SpawnInitialAIGroups(out int successfulAIGroupSpawnCount)
-	{
-		int groupsToSpawn = GetAICountPerSqKm();
-		if (groupsToSpawn < AIGroupsFlatRate) groupsToSpawn = AIGroupsFlatRate;
-		Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Attempting to spawn " + groupsToSpawn + " AI groups in " + GetSpawnAreaName(), LogLevel.SPAM);
-		
-		// Generate max amount of AI groups at mission start
-		successfulAIGroupSpawnCount = 0;	
-		for (int i = 0; i < groupsToSpawn; i++) {
-			if (spawnAIGroup()) {
-				successfulAIGroupSpawnCount++;
-			}
-			else {
-				i--;
-			}		
-		}
-		
-		// Call CheckRoamingAI() continuously every 1 minute to handle respawning of groups
-		float checkTimerInMinutes = 0.5;
-		GetGame().GetCallqueue().CallLater(CheckRoamingAI, checkTimerInMinutes * 60 * 1000, true);
-	}
-	
-	bool spawnAIGroup()
+	protected bool SpawnAIGroup()
 	{
 		// Set ResourceName for the AI Group Prefab
 		ResourceName aiGroupResource = "{EE18BCEA7A5F399D}Prefabs/Groups/WR/WR_ScavGroup1.et";
-		if (Math.RandomFloat01() < chanceOfLargerGroup) aiGroupResource = "{824C880AC69BB6B3}Prefabs/Groups/WR/WR_ScavGroup2.et";
 		
 		// Configure spawn position parameters
 		float areaToCheck = 20; 		// Radius that will be checked if the initially passed pos is not safe
@@ -79,7 +52,7 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 																	, areaToCheck, xzPaddingRadius, yPaddingDistance);
 		
 		if (!foundSafePos) {
-			Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Could not find safe position for roaming AI group!", LogLevel.WARNING);
+			logger.LogDebug("Could not find safe position for roaming AI group!");
 			return false;
 		}
 		
@@ -88,7 +61,7 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		SCR_AIGroup aiGroup = SCR_AIGroup.Cast(aiGroupEntity);
 	
 		if (!aiGroup) {
-			Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Roaming AI Group Failed to Spawn!", LogLevel.WARNING);
+			logger.LogDebug("Roaming AI Group Failed to Spawn!");
 			return false;
 		}
 		
@@ -108,23 +81,23 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		return true;
 	}
 	
-	void CheckRoamingAI()
+	void CheckGroups(bool doRespawn) 
 	{
-		//Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Checking Groups..");
-		foreach (auto aigroup : _aiGroups) {
-			if (!aigroup) {
-				//Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Clearing dead AI Group..");
-				GetGame().GetCallqueue().CallLater(spawnAIGroup, AIGroupRespawnWaitMinutes * 60 * 1000, false);
-				GetGame().GetCallqueue().CallLater(removeGroup, 5 * 1000, false, aigroup);
+		foreach(SCR_AIGroup group : _aiGroups)
+		{
+			if (!group) {
+				logger.LogNormal("Found dead bot group at " + GetSpawnAreaName());
+				_aiGroups.RemoveItem(group);
+				CheckGroups(false);
+				return;
 			}
 		}
-
-	}
-	
-	void removeGroup(SCR_AIGroup group) 
-	{
-		//Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Removing Group..");
-		_aiGroups.RemoveItem(group);
+		
+		//If any of the bot groups are found to be empty, doRespawn is set to false, and we will not enter this block
+		if (doRespawn) {
+			//logger.LogNormal("Found no dead bot groups at " + GetSpawnAreaName());
+			TryRespawnGroup();
+		}
 	}
 	
 	private int GetAICountPerSqKm()
@@ -136,6 +109,38 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		return Math.Floor(areaSqKm * botsPerSqKm);
 	}
 	
+	protected int GetDesiredGroups()
+	{
+		int groupsToSpawn = GetAICountPerSqKm();
+		if (groupsToSpawn < AIGroupsFlatRate) groupsToSpawn = AIGroupsFlatRate;
+		return groupsToSpawn;
+	}
+	
+	protected void TryRespawnGroup()
+	{
+		const int MAX_ATTEMPTS = 10;
+		int currentAttempt = 1;
+		
+		for (int i = _aiGroups.Count(); i < GetDesiredGroups(); i++)
+		{
+			if (!SpawnAIGroup()) {
+				i--;
+			}
+			else {
+				logger.LogNormal("Spawned a new bot group at " + GetSpawnAreaName());
+				return;
+			}
+			
+			currentAttempt++;
+			if (currentAttempt >= MAX_ATTEMPTS)
+			{
+				logger.LogDebug("Could not spawn roaming bot group in a reasonable number of attempts. Giving up until next pass.");
+				return;
+			}
+			
+		}
+	}
+	
 	string GetSpawnAreaName()
 	{
 		return _parent.GetSpawnAreaName();
@@ -143,14 +148,6 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 	
 	void ~WR_SpawnAreaAISpawnHandlerComponent()
 	{
-		if (!AISpawnHandlerComponents) return;
-		
-		if (AISpawnHandlerComponents.Count() == 0)
-		{
-			AISpawnHandlerComponents = null;
-			return;
-		}
-		
-		AISpawnHandlerComponents.RemoveItem(this);
+		delete _aiGroups;
 	}
 }

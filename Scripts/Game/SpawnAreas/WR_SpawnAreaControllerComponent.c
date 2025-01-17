@@ -26,9 +26,7 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 		{
 			if (spawnVehicles)
 				SpawnVehiclesInSpawnAreas();
-			
-			if (spawnAI)
-				SpawnAIInSpawnAreas();	
+
 		}
 	}
 	
@@ -46,19 +44,5 @@ class WR_SpawnAreaControllerComponent : SCR_BaseGameModeComponent
 		
 		Print("[WASTELAND] WR_SpawnAreaControllerComponent: Spawned a total of " + totalVehiclesSpawned + " vehicle(s).");
 	}
-	
-	private void SpawnAIInSpawnAreas()
-	{
-		Print("[WASTELAND] WR_SpawnAreaControllerComponent: Spawning AI...");
-		int totalAIGroupsSpawned = 0;
-	
-		foreach (auto AISpawnHandler : WR_SpawnAreaAISpawnHandlerComponent.AISpawnHandlerComponents)
-		{
-			int successfulAIGroupSpawnCount;
-			AISpawnHandler.SpawnInitialAIGroups(successfulAIGroupSpawnCount);
-			totalAIGroupsSpawned += successfulAIGroupSpawnCount;
-		}
-		
-		Print("[WASTELAND] WR_SpawnAreaControllerComponent: Spawned a total of " + totalAIGroupsSpawned + " roaming bot groups.");
-	}
+
 }

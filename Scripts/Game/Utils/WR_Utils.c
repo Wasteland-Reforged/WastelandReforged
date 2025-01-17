@@ -1,9 +1,5 @@
 class WR_Utils
 {
-	private static ref map<ResourceName, ResourceName> WeaponAmmoResourceNames;
-	private static ref map<ResourceName, int> Weapons;
-	private static ref map<ResourceName, int> WeaponsNonReloadable;
-	
 	//------------------------------------------------------------------------------------------------
 	static vector GetRandomHorizontalDirectionAngles()
 	{
