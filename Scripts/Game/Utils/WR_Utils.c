@@ -123,6 +123,16 @@ class WR_Utils
 		return true;
 	}
 	
+	static int GetRandomScavMoney(float chanceForMoney, int maxMoney)
+	{
+		if (Math.RandomFloat01() > chanceForMoney)
+			return 0;
+
+		float x = Math.RandomFloat01();
+		int amountToGive = ((1 - (x * x)) * maxMoney) + 1;
+		return (amountToGive / 10) * 10;
+	}
+	
 	static float MinutesToMilliseconds(float m)
 	{
 		float s = MinutesToSeconds(m);

@@ -90,10 +90,11 @@ modded class SCR_AIGroup : ChimeraAIGroup
         if (!inventory) {
 			Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Could not find aiCharacter storage manager!", LogLevel.WARNING);
 		}
-			
-		float x = Math.RandomFloatInclusive(0, 2);
-		int amountToGive = 50 * x * x;
+		
+		int amountToGive = WR_Utils.GetRandomScavMoney(0.75, 200);
 		EL_MoneyUtils.AddCash(inventory, amountToGive);
+		Print("[Wasteland]: Added " + amountToGive + " cash to an AI");
+
 		
 		// Add to Group
 		AddAIEntityToGroup(member);
