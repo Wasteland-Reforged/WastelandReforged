@@ -91,7 +91,7 @@ modded class SCR_AIGroup : ChimeraAIGroup
 			Print("[WASTELAND] WR_SpawnAreaAISpawnHandlerComponent: Could not find aiCharacter storage manager!", LogLevel.WARNING);
 		}
 		
-		int amountToGive = WR_Utils.GetRandomScavMoney(0.75, 200);
+		int amountToGive = WR_Utils.GetRandomScavMoney(0.75, 200, 10);
 		EL_MoneyUtils.AddCash(inventory, amountToGive);
 		Print("[Wasteland]: Added " + amountToGive + " cash to an AI");
 
