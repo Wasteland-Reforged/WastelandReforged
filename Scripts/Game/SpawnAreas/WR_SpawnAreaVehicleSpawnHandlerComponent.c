@@ -117,12 +117,6 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		_currentVehicles--;
 	}
 	
-	protected void RespawnVehicleLoot(IEntity item, BaseInventoryStorageComponent storageOwner)
-	{
-		IEntity vehicle = storageOwner.GetOwner();
-		
-	}
-	
 	protected void SpawnVehicleLoot(IEntity vehicle)
 	{
 		//Remove initial items
@@ -140,8 +134,11 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(WR_LootContext.RANDOM_VEHICLE, m_fLootBudget);
 		
-		foreach (ResourceName name : itemResourceNamesToSpawn)
-			inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage);
+		foreach (ResourceName name : itemResourceNamesToSpawn) 
+		{
+			if (!inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage))		
+				return;		//Vehicle is full
+		}
 	}
 	
 	void SpawnInitialVehicles(out int successfulVehSpawnCount)
