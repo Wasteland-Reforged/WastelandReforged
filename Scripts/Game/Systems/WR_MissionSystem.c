@@ -55,12 +55,12 @@ class WR_MissionSystem : GameSystem
 		// Advance mission statuses
 		for (int i = 0; i < m_aMissions.Count();)
 		{
-			AdvanceMissionStatus(m_aMissions[i]);
-			
+			if (AdvanceMissionStatus(m_aMissions[i]))
+				i++;
+		
 			// Only increment index if the mission was not deleted.
 			// Avoids index out of bounds errors.
-			if (m_aMissions[i])
-				i++;
+				
 		}
 	}
 	
@@ -69,7 +69,7 @@ class WR_MissionSystem : GameSystem
 		logger.LogNormal("Mission system cleaned up.");
 	}
 	
-	private void AdvanceMissionStatus(WR_Mission mission)
+	private bool AdvanceMissionStatus(WR_Mission mission)		//Returns false if a mission was deleted this pass
 	{
 		if (!m_NotifComponent)
 			SetMissionNotificationComponent();
@@ -83,21 +83,23 @@ class WR_MissionSystem : GameSystem
 			case WR_MissionStatus.Malformed:
 			{
 				WR_MissionMarkerHelper.DeleteMarker(marker);
-				
-				//ConcludeMission(mission, true);
+				mission.GetLocation().SetIsHostingMission(false);
 				mission.DeleteMissionEntities(includeRewards: true);
+				m_aMissions.RemoveItemOrdered(mission);
 				
-				break;
+				return false;
 			}
 			case WR_MissionStatus.Pending:
 			{
 				delay = WR_Utils.MinutesToMilliseconds(m_Config.m_fNewMissionNotificationDelayM);
 				
+				// Check if mission ready to start
 				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
 				{
-					mission.StartMission();
-					WR_MissionMarkerHelper.ShowMarker(marker);
-					m_NotifComponent.SendNotification(mission);
+					if (mission.StartMission()) {
+						WR_MissionMarkerHelper.ShowMarker(marker);
+						m_NotifComponent.SendNotification(mission);
+					}
 				}
 				
 				break;
@@ -111,9 +113,6 @@ class WR_MissionSystem : GameSystem
 				{
 					mission.SetMissionStatus(WR_MissionStatus.Complete);
 					mission.SetCompletionType(WR_MissionCompletionType.TimedOut);
-//					WR_MissionMarkerHelper.UpdateMarkerColor(marker);
-//					m_NotifComponent.SendNotification(mission);
-					//ConcludeMission(mission, true);
 					mission.DeleteMissionEntities(includeRewards: true);
 				}
 				
@@ -135,6 +134,7 @@ class WR_MissionSystem : GameSystem
 			{
 				delay = WR_Utils.MinutesToMilliseconds(m_Config.m_fMissionMapMarkerCleanupDelayM);
 				
+				// Check if marker ready to be cleaned up
 				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
 				{
 					WR_MissionMarkerHelper.DeleteMarker(marker);
@@ -147,14 +147,15 @@ class WR_MissionSystem : GameSystem
 			case WR_MissionStatus.AwaitingCleanup:
 			{
 				delay = WR_Utils.MinutesToMilliseconds(m_Config.m_fMissionCleanupDelayM);
+				
+				//Check if mission is ready to be cleaned up
 				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
 				{
-					//ConcludeMission(mission, false);
 					mission.DeleteMissionEntities(includeRewards: false);
 					logger.LogNormal(string.Format("Mission entities cleaned up: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
-					//m_aMissions.RemoveItem(mission);
+					mission.GetLocation().SetIsHostingMission(false);
 					m_aMissions.RemoveItemOrdered(mission);
-					//delete mission;
+					return false;
 				}
 				break;
 			}
@@ -162,7 +163,9 @@ class WR_MissionSystem : GameSystem
 			{
 				logger.LogError(string.Format("Invalid mission status: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
 			}
+			
 		}
+		return true;
 	}
 	
 	private void TryCreateNewMission()
@@ -200,6 +203,7 @@ class WR_MissionSystem : GameSystem
 			m_NotifComponent.SendNotification(mission);
 		}
 
+		location.SetIsHostingMission(true);
 		m_aMissions.Insert(mission);
 	}
 	
@@ -215,12 +219,6 @@ class WR_MissionSystem : GameSystem
 		
 		m_NotifComponent = notifComponent;
 	}
-	
-//	private void ConcludeMission(WR_Mission mission, bool deleteRewards)
-//	{
-//		mission.DeleteMissionEntities(deleteRewards);
-//		m_aMissions.RemoveItem(mission);
-//	}
 	
 	private int GetMaxActiveMissionSlots()
 	{

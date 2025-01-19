@@ -31,21 +31,32 @@ class WR_Mission
 	
 	bool StartMission()
 	{
-		bool entitiesDidSpawn = SpawnProp() && SpawnRewards() && SpawnNpcGroups();
+		//bool entitiesDidSpawn = SpawnProp() && SpawnRewards() && SpawnNpcGroups();
 		
-		if (entitiesDidSpawn)
-		{
-			SetMissionStatus(WR_MissionStatus.InProgress);
-			m_Location.GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
-			logger.LogNormal(string.Format("Mission started successfully: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
+		if (!SpawnProp()) {
+			OnMissionMalformed();
+			return false;
 		}
-		else
-		{
-			SetMissionStatus(WR_MissionStatus.Malformed);
-			logger.LogWarning(string.Format("Mission failed to spawn: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
+		if (!SpawnRewards()) {
+			OnMissionMalformed();
+			return false;
 		}
+		if (!SpawnNpcGroups()) {
+			OnMissionMalformed();
+			return false;
+		}
+
+		SetMissionStatus(WR_MissionStatus.InProgress);
+		m_Location.GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
+		logger.LogNormal(string.Format("Mission started successfully: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 		
-		return entitiesDidSpawn;
+		return true;
+	}
+	
+	void OnMissionMalformed()
+	{
+		SetMissionStatus(WR_MissionStatus.Malformed);
+		logger.LogWarning(string.Format("Mission failed to spawn: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 	}
 	
 	void SetMissionStatus(WR_MissionStatus newStatus)
@@ -59,12 +70,20 @@ class WR_Mission
 		ResourceName propResource = m_Definition.m_sPropPrefab;
 		if (!propResource) return true;
 		
-		m_PropEntity = WR_Utils.SpawnPrefabInWorld(propResource, m_Location.GetOrigin());
+		vector safepos;
+		if (!SCR_WorldTools.FindEmptyTerrainPosition(safepos, m_Location.GetOrigin(), 2)) {
+			logger.LogError(string.Format("Could not find empty terrain position for prop! (ID: %1)", m_iMissionId)); 
+			return false;
+		}
+		
+		m_PropEntity = WR_Utils.SpawnPrefabInWorld(propResource, safepos);
 		if (!m_PropEntity)
 		{
 			logger.LogError(string.Format("Prop failed to spawn! (ID: %1)", m_iMissionId)); 
 			return false;
 		}
+		
+		logger.LogNormal(string.Format("Spawned prop at: %1)", m_PropEntity.GetOrigin())); 
 		
 		return true;
 	}

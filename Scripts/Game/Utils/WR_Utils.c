@@ -32,7 +32,8 @@ class WR_Utils
 		{
 			// Generate new point
 			randomPoint = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
-			SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, randomPoint, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
+			if (!SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, randomPoint, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance))
+				continue;
 			
 			// Retry checks
 			posUnderwater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;

@@ -35,6 +35,16 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
   }
  }
  coords 1377.751 38.609 2929.999
- m_MissionSystemConfiguration WR_MissionSystemConfig "{646136DA9EAE2EDB}" : "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf" {
+ m_MissionSystemConfiguration WR_MissionSystemConfig "{64652966B0F2B3E3}" {
+  m_aMissionDefinitions {
+   WR_MissionDefinition "{64652966B2735C78}" : "{96A32103A69BDF26}Configs/Missions/Definitions/VehicleWreck.conf" {
+   }
+  }
+  m_fInitialMissionDelayM 0.06
+  m_fNewMissionDelayM 0.01
+  m_fNewMissionNotificationDelayM 0
+  m_aPlayercountMissionThresholds {
+   0 0 0 0 0
+  }
  }
 }
