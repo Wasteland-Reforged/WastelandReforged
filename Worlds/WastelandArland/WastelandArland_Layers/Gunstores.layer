@@ -1,6 +1,7 @@
 GenericEntity : "{0C218EEDC33AE65D}GunStoreMan.et" {
  components {
   WR_MapMarkerComponent "{624A4600681E62AA}" {
+   Enabled 0
    m_eIcon ObjectiveMarker
   }
   BaseLoadoutManagerComponent "{5D774D0B9B498936}" {

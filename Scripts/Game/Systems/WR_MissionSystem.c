@@ -6,7 +6,7 @@ class WR_MissionSystem : GameSystem
 	protected ref WR_MissionSystemConfig m_Config;
 	
 	float m_fMissionCreationTimeElaspedS = 0;
-	float m_fMissionCreationTickrateS = 15;
+	float m_fMissionCreationTickrateS = 15.0;
 
 	ref array<ref WR_Mission> m_aMissions = {};
 	

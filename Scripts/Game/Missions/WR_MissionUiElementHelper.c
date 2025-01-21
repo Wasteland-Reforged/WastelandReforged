@@ -1,6 +1,5 @@
 class WR_MissionMarkerHelper
 {
-
 	static SCR_MapMarkerBase CreateMarker(notnull WR_Mission mission)
 	{	
 		ref SCR_MapMarkerBase marker = new SCR_MapMarkerBase();
