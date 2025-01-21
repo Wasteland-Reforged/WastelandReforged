@@ -32,7 +32,8 @@ class WR_Utils
 		{
 			// Generate new point
 			randomPoint = gen.GenerateRandomPointInRadius(0, radiusToSelectPointsWithin, centerPos);
-			SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, randomPoint, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance);
+			if (!SCR_WorldTools.FindEmptyTerrainPosition(selectedPos, randomPoint, radiusToCheckAroundInitiallySelectedPos, xzPaddingRadius, yPaddingDistance))
+				continue;
 			
 			// Retry checks
 			posUnderwater = SCR_TerrainHelper.GetTerrainY(selectedPos, GetGame().GetWorld(), true) == 0;
@@ -121,6 +122,16 @@ class WR_Utils
 			inventoryStorageManager.TryDeleteItem(item);
 		
 		return true;
+	}
+	
+	static int GetRandomScavMoney(float chanceForMoney, int maxMoney, int delimiter)
+	{
+		if (Math.RandomFloat01() > chanceForMoney)
+			return 0;
+
+		float x = Math.RandomFloat01();
+		int amountToGive = ((1 - (x * x)) * maxMoney) + 1;
+		return (amountToGive / delimiter) * delimiter;
 	}
 	
 	static float MinutesToMilliseconds(float m)

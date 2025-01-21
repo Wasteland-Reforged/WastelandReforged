@@ -10,11 +10,11 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 	[Attribute("1", UIWidgets.Slider, "Average percentage of loot boxes to spawn on game start", "0 1 0.01")]
 	protected float percentageLootBoxesToSpawn;
 	
-	[Attribute("5", UIWidgets.Slider, "Minimum number of items to spawn in a loot box", "0 10 1")]
-	protected float minLootBoxItems;
+	[Attribute("1.0", UIWidgets.Slider, "Budget of items to spawn in the loot box", "0 3.0 0.1")]
+	protected float lootBoxBudget;
 	
-	[Attribute("15", UIWidgets.Slider, "Maximum number of items to spawn in a loot box", "0 20 1")]
-	protected float maxLootBoxItems;
+	[Attribute("2.0", UIWidgets.Slider, "Multiplier for additional items in the loot box", "0 3.0 0.1")]
+	protected float addItemCoeff;
 	
 	protected SCR_BaseGameMode _parent;
 
@@ -27,11 +27,6 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 			return;
 		}
 
-		if (minLootBoxItems > maxLootBoxItems)
-		{
-			Print("[WASTELAND] WR_LootBoxControllerComponent: Minimum amount of loot items must be smaller than maximum amount! Setting maximum to match minimum...", LogLevel.WARNING);
-			maxLootBoxItems = minLootBoxItems;
-		}
 	}
 
 	override void OnGameModeStart()
@@ -67,7 +62,7 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(boxOwner.FindComponent(SCR_UniversalInventoryStorageComponent));
 			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(boxOwner.FindComponent(SCR_InventoryStorageManagerComponent));
 
-			array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(WR_LootContext.WEAPON_BOX, 1.5, additionalItemsCoeff: 2.0);
+			array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(WR_LootContext.WEAPON_BOX, lootBoxBudget, additionalItemsCoeff: addItemCoeff);
 			foreach (ResourceName item : items)
 				inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
 			

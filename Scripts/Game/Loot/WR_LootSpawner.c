@@ -43,6 +43,7 @@ class WR_LootSpawner : GenericEntity
 		auto lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
 		array<ResourceName> itemsToSpawn = lootSpawningComponent.GetRandomItemsByCount(m_LootContextType, 1, 1);
 
+		bool firstItem = true;
 		foreach (ResourceName item : itemsToSpawn)
 		{	
 			Resource m_Resource = Resource.Load(item);
@@ -58,26 +59,25 @@ class WR_LootSpawner : GenericEntity
 			if (!newEnt)
 				return false;
 
-			SCR_EntityHelper.SnapToGround(newEnt);
+			//All Items: Rotated randomly horizontally
+			//Guns/Mags: Placed sideways
+			//Additional Items: Spread
 			
-			// Guns and mags should be lifted slightly and on their sides. Mags should spawn a short distance away from their gun
-			if (newEnt.FindComponent(WeaponComponent))
+			newEnt.SetYawPitchRoll(GetYawPitchRoll() + WR_Utils.GetRandomHorizontalDirectionAngles());
+			
+			if (!firstItem)
 			{
-				newEnt.SetOrigin(newEnt.GetOrigin() + {0.0, 0.02, 0.0});
-				newEnt.SetYawPitchRoll(m_vItemRotation + GetYawPitchRoll() + WR_Utils.GetRandomHorizontalDirectionAngles());
+				newEnt.SetOrigin(newEnt.GetOrigin() + getLootRandomOffset());
 			}
-			else if (newEnt.FindComponent(MagazineComponent))
-			{
-//				vector randomPos = rnd.GenerateRandomPointInRadius(0.1, 0.25, newEnt.GetOrigin());
-//				newEnt.SetOrigin(randomPos + {0.0, 0.02, 0.0});
-//				newEnt.SetYawPitchRoll(m_vItemRotation + GetYawPitchRoll() + WR_Utils.GetRandomHorizontalDirectionAngles());
-				
-				newEnt.SetOrigin(newEnt.GetOrigin() + getLootRandomOffset() + {0.0, 0.02, 0.0});
-				newEnt.SetYawPitchRoll(m_vItemRotation + GetYawPitchRoll() + WR_Utils.GetRandomHorizontalDirectionAngles());
+			if (newEnt.FindComponent(WeaponComponent) || newEnt.FindComponent(MagazineComponent))
+			{	
+				newEnt.SetYawPitchRoll(GetYawPitchRoll() + m_vItemRotation);
 			}
+			SCR_EntityHelper.SnapToGround(newEnt);
+			newEnt.SetOrigin(newEnt.GetOrigin() + {0.0, 0.015, 0.0});
 		
 			AddChild(newEnt, -1, EAddChildFlags.NONE);
-
+			firstItem = false;
 		}
 		
 		WR_LootSystem.CountSuccessfulSpawn();
