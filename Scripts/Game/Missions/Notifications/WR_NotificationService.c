@@ -68,6 +68,7 @@ class WR_MissionNotificationComponent : ScriptComponent
 		
 		string title;
 		string description;
+		string sound;
 		
 		switch (notif.GetMissionStatus())
 		{
@@ -93,12 +94,15 @@ class WR_MissionNotificationComponent : ScriptComponent
 					description = string.Format("New objective starting in %1 minutes!", delayM);
 				}
 				
+				sound = SCR_SoundEvent.TASK_CREATED;
+				
 				break;
 			}
 			case WR_MissionStatus.InProgress:
 			{
 				title = string.Format("Objective Started: %1", definition.m_sName);
 				description = definition.m_sDescription;
+				sound = SCR_SoundEvent.TASK_CREATED;
 				
 				break;
 			}
@@ -122,6 +126,8 @@ class WR_MissionNotificationComponent : ScriptComponent
 						else
 							description = "The objective was completed successfully.";
 						
+						sound = SCR_SoundEvent.TASK_SUCCEED;
+						
 						break;
 					}
 					case WR_MissionCompletionType.Destroyed:
@@ -132,6 +138,8 @@ class WR_MissionNotificationComponent : ScriptComponent
 							description = string.Format("%1 group %2 destroyed the objective.", playerFaction.GetFactionName(), playerGroup.GetDisplayName());
 						else
 							description = "The objective was destroyed.";
+						
+						sound = SCR_SoundEvent.TASK_FAILED;
 
 						break;
 					}
@@ -139,12 +147,14 @@ class WR_MissionNotificationComponent : ScriptComponent
 					{
 						title = string.Format("Objective Failed: %1", definition.m_sName);
 						description = "The objective was not completed in the allotted time.";
+						sound = SCR_SoundEvent.TASK_FAILED;
 						break;
 					}
 					default:
 					{
 						title = string.Format("Objective Ended: %1", definition.m_sName);
 						description = "The objective has ended.";
+						sound = SCR_SoundEvent.TASK_FAILED;
 						break;
 					}
 				}
@@ -153,7 +163,7 @@ class WR_MissionNotificationComponent : ScriptComponent
 			}
 		}
 		
-		WR_MissionHintHelper.ShowHintWithSound(title, description);
+		WR_MissionHintHelper.ShowHintWithSound(title, description, sound);
 	}
 	
 	private WR_MissionDefinition GetMissionDefinitionByType(WR_MissionType type)
