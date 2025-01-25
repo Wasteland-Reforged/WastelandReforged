@@ -78,19 +78,19 @@ class WR_MissionNotificationComponent : ScriptComponent
 				title = string.Format("Upcoming Objective: %1", definition.m_sName);
 				if (delayM == 1)
 				{
-					description = string.Format("Starting in %1 minute.", delayM);
+					description = string.Format("New objective starting in %1 minute!", delayM);
 				}
 				else if (delayM < 1)
 				{
 					float delayS = Math.Round(WR_Utils.MinutesToSeconds(delayM));
 					if (delayS == 1)
-						description = string.Format("Starting in %1 second.", delayS);
+						description = string.Format("New objective starting in %1 second!", delayS);
 					else
-						description = string.Format("Starting in %1 seconds.", delayS);
+						description = string.Format("New objective starting in %1 seconds!", delayS);
 				}
 				else
 				{
-					description = string.Format("Starting in %1 minutes.", delayM);
+					description = string.Format("New objective starting in %1 minutes!", delayM);
 				}
 				
 				break;
