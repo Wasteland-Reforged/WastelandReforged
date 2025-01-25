@@ -280,8 +280,5 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
   m_fInitialMissionDelayM 0.15
   m_fNewMissionDelayM 0.15
   m_fNewMissionNotificationDelayM 0.15
-  m_aPlayercountMissionThresholds {
-   0
-  }
  }
 }
