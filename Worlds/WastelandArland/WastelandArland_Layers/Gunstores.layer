@@ -19,6 +19,11 @@ GenericEntity : "{51D31AB07AE3C1C7}Prefabs/Props/Commercial/CashierShop_01.et" {
   ADM_ShopComponent "{647379C8EAF8C735}" : "{1D5ECEB7EA0D7D22}ShopComponent.ct" {
    m_ShopName "Gun Store"
   }
+  WR_MapMarkerComponent "{647379CAF7E22ABB}" {
+   m_sLabel "Gun Store"
+   m_eIcon ObjectiveMarker
+   m_eColor Blue
+  }
   ActionsManagerComponent "{647379C8ED74CC09}" : "{F57A19D612EFE2CE}ShopActionManager.ct" {
    ActionContexts {
     UserActionContext "{64736234DC4D8253}" {
