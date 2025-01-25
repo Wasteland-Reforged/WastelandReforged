@@ -76,19 +76,10 @@ class WR_MissionSystem : GameSystem
 		
 		float delay;
 		WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
-		SCR_MapMarkerBase marker = mission.GetMarker();
+		WR_StaticMarkerParameters markerParameters = mission.GetMarkerParameters();
 		
 		switch (mission.GetStatus())
 		{
-			case WR_MissionStatus.Malformed:
-			{
-				WR_MissionMarkerHelper.DeleteMarker(marker);
-				mission.GetLocation().SetIsHostingMission(false);
-				mission.DeleteMissionEntities(includeRewards: true);
-				m_aMissions.RemoveItemOrdered(mission);
-				
-				return false;
-			}
 			case WR_MissionStatus.Pending:
 			{
 				delay = WR_Utils.MinutesToMilliseconds(m_Config.m_fNewMissionNotificationDelayM);
@@ -96,13 +87,25 @@ class WR_MissionSystem : GameSystem
 				// Check if mission ready to start
 				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
 				{
-					if (mission.StartMission()) {
-						WR_MissionMarkerHelper.ShowMarker(marker);
+					if (mission.StartMission())
+					{
+						int markerId = WR_StaticMarkerHelper.ShowMarker(markerParameters);
+						mission.SetMarkerId(markerId);
+						
 						m_NotifComponent.SendNotification(mission);
 					}
 				}
 				
 				break;
+			}
+			case WR_MissionStatus.Malformed:
+			{
+				WR_StaticMarkerHelper.DeleteMarker(mission.GetMarkerId());
+				mission.GetLocation().SetIsHostingMission(false);
+				mission.DeleteMissionEntities(includeRewards: true);
+				m_aMissions.RemoveItemOrdered(mission);
+				
+				return false;
 			}
 			case WR_MissionStatus.InProgress:
 			{
@@ -120,7 +123,8 @@ class WR_MissionSystem : GameSystem
 			}
 			case WR_MissionStatus.Complete:
 			{
-				WR_MissionMarkerHelper.UpdateMarkerColor(marker, 13);
+				int newMarkerId = WR_StaticMarkerHelper.UpdateMarker(mission.GetMarkerId(), markerParameters);
+				mission.SetMarkerId(newMarkerId);
 				
 				m_NotifComponent.SendNotification(mission);
 				
@@ -137,7 +141,7 @@ class WR_MissionSystem : GameSystem
 				// Check if marker ready to be cleaned up
 				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
 				{
-					WR_MissionMarkerHelper.DeleteMarker(marker);
+					WR_StaticMarkerHelper.DeleteMarker(mission.GetMarkerId());
 					mission.SetMissionStatus(WR_MissionStatus.AwaitingCleanup);
 					logger.LogNormal(string.Format("Deleted mission map marker: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
 				}
@@ -191,8 +195,6 @@ class WR_MissionSystem : GameSystem
 
 		logger.LogNormal(string.Format("Mission created: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
 			
-		SCR_MapMarkerBase marker = WR_MissionMarkerHelper.CreateMarker(mission);
-		mission.SetMarker(marker);
 		
 		// Send preliminary notification if a mission start delay exists
 		if (m_Config.m_fNewMissionNotificationDelayM > 0)

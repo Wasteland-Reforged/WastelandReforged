@@ -16,7 +16,7 @@ class WR_Mission
 	ref array<IEntity> m_aRewards = {};
 	ref array<SCR_AIGroup> m_aGroups = {};
 	
-	ref SCR_MapMarkerBase m_Marker;
+	int m_iMarkerId;
 
 	void WR_Mission(notnull WR_MissionLocationEntity location, notnull WR_MissionDefinition definition)
 	{
@@ -281,16 +281,6 @@ class WR_Mission
 		return timeSinceLastStatusChange;
 	}
 	
-	SCR_MapMarkerBase GetMarker()
-	{
-		return m_Marker;
-	}
-	
-	void SetMarker(SCR_MapMarkerBase m)
-	{
-		m_Marker = m;
-	}
-	
 	int GetCompletingPlayerId()
 	{
 		return m_iCompletingPlayerId;
@@ -305,11 +295,55 @@ class WR_Mission
 	{
 		m_eCompletionType = type;
 	}
+
+	int GetMarkerId()
+	{
+		return m_iMarkerId;
+	}
+	
+	void SetMarkerId(int markerId)
+	{
+		m_iMarkerId = markerId;
+	}
+	
+	WR_StaticMarkerParameters GetMarkerParameters()
+	{
+		ref WR_StaticMarkerParameters parameters = new WR_StaticMarkerParameters();
+		
+		parameters.m_eType = SCR_EMapMarkerType.PLACED_CUSTOM;
+		parameters.m_sCustomText = GetDefinition().m_sName;
+		parameters.m_iIconEntry = GetDefinition().m_eMissionIcon;
+		parameters.m_vWorldPos = GetLocation().GetOrigin();
+		
+		switch (GetStatus())
+		{
+			case WR_MissionStatus.Pending:
+			case WR_MissionStatus.Malformed:
+			case WR_MissionStatus.InProgress:
+			{
+				parameters.m_iColorEntry = GetDefinition().m_eMissionColor;
+				break;
+			}
+			case WR_MissionStatus.Complete:
+			case WR_MissionStatus.AwaitingMarkerCleanup:
+			case WR_MissionStatus.AwaitingCleanup:
+			{
+				parameters.m_iColorEntry = 13; // Dark grey
+				break;
+			}
+			default:
+			{
+				parameters.m_iColorEntry = GetDefinition().m_eMissionColor;
+				break;
+			}
+		}
+	
+		return parameters;
+	}
 	
 	void ~WR_Mission()
 	{
 		delete m_aGroups;
 		delete m_aRewards;
 	}
-
 }
