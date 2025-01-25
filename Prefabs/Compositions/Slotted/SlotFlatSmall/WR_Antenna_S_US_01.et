@@ -21,21 +21,12 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    Enabled 1
   }
  }
- coords 1333.777 39 2219.564
+ coords 1228.422 39 2714.538
  {
   GenericEntity : "{18B92018CF634D22}Prefabs/Compositions/Slotted/SlotFlatSmall/SandbagPosition_S_US_03.et" {
    ID "623F34A14B31ABC0"
    coords 7.864 0 5.523
    angleY 90.196
-  }
-  GenericEntity : "{4BD4ADE130847295}Prefabs/Structures/Signs/Military/Supplies/Sign_SupplyStorage_02_Hospital_USSR.et" {
-   ID "646A07F7BBBF1B79"
-   components {
-    Hierarchy "{5E3319603017B680}" {
-    }
-   }
-   coords 9.365 0.035 -2.15
-   angleY 89.846
   }
   GenericEntity : "{6CD65604C7945A66}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Patch_03.et" {
    ID "622B18B0E27C761B"
