@@ -6,10 +6,10 @@ GenericEntity {
    ID "62F768EB62D47385"
    coords -15.288 -4.397 22.229
   }
-  StaticModelEntity : "{2ABF235305BB37AE}Prefabs/Compositions/Misc/SubCompositions/Furniture/Table_Desk_US_03.et" {
-   ID "62F768EB62D47383"
-   coords -5.138 -4.373 4.603
-   angleY -90
+  StaticModelEntity : "{1A962402D4B8CA23}Prefabs/MP/Campaign/RequestTable_US_brightlantern.et" {
+   ID "6473623234392FB4"
+   coords -8.01 -4.373 2.038
+   angleY 0
   }
   GenericEntity : "{41F2EFF5B1118336}Prefabs/Props/Industrial/CargoContainers/CargoContainer_01/CargoContainer_02_20ft_BaltaShipping.et" {
    ID "62F768EB62D473B5"
@@ -81,10 +81,6 @@ GenericEntity {
    }
    coords -7.948 -3.317 1.673
   }
-  GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et" {
-   ID "62F768EB62D41F44"
-   coords -18.782 -3.496 2.446
-  }
   GenericEntity : "{533CDABD77C4C43E}Prefabs/Rocks/Granite/GraniteCliff_02.et" {
    ID "62F768EB62D41F5D"
    coords -20.668 -3.633 33.224
@@ -92,16 +88,6 @@ GenericEntity {
    angleY -170.264
    angleZ -90
    scale 2
-  }
-  GameEntity : "{616F4E93658E5A3A}Prefabs/Props/Military/Generators/GeneratorFloodlight_USSR_01.et" {
-   ID "62F768EB62D41F56"
-   coords -18.046 -4.373 9.33
-   angleY 56.721
-  }
-  StaticModelEntity : "{6796EA08CB53CAEB}Prefabs/MP/Campaign/RequestTable_US.et" {
-   ID "62F768EB62D41F2F"
-   coords -5.132 -4.373 2.97
-   angleY -90
   }
   GenericEntity : "{6C57BFFFA642C60C}Prefabs/Compositions/Misc/SubCompositions/CrateStacked_04.et" {
    ID "62F768EB62D41F3B"
@@ -155,6 +141,28 @@ GenericEntity {
       }
      }
     }
+   }
+  }
+  $grp GameEntity : "{B140D3EDDDF06919}PrefabsEditable/Auto/Props/Military/Camps/E_LanternMilitary_US_01_bright.et" {
+   {
+    ID "6473623234392FAE"
+    coords -7.36 -3.462 8.505
+   }
+   {
+    ID "6473623234392FC2"
+    coords -18.491 -3.645 11.838
+   }
+   {
+    ID "6473623234392FD6"
+    coords -8.178 -3.496 14.99
+   }
+   {
+    ID "6473623234392FDF"
+    coords -16.239 -2.86 16.285
+   }
+   {
+    ID "6473623234392FF4"
+    coords -18.627 -3.496 2.791
    }
   }
   GenericEntity : "{B4FFD63EDFCBD850}Prefabs/Compositions/Misc/SubCompositions/CrateStacked_02.et" {

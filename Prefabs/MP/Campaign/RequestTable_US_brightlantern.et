@@ -1,0 +1,187 @@
+StaticModelEntity : "{7762F50A860DD074}Prefabs/Props/Military/Furniture/TableMilitary_US_01.et" {
+ ID "5272E314F01B2DBE"
+ components {
+  SCR_CatalogEntitySpawnerComponent "{647362332996F963}" {
+   m_fMaxSlotDistance 10
+  }
+  SCR_FactionAffiliationComponent "{647362332996F990}" {
+   "faction affiliation" "US"
+  }
+  ActionsManagerComponent "{647362332996F999}" {
+   ActionContexts {
+    UserActionContext "{647362332996F986}" {
+     ContextName "requests"
+     Position PointInfo "{647362332996F98D}" {
+      Offset -0.0515 0.923 0.1777
+     }
+    }
+   }
+   additionalActions {
+    SCR_CatalogSpawnerUserAction "{647362332996F989}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F98B}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9B4}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9B6}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9B0}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9BC}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9BF}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9B9}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9D5}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9D6}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9D3}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9DE}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9D8}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9DA}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9C4}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9C6}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9C7}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9C2}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9CE}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+    SCR_CatalogSpawnerUserAction "{647362332996F9FA}" {
+     ParentContextList {
+      "requests"
+     }
+     VisibilityRange 10
+     Duration 1
+    }
+   }
+  }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 1
+  }
+ }
+ coords -8.01 -4.373 2.038
+ angleY 0
+ {
+  GenericEntity : "{4417ED07902CE47E}Prefabs/Props/Military/Radios/RadioStation_ANPRC77_01.et" {
+   ID "647362332996F940"
+   coords 0.351 0.9 -0.098
+  }
+  GenericEntity : "{4BE33BD4C315C615}Prefabs/Props/Civilian/Ashtray_01_Full_base.et" {
+   ID "647362332996F94B"
+   coords -0.352 0.9 0.159
+   angleY 0
+  }
+  GameEntity : "{B140D3EDDDF06919}PrefabsEditable/Auto/Props/Military/Camps/E_LanternMilitary_US_01_bright.et" {
+   ID "64736232D7C20FC4"
+   coords -0.442 0.9 -0.164
+  }
+  GenericEntity : "{C84DF17F96616C76}Prefabs/Props/Military/Manuals/Manual_US_01.et" {
+   ID "647362332996F978"
+   coords -0.048 0.9 0.132
+  }
+ }
+}

@@ -1,0 +1,50 @@
+GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ResponseIndex "TinyDestructible"
+  }
+  SCR_EditableEntityComponent "{58EEFD4A689F56AB}" : "{996046FE206C699A}Prefabs/Editor/Components/Default_SCR_EditableEntityComponent.ct" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "#AR-EditableEntity_LanternMilitary_US_01_Name"
+    m_Image "{66889DAD7991C5F9}UI/Textures/EditorPreviews/Auto/Props/Military/Camps/E_LanternMilitary_US_01.edds"
+    m_sFaction "US"
+    m_aAuthoredLabels {
+     11
+    }
+    m_aAutoLabels {
+     108 1 120
+    }
+   }
+  }
+  SCR_LampComponent "{5D2ABC12E93AB331}" {
+   m_aLightData {
+    SCR_BaseLightData "{5D2ABC12E78B42B5}" {
+     m_fRadius 10
+     m_eLightFlags 17
+    }
+   }
+   m_fLV 1
+   m_fDistanceAttenuation 1
+  }
+  SCR_PreviewEntityComponent "{58EEFD4A689006BF}" : "{6CADA7A88A6265FD}Prefabs/Editor/Components/PreviewEntityComponentClass.ct" {
+   m_bRuntime 0
+   m_aEntries {
+    SCR_BasePreviewEntry "{64736233AF9314B0}" {
+     m_iParentID -1
+     m_Mesh "{866AB21E4FEE8FB8}Assets/Props/Military/Camps/LanternMilitary_US_01/LanternMilitary_US_01.xob"
+     m_Flags 0
+     m_Shape MESH
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 0 0 0
+     m_vAngles 0 0 0
+    }
+   }
+  }
+  ActionsManagerComponent "{5876E7CFF5785C2B}" {
+   Enabled 0
+  }
+ }
+ coords -7.405 -3.462 8.425
+}
