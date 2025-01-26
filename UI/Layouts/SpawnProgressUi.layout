@@ -1,0 +1,54 @@
+FrameWidgetClass "{647379DF14E9A1D9}" {
+ Name "rootFrame"
+ {
+  RichTextWidgetClass "{647379DF14E9A1C6}" : "{5E0F8422A1F05728}UI/layouts/WidgetLibrary/RichTextWidgets/RichText_Heading2.layout" {
+   Name "TextTitle"
+   Slot FrameWidgetSlot "{618569328CEA816C}" {
+    PositionX 469.5
+    OffsetLeft 469.5
+    PositionY 303
+    OffsetTop 303
+    SizeX 151
+    OffsetRight -620.5
+    SizeY 40
+    OffsetBottom -343
+   }
+  }
+  ButtonWidgetClass "{647379DF14E9A1C0}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+   Name "ButtonClose"
+   Slot FrameWidgetSlot "{61856932B23D86BA}" {
+    PositionX 483.879
+    OffsetLeft 483.879
+    PositionY 454.242
+    OffsetTop 454.242
+    SizeX 112.252
+    OffsetRight -596.131
+    SizeY 32
+    OffsetBottom -486.242
+   }
+   components {
+    SCR_ButtonTextComponent "{5548F0143AE99095}" {
+     m_sText "Close"
+    }
+   }
+  }
+  ButtonWidgetClass "{647379DF14E9A1C2}" : "{75C912A1C89BE6C2}UI/layouts/WidgetLibrary/Buttons/WLib_ButtonText.layout" {
+   Name "ButtonChange"
+   Slot FrameWidgetSlot "{61856932B23D86BA}" {
+    PositionX 622.846
+    OffsetLeft 622.846
+    PositionY 454.242
+    OffsetTop 454.242
+    SizeX 112.252
+    OffsetRight -735.098
+    SizeY 32
+    OffsetBottom -486.242
+   }
+   components {
+    SCR_ButtonTextComponent "{5548F0143AE99095}" {
+     m_sText "Change title"
+    }
+   }
+  }
+ }
+}

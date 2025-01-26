@@ -66,17 +66,6 @@ GenericEntity {
        Height 2
       }
      }
-     additionalActions {
-      WR_OpenUiSpawnMenuUserAction "{618D7DE1382AAF9D}" {
-       ParentContextList {
-        "Spawn Menu Context"
-       }
-       UIInfo UIInfo "{618D7DE135B543AF}" {
-        Name "Open Spawn Menu"
-       }
-       VisibilityRange 2
-      }
-     }
     }
    }
    coords -7.948 -3.317 1.673
@@ -104,6 +93,28 @@ GenericEntity {
   }
   GenericEntity : "{83E6FF1C73E92AA3}Prefabs/Props/Civilian/NoticeBoardCork_01_posters.et" {
    ID "62F768EB62D41F0D"
+   components {
+    ActionsManagerComponent "{647379DC7EAF638C}" {
+     ActionContexts {
+      UserActionContext "{647379DC7F576D99}" {
+       UIInfo SCR_ActionUIInfo "{647379DC6348BC8A}" {
+        Name "Spawn"
+       }
+       ContextName "SpawnAction"
+       Position PointInfo "{647379DF6F6788E8}" {
+        Offset 0 0.5 0
+       }
+      }
+     }
+     additionalActions {
+      WR_OpenSpawnProgressUiUserAction "{647379DF2C959791}" {
+       ActionTitle "Spawn"
+       VisibilityRange 2
+       Duration 1
+      }
+     }
+    }
+   }
    coords -7.95 -3.308 1.685
   }
   GenericEntity : "{8592F599B94DC833}Prefabs/Structures/Civilian/MessageBoard/Filled/MessageBoardSmall_01_pole_filled_V1.et" {
