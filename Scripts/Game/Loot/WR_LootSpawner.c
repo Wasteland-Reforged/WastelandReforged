@@ -56,8 +56,10 @@ class WR_LootSpawner : GenericEntity
 		
 			//Spawn the item
 			IEntity newEnt = GetGame().SpawnEntityPrefab(m_Resource, GetGame().GetWorld(), params);
-			if (!newEnt)
+			if (!newEnt) {
+				logger.LogError("Failed to spawn item: " + item);
 				return false;
+			}
 
 			//All Items: Rotated randomly horizontally
 			//Guns/Mags: Placed sideways
@@ -76,6 +78,7 @@ class WR_LootSpawner : GenericEntity
 			{	
 				newEnt.SetYawPitchRoll(GetYawPitchRoll() + m_vItemRotation);
 			}
+      
 			newEnt.SetOrigin(newEnt.GetOrigin() + {0.0, 0.015, 0.0});
 		
 			AddChild(newEnt, -1, EAddChildFlags.NONE);
