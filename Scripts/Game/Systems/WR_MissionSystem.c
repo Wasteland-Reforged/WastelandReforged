@@ -2,7 +2,6 @@ class WR_MissionSystem : GameSystem
 {
 	ref WR_Logger<WR_MissionSystem> logger = new WR_Logger<WR_MissionSystem>(this);
 	
-	//[Attribute("", UIWidgets.Object, "Mission system config")]
 	protected ref WR_MissionSystemConfig m_Config;
 	
 	float m_fMissionCreationTimeElaspedS = 0;
@@ -187,7 +186,7 @@ class WR_MissionSystem : GameSystem
 		// Initialize new mission and increment mission count. If mission fails to spawn, AdvanceMissionStatuses catches it next frame anyways so we dont handle it here
 		WR_Mission mission = new WR_Mission(location, definition);
 
-		logger.LogNormal(string.Format("Mission created: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
+		logger.LogNormal(string.Format("Mission created: %1 (ID: %2, Location: %3)", mission.GetDefinition().m_sName, mission.GetMissionId(), mission.GetLocation().GetName()));
 			
 		
 		// Send preliminary notification if a mission start delay exists
