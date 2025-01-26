@@ -9048,7 +9048,7 @@ $grp SCR_DestructibleBuildingEntity : "{CD370ECB385DE67A}Prefabs/Structures/Hous
  }
 }
 GenericEntity : "{CD66BE4E1368B398}Prefabs/Props/Construction/ContainerMetal_01/ContainerMetal_01_low_blue.et" {
- coords 1957.929 52.172 3074.177
+ coords 1957.929 51.779 3074.177
  angleY -39.988
 }
 $grp Tree : "{DB49D8B142D18E86}PrefabLibrary/Vegetation/Trees/t_betula_pendula_2s.et" {
