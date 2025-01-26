@@ -71,12 +71,15 @@ class WR_LootSpawner : GenericEntity
 			{
 				newEnt.SetOrigin(newEnt.GetOrigin() + getLootRandomOffset());
 			}
+			
+			SCR_EntityHelper.SnapToGround(newEnt);
+			
 			if (newEnt.FindComponent(WeaponComponent) || newEnt.FindComponent(MagazineComponent))
 			{	
 				newEnt.SetYawPitchRoll(GetYawPitchRoll() + m_vItemRotation);
 			}
-			SCR_EntityHelper.SnapToGround(newEnt);
-			//newEnt.SetOrigin(newEnt.GetOrigin() + {0.0, 0.015, 0.0});
+      
+			newEnt.SetOrigin(newEnt.GetOrigin() + {0.0, 0.015, 0.0});
 		
 			AddChild(newEnt, -1, EAddChildFlags.NONE);
 			firstItem = false;
