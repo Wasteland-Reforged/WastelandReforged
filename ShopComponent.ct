@@ -1,0 +1,11 @@
+ADM_ShopComponent {
+ m_ShopConfig "{365845681049D78D}Configs/Shops/GunStore.conf"
+ m_Categories {
+  "{BD4950A18820150A}Configs/ShopCategories/Weapons.conf"
+  "{6A0CDFB7108A69E8}Configs/ShopCategories/Attachments.conf"
+  "{3F39EFFFE7E8E754}Configs/ShopCategories/Magazines.conf"
+  "{211556D7ACE2140C}Configs/ShopCategories/Ordnance.conf"
+  "{12D49A8067E51A27}Configs/ShopCategories/Items.conf"
+  "{EA73C8038D88FDB3}Configs/ShopCategories/Backpacks.conf"
+ }
+}

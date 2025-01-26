@@ -1,0 +1,17 @@
+ActionsManagerComponent {
+ ActionContexts {
+  UserActionContext "{64736234DC4D8253}" {
+   ContextName "shop"
+   Position PointInfo "{64736234DC4D8242}" {
+    PivotID "Head"
+   }
+  }
+ }
+ additionalActions {
+  ADM_ShopAction "{64736234DC4D824D}" {
+   ParentContextList {
+    "shop"
+   }
+  }
+ }
+}

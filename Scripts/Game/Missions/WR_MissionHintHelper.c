@@ -1,9 +1,6 @@
 class WR_MissionHintHelper
 {
-	// TODO: make this configurable from world editor
-	private static string m_sSoundEventNameNotification = "SOUND_HUD_TASK_CREATED";
-	
-	static void ShowHintWithSound(string title, string description)
+	static void ShowHintWithSound(string title, string description, string sound)
 	{
 		SCR_HintUIInfo hintInfo = SCR_HintUIInfo.CreateInfo(
 			description,
@@ -15,13 +12,13 @@ class WR_MissionHintHelper
 		);
 		
 		SCR_HintManagerComponent.ShowHint(hintInfo, isSilent: true, ignoreShown: true);
-		PlayNotificationSound();
+		PlayNotificationSound(sound);
 	}
 	
-	private static void PlayNotificationSound()
+	private static void PlayNotificationSound(string sound)
 	{
 		SCR_UISoundEntity uiSound = SCR_UISoundEntity.GetInstance();
 		//uiSound.SetSignalValueStr("", 1.00); // TODO: figure out how to set volume properly
-		uiSound.SoundEvent(m_sSoundEventNameNotification, force: true);
+		uiSound.SoundEvent(sound, force: true);
 	}
 }

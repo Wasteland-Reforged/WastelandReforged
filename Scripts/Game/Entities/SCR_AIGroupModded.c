@@ -93,8 +93,7 @@ modded class SCR_AIGroup : ChimeraAIGroup
 		
 		int amountToGive = WR_Utils.GetRandomScavMoney(0.75, 200, 10);
 		EL_MoneyUtils.AddCash(inventory, amountToGive);
-		Print("[Wasteland]: Added " + amountToGive + " cash to an AI");
-
+		//Print("[Wasteland]: Added " + amountToGive + " cash to an AI");
 		
 		// Add to Group
 		AddAIEntityToGroup(member);

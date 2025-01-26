@@ -1,29 +1,82 @@
-GenericEntity : "{0C218EEDC33AE65D}GunStoreMan.et" {
+SCR_FiringRangeTarget : "{379D34B0D41DA810}Prefabs/Props/Military/Training/TargetInfantry_01.et" {
  components {
-  WR_MapMarkerComponent "{624A4600681E62AA}" {
+  ProcAnimComponent "{51A276D49FB75B53}" {
    Enabled 0
-   m_eIcon ObjectiveMarker
   }
-  BaseLoadoutManagerComponent "{5D774D0B9B498936}" {
-   Slots {
-    LoadoutSlotInfo Hat {
-     Prefab "{3523CB7D5961246B}Prefabs/Characters/HeadGear/Hat_PeakedCap_USSR_01/Hat_PeakedCap_USSR_01.et"
+  SCR_SoundDataComponent "{5B1A7A97A4ED1000}" {
+   Enabled 0
+  }
+ }
+ coords 1376.118 40.781 2352.623
+ angleY -89.047
+}
+GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et" {
+ coords 1375.531 41.682 2353.297
+ angleY -112.731
+}
+GenericEntity : "{51D31AB07AE3C1C7}Prefabs/Props/Commercial/CashierShop_01.et" {
+ components {
+  ADM_ShopComponent "{647379C8EAF8C735}" : "{1D5ECEB7EA0D7D22}ShopComponent.ct" {
+   m_ShopName "Gun Store"
+  }
+  WR_MapMarkerComponent "{647379CAF7E22ABB}" {
+   m_sLabel "Gun Store"
+   m_eIcon ObjectiveMarker
+   m_eColor Blue
+  }
+  ActionsManagerComponent "{647379C8ED74CC09}" : "{F57A19D612EFE2CE}ShopActionManager.ct" {
+   ActionContexts {
+    UserActionContext "{64736234DC4D8253}" {
+     Position PointInfo "{64736234DC4D8242}" {
+      Offset -0.0001 0.35 -0.27
+     }
+    }
+   }
+   additionalActions {
+    ADM_ShopAction "{64736234DC4D824D}" {
+     VisibilityRange 2
     }
    }
   }
  }
- coords 1376.142 40.781 2352.64
- angleY -97.593
-}
-GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et" {
- coords 1375.548 41.682 2353.312
- angleY 179.591
-}
-GenericEntity : "{51D31AB07AE3C1C7}Prefabs/Props/Commercial/CashierShop_01.et" {
- coords 1375.667 41.683 2352.117
- angleY 93.303
+ coords 1375.704 41.683 2352.64
+ angleY 91.432
 }
 GenericEntity : "{8FB2845D48F4E02A}Prefabs/Props/Furniture/TableOld_01/TableOld_01_white.et" {
- coords 1375.564 40.782 2352.691
- angleY 92.575
+ coords 1375.57 40.782 2352.682
+ angleY 91.432
+}
+SCR_ChimeraCharacter Character_CIV_Businessman_2_64736234B96B717E : "{A517C72CEF150898}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Businessman_2.et" {
+ components {
+  ADM_ShopComponent "{647362348E6F7DD1}" : "{1D5ECEB7EA0D7D22}ShopComponent.ct" {
+   Enabled 0
+   m_ShopName "Gun Store"
+  }
+  ChimeraAIControlComponent "{520EA1D2DB109F34}" {
+   Enabled 0
+  }
+  SCR_CharacterDamageManagerComponent "{55872AD7B4E959F2}" {
+   EnableDamage 0
+  }
+  SCR_CharacterRegistrationComponent "{5216D6E4AC68563B}" {
+   Enabled 0
+  }
+  WR_MapMarkerComponent "{6473623B4A225644}" {
+   m_sLabel "Gun Store"
+   m_eIcon ObjectiveMarker
+   m_eColor Blue
+  }
+  ActionsManagerComponent "{64736234814584A3}" : "{F57A19D612EFE2CE}ShopActionManager.ct" {
+   Enabled 0
+   additionalActions {
+    ADM_ShopAction "{64736234DC4D824D}" {
+     VisibilityRange 10
+    }
+   }
+  }
+ }
+ coords 1375.709 40.781 2352.683
+ angleY -109.979
+ Flags 2097155
+ m_bRecruitable 0
 }

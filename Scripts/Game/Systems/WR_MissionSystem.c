@@ -17,12 +17,7 @@ class WR_MissionSystem : GameSystem
 		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
 		if (!gameMode)
 			logger.LogError("Wasteland game mode entity not found! Cannot send mission notifications. Place a 'GameMode_Wasteland' prefab in the world to resolve.");
-//		
-//		WR_MissionNotificationComponent notifComponent = WR_MissionNotificationComponent.Cast(gameMode.FindComponent(WR_MissionNotificationComponent));
-//		if (!notifComponent)
-//			logger.LogError("Mission notification component not found on game mode! Cannot send mission notifications. Add a 'WR_MissionNotificationComponent' to the game mode to resolve.");
 		
-		//m_NotifComponent = notifComponent;
 		m_Config = gameMode.GetMissionSystemConfig();
 		if (!m_Config)
 		{
@@ -60,7 +55,6 @@ class WR_MissionSystem : GameSystem
 		
 			// Only increment index if the mission was not deleted.
 			// Avoids index out of bounds errors.
-				
 		}
 	}
 	
