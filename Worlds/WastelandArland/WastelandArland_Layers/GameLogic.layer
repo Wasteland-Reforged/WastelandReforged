@@ -272,7 +272,20 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
   }
  }
  coords 1377.751 38.609 2929.999
- m_MissionSystemConfiguration WR_MissionSystemConfig "{64736236639FC184}" : "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf" {
-  m_fMissionTimeLimitM 60
+ m_MissionSystemConfiguration WR_MissionSystemConfig "{64754DE745EC5FA5}" {
+  m_aMissionDefinitions {
+   WR_MissionDefinition "{64754DE74346E1AE}" : "{25A211E7A9B4F68B}Configs/Missions/Definitions/SniperSquad.conf" {
+   }
+   WR_MissionDefinition "{64754DE74E46196B}" : "{96A32103A69BDF26}Configs/Missions/Definitions/VehicleWreck.conf" {
+   }
+  }
+  m_fInitialMissionDelayM 0.01
+  m_fNewMissionDelayM 0.01
+  m_fNewMissionNotificationDelayM 0.01
+  m_fMissionMapMarkerCleanupDelayM 0.05
+  m_fMissionCleanupDelayM 0.05
+  m_aPlayercountMissionThresholds {
+   0 0 0 0 0
+  }
  }
 }

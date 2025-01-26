@@ -1,0 +1,26 @@
+GenericEntity : "{C255C9340615FFCC}Prefabs/Structures/Military/CamoNets/CamoNet_ObservationPost_01_base.et" {
+ ID "52F0B4B066AF5A23"
+ components {
+  MeshObject "{52F0B4B05BC0C1F4}" {
+   Object "{676C70AADBE15AC8}Assets/Structures/Military/CamoNets/CamoNet_ObservationPost.xob"
+   Materials {
+    MaterialAssignClass "{647539ACF9419F13}" {
+     SourceMaterial "CamoNet_01_Double"
+     AssignedMaterial "{BFAF2AE4714E676F}Assets/Structures/Military/CamoNets/Data/CamoNet_01_double_CS1.emat"
+    }
+    MaterialAssignClass "{647539ACF9419F63}" {
+     SourceMaterial "CamoNet_01_Fabric"
+     AssignedMaterial "{43029E41FABE9718}Assets/Structures/Military/CamoNets/Data/CamoNet_01_fabric_CS1.emat"
+    }
+    MaterialAssignClass "{647539ACF9419F65}" {
+     SourceMaterial "CamoNet_01_Poles"
+     AssignedMaterial "{AF9F0A7870A886C5}Assets/Structures/Military/CamoNets/Data/CamoNet_01_Pole_CS1.emat"
+    }
+   }
+  }
+  RplComponent "{5D46D21E5CE2E86E}" {
+   Enabled 1
+  }
+ }
+ coords 2294.44 62.323 2955.032
+}
