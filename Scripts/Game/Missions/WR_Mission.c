@@ -126,7 +126,7 @@ class WR_Mission
 			auto vehicleDamageManager = SCR_VehicleDamageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleDamageManagerComponent));
 			if (vehicleDamageManager)
 			{
-				vehicleDamageManager.GetOnVehicleDestroyed().Insert(OnRewardDestroyed);
+				vehicleDamageManager.GetOnVehicleDestroyed().Insert(CheckRewardDestroyed);
 			}
 			
 			// Check if we need to fill reward with loot
@@ -222,16 +222,30 @@ class WR_Mission
 		SetMissionStatus(WR_MissionStatus.Complete);
 	}
 	
-	protected void OnRewardDestroyed(int playerId)
+	protected void CheckRewardDestroyed(int playerId)
 	{
-		logger.LogNormal(string.Format("Reward destroyed at mission: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
-		
 		// We only care about this if the mission is still in progress
-		if (m_eStatus != WR_MissionStatus.InProgress) return;
+		if (m_eStatus != WR_MissionStatus.InProgress) {
+			return;
+		}
 		
-		m_iCompletingPlayerId = playerId;
-		m_eCompletionType = WR_MissionCompletionType.Destroyed;
-		SetMissionStatus(WR_MissionStatus.Complete);
+		// Loop through all mission rewards and see if any are vehicles that are now destroyed
+		foreach (IEntity rewardEntity : m_aRewards)
+		{
+			SCR_VehicleDamageManagerComponent vehicleDamageManager = SCR_VehicleDamageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleDamageManagerComponent));
+			if (vehicleDamageManager)
+			{
+				if (vehicleDamageManager.GetState() == EDamageState.DESTROYED)
+				{
+					logger.LogNormal(string.Format("Mission vehicle reward destroyed for mission: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
+					m_iCompletingPlayerId = playerId;
+					m_eCompletionType = WR_MissionCompletionType.Destroyed;
+					SetMissionStatus(WR_MissionStatus.Complete);
+				}
+			}
+		}
+		
+		
 	}
 	
 	void DeleteMissionEntities(bool includeRewards)
