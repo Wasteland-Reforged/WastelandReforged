@@ -36,20 +36,20 @@ class WR_LootSpawner : GenericEntity
 	}
 	
 	// Respawns loot ONLY if the spawner is empty, OR if the item has not been picked up in time
-	bool TrySpawnLootTimeout(float currentTimeS, float spawnChance)
+	bool TrySpawnLootTimeout(float currentTimeS, float spawnChance, float TimedOutLootRespawnChance)
 	{
 		float targetRespawnTimeS = lastUpdateTimeS + (m_fItemTimeoutM * 60);
 		
 		if (currentTimeS > targetRespawnTimeS)
 		{
 			lastUpdateTimeS = currentTimeS;
-			return TrySpawnLoot(1.0);			//Items that timeout will spawn their replacement immediately
+			return TrySpawnLoot(TimedOutLootRespawnChance);
 		}
 		
 		if (!GetChildren())
 		{
 			lastUpdateTimeS = currentTimeS;
-			return TrySpawnLoot(spawnChance);	//Empty spawners are still subject to spawnChance
+			return TrySpawnLoot(spawnChance);
 		}
 		
 		return false;

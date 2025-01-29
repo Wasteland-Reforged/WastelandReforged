@@ -5,11 +5,12 @@ class WR_LootSystem : GameSystem
 	float m_fTimeElaspedS = 0;
 	float m_fTotalTimeS = 0;
 	
-	float m_tickRateS = 10;
+	float m_tickRateS = 30;
 	
 	private static int m_iSuccessfulSpawns = 0;
-	private static float subsequentLootSpawnChance = 0.1;
-	private static float initialLootSpawnChance = 0.8;
+	private static float subsequentLootSpawnChance = 0.1;	//Chance for future empty loot spawners to be given new loot
+	private static float TimedOutLootRespawnChance = 0.3;	//Chance for an item that has timed out to be respawned
+	private static float initialLootSpawnChance = 0.8;		// Percent of loot spawners that have loot when the server starts
 	
 	static ref array<WR_LootSpawner> m_aLootSpawners;
 	
@@ -59,7 +60,7 @@ class WR_LootSystem : GameSystem
 			if (!ls)
 				continue;
 			
-			ls.TrySpawnLootTimeout(m_fTotalTimeS, spawnChance);
+			ls.TrySpawnLootTimeout(m_fTotalTimeS, spawnChance, TimedOutLootRespawnChance);
 			AddEntity(ls);
 		}
 		
