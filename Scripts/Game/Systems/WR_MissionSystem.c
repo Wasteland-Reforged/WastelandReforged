@@ -224,7 +224,7 @@ class WR_MissionSystem : GameSystem
 		}
 		
 		// Get number of players currently in the game
-		int playerCount = GetGame().GetPlayerManager().GetAllPlayerCount();
+		int playerCount = GetGame().GetPlayerManager().GetPlayerCount();
 		
 		// Ensure threshold list is sorted
 		array<int> thresholds = m_Config.m_aPlayercountMissionThresholds;
