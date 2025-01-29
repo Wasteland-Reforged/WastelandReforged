@@ -258,7 +258,7 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
    }
   }
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
-   percentageLootBoxesToSpawn 1
+   lootBoxBudget 0.5
   }
   WR_LootSpawningComponent "{63141D97CE2DBD57}" {
    m_MasterLootConfig WR_MasterLootConfig "{63141D9462D23B25}" : "{1D67C2146E5A651F}Configs/Loot/MasterLoot.conf" {
