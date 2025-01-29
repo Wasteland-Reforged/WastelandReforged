@@ -1,0 +1,43 @@
+SCR_DestructibleBuildingEntity : "{9E1B1BC411CE2CBC}Prefabs/Structures/Military/Houses/Barracks_01/Barracks_01_medical_base.et" {
+ ID "F0DBA538AC2A0552"
+ {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+   {
+    ID "647A037393AB28CE"
+    coords 5.504 0.61 6.31
+   }
+   {
+    ID "647A037393AB28D2"
+    coords 5.531 0.576 0.226
+   }
+   {
+    ID "647A037393AB28E8"
+    coords -1.173 1.019 9.871
+   }
+   {
+    ID "647A037393AB2B09"
+    coords 3.411 0.593 -7.217
+   }
+   {
+    ID "647A037393AB2B17"
+    coords 5.632 0.592 -14.322
+   }
+   {
+    ID "647A037393AB2B1A"
+    coords -5.52 0.559 -7.39
+   }
+   {
+    ID "647A037393AB2B23"
+    coords -4.862 0.603 2.454
+   }
+   {
+    ID "647A037393AB2B3C"
+    coords 5.538 0.595 -2.905
+   }
+   {
+    ID "647A037393AB2B63"
+    coords -2.986 1.003 -9.233
+   }
+  }
+ }
+}

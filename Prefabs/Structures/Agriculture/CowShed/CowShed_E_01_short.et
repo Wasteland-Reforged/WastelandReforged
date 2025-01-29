@@ -14,6 +14,14 @@ SCR_DestructibleBuildingEntity : "{07452F959762A7C0}Prefabs/Structures/Agricultu
     ID "62CEF12BC82F6B25"
     coords 4.583 0.901 20.622
    }
+   {
+    ID "647A03715C3850C3"
+    coords 2.358 -0.25 5.065
+   }
+   {
+    ID "647A03715C3850ED"
+    coords -3.177 0.186 18.238
+   }
   }
  }
 }
