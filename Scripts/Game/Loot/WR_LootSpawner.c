@@ -12,7 +12,11 @@ class WR_LootSpawner : GenericEntity
 	
 	[Attribute("0 0 90", UIWidgets.EditBox, desc: "Rotation of item when spawned", category: "Loot")]
 	vector m_vItemRotation;
+	
+	[Attribute("30", UIWidgets.EditBox, desc: "Minutes until a loot item is forced to be respawned", category: "Loot")]
+	float m_fItemTimeoutM;
 
+	float lastUpdateTimeS = 0;
 	vector m_WorldTransform[4];
 	
 	ref RandomGenerator rnd = new RandomGenerator();
@@ -30,14 +34,38 @@ class WR_LootSpawner : GenericEntity
 		WR_LootSystem.m_aLootSpawners.Insert(this);
 		logger.LogDebug("Initialized loot spawner: " + this);
 	}
+	
+	// Respawns loot ONLY if the spawner is empty, OR if the item has not been picked up in time
+	bool TrySpawnLootTimeout(float currentTimeS, float spawnChance)
+	{
+		float targetRespawnTimeS = lastUpdateTimeS + (m_fItemTimeoutM * 60);
+		
+		if (currentTimeS > targetRespawnTimeS)
+		{
+			lastUpdateTimeS = currentTimeS;
+			return TrySpawnLoot(1.0);			//Items that timeout will spawn their replacement immediately
+		}
+		
+		if (!GetChildren())
+		{
+			lastUpdateTimeS = currentTimeS;
+			return TrySpawnLoot(spawnChance);	//Empty spawners are still subject to spawnChance
+		}
+		
+		return false;
+	}
 
-	bool TrySpawnLoot()
+	// Respawns loot regardless of if the spawner has items already or not
+	bool TrySpawnLoot(float spawnChance)
 	{
 		if (!Replication.IsServer())
 			return false;
 		
-		if (GetChildren())
+		if (Math.RandomFloat01() > spawnChance)
 			return false;
+		
+		while (GetChildren())
+			delete GetChildren();
 		
 		// Get item resource to be spawned
 		auto lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
