@@ -1,0 +1,13 @@
+Vehicle : "{1247D68D2A76907D}Prefabs/Vehicles/Wheeled/UAZ452/UAZ452_ambulance_base.et" {
+ ID "BBCBA43A9778AE21"
+ components {
+  SlotManagerComponent "{55BCE45E438E4CFF}" {
+   Slots {
+    RegisteringComponentSlotInfo Arsenal {
+     Enabled 0
+    }
+   }
+  }
+ }
+ coords 2758.635 77.325 1656.105
+}

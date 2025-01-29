@@ -1,0 +1,14 @@
+Vehicle : "{5674FAEB9AB7BDD0}Prefabs/Vehicles/Wheeled/M998/M998.et" {
+ ID "BBCBA43A9778AE21"
+ components {
+  SlotManagerComponent "{55BCE45E438E4CFF}" {
+   Slots {
+    RegisteringComponentSlotInfo Arsenal {
+     Enabled 0
+    }
+   }
+  }
+ }
+ coords 2755.154 77.286 1657.576
+ angleY 0
+}
