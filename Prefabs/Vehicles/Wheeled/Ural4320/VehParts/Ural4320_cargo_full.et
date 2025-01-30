@@ -1,0 +1,72 @@
+GenericEntity : "{58B3FB7F102A8B1B}Prefabs/Vehicles/Wheeled/Ural4320/VehParts/Ural4320_cargo.et" {
+ ID "4B42E71698F5739C"
+ components {
+  SCR_ResourceComponent "{5D835619AC273D4C}" {
+   m_aContainers {
+    SCR_ResourceContainer "{5D835619ABBDB4A1}" {
+     m_fResourceValueCurrent 800
+     m_fResourceValueMax 800
+    }
+   }
+   m_aConsumers {
+    SCR_ResourceConsumer "{647B3283B757DD56}" {
+     m_sDebugName "Base Building - Consumer"
+     m_eResourceRights ALL
+     m_eGeneratorIdentifier DEFAULT
+     m_fResourceRange 50
+     m_fBuyMultiplier 0
+     m_ContainerQueue SCR_ResourceConsumerContainerQueue "{647B3283B757DD45}" {
+      m_StoragePolicies {
+       SCR_ResourceConsumerStoragePolicy "{647B3283B757DD40}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{647B3283B757DD42}" {
+        }
+       }
+       SCR_ResourceConsumerStoragePolicy "{647B3283B757DD4C}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{647B3283B757DD4D}" {
+        }
+        m_eStorageType STORED
+       }
+       SCR_ResourceConsumerStoragePolicy "{647B3283B757DD4A}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{647B3283B757DD74}" {
+        }
+        m_eStorageType CARGO_PROP
+       }
+       SCR_ResourceConsumerStoragePolicy "{647B3283B757DD75}" {
+        m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{647B3283B757DD76}" {
+        }
+        m_eStorageType CARGO_VEHICLE
+       }
+      }
+     }
+    }
+   }
+   m_aGenerators {
+    SCR_ResourceGenerator "{647B3283B757DD72}" {
+     m_sDebugName "Base Building - Generator"
+     m_eResourceRights ALL
+     m_fStorageRange 50
+     m_ContainerQueue SCR_ResourceGeneratorContainerQueue "{647B3283B757DD7D}" {
+      m_StoragePolicies {
+       SCR_ResourceGeneratorStoragePolicy "{647B3283B757DD7F}" {
+        m_StorageQueue SCR_ResourceGeneratorContainerStorageQueueExtended "{647B3283B757DD65}" {
+        }
+       }
+       SCR_ResourceGeneratorStoragePolicy "{647B3283B757DD66}" {
+        m_StorageQueue SCR_ResourceGeneratorContainerStorageQueueExtended "{647B3283B7564C89}" {
+        }
+        m_eStorageType STORED
+       }
+      }
+     }
+     m_aActions {
+      SCR_ResourceGeneratorActionDropContainers "{647B3283B7564C8E}" {
+      }
+      SCR_ResourceGeneratorActionStore "{647B3283B7564C8C}" {
+      }
+     }
+    }
+   }
+  }
+ }
+ coords 4861.541 28.594 11786.157
+}
