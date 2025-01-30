@@ -179,7 +179,7 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
    }
   }
   SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
-   m_SpawnLogic SCR_MenuSpawnLogic "{61A3204EF0E2117B}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{647C29E0FCAA4ED4}" {
    }
   }
   SCR_TimeAndWeatherHandlerComponent "{61D805F9F5E6DB16}" {
