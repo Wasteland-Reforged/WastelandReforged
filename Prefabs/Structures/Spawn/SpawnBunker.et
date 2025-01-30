@@ -8,8 +8,47 @@ GenericEntity {
   }
   StaticModelEntity : "{1A962402D4B8CA23}Prefabs/MP/Campaign/RequestTable_US_brightlantern.et" {
    ID "6473623234392FB4"
-   coords -8.01 -4.373 2.038
+   coords -6.938 -4.373 2.038
    angleY 0
+  }
+  SCR_DestructibleEntity : "{1E2011567EAE09B4}Prefabs/Structures/Walls/Metal/TinWall_01/TinWall_01_6m_Pole.et" {
+   ID "647C29FF9D458542"
+   coords -7.734 0.635 5.173
+   {
+    GameEntity {
+     ID "647C29FFCDD95425"
+     coords 0.033 -0.694 -0.015
+     angleX -59.467
+     angleY 171.02
+     angleZ 178.76
+     {
+      LightEntity {
+       ID "647C29FE6B0250B7"
+       LV 4
+      }
+     }
+    }
+   }
+  }
+  $grp GenericEntity : "{231C30242B73D8A1}Prefabs/Structures/Signs/Warnings/SignOneWay_01.et" {
+   {
+    ID "647C29F218E25AB8"
+    coords -5.402 -2.786 1.646
+    angleZ 270
+    scale 1.5
+   }
+   {
+    ID "647C29FD28E0EAD4"
+    coords -8.471 -2.786 1.64
+    angleZ 90
+    scale 1.6
+   }
+   {
+    ID "647C29FD3D6B047D"
+    coords -6.92 -1.619 1.646
+    angleZ 180
+    scale 1.5
+   }
   }
   GenericEntity : "{41F2EFF5B1118336}Prefabs/Props/Industrial/CargoContainers/CargoContainer_01/CargoContainer_02_20ft_BaltaShipping.et" {
    ID "62F768EB62D473B5"
@@ -19,6 +58,18 @@ GenericEntity {
    ID "62F768EB62D41F49"
    coords -7.906 -4.373 14.819
    angleY 155.672
+  }
+  $grp GenericEntity : "{4A8829F6DD2162F7}Prefabs/Structures/Signs/Warnings/SignAheadOnly_01.et" {
+   {
+    ID "647C29F21BAD0ECC"
+    coords -5.699 -1.774 1.64
+    angleZ 215
+   }
+   {
+    ID "647C29FD13B0D394"
+    coords -8.154 -1.76 1.64
+    angleZ 135
+   }
   }
   GenericEntity SpawnBoard : "{4BF528DF7A469909}Prefabs/Props/Construction/PalletJack_01.et" {
    ID "62F768EB62D47384"
@@ -68,7 +119,7 @@ GenericEntity {
      }
     }
    }
-   coords -7.948 -3.317 1.673
+   coords -6.936 -3.317 1.673
   }
   GenericEntity : "{533CDABD77C4C43E}Prefabs/Rocks/Granite/GraniteCliff_02.et" {
    ID "62F768EB62D41F5D"
@@ -115,7 +166,7 @@ GenericEntity {
      }
     }
    }
-   coords -7.95 -3.308 1.685
+   coords -6.938 -3.308 1.685
   }
   GenericEntity : "{8592F599B94DC833}Prefabs/Structures/Civilian/MessageBoard/Filled/MessageBoardSmall_01_pole_filled_V1.et" {
    ID "62F768EB62D41F18"
