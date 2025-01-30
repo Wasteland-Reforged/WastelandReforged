@@ -1,9 +1,0 @@
-Vehicle : "{E03D5609EEA6E03D}Prefabs/Vehicles/Core/Wheeled_Truck_Base.et" {
- ID "0000000000000001"
- components {
-  SCR_VehicleFactionAffiliationComponent "{5882CBD9AC741CEC}" {
-   "faction affiliation" ""
-  }
- }
- coords 4846.414 28.594 11765.191
-}
