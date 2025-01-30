@@ -1,0 +1,64 @@
+SCR_ResourceComponent {
+ m_aConsumers {
+  SCR_ResourceConsumer "{5DB899315A66AA3D}" {
+  }
+  SCR_ResourceConsumer "{647D10B1D80AEA42}" {
+   m_sDebugName "Base Building - Consumer"
+   m_eResourceRights ALL
+   m_eGeneratorIdentifier DEFAULT
+   m_fResourceRange 2
+   m_fBuyMultiplier 1
+   m_fSellMultiplier 1
+   m_ContainerQueue SCR_ResourceConsumerContainerQueue "{647D10B1D80AEA57}" {
+    m_StoragePolicies {
+     SCR_ResourceConsumerStoragePolicy "{647D10B1D80AEAA8}" {
+      m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{647D10B1D80AEAAE}" {
+      }
+      m_eStorageType ORPHAN
+     }
+     SCR_ResourceConsumerStoragePolicy "{647D10B1D80AEAAD}" {
+      m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{647D10B1D80AEAA2}" {
+      }
+      m_eStorageType ORPHAN
+     }
+     SCR_ResourceConsumerStoragePolicy "{647D10B1D80AEAA7}" {
+      m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{647D10B1D80AEAA5}" {
+      }
+      m_eStorageType STORED
+     }
+     SCR_ResourceConsumerStoragePolicy "{647D10B1D80AEABB}" {
+      m_StorageQueue SCR_ResourceConsumerContainerStorageQueueExtended "{647D10B1D80AEAB8}" {
+      }
+      m_eStorageType CARGO_VEHICLE
+     }
+    }
+   }
+  }
+ }
+ m_aGenerators {
+  SCR_ResourceGenerator "{647D10B1D80AEABD}" {
+   m_sDebugName "Base Building - Generator"
+   m_eResourceRights ALL
+   m_fStorageRange 50
+   m_ContainerQueue SCR_ResourceGeneratorContainerQueue "{647D10B1D80AEAB0}" {
+    m_StoragePolicies {
+     SCR_ResourceGeneratorStoragePolicy "{647D10B1D80AEAB1}" {
+      m_StorageQueue SCR_ResourceGeneratorContainerStorageQueueExtended "{647D10B1D80AEA99}" {
+      }
+     }
+     SCR_ResourceGeneratorStoragePolicy "{647D10B1D80AEA9F}" {
+      m_StorageQueue SCR_ResourceGeneratorContainerStorageQueueExtended "{647D10B1D80AEA9C}" {
+      }
+      m_eStorageType STORED
+     }
+    }
+   }
+   m_aActions {
+    SCR_ResourceGeneratorActionDropContainers "{647D10B1D80AEA92}" {
+    }
+    SCR_ResourceGeneratorActionStore "{647D10B1D80AEA93}" {
+    }
+   }
+  }
+ }
+}

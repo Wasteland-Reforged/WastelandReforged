@@ -1,0 +1,9 @@
+GenericEntity Ural4320_cargo_647D10BFCCD25BD8 : "{58B3FB7F102A8B1B}Prefabs/Vehicles/Wheeled/Ural4320/VehParts/Ural4320_cargo.et" {
+ coords 2750.207 77.385 1679.55
+}
+GenericEntity M923A1_cargo_647D10B157C35902 : "{5A7E3ECE4599214B}Prefabs/Vehicles/Wheeled/M923A1/M923A1_cargo.et" {
+ coords 2745.563 77.308 1673.843
+}
+Vehicle M923A1_transport1 : "{F1FBD0972FA5FE09}Prefabs/Vehicles/Wheeled/M923A1/M923A1_transport.et" {
+ coords 2749.613 77.394 1667.561
+}
