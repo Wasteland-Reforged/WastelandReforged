@@ -23,7 +23,7 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			logger.LogDebug("Parent entity of WR_SpawnAreaAISpawnHandlerComponent must be a WR_SpawnAreaEntity!");
+			logger.LogError("Parent entity of WR_SpawnAreaAISpawnHandlerComponent must be a WR_SpawnAreaEntity!");
 			return;
 		}
 		
@@ -34,7 +34,9 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		}
 		
 		m_aBotSpawnHandlers.Insert(this);
-		logger.LogNormal("Inserted " + GetSpawnAreaName() + " into the bot spawn handler component list");
+		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the bot spawn handler component list");
+		
+		logger.LogNormal("Initialized.");
 	}
 	
 	protected bool SpawnAIGroup()
@@ -51,8 +53,9 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		bool foundSafePos = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, _parent.GetOrigin(), _parent.GetSphereRadius()
 																	, areaToCheck, xzPaddingRadius, yPaddingDistance);
 		
-		if (!foundSafePos) {
-			logger.LogDebug("Could not find safe position for roaming AI group!");
+		if (!foundSafePos)
+		{
+			logger.LogWarning("Could not find safe position for roaming AI group!");
 			return false;
 		}
 		
@@ -60,8 +63,9 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		IEntity aiGroupEntity = WR_Utils.SpawnPrefabInWorld(aiGroupResource, spawnPos);
 		SCR_AIGroup aiGroup = SCR_AIGroup.Cast(aiGroupEntity);
 	
-		if (!aiGroup) {
-			logger.LogDebug("Roaming AI Group Failed to Spawn!");
+		if (!aiGroup)
+		{
+			logger.LogWarning("Roaming AI Group Failed to Spawn!");
 			return false;
 		}
 		
@@ -85,8 +89,9 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 	{
 		foreach(SCR_AIGroup group : _aiGroups)
 		{
-			if (!group) {
-				logger.LogNormal("Found dead bot group at " + GetSpawnAreaName());
+			if (!group)
+			{
+				logger.LogDebug("Found dead bot group at " + GetSpawnAreaName());
 				_aiGroups.RemoveItem(group);
 				CheckGroups(false);
 				return;
@@ -95,7 +100,6 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		
 		//If any of the bot groups are found to be empty, doRespawn is set to false, and we will not enter this block
 		if (doRespawn) {
-			//logger.LogNormal("Found no dead bot groups at " + GetSpawnAreaName());
 			TryRespawnGroup();
 		}
 	}
@@ -123,11 +127,13 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		
 		for (int i = _aiGroups.Count(); i < GetDesiredGroups(); i++)
 		{
-			if (!SpawnAIGroup()) {
+			if (!SpawnAIGroup())
+			{
 				i--;
 			}
-			else {
-				logger.LogNormal("Spawned a new bot group at " + GetSpawnAreaName());
+			else
+			{
+				logger.LogDebug("Spawned a new bot group at " + GetSpawnAreaName());
 				return;
 			}
 			

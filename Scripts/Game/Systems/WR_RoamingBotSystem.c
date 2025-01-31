@@ -7,7 +7,7 @@ class WR_RoamingBotSystem : GameSystem
 	
 	protected override void OnStarted()
 	{
-		logger.LogNormal("Roaming Bot system started.");
+		logger.LogNormal("Roaming bot system started.");
 		CheckSpawnAreas();
 	}
 	
@@ -42,6 +42,6 @@ class WR_RoamingBotSystem : GameSystem
 	
 	protected override void OnCleanup()
 	{
-		logger.LogNormal("Roaming Bot system cleaned up.");
+		logger.LogNormal("Roaming bot system cleaned up.");
 	}
 }
