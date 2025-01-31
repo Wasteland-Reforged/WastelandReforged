@@ -57,7 +57,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		// Grab a vehicle and any additional items it may have
 		WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
-		array<ResourceName> vehicleResources;
+		array<ResourceName> vehicleResources = {};
 		lootSpawningComponent.GetRandomItemsFromCategory(vehicleResources, WR_LootCategory.SpawnAreaVehicles);
 		
 		// Configure spawn position parameters

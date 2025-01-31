@@ -89,8 +89,6 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		if (!newItem || !WR_LootItemConfig.Cast(newItem))
 			return 0;
 		
-		items = {};
-		
 		// Insert base item
 		items.Insert(newItem.m_sItemPrefab);
 		weight += newItem.m_iWeight;
