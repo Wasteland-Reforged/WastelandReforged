@@ -55,7 +55,10 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		if (!lootSpawnComp)
 			return false;
 		
-		ResourceName vehResourceName = lootSpawnComp.GetRandomSingleItemFromCategory(WR_LootCategory.SpawnAreaVehicles);
+		// Grab a vehicle and any additional items it may have
+		WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
+		array<ResourceName> vehicleResources;
+		lootSpawningComponent.GetRandomItemsFromCategory(vehicleResources, WR_LootCategory.SpawnAreaVehicles);
 		
 		// Configure spawn position parameters
 		float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
@@ -67,24 +70,26 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		bool foundSafePos = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, _parent.GetOrigin(), _parent.GetSphereRadius(), areaToCheck
 																	, xzPaddingRadius, yPaddingDistance);
 		
-		if (!foundSafePos) return false;
+		if (!foundSafePos)
+			return false;
 		
 		// Spawn and orient the vehicle	
 		EntitySpawnParams spawnParams = new EntitySpawnParams();
 		spawnParams.Transform[3] = spawnPos; // Transform[3] is position in world
-					
-		IEntity vehicle = GetGame().SpawnEntityPrefabEx(vehResourceName, false, GetGame().GetWorld(), spawnParams);
-		if (!vehicle)
+		
+		ResourceName vehicleResource = vehicleResources[0];
+		IEntity vehicleEnt = GetGame().SpawnEntityPrefabEx(vehicleResource, false, GetGame().GetWorld(), spawnParams);
+		if (!vehicleEnt)
 			return false;
 		
-		vehicle.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
+		vehicleEnt.SetYawPitchRoll(WR_Utils.GetRandomHorizontalDirectionAngles());
 		
-		SpawnVehicleLoot(vehicle);
+		SpawnVehicleLoot(vehicleEnt, vehicleResources);
 		
 		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
 		if (Math.RandomFloat01() <= vehiclesSupplyChance) 
 		{
-			auto supplyStorage = SCR_ResourceComponent.Cast(vehicle.FindComponent(SCR_ResourceComponent));
+			auto supplyStorage = SCR_ResourceComponent.Cast(vehicleEnt.FindComponent(SCR_ResourceComponent));
 				
 			if (supplyStorage && supplyStorage.GetContainers()) {
 				foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers()) {
@@ -100,10 +105,10 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		}
 		
 		// Add function call to remove vehicle from current count when deleted
-		SCR_AIVehicleUsageComponent vehicleUsageComp = SCR_AIVehicleUsageComponent.FindOnNearestParent(vehicle, vehicle);
+		SCR_AIVehicleUsageComponent vehicleUsageComp = SCR_AIVehicleUsageComponent.FindOnNearestParent(vehicleEnt, vehicleEnt);
 		if (!vehicleUsageComp)
 		{
-			SCR_AIVehicleUsageComponent.ErrorNoComponent(vehicle);
+			SCR_AIVehicleUsageComponent.ErrorNoComponent(vehicleEnt);
 			return false;
 		}
 		vehicleUsageComp.GetOnDeleted().Insert(OnVehicleDeleted);
@@ -117,7 +122,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		_currentVehicles--;
 	}
 	
-	protected void SpawnVehicleLoot(IEntity vehicle)
+	protected void SpawnVehicleLoot(IEntity vehicle, array<ResourceName> additionalItems)
 	{
 		//Remove initial items
 		if (!WR_Utils.RemoveAllItemsFromVehicle(vehicle))
@@ -132,12 +137,22 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		if (!lootSpawnComp)
 			return;
 		
+		// Spawn any additional items
+		if (additionalItems && additionalItems.Count() > 0)
+		{
+			for (int i = 1; i < additionalItems.Count(); i++)
+			{
+				if (!inventoryStorageManager.TrySpawnPrefabToStorage(additionalItems[i], inventoryStorage))		
+					return;	// Vehicle is full
+			}
+		}
+		
 		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(WR_LootContext.RANDOM_VEHICLE, m_fLootBudget);
 		
 		foreach (ResourceName name : itemResourceNamesToSpawn) 
 		{
 			if (!inventoryStorageManager.TrySpawnPrefabToStorage(name, inventoryStorage))		
-				return;		//Vehicle is full
+				return;	// Vehicle is full
 		}
 	}
 	

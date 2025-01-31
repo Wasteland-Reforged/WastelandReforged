@@ -11,25 +11,6 @@ GenericEntity {
    coords -6.938 -4.373 2.038
    angleY 0
   }
-  SCR_DestructibleEntity : "{1E2011567EAE09B4}Prefabs/Structures/Walls/Metal/TinWall_01/TinWall_01_6m_Pole.et" {
-   ID "647C29FF9D458542"
-   coords -7.734 0.635 5.173
-   {
-    GameEntity {
-     ID "647C29FFCDD95425"
-     coords 0.033 -0.694 -0.015
-     angleX -59.467
-     angleY 171.02
-     angleZ 178.76
-     {
-      LightEntity {
-       ID "647C29FE6B0250B7"
-       LV 4
-      }
-     }
-    }
-   }
-  }
   $grp GenericEntity : "{231C30242B73D8A1}Prefabs/Structures/Signs/Warnings/SignOneWay_01.et" {
    {
     ID "647C29F218E25AB8"
