@@ -25,7 +25,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 	
 	void InitializeLootMaps()
 	{		
-		//Populate Master Loot Map
+		// Populate Master Loot Map
 		foreach (WR_LootItemConfig lootItemConfig : m_MasterLootConfig.m_aLootItemConfigs)
 		{
 			SCR_WeightedArray<WR_LootItemConfig> lootArr;
@@ -39,7 +39,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 			lootArr.Insert(lootItemConfig, lootItemConfig.m_iWeight);
 		}
 		
-		//Populate Master Loot Context Map
+		// Populate Master Loot Context Map
 		foreach (WR_LootContextConfig lootContextConfig : m_MasterContextConfig.m_aLootContextConfigs)
 		{
 			SCR_WeightedArray<WR_LootCategory> categoryArr;
@@ -77,24 +77,41 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		WR_LootItemConfig newItem;
 		int weight = 0;
 		
-		if (lootArr)
+		if (!lootArr)
 		{
-			lootArr.GetRandomValue(newItem);
-			
-			if (!newItem) return 0;
-			
-			items.Insert(newItem.m_sItemPrefab);
-			weight += newItem.m_iWeight;
-			if (!newItem.m_aAdditionalItemChoices.IsEmpty())
+			logger.LogError("Cannot find weighted array of loot item configs for the provided loot category");
+			return 0;
+		}
+
+		// Select a random entry from the loot table
+		lootArr.GetRandomValue(newItem);
+		
+		if (!newItem || !WR_LootItemConfig.Cast(newItem))
+			return 0;
+		
+		items = {};
+		
+		// Insert base item
+		items.Insert(newItem.m_sItemPrefab);
+		weight += newItem.m_iWeight;
+		
+		// This item does not have any additional items specified, so exit.
+		if (newItem.m_aAdditionalItemChoices.IsEmpty())
+			return weight;
+		
+		if (newItem.m_bAlwaysSpawnAllAdditionalItems)
+		{
+			foreach (auto addlItem : newItem.m_aAdditionalItemChoices)
 			{
-				auto additionalItem = newItem.m_aAdditionalItemChoices.GetRandomElement();
-				for (int i = 0; i < Math.RandomInt(newItem.m_iMinAdditionalItems * additionalItemsCoeff, newItem.m_iMaxAdditionalItems * additionalItemsCoeff); i++)
-					items.Insert(additionalItem);
+				for (int i = 0; i < GetQuantity(newItem, additionalItemsCoeff); i++)
+					items.Insert(addlItem);
 			}
 		}
 		else
 		{
-			logger.LogError("Cannot find Weighted Loot Item array for the provided Loot Category");
+			auto addlItem = newItem.m_aAdditionalItemChoices.GetRandomElement();
+			for (int i = 0; i < GetQuantity(newItem, additionalItemsCoeff); i++)
+				items.Insert(addlItem);
 		}
 		
 		return weight;
@@ -113,7 +130,6 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		}
 		
 		return newItem.m_sItemPrefab;
-		
 	}
 	
 	array<ResourceName> GetRandomItemsByBudget(WR_LootContext lootContext, float totalBudget = 0.5, float additionalItemsCoeff = 1.0)
@@ -151,6 +167,11 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 			return null;
 		
 		return WR_LootSpawningComponent.Cast(gameMode.FindComponent(WR_LootSpawningComponent));
+	}
+	
+	int GetQuantity(WR_LootItemConfig itemConfig, float multiplier)
+	{
+		return Math.RandomInt(itemConfig.m_iMinAdditionalItems * multiplier, itemConfig.m_iMaxAdditionalItems * multiplier);
 	}
 	
 }

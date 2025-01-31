@@ -64,6 +64,7 @@ class WR_LootSpawner : GenericEntity
 		if (Math.RandomFloat01() > spawnChance)
 			return false;
 		
+		// Clear out any items currently at this loot spawner
 		while (GetChildren())
 			delete GetChildren();
 		
