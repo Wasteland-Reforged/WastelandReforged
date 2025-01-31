@@ -1,6 +1,6 @@
 GenericEntity {
  ID "62F768EB62D47393"
- coords 123.596 336.029 185.066
+ coords -10000 1500 -10000
  {
   GenericEntity : "{19A3C48FC2665A3F}Prefabs/Props/Construction/GravelPile_01/GravelPile_01_large.et" {
    ID "62F768EB62D47385"
