@@ -52,7 +52,7 @@ class WR_LootSystem : GameSystem
 		if (!m_aLootSpawners || m_aLootSpawners.Count() == 0)
 			return;
 		
-		logger.LogNormal("Spawning items at loot spawners...");
+		logger.LogDebug("Spawning items at loot spawners...");
 		m_iSuccessfulSpawns = 0;
 		
 		foreach (WR_LootSpawner ls : m_aLootSpawners)
@@ -64,7 +64,7 @@ class WR_LootSystem : GameSystem
 			AddEntity(ls);
 		}
 		
-		logger.LogNormal("Items spawned at " + m_iSuccessfulSpawns + " of " + m_aLootSpawners.Count() + " loot spawners.");
+		logger.LogDebug("Items spawned at " + m_iSuccessfulSpawns + " of " + m_aLootSpawners.Count() + " loot spawners.");
 	}
 
 	static void CountSuccessfulSpawn()
