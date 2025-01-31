@@ -14,6 +14,14 @@ SCR_DestructibleBuildingEntity : "{63F42771BBDF3915}Prefabs/Structures/Industria
     ID "62CEF120029F24E8"
     coords -4.51 1.022 15.264
    }
+   {
+    ID "647F539767D91C97"
+    coords 2.833 1.155 1.96
+   }
+   {
+    ID "647F539767D91CBE"
+    coords 5.794 0.049 -13.233
+   }
   }
  }
 }

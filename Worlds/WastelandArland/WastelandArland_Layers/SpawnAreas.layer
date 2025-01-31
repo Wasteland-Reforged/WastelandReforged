@@ -65,9 +65,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
     vehiclesFlatRate 12
    }
   }
-  coords 1946.853 51.01 3097.615
-  SphereRadius 125
-  DrawShape 0
+  coords 1965.199 51.01 3103.156
+  SphereRadius 100
   ShapeColor 0 0.591 1 0.102
   m_Name "Norwich"
   spawnAreaCategory SPAWN_NORTH
