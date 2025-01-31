@@ -31,7 +31,7 @@ class WR_RoamingBotSystem : GameSystem
 	
 	protected void CheckSpawnAreas()
 	{
-		logger.LogNormal("Checking Spawn Areas.");
+		logger.LogDebug("Checking Spawn Areas.");
 		
 		foreach (WR_SpawnAreaAISpawnHandlerComponent spawnArea : WR_SpawnAreaAISpawnHandlerComponent.m_aBotSpawnHandlers)
 		{
