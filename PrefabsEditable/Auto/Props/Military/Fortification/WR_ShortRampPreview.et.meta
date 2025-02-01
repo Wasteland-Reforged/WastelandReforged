@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{7B6D7508B5F2D5A0}PrefabsEditable/Auto/Props/Military/Fortification/WR_ShortRampPreview.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}
