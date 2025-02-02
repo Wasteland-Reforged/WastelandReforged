@@ -1,5 +1,5 @@
 GenericEntity : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
- coords -10000 1500 -10000
+ coords -10000 500 -10000
  {
   GenericEntity {
    ID "62F768EB62D41F0D"
