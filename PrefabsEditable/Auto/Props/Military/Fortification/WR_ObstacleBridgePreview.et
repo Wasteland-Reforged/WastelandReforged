@@ -1,0 +1,36 @@
+StaticModelEntity : "{A46D45922F8CAD6C}Prefabs/Props/Military/Fortification/CzechHedgehog_01_painted.et" {
+ ID "51E2F0F0E96F07CE"
+ components {
+  MeshObject "{5272E314F6439B95}" {
+   Object "{A0473062D82C96FD}Assets/Props/Military/Training/Obstacles/ObstacleBridge_01/ObstacleBridge_01_start.xob"
+  }
+  SCR_EditableEntityComponent "{5D66BBDB0E231D36}" : "{996046FE206C699A}Prefabs/Editor/Components/Default_SCR_EditableEntityComponent.ct" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "Long Ramp"
+    m_Image "{2496BAF460723BC0}UI/Textures/EditorPreviews/Auto/Props/Military/Training/Obstacles/E_ObstacleBridge_01_start.edds"
+    m_aAuthoredLabels {
+    }
+    m_aAutoLabels {
+     108 1 121
+    }
+   }
+  }
+  SCR_PreviewEntityComponent "{5D66BBDB0E23C826}" : "{6CADA7A88A6265FD}Prefabs/Editor/Components/PreviewEntityComponentClass.ct" {
+   m_bRuntime 0
+   m_aEntries {
+    SCR_BasePreviewEntry "{64832E479BC24FCB}" {
+     m_iParentID -1
+     m_Mesh "{A0473062D82C96FD}Assets/Props/Military/Training/Obstacles/ObstacleBridge_01/ObstacleBridge_01_start.xob"
+     m_Flags EDITABLE
+     m_Shape MESH
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 0 0 0
+     m_vAngles 0 0 0
+    }
+   }
+  }
+ }
+ coords 1481.738 0 2940.5
+ placement none
+}

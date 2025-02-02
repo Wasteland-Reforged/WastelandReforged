@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{4745C105B3D8A4DD}PrefabsEditable/Auto/Compositions/Misc/FreeRoamBuilding/WR_ConcreteWallEditable.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

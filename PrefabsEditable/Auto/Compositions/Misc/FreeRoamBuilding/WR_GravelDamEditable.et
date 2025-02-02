@@ -1,0 +1,62 @@
+GenericEntity : "{F3DE8994BAE6915A}Prefabs/Compositions/Misc/FreeRoamBuilding/CzechHedgehogPainted_S_01.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_EditableEntityComponent "{5E5072792A7E3394}" : "{8B8F72167C615EAA}Prefabs/Editor/Components/Compositions_SCR_EditableEntityComponent.ct" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "Gravel Dam"
+    m_Image "{66C699DC5C6023CC}Thumbnails/graveldam.edds"
+    m_sFaction "USSR"
+    m_aAuthoredLabels {
+     108 10
+    }
+    m_aAutoLabels {
+     1 121
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{64832E411A8AD7DA}" {
+      m_BudgetType CAMPAIGN
+      m_Value 150
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{64832E411A8AD7D1}" {
+      m_BudgetType PROPS
+      m_Value 1
+     }
+    }
+   }
+  }
+  SCR_EditorLinkComponent "{64832E411A8AD62E}" {
+   m_aEntries {
+    SCR_EditorLinkEntry "{64832E411A8AD62D}" {
+     m_Prefab "{D3B9AE1D04B49670}PrefabsEditable/Auto/Props/Military/Fortification/WR_GravelDamPreview.et"
+     m_vPosition -0.064 0 0.038
+     m_vAngles 0 0 0
+     m_fScale 1
+    }
+   }
+  }
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   additionalActions {
+    SCR_CampaignBuildingDisassemblyUserAction "{5D66ED1086234C38}" {
+     Duration 20
+    }
+   }
+  }
+ }
+ coords 1635.657 39.01 2817.896
+ {
+  StaticModelEntity {
+   ID "5D6C81577507452B"
+   components {
+    MeshObject "{5272E314F6439B95}" {
+     Object "{1E5C4242E70D7D19}Assets/Structures/Infrastructure/Waterworks/Dams/GravelDam_01/GravelDam_01.xob"
+    }
+    SCR_DestructionMultiPhaseComponent "{54EEB068A4771EB9}" {
+     Enabled 0
+    }
+   }
+   Flags 1048576
+  }
+ }
+}
