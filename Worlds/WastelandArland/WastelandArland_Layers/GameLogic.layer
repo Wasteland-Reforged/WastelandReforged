@@ -275,6 +275,6 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
   }
  }
  coords 1377.751 38.609 2929.999
- m_MissionSystemConfiguration WR_MissionSystemConfig "{64863116B3FE53D8}" : "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf" {
+ m_MissionSystemConfiguration WR_MissionSystemConfig "{64872000631FA775}" : "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf" {
  }
 }

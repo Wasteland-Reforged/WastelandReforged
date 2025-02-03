@@ -104,6 +104,13 @@ class WR_MissionSystem : GameSystem
 			{
 				delay = WR_Utils.MinutesToMilliseconds(m_Config.m_fMissionTimeLimitM);
 				
+				// Check for reward stolen
+				if (mission.AreAllRewardsStolen())
+				{
+					mission.SetMissionStatus(WR_MissionStatus.Complete);
+					mission.SetCompletionType(WR_MissionCompletionType.Stolen);
+				}
+				
 				// Check for mission timeout
 				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
 				{
