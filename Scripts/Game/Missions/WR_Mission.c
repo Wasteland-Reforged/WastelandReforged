@@ -257,12 +257,27 @@ class WR_Mission
 		foreach (SCR_AIGroup group : m_aGroups)
 			SCR_EntityHelper.DeleteEntityAndChildren(group);
 		
-		// Conditionally delete rewards
 		if (!includeRewards)
 			return;
 		
-		foreach (IEntity ent : m_aRewards)
-			SCR_EntityHelper.DeleteEntityAndChildren(ent);
+		// Delete rewards under certain conditions
+		foreach (IEntity ent : m_aRewards) {
+			
+			// Skip crates that are inside vehicles
+			UniversalInventoryStorageComponent storageComp = UniversalInventoryStorageComponent.Cast(ent.FindComponent(UniversalInventoryStorageComponent));
+			if (storageComp && storageComp.GetParentSlot())
+				continue;
+			
+			// Skip vehicles that are occupied
+			SCR_BaseCompartmentManagerComponent vehicleComp = SCR_BaseCompartmentManagerComponent.Cast(ent.FindComponent(SCR_BaseCompartmentManagerComponent));
+			if (vehicleComp && vehicleComp.GetOccupantCount() > 0)
+				continue;
+			
+			// Otherwise, If reward is within mission radius, delete it
+			if (m_Location.QueryEntityInside(ent))
+				SCR_EntityHelper.DeleteEntityAndChildren(ent);
+		}
+
 	}
 	
 	WR_MissionLocationEntity GetLocation()

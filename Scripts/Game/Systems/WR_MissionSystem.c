@@ -148,7 +148,7 @@ class WR_MissionSystem : GameSystem
 				//Check if mission is ready to be cleaned up
 				if (now.DiffMilliseconds(mission.GetLastTimestamp()) > delay)
 				{
-					mission.DeleteMissionEntities(includeRewards: false);
+					mission.DeleteMissionEntities(includeRewards: true);
 					logger.LogNormal(string.Format("Mission entities cleaned up: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
 					mission.GetLocation().SetIsHostingMission(false);
 					m_aMissions.RemoveItemOrdered(mission);
