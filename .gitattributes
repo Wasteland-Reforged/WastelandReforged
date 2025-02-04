@@ -1,0 +1,2 @@
+*.c linguist-language="Enforce Script"
+*.st linguist-language="Enfusion String Table"
