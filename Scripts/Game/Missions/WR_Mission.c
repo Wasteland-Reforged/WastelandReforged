@@ -33,8 +33,8 @@ class WR_Mission
 	{
 		
 		// Fail to spawn if any entities are within the mission radius
-		vector safepos;
-		if (!SCR_WorldTools.FindEmptyTerrainPosition(safepos, m_Location.GetOrigin(), m_Location.GetSphereRadius(), m_Location.GetSphereRadius())) {
+		vector safePos;
+		if (!SCR_WorldTools.FindEmptyTerrainPosition(safePos, m_Location.GetOrigin(), m_Location.GetSphereRadius(), m_Location.GetSphereRadius())) {
 			logger.LogError(string.Format("Could not find empty terrain position when starting mission: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 			OnMissionMalformed();
 			return false;
@@ -261,7 +261,8 @@ class WR_Mission
 		if (m_aRewards.Count() == 0)
 			return false;
 		
-		foreach (IEntity ent : m_aRewards) {
+		foreach (IEntity ent : m_aRewards) 
+		{
 			if (m_Location.QueryEntityInside(ent))
 				return false;
 		}

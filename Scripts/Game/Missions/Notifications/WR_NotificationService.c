@@ -146,7 +146,7 @@ class WR_MissionNotificationComponent : ScriptComponent
 					case WR_MissionCompletionType.Stolen:
 					{
 						title = string.Format("Objective Complete: %1", definition.m_sName);
-						description = "All Objective rewards have been stolen.";
+						description = "All objective rewards have been stolen.";
 						sound = SCR_SoundEvent.TASK_SUCCEED;
 						
 						break;
