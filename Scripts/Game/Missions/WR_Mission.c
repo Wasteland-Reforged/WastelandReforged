@@ -31,8 +31,16 @@ class WR_Mission
 	
 	bool StartMission()
 	{
-		//bool entitiesDidSpawn = SpawnProp() && SpawnRewards() && SpawnNpcGroups();
 		
+		// Fail to spawn if any entities are within the mission radius
+		vector safePos;
+		if (!SCR_WorldTools.FindEmptyTerrainPosition(safePos, m_Location.GetOrigin(), m_Location.GetSphereRadius(), m_Location.GetSphereRadius())) {
+			logger.LogError(string.Format("Could not find empty terrain position when starting mission: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
+			OnMissionMalformed();
+			return false;
+		}
+		
+		// Spawn each set of mission entities individually, while validating that they spawned correctly
 		if (!SpawnProp()) {
 			OnMissionMalformed();
 			return false;
@@ -246,6 +254,20 @@ class WR_Mission
 		}
 		
 		
+	}
+	
+	bool AreAllRewardsStolen()
+	{
+		if (m_aRewards.Count() == 0)
+			return false;
+		
+		foreach (IEntity ent : m_aRewards) 
+		{
+			if (m_Location.QueryEntityInside(ent))
+				return false;
+		}
+		
+		return true;
 	}
 	
 	void DeleteMissionEntities(bool includeRewards)

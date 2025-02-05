@@ -143,6 +143,14 @@ class WR_MissionNotificationComponent : ScriptComponent
 
 						break;
 					}
+					case WR_MissionCompletionType.Stolen:
+					{
+						title = string.Format("Objective Complete: %1", definition.m_sName);
+						description = "All objective rewards have been stolen.";
+						sound = SCR_SoundEvent.TASK_SUCCEED;
+						
+						break;
+					}
 					case WR_MissionCompletionType.TimedOut:
 					{
 						title = string.Format("Objective Failed: %1", definition.m_sName);
