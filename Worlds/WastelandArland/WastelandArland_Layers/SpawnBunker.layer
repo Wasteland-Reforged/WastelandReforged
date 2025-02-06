@@ -1,3 +1,6 @@
+GenericEntity : "{2F4C470F16A051DA}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/WR_Headquarters.et" {
+ coords 1478.183 38 2902.344
+}
 GenericEntity : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
  coords -10000 500 -10000
  {
@@ -29,4 +32,11 @@ GenericEntity : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
    SphereRadius 50
   }
  }
+}
+Vehicle Ural4320_engineer_full1 : "{CF5E81C6A599CE75}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_engineer_full.et" {
+ coords 1489.834 38.017 2907.389
+ angleY 81.244
+}
+Vehicle M923A1_engineer_full1 : "{D169205E1F9A3390}Prefabs/Vehicles/Wheeled/M923A1/M923A1_engineer_full.et" {
+ coords 1482.99 38 2914.71
 }
