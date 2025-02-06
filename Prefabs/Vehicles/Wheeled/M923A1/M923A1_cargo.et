@@ -1,6 +1,19 @@
 GenericEntity : "{278E487E19D82680}Prefabs/Vehicles/Core/Vehicle_Cargo_Base.et" {
  ID "4B42E71698F5739C"
  components {
+  SCR_CampaignBuildingProviderComponent "{647D10B13463C553}" {
+   m_sProviderDisplayName "Truck Base Building Provider"
+   m_bIsMasterProvider 1
+   m_fBuildingRadius 35
+   m_aBudgetsToEvaluate {
+    SCR_CampaignBuildingBudgetToEvaluateData "{647D10B029077DBC}" {
+     m_eBudget CAMPAIGN
+    }
+   }
+   m_aAvailableTraits {
+    28 108 230
+   }
+  }
   SCR_ResourceComponent "{5D8356131CA904DC}" {
    m_aConsumers {
     SCR_ResourceConsumer "{623B28858DA07187}" {
@@ -77,19 +90,6 @@ GenericEntity : "{278E487E19D82680}Prefabs/Vehicles/Core/Vehicle_Cargo_Base.et" 
     }
    }
   }
-  SCR_CampaignBuildingProviderComponent "{647D10B13463C553}" {
-   m_sProviderDisplayName "Truck Base Building Provider"
-   m_bIsMasterProvider 1
-   m_fBuildingRadius 35
-   m_aBudgetsToEvaluate {
-    SCR_CampaignBuildingBudgetToEvaluateData "{647D10B029077DBC}" {
-     m_eBudget CAMPAIGN
-    }
-   }
-   m_aAvailableTraits {
-    28 108
-   }
-  }
  }
- coords 2745.563 77.308 1673.843
+ coords 1474.901 38 2923.66
 }
