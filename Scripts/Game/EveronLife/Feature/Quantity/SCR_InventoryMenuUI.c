@@ -108,7 +108,7 @@ modded class SCR_InventoryMenuUI
 			}
 		}
 
-		super.MoveBetweenFromVicinity();
+	super.MoveBetweenFromVicinity();
 	}
 
 	//------------------------------------------------------------------------------------------------
@@ -220,7 +220,8 @@ modded class SCR_InventoryMenuUI
 		if (fullRefresh)
 		{
 			// General refresh
-			if (m_pVicinity) m_pVicinity.ManipulationComplete();
+//			if (m_pVicinity)
+//				m_pVicinity.ManipulationComplete();
 			ShowStoragesList();
 			ShowAllStoragesInList();
 			RefreshLootUIListener();
