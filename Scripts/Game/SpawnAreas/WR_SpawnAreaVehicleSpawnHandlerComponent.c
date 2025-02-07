@@ -5,8 +5,6 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 {
 	private WR_SpawnAreaEntity _parent;
 	ref WR_Logger<WR_SpawnAreaVehicleSpawnHandlerComponent> logger = new WR_Logger<WR_SpawnAreaVehicleSpawnHandlerComponent>(this);
-	
-	ref static array<WR_SpawnAreaVehicleSpawnHandlerComponent> VehicleSpawnHandlerComponents;
 
 	[Attribute(defvalue: "50", desc: "Number of vehicles to spawn per square kilometer of surface area inside this spawn area.")]
 	protected int vehiclesPerSqKm;
@@ -27,7 +25,6 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	float m_fLootBudget;
 	
 	protected int _currentVehicles = 0;
-	protected int _desiredVehCount = 0;
 	
 	override void OnPostInit(IEntity owner)
 	{
@@ -38,13 +35,13 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			return;
 		}
 		
-		if (!VehicleSpawnHandlerComponents)
+		if (!WR_TownVehicleSystem.VehicleSpawnHandlerComponents)
 		{
-			VehicleSpawnHandlerComponents = {};
+			WR_TownVehicleSystem.VehicleSpawnHandlerComponents = {};
 			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Initialized vehicle spawn area handler component list.", LogLevel.NORMAL);
 		}
 		
-		VehicleSpawnHandlerComponents.Insert(this);
+		WR_TownVehicleSystem.VehicleSpawnHandlerComponents.Insert(this);
 		Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list", LogLevel.SPAM);
 	}
 	
@@ -156,30 +153,9 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		}
 	}
 	
-	void SpawnInitialVehicles(out int successfulVehSpawnCount)
+	void CheckVehicles()
 	{
-		// Initialize max/current vehicle counts
-		_desiredVehCount = getMaxTownVehicles();
-		successfulVehSpawnCount = 0;
-		
-		// Loop through all vehicles that need to be spawned
-		for (int i = 0; i < _desiredVehCount; i++)
-		{
-			if (!SpawnTownVehicle())
-				logger.LogWarning("Vehicle was not spawned.");
-			else
-				successfulVehSpawnCount++;
-		}
-		
-		// Attempt to respawn town vehicles periodically
-		GetGame().GetCallqueue().CallLater(checkVehicles, vehiclesRespawnTimer * 60 * 1000, true);
-			
-		logger.LogNormal("Successfully spawned " + successfulVehSpawnCount + " vehicle(s) of " + _desiredVehCount + " attempted at " + _parent.GetSpawnAreaName());
-	}
-	
-	private void checkVehicles()
-	{
-		while (_currentVehicles < _desiredVehCount) {
+		while (_currentVehicles < getMaxTownVehicles()) {
 			SpawnTownVehicle();
 		}
 	}
@@ -205,14 +181,9 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	void ~WR_SpawnAreaVehicleSpawnHandlerComponent()
 	{
-		if (!VehicleSpawnHandlerComponents) return;
-		
-		if (VehicleSpawnHandlerComponents.Count() == 0)
-		{
-			VehicleSpawnHandlerComponents = null;
+		if (!WR_TownVehicleSystem.VehicleSpawnHandlerComponents) 
 			return;
-		}
 		
-		VehicleSpawnHandlerComponents.RemoveItem(this);
+		WR_TownVehicleSystem.VehicleSpawnHandlerComponents.RemoveItem(this);
 	}
 }
