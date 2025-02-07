@@ -10,6 +10,9 @@ class WR_GameModeWasteland : SCR_BaseGameMode
 	[Attribute("0", desc: "Enables brighter lighting at night time.", category: CATEGORY_WR)]
 	protected bool m_bEnableBrightNightMode;
 	
+	[Attribute("25", desc: "Supply cost to respawn at buildable HQ tents.", category: CATEGORY_WR)]
+	protected int m_iTentRespawnSupplyCost;
+	
 	ref WR_Logger<WR_GameModeWasteland> logger = new WR_Logger<WR_GameModeWasteland>(this);
 	
 	override void OnGameStart()
@@ -40,5 +43,10 @@ class WR_GameModeWasteland : SCR_BaseGameMode
 	WR_MissionSystemConfig GetMissionSystemConfig()
 	{
 		return m_MissionSystemConfiguration;
+	}
+	
+	int GetTentRespawnSupplyCost()
+	{
+		return m_iTentRespawnSupplyCost;
 	}
 }

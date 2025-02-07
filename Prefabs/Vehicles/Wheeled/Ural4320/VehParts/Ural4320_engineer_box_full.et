@@ -6,6 +6,11 @@ GenericEntity : "{0CD6E71D33E1CCD0}Prefabs/Vehicles/Core/Vehicle_EngineerBox_Bas
   MeshObject "{4B42E716914465B9}" {
    Object "{25E0A2F2CC535076}Assets/Vehicles/Wheeled/Ural4320/Ural_4320_cargo.xob"
   }
+  SCR_CampaignBuildingProviderComponent "{5DF54421B01A7FF8}" {
+   m_aAvailableTraits {
+    28 28 108
+   }
+  }
   SCR_DamageManagerComponent "{3EBB276D48AFFF41}" {
    "Additional hit zones" {
     SCR_DestructibleHitzone EngineerBox {
@@ -44,5 +49,5 @@ GenericEntity : "{0CD6E71D33E1CCD0}Prefabs/Vehicles/Core/Vehicle_EngineerBox_Bas
    }
   }
  }
- coords 2757.573 77.339 1639.158
+ coords 1466.019 38 2923.384
 }
