@@ -1,4 +1,15 @@
 GenericEntity : "{62812756CC66E63D}Prefabs/Systems/Compositions/BaseLogic/MilitaryBaseLogic_US.et" {
  ID "5CB0DBC1FF2C5354"
  coords 1459.33 46.622 2912.533
+ {
+  GenericEntity {
+   ID "5D3706BEFB667678"
+   {
+    GenericEntity {
+     ID "5CB66A1083676037"
+     Flags 3145728
+    }
+   }
+  }
+ }
 }

@@ -169,7 +169,7 @@ GenericEntity : "{D4DDD345A352E97B}Prefabs/Compositions/Slotted/SlotFlatSmall/He
      ID "5D371AC8D914191C"
      components {
       SCR_CampaignBuildingProviderComponent "{5EBCED04D0321687}" {
-       m_aAvailableTraits +{
+       m_aAvailableTraits {
        }
       }
      }
@@ -456,6 +456,20 @@ GenericEntity : "{D4DDD345A352E97B}Prefabs/Compositions/Slotted/SlotFlatSmall/He
   GenericEntity {
    ID "5D3706BDE6FC2339"
    Flags 1048576
+  }
+  GenericEntity {
+   ID "5D3706BE0D29BB11"
+   {
+    GenericEntity {
+     ID "5D3706BEFB667678"
+     {
+      GenericEntity {
+       ID "5CB66A1083676037"
+       Flags 2098179
+      }
+     }
+    }
+   }
   }
   GenericEntity {
    ID "5D45393F6D84F038"
