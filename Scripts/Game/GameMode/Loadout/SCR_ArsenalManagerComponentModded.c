@@ -41,8 +41,11 @@ modded class SCR_ArsenalManagerComponent
 				spawnpointResourceComponent = SCR_ResourceComponent.FindResourceComponent(spawnTarget);
 		}
 		
-		// Get supply cost parameter
-		// TODO: parameterize this
-		return 100.0;
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		
+		if (!gameMode)
+			return 0;
+		
+		return gameMode.GetTentRespawnSupplyCost();
 	}
 }
