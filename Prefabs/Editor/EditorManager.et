@@ -1,0 +1,21 @@
+SCR_EditorManagerEntity {
+ ID "5078954CACA87B8E"
+ components {
+  SCR_BudgetEditorComponent "{52E0FB2C390D0A12}" {
+   m_MaxBudgets {
+    SCR_EntityBudgetValue "{5306F54A7AE0611C}" {
+     m_Value 99999
+    }
+    SCR_EntityBudgetValue "{5306F54A7A7EEB80}" {
+     m_Value 99999
+    }
+    SCR_EntityBudgetValue "{5306F54A7A31EB3E}" {
+     m_Value 99999
+    }
+    SCR_EntityBudgetValue "{5306F54A7DD23D3C}" {
+     m_Value 99999
+    }
+   }
+  }
+ }
+}
