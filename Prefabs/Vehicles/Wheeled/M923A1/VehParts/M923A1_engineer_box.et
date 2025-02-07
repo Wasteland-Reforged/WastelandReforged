@@ -1,0 +1,11 @@
+GenericEntity : "{0CD6E71D33E1CCD0}Prefabs/Vehicles/Core/Vehicle_EngineerBox_Base.et" {
+ ID "4B42E71698F5739C"
+ components {
+  SCR_CampaignBuildingProviderComponent "{5DF54421B01A7FF8}" {
+   m_aAvailableTraits {
+    28 28 108
+   }
+  }
+ }
+ coords 1485.399 38.016 2913.265
+}
