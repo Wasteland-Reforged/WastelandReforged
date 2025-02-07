@@ -11,7 +11,7 @@ GenericEntity : "{278E487E19D82680}Prefabs/Vehicles/Core/Vehicle_Cargo_Base.et" 
     }
    }
    m_aAvailableTraits {
-    28 108 230
+    28 108 28
    }
   }
   SCR_ResourceComponent "{5D8356131CA904DC}" {
@@ -91,5 +91,5 @@ GenericEntity : "{278E487E19D82680}Prefabs/Vehicles/Core/Vehicle_Cargo_Base.et" 
    }
   }
  }
- coords 1474.901 38 2923.66
+ coords 1470.172 38 2923.315
 }

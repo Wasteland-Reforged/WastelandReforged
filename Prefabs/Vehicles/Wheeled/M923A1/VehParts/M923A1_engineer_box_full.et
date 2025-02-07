@@ -4,7 +4,7 @@ GenericEntity : "{FB186A7EAB2ADE68}Prefabs/Vehicles/Wheeled/M923A1/VehParts/M923
   SCR_CampaignBuildingProviderComponent "{5DF54421B01A7FF8}" {
    m_bIsMasterProvider 0
    m_aAvailableTraits {
-    28 108 230
+    28 108 28
    }
   }
   SCR_ResourceComponent "{5D82E3A391ED9E1F}" {
@@ -17,5 +17,5 @@ GenericEntity : "{FB186A7EAB2ADE68}Prefabs/Vehicles/Wheeled/M923A1/VehParts/M923
    }
   }
  }
- coords 1469.172 38 2930.797
+ coords 1461.958 38 2924.102
 }

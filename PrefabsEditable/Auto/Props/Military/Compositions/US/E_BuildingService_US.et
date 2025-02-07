@@ -1,0 +1,10 @@
+GenericEntity : "{7649AC4689618998}Prefabs/Props/Military/Compositions/US/BuildingService_US.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SCR_CampaignBuildingProviderComponent "{5EBCED04D0321687}" {
+   m_aAvailableTraits {
+    28 28 108
+   }
+  }
+ }
+}

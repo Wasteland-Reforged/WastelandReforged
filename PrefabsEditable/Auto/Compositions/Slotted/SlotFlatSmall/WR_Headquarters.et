@@ -3,16 +3,16 @@ GenericEntity : "{D4DDD345A352E97B}Prefabs/Compositions/Slotted/SlotFlatSmall/He
  components {
   SCR_EditableEntityComponent "{5E3E8ACD47C5587C}" : "{B35795373E565FE7}Prefabs/Editor/Components/SlotFlatSmall_SCR_EditableEntityComponent.ct" {
    m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
-    Name "#AR-EditableEntity_Headquarters_S_US_01_Name"
+    Name "Headquarters"
     Icon "{2BB9FACCC5A47EEB}UI/Imagesets/Conflict/services-icons-bw.imageset"
     IconSetName "HQ"
     m_Image "{60ED30C0AE3DF774}UI/Textures/EditorPreviews/Auto/Compositions/Slotted/SlotFlatSmall/E_Headquarters_S_US_01.edds"
     m_sFaction "US"
     m_aAuthoredLabels {
-     5 90 904 230 240 30 200 35
+     108 11
     }
     m_aAutoLabels {
-     11
+     1 121
     }
     m_EntityBudgetCost {
      SCR_EntityBudgetValue "{648C4272EB4E76AB}" {
@@ -41,7 +41,7 @@ GenericEntity : "{D4DDD345A352E97B}Prefabs/Compositions/Slotted/SlotFlatSmall/He
      m_fScale 1
     }
     SCR_EditorLinkEntry "{648C4272EB4E76CB}" {
-     m_Prefab "{C02498D55CF377AF}PrefabsEditable/Auto/Systems/Compositions/BaseLogic/E_MilitaryBaseLogic_US.et"
+     m_Prefab "{D687CCF9E52FBE2D}Prefabs/Props/Civilian/BeerBottle_01_base.et"
      m_vPosition -3.324 0 5.591
      m_vAngles 0 0 0
      m_fScale 1
@@ -115,6 +115,7 @@ GenericEntity : "{D4DDD345A352E97B}Prefabs/Compositions/Slotted/SlotFlatSmall/He
    }
   }
  }
+ coords 1460.689 38 2922.128
  {
   GenericEntity {
    ID "5D088D0BA76555BD"
@@ -166,6 +167,12 @@ GenericEntity : "{D4DDD345A352E97B}Prefabs/Compositions/Slotted/SlotFlatSmall/He
     }
     GenericEntity {
      ID "5D371AC8D914191C"
+     components {
+      SCR_CampaignBuildingProviderComponent "{5EBCED04D0321687}" {
+       m_aAvailableTraits +{
+       }
+      }
+     }
      Flags 1048576
     }
     GenericEntity {
