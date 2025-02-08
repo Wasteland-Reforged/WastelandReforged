@@ -9,6 +9,8 @@ class WR_SpawnAreaEntity : BaseGameTriggerEntity
 	// Categories
 	private const string CATEGORY_SPAWNAREA = "Spawn Area";
 	
+	ref WR_Logger<WR_SpawnAreaEntity> logger = new WR_Logger<WR_SpawnAreaEntity>(this);
+	
 	[Attribute(defvalue: "", desc: "Name of the spawn area", category: CATEGORY_SPAWNAREA)]
 	protected string m_Name;
 	
@@ -20,7 +22,7 @@ class WR_SpawnAreaEntity : BaseGameTriggerEntity
 
 	override void EOnInit(IEntity owner)
 	{
-		Print("[WASTELAND] Initializing " + GetSpawnAreaName() + " spawn area entity...", LogLevel.SPAM);
+		logger.LogDebug("Initializing " + GetSpawnAreaName() + " spawn area entity...");
 	}
 	
 	string GetSpawnAreaName()

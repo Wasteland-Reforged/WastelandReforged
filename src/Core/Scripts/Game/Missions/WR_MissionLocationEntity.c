@@ -4,10 +4,12 @@ class WR_MissionLocationEntityClass : SCR_ScenarioFrameworkTriggerEntityClass
 	
 }
 
-class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGameTriggerEntity
+class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity
 {
 	// Categories
 	private const string CATEGORY_MISSION_LOCATION = "Mission Location";
+	
+	ref WR_Logger<WR_MissionLocationEntity> logger = new WR_Logger<WR_MissionLocationEntity>(this);
 	
 	private static ref array<WR_MissionLocationEntity> MissionLocationEntities;
 	
@@ -29,18 +31,18 @@ class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity //BaseGameTr
 		if (!MissionLocationEntities)
 		{
 			MissionLocationEntities = {};
-			Print("[WASTELAND] WR_MissionLocationEntity: Initialized mission location list.");
+			
+			logger.LogNormal("Initialized mission location list.");
 		}
 		
 		m_RplComponent = BaseRplComponent.Cast(FindComponent(BaseRplComponent));
 		if (!m_RplComponent)
 		{
-			Print("[WASTELAND] WR_MissionLocationEntity: Parent entity must have RplComponent!", LogLevel.ERROR);
+			logger.LogError("Parent entity must have RplComponent!");
 			return;
 		}
 		
 		SetActivationPresence(SCR_EScenarioFrameworkTriggerActivation.PLAYER);
-		//GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
 		
 		MissionLocationEntities.Insert(this);
 	}

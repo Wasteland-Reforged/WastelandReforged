@@ -1,4 +1,4 @@
-modded class ADM_PaymentMethodItem: ADM_PaymentMethodBase
+modded class ADM_PaymentMethodItem : ADM_PaymentMethodBase
 {
 	override bool DistributePayment(IEntity player, int quantity = 1)
 	{
@@ -20,7 +20,6 @@ modded class ADM_PaymentMethodItem: ADM_PaymentMethodBase
 		
 		InventoryStorageManagerComponent invMan = EL_InventoryUtils.GetResponsibleStorageManager(player);
 		int cashAdded = EL_MoneyUtils.AddCash(invMan, 10000);
-		Print(cashAdded);
 		
 		return returned;
 	}

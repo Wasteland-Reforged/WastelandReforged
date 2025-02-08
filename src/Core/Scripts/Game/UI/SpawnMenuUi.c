@@ -16,8 +16,6 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 	//------------------------------------------------------------------------------------------------
 	protected override void OnMenuOpen()
 	{
-		Print("OnMenuOpen: menu/dialog opened!", LogLevel.NORMAL);
-
 		Widget rootWidget = GetRootWidget();
 		if (!rootWidget) return;
 
@@ -25,29 +23,21 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 		buttonClose = SCR_ButtonTextComponent.GetButtonText(BUTTON_CLOSE, rootWidget);
 		if (buttonClose)
 			buttonClose.m_OnClicked.Insert(Close);
-		else
-			Print("Button Close not found - won't be able to exit by button", LogLevel.WARNING);
 		
 		//RespawnNorth button
 		buttonRespawnNorth = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_NORTH, rootWidget);
 		if (buttonRespawnNorth)
 			buttonRespawnNorth.m_OnClicked.Insert(RespawnPlayerNorth);
-		else
-			Print("Button RespawnNorth not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
 		
 		//RespawnCentral button
 		buttonRespawnCentral = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_CENTRAL, rootWidget);
 		if (buttonRespawnCentral)
 			buttonRespawnCentral.m_OnClicked.Insert(RespawnPlayerCentral);
-		else
-			Print("Button RespawnCentral not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
 		
 		//RespawnSouth button
 		buttonRespawnSouth = SCR_ButtonTextComponent.GetButtonText(BUTTON_RESPAWN_SOUTH, rootWidget);
 		if (buttonRespawnSouth)
 			buttonRespawnSouth.m_OnClicked.Insert(RespawnPlayerSouth);
-		else
-			Print("Button RespawnSouth not found", LogLevel.WARNING); // the button can be missing without putting the layout in jeopardy
 
 
 		//ESC/Start listener
@@ -66,7 +56,6 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 		}
 		else if (!buttonClose)
 		{
-			Print("Auto-closing the menu that has no exit path", LogLevel.WARNING);
 			Close();
 			return;
 		}
@@ -136,7 +125,8 @@ class WR_SpawnMenuUiClass : ChimeraMenuBase
 		
 	}
 	
-	protected void DeleteOldChar() {
+	protected void DeleteOldChar()
+	{
 		delete oldChar;
 	}
 	

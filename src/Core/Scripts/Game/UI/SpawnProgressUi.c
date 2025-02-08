@@ -8,8 +8,6 @@ class WR_SpawnProgressUiClass : ChimeraMenuBase
 	//------------------------------------------------------------------------------------------------
 	protected override void OnMenuOpen()
 	{
-		Print("OnMenuOpen: menu/dialog opened!", LogLevel.NORMAL);
-
 		RequestCustomRespawn(SpawnAreaCategory.SPAWN_NORTH);
 		
 		Widget rootWidget = GetRootWidget();

@@ -6,6 +6,8 @@ class WR_LootBoxControllerComponentClass : SCR_BaseGameModeComponentClass
 
 class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 {	
+	ref WR_Logger<WR_LootBoxControllerComponent> logger = new WR_Logger<WR_LootBoxControllerComponent>(this);
+	
 	// TODO: add validation and make these read from a global config
 	[Attribute("1", UIWidgets.Slider, "Average percentage of loot boxes to spawn on game start", "0 1 0.01")]
 	protected float percentageLootBoxesToSpawn;
@@ -23,10 +25,9 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 		_parent = SCR_BaseGameMode.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] WR_LootBoxControllerComponent: Parent entity of WR_LootBoxControllerComponent must be a SCR_BaseGameMode!", LogLevel.ERROR);
+			logger.LogError("Parent entity of WR_LootBoxControllerComponent must be a SCR_BaseGameMode!");
 			return;
 		}
-
 	}
 
 	override void OnGameModeStart()
@@ -39,10 +40,11 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 	
 	private void SpawnItemsInLootBoxes()
 	{		
-		array<WR_LootBoxComponent> lootBoxComponents = WR_LootBoxComponent.LootBoxComponents;
-		if (!lootBoxComponents || lootBoxComponents.Count() == 0) return;
+		array<WR_LootBoxComponent> lootBoxComponents = WR_LootBoxComponent.GetLootBoxComponents();
+		if (!lootBoxComponents || lootBoxComponents.Count() == 0)
+			return;
 		
-		Print("[WASTELAND] WR_LootBoxControllerComponent: Spawning loot box(es)...", LogLevel.NORMAL);
+		logger.LogNormal("Spawning loot boxes...");
 		
 		int lootBoxesSpawned = 0;
 		WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
@@ -69,6 +71,6 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 			lootBoxesSpawned += 1;
 		}
 		
-		Print("[WASTELAND] WR_LootBoxControllerComponent: Spawned a total of " + lootBoxesSpawned + " loot box(es).", LogLevel.NORMAL);
+		logger.LogNormal("Spawned a total of " + lootBoxesSpawned + " loot box(es).");
 	}
 }

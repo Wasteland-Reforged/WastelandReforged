@@ -6,27 +6,29 @@ class WR_SpawnAreaPlayerSpawnHandlerComponentClass : ScriptComponentClass
 
 class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 {
+	ref WR_Logger<WR_SpawnAreaPlayerSpawnHandlerComponent> logger = new WR_Logger<WR_SpawnAreaPlayerSpawnHandlerComponent>(this);
+	
 	private WR_SpawnAreaEntity _parent;
 	
-	ref static array<WR_SpawnAreaPlayerSpawnHandlerComponent> PlayerSpawnHandlerComponents;
+	ref static array<WR_SpawnAreaPlayerSpawnHandlerComponent> s_aPlayerSpawnHandlerComponents;
 	
 	override void OnPostInit(IEntity owner)
 	{
-		_parent = WR_SpawnAreaEntity.Cast(owner);
+		WR_SpawnAreaEntity _parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: Parent entity of WR_SpawnAreaPlayerSpawnHandlerComponent must be a WR_SpawnAreaEntity!", LogLevel.ERROR);
+			logger.LogError("Parent entity of WR_SpawnAreaPlayerSpawnHandlerComponent must be a WR_SpawnAreaEntity!");
 			return;
 		}
 		
-		if (!PlayerSpawnHandlerComponents)
+		if (!s_aPlayerSpawnHandlerComponents)
 		{
-			PlayerSpawnHandlerComponents = {};
-			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: Initialized player spawn area handler component list.", LogLevel.NORMAL);
+			s_aPlayerSpawnHandlerComponents = {};
+			logger.LogNormal("Initialized player spawn area handler component list.");
 		}
 		
-		PlayerSpawnHandlerComponents.Insert(this);
-		Print("[WASTELAND] Inserted " + GetSpawnAreaName() + " into the player spawn handler component list.", LogLevel.SPAM);
+		s_aPlayerSpawnHandlerComponents.Insert(this);
+		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the player spawn handler component list.");
 	}
 
 	static SCR_FreeSpawnData GetSpawnData(string factionKey, SpawnAreaCategory spawnCategory)
@@ -50,7 +52,8 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 
 		// Choose a spawn area and find a safe spawn position inside it
 		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = GetRandomSpawnArea(spawnCategory);
-		if (!spawnArea) return null; // Fail if no spawn area found
+		if (!spawnArea)
+			return null; // Fail if no spawn area found
 		
 		// Configure spawn position parameters
 		float areaToCheck = 10; 			// Radius that will be checked if the initially passed pos is not safe
@@ -76,23 +79,24 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 
 	private static WR_SpawnAreaPlayerSpawnHandlerComponent GetRandomSpawnArea(SpawnAreaCategory spawnCategory)
 	{
-		array<WR_SpawnAreaPlayerSpawnHandlerComponent> spawnAreas = WR_SpawnAreaPlayerSpawnHandlerComponent.PlayerSpawnHandlerComponents;
+		array<WR_SpawnAreaPlayerSpawnHandlerComponent> spawnAreas = WR_SpawnAreaPlayerSpawnHandlerComponent.s_aPlayerSpawnHandlerComponents;
 		
 		// Perform validation
 		if (!spawnAreas)
 		{
-			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: The player spawn area list is null!");
+			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: The player spawn area list is null!", LogLevel.ERROR);
 			return null;
 		}
-		else if (spawnAreas.Count() < 1)
+		else if (spawnAreas.Count() == 0)
 		{
-			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: The player spawn area list is empty! Place one or more spawn areas with player spawn handler components attached.");
+			Print("[WASTELAND] WR_SpawnAreaPlayerSpawnHandlerComponent: The player spawn area list is empty! Place one or more spawn areas with player spawn handler components attached.", LogLevel.ERROR);
 			return null;
 		}
 
-		//Roll a random spawn area until it picks one in the selected region; Cannot handle null value for category
+		// Roll a random spawn area until it picks one in the selected region; Cannot handle null value for category
 		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = spawnAreas.GetRandomElement();
-		while (spawnArea.GetSpawnAreaCategory() != spawnCategory) {
+		while (spawnArea.GetSpawnAreaCategory() != spawnCategory)
+		{
 			spawnArea = spawnAreas.GetRandomElement();
 		}
 		
@@ -111,14 +115,15 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 	
 	void ~WR_SpawnAreaPlayerSpawnHandlerComponent()
 	{
-		if (!PlayerSpawnHandlerComponents) return;
+		if (!s_aPlayerSpawnHandlerComponents) 
+			return;
 		
-		if (PlayerSpawnHandlerComponents.Count() == 0)
+		if (s_aPlayerSpawnHandlerComponents.Count() == 0)
 		{
-			PlayerSpawnHandlerComponents = null;
+			s_aPlayerSpawnHandlerComponents = null;
 			return;
 		}
 		
-		PlayerSpawnHandlerComponents.RemoveItem(this);
+		s_aPlayerSpawnHandlerComponents.RemoveItem(this);
 	}
 }

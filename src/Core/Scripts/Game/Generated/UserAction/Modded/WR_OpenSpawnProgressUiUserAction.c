@@ -3,7 +3,6 @@ class WR_OpenSpawnProgressUiUserAction : ScriptedUserAction
 	//------------------------------------------------------------------------------------------------
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
-		Print("Hit PerformAction");
 		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.WR_SpawnProgressUi_Id); 
 	}
 

@@ -57,9 +57,12 @@ class WR_Utils
 		foreach(int playerId : players)
 		{
 			IEntity pce = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId);
-			if (!pce) continue;
-			if (vector.Distance(v, pce.GetOrigin()) <= distance) {
-				Print("[WR_Utils]: Player found too close to spawned entity; aborting..", LogLevel.WARNING);
+			if (!pce)
+				continue;
+			
+			if (vector.Distance(v, pce.GetOrigin()) <= distance)
+			{
+				Print("[WASTELAND] WR_Utils: Player found too close to spawned entity. Aborting...", LogLevel.WARNING);
 				return true;
 			}
 		}

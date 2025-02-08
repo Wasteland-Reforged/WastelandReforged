@@ -20,7 +20,8 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 	override void OnPostInit(IEntity owner)
 	{
 		InitializeLootMaps();
-		Print("[WASTELAND] WR_LootSpawningComponent: Initialized Loot Maps");
+		
+		logger.LogNormal("Initialized loot maps.");
 	}
 	
 	void InitializeLootMaps()

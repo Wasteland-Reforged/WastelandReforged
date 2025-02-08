@@ -31,18 +31,18 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Parent entity of WR_SpawnAreaVehicleSpawnHandlerComponent must be a WR_SpawnAreaEntity!", LogLevel.ERROR);
+			logger.LogError("Parent entity of WR_SpawnAreaVehicleSpawnHandlerComponent must be a WR_SpawnAreaEntity!");
 			return;
 		}
 		
 		if (!WR_TownVehicleSystem.VehicleSpawnHandlerComponents)
 		{
 			WR_TownVehicleSystem.VehicleSpawnHandlerComponents = {};
-			Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Initialized vehicle spawn area handler component list.", LogLevel.NORMAL);
+			logger.LogNormal("Initialized vehicle spawn area handler component list.");
 		}
 		
 		WR_TownVehicleSystem.VehicleSpawnHandlerComponents.Insert(this);
-		Print("[WASTELAND] WR_SpawnAreaVehicleSpawnHandlerComponent: Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list", LogLevel.SPAM);
+		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list.");
 	}
 	
 	bool SpawnTownVehicle()
