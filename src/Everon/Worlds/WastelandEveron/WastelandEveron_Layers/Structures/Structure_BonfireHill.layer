@@ -2372,35 +2372,6 @@ $grp PolylineShapeEntity {
   }
  }
 }
-$grp GenericEntity : "{0C218EEDC33AE65D}GunStoreMan.et" {
- GunStore_StPhillipe {
-  components {
-   WR_MapMarkerComponent "{624A4600681E62AA}" {
-    m_eIcon ObjectiveMarker
-   }
-  }
-  coords 4572.211 22.014 10497.195
-  angleY -118.234
- }
- GunStore_Quarry {
-  components {
-   WR_MapMarkerComponent "{624A4600681E62AA}" {
-    m_eIcon ObjectiveMarker
-   }
-  }
-  coords 8835.475 213.895 3965.547
-  angleY 125.161
- }
- GunStore_BonfireHill {
-  components {
-   WR_MapMarkerComponent "{624A4600681E62AA}" {
-    m_eIcon ObjectiveMarker
-   }
-  }
-  coords 3074.603 118.503 5243.599
-  angleY 54.447
- }
-}
 GenericEntity : "{13FD3EC5D111AD6D}Prefabs/Props/Forest/WoodPile/WoodPile_01_A.et" {
  coords 5233.554 130.308 4586.739
  angleX -1.184
@@ -2420,16 +2391,17 @@ GenericEntity : "{46B71B9E370BE7C0}Prefabs/Props/Forest/WoodPile/WoodPile_01_End
  angleZ -2.014
 }
 GenericEntity : "{49E2D1A3DE5ED007}Prefabs/Props/Agriculture/Beehive_01/Beehive_01_stack.et" {
- coords 5240.589 130.588 4596.775
- angleY -171.899
+ coords 5243.841 130.588 4595.785
+ angleY -168.622
 }
 GenericEntity : "{4A0EB5570B2BB36C}Prefabs/Props/Wrecks/Ural4320_wreck.et" {
- coords 5247.2 130.192 4602.249
+ coords 5250.755 130.192 4600.874
  angleX -2.098
+ angleY 3.277
 }
 SCR_DestructibleBuildingEntity : "{99F6E8E52B71B137}Prefabs/Structures/Agriculture/Barn/Barn_E_01.et" {
- coords 5236.639 0.557 4603.559
- angleY -172.393
+ coords 5240.285 0.513 4602.783
+ angleY -169.116
 }
 Tree : "{A975A81D02F4862C}Prefabs/Vegetation/Tree/t_picea_abies_2s.et" {
  coords 5218.731 0 4589.99
@@ -2438,17 +2410,13 @@ Tree : "{A975A81D02F4862C}Prefabs/Vegetation/Tree/t_picea_abies_2s.et" {
 GenericEntity : "{C7BE6D1395342D32}Prefabs/Props/Agriculture/WaterTank_01_v1.et" {
  coords 5226.537 130.017 4585.625
 }
-StaticModelEntity : "{EE4B50DE2035B007}PrefabsEditable/Auto/Compositions/Misc/SubCompositions/E_Table_Ashtray_USSR_01.et" {
- coords 8836.022 213.9 3965.079
- angleY 127.505
-}
 SCR_DestructibleBuildingEntity : "{F08D8E78433D713A}Prefabs/Structures/Houses/Shed/Shed_01/Shed_01.et" {
- coords 5228.082 -0.326 4606.145
- angleY -80.942
+ coords 5231.89 -0.539 4605.855
+ angleY -77.665
 }
 GenericEntity : "{FBC8A28A5C908D2F}Prefabs/Props/Agriculture/Cartwheel_01.et" {
- coords 5228.788 130.07 4607.265
+ coords 5232.659 130.07 4606.934
  angleX -6.887
- angleY 46.198
+ angleY 49.475
  angleZ -7.127
 }

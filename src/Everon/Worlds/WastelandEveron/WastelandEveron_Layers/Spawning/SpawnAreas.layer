@@ -1,4 +1,4 @@
-$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/WR_SpawnArea.et" {
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
  SpawnArea_Chotain {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {

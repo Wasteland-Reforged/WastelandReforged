@@ -1,0 +1,14 @@
+$grp GenericEntity : "{72CE6354863D4306}Prefabs/GunStore/GunStore.et" {
+ GunStore_LeMouleSawmill {
+  coords 3075.216 119.398 5244.494
+  angleY -177.083
+ }
+ GunStore_QuarryCastle {
+  coords 8835.809 214.792 3965.456
+  angleY -146.335
+ }
+ GunStore_StPhillipeFactory {
+  coords 4571.738 22.912 10496.471
+  angleY -10.219
+ }
+}

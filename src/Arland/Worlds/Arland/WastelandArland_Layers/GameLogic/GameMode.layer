@@ -1,31 +1,4 @@
-SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
- components {
-  NavmeshWorldComponent "{5584F30E67F617AD}" {
-   NavmeshSettings ChimeraNavmeshWorld "{62F80B300953E923}" {
-    NavmeshFilesConfig BaseNavmeshFilesConfig "{62F80B30F065B4B9}" {
-     NavmeshFile "{D8EF7131FB31AF97}worlds/GameMaster/Navmeshes/GM_Arland.nmn"
-    }
-    NavmeshProject "Soldiers"
-   }
-  }
-  NavmeshWorldComponent "{5584F30EEFEE1223}" {
-   NavmeshSettings ChimeraNavmeshWorld "{50FC63BEBE3973C5}" {
-    NavmeshFilesConfig BaseNavmeshFilesConfig "{60CA9BE5536BF701}" {
-     NavmeshFile "{A0AEEB1E7EF474FA}worlds/GameMaster/Navmeshes/GM_Arland_vehicles.nmn"
-    }
-   }
-  }
-  NavmeshWorldComponent "{5C8C9B750D124A63}" {
-   NavmeshSettings NavmeshWorld "{5C8C9B750B60C6E2}" {
-    NavmeshFilesConfig BaseNavmeshFilesConfig "{5C90BD0EC793647D}" {
-     NavmeshFile "{804386FFEB7B7EFD}worlds/MP/Navmeshes/LowResArland.nmn"
-    }
-   }
-  }
- }
- coords 1374.971 38.434 2930.119
-}
-WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland.et" {
+WR_GameModeWasteland GameMode_Wasteland : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wasteland/GameMode_Wasteland.et" {
  components {
   ADM_ShopBaseComponent "{62CC5B7261CECB07}" {
    m_ShopName ""
@@ -276,5 +249,25 @@ WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}GameMode_Wasteland
  }
  coords 1377.751 38.609 2929.999
  m_MissionSystemConfiguration WR_MissionSystemConfig "{64872000631FA775}" : "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf" {
+ }
+ {
+  SCR_CampaignFactionManager CampaignFactionManager {
+   ID "62F778E615DD0124"
+  }
+  PerceptionManager PerceptionManager {
+   ID "62F778E615DD0289"
+  }
+  RadioManagerEntity RadioManager {
+   ID "62F778E615DD028E"
+  }
+  ScriptedChatEntity ScriptedChatEntity {
+   ID "62F778E615DD4FD8"
+  }
+  SCR_LoadoutManager LoadoutManager_Base {
+   ID "62F778E615DD4FDB"
+  }
+  SCR_EditorSettingsEntity SCR_EditorSettingsEntity {
+   ID "62F778E615DD4FD9"
+  }
  }
 }

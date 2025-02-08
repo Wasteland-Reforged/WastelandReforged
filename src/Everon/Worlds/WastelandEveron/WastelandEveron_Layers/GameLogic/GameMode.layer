@@ -1,0 +1,23 @@
+WR_GameModeWasteland GameMode_Wasteland : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wasteland/GameMode_Wasteland.et" {
+ coords 4883.872 28.591 11921.055
+ {
+  SCR_CampaignFactionManager CampaignFactionManager {
+   ID "62F778E615DD0124"
+  }
+  PerceptionManager PerceptionManager {
+   ID "62F778E615DD0289"
+  }
+  RadioManagerEntity RadioManager {
+   ID "62F778E615DD028E"
+  }
+  ScriptedChatEntity ScriptedChatEntity {
+   ID "62F778E615DD4FD8"
+  }
+  SCR_LoadoutManager LoadoutManager_Base {
+   ID "62F778E615DD4FDB"
+  }
+  SCR_EditorSettingsEntity SCR_EditorSettingsEntity {
+   ID "62F778E615DD4FD9"
+  }
+ }
+}

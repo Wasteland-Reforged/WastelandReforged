@@ -1,4 +1,4 @@
-GenericEntity : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
+GenericEntity SpawnBunker : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
  coords -20000 100 -20000
  {
   GenericEntity {
@@ -24,7 +24,7 @@ GenericEntity : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
     }
    }
   }
-  WR_SafezoneEntity : "{5AF7AD250A60D208}Prefabs/Zones/Safe/WR_Safezone.et" {
+  WR_SafezoneEntity : "{5AF7AD250A60D208}Prefabs/MP/Zones/Safe/WR_Safezone.et" {
    coords -12.48 -4.372 16.871
    SphereRadius 50
   }

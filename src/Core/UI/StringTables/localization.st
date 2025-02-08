@@ -3,7 +3,7 @@ StringTable {
  Items {
   CustomStringTableItem "{6213697BFBC7A0CF}" {
    Id "WR_Briefing_Intro_1_Desc"
-   Target_en_us "Wasteland is a PvP sandbox gamemode."\
+   Target_en_us "Wasteland is a PvPvE sandbox gamemode."\
    ""\
    "Collect weapons, vehicles, and equipment to use in battle against other players. Gather supplies and build a base to store your loot."\
    ""\
