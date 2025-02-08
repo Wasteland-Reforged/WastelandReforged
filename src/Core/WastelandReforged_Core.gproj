@@ -1,0 +1,22 @@
+GameProject {
+ ID "WastelandReforgedCore"
+ GUID "64901CB1F99CB10A"
+ TITLE "Wasteland Reforged - Core"
+ Dependencies {
+  "58D0FB3206B6F859" "5D2D1436D1FA5A13" "5D6EBC81EB1842EF"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}

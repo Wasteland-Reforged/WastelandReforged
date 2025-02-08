@@ -1,0 +1,8 @@
+GameProject {
+ ID "WastelandReforgedEveron"
+ GUID "649023EFD44E6263"
+ TITLE "Wasteland Reforged - Everon"
+ Dependencies {
+  "64901CB1F99CB10A" "58D0FB3206B6F859"
+ }
+}
