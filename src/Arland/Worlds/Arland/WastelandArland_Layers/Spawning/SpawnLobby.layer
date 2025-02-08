@@ -1,0 +1,32 @@
+GenericEntity SpawnBunker : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
+ coords -20000 100 -20000
+ {
+  GenericEntity {
+   ID "62F768EB62D41F0D"
+   components {
+    ActionsManagerComponent "{647379DC7EAF638C}" {
+     ActionContexts {
+      UserActionContext "{647379DC7F576D99}" {
+       Radius 1
+      }
+     }
+     additionalActions {
+      WR_OpenSpawnProgressUiUserAction "{647379DF2C959791}" {
+       ParentContextList {
+        "SpawnAction"
+       }
+       UIInfo SCR_ActionUIInfo "{647379D079B7BCE8}" {
+        Name "Spawn"
+       }
+       VisibilityRange 5
+      }
+     }
+    }
+   }
+  }
+  WR_SafezoneEntity : "{5AF7AD250A60D208}Prefabs/MP/Zones/Safe/WR_Safezone.et" {
+   coords -12.48 -4.372 16.871
+   SphereRadius 50
+  }
+ }
+}

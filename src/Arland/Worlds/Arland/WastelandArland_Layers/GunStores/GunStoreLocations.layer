@@ -1,0 +1,53 @@
+GenericEntity GunStore_MilitaryBase {
+ coords 1375.662 41.682 2352.687
+ {
+  SCR_FiringRangeTarget : "{379D34B0D41DA810}Prefabs/Props/Military/Training/TargetInfantry_01.et" {
+   components {
+    ProcAnimComponent "{51A276D49FB75B53}" {
+     Enabled 0
+    }
+    SCR_SoundDataComponent "{5B1A7A97A4ED1000}" {
+     Enabled 0
+    }
+   }
+   coords 0.456 -0.901 -0.064
+   angleY -89.047
+  }
+  GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et" {
+   coords -0.131 0 0.61
+   angleY -112.731
+  }
+  GenericEntity : "{51D31AB07AE3C1C7}Prefabs/Props/Commercial/CashierShop_01.et" {
+   components {
+    ADM_ShopComponent "{647379C8EAF8C735}" : "{1D5ECEB7EA0D7D22}Prefabs/Components/Shop/ShopComponent.ct" {
+     m_ShopName "Gun Store"
+    }
+    WR_MapMarkerComponent "{647379CAF7E22ABB}" {
+     m_sLabel "Gun Store"
+     m_eIcon ObjectiveMarker
+     m_eColor Blue
+    }
+    ActionsManagerComponent "{647379C8ED74CC09}" : "{F57A19D612EFE2CE}Prefabs/Components/Shop/ShopActionManager.ct" {
+     ActionContexts {
+      UserActionContext "{64736234DC4D8253}" {
+       Position PointInfo "{64736234DC4D8242}" {
+        Offset -0.0001 0.35 -0.27
+       }
+      }
+     }
+     additionalActions {
+      ADM_ShopAction "{64736234DC4D824D}" {
+       VisibilityRange 2
+      }
+     }
+    }
+   }
+   coords 0.042 0.001 -0.047
+   angleY 91.432
+  }
+  GenericEntity : "{8FB2845D48F4E02A}Prefabs/Props/Furniture/TableOld_01/TableOld_01_white.et" {
+   coords -0.092 -0.9 -0.005
+   angleY 91.432
+  }
+ }
+}

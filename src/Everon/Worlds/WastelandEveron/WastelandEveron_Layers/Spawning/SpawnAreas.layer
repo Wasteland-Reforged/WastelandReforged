@@ -1,0 +1,303 @@
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ SpawnArea_Chotain {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7060.124 118.396 6014.66
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Chotain"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+ SpawnArea_Durras {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 8826.499 95.047 2757.366
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Durras"
+  spawnAreaCategory SPAWN_SOUTH
+ }
+ SpawnArea_EntreDeux {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5767.047 217.222 7059.564
+  TriggerShapeType Sphere
+  SphereRadius 110
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Entre Deux"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+ SpawnArea_Etoupe {
+  components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+    Enabled 0
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    Enabled 0
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5378.289 18.011 10009.475
+  TriggerShapeType Sphere
+  SphereRadius 60
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Etoupe"
+  spawnAreaCategory SPAWN_NORTH
+ }
+ SpawnArea_Figari {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5249.353 62.618 5354.577
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Figari"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+ SpawnArea_Gravette {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4098.656 36.263 7795.032
+  TriggerShapeType Sphere
+  SphereRadius 100
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Gravette"
+  spawnAreaCategory SPAWN_NORTH
+ }
+ SpawnArea_Kermovan {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 6338.106 5.573 9641.228
+  TriggerShapeType Sphere
+  SphereRadius 75
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Kermovan"
+  spawnAreaCategory SPAWN_NORTH
+ }
+ SpawnArea_Lamentin {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 1293.64 38.977 5986.427
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Lamentin"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+ SpawnArea_Laruns {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7559.852 81.409 5533.607
+  TriggerShapeType Sphere
+  SphereRadius 100
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Laruns"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+ SpawnArea_LeMoule {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 2618.086 107.269 5368.484
+  TriggerShapeType Sphere
+  SphereRadius 90
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Le Moule"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+ SpawnArea_Levie {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7482.765 138.601 4719.865
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Levie"
+  spawnAreaCategory SPAWN_SOUTH
+ }
+ SpawnArea_Meaux {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4503.834 13.969 9480.455
+  TriggerShapeType Sphere
+  SphereRadius 125
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Meaux"
+  spawnAreaCategory SPAWN_NORTH
+ }
+ SpawnArea_Montignac {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4757.67 166.234 7052.286
+  TriggerShapeType Sphere
+  SphereRadius 200
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Montignac"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+ SpawnArea_Morton {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5099.869 21.266 3998.184
+  TriggerShapeType Sphere
+  SphereRadius 150
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Morton"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+ SpawnArea_Provins {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5496.87 101.339 6064.972
+  TriggerShapeType Sphere
+  SphereRadius 90
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Provins"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+ SpawnArea_Regina {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7173.982 137.246 2357.27
+  TriggerShapeType Sphere
+  SphereRadius 110
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Regina"
+  spawnAreaCategory SPAWN_SOUTH
+ }
+ SpawnArea_StPhillipe {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4455.731 11.39 10783.104
+  TriggerShapeType Sphere
+  SphereRadius 250
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "St. Phillipe"
+  spawnAreaCategory SPAWN_NORTH
+ }
+ SpawnArea_StPierre {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 9782.565 0 1533.577
+  TriggerShapeType Sphere
+  SphereRadius 200
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "St. Pierre"
+  spawnAreaCategory SPAWN_SOUTH
+ }
+ SpawnArea_Tyrone {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4926.892 22.461 9075.774
+  TriggerShapeType Sphere
+  SphereRadius 100
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Tyrone"
+  spawnAreaCategory SPAWN_NORTH
+ }
+ SpawnArea_Vernon {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 9255.426 59.052 2076.659
+  TriggerShapeType Sphere
+  SphereRadius 90
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Vernon"
+  spawnAreaCategory SPAWN_SOUTH
+ }
+ SpawnArea_Villeneuf {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 2852.835 86.747 6363.759
+  TriggerShapeType Sphere
+  SphereRadius 110
+  DrawShape 0
+  ShapeColor 0 0 0 0
+  m_Name "Villeneuf"
+  spawnAreaCategory SPAWN_CENTRAL
+ }
+}

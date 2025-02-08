@@ -1,0 +1,8 @@
+GameProject {
+ ID "WastelandReforgedArland"
+ GUID "64901E25F81B4F84"
+ TITLE "Wasteland Reforged - Arland"
+ Dependencies {
+  "64901CB1F99CB10A" "58D0FB3206B6F859"
+ }
+}
