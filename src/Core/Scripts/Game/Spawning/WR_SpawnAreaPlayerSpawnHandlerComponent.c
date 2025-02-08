@@ -14,7 +14,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 	
 	override void OnPostInit(IEntity owner)
 	{
-		WR_SpawnAreaEntity _parent = WR_SpawnAreaEntity.Cast(owner);
+		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
 			logger.LogError("Parent entity of WR_SpawnAreaPlayerSpawnHandlerComponent must be a WR_SpawnAreaEntity!");
