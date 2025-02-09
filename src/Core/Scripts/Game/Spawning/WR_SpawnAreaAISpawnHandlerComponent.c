@@ -34,9 +34,9 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		}
 		
 		m_aBotSpawnHandlers.Insert(this);
-		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the bot spawn handler component list");
+		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the AI spawn handler component list");
 		
-		logger.LogNormal("Initialized.");
+		logger.LogDebug("Initialized.");
 	}
 	
 	protected bool SpawnAIGroup()

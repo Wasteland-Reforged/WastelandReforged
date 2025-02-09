@@ -31,7 +31,7 @@ class WR_StaticMarkerHelper
 		SCR_MapMarkerBase marker = markerManager.GetStaticMarkerByID(markerId);
 		if (!marker)
 		{
-			Print("[WASTELAND] WR_StaticMarkerHelper: Marker with ID " + markerId + " is null.", LogLevel.ERROR);
+			Print("[WASTELAND] WR_StaticMarkerHelper: Marker with ID " + markerId + " is null.", LogLevel.WARNING);
 			return;
 		}
 		

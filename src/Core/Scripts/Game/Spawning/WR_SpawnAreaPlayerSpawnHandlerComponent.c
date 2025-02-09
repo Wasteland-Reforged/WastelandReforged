@@ -29,6 +29,8 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		
 		s_aPlayerSpawnHandlerComponents.Insert(this);
 		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the player spawn handler component list.");
+
+		logger.LogDebug("Initialized.");
 	}
 
 	static SCR_FreeSpawnData GetSpawnData(string factionKey, SpawnAreaCategory spawnCategory)

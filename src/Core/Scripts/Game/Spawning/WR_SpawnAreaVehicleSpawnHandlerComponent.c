@@ -43,6 +43,8 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		WR_TownVehicleSystem.VehicleSpawnHandlerComponents.Insert(this);
 		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list.");
+
+		logger.LogDebug("Initialized.");
 	}
 	
 	bool SpawnTownVehicle()
