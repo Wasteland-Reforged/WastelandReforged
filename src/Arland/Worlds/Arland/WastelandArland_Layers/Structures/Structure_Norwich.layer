@@ -10928,24 +10928,6 @@ SCR_DestructibleBuildingEntity : "{4DC0293EF161C898}Prefabs/Structures/Industria
 SCR_DestructibleBuildingEntity : "{5A81BD9171FC3B07}Prefabs/Structures/Ruins/HouseRuins/HouseRuin_01/HouseRuin_01_BrickPile_Big.et" {
  coords 1996.662 0.117 3070.594
 }
-WR_SpawnAreaEntity SpawnArea_Norwich : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
- components {
-  WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
-   botsPerSqKm 50
-   AIGroupsFlatRate 2
-  }
-  WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
-   vehiclesPerSqKm 250
-   vehiclesFlatRate 12
-  }
- }
- coords 1965.199 51.01 3103.156
- SphereRadius 100
- DrawShape 0
- ShapeColor 0 0.591 1 0.102
- m_Name "Norwich"
- spawnAreaCategory SPAWN_NORTH
-}
 $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_MissionLocation.et" {
  LargeMissionLocation5 {
   coords 2129.505 53.687 2948.671

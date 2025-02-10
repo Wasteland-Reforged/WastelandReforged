@@ -1,0 +1,8 @@
+WR_SpawnPoint SpawnPoint_Region_1 : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 1381.442 38.868 2930.184
+ angleY 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Random Town - North"
+ }
+ m_eSpawnRegion REGION_1
+}

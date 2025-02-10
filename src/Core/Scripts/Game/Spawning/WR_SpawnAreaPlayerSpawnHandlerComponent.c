@@ -33,7 +33,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		logger.LogDebug("Initialized.");
 	}
 
-	static SCR_FreeSpawnData GetSpawnData(string factionKey, SpawnAreaCategory spawnCategory)
+	static SCR_FreeSpawnData GetSpawnData(string factionKey, WR_SpawnRegion region)
 	{
 		ResourceName characterPrefabName;
 		switch (factionKey)
@@ -53,7 +53,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		}
 
 		// Choose a spawn area and find a safe spawn position inside it
-		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = GetRandomSpawnArea(spawnCategory);
+		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = GetRandomSpawnArea(region);
 		if (!spawnArea)
 			return null; // Fail if no spawn area found
 		
@@ -79,7 +79,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		return new SCR_FreeSpawnData(characterPrefabName, respawnPos, heading);
 	}
 
-	private static WR_SpawnAreaPlayerSpawnHandlerComponent GetRandomSpawnArea(SpawnAreaCategory spawnCategory)
+	private static WR_SpawnAreaPlayerSpawnHandlerComponent GetRandomSpawnArea(WR_SpawnRegion region)
 	{
 		array<WR_SpawnAreaPlayerSpawnHandlerComponent> spawnAreas = WR_SpawnAreaPlayerSpawnHandlerComponent.s_aPlayerSpawnHandlerComponents;
 		
@@ -97,7 +97,7 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 
 		// Roll a random spawn area until it picks one in the selected region; Cannot handle null value for category
 		WR_SpawnAreaPlayerSpawnHandlerComponent spawnArea = spawnAreas.GetRandomElement();
-		while (spawnArea.GetSpawnAreaCategory() != spawnCategory)
+		while (spawnArea.GetSpawnAreaRegion() != region)
 		{
 			spawnArea = spawnAreas.GetRandomElement();
 		}
@@ -110,9 +110,9 @@ class WR_SpawnAreaPlayerSpawnHandlerComponent : ScriptComponent
 		return _parent.GetSpawnAreaName();
 	}
 	
-	SpawnAreaCategory GetSpawnAreaCategory()
+	WR_SpawnRegion GetSpawnAreaRegion()
 	{
-		return _parent.GetSpawnAreaCategory();
+		return _parent.GetSpawnRegion();
 	}
 	
 	void ~WR_SpawnAreaPlayerSpawnHandlerComponent()

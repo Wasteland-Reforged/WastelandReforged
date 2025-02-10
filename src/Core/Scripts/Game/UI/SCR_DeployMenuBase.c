@@ -111,5 +111,49 @@ modded class SCR_DeployMenuMain
 	{
 		m_MapEntity.CenterMap();
 	}
+	
+	override protected void RequestRespawn()
+	{
+		UpdateRespawnButton();
+		
+		if (!m_RespawnButton.IsEnabled())
+			return;
+
+		if (!m_iSelectedSpawnPointId.IsValid())
+		{
+			Debug.Error("Selected SpawnPointId is invalid!");
+			return;
+		}
+
+		ResourceName resourcePrefab = ResourceName.Empty;
+		if (m_LoadoutRequestUIHandler.GetPlayerLoadout())
+			resourcePrefab = m_LoadoutRequestUIHandler.GetPlayerLoadout().GetLoadoutResource();
+		else
+		{
+			Debug.Error("No player loadout assigned!");
+			return;
+		}
+
+		m_fCurrentDeployTimeOut = DEPLOY_TIME_OUT;
+		
+		// Get spawn data
+		SCR_SpawnData rspData;
+		
+		WR_SpawnPoint wrSpawnPoint = WR_SpawnPoint.Cast(SCR_SpawnPoint.GetSpawnPointByRplId(m_iSelectedSpawnPointId));
+		if (wrSpawnPoint)
+		{
+			PlayerController pc = GetGame().GetPlayerController();
+			string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
+			
+			rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey, wrSpawnPoint.GetSpawnRegion());
+			rspData.SetSkipPreload(false);
+		}
+		else
+		{
+			rspData = new SCR_SpawnPointSpawnData(resourcePrefab, m_iSelectedSpawnPointId);
+		}
+		
+		m_SpawnRequestManager.RequestSpawn(rspData);
+	}
 }
 

@@ -90,16 +90,18 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		{
 			auto supplyStorage = SCR_ResourceComponent.Cast(vehicleEnt.FindComponent(SCR_ResourceComponent));
 				
-			if (supplyStorage && supplyStorage.GetContainers()) {
-				foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers()) {
-					int maxSteps = suppContainer.GetMaxResourceValue()/vehicleSupplyStepSize;
+			if (supplyStorage && supplyStorage.GetContainers())
+			{
+				foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers())
+				{
+					int maxSteps = suppContainer.GetMaxResourceValue() / vehicleSupplyStepSize;
 					int supplyToAdd = Math.RandomIntInclusive(1, maxSteps) * vehicleSupplyStepSize;
 					suppContainer.IncreaseResourceValue(supplyToAdd);
 				}
 			}
 			else
 			{
-				logger.LogError("Could not find supply storage for town vehicle.");
+				logger.LogWarning(string.Format("Could not find supply storage for town vehicle. Resource name: %1", vehicleResource));
 			}
 		}
 		
@@ -123,7 +125,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	protected void SpawnVehicleLoot(IEntity vehicle, array<ResourceName> additionalItems)
 	{
-		//Remove initial items
+		// Remove initial items
 		if (!WR_Utils.RemoveAllItemsFromVehicle(vehicle))
 		{
 			logger.LogError("Could not remove initial items from vehicle.");
@@ -157,9 +159,8 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	void CheckVehicles()
 	{
-		while (_currentVehicles < getMaxTownVehicles()) {
+		while (_currentVehicles < GetMaxTownVehicles())
 			SpawnTownVehicle();
-		}
 	}
 
 	private int GetVehicleCountPerSqKm()
@@ -171,7 +172,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		return Math.Floor(areaSqKm * vehiclesPerSqKm);
 	}
 	
-	private int getMaxTownVehicles()
+	private int GetMaxTownVehicles()
 	{
 		return Math.Max(GetVehicleCountPerSqKm(), vehiclesFlatRate);
 	}

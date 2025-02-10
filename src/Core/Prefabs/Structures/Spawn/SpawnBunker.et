@@ -110,6 +110,31 @@ GenericEntity {
    angleZ -90
    scale 2
   }
+  $grp WR_SpawnPoint : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+   {
+    ID "64940A71D2D68111"
+    coords -12.447 -4.373 12.825
+    angleY -180
+    m_fSpawnRadius 3
+    m_sFaction "US"
+    m_bIsSpawnLobbySpawnPoint 1
+   }
+   {
+    ID "64940A71D2D68137"
+    angleY -180
+    m_fSpawnRadius 3
+    m_sFaction "USSR"
+    m_bIsSpawnLobbySpawnPoint 1
+   }
+   {
+    ID "64940A71D2D6813B"
+    coords -12.647 -4.373 12.825
+    angleY -180
+    m_fSpawnRadius 3
+    m_sFaction "FIA"
+    m_bIsSpawnLobbySpawnPoint 1
+   }
+  }
   GenericEntity : "{6C57BFFFA642C60C}Prefabs/Compositions/Misc/SubCompositions/CrateStacked_04.et" {
    ID "62F768EB62D41F3B"
    coords -16.471 -4.373 16.598
@@ -134,15 +159,14 @@ GenericEntity {
        }
        ContextName "SpawnAction"
        Position PointInfo "{647379DF6F6788E8}" {
-        Offset 0 0.5 0
+        Offset -0.1713 0.3756 0
        }
       }
      }
      additionalActions {
-      WR_OpenSpawnProgressUiUserAction "{647379DF2C959791}" {
-       ActionTitle "Spawn"
+      WR_OpenDeployMenuUserAction "{64937568A3185290}" {
+       ActionTitle "Open Deploy Menu"
        VisibilityRange 2
-       Duration 1
       }
      }
     }
@@ -225,29 +249,6 @@ GenericEntity {
    ID "62F768EB62D410C2"
    coords -6.799 -4.373 8.218
    angleY -53.845
-  }
-  $grp SCR_SpawnPoint : "{E7F4D5562F48DDE4}Prefabs/MP/Spawning/SpawnPoint_Base.et" {
-   {
-    ID "62F768EB62D410DE"
-    coords -13.421 -3.029 13.189
-    angleY -180
-    m_fSpawnRadius 5
-    m_sFaction "US"
-   }
-   {
-    ID "62F768EB62D431FE"
-    coords -11.381 -3.029 13.17
-    angleY -180
-    m_fSpawnRadius 5
-    m_sFaction "USSR"
-   }
-   {
-    ID "62F768EB62D5EC2A"
-    coords -12.411 -3.029 12.914
-    angleY -180
-    m_fSpawnRadius 5
-    m_sFaction "FIA"
-   }
   }
   GenericEntity : "{FDA8F11B3BD0C445}PrefabsEditable/Auto/Props/Construction/CableReel/E_CableReelWooden_01.et" {
    ID "62F768EB62D5EC5E"

@@ -1,4 +1,4 @@
-class WR_SpawnProgressUiClass : ChimeraMenuBase
+class WR_RespawnIndicatorClass : ChimeraMenuBase
 {
 	protected static const string TEXT_TITLE = "TextTitle";
 	

@@ -15,7 +15,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Beauregard"
-  spawnAreaCategory SPAWN_NORTH
+  m_eSpawnRegion REGION_1
  }
  SpawnArea_Arleville {
   components {
@@ -33,7 +33,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Arleville"
-  spawnAreaCategory SPAWN_NORTH
+  m_eSpawnRegion REGION_1
  }
  SpawnArea_Foxdale_Players {
   components {
@@ -52,7 +52,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Foxdale"
-  spawnAreaCategory SPAWN_NORTH
+  m_eSpawnRegion REGION_1
  }
  SpawnArea_Military {
   components {
@@ -75,7 +75,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Military"
-  spawnAreaCategory SPAWN_NORTH
   m_IsActive 0
  }
  SpawnArea_Foxdale_Vehicles {
@@ -119,5 +118,23 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   DrawShape 0
   ShapeColor 0 0.591 1 0.102
   m_Name "Foxdale 2"
+ }
+ SpawnArea_Norwich {
+  components {
+   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+    botsPerSqKm 50
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 250
+    vehiclesFlatRate 12
+   }
+  }
+  coords 1965.199 51.01 3103.156
+  SphereRadius 100
+  DrawShape 0
+  ShapeColor 0 0.591 1 0.102
+  m_Name "Norwich"
+  m_eSpawnRegion REGION_1
  }
 }

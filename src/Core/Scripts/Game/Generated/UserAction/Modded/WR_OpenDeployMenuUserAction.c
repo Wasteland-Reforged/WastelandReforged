@@ -1,9 +1,10 @@
-class WR_OpenSpawnProgressUiUserAction : ScriptedUserAction
+class WR_OpenDeployMenuUserAction : ScriptedUserAction
 {
 	//------------------------------------------------------------------------------------------------
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
-		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.WR_SpawnProgressUi_Id); 
+		if (!SCR_DeployMenuMain.GetDeployMenu())
+			SCR_DeployMenuMain.OpenDeployMenu();
 	}
 
 	//------------------------------------------------------------------------------------------------
