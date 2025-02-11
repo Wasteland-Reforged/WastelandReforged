@@ -2085,10 +2085,6 @@ SCR_DestructibleBuildingEntity : "{6FA58B435F69B179}Prefabs/Structures/Houses/Sh
  coords 1833.199 0.225 853.472
  angleY -82.298
 }
-GenericEntity : "{72E42BEAFED9B5A7}Prefabs/Props/Garbage/Bins/GarbageContainer_01.et" {
- coords 2044.384 51.327 3053.571
- angleY 133.2
-}
 SCR_DestructibleBuildingEntity : "{748640C90A664E29}Prefabs/Structures/Houses/Wooden/House_Wooden_E_1I01/House_Wooden_E_1I01_panels.et" {
  coords 1866.128 0.188 854.548
  angleY -25.02
