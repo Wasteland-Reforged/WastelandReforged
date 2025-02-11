@@ -1,55 +1,51 @@
+modded class SCR_DeployMenuBase
+{
+	//------------------------------------------------------------------------------------------------
+	override void OnMenuOpened()
+	{
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (gameMode.IsSpawnLobbyPresent())
+		{
+			SCR_UISoundEntity uiSound = SCR_UISoundEntity.GetInstance();
+			//uiSound.SetSignalValueStr("SOUND_HUD_MAP_OPEN", 0.2);
+			SimpleSoundComponent ssc = SimpleSoundComponent.Cast(SCR_UISoundEntity.GetInstance().FindComponent(SimpleSoundComponent));
+			array<string> signalNames = {};
+			ssc.GetSignalNames(signalNames);
+			Print(signalNames);
+			uiSound.SoundEvent(SCR_SoundEvent.SOUND_HUD_MAP_OPEN, force: true);
+			ssc.GetSignalNames(signalNames);
+			Print(signalNames);
+			return;
+		}
+		
+		// Mute sounds
+		// If menu is opened before loading screen is closed, wait for closing
+		if (ArmaReforgerLoadingAnim.IsOpen())
+			ArmaReforgerLoadingAnim.m_onExitLoadingScreen.Insert(MuteSounds);
+		else
+			MuteSounds();
+	}
+
+	//------------------------------------------------------------------------------------------------
+	override void OnMenuClose()
+	{
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (gameMode.IsSpawnLobbyPresent())
+		{
+			SCR_UISoundEntity uiSound = SCR_UISoundEntity.GetInstance();
+			uiSound.SoundEvent(SCR_SoundEvent.SOUND_HUD_MAP_CLOSE, force: true);
+		}
+		
+		MuteSounds(false);
+		if (m_MapEntity && m_MapEntity.IsOpen())
+			m_MapEntity.CloseMap();
+
+		super.OnMenuClose();
+	}
+}
+
 modded class SCR_DeployMenuMain
 {
-	/*
-	
-	//------------------------------------------------------------------------------------------------
-	//! Opens deploy menu.
-	static override SCR_DeployMenuMain OpenDeployMenu()
-	{
-		GetGame().GetMenuManager().CloseAllMenus();
-		if (!GetDeployMenu())
-			GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.WR_RespawnMenu); // RespawnSuperMenu // WR_RespawnMenu
-		
-		return GetDeployMenu();
-	}
-
-	//------------------------------------------------------------------------------------------------
-	//! As the name suggests, this method closes the deploy menu instance.
-	static override void CloseDeployMenu()
-	{
-		GetGame().GetMenuManager().CloseMenuByPreset(ChimeraMenuPreset.WR_RespawnMenu);
-	}
-
-	//------------------------------------------------------------------------------------------------
-	//! Returns the deploy menu instance.
-	static override SCR_DeployMenuMain GetDeployMenu()
-	{
-		return SCR_DeployMenuMain.Cast(GetGame().GetMenuManager().FindMenuByPreset(ChimeraMenuPreset.WR_RespawnMenu));
-	}
-	
-	*/
-	
-	//! Sends a respawn request based on assigned loadout and selected spawn point.
-	
-	/*
-	protected override void RequestRespawn()
-	{
-		UpdateRespawnButton();
-		
-		if (!m_RespawnButton.IsEnabled())
-			return;
-		
-		string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
-
-		m_fCurrentDeployTimeOut = DEPLOY_TIME_OUT;
-		
-		//SCR_SpawnPointSpawnData rspData = new SCR_SpawnPointSpawnData(resourcePrefab, m_iSelectedSpawnPointId);
-		SCR_FreeSpawnData rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey);
-		if (rspData)
-			m_SpawnRequestManager.RequestSpawn(rspData);
-	}
-	*/
-	
 	//------------------------------------------------------------------------------------------------
 	//! Sets respawn button enabled based on certain conditions.
 	protected override void UpdateRespawnButton()
@@ -146,14 +142,50 @@ modded class SCR_DeployMenuMain
 			string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
 			
 			rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey, wrSpawnPoint.GetSpawnRegion());
-			rspData.SetSkipPreload(false);
 		}
 		else
 		{
 			rspData = new SCR_SpawnPointSpawnData(resourcePrefab, m_iSelectedSpawnPointId);
 		}
 		
+		rspData.SetSkipPreload(false);
 		m_SpawnRequestManager.RequestSpawn(rspData);
+	}
+	
+	//! Opens pause menu.
+	override protected void OnPauseMenu()
+	{
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (gameMode.IsSpawnLobbyPresent())
+		{
+			SCR_DeployMenuMain.CloseDeployMenu();
+			return;
+		}
+		
+		MenuBase menu = GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.PauseMenu, 0, true, false);
+
+		PauseMenuUI pauseMenu = PauseMenuUI.Cast(menu);
+		if (pauseMenu)
+		{
+			pauseMenu.FadeBackground(true, true);
+			pauseMenu.DisableSettings();
+		}
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	override void OnMenuOpen()
+	{
+		super.OnMenuOpen();
+		
+		TextWidget pauseBtnText = TextWidget.Cast(GetRootWidget().FindWidget("Overlay0.MenuFrame.Menu.Overlay0.Navigation.PauseButton.HorizontalLayout1.TextHint"));
+		if (!pauseBtnText)
+			return;
+		
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (gameMode.IsSpawnLobbyPresent())
+		{
+			pauseBtnText.SetText("Close Deployment Menu");
+		}
 	}
 }
 

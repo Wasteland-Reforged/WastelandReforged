@@ -24,7 +24,6 @@ class WR_MissionSystem : GameSystem
 			this.Enable(false);
 		}
 		
-		
 		logger.LogNormal("Mission system started.");
 	}
 	

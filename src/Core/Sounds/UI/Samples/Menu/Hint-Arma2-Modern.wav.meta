@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{863213E1338E3773}Sounds/hint.wav"
+ Name "{BCEEE31AA9AC3552}Sounds/UI/Samples/Menu/Arma 2 Hint Modified.wav"
  Configurations {
   WAVResourceClass PC : "{F72B05D02F3F135E}Configs/System/ResourceTypes/PC/Sound.conf" {
   }

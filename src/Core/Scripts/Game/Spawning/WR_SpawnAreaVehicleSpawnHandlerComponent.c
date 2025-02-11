@@ -35,14 +35,8 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			return;
 		}
 		
-		if (!WR_TownVehicleSystem.VehicleSpawnHandlerComponents)
-		{
-			WR_TownVehicleSystem.VehicleSpawnHandlerComponents = {};
-			logger.LogNormal("Initialized vehicle spawn area handler component list.");
-		}
-		
-		WR_TownVehicleSystem.VehicleSpawnHandlerComponents.Insert(this);
-		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list.");
+		WR_TownVehicleSystem.InsertVehicleSpawnHandlerComponent(this);
+		logger.LogDebug(string.Format("Inserted %1 into the vehicle spawn handler component list.", GetSpawnAreaName()));
 
 		logger.LogDebug("Initialized.");
 	}
@@ -184,9 +178,6 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	void ~WR_SpawnAreaVehicleSpawnHandlerComponent()
 	{
-		if (!WR_TownVehicleSystem.VehicleSpawnHandlerComponents) 
-			return;
-		
-		WR_TownVehicleSystem.VehicleSpawnHandlerComponents.RemoveItem(this);
+		WR_TownVehicleSystem.RemoveVehicleSpawnHandlerComponent(this);
 	}
 }

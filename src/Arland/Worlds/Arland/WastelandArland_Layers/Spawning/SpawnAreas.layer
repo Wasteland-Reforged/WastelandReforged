@@ -1,9 +1,7 @@
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
  SpawnArea_Beauregard {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
-    botsPerSqKm 50
-    AIGroupsFlatRate 2
+   WR_SpawnAreaBotSpawnHandlerComponent "{649610C8068FAA95}" {
    }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
@@ -19,9 +17,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
  }
  SpawnArea_Arleville {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
-    botsPerSqKm 50
-    AIGroupsFlatRate 2
+   WR_SpawnAreaBotSpawnHandlerComponent "{649610C8290C97FE}" {
    }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesPerSqKm 250
@@ -37,9 +33,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
  }
  SpawnArea_Foxdale_Players {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
+   WR_SpawnAreaBotSpawnHandlerComponent "{649610C80EC10D9A}" {
     botsPerSqKm 25
-    AIGroupsFlatRate 2
    }
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     Enabled 0
@@ -56,11 +51,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
  }
  SpawnArea_Military {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
-    Enabled 0
-    botsPerSqKm 50
-    AIGroupsFlatRate 2
-   }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
    }
@@ -79,11 +69,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
  }
  SpawnArea_Foxdale_Vehicles {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
-    Enabled 0
-    botsPerSqKm 50
-    AIGroupsFlatRate 2
-   }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
    }
@@ -100,11 +85,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
  }
  SpawnArea_Foxdale_Vehicles2 {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
-    Enabled 0
-    botsPerSqKm 50
-    AIGroupsFlatRate 2
-   }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
    }
@@ -121,20 +101,9 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
  }
  SpawnArea_Norwich {
   components {
-   WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
-    botsPerSqKm 50
-    AIGroupsFlatRate 2
-   }
-   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
-    vehiclesPerSqKm 250
-    vehiclesFlatRate 12
+   WR_SpawnAreaBotSpawnHandlerComponent "{649610C814C84CE1}" {
    }
   }
   coords 1965.199 51.01 3103.156
-  SphereRadius 100
-  DrawShape 0
-  ShapeColor 0 0.591 1 0.102
-  m_Name "Norwich"
-  m_eSpawnRegion REGION_1
  }
 }

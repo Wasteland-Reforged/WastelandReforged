@@ -1,5 +1,7 @@
 class WR_Mission
 {
+	const string RESOURCE_AI_WAYPOINT_DEFEND = "{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et";
+
 	ref WR_Logger<WR_Mission> logger = new WR_Logger<WR_Mission>(this);
 	private static int s_iMissionCounter;
 	
@@ -172,7 +174,7 @@ class WR_Mission
 			bool safePosFound = WR_Utils.TryGetRandomSafePosWithinRadius(spawnPos, m_Location.GetOrigin(), 1.0, 10.0, 1.0, 1.0);
 			if (!safePosFound)
 			{
-				logger.LogError(string.Format("Unable to find a safe spawn position for a mission AI Group! (ID: %1)", m_iMissionId));
+				logger.LogError(string.Format("Unable to find a safe spawn position for mission bots! (ID: %1)", m_iMissionId));
 				return false;
 			}	
 			
@@ -181,7 +183,7 @@ class WR_Mission
 			SCR_AIGroup group = SCR_AIGroup.Cast(aiGroupEntity);
 			if (!group)
 			{
-				logger.LogError(string.Format("AI Group was not spawned! (ID: %1)", m_iMissionId));
+				logger.LogError(string.Format("Bot group was not spawned! (ID: %1)", m_iMissionId));
 				return false;
 			}	
 			
@@ -190,13 +192,13 @@ class WR_Mission
 			group.SetFaction(GetGame().GetFactionManager().GetFactionByKey("CIV"));	
 
 			// Set group waypoint to defend mission location
-			ResourceName waypointResource = "{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et";
-			IEntity waypointEntity = WR_Utils.SpawnPrefabInWorld(waypointResource, m_Location.GetOrigin());
+			IEntity waypointEntity = WR_Utils.SpawnPrefabInWorld(RESOURCE_AI_WAYPOINT_DEFEND, m_Location.GetOrigin());
 			SCR_AIWaypoint waypoint = SCR_AIWaypoint.Cast(waypointEntity);
 			group.AddWaypoint(waypoint);
 			
 			m_aGroups.Insert(group);
 		}
+		
 		return true;
 	}
 	
@@ -204,8 +206,8 @@ class WR_Mission
 	{
 		foreach (SCR_AIGroup group : m_aGroups)
 			if (group) return false;
-		
-		logger.LogNormal("All AI are dead at mission: " + m_Definition.m_sName);
+
+		logger.LogNormal(string.Format("All bots neutralized at mission: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 		
 		return true;
 	}

@@ -7,14 +7,19 @@ class WR_TownVehicleSystem : GameSystem
 	
 	private static int m_iSuccessfulSpawns = 0;
 	
-	ref static array<WR_SpawnAreaVehicleSpawnHandlerComponent> VehicleSpawnHandlerComponents = {};
-	
-	private const string LogPrefix = "WR_TownVehicleSystem: ";
+	private ref static array<WR_SpawnAreaVehicleSpawnHandlerComponent> s_aVehicleSpawnHandlerComponents = {};
 
 	protected override void OnStarted()
 	{
-		logger.LogNormal("Town Vehicle system started.");
+		if (!s_aVehicleSpawnHandlerComponents || s_aVehicleSpawnHandlerComponents.Count() == 0)
+		{
+			logger.LogWarning("No spawn areas with WR_SpawnAreaVehicleSpawnHandlerComponent found! Cannot start roaming bot system.");
+			return;
+		}
+		
 		CheckTownVehicles();
+		
+		logger.LogNormal("Town vehicle system started.");
 	}
 	
 	protected override void OnUpdate(ESystemPoint point)
@@ -37,19 +42,30 @@ class WR_TownVehicleSystem : GameSystem
 	
 	protected override void OnCleanup()
 	{
-		VehicleSpawnHandlerComponents = null;
-		logger.LogNormal("Town Vehicle system cleaned up.");
+		s_aVehicleSpawnHandlerComponents = {};
+		logger.LogNormal("Town vehicle system cleaned up.");
 	}
 	
 	protected void CheckTownVehicles()
 	{
-		//logger.LogNormal("Checking Town Vehicles.");
-		foreach (WR_SpawnAreaVehicleSpawnHandlerComponent townVehicleComp : VehicleSpawnHandlerComponents)
+		foreach (WR_SpawnAreaVehicleSpawnHandlerComponent townVehicleComp : s_aVehicleSpawnHandlerComponents)
 		{
 			townVehicleComp.CheckVehicles();
 		}
 	}
-
+	
+	static void InsertVehicleSpawnHandlerComponent(WR_SpawnAreaVehicleSpawnHandlerComponent handlerComponent)
+	{
+		Print("called");
+		if (!s_aVehicleSpawnHandlerComponents.Contains(handlerComponent))
+			s_aVehicleSpawnHandlerComponents.Insert(handlerComponent);
+	}
+	
+	static void RemoveVehicleSpawnHandlerComponent(WR_SpawnAreaVehicleSpawnHandlerComponent handlerComponent)
+	{
+		s_aVehicleSpawnHandlerComponents.RemoveItem(handlerComponent);
+	}
+	
 	static void CountSuccessfulSpawn()
 	{
 		m_iSuccessfulSpawns++;

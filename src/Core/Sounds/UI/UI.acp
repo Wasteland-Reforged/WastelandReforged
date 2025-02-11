@@ -1,0 +1,1608 @@
+AudioClass {
+ filters {
+  FilterClass {
+   id 171030
+   name "Bandpass"
+   version 5
+   tl -464 -6176
+   pi {
+    3 0
+   }
+   DSPObject BiquadDSPTypeClass dsp {
+    biquadType BandPass
+    fc 1808
+    Q 0.612
+    gain -11
+   }
+  }
+  FilterClass {
+   id 176150
+   name "Bandpass"
+   version 5
+   tl -464 -5952
+   pi {
+    3 0
+   }
+   volume_dB -12
+   DSPObject BiquadDSPTypeClass dsp {
+    biquadType BandPass
+    fc 199
+    Q 1.184
+    gain -11
+   }
+  }
+  FilterClass {
+   id 177174
+   name "Lowpass Hover"
+   version 5
+   tl -128 -6688
+   pi {
+    3 0
+   }
+   DSPObject OnePoleFilterDSPTypeClass dsp {
+    frequency 9664.8
+   }
+  }
+  FilterClass {
+   id 178198
+   name "Lowpass CantPerform"
+   version 5
+   tl -416 -64
+   pi {
+    3 0
+   }
+   DSPObject OnePoleFilterDSPTypeClass dsp {
+    frequency 6019.4
+   }
+  }
+ }
+ sounds {
+  SoundClass {
+   id 3081
+   name "SOUND_FE_BUTTON_CONFIRM"
+   version 5
+   tl -128 -6032
+   ins {
+    ConnectionsClass connections {
+     id 3
+     links {
+      ConnectionClass connection {
+       id 180233
+       port 4
+      }
+      ConnectionClass connection {
+       id 185353
+       port 4
+      }
+      ConnectionClass connection {
+       id 186377
+       port 4
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 173063
+       port 65
+      }
+      ConnectionClass connection {
+       id 169991
+       port 65
+      }
+      ConnectionClass connection {
+       id 90116
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    8 0
+   }
+   outState 37899
+   outStatePort 26631
+   eventType "OnStart - Start"
+  }
+  SoundClass {
+   id 4105
+   name "SOUND_FE_BUTTON_HOVER"
+   version 5
+   tl -128 -6592
+   ins {
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 177174
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 67588
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    4 0
+   }
+   priority 30
+   outState 37899
+   outStatePort 26631
+   eventNoRepeatTimeMSec 40
+  }
+  SoundClass {
+   id 45065
+   name "SOUND_FE_BUTTON_SELECT"
+   version 5
+   tl -128 -6416
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 89092
+       port 65
+      }
+      ConnectionClass connection {
+       id 164868
+       port 65
+      }
+     }
+    }
+   }
+   priority 30
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 46089
+   name "SOUND_FE_BUTTON_FAIL"
+   version 5
+   tl -128.333 -5851.849
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 79876
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 47113
+   name "SOUND_FE_BUTTON_CANCEL"
+   version 5
+   tl -112 -5664
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 82948
+       port 65
+      }
+      ConnectionClass connection {
+       id 173063
+       port 65
+      }
+      ConnectionClass connection {
+       id 169991
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 48137
+   name "SOUND_FE_ERROR"
+   version 5
+   tl -128.333 -5482.368
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 87044
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 49161
+   name "SOUND_FE_TAB_SWITCH"
+   version 5
+   tl -123.333 -5237.627
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 76804
+       port 65
+      }
+     }
+    }
+   }
+   priority 60
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 50185
+   name "SOUND_FE_TAB_CONFIRM"
+   version 5
+   tl -123.333 -5052.887
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 76804
+       port 65
+      }
+     }
+    }
+   }
+   priority 60
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 51209
+   name "SOUND_HUD_TASK_CREATED"
+   version 5
+   tl -128.333 -3098.925
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 91140
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 52233
+   name "SOUND_HUD_TASK_SUCCEEDED"
+   version 5
+   tl -128.333 -2914.184
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 92164
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 53257
+   name "SOUND_HUD_TASK_FAILED"
+   version 5
+   tl -128.333 -2729.443
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 93188
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 54281
+   name "SOUND_HUD_TASK_CANCELED"
+   version 5
+   tl -128.333 -2544.703
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 94212
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 55305
+   name "SOUND_HUD_NOTIFICATION"
+   version 5
+   tl -128.333 -2359.962
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 101380
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 56329
+   name "SOUND_HUD_GADGET_SELECT"
+   version 5
+   tl -128.333 -2175.222
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 102404
+       port 65
+      }
+     }
+    }
+   }
+   volume_dB -10
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 57353
+   name "SOUND_HUD_GADGET_CONFIRM"
+   version 5
+   tl -128.333 -1989.231
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 103428
+       port 65
+      }
+     }
+    }
+   }
+   volume_dB -10
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 58377
+   name "SOUND_HUD_GADGET_CANCEL"
+   version 5
+   tl -128.333 -1805.74
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 104452
+       port 65
+      }
+     }
+    }
+   }
+   volume_dB -12
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 59401
+   name "SOUND_HUD_MAP_OPEN"
+   version 5
+   tl -96.428 -1116.429
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 95236
+       port 65
+      }
+     }
+    }
+   }
+   priority 60
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 60425
+   name "SOUND_HUD_MAP_MOVEMENT"
+   version 5
+   tl -96.428 -721.357
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 96260
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 61449
+   name "SOUND_HUD_CAMPAIGN_POINTS_ADD"
+   version 5
+   tl -96.428 -523.822
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 97284
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 62473
+   name "SOUND_HUD_CAMPAIGN_POINTS_SUBSTRACT"
+   version 5
+   tl -96.428 -326.286
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 98308
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 63497
+   name "SOUND_HUD_ACTION_CANTPERFORM"
+   version 5
+   tl -96.428 -128.75
+   ins {
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 178198
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 2052
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    4 0
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 99337
+   name "SOUND_HUD_MAP_CLOSE"
+   version 5
+   tl -96.428 -918.893
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 100356
+       port 65
+      }
+     }
+    }
+   }
+   priority 60
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 140297
+   name "SOUND_HUD_WEAPON_SELECT"
+   version 5
+   tl -128.333 -1621
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 136196
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 145417
+   name "SOUND_FE_ITEM_CHANGE"
+   version 5
+   tl -120.833 -4232.415
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 144388
+       port 65
+      }
+     }
+    }
+   }
+   priority 40
+   outState 37899
+   outStatePort 26631
+   eventNoRepeatTimeMSec 50
+  }
+  SoundClass {
+   id 149513
+   name "SOUND_FE_BUTTON_FILTER_ON"
+   version 5
+   tl -118.333 -4613.146
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 147460
+       port 65
+      }
+      ConnectionClass connection {
+       id 165892
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 150537
+   name "SOUND_FE_BUTTON_FILTER_OFF"
+   version 5
+   tl -118.333 -4428.406
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 146436
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 151561
+   name "SOUND_HUD_TASK_MENU_OPEN"
+   version 5
+   tl -125 -3597.5
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 152580
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 154633
+   name "SOUND_FE_TURN_PAGE"
+   version 5
+   tl -121.667 -4833.333
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 153604
+       port 65
+      }
+      ConnectionClass connection {
+       id 167940
+       port 65
+      }
+      ConnectionClass connection {
+       id 166916
+       port 65
+      }
+     }
+    }
+   }
+   priority 60
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 155657
+   name "SOUND_FE_HUD_PAUSE_MENU_OPEN"
+   version 5
+   tl -122.917 -4015
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 158724
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 157705
+   name "SOUND_FE_HUD_PAUSE_MENU_CLOSE"
+   version 5
+   tl -128 -3824
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 159748
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 161801
+   name "SOUND_HUD_TASK_MENU_CLOSE"
+   version 5
+   tl -125 -3449.523
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 160772
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 163849
+   name "SOUND_HUD_TASK_ACCEPT"
+   version 5
+   tl -125 -3285.595
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 162820
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 180233
+   name "SOUND_MENU_FIELD_MANUAL_OPEN"
+   version 5
+   tl -96 80
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 182276
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 185353
+   name "SOUND_MENU_FIELD_MANUAL_SELECT_TOPIC"
+   version 5
+   tl -96 192
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 183300
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
+  SoundClass {
+   id 186377
+   name "SOUND_MENU_FIELD_MANUAL_CLOSE"
+   version 5
+   tl -96 304
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 184324
+       port 65
+      }
+     }
+    }
+   }
+  }
+ }
+ buses {
+  BusClass {
+   id 169991
+   name "DSP"
+   version 7
+   tl -288 -6240
+   ins {
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 171030
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 168965
+       port 65
+      }
+      ConnectionClass connection {
+       id 172037
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    2 0
+   }
+   channels "1"
+  }
+  BusClass {
+   id 173063
+   name "DSP"
+   version 7
+   tl -288 -6016
+   ins {
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 176150
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 174085
+       port 65
+      }
+      ConnectionClass connection {
+       id 175109
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    2 0
+   }
+   channels "1"
+  }
+ }
+ generators {
+  GeneratorClass {
+   id 168965
+   name "Sawtooth Pop"
+   version 5
+   tl -464 -6240
+   function SawTooth
+   time 60
+   volume 0.05
+   volume_dB -26
+   frequency 3
+   "Attack Curve" Exp
+   "Attack Time " 30
+   "Release Curve" Exp
+  }
+  GeneratorClass {
+   id 172037
+   name "Silence"
+   version 5
+   tl -464 -6304
+   function Silence
+   time 100
+  }
+  GeneratorClass {
+   id 174085
+   name "Sawtooth Pop"
+   version 5
+   tl -464 -6016
+   function SawTooth
+   time 60
+   volume 0.025
+   volume_dB -32
+   frequency 3
+   "Attack Curve" Exp
+   "Attack Time " 30
+   "Release Curve" Exp
+  }
+  GeneratorClass {
+   id 175109
+   name "Silence"
+   version 5
+   tl -464 -6080
+   function Silence
+   time 100
+  }
+ }
+ mixers {
+  MixerClass {
+   id 37899
+   name "OutputState 37"
+   version 4
+   tl 761.167 -4365.118
+   res "{B764D803219C775E}Sounds/FinalMix.afm"
+   ins {
+    ConnectionsClass connections {
+     id 26631
+     links {
+      ConnectionClass connection {
+       id 3081
+       port 65
+      }
+      ConnectionClass connection {
+       id 150537
+       port 65
+      }
+      ConnectionClass connection {
+       id 4105
+       port 65
+      }
+      ConnectionClass connection {
+       id 140297
+       port 65
+      }
+      ConnectionClass connection {
+       id 149513
+       port 65
+      }
+      ConnectionClass connection {
+       id 53257
+       port 65
+      }
+      ConnectionClass connection {
+       id 55305
+       port 65
+      }
+      ConnectionClass connection {
+       id 48137
+       port 65
+      }
+      ConnectionClass connection {
+       id 61449
+       port 65
+      }
+      ConnectionClass connection {
+       id 60425
+       port 65
+      }
+      ConnectionClass connection {
+       id 58377
+       port 65
+      }
+      ConnectionClass connection {
+       id 57353
+       port 65
+      }
+      ConnectionClass connection {
+       id 63497
+       port 65
+      }
+      ConnectionClass connection {
+       id 49161
+       port 65
+      }
+      ConnectionClass connection {
+       id 52233
+       port 65
+      }
+      ConnectionClass connection {
+       id 59401
+       port 65
+      }
+      ConnectionClass connection {
+       id 45065
+       port 65
+      }
+      ConnectionClass connection {
+       id 99337
+       port 65
+      }
+      ConnectionClass connection {
+       id 50185
+       port 65
+      }
+      ConnectionClass connection {
+       id 47113
+       port 65
+      }
+      ConnectionClass connection {
+       id 145417
+       port 65
+      }
+      ConnectionClass connection {
+       id 54281
+       port 65
+      }
+      ConnectionClass connection {
+       id 151561
+       port 65
+      }
+      ConnectionClass connection {
+       id 56329
+       port 65
+      }
+      ConnectionClass connection {
+       id 51209
+       port 65
+      }
+      ConnectionClass connection {
+       id 46089
+       port 65
+      }
+      ConnectionClass connection {
+       id 154633
+       port 65
+      }
+      ConnectionClass connection {
+       id 62473
+       port 65
+      }
+      ConnectionClass connection {
+       id 157705
+       port 65
+      }
+      ConnectionClass connection {
+       id 155657
+       port 65
+      }
+      ConnectionClass connection {
+       id 161801
+       port 65
+      }
+      ConnectionClass connection {
+       id 163849
+       port 65
+      }
+      ConnectionClass connection {
+       id 180233
+       port 65
+      }
+      ConnectionClass connection {
+       id 185353
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16777216 0
+   }
+   path "{B764D803219C775E}Sounds/FinalMix.afm"
+   inputs {
+    "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialog" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialog_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct" "SFX_Reverb_Small" "SFX_Reverb_Medium" "SFX_Reverb_Large" "WPN_Shots_Player" "Dialog_Reverb_Small" "Dialog_Reverb_Medium" "Dialog_Reverb_Large" "Dialog_Delay_Exterior"
+   }
+  }
+ }
+ banks_local {
+  BankLocalClass {
+   id 2052
+   name "HUD_Action_CantPerform"
+   version 7
+   tl -418.667 -130.837
+   Volume -16
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{48ADFB769FDA322C}Sounds/UI/Samples/Ingame/UI_HUD_CantPerform.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 67588
+   name "Workshop_Button_Hover"
+   version 7
+   tl -464 -6592
+   Volume -10
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{6A83D563F5A33742}Sounds/UI/Samples/Menu/UI_Button_Hover.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 76804
+   name "Workshop_Button_Tab_Switch"
+   version 7
+   tl -460.667 -5220.564
+   Volume -8
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{DDE335C85E67BF2D}Sounds/UI/Samples/Menu/UI_Button_Switch.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 79876
+   name "Workshop_Button_Fail"
+   version 7
+   tl -464 -5842.164
+   Volume -16
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{C97850E4341F0CF9}Sounds/UI/Samples/Menu/UI_Button_Fail.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 82948
+   name "Workshop_Button_Cancel"
+   version 7
+   tl -465.667 -5654.964
+   Volume -14
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{D905F2632DEE3DFD}Sounds/UI/Samples/Menu/UI_Button_Cancel.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 87044
+   name "Workshop_Button_Error"
+   version 7
+   tl -465.667 -5467.764
+   Volume -11
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{035CC78FFD38931F}Sounds/UI/Samples/Menu/UI_Button_Error.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 89092
+   name "Workshop_Button_Select"
+   version 7
+   tl -464 -6400
+   Volume -8
+   "Pitch variance" 0.2
+   Silence 50
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{32BEBB4F893B20D3}Sounds/UI/Samples/Menu/UI_Button_Select.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 90116
+   name "Workshop_Button_Confirm_V5"
+   version 7
+   tl -288 -6112
+   ctl 0 -21
+   Volume -8
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{AC4149A069A91112}Sounds/UI/Samples/Menu/UI_Button_Confirm.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 91140
+   name "HUD_Task_Created"
+   version 7
+   tl -482.5 -3109.978
+   Volume -12
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{A11315CD121A2D8A}Sounds/UI/Samples/Menu/Hint-Arma2.wav"
+     Probability 0
+    }
+   }
+  }
+  BankLocalClass {
+   id 92164
+   name "HUD_Task_Succeeded"
+   version 7
+   tl -465.667 -2921.459
+   Volume -8
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{E3E34E1B0BC94432}Sounds/UI/Samples/Menu/UI_Task_Succeded.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 93188
+   name "HUD_Task_Failed"
+   version 7
+   tl -465.667 -2734.941
+   Volume -12
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{275A883E38CDEF60}Sounds/UI/Samples/Menu/UI_Task_Failed.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 94212
+   name "HUD_Task_Canceled"
+   version 7
+   tl -465.667 -2548.424
+   Volume -14
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{8BD49C1587312522}Sounds/UI/Samples/Menu/UI_Task_Canceled.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 95236
+   name "HUD_Map_Open"
+   version 7
+   tl -416 -1120
+   Volume -10
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{B25F0C02B15CC994}Sounds/UI/Samples/Menu/UI_Map_Open.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 96260
+   name "HUD_Map_Movement"
+   version 7
+   tl -416.667 -718.806
+   Volume 9
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{7244F2DC9346FEB4}Sounds/UI/Samples/Menu/UI_Map_Move.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 97284
+   name "HUD_Map_Add_Marker"
+   version 7
+   tl -416.667 -518.15
+   Volume -8.1
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{240B82F459FA45B1}Sounds/UI/Samples/Menu/UI_Map_Add_Marker.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 98308
+   name "HUD_Map_Remove_Marker"
+   version 7
+   tl -416.667 -317.493
+   Volume -11
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{6235E965B21CEAB4}Sounds/UI/Samples/Menu/UI_Map_Remove_Marker.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 100356
+   name "HUD_Map_Close"
+   version 7
+   tl -416.667 -920.574
+   Volume -1
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{54DE75D5821B10D5}Sounds/UI/Samples/Menu/UI_Map_Close.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 101380
+   name "HUD_Notification"
+   version 7
+   tl -465.667 -2361.906
+   Volume -13.721
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{65D24AA0B5B47F92}Sounds/UI/Samples/Menu/UI_HUD_Notification.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 102404
+   name "HUD_Gadget_Select"
+   version 7
+   tl -465.667 -2175.387
+   Volume -22
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{9500A96BBA3B0581}Sounds/UI/Samples/Menu/UI_Gadget_Select.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 103428
+   name "HUD_Gadget_Confirm"
+   version 7
+   tl -465.667 -1990.537
+   Volume -17
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{904587BCB8953B4F}Sounds/UI/Samples/Menu/UI_Gadget_Confirm.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 104452
+   name "HUD_Gadget_Cancelation"
+   version 7
+   tl -465.667 -1802.352
+   Volume -8
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{28F7128406441C6F}Sounds/UI/Samples/Menu/UI_Gadget_Cancelation.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 136196
+   name "HUD_Weapon_Wheel_Select"
+   version 7
+   tl -468.167 -1615.834
+   Volume -11
+   "Pitch variance" 0.052
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{4CFFD9FA173E78C6}Sounds/UI/Samples/Ingame/UI_Weapon_Select_Wheel_1.wav"
+    }
+    AudioBankSampleClass Sample {
+     Filename "{D5E160630AD94956}Sounds/UI/Samples/Ingame/UI_Weapon_Select_Wheel_2.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 144388
+   name "Button_Item_Change"
+   version 7
+   tl -455.667 -4254.495
+   Volume -8
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{5968C8B28D8F1C0F}Sounds/UI/Samples/Menu/UI_Button_Item_Changed.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 146436
+   name "Button_Filter_On"
+   version 7
+   tl -455.667 -4625.864
+   Volume -16
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{B6008DBCA565E5E1}Sounds/UI/Samples/Menu/UI_Button_Filter_On.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 147460
+   name "Button_Filter_Off"
+   version 7
+   tl -455.667 -4441.013
+   Volume -13
+   "Pitch variance" 0.2
+   Silence 30
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{E495F2DA6A44D0BB}Sounds/UI/Samples/Menu/UI_Button_Filter_Off.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 152580
+   name "HUD_Task_Menu_Open"
+   version 7
+   tl -482.5 -3590.239
+   Volume -12
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{810100E84DB11493}Sounds/UI/Samples/Menu/UI_Task_Menu_Open.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 153604
+   name "Workshop_Button_Turn_Page"
+   version 7
+   tl -455.667 -4838.333
+   Volume -8
+   "Pitch variance" 0.2
+   Silence 30
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{058732C3D448B09B}Sounds/UI/Samples/Menu/UI_Button_Turn_Page.wav"
+     Index 1
+    }
+   }
+  }
+  BankLocalClass {
+   id 158724
+   name "HUD_Pause_Menu_Open"
+   version 7
+   tl -470 -4008.333
+   Volume -13
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{1FC143E2D53EC2E6}Sounds/UI/Samples/Menu/UI_Pause_Menu_Open.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 159748
+   name "HUD_Pause_Menu_Close"
+   version 7
+   tl -480 -3776
+   Volume -18
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{88B0DE2C55C9D1D5}Sounds/UI/Samples/Menu/UI_Pause_Menu_Close.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 160772
+   name "HUD_Task_Menu_Close"
+   version 7
+   tl -482.5 -3449.762
+   Volume -10.5
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{35130FC2B348289C}Sounds/UI/Samples/Menu/UI_Task_Menu_Close.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 162820
+   name "Hud_Task_Accept"
+   version 7
+   tl -480 -3280
+   Volume -15
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{6A0046BEED24CC70}Sounds/UI/Samples/Menu/UI_Task_Accept.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 164868
+   name "Workshop_Button_Hover"
+   version 7
+   tl -464 -6480
+   Volume 3
+   Pitch 10
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{6A83D563F5A33742}Sounds/UI/Samples/Menu/UI_Button_Hover.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 165892
+   name "Workshop_Button_Hover"
+   version 7
+   tl -455.667 -4512
+   Pitch 10
+   "Pitch variance" 0.2
+   Silence 10
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{6A83D563F5A33742}Sounds/UI/Samples/Menu/UI_Button_Hover.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 166916
+   name "Workshop_Button_Hover"
+   version 7
+   tl -455.667 -4768
+   Volume 1
+   Pitch 10
+   "Pitch variance" 0.2
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{6A83D563F5A33742}Sounds/UI/Samples/Menu/UI_Button_Hover.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 167940
+   name "Workshop_Button_Hover"
+   version 7
+   tl -455.667 -4912
+   Volume 3
+   Pitch 10
+   "Pitch variance" 0.2
+   Silence 40
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{6A83D563F5A33742}Sounds/UI/Samples/Menu/UI_Button_Hover.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 182276
+   name "FM Open"
+   comment "FieldManual"
+   version 7
+   tl -416 80
+   ctl 0 -21
+   Volume -8.553
+   "Pitch variance" 0.1
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{9A74E235D353D832}Sounds/UI/Samples/FieldManual/UI_Field_Manual_Open.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 183300
+   name "FNM Topic Select"
+   version 7
+   tl -416 192
+   Volume -8.553
+   "Pitch variance" 0.1
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{5398EC2249E05BB0}Sounds/UI/Samples/FieldManual/UI_Field_Manual_Turn_Page_01.wav"
+    }
+    AudioBankSampleClass Sample {
+     Filename "{CA8655BB54076A20}Sounds/UI/Samples/FieldManual/UI_Field_Manual_Turn_Page_02.wav"
+     Index 1
+    }
+    AudioBankSampleClass Sample {
+     Filename "{BD8C3D33A0A58550}Sounds/UI/Samples/FieldManual/UI_Field_Manual_Turn_Page_03.wav"
+     Index 2
+    }
+   }
+  }
+  BankLocalClass {
+   id 184324
+   name "FM CLose"
+   version 7
+   tl -416 304
+   Volume -8.553
+   "Pitch variance" 0.1
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{C0286B44E249AB54}Sounds/UI/Samples/FieldManual/UI_Field_Manual_Close.wav"
+    }
+   }
+  }
+ }
+ version 1
+ sourcesLimit 1
+}
