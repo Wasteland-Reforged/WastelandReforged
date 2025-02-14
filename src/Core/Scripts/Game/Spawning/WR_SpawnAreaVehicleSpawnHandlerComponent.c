@@ -52,11 +52,16 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
 		array<ResourceName> vehicleResources = {};
 		lootSpawningComponent.GetRandomItemsFromCategory(vehicleResources, WR_LootCategory.SpawnAreaVehicles);
+		if (!vehicleResources || vehicleResources.Count() == 0)
+		{
+			logger.LogError("No vehicle resource names were returned from WR_LootSpawningComponent!");
+			return false;
+		}
 		
 		// Configure spawn position parameters
-		float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
-		float xzPaddingRadius = 3;		// Minimum radius of empty space to have around the chosen position
-		float yPaddingDistance = 10; 		// Minimum distance of empty space to have above and below the chosen position 
+		const float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
+		const float xzPaddingRadius = 3;		// Minimum radius of empty space to have around the chosen position
+		const float yPaddingDistance = 10; 		// Minimum distance of empty space to have above and below the chosen position 
 		
 		// Select a random position				
 		vector spawnPos;
@@ -153,8 +158,14 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	void CheckVehicles()
 	{
-		while (_currentVehicles < GetMaxTownVehicles())
-			SpawnTownVehicle();
+		const int maxAllowedFailures = 10;
+		int failures = 0;
+		
+		while (_currentVehicles < GetMaxTownVehicles() && failures < maxAllowedFailures)
+		{
+			if (!SpawnTownVehicle())
+				failures++;
+		}
 	}
 
 	private int GetVehicleCountPerSqKm()

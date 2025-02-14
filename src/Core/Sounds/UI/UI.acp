@@ -810,6 +810,25 @@ AudioClass {
     }
    }
   }
+  SoundClass {
+   id 188425
+   name "WR_SOUND_MAP_DROP_3"
+   version 5
+   tl -203.75 482.5
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 187396
+       port 65
+      }
+     }
+    }
+   }
+   outState 37899
+   outStatePort 26631
+  }
  }
  buses {
   BusClass {
@@ -932,7 +951,7 @@ AudioClass {
    id 37899
    name "OutputState 37"
    version 4
-   tl 761.167 -4365.118
+   tl 2091.167 461.548
    res "{B764D803219C775E}Sounds/FinalMix.afm"
    ins {
     ConnectionsClass connections {
@@ -1072,6 +1091,10 @@ AudioClass {
       }
       ConnectionClass connection {
        id 185353
+       port 65
+      }
+      ConnectionClass connection {
+       id 188425
        port 65
       }
      }
@@ -1599,6 +1622,19 @@ AudioClass {
    Samples {
     AudioBankSampleClass Sample {
      Filename "{C0286B44E249AB54}Sounds/UI/Samples/FieldManual/UI_Field_Manual_Close.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 187396
+   name "Items_Drop_Map_03"
+   version 7
+   tl -421.25 482.5
+   Volume -18
+   "Pitch variance" 0.3
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{495CFD65B6CA091E}Sounds/Items/_SharedData/Drop/Samples/Map/Items_Drop_Map_03.wav"
     }
    }
   }

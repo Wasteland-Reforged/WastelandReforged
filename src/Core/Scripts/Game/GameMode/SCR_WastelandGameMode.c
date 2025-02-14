@@ -4,10 +4,8 @@ class WR_GameModeWasteland : SCR_BaseGameMode
 {
 	const string CATEGORY_WR = "Wasteland";
 	
-	ref WR_Logger<WR_GameModeWasteland> logger = new WR_Logger<WR_GameModeWasteland>(this);
-	
-	[Attribute("", UIWidgets.Object, "Mission system parameters.", category: CATEGORY_WR)]
-	protected ref WR_MissionSystemConfig m_MissionSystemConfiguration;
+	private ref WR_Logger<WR_GameModeWasteland> logger = new WR_Logger<WR_GameModeWasteland>(this);
+	private IEntity m_SpawnLobby;
 	
 	[Attribute("0", desc: "Enables brighter lighting at night time.", category: CATEGORY_WR)]
 	protected bool m_bEnableBrightNightMode;
@@ -15,16 +13,9 @@ class WR_GameModeWasteland : SCR_BaseGameMode
 	[Attribute("25", desc: "Supply cost to respawn at buildable HQ tents.", category: CATEGORY_WR)]
 	protected int m_iTentRespawnSupplyCost;
 	
-	private IEntity m_SpawnLobby;
-	
 	override void OnGameStart()
 	{
 		super.OnGameStart();
-		
-		if (!m_MissionSystemConfiguration)
-		{
-			logger.LogError("No mission system config was specified! Cannot create any missions.");
-		}
 		
 		if (m_bEnableBrightNightMode)
 		{
@@ -47,11 +38,6 @@ class WR_GameModeWasteland : SCR_BaseGameMode
 			logger.LogNormal("No spawn lobby was found in the world. The vanilla deployment map spawn flow will be used for this session.");
 
 		logger.LogNormal("Game mode started.");
-	}
-	
-	WR_MissionSystemConfig GetMissionSystemConfig()
-	{
-		return m_MissionSystemConfiguration;
 	}
 	
 	int GetTentRespawnSupplyCost()

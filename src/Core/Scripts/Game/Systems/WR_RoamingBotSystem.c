@@ -9,14 +9,17 @@ class WR_RoamingBotSystem : GameSystem
 	
 	protected override void OnStarted()
 	{
+		logger.LogNormal("Starting roaming bot system...");
+		
 		if (!s_aBotSpawnHandlers || s_aBotSpawnHandlers.Count() == 0)
 		{
 			logger.LogWarning("No spawn areas with WR_SpawnAreaBotSpawnHandlerComponent found! Cannot start roaming bot system.");
 			return;
 		}
 		
-		logger.LogNormal("Roaming bot system started.");
 		CheckSpawnAreas();
+		
+		logger.LogNormal("Roaming bot system started.");
 	}
 	
 	protected override void OnUpdate(ESystemPoint point)

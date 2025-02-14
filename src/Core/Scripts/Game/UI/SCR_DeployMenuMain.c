@@ -1,5 +1,21 @@
-modded class SCR_DeployMenuBase
+modded class SCR_DeployMenuMain
 {
+	override void MuteSounds(bool mute = true)
+	{
+		if (!IsOpen())
+			return;
+
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (!gameMode.IsSpawnLobbyPresent())
+		{
+			AudioSystem.SetMasterVolume(AudioSystem.SFX, !mute);
+			AudioSystem.SetMasterVolume(AudioSystem.VoiceChat, !mute);
+			AudioSystem.SetMasterVolume(AudioSystem.Dialog, !mute);
+		}
+		
+		ArmaReforgerLoadingAnim.m_onExitLoadingScreen.Remove(MuteSounds);
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	override void OnMenuOpened()
 	{
@@ -7,45 +23,12 @@ modded class SCR_DeployMenuBase
 		if (gameMode.IsSpawnLobbyPresent())
 		{
 			SCR_UISoundEntity uiSound = SCR_UISoundEntity.GetInstance();
-			//uiSound.SetSignalValueStr("SOUND_HUD_MAP_OPEN", 0.2);
-			SimpleSoundComponent ssc = SimpleSoundComponent.Cast(SCR_UISoundEntity.GetInstance().FindComponent(SimpleSoundComponent));
-			array<string> signalNames = {};
-			ssc.GetSignalNames(signalNames);
-			Print(signalNames);
-			uiSound.SoundEvent(SCR_SoundEvent.SOUND_HUD_MAP_OPEN, force: true);
-			ssc.GetSignalNames(signalNames);
-			Print(signalNames);
-			return;
+			uiSound.SoundEvent("WR_SOUND_MAP_DROP_3", force: true);
 		}
 		
-		// Mute sounds
-		// If menu is opened before loading screen is closed, wait for closing
-		if (ArmaReforgerLoadingAnim.IsOpen())
-			ArmaReforgerLoadingAnim.m_onExitLoadingScreen.Insert(MuteSounds);
-		else
-			MuteSounds();
+		super.OnMenuOpened();
 	}
-
-	//------------------------------------------------------------------------------------------------
-	override void OnMenuClose()
-	{
-		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
-		if (gameMode.IsSpawnLobbyPresent())
-		{
-			SCR_UISoundEntity uiSound = SCR_UISoundEntity.GetInstance();
-			uiSound.SoundEvent(SCR_SoundEvent.SOUND_HUD_MAP_CLOSE, force: true);
-		}
-		
-		MuteSounds(false);
-		if (m_MapEntity && m_MapEntity.IsOpen())
-			m_MapEntity.CloseMap();
-
-		super.OnMenuClose();
-	}
-}
-
-modded class SCR_DeployMenuMain
-{
+	
 	//------------------------------------------------------------------------------------------------
 	//! Sets respawn button enabled based on certain conditions.
 	protected override void UpdateRespawnButton()
@@ -121,14 +104,11 @@ modded class SCR_DeployMenuMain
 			return;
 		}
 
-		ResourceName resourcePrefab = ResourceName.Empty;
-		if (m_LoadoutRequestUIHandler.GetPlayerLoadout())
-			resourcePrefab = m_LoadoutRequestUIHandler.GetPlayerLoadout().GetLoadoutResource();
-		else
-		{
-			Debug.Error("No player loadout assigned!");
+		SCR_Faction playerFaction = SCR_Faction.Cast(m_PlyFactionAffilComp.GetAffiliatedFaction());
+		if (!playerFaction)
 			return;
-		}
+		
+		ResourceName characterPrefab = playerFaction.GetDefaultCharacterPrefab();
 
 		m_fCurrentDeployTimeOut = DEPLOY_TIME_OUT;
 		
@@ -137,16 +117,9 @@ modded class SCR_DeployMenuMain
 		
 		WR_SpawnPoint wrSpawnPoint = WR_SpawnPoint.Cast(SCR_SpawnPoint.GetSpawnPointByRplId(m_iSelectedSpawnPointId));
 		if (wrSpawnPoint)
-		{
-			PlayerController pc = GetGame().GetPlayerController();
-			string factionKey = m_PlyFactionAffilComp.GetAffiliatedFaction().GetFactionKey();
-			
-			rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(factionKey, wrSpawnPoint.GetSpawnRegion());
-		}
+			rspData = WR_SpawnAreaPlayerSpawnHandlerComponent.GetSpawnData(characterPrefab, wrSpawnPoint.GetSpawnRegion());
 		else
-		{
-			rspData = new SCR_SpawnPointSpawnData(resourcePrefab, m_iSelectedSpawnPointId);
-		}
+			rspData = new SCR_SpawnPointSpawnData(characterPrefab, m_iSelectedSpawnPointId);
 		
 		rspData.SetSkipPreload(false);
 		m_SpawnRequestManager.RequestSpawn(rspData);

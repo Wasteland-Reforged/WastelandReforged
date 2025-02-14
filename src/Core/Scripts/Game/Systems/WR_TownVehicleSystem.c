@@ -11,6 +11,8 @@ class WR_TownVehicleSystem : GameSystem
 
 	protected override void OnStarted()
 	{
+		logger.LogNormal("Starting town vehicle system...");
+		
 		if (!s_aVehicleSpawnHandlerComponents || s_aVehicleSpawnHandlerComponents.Count() == 0)
 		{
 			logger.LogWarning("No spawn areas with WR_SpawnAreaVehicleSpawnHandlerComponent found! Cannot start roaming bot system.");
@@ -56,7 +58,6 @@ class WR_TownVehicleSystem : GameSystem
 	
 	static void InsertVehicleSpawnHandlerComponent(WR_SpawnAreaVehicleSpawnHandlerComponent handlerComponent)
 	{
-		Print("called");
 		if (!s_aVehicleSpawnHandlerComponents.Contains(handlerComponent))
 			s_aVehicleSpawnHandlerComponents.Insert(handlerComponent);
 	}
