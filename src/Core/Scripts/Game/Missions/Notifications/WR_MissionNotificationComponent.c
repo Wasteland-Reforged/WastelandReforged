@@ -7,7 +7,7 @@ class WR_MissionNotificationComponent : SCR_BaseGameModeComponent
 	RplComponent m_RplComponent;
 	
 	[Attribute("", UIWidgets.Object, "Mission system configuration.")];
-	WR_MissionSystemConfig m_MissionSystemConfig;
+	ref WR_MissionSystemConfig m_MissionSystemConfig;
 	
 	override void OnPostInit(IEntity owner)
 	{
@@ -19,10 +19,7 @@ class WR_MissionNotificationComponent : SCR_BaseGameModeComponent
 			logger.LogError("The mission notification component must be a child of the Wasteland game mode!");
 			return;
 		}
-	}
-	
-	override void OnGameModeStart()
-	{
+		
 		if (!m_MissionSystemConfig)
 		{
 			logger.LogError("No mission system config was specified! Mission notifications will not function. Make sure to use the same mission config as on the mission system.");
