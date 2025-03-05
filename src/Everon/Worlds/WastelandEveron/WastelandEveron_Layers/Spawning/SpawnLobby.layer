@@ -29,9 +29,9 @@ GenericEntity SpawnLobby : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunk
         "OpenDeploymentMenuAction"
        }
        UIInfo SCR_ActionUIInfo "{64CA6A0814692DEC}" {
-        Name "Open Deployment Menu"
+        Name "View Deployment Map"
        }
-       ActionTitle "Open Deployment Menu"
+       ActionTitle "View Deployment Map"
       }
      }
     }
