@@ -18,6 +18,7 @@ class WR_LootSpawner : GenericEntity
 
 	float lastUpdateTimeS = 0;
 	vector m_WorldTransform[4];
+	ref map<IEntity, vector> m_aItemsAtThisSpawner = new map<IEntity, vector>();	//Key is the IEntity for the item, Value is the vector location that it spawned at
 	
 	ref RandomGenerator rnd = new RandomGenerator();
 	
@@ -35,17 +36,35 @@ class WR_LootSpawner : GenericEntity
 		logger.LogDebug("Initialized loot spawner: " + this);
 	}
 	
+	private void ClearItems()
+	{
+		for (int i = 0; i < m_aItemsAtThisSpawner.Count(); i++) 
+		{
+			IEntity item = m_aItemsAtThisSpawner.GetKey(i);
+			vector startingLocation = m_aItemsAtThisSpawner.GetElement(i);
+			
+			// Only delete item if it is still where it was originally spawned
+			if (item.GetOrigin() != startingLocation)
+				continue;
+			
+			SCR_EntityHelper.DeleteEntityAndChildren(item);
+		}
+		m_aItemsAtThisSpawner = new map<IEntity, vector>();
+	}
+	
 	// Respawns loot ONLY if the spawner is empty, OR if the item has not been picked up in time
 	bool TrySpawnLootTimeout(float currentTimeS, float spawnChance, float TimedOutLootRespawnChance)
 	{
 		float targetRespawnTimeS = lastUpdateTimeS + (m_fItemTimeoutM * 60);
 		
+		// Loot has timed out
 		if (currentTimeS > targetRespawnTimeS)
 		{
 			lastUpdateTimeS = currentTimeS;
 			return TrySpawnLoot(TimedOutLootRespawnChance);
 		}
 		
+		// Loot Spawner is empty
 		if (!GetChildren())
 		{
 			lastUpdateTimeS = currentTimeS;
@@ -65,8 +84,7 @@ class WR_LootSpawner : GenericEntity
 			return false;
 		
 		// Clear out any items currently at this loot spawner
-		while (GetChildren())
-			delete GetChildren();
+		ClearItems();
 		
 		// Get item resource to be spawned
 		auto lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
@@ -110,7 +128,7 @@ class WR_LootSpawner : GenericEntity
       
 			newEnt.SetOrigin(newEnt.GetOrigin() + {0.0, 0.015, 0.0});
 		
-			AddChild(newEnt, -1, EAddChildFlags.NONE);
+			m_aItemsAtThisSpawner.Insert(newEnt, newEnt.GetOrigin());
 			firstItem = false;
 		}
 		

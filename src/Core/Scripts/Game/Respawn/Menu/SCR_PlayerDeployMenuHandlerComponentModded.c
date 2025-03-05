@@ -3,6 +3,55 @@ modded class SCR_PlayerDeployMenuHandlerComponent
 	private ref map<string, SCR_SpawnPoint> m_mSpawnBunkerSpawnPoints = new map<string, SCR_SpawnPoint>();
 	private ref WR_Logger<SCR_PlayerDeployMenuHandlerComponent> logger = new WR_Logger<SCR_PlayerDeployMenuHandlerComponent>(this);
 	
+	override void Update(float timeSlice)
+	{
+		if (CanOpenWelcomeScreen())
+		{
+			if (!IsWelcomeScreenOpen())
+				GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.WelcomeScreenMenu);
+
+			return;
+
+		}
+		else if (IsWelcomeScreenOpen())
+		{
+			CloseWelcomeScreen();
+			return;
+		}
+
+		if (CanOpenMenu())
+		{
+			if (HasPlayableFaction() && !SCR_RoleSelectionMenu.GetRoleSelectionMenu())
+			{
+				WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+				if (gameMode.IsSpawnLobbyPresent())
+				{
+					SCR_RoleSelectionMenu.CloseRoleSelectionMenu();
+					SAttemptSpawnInLobby();
+				}
+				else if (!SCR_DeployMenuMain.GetDeployMenu())
+				{
+					SCR_RoleSelectionMenu.CloseRoleSelectionMenu();
+					SCR_DeployMenuMain.OpenDeployMenu();
+				}
+			}
+			else
+			{
+				if (!SCR_RoleSelectionMenu.GetRoleSelectionMenu())
+				{
+					SCR_DeployMenuMain.CloseDeployMenu();
+					SCR_RoleSelectionMenu.OpenRoleSelectionMenu();
+				}
+				
+				m_bFirstOpen = false;
+			}
+		}
+		else if (IsMenuOpen())
+		{
+			CloseMenu();
+		}
+	}
+	
 	static bool SAttemptSpawnInLobby()
 	{	
 		PlayerController playerController = GetGame().GetPlayerController();
