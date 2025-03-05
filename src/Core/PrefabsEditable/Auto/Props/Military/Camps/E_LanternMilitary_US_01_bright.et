@@ -24,8 +24,7 @@ GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_
      m_eLightFlags 17
     }
    }
-   m_fLV 1
-   m_fDistanceAttenuation 1
+   m_fLV 0.1
   }
   SCR_PreviewEntityComponent "{58EEFD4A689006BF}" : "{6CADA7A88A6265FD}Prefabs/Editor/Components/PreviewEntityComponentClass.ct" {
    m_bRuntime 0

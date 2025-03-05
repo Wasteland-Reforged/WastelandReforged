@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{05A018350AAD3106}Sounds/task.wav"
+ Name "{A11315CD121A2D8A}Sounds/UI/Samples/Menu/hint.wav"
  Configurations {
   WAVResourceClass PC : "{F72B05D02F3F135E}Configs/System/ResourceTypes/PC/Sound.conf" {
   }

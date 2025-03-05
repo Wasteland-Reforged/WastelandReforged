@@ -13,13 +13,14 @@ class WR_LootSystem : GameSystem
 	private static float initialLootSpawnChance = 0.8;		// Percent of loot spawners that have loot when the server starts
 	
 	static ref array<WR_LootSpawner> m_aLootSpawners;
-	
-	private const string LogPrefix = "WR_LootSystem: ";
 
 	protected override void OnStarted()
 	{
-		logger.LogNormal("Loot system started.");
+		logger.LogNormal("Starting loot system...");	
+		
 		RefreshLootSpawners(initialLootSpawnChance);
+		
+		logger.LogNormal("Loot system started.");
 	}
 	
 	protected override void OnUpdate(ESystemPoint point)
@@ -44,7 +45,7 @@ class WR_LootSystem : GameSystem
 	protected override void OnCleanup()
 	{
 		m_aLootSpawners = null;
-		logger.LogNormal("Loot system cleaned up.");
+		logger.LogNormal("Loot system stopped.");
 	}
 	
 	protected void RefreshLootSpawners(float spawnChance)

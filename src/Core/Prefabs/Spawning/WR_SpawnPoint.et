@@ -1,0 +1,13 @@
+WR_SpawnPoint {
+ ID "64940A701F73DC44"
+ components {
+  RplComponent "{64940A7A910931DA}" {
+  }
+ }
+ coords -12.547 -4.373 12.825
+ angleY 180
+ m_sFaction ""
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+ }
+ m_eSpawnRegion 2147483647
+}

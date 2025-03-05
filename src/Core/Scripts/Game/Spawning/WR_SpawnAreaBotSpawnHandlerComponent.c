@@ -1,16 +1,15 @@
 [ComponentEditorProps(category: "Town AI Spawning", description: "Handles the random spawning/respawning of roaming bots in Towns")]
-class WR_SpawnAreaAISpawnHandlerComponentClass : ScriptComponentClass
+class WR_SpawnAreaBotSpawnHandlerComponentClass : ScriptComponentClass
 {
 	
 }
 
-class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
+class WR_SpawnAreaBotSpawnHandlerComponent : ScriptComponent
 {
-	ref WR_Logger<WR_SpawnAreaAISpawnHandlerComponent> logger = new WR_Logger<WR_SpawnAreaAISpawnHandlerComponent>(this);
+	ref WR_Logger<WR_SpawnAreaBotSpawnHandlerComponent> logger = new WR_Logger<WR_SpawnAreaBotSpawnHandlerComponent>(this);
 	
 	private WR_SpawnAreaEntity _parent;
 	ref array<SCR_AIGroup> _aiGroups = {};
-	static ref array<WR_SpawnAreaAISpawnHandlerComponent> m_aBotSpawnHandlers;
 	
 	[Attribute(defvalue: "50", desc: "Number of roaming bot groups to spawn per square kilometer of surface area inside this spawn area.")]
 	protected int botsPerSqKm;
@@ -23,18 +22,12 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		_parent = WR_SpawnAreaEntity.Cast(owner);
 		if (!_parent)
 		{
-			logger.LogError("Parent entity of WR_SpawnAreaAISpawnHandlerComponent must be a WR_SpawnAreaEntity!");
+			logger.LogError("Parent entity of WR_SpawnAreaBotSpawnHandlerComponent must be a WR_SpawnAreaEntity!");
 			return;
 		}
 		
-		if (!m_aBotSpawnHandlers)
-		{
-			m_aBotSpawnHandlers = {};
-			logger.LogNormal("Initialized bot spawn handler array");
-		}
-		
-		m_aBotSpawnHandlers.Insert(this);
-		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the AI spawn handler component list");
+		WR_RoamingBotSystem.InsertBotSpawnHandlerComponent(this);
+		logger.LogDebug(string.Format("Inserted %1 into the bot spawn handler component list", GetSpawnAreaName()));
 		
 		logger.LogDebug("Initialized.");
 	}
@@ -152,8 +145,9 @@ class WR_SpawnAreaAISpawnHandlerComponent : ScriptComponent
 		return _parent.GetSpawnAreaName();
 	}
 	
-	void ~WR_SpawnAreaAISpawnHandlerComponent()
+	void ~WR_SpawnAreaBotSpawnHandlerComponent()
 	{
 		delete _aiGroups;
+		WR_RoamingBotSystem.RemoveBotSpawnHandlerComponent(this);
 	}
 }

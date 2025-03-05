@@ -35,14 +35,8 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			return;
 		}
 		
-		if (!WR_TownVehicleSystem.VehicleSpawnHandlerComponents)
-		{
-			WR_TownVehicleSystem.VehicleSpawnHandlerComponents = {};
-			logger.LogNormal("Initialized vehicle spawn area handler component list.");
-		}
-		
-		WR_TownVehicleSystem.VehicleSpawnHandlerComponents.Insert(this);
-		logger.LogDebug("Inserted " + GetSpawnAreaName() + " into the vehicle spawn handler component list.");
+		WR_TownVehicleSystem.InsertVehicleSpawnHandlerComponent(this);
+		logger.LogDebug(string.Format("Inserted %1 into the vehicle spawn handler component list.", GetSpawnAreaName()));
 
 		logger.LogDebug("Initialized.");
 	}
@@ -58,11 +52,16 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
 		array<ResourceName> vehicleResources = {};
 		lootSpawningComponent.GetRandomItemsFromCategory(vehicleResources, WR_LootCategory.SpawnAreaVehicles);
+		if (!vehicleResources || vehicleResources.Count() == 0)
+		{
+			logger.LogError("No vehicle resource names were returned from WR_LootSpawningComponent!");
+			return false;
+		}
 		
 		// Configure spawn position parameters
-		float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
-		float xzPaddingRadius = 3;		// Minimum radius of empty space to have around the chosen position
-		float yPaddingDistance = 10; 		// Minimum distance of empty space to have above and below the chosen position 
+		const float areaToCheck = 100; 		// Radius that will be checked if the initially passed pos is not safe
+		const float xzPaddingRadius = 3;		// Minimum radius of empty space to have around the chosen position
+		const float yPaddingDistance = 10; 		// Minimum distance of empty space to have above and below the chosen position 
 		
 		// Select a random position				
 		vector spawnPos;
@@ -90,16 +89,18 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		{
 			auto supplyStorage = SCR_ResourceComponent.Cast(vehicleEnt.FindComponent(SCR_ResourceComponent));
 				
-			if (supplyStorage && supplyStorage.GetContainers()) {
-				foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers()) {
-					int maxSteps = suppContainer.GetMaxResourceValue()/vehicleSupplyStepSize;
+			if (supplyStorage && supplyStorage.GetContainers())
+			{
+				foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers())
+				{
+					int maxSteps = suppContainer.GetMaxResourceValue() / vehicleSupplyStepSize;
 					int supplyToAdd = Math.RandomIntInclusive(1, maxSteps) * vehicleSupplyStepSize;
 					suppContainer.IncreaseResourceValue(supplyToAdd);
 				}
 			}
 			else
 			{
-				logger.LogError("Could not find supply storage for town vehicle.");
+				logger.LogWarning(string.Format("Could not find supply storage for town vehicle. Resource name: %1", vehicleResource));
 			}
 		}
 		
@@ -123,7 +124,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	protected void SpawnVehicleLoot(IEntity vehicle, array<ResourceName> additionalItems)
 	{
-		//Remove initial items
+		// Remove initial items
 		if (!WR_Utils.RemoveAllItemsFromVehicle(vehicle))
 		{
 			logger.LogError("Could not remove initial items from vehicle.");
@@ -157,8 +158,13 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	void CheckVehicles()
 	{
-		while (_currentVehicles < getMaxTownVehicles()) {
-			SpawnTownVehicle();
+		const int maxAllowedFailures = 10;
+		int failures = 0;
+		
+		while (_currentVehicles < GetMaxTownVehicles() && failures < maxAllowedFailures)
+		{
+			if (!SpawnTownVehicle())
+				failures++;
 		}
 	}
 
@@ -171,7 +177,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		return Math.Floor(areaSqKm * vehiclesPerSqKm);
 	}
 	
-	private int getMaxTownVehicles()
+	private int GetMaxTownVehicles()
 	{
 		return Math.Max(GetVehicleCountPerSqKm(), vehiclesFlatRate);
 	}
@@ -183,9 +189,6 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	
 	void ~WR_SpawnAreaVehicleSpawnHandlerComponent()
 	{
-		if (!WR_TownVehicleSystem.VehicleSpawnHandlerComponents) 
-			return;
-		
-		WR_TownVehicleSystem.VehicleSpawnHandlerComponents.RemoveItem(this);
+		WR_TownVehicleSystem.RemoveVehicleSpawnHandlerComponent(this);
 	}
 }

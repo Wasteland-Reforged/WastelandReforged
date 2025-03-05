@@ -236,10 +236,8 @@ WR_GameModeWasteland GameMode_Wasteland : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wa
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
    lootBoxBudget 0.5
   }
-  WR_LootSpawningComponent "{63141D97CE2DBD57}" {
-   m_MasterLootConfig WR_MasterLootConfig "{63141D9462D23B25}" : "{1D67C2146E5A651F}Configs/Loot/MasterLoot.conf" {
-   }
-   m_MasterContextConfig WR_MasterContextConfig "{63141D946167F62E}" : "{A5DF0BBA79651F7D}Configs/Loot/MasterContext.conf" {
+  WR_MissionNotificationComponent "{62F7739B427D99D3}" {
+   m_MissionSystemConfig WR_MissionSystemConfig "{649C29A5C9C1818B}" : "{C18AB29E2B867A24}Configs/Missions/WR_MissionSystemConfigArland.conf" {
    }
   }
   RplComponent "{56B2B4793BF2E1B4}" {
@@ -248,8 +246,6 @@ WR_GameModeWasteland GameMode_Wasteland : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wa
   }
  }
  coords 1377.751 38.609 2929.999
- m_MissionSystemConfiguration WR_MissionSystemConfig "{64872000631FA775}" : "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf" {
- }
  {
   SCR_CampaignFactionManager CampaignFactionManager {
    ID "62F778E615DD0124"

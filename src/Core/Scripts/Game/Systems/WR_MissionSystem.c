@@ -2,6 +2,7 @@ class WR_MissionSystem : GameSystem
 {
 	ref WR_Logger<WR_MissionSystem> logger = new WR_Logger<WR_MissionSystem>(this);
 	
+	[Attribute("", UIWidgets.Object, "Mission system configuration.")];
 	protected ref WR_MissionSystemConfig m_Config;
 	
 	float m_fMissionCreationTimeElaspedS = 0;
@@ -13,17 +14,13 @@ class WR_MissionSystem : GameSystem
 	
 	private override void OnStarted()
 	{
-		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
-		if (!gameMode)
-			logger.LogError("Wasteland game mode entity not found! Cannot send mission notifications. Place a 'GameMode_Wasteland' prefab in the world to resolve.");
+		logger.LogNormal("Starting mission system...");
 		
-		m_Config = gameMode.GetMissionSystemConfig();
 		if (!m_Config)
 		{
-			logger.LogError("No mission system config could be found on the Wasteland game mode. Destroying mission system.");
+			logger.LogError("No mission system config was specified! Cannot create any missions.");
 			this.Enable(false);
 		}
-		
 		
 		logger.LogNormal("Mission system started.");
 	}
@@ -59,7 +56,7 @@ class WR_MissionSystem : GameSystem
 	
 	private override void OnCleanup()
 	{
-		logger.LogNormal("Mission system cleaned up.");
+		logger.LogNormal("Mission system stopped.");
 	}
 	
 	private bool AdvanceMissionStatus(WR_Mission mission)		//Returns false if a mission was deleted this pass
@@ -278,10 +275,5 @@ class WR_MissionSystem : GameSystem
 			return null;
 
 		return vacantLocations.GetRandomElement();
-	}
-	
-	WR_MissionSystemConfig GetConfig()
-	{
-		return m_Config;
 	}
 }

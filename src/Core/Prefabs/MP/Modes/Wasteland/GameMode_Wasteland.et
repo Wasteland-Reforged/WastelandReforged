@@ -1,6 +1,23 @@
 WR_GameModeWasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  ID "56B2B479C6B96951"
  components {
+  ADM_ShopBaseComponent "{62CC5B7261CECB07}" {
+   m_ShopName ""
+   m_ShopConfig "{C747AFB6B750CE9A}Configs/System/chimeraMenus.conf"
+  }
+  SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
+   m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
+   m_BudgetType CAMPAIGN
+   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{61D626470298C266}" {
+    m_sSlotFlatSmallLayout "{7FD4E6A668B4537A}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFLatSmall.et"
+    m_sSlotFlatMediumLayout "{579FF731013436B5}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatMedium.et"
+    m_sSlotFlatLargeLayout "{ED9D7F29497B9BF7}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatLarge.et"
+    m_sSlotRoadSmallLayout "{8DBA7E7BF662A393}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadSmall.et"
+    m_sSlotRoadMediumLayout "{3A5E87ADA26C6940}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadMedium.et"
+    m_sSlotRoadLargeLayout "{D06D9D47008E794F}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadLarge.et"
+   }
+   m_sPrefabsToBuildResource "{D2527D9AA5B4A33E}Configs/Editor/PlaceableEntities/Compositions/Compositions_FreeRoamBuilding.conf"
+  }
   SCR_DataCollectorComponent "{5ADE83EE64329989}" {
    m_aModules {
     SCR_DataCollectorBasicActionsModule "{5AE097A82ED69A98}" {
@@ -69,6 +86,12 @@ WR_GameModeWasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
   SCR_HintManagerComponent "{5702B54C6CBC9D7F}" {
    m_bIgnoreHintSettings 1
   }
+  SCR_InitWeatherComponent "{62182B4329BA306B}" {
+   Enabled 0
+   m_sInitialStartingWeatherId "Clear"
+   m_initialWeatherDurationMin 0.5
+   m_initialWeatherDurationMax 1
+  }
   SCR_NametagConfigComponent "{571AA9E54FC9210D}" {
    m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
   }
@@ -124,36 +147,13 @@ WR_GameModeWasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
     }
    }
   }
-  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
-   m_SpawnLogic SCR_MenuSpawnLogic "{61A3204EF0E2117B}" {
-   }
-  }
-  RplComponent "{56B2B4793BF2E1B4}" {
-   "Rpl State Override" None
-   Streamable Disabled
-  }
-  SCR_CampaignBuildingManagerComponent "{61D62647193E6551}" {
-   m_sFreeRoamBuildingClientTrigger "{5E191CEAF4B95816}Prefabs/MP/FreeRoamBuildingClientTrigger.et"
-   m_BudgetType CAMPAIGN
-   m_OutlineManager SCR_CampaignBuildingCompositionOutlineManager "{61D626470298C266}" {
-    m_sSlotFlatSmallLayout "{7FD4E6A668B4537A}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFLatSmall.et"
-    m_sSlotFlatMediumLayout "{579FF731013436B5}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatMedium.et"
-    m_sSlotFlatLargeLayout "{ED9D7F29497B9BF7}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotFlatLarge.et"
-    m_sSlotRoadSmallLayout "{8DBA7E7BF662A393}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadSmall.et"
-    m_sSlotRoadMediumLayout "{3A5E87ADA26C6940}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadMedium.et"
-    m_sSlotRoadLargeLayout "{D06D9D47008E794F}Prefabs/Compositions/Misc/FreeRoamBuilding/Layouts/FRB_SlotRoadLarge.et"
-   }
-   m_sPrefabsToBuildResource "{D2527D9AA5B4A33E}Configs/Editor/PlaceableEntities/Compositions/Compositions_FreeRoamBuilding.conf"
-  }
-  SCR_InitWeatherComponent "{62182B4329BA306B}" {
-   Enabled 0
-   m_sInitialStartingWeatherId "Clear"
-   m_initialWeatherDurationMin 0.5
-   m_initialWeatherDurationMax 1
-  }
   SCR_RespawnBriefingComponent "{621369C835E532F8}" {
    m_sJournalConfigPath "{9E3CBC1592DCE5C1}Configs/Journal/JournalSetupWasteland.conf"
    m_Info SCR_UIInfo "{6213697E57BEB700}" {
+   }
+  }
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{61A3204EF0E2117B}" {
    }
   }
   SCR_TimeAndWeatherHandlerComponent "{61D805F9F5E6DB16}" {
@@ -233,21 +233,23 @@ WR_GameModeWasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
   }
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
    percentageLootBoxesToSpawn 1
-   minLootBoxItems 4
-   maxLootBoxItems 7
+  }
+  WR_LootSpawningComponent "{649C29A5BE88D153}" {
+   m_Config WR_LootTableConfig "{649C29A5BAD80780}" : "{3F16E3FF70B6D894}Configs/Loot/LootTableConfigDefault.conf" {
+   }
+  }
+  WR_MissionNotificationComponent "{62F7739B427D99D3}" {
+   m_MissionSystemConfig WR_MissionSystemConfig "{649C29A5C9C1818B}" : "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf" {
+   }
   }
   WR_SpawnAreaControllerComponent "{61917B6834FB8580}" {
   }
-  ADM_ShopBaseComponent "{62CC5B7261CECB07}" {
-   m_ShopName ""
-   m_ShopConfig "{C747AFB6B750CE9A}Configs/System/chimeraMenus.conf"
-  }
-  WR_MissionNotificationComponent "{62F7739B427D99D3}" {
+  RplComponent "{56B2B4793BF2E1B4}" {
+   "Rpl State Override" None
+   Streamable Disabled
   }
  }
  coords 4879.751 28.596 11916.604
- m_MissionSystemConfiguration WR_MissionSystemConfig "{62F778E6431EB8D4}" : "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf" {
- }
  m_bEnableBrightNightMode 1
  {
   PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
@@ -269,6 +271,7 @@ WR_GameModeWasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
       m_sNameUpper "OPFOR"
      }
      m_sFactionFlag "{71E3850AED91D5AE}Art/Flags/opfor-saturated.edds"
+     m_DefaultCharacterPrefab "{8449DECFA1B5831F}Prefabs/Characters/Factions/OPFOR/USSR_Army/WR_Character_USSR_Base.et"
     }
     SCR_CampaignFaction "{50B30C3ADB052C80}" {
      UIInfo SCR_FactionUIInfo "{528C961236B7DCD3}" {
@@ -276,6 +279,7 @@ WR_GameModeWasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
       m_sNameUpper "BLUFOR"
      }
      m_sFactionFlag "{11599C68893A71E3}Art/Flags/blufor-saturated.edds"
+     m_DefaultCharacterPrefab "{B39F86B378284BFC}Prefabs/Characters/Factions/BLUFOR/US_Army/WR_Character_US_Base.et"
     }
     SCR_CampaignFaction "{56F0C3A6336375DC}" {
      UIInfo SCR_FactionUIInfo "{5570936866E0AD08}" {
@@ -284,6 +288,7 @@ WR_GameModeWasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
      m_bIsPlayable 1
      m_sFactionFlag "{4A69586A3A1F7E6F}Art/Flags/indfor-saturated.edds"
      m_bFriendlyToSelf 0
+     m_DefaultCharacterPrefab "{CEE7531F4FBAEB38}Prefabs/Characters/Factions/CIV/Dockworker/WR_Character_CIV_Base.et"
     }
     SCR_Faction "{60DCF47AEF40BD72}" {
      UIInfo SCR_FactionUIInfo "{56B49118D8D0A9C5}" {

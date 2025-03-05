@@ -1,3 +1,63 @@
 GenericEntity SpawnBunker : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
- coords -20000 100 -20000
+ coords 0 100 0
+ {
+  GenericEntity {
+   ID "62F768EB62D41F0D"
+   components {
+    ActionsManagerComponent "{647379DC7EAF638C}" {
+     ActionContexts {
+      UserActionContext "{647379DC7F576D99}" {
+       Position PointInfo "{647379DF6F6788E8}" {
+        Offset -0.1579 0.4 0
+       }
+      }
+      UserActionContext "{64936060A00EDEF6}" {
+       Position PointInfo "{647379DF6F6788E8}" {
+        Offset -0.1579 0.4 0
+       }
+      }
+      UserActionContext "{649360608C09682E}" {
+       Position PointInfo "{647379DF6F6788E8}" {
+        Offset -0.1579 0.4 0
+       }
+      }
+     }
+     additionalActions {
+      WR_OpenSpawnProgressUiUserAction "{647379DF2C959791}" {
+       ParentContextList {
+        "SpawnAction"
+       }
+       UIInfo SCR_ActionUIInfo "{64936061EEF3A9C9}" {
+        Name "Spawn (North)"
+       }
+       ActionTitle "Spawn (North)"
+       Duration 0.7
+      }
+      WR_OpenSpawnProgressUiUserAction "{64936060DFC44B54}" {
+       ParentContextList {
+        "SpawnAction"
+       }
+       UIInfo SCR_ActionUIInfo "{64936060DFC44BB8}" {
+        Name "Spawn (Central)"
+       }
+       ActionTitle "Spawn (Central)"
+       Duration 0.7
+       "Sort Priority" 1
+      }
+      WR_OpenSpawnProgressUiUserAction "{64936060D51DF9BF}" {
+       ParentContextList {
+        "SpawnAction"
+       }
+       UIInfo SCR_ActionUIInfo "{64936060D51DF9FF}" {
+        Name "Spawn (South)"
+       }
+       ActionTitle "Spawn (South)"
+       Duration 0.7
+       "Sort Priority" 2
+      }
+     }
+    }
+   }
+  }
+ }
 }

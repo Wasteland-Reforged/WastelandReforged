@@ -1,5 +1,5 @@
-GenericEntity SpawnBunker : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
- coords -20000 100 -20000
+GenericEntity SpawnLobby : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
+ coords 0 100 0
  {
   GenericEntity {
    ID "62F768EB62D41F0D"
@@ -7,22 +7,35 @@ GenericEntity SpawnBunker : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBun
     ActionsManagerComponent "{647379DC7EAF638C}" {
      ActionContexts {
       UserActionContext "{647379DC7F576D99}" {
+       ContextName "OpenDeploymentMenu"
+       Position PointInfo "{647379DF6F6788E8}" {
+        Offset -0.1713 0.4335 0
+       }
        Radius 1
       }
      }
      additionalActions {
-      WR_OpenSpawnProgressUiUserAction "{647379DF2C959791}" {
+      WR_OpenDeployMenuUserAction "{64937568A3185290}" {
        ParentContextList {
-        "SpawnAction"
+        "OpenDeploymentMenu"
        }
-       UIInfo SCR_ActionUIInfo "{647379D079B7BCE8}" {
-        Name "Spawn"
+       UIInfo SCR_ActionUIInfo "{6493756863C03772}" {
+        Name "View Deployment Map"
        }
-       VisibilityRange 5
+       ActionTitle "Open Deployment Menu"
       }
      }
     }
    }
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_US {
+   ID "64940A71D2D68111"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_USSR {
+   ID "64940A71D2D68137"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_FIA {
+   ID "64940A71D2D6813B"
   }
   WR_SafezoneEntity : "{5AF7AD250A60D208}Prefabs/MP/Zones/Safe/WR_Safezone.et" {
    coords -12.48 -4.372 16.871

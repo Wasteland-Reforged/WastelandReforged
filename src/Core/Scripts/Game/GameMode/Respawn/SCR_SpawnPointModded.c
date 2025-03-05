@@ -50,16 +50,32 @@ modded class SCR_SpawnPoint
 	
 	private static array<SCR_SpawnPoint> GetAllFactionSpawnPoints(string factionKey)
 	{
-		array<SCR_SpawnPoint> factionSpawnPoints = new array<SCR_SpawnPoint>();
+		array<SCR_SpawnPoint> factionSpawnPoints = {};
 		if (factionKey.IsEmpty())
 			return factionSpawnPoints;
 
 		array<SCR_SpawnPoint> spawnPoints = GetSpawnPoints();
 		foreach (SCR_SpawnPoint spawnPoint : spawnPoints)
 		{
-			if (spawnPoint && spawnPoint.GetFactionKey() == factionKey)
+			if (!spawnPoint)
+				continue;
+			
+			WR_SpawnPoint wrSpawnPoint = WR_SpawnPoint.Cast(spawnPoint);
+			if (wrSpawnPoint)
+			{
+				if (!wrSpawnPoint.IsSpawnLobbySpawnPoint())
+				{
+					factionSpawnPoints.Insert(spawnPoint);
+				}
+				continue;
+			}
+
+			if (spawnPoint.GetFactionKey() == factionKey)
+			{
 				factionSpawnPoints.Insert(spawnPoint);
+			}
 		}
+		
 		return factionSpawnPoints;
 	}
 }

@@ -4,16 +4,15 @@ WR_SpawnAreaEntity {
   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
   }
   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
-  }
-  WR_SpawnAreaAISpawnHandlerComponent "{62AB64024B2A277C}" {
-   botsPerSqKm 30
-   AIGroupsFlatRate 1
+   vehiclesPerSqKm 250
+   vehiclesFlatRate 12
   }
  }
  coords 1627.565 2.523 594.502
  TriggerShapeType Sphere
- SphereRadius 250
- DrawShape 1
- ShapeColor 0 0 0 0
- m_Name "St. Phillipe"
+ SphereRadius 100
+ DrawShape 0
+ ShapeColor 0 0.591 1 0.102
+ m_Name "Norwich"
+ m_eSpawnRegion REGION_1
 }

@@ -1,7 +1,5 @@
-class WR_LootSpawningComponentClass : SCR_BaseGameModeComponentClass
-{
-	
-}
+class WR_LootSpawningComponentClass : SCR_BaseGameModeComponentClass {}
+
 
 class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 {
@@ -11,23 +9,55 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 	ref map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItemConfig>> masterLootMap = new map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItemConfig>>();
 	ref map<WR_LootContext, ref SCR_WeightedArray<WR_LootCategory>> masterContextMap = new map<WR_LootContext, ref SCR_WeightedArray<WR_LootCategory>>();
 	
-	[Attribute("", UIWidgets.Object, "Master Loot Config.", category: CATEGORY_WR)]
-	protected ref WR_MasterLootConfig m_MasterLootConfig;
-	
-	[Attribute("", UIWidgets.Object, "Master Loot Context Config.", category: CATEGORY_WR)]
-	protected ref WR_MasterContextConfig m_MasterContextConfig;
+	[Attribute("", UIWidgets.Object, "Loot system configuration.")];
+	protected ref WR_LootTableConfig m_Config;
 
 	override void OnPostInit(IEntity owner)
 	{
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (!gameMode)
+			logger.LogError("Wasteland game mode entity not found! Cannot initialize loot maps. Place a 'GameMode_Wasteland' prefab in the world to resolve.");
+
+		if (!m_Config)
+		{
+			logger.LogError("Loot item table config is missing from loot system config! Cannot initialize loot maps.");
+			return;
+		}
+		
 		InitializeLootMaps();
 		
-		logger.LogNormal("Initialized loot maps.");
+		logger.LogNormal("Initialized.");
 	}
 	
 	void InitializeLootMaps()
-	{		
-		// Populate Master Loot Map
-		foreach (WR_LootItemConfig lootItemConfig : m_MasterLootConfig.m_aLootItemConfigs)
+	{			
+		if (!m_Config.m_aItemConfigs || m_Config.m_aItemConfigs.Count() == 0)
+		{
+			logger.LogError("No loot item configs from loot table config! Cannot initialize loot maps.");
+			return;
+		}
+		
+		if (!m_Config.m_aContextConfigs || m_Config.m_aContextConfigs.Count() == 0)
+		{
+			logger.LogError("No loot item configs from loot table config! Cannot initialize loot maps.");
+			return;
+		}
+		
+//		if (!m_LootItemsConfig || !m_LootContextConfig)
+//		{
+//			logger.LogError("Loot context and/or loot category configs are missing from WR_LootSpawningComponent! Cannot initialize loot maps.");
+//			return;
+//		}
+//		
+//		if (!m_LootItemsConfig.m_aLootItemConfigs || !m_LootContextConfig.m_aLootContextConfigs 
+//			|| m_LootItemsConfig.m_aLootItemConfigs.Count() == 0 || m_LootContextConfig.m_aLootContextConfigs.Count() == 0)
+//		{
+//			logger.LogError("Loot context and/or loot category configs do not have any elements set! Cannot initialize loot maps.");
+//			return;
+//		}
+		
+		// Populate master loot item map
+		foreach (WR_LootItemConfig lootItemConfig : m_Config.m_aItemConfigs)
 		{
 			SCR_WeightedArray<WR_LootItemConfig> lootArr;
 			masterLootMap.Find(lootItemConfig.m_eCategory, lootArr);
@@ -40,8 +70,8 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 			lootArr.Insert(lootItemConfig, lootItemConfig.m_iWeight);
 		}
 		
-		// Populate Master Loot Context Map
-		foreach (WR_LootContextConfig lootContextConfig : m_MasterContextConfig.m_aLootContextConfigs)
+		// Populate master loot Context Map
+		foreach (WR_LootContextConfig lootContextConfig : m_Config.m_aContextConfigs)
 		{
 			SCR_WeightedArray<WR_LootCategory> categoryArr;
 			masterContextMap.Find(lootContextConfig.m_eContext, categoryArr);
@@ -56,7 +86,6 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 				categoryArr.Insert(weightConf.m_eCategory, weightConf.m_iWeight);
 			}
 		}
-	
 	}
 	
 	WR_LootCategory GetRandomCategoryFromContext(WR_LootContext lootContext)
@@ -172,5 +201,4 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 	{
 		return Math.RandomInt(itemConfig.m_iMinAdditionalItems * multiplier, itemConfig.m_iMaxAdditionalItems * multiplier);
 	}
-	
 }

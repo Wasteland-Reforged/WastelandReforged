@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{1D67C2146E5A651F}Configs/Loot/MasterLoot.conf"
+ Name "{6604D1D9BACD4790}Configs/Missions/WR_MissionSystemConfigDebug.conf"
  Configurations {
   CONFResourceClass PC {
   }
