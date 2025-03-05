@@ -2,7 +2,7 @@ WR_SpawnPoint WR_SpawnPoint_Region3 : "{54767D955866E80C}Prefabs/Spawning/WR_Spa
  coords 8669.574 120.069 3209.506
  angleY 0
  m_Info SCR_UIInfo "{64940A703C7E8519}" {
-  Name "Random Town - Southern"
+  Name "Random Town - South"
  }
  m_eSpawnRegion REGION_3
 }
