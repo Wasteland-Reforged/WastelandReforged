@@ -1,0 +1,101 @@
+WR_SpawnPoint WR_SpawnPoint_Region3 : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 8669.574 120.069 3209.506
+ angleY 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Random Town - Southern"
+ }
+ m_eSpawnRegion REGION_3
+}
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ SpawnArea_Chotain {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7060.124 118.396 6014.66
+  TriggerShapeType Sphere
+  SphereRadius 125
+  ShapeColor 0 0 0 0
+  m_Name "Chotain"
+  m_eSpawnRegion REGION_2
+ }
+ SpawnArea_Durras {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 8826.499 95.047 2757.366
+  TriggerShapeType Sphere
+  SphereRadius 125
+  ShapeColor 0 0 0 0
+  m_Name "Durras"
+  m_eSpawnRegion REGION_3
+ }
+ SpawnArea_Laruns {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7559.852 81.409 5533.607
+  TriggerShapeType Sphere
+  SphereRadius 100
+  ShapeColor 0 0 0 0
+  m_Name "Laruns"
+  m_eSpawnRegion REGION_3
+ }
+ SpawnArea_Levie {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7482.765 138.601 4719.865
+  TriggerShapeType Sphere
+  SphereRadius 125
+  ShapeColor 0 0 0 0
+  m_Name "Levie"
+  m_eSpawnRegion REGION_3
+ }
+ SpawnArea_Regina {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7173.982 137.246 2357.27
+  TriggerShapeType Sphere
+  SphereRadius 110
+  ShapeColor 0 0 0 0
+  m_Name "Regina"
+  m_eSpawnRegion REGION_3
+ }
+ SpawnArea_StPierre {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 9782.564 0 1533.577
+  TriggerShapeType Sphere
+  SphereRadius 200
+  ShapeColor 0 0 0 0
+  m_Name "St. Pierre"
+  m_eSpawnRegion REGION_3
+ }
+ SpawnArea_Vernon {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 9255.426 59.052 2076.659
+  TriggerShapeType Sphere
+  SphereRadius 90
+  ShapeColor 0 0 0 0
+  m_Name "Vernon"
+  m_eSpawnRegion REGION_3
+ }
+}

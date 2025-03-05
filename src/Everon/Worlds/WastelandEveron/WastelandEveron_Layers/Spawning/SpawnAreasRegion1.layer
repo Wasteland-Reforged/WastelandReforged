@@ -1,0 +1,98 @@
+WR_SpawnPoint WR_SpawnPoint_Region1 : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 4981.108 35.331 9387.201
+ angleY 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Random Town - Northern"
+ }
+ m_eSpawnRegion REGION_1
+}
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ SpawnArea_EntreDeux {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5767.047 217.222 7059.564
+  TriggerShapeType Sphere
+  SphereRadius 110
+  ShapeColor 0 0 0 0
+  m_Name "Entre Deux"
+ }
+ SpawnArea_Etoupe {
+  components {
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    Enabled 0
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5378.289 18.011 10009.475
+  TriggerShapeType Sphere
+  SphereRadius 60
+  ShapeColor 1 0 0 0
+  m_Name "Etoupe"
+ }
+ SpawnArea_Gravette {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4098.656 36.263 7795.032
+  TriggerShapeType Sphere
+  SphereRadius 100
+  ShapeColor 1 0 0 0
+  m_Name "Gravette"
+ }
+ SpawnArea_Kermovan {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 6338.106 5.573 9641.228
+  TriggerShapeType Sphere
+  SphereRadius 75
+  ShapeColor 1 0 0 0
+  m_Name "Kermovan"
+ }
+ SpawnArea_Meaux {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4503.834 13.969 9480.455
+  TriggerShapeType Sphere
+  SphereRadius 125
+  ShapeColor 1 0 0 0
+  m_Name "Meaux"
+ }
+ SpawnArea_StPhillipe {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4455.731 11.39 10783.104
+  TriggerShapeType Sphere
+  SphereRadius 250
+  ShapeColor 1 0 0 0
+  m_Name "St. Phillipe"
+ }
+ SpawnArea_Tyrone {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4926.892 22.461 9075.774
+  TriggerShapeType Sphere
+  SphereRadius 100
+  ShapeColor 0 0 0 0
+  m_Name "Tyrone"
+ }
+}

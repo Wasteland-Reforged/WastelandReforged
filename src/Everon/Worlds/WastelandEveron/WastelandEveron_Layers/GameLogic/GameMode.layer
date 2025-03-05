@@ -1,12 +1,4 @@
 WR_GameModeWasteland GameMode_Wasteland : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wasteland/GameMode_Wasteland.et" {
- components {
-  WR_LootSpawningComponent "{64936064C2A9F739}" {
-   m_MasterLootConfig WR_MasterLootConfig "{64936064BE4827CB}" : "{1D67C2146E5A651F}Configs/Loot/MasterLoot.conf" {
-   }
-   m_MasterContextConfig WR_MasterContextConfig "{64936064C0F1A418}" : "{A5DF0BBA79651F7D}Configs/Loot/MasterContext.conf" {
-   }
-  }
- }
  coords 4883.872 28.591 11921.055
  {
   SCR_CampaignFactionManager CampaignFactionManager {
