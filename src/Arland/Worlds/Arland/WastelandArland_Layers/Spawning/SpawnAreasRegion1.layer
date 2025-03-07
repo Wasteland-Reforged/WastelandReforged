@@ -1,3 +1,11 @@
+WR_SpawnPoint SpawnPoint_Region_1 : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 2174.771 74.206 2211.127
+ angleY 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Random Town"
+ }
+ m_eSpawnRegion REGION_1
+}
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
  SpawnArea_Beauregard {
   components {
