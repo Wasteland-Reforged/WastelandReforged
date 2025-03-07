@@ -1,0 +1,101 @@
+WR_SpawnPoint WR_SpawnPoint_Region2 : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 4711.263 77.878 6237.613
+ angleY 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Random Town - Central"
+ }
+ m_eSpawnRegion REGION_2
+}
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ SpawnArea_Figari {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5249.353 62.618 5354.577
+  TriggerShapeType Sphere
+  SphereRadius 125
+  ShapeColor 0 0 0 0
+  m_Name "Figari"
+  m_eSpawnRegion REGION_2
+ }
+ SpawnArea_Lamentin {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 1293.64 38.977 5986.427
+  TriggerShapeType Sphere
+  SphereRadius 125
+  ShapeColor 0 0 0 0
+  m_Name "Lamentin"
+  m_eSpawnRegion REGION_2
+ }
+ SpawnArea_LeMoule {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 2618.086 107.269 5368.484
+  TriggerShapeType Sphere
+  SphereRadius 90
+  ShapeColor 0 0 0 0
+  m_Name "Le Moule"
+  m_eSpawnRegion REGION_2
+ }
+ SpawnArea_Morton {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5099.869 21.266 3998.184
+  TriggerShapeType Sphere
+  SphereRadius 150
+  ShapeColor 0 0 0 0
+  m_Name "Morton"
+  m_eSpawnRegion REGION_2
+ }
+ SpawnArea_Provins {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 5496.87 101.339 6064.972
+  TriggerShapeType Sphere
+  SphereRadius 90
+  ShapeColor 0 0 0 0
+  m_Name "Provins"
+  m_eSpawnRegion REGION_2
+ }
+ SpawnArea_Villeneuf {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 2852.835 86.747 6363.759
+  TriggerShapeType Sphere
+  SphereRadius 110
+  ShapeColor 0 0 0 0
+  m_Name "Villeneuf"
+  m_eSpawnRegion REGION_2
+ }
+ SpawnArea_Montignac {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 4757.67 166.234 7052.286
+  TriggerShapeType Sphere
+  SphereRadius 200
+  ShapeColor 0 0 0 0
+  m_Name "Montignac"
+  m_eSpawnRegion REGION_2
+ }
+}

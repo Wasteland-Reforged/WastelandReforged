@@ -1,5 +1,5 @@
-GenericEntity SpawnBunker : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
- coords 0 100 0
+GenericEntity SpawnLobby : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
+ coords -20000 100 -20000
  {
   GenericEntity {
    ID "62F768EB62D41F0D"
@@ -7,6 +7,7 @@ GenericEntity SpawnBunker : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBun
     ActionsManagerComponent "{647379DC7EAF638C}" {
      ActionContexts {
       UserActionContext "{647379DC7F576D99}" {
+       ContextName "OpenDeploymentMenuAction"
        Position PointInfo "{647379DF6F6788E8}" {
         Offset -0.1579 0.4 0
        }
@@ -23,41 +24,27 @@ GenericEntity SpawnBunker : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBun
       }
      }
      additionalActions {
-      WR_OpenSpawnProgressUiUserAction "{647379DF2C959791}" {
+      WR_OpenDeployMenuUserAction "{64937568A3185290}" {
        ParentContextList {
-        "SpawnAction"
+        "OpenDeploymentMenuAction"
        }
-       UIInfo SCR_ActionUIInfo "{64936061EEF3A9C9}" {
-        Name "Spawn (North)"
+       UIInfo SCR_ActionUIInfo "{64CA6A0814692DEC}" {
+        Name "View Deployment Map"
        }
-       ActionTitle "Spawn (North)"
-       Duration 0.7
-      }
-      WR_OpenSpawnProgressUiUserAction "{64936060DFC44B54}" {
-       ParentContextList {
-        "SpawnAction"
-       }
-       UIInfo SCR_ActionUIInfo "{64936060DFC44BB8}" {
-        Name "Spawn (Central)"
-       }
-       ActionTitle "Spawn (Central)"
-       Duration 0.7
-       "Sort Priority" 1
-      }
-      WR_OpenSpawnProgressUiUserAction "{64936060D51DF9BF}" {
-       ParentContextList {
-        "SpawnAction"
-       }
-       UIInfo SCR_ActionUIInfo "{64936060D51DF9FF}" {
-        Name "Spawn (South)"
-       }
-       ActionTitle "Spawn (South)"
-       Duration 0.7
-       "Sort Priority" 2
+       ActionTitle "View Deployment Map"
       }
      }
     }
    }
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_US {
+   ID "64940A71D2D68111"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_USSR {
+   ID "64940A71D2D68137"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_FIA {
+   ID "64940A71D2D6813B"
   }
  }
 }
