@@ -19,7 +19,7 @@ class WR_MissionDefinition
 	ref array<ResourceName> m_aAIGroupPrefabs;
 	
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Prop to spawn at mission site (crashed helicopter, abandoned base)", params: "et")]
-	ResourceName m_sPropPrefab;
+	ref array<ResourceName> m_sPropPrefabChoices;
 	
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Possible mission rewards. Rewards are chosen from this list at random", params: "et")]
 	ref array<ResourceName> m_sRewardPrefabChoices;

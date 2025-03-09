@@ -77,9 +77,11 @@ class WR_Mission
 	
 	protected bool SpawnProp()
 	{
-		ResourceName propResource = m_Definition.m_sPropPrefab;
-		if (!propResource) return true;
+		if (!m_Definition.m_sPropPrefabChoices || !m_Definition.m_sPropPrefabChoices.Count() == 0)
+			return true;
 		
+		ResourceName propResource = m_Definition.m_sPropPrefabChoices.GetRandomElement();
+
 		vector safepos;
 		if (!SCR_WorldTools.FindEmptyTerrainPosition(safepos, m_Location.GetOrigin(), 2)) {
 			logger.LogError(string.Format("Could not find empty terrain position for prop! (ID: %1)", m_iMissionId)); 

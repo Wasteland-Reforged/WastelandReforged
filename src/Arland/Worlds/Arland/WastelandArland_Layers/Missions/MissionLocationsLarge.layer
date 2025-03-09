@@ -1,111 +1,104 @@
 $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_MissionLocation.et" {
  LargeMissionLocation1 {
-  coords 1317.282 39 2197.084
+  coords 1834.185 40.23 2705.3
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation2 {
-  coords 1038.783 37.7 2591.108
+  coords 1496.741 36.071 3036.73
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation3 {
-  coords 1470.89 38 2912.663
+  coords 2157.664 54 2920.416
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation4 {
-  coords 1592.009 39.686 2466.112
+  coords 2079.995 45.438 2683.024
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation6 {
-  coords 1856.123 27.188 1948.013
+  coords 2170.232 72.052 2444.544
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation8 {
-  coords 3277.395 40.549 2486.687
+  coords 1568.283 39.422 2334.687
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation9 {
-  coords 3373.157 39.593 2560.547
+  coords 1072.183 37.958 2907.327
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation10 {
-  coords 3177.691 30.915 2028.348
+  coords 1863.839 27.092 1944.7
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation11 {
-  coords 3053.124 59.186 1796.256
+  coords 2521.163 78.614 1757.81
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation12 {
-  coords 3414.514 8.701 1500.859
+  coords 2440.857 88.153 1410.016
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation13 {
-  coords 2972.583 30.014 2619.505
+  coords 3047.483 58.623 1784.411
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation14 {
-  coords 3046.129 48.412 2349.099
+  coords 2783.97 65.527 1937.107
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation15 {
-  coords 2593.425 86.704 1826.104
+  coords 2963.206 31.653 2612.821
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation16 {
-  coords 2375.606 23.783 868.432
+  coords 3368.134 39.795 2574.329
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize LARGE
  }
  LargeMissionLocation17 {
-  coords 2062.877 33.502 1436.125
-  DrawShape 0
-  ShapeColor 1 0.513 0 0.102
-  m_bOnce 0
-  m_eSize LARGE
- }
- LargeMissionLocation18 {
-  coords 1833.973 40.193 2686.403
+  coords 3405.106 9.476 1497.997
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
