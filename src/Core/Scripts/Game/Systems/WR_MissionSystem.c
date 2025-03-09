@@ -8,6 +8,7 @@ class WR_MissionSystem : GameSystem
 	float m_fMissionCreationTimeElaspedS = 0;
 	float m_fMissionCreationTickrateS = 15.0;
 
+	ref SCR_WeightedArray<WR_MissionDefinition> m_aDefinitionArray;
 	ref array<ref WR_Mission> m_aMissions = {};
 	
 	WR_MissionNotificationComponent m_NotifComponent;
@@ -22,6 +23,7 @@ class WR_MissionSystem : GameSystem
 			this.Enable(false);
 		}
 		
+		InitializeDefinitionArray();
 		logger.LogNormal("Mission system started.");
 	}
 	
@@ -57,6 +59,15 @@ class WR_MissionSystem : GameSystem
 	private override void OnCleanup()
 	{
 		logger.LogNormal("Mission system stopped.");
+	}
+	
+	private void InitializeDefinitionArray()
+	{
+		m_aDefinitionArray = new SCR_WeightedArray<WR_MissionDefinition>();
+		foreach (WR_MissionDefinition def : m_Config.m_aMissionDefinitions)
+		{
+			m_aDefinitionArray.Insert(def, def.m_iWeight);
+		}
 	}
 	
 	private bool AdvanceMissionStatus(WR_Mission mission)		//Returns false if a mission was deleted this pass
@@ -264,8 +275,9 @@ class WR_MissionSystem : GameSystem
 	
 	private WR_MissionDefinition GetRandomMissionDefinition()
 	{
-		// TODO: let's make this use a weighted array
-		return m_Config.m_aMissionDefinitions.GetRandomElement();
+		WR_MissionDefinition def;
+		m_aDefinitionArray.GetRandomValue(def);
+		return def;
 	}
 	
 	private WR_MissionLocationEntity GetRandomVacantMissionLocation(WR_MissionLocationSize requiredSize)

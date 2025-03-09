@@ -11,6 +11,9 @@ class WR_MissionDefinition
 	
 	[Attribute(defvalue: "", desc: "Mission description. Displayed on the map and in hint notifications.", category: "Mission")]
 	string m_sDescription;
+	
+	[Attribute(defvalue: "10", uiwidget: UIWidgets.Slider, params: "0 50 1", desc: "Spawn Chance Weight relative to all other missions.")]
+	int m_iWeight;
 
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "List of AI group prefabs that spawn at this mission.", params: "et class=SCR_AIGroup")]
 	ref array<ResourceName> m_aAIGroupPrefabs;
