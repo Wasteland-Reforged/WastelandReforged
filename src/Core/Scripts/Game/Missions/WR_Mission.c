@@ -77,7 +77,7 @@ class WR_Mission
 	
 	protected bool SpawnProp()
 	{
-		if (!m_Definition.m_sPropPrefabChoices || !m_Definition.m_sPropPrefabChoices.Count() == 0)
+		if (!m_Definition.m_sPropPrefabChoices || m_Definition.m_sPropPrefabChoices.Count() == 0)
 			return true;
 		
 		ResourceName propResource = m_Definition.m_sPropPrefabChoices.GetRandomElement();
