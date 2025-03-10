@@ -95,6 +95,10 @@ class WR_MissionSystem : GameSystem
 						
 						m_NotifComponent.SendNotification(mission);
 					}
+					else
+					{
+						ChangeMissionLocation(mission);
+					}
 				}
 				
 				break;
@@ -215,6 +219,19 @@ class WR_MissionSystem : GameSystem
 
 		location.SetIsHostingMission(true);
 		m_aMissions.Insert(mission);
+	}
+	
+	private void ChangeMissionLocation(WR_Mission mission) //Called when a mission fails to spawn at the original location
+	{
+		WR_MissionLocationEntity location = GetRandomVacantMissionLocation(mission.GetDefinition().m_eSize);
+		if (!location)
+		{
+			logger.LogError("No vacant mission locations! Cannot start new mission.");
+			return;
+		}
+		
+		mission.m_Location = location;
+		logger.LogNormal(string.Format("Mission location changed for: %1 (ID: %2, Location: %3)", mission.GetDefinition().m_sName, mission.GetMissionId(), mission.GetLocation().GetName()));
 	}
 	
 	private void SetMissionNotificationComponent()

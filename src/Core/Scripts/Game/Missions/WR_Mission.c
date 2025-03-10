@@ -65,7 +65,7 @@ class WR_Mission
 	
 	void OnMissionMalformed()
 	{
-		SetMissionStatus(WR_MissionStatus.Malformed);
+		//SetMissionStatus(WR_MissionStatus.Malformed);
 		logger.LogWarning(string.Format("Mission failed to spawn: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 	}
 	
