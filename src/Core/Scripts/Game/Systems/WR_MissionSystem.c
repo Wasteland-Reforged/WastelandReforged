@@ -10,6 +10,7 @@ class WR_MissionSystem : GameSystem
 
 	ref SCR_WeightedArray<WR_MissionDefinition> m_aDefinitionArray;
 	ref array<ref WR_Mission> m_aMissions = {};
+	WR_MissionDefinition m_LastMissionDefinition = null;
 	
 	WR_MissionNotificationComponent m_NotifComponent;
 	
@@ -186,11 +187,10 @@ class WR_MissionSystem : GameSystem
 	
 	private void TryCreateNewMission()
 	{
-		// Choose a mission definition
-		WR_MissionDefinition definition = GetRandomMissionDefinition();
+		WR_MissionDefinition definition = GetRandomUniqueMissionDefinition();
 		if (!definition)
 		{
-			logger.LogError("No mission definitions have been defined! Cannot start new mission.");
+			logger.LogError("Unable to generate unique mission definition! Cannot start new mission.");
 			return;
 		}
 		
@@ -217,6 +217,7 @@ class WR_MissionSystem : GameSystem
 			m_NotifComponent.SendNotification(mission);
 		}
 
+		m_LastMissionDefinition = definition;
 		location.SetIsHostingMission(true);
 		m_aMissions.Insert(mission);
 	}
@@ -290,11 +291,29 @@ class WR_MissionSystem : GameSystem
 		return count;
 	}
 	
-	private WR_MissionDefinition GetRandomMissionDefinition()
+	// Return a mission definition that is different than the last one spawned; If only one definition exists, returns that one
+	private WR_MissionDefinition GetRandomUniqueMissionDefinition()
 	{
-		WR_MissionDefinition def;
-		m_aDefinitionArray.GetRandomValue(def);
-		return def;
+		if (!m_aDefinitionArray || m_aDefinitionArray.Count() == 0)
+		{
+			logger.LogError("No mission definitions have been defined! Cannot start new mission.");
+			return null;
+		}
+		
+		if (m_aDefinitionArray.Count() == 1)
+		{
+			return m_aDefinitionArray[0];
+		}
+
+		WR_MissionDefinition definition = null;
+		while (!definition || definition == m_LastMissionDefinition)
+		{
+			m_aDefinitionArray.GetRandomValue(definition);
+
+		}
+		
+		return definition;
+
 	}
 	
 	private WR_MissionLocationEntity GetRandomVacantMissionLocation(WR_MissionLocationSize requiredSize)

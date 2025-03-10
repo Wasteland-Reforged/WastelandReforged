@@ -1,6 +1,7 @@
 $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_MissionLocation.et" {
  SmallMissionLocation10 {
   coords 3415.326 3.667 2007.567
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -8,6 +9,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation2 {
   coords 3239.344 4.387 1228.712
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -15,6 +17,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation3 {
   coords 3268.824 2.062 2880.538
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -22,6 +25,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation4 {
   coords 3119.853 1.249 3358.112
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -29,6 +33,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation5 {
   coords 1955.334 57.399 3280.87
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -36,6 +41,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation7 {
   coords 2031.954 2.79 3535.021
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -43,6 +49,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation8 {
   coords 1222.606 0.947 3268.938
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -50,6 +57,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation9 {
   coords 926.548 6.714 3515.71
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -57,6 +65,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation11 {
   coords 1273.732 37.474 2939.698
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -64,6 +73,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation12 {
   coords 1190.973 38.27 2504.67
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -71,6 +81,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation13 {
   coords 1390.552 36.148 2374.338
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -78,6 +89,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation14 {
   coords 1346.301 8.449 1859.234
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -85,6 +97,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation16 {
   coords 1904.449 2.964 1535.994
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -92,6 +105,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation17 {
   coords 1694.946 44.98 1076.92
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -99,6 +113,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation18 {
   coords 2314.144 90.48 1263.576
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -106,6 +121,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation19 {
   coords 3110.563 44.084 2418.219
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -113,6 +129,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation20 {
   coords 2359.405 66 1710.279
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -120,6 +137,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation21 {
   coords 2081.802 66.827 2344.226
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -127,13 +145,15 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation22 {
   coords 2506.059 147.6 2280.845
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
   m_eSize SMALL
  }
  SmallMissionLocation23 {
-  coords 2596.635 111.116 2504.725
+  coords 2597.52 111.116 2504.123
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -141,6 +161,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation24 {
   coords 2017.356 10.401 1853.281
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -148,6 +169,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation25 {
   coords 1742.309 42.109 2489.881
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0
@@ -155,6 +177,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  }
  SmallMissionLocation26 {
   coords 1914.339 39.669 2816.817
+  SphereRadius 10
   DrawShape 0
   ShapeColor 1 0.513 0 0.102
   m_bOnce 0

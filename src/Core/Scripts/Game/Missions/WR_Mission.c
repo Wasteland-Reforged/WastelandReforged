@@ -33,7 +33,6 @@ class WR_Mission
 	
 	bool StartMission()
 	{
-		
 		// Fail to spawn if any entities are within the mission radius
 		vector safePos;
 		if (!SCR_WorldTools.FindEmptyTerrainPosition(safePos, m_Location.GetOrigin(), m_Location.GetSphereRadius(), m_Location.GetSphereRadius())) {
@@ -288,6 +287,8 @@ class WR_Mission
 		
 		// Delete rewards under certain conditions
 		foreach (IEntity ent : m_aRewards) {
+			
+			if (!ent) continue;
 			
 			// Skip crates that are inside vehicles
 			UniversalInventoryStorageComponent storageComp = UniversalInventoryStorageComponent.Cast(ent.FindComponent(UniversalInventoryStorageComponent));
