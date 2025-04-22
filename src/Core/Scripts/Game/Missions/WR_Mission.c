@@ -384,7 +384,7 @@ class WR_Mission
 			case WR_MissionStatus.AwaitingMarkerCleanup:
 			case WR_MissionStatus.AwaitingCleanup:
 			{
-				parameters.m_iColorEntry = 13; // Dark grey
+				parameters.m_iColorEntry = WR_MapMarkerConfigColorIndices.DarkGrey;
 				break;
 			}
 			default:

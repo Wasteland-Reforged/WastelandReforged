@@ -24,7 +24,7 @@ class EL_SplitQuantityDialog : DialogUI
 	}
 
 	//------------------------------------------------------------------------------------------------
-	override bool OnChange(Widget w, int x, int y, bool finished)
+	override bool OnChange(Widget w, bool finished)
 	{
 		if ((w == m_wKeepAmount || w == m_wSplitAmount) && m_wKeepAmount.GetText() && m_wSplitAmount.GetText())
 		{
@@ -47,7 +47,7 @@ class EL_SplitQuantityDialog : DialogUI
 			m_wSlider.SetCurrent(splitAmount - 1);
 		}
 
-		return super.OnChange(w, x, y, finished);
+		return super.OnChange(w, finished);
 	}
 
 	//------------------------------------------------------------------------------------------------

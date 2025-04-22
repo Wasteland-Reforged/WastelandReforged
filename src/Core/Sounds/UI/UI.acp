@@ -904,12 +904,12 @@ AudioClass {
   GeneratorClass {
    id 168965
    name "Sawtooth Pop"
-   version 5
+   version 6
    tl -464 -6240
    function SawTooth
-   time 60
    volume 0.05
    volume_dB -26
+   time 60
    frequency 3
    "Attack Curve" Exp
    "Attack Time " 30
@@ -918,7 +918,7 @@ AudioClass {
   GeneratorClass {
    id 172037
    name "Silence"
-   version 5
+   version 6
    tl -464 -6304
    function Silence
    time 100
@@ -926,12 +926,12 @@ AudioClass {
   GeneratorClass {
    id 174085
    name "Sawtooth Pop"
-   version 5
+   version 6
    tl -464 -6016
    function SawTooth
-   time 60
    volume 0.025
    volume_dB -32
+   time 60
    frequency 3
    "Attack Curve" Exp
    "Attack Time " 30
@@ -940,7 +940,7 @@ AudioClass {
   GeneratorClass {
    id 175109
    name "Silence"
-   version 5
+   version 6
    tl -464 -6080
    function Silence
    time 100
@@ -1105,7 +1105,7 @@ AudioClass {
    }
    path "{B764D803219C775E}Sounds/FinalMix.afm"
    inputs {
-    "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialog" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialog_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct" "SFX_Reverb_Small" "SFX_Reverb_Medium" "SFX_Reverb_Large" "WPN_Shots_Player" "Dialog_Reverb_Small" "Dialog_Reverb_Medium" "Dialog_Reverb_Large" "Dialog_Delay_Exterior"
+    "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialog" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialog_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct" "SFX_Reverb_Small" "SFX_Reverb_Medium" "SFX_Reverb_Large" "WPN_Shots_Player" "Dialog_Reverb_Small" "Dialog_Reverb_Medium" "Dialog_Reverb_Large" "WPN_TravelingProjectile" "Dialog_Delay_Exterior" "SFX_Reverb_InCabin"
    }
   }
  }
@@ -1234,7 +1234,7 @@ AudioClass {
    name "HUD_Task_Succeeded"
    version 7
    tl -465.667 -2921.459
-   Volume -8
+   Volume -6
    "Pitch variance" 0.2
    Samples {
     AudioBankSampleClass Sample {

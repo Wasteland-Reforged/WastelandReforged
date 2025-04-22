@@ -3,7 +3,7 @@ class WR_MissionDefinition
 {
 	const string CATEGORY_MISSION = "Mission";
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Mission type. When designing a new mission, add your mission type in WR_MissionType.c", enums: ParamEnumArray.FromEnum(WR_MissionType))]
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Mission type. When creating a new mission, make sure to add your mission type to the enum in WR_MissionType.c", enums: ParamEnumArray.FromEnum(WR_MissionType))]
 	int m_eType;
 	
 	[Attribute(defvalue: "", desc: "Mission name. Displayed on the map and in hint notifications.", category: "Mission")]
@@ -15,41 +15,33 @@ class WR_MissionDefinition
 	[Attribute(defvalue: "10", uiwidget: UIWidgets.Slider, params: "0 50 1", desc: "Spawn Chance Weight relative to all other missions.")]
 	int m_iWeight;
 
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "List of AI group prefabs that spawn at this mission.", params: "et class=SCR_AIGroup")]
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "List of NPC group prefabs to spawn at this mission. Leave empty for no NPCs to spawn.", params: "et class=SCR_AIGroup")]
 	ref array<ResourceName> m_aAIGroupPrefabs;
-	
+
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Prop to spawn at mission site (crashed helicopter, abandoned base)", params: "et")]
 	ref array<ResourceName> m_sPropPrefabChoices;
 	
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Possible mission rewards. Rewards are chosen from this list at random", params: "et")]
-	ref array<ResourceName> m_sRewardPrefabChoices;
+	ref array<ResourceName> m_sRewardPrefabChoices; // TODO: make this a weighted array
 	
 	[Attribute(defvalue: "1", uiwidget: UIWidgets.Slider, params: "0 5 1", desc: "Number of rewards to spawn.")]
 	int m_iNumberOfRewards;
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for reward loot boxes (set to None if no boxes are to be spawned)", enums: ParamEnumArray.FromEnum(WR_LootContext))]
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Loot context to use for reward loot boxes. Set to none for no boxes to be spawned.", enums: ParamEnumArray.FromEnum(WR_LootContext))]
 	int m_eLootContext;
 	
-	[Attribute(defvalue: "0.75", uiwidget: UIWidgets.Slider, params: "0 2.0 0.1", desc: "Amount of loot to spawn in the reward box (if there is one).")]
+	[Attribute(defvalue: "0.75", uiwidget: UIWidgets.Slider, params: "0 2.0 0.1", desc: "Amount of loot to spawn in the reward box if present.")]
 	float m_fLootBudget;
 	
-	[Attribute(defvalue: "1.0", uiwidget: UIWidgets.Slider, params: "0 10.0 0.1", desc: "Multiplier for magazines and other additional items in reward box (if there is one).")]
+	[Attribute(defvalue: "1.0", uiwidget: UIWidgets.Slider, params: "0 10.0 0.1", desc: "Multiplier for magazines and other additional items in reward box if present.")]
 	float m_fLootBoxAdditionalItemMultiplier;
 	
 	[Attribute(defvalue: "LARGE", uiwidget: UIWidgets.ComboBox, desc: "Size of the mission location. Determines which missions spawn here. Does NOT affect the radius of the location.", enums: ParamEnumArray.FromEnum(WR_MissionLocationSize))]
 	int m_eSize;
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which icon shape to use for the mission on the map", enums: ParamEnumArray.FromEnum(WR_MapMarkerConfigQuadIndices))]
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Icon shape to use for the mission map marker", enums: ParamEnumArray.FromEnum(WR_MapMarkerConfigQuadIndices))]
 	int m_eMissionIcon;
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which icon color to use for the mission on the map", enums: ParamEnumArray.FromEnum(WR_MapMarkerConfigColorIndices))]
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Icon color to use for the mission map marker", enums: ParamEnumArray.FromEnum(WR_MapMarkerConfigColorIndices))]
 	int m_eMissionColor;
-	
-	// TODO: add options for mission marker icon and color.
-	// If left blank, default to what's specified in the controller DSConfig
-	// And if that's blank, then use the classic red cross
-	
-	// TODO: add options for loot contexts, amount of loot to spawn, etc.
-	
-	// TODO: see if we can add categories to this config
 }

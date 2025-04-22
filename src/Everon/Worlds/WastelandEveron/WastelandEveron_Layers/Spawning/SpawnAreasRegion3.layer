@@ -18,7 +18,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 125
   ShapeColor 0 0 0 0
   m_Name "Chotain"
-  m_eSpawnRegion REGION_2
+  m_eSpawnRegion REGION_3
  }
  SpawnArea_Durras {
   components {

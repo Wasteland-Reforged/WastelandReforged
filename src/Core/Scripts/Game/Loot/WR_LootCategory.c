@@ -13,5 +13,6 @@ enum WR_LootCategory
     Helmets,
     Hats,
     Backpacks,
-	SpawnAreaVehicles
+	SpawnAreaVehicles,
+	VehicleAmmo
 }

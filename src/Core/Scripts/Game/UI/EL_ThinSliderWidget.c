@@ -15,7 +15,7 @@ class EL_ThinSliderWidget : ScriptedWidgetComponent
 	}
 
 	//------------------------------------------------------------------------------------------------
-	override bool OnChange(Widget w, int x, int y, bool finished)
+	override bool OnChange(Widget w, bool finished)
 	{
 		if (w == m_wSlider)
 		{
@@ -24,7 +24,7 @@ class EL_ThinSliderWidget : ScriptedWidgetComponent
 			if (m_pOnValueChanged) m_pOnValueChanged.Invoke(m_wSlider.GetCurrent(), finished);
 		}
 
-		return super.OnChange(w, x, y, finished);
+		return super.OnChange(w, finished);
 	}
 
 	//------------------------------------------------------------------------------------------------
