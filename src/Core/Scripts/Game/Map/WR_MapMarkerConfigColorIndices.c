@@ -1,4 +1,4 @@
-// Enum to simplify choosing indices of colors as specified in MapMarkerConfig.conf
+// Enum to simplify choosing indices of marker colors as specified in MapMarkerConfig.conf
 enum WR_MapMarkerConfigColorIndices
 {
 	White = 0,
