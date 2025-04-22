@@ -18,7 +18,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 125
   ShapeColor 0 0 0 0
   m_Name "Chotain"
-  m_eSpawnRegion REGION_2
  }
  SpawnArea_Durras {
   components {
@@ -31,7 +30,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 125
   ShapeColor 0 0 0 0
   m_Name "Durras"
-  m_eSpawnRegion REGION_3
  }
  SpawnArea_Laruns {
   components {
@@ -44,7 +42,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 100
   ShapeColor 0 0 0 0
   m_Name "Laruns"
-  m_eSpawnRegion REGION_3
  }
  SpawnArea_Levie {
   components {
@@ -57,7 +54,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 125
   ShapeColor 0 0 0 0
   m_Name "Levie"
-  m_eSpawnRegion REGION_3
  }
  SpawnArea_Regina {
   components {
@@ -70,7 +66,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 110
   ShapeColor 0 0 0 0
   m_Name "Regina"
-  m_eSpawnRegion REGION_3
  }
  SpawnArea_StPierre {
   components {
@@ -83,7 +78,6 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 200
   ShapeColor 0 0 0 0
   m_Name "St. Pierre"
-  m_eSpawnRegion REGION_3
  }
  SpawnArea_Vernon {
   components {
@@ -96,6 +90,5 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 90
   ShapeColor 0 0 0 0
   m_Name "Vernon"
-  m_eSpawnRegion REGION_3
  }
 }

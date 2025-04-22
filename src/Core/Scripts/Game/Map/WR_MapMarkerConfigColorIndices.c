@@ -7,8 +7,12 @@ enum WR_MapMarkerConfigColorIndices
 	DarkRed = 3,
 	Red = 4,
 	Green = 5,
+	DarkGreen = 6,
 	Blue = 7,
 	LightBlue = 8,
+	NavyBlue = 9,
 	Pink = 10,
 	Purple = 11,
+	Puce = 12,
+	DarkGrey = 13
 }
