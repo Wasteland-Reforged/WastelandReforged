@@ -1234,7 +1234,7 @@ AudioClass {
    name "HUD_Task_Succeeded"
    version 7
    tl -465.667 -2921.459
-   Volume -7
+   Volume -6
    "Pitch variance" 0.2
    Samples {
     AudioBankSampleClass Sample {
