@@ -1,0 +1,66 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_CampaignBuildingCompositionComponent "{5E96A067C097D570}" {
+   m_AudioSourceConfigurationSpawn SCR_AudioSourceConfiguration "{5E96A067C355978C}" {
+    m_sSoundEventName "SOUND_BUILD_MORTAR_POSITION"
+   }
+   m_AudioSourceConfigurationDespawn SCR_AudioSourceConfiguration "{5E96A0643BAAEAF8}" {
+    m_sSoundEventName "SOUND_DESTROY_MORTAR_POSITION"
+   }
+  }
+  Hierarchy "{652B146E0091B7ED}" {
+   Enabled 1
+  }
+ }
+ coords 0 0.184 0
+ {
+  $grp GenericEntity : "{047B9C8AAB50CE0F}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_MachineGunNest_S_USSR_01.et" {
+   {
+    ID "652B146FB59B85D6"
+    coords 5.623 0 -10.437
+    angleY 129.171
+   }
+   {
+    ID "652B146FFEE266C8"
+    coords -6.99 0 -7.259
+    angleY -110
+   }
+  }
+  GenericEntity : "{7CEBECD6FD380520}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_MortarPlacement_S_US_01.et" {
+   ID "652D27F2B6F91E07"
+   coords 0 0.184 0
+  }
+  $grp GenericEntity : "{A3A7C365E845B1B6}PrefabsEditable/Auto/Props/Military/Sandbags/E_Sandbag_01_long_high_burlap.et" {
+   {
+    ID "652B146E86D00F39"
+    coords -7.062 0 0.801
+    angleY 90
+   }
+   {
+    ID "652B146E88305E52"
+    coords 4.912 0 5.778
+    angleY 45
+   }
+   {
+    ID "652B146E9C3435DA"
+    coords 0.121 0 7.498
+   }
+   {
+    ID "652B146EAAE06367"
+    coords 6.277 0 1.216
+    angleY 90
+   }
+   {
+    ID "652B146F724DE827"
+    coords -5.07 0 5.736
+    angleY -45
+   }
+  }
+  GenericEntity : "{AA6C691B73FC7A84}PrefabsEditable/Auto/Structures/Military/CamoNets/FIA/E_CamoNet_Medium_FIA_01_V1.et" {
+   ID "652B146EAAE060D6"
+   coords 0.094 0.178 -5.39
+   angleY -4.747
+  }
+ }
+}

@@ -1,6 +1,8 @@
 WR_SpawnAreaEntity {
  ID "6192349936E34DE3"
  components {
+  WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+  }
   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
   }
   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
