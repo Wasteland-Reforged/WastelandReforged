@@ -14,7 +14,6 @@ modded class SCR_RoleSelectionMenu
 		return GetRoleSelectionMenu();
 	}
 	
-	//! Close role selection menu.
 	override static void CloseRoleSelectionMenu()
 	{
 		GetGame().GetMenuManager().CloseMenuByPreset(ChimeraMenuPreset.RoleSelectionDialog);
@@ -31,11 +30,6 @@ modded class SCR_RoleSelectionMenu
 		AudioSystem.SetMasterVolume(AudioSystem.SFX, !mute);
 		AudioSystem.SetMasterVolume(AudioSystem.VoiceChat, !mute);
 		AudioSystem.SetMasterVolume(AudioSystem.Dialog, !mute);
-	}
-	
-	SCR_InputButtonComponent GetContinueButton()
-	{
-		return m_ContinueButton;
 	}
 	
 	override void OnMenuOpen()
