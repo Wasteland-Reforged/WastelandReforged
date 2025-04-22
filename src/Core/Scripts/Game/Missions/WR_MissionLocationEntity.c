@@ -63,7 +63,7 @@ class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity
 		
 		foreach (auto location : MissionLocationEntities)
 		{
-			if (!location.m_bIsHostingMission && location.GetSize() >= requiredSize && location.m_bIsActive)
+			if (!location.m_bIsHostingMission && location.GetSize() == requiredSize && location.m_bIsActive)
 				vacantLocations.Insert(location);
 		}
 		return vacantLocations;

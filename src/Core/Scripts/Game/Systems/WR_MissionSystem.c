@@ -8,7 +8,9 @@ class WR_MissionSystem : GameSystem
 	float m_fMissionCreationTimeElaspedS = 0;
 	float m_fMissionCreationTickrateS = 15.0;
 
+	ref SCR_WeightedArray<WR_MissionDefinition> m_aDefinitionArray;
 	ref array<ref WR_Mission> m_aMissions = {};
+	WR_MissionDefinition m_LastMissionDefinition = null;
 	
 	WR_MissionNotificationComponent m_NotifComponent;
 	
@@ -22,6 +24,7 @@ class WR_MissionSystem : GameSystem
 			this.Enable(false);
 		}
 		
+		InitializeDefinitionArray();
 		logger.LogNormal("Mission system started.");
 	}
 	
@@ -59,6 +62,15 @@ class WR_MissionSystem : GameSystem
 		logger.LogNormal("Mission system stopped.");
 	}
 	
+	private void InitializeDefinitionArray()
+	{
+		m_aDefinitionArray = new SCR_WeightedArray<WR_MissionDefinition>();
+		foreach (WR_MissionDefinition def : m_Config.m_aMissionDefinitions)
+		{
+			m_aDefinitionArray.Insert(def, def.m_iWeight);
+		}
+	}
+	
 	private bool AdvanceMissionStatus(WR_Mission mission)		//Returns false if a mission was deleted this pass
 	{
 		if (!m_NotifComponent)
@@ -83,6 +95,10 @@ class WR_MissionSystem : GameSystem
 						mission.SetMarkerId(markerId);
 						
 						m_NotifComponent.SendNotification(mission);
+					}
+					else
+					{
+						ChangeMissionLocation(mission);
 					}
 				}
 				
@@ -171,11 +187,10 @@ class WR_MissionSystem : GameSystem
 	
 	private void TryCreateNewMission()
 	{
-		// Choose a mission definition
-		WR_MissionDefinition definition = GetRandomMissionDefinition();
+		WR_MissionDefinition definition = GetRandomUniqueMissionDefinition();
 		if (!definition)
 		{
-			logger.LogError("No mission definitions have been defined! Cannot start new mission.");
+			logger.LogError("Unable to generate unique mission definition! Cannot start new mission.");
 			return;
 		}
 		
@@ -202,8 +217,22 @@ class WR_MissionSystem : GameSystem
 			m_NotifComponent.SendNotification(mission);
 		}
 
+		m_LastMissionDefinition = definition;
 		location.SetIsHostingMission(true);
 		m_aMissions.Insert(mission);
+	}
+	
+	private void ChangeMissionLocation(WR_Mission mission) //Called when a mission fails to spawn at the original location
+	{
+		WR_MissionLocationEntity location = GetRandomVacantMissionLocation(mission.GetDefinition().m_eSize);
+		if (!location)
+		{
+			logger.LogError("No vacant mission locations! Cannot start new mission.");
+			return;
+		}
+		
+		mission.m_Location = location;
+		logger.LogNormal(string.Format("Mission location changed for: %1 (ID: %2, Location: %3)", mission.GetDefinition().m_sName, mission.GetMissionId(), mission.GetLocation().GetName()));
 	}
 	
 	private void SetMissionNotificationComponent()
@@ -262,10 +291,29 @@ class WR_MissionSystem : GameSystem
 		return count;
 	}
 	
-	private WR_MissionDefinition GetRandomMissionDefinition()
+	// Return a mission definition that is different than the last one spawned; If only one definition exists, returns that one
+	private WR_MissionDefinition GetRandomUniqueMissionDefinition()
 	{
-		// TODO: let's make this use a weighted array
-		return m_Config.m_aMissionDefinitions.GetRandomElement();
+		if (!m_aDefinitionArray || m_aDefinitionArray.Count() == 0)
+		{
+			logger.LogError("No mission definitions have been defined! Cannot start new mission.");
+			return null;
+		}
+		
+		if (m_aDefinitionArray.Count() == 1)
+		{
+			return m_aDefinitionArray[0];
+		}
+
+		WR_MissionDefinition definition = null;
+		while (!definition || definition == m_LastMissionDefinition)
+		{
+			m_aDefinitionArray.GetRandomValue(definition);
+
+		}
+		
+		return definition;
+
 	}
 	
 	private WR_MissionLocationEntity GetRandomVacantMissionLocation(WR_MissionLocationSize requiredSize)

@@ -11,12 +11,15 @@ class WR_MissionDefinition
 	
 	[Attribute(defvalue: "", desc: "Mission description. Displayed on the map and in hint notifications.", category: "Mission")]
 	string m_sDescription;
+	
+	[Attribute(defvalue: "10", uiwidget: UIWidgets.Slider, params: "0 50 1", desc: "Spawn Chance Weight relative to all other missions.")]
+	int m_iWeight;
 
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "List of NPC group prefabs to spawn at this mission. Leave empty for no NPCs to spawn.", params: "et class=SCR_AIGroup")]
 	ref array<ResourceName> m_aAIGroupPrefabs;
-	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Prop to spawn at mission site (e.g. crashed helicopter, abandoned base).", params: "et")]
-	ResourceName m_sPropPrefab;
+
+	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Prop to spawn at mission site (crashed helicopter, abandoned base)", params: "et")]
+	ref array<ResourceName> m_sPropPrefabChoices;
 	
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, desc: "Possible mission rewards. Rewards are chosen from this list at random", params: "et")]
 	ref array<ResourceName> m_sRewardPrefabChoices; // TODO: make this a weighted array

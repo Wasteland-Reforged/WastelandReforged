@@ -33,7 +33,6 @@ class WR_Mission
 	
 	bool StartMission()
 	{
-		
 		// Fail to spawn if any entities are within the mission radius
 		vector safePos;
 		if (!SCR_WorldTools.FindEmptyTerrainPosition(safePos, m_Location.GetOrigin(), m_Location.GetSphereRadius(), m_Location.GetSphereRadius())) {
@@ -65,7 +64,7 @@ class WR_Mission
 	
 	void OnMissionMalformed()
 	{
-		SetMissionStatus(WR_MissionStatus.Malformed);
+		//SetMissionStatus(WR_MissionStatus.Malformed);
 		logger.LogWarning(string.Format("Mission failed to spawn: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 	}
 	
@@ -77,9 +76,11 @@ class WR_Mission
 	
 	protected bool SpawnProp()
 	{
-		ResourceName propResource = m_Definition.m_sPropPrefab;
-		if (!propResource) return true;
+		if (!m_Definition.m_sPropPrefabChoices || m_Definition.m_sPropPrefabChoices.Count() == 0)
+			return true;
 		
+		ResourceName propResource = m_Definition.m_sPropPrefabChoices.GetRandomElement();
+
 		vector safepos;
 		if (!SCR_WorldTools.FindEmptyTerrainPosition(safepos, m_Location.GetOrigin(), 2)) {
 			logger.LogError(string.Format("Could not find empty terrain position for prop! (ID: %1)", m_iMissionId)); 
@@ -286,6 +287,8 @@ class WR_Mission
 		
 		// Delete rewards under certain conditions
 		foreach (IEntity ent : m_aRewards) {
+			
+			if (!ent) continue;
 			
 			// Skip crates that are inside vehicles
 			UniversalInventoryStorageComponent storageComp = UniversalInventoryStorageComponent.Cast(ent.FindComponent(UniversalInventoryStorageComponent));
