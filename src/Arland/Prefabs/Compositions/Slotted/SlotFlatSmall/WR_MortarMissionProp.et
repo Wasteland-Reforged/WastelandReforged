@@ -1,0 +1,248 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_CampaignBuildingCompositionComponent "{5E96A067C097D570}" {
+   m_AudioSourceConfigurationSpawn SCR_AudioSourceConfiguration "{5E96A067C355978C}" {
+    m_sSoundEventName "SOUND_BUILD_MORTAR_POSITION"
+   }
+   m_AudioSourceConfigurationDespawn SCR_AudioSourceConfiguration "{5E96A0643BAAEAF8}" {
+    m_sSoundEventName "SOUND_DESTROY_MORTAR_POSITION"
+   }
+  }
+  Hierarchy "{652B146E0091B7ED}" {
+   Enabled 1
+  }
+ }
+ coords 0 0.184 0
+ {
+  $grp GenericEntity : "{047B9C8AAB50CE0F}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_MachineGunNest_S_USSR_01.et" {
+   {
+    ID "652B146FB59B85D6"
+    coords 5.623 0 -10.437
+    angleY 129.171
+   }
+   {
+    ID "652B146FFEE266C8"
+    coords -6.99 0 -7.259
+    angleY -110
+   }
+  }
+  $grp GenericEntity : "{A3A7C365E845B1B6}PrefabsEditable/Auto/Props/Military/Sandbags/E_Sandbag_01_long_high_burlap.et" {
+   {
+    ID "652B146E86D00F39"
+    coords -7.062 0 0.801
+    angleY 90
+   }
+   {
+    ID "652B146E88305E52"
+    coords 4.912 0 5.778
+    angleY 45
+   }
+   {
+    ID "652B146E9C3435DA"
+    coords 0.121 0 7.498
+    angleY 0
+   }
+   {
+    ID "652B146EAAE06367"
+    coords 6.277 0 1.216
+    angleY 90
+   }
+   {
+    ID "652B146F724DE827"
+    coords -5.07 0 5.736
+    angleY -45
+   }
+  }
+  GenericEntity : "{AA6C691B73FC7A84}PrefabsEditable/Auto/Structures/Military/CamoNets/FIA/E_CamoNet_Medium_FIA_01_V1.et" {
+   ID "652B146EAAE060D6"
+   coords 0.094 0.178 -5.39
+   angleY -4.747
+  }
+  GenericEntity : "{D68CF950C800CE14}Prefabs/Compositions/Misc/SubCompositions/Foundation_Mortar_FIA.et" {
+   ID "652B146E0091B74E"
+   coords 0 0.2 0
+   {
+    GenericEntity {
+     ID "6186DB2845B2972A"
+     components {
+      Hierarchy "{652B146E0091B7F2}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B2972B"
+     components {
+      Hierarchy "{652B146E0091B7F6}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B5032E"
+     components {
+      Hierarchy "{652B146E0091B7CB}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B5032F"
+     components {
+      Hierarchy "{652B146E0091B7CF}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B50333"
+     components {
+      Hierarchy "{652B146E0091B7C3}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B50335"
+     components {
+      Hierarchy "{652B146E0091B7C4}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B528E0"
+     components {
+      Hierarchy "{652B146E0091B7DB}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B528E1"
+     components {
+      Hierarchy "{652B146E0091B7DC}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B528E2"
+     components {
+      Hierarchy "{652B146E0091B7D0}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B528EA"
+     components {
+      Hierarchy "{652B146E0091B7D4}" {
+       Enabled 1
+      }
+     }
+     {
+      GenericEntity {
+       ID "6186CCEA53FABBE8"
+       components {
+        Hierarchy "{652B146E0091B628}" {
+         Enabled 1
+        }
+       }
+      }
+      GenericEntity {
+       ID "6186CCEA53FD399D"
+       components {
+        Hierarchy "{652B146E0091B62C}" {
+         Enabled 1
+        }
+       }
+      }
+      GenericEntity {
+       ID "6186CCEA53FD399E"
+       components {
+        Hierarchy "{652B146E0091B623}" {
+         Enabled 1
+        }
+       }
+      }
+      GenericEntity {
+       ID "6186CCEA53FD399F"
+       components {
+        Hierarchy "{652B146E0091B627}" {
+         Enabled 1
+        }
+       }
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B52911"
+     components {
+      Hierarchy "{652B146E0091B63A}" {
+       Enabled 1
+      }
+     }
+     {
+      GenericEntity {
+       ID "6186CBE3FD01DC2B"
+       components {
+        Hierarchy "{652B146E0091B63F}" {
+         Enabled 1
+        }
+       }
+      }
+      GenericEntity {
+       ID "6186CBE3FD01DC4E"
+       components {
+        Hierarchy "{652B146E0091B632}" {
+         Enabled 1
+        }
+       }
+      }
+      GenericEntity {
+       ID "6186CCEAB192AD3D"
+       components {
+        Hierarchy "{652B146E0091B630}" {
+         Enabled 1
+        }
+       }
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B5291F"
+     components {
+      Hierarchy "{652B146E0091B635}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B55C8C"
+     components {
+      Hierarchy "{652B146E0091B609}" {
+       Enabled 1
+      }
+     }
+    }
+    GenericEntity {
+     ID "6186DB2845B55C8F"
+     components {
+      Hierarchy "{652B146E0091B60C}" {
+       Enabled 1
+      }
+     }
+    }
+    Tree {
+     ID "6186DB2DD90FF6D9"
+     components {
+      Hierarchy "{652B146E0091B601}" {
+      }
+     }
+    }
+   }
+  }
+ }
+}
