@@ -6,6 +6,9 @@ class WR_MissionDefinition
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Mission type. When creating a new mission, make sure to add your mission type to the enum in WR_MissionType.c", enums: ParamEnumArray.FromEnum(WR_MissionType))]
 	int m_eType;
 	
+	[Attribute(defvalue: "1", uiwidget: UIWidgets.ComboBox, desc: "Mission difficulty. Determines the playercount at which mission is allowed to spawn", enums: ParamEnumArray.FromEnum(WR_MissionDifficulty))]
+	int m_eDifficulty;
+	
 	[Attribute(defvalue: "", desc: "Mission name. Displayed on the map and in hint notifications.", category: "Mission")]
 	string m_sName;
 	

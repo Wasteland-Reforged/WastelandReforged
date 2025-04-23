@@ -305,13 +305,21 @@ class WR_MissionSystem : GameSystem
 			return m_aDefinitionArray[0];
 		}
 
+		int currentPlayers = GetGame().GetPlayerManager().GetPlayerCount();
 		WR_MissionDefinition definition = null;
-		while (!definition || definition == m_LastMissionDefinition)
+		int MAX_ATTEMPTS = 100;
+		for (int i = 0; i < MAX_ATTEMPTS; i++)
 		{
 			m_aDefinitionArray.GetRandomValue(definition);
-
+			if (!definition) break;
+			
+			// Filter mission difficult using current player count
+			if (definition.m_eDifficulty == WR_MissionDifficulty.FREE && currentPlayers < m_Config.m_freeMissionThreshold)
+				continue;
+			if (definition.m_eDifficulty == WR_MissionDifficulty.HARD && currentPlayers < m_Config.m_hardMissionThreshold)
+				continue;
 		}
-		
+
 		return definition;
 
 	}

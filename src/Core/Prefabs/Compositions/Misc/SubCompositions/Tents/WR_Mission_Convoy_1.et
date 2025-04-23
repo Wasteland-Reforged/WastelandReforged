@@ -1,0 +1,114 @@
+GenericEntity {
+ ID "652ECE684AAFE7D9"
+ {
+  Vehicle UAZ469_PKM_FIA1 : "{22B327C6752EC4D4}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM_FIA.et" {
+   ID "652ECE686254D886"
+   components {
+    ActionsManagerComponent "{C97BE5489221AE18}" {
+     Enabled 0
+    }
+   }
+   coords 1.742 0 -6.649
+   angleY 173.437
+  }
+  GenericEntity : "{33B2DFDCD0EBA3DB}Prefabs/Items/Equipment/Kits/RepairKit_01/RepairKit_01_wrench.et" {
+   ID "652ECE69124BDB99"
+   coords -5.613 0 1.108
+   angleY -18.081
+  }
+  GenericEntity : "{56C548C944B4B2BE}Prefabs/Props/Industrial/ToolBox_01/Dst/ToolBox_01_dst_01_red.et" {
+   ID "652ECE694D57181F"
+   coords -5.596 0.005 1.129
+   angleY 150.736
+  }
+  Vehicle Ural4320_transport_covered_CIV_orange1 : "{66241E0CEDFCEDFF}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport_covered_CIV_orange.et" {
+   ID "652ECE69EB457A49"
+   components {
+    ActionsManagerComponent "{C97BE5489221AE18}" {
+     Enabled 0
+    }
+   }
+   coords -8.683 1.222 -1.273
+   angleY -131.599
+   angleZ -89.972
+  }
+  GenericEntity : "{8A89D3F70713E55B}Prefabs/Items/Equipment/Accessories/ETool_MPL50/ETool_MPL50.et" {
+   ID "652ECE69124BDBB9"
+   coords -5.898 0 0.738
+   angleY 119.452
+  }
+  $grp StaticModelEntity : "{93E06E731212BD96}Prefabs/Structures/Walls/BarbedWire/BarbedTape_01/BarbedTape_01_Triple.et" {
+   {
+    ID "652ECE6DC5DDDE0A"
+    coords -1.992 0 12.58
+    angleY 82.32
+   }
+   {
+    ID "652ECE6DFEDB53A4"
+    coords -5.485 0 11.64
+    angleY 62.814
+   }
+  }
+  $grp DecalEntity : "{9EE74738BD9E8CDB}Prefabs/Decals/Dirt/Decal_Dirt_Tracks_02.et" {
+   {
+    ID "652ECE6E1D6002D6"
+    components {
+     Hierarchy "{56E0B29FD1BC7A6F}" {
+     }
+    }
+    coords 0.629 0.007 -6.04
+    angleX -89.966
+    angleY -180
+    angleZ -85.528
+    scale 5
+    FarPlane 1.5
+    Stretch 2
+    Mat "{31DD25B5E8A3BB73}Assets/Decals/Dirt/TireTracks/Data/Decal_Tracks_01.emat"
+   }
+   {
+    ID "652ECE6E5B3898BA"
+    components {
+     Hierarchy "{56E0B29FD1BC7A6F}" {
+     }
+    }
+    coords -1.074 -0.002 4.768
+    angleX -89.972
+    angleY 180
+    angleZ -85.528
+    scale 5
+    FarPlane 1.5
+    Stretch 2
+    Mat "{31DD25B5E8A3BB73}Assets/Decals/Dirt/TireTracks/Data/Decal_Tracks_01.emat"
+   }
+  }
+  GenericEntity : "{C1977A326F2AA011}Prefabs/Structures/Signs/Military/SignCheckpoint_01_stop.et" {
+   ID "652ECE6DFDC877B2"
+   coords -4.332 0 14.259
+   angleY -15.279
+  }
+  $grp GenericEntity : "{DF3EF41CE4D441DE}Prefabs/Props/Industrial/BarrelMetal_01_rust.et" {
+   {
+    ID "652ECE6B8B51EC04"
+    coords 4.923 -0.014 -3.77
+   }
+   {
+    ID "652ECE6BF6025A70"
+    coords -4.416 0 3.327
+   }
+   {
+    ID "652ECE6C89588EE4"
+    coords 5.969 0 8.556
+   }
+  }
+  Vehicle UAZ469_FIA1 : "{F7E9AA0C813EABDA}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_FIA.et" {
+   ID "652ECE69F7F69808"
+   components {
+    ActionsManagerComponent "{C97BE5489221AE18}" {
+     Enabled 0
+    }
+   }
+   coords -1.864 0 6.712
+   angleY 134.59
+  }
+ }
+}
