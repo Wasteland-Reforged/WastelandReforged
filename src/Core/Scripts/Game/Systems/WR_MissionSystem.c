@@ -314,7 +314,7 @@ class WR_MissionSystem : GameSystem
 			if (!definition) break;
 			
 			// Filter mission difficult using current player count
-			if (definition.m_eDifficulty == WR_MissionDifficulty.EASY && currentPlayers < m_Config.m_freeMissionThreshold)
+			if (definition.m_eDifficulty == WR_MissionDifficulty.FREE && currentPlayers < m_Config.m_freeMissionThreshold)
 				continue;
 			if (definition.m_eDifficulty == WR_MissionDifficulty.HARD && currentPlayers < m_Config.m_hardMissionThreshold)
 				continue;
