@@ -43,6 +43,8 @@ class WR_LootSpawner : GenericEntity
 			IEntity item = m_aItemsAtThisSpawner.GetKey(i);
 			vector startingLocation = m_aItemsAtThisSpawner.GetElement(i);
 			
+			if (!item) continue;
+			
 			// Only delete item if it is still where it was originally spawned
 			if (item.GetOrigin() != startingLocation)
 				continue;
