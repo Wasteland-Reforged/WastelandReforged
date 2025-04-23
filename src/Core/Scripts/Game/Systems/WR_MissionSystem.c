@@ -8,7 +8,7 @@ class WR_MissionSystem : GameSystem
 	float m_fMissionCreationTimeElaspedS = 0;
 	float m_fMissionCreationTickrateS = 15.0;
 
-	ref SCR_WeightedArray<WR_MissionDefinition> m_aDefinitionArray;
+	ref SCR_WeightedArray<WR_MissionDefinition> m_aDefinitions;
 	ref array<ref WR_Mission> m_aMissions = {};
 	WR_MissionDefinition m_LastMissionDefinition = null;
 	
@@ -64,10 +64,10 @@ class WR_MissionSystem : GameSystem
 	
 	private void InitializeDefinitionArray()
 	{
-		m_aDefinitionArray = new SCR_WeightedArray<WR_MissionDefinition>();
+		m_aDefinitions = new SCR_WeightedArray<WR_MissionDefinition>();
 		foreach (WR_MissionDefinition def : m_Config.m_aMissionDefinitions)
 		{
-			m_aDefinitionArray.Insert(def, def.m_iWeight);
+			m_aDefinitions.Insert(def, def.m_iWeight);
 		}
 	}
 	
@@ -281,47 +281,55 @@ class WR_MissionSystem : GameSystem
 		foreach (WR_Mission mission : m_aMissions)
 		{
 			WR_MissionStatus status = mission.GetStatus();
-			if (
-				status == WR_MissionStatus.Pending
-				|| status == WR_MissionStatus.InProgress
-			)
-			count += 1;
+			if (	status == WR_MissionStatus.Pending || status == WR_MissionStatus.InProgress)
+				count += 1;
 		}
 		
 		return count;
 	}
 	
-	// Return a mission definition that is different than the last one spawned; If only one definition exists, returns that one
+	// Return a mission definition that is different than the last one spawned. If only one definition exists, returns that one.
 	private WR_MissionDefinition GetRandomUniqueMissionDefinition()
 	{
-		if (!m_aDefinitionArray || m_aDefinitionArray.Count() == 0)
+		if (!m_aDefinitions || m_aDefinitions.Count() == 0)
 		{
 			logger.LogError("No mission definitions have been defined! Cannot start new mission.");
 			return null;
 		}
 		
-		if (m_aDefinitionArray.Count() == 1)
+		if (!ValidateMissionDifficulties())
 		{
-			return m_aDefinitionArray[0];
+			logger.LogError("No mission definitions found that meet difficulty playercount threshold requirements! Cannot start new mission.");
+			return null;
+		}
+		
+		if (m_aDefinitions.Count() == 1)
+		{
+			return m_aDefinitions[0];
 		}
 
 		int currentPlayers = GetGame().GetPlayerManager().GetPlayerCount();
 		WR_MissionDefinition definition = null;
-		int MAX_ATTEMPTS = 100;
-		for (int i = 0; i < MAX_ATTEMPTS; i++)
+		
+		int maxAttempts = 1000;
+		for (int i = 0; i < maxAttempts; i++)
 		{
-			m_aDefinitionArray.GetRandomValue(definition);
+			m_aDefinitions.GetRandomValue(definition);
 			if (!definition) break;
 			
-			// Filter mission difficult using current player count
+			// With reasonable certainty, ensure the chosen mission is different from the previously started mission
+			// and is within the playercount thresholds for difficulty.
+			if (m_LastMissionDefinition && definition.m_eType == m_LastMissionDefinition.m_eType)
+				continue;
 			if (definition.m_eDifficulty == WR_MissionDifficulty.FREE && currentPlayers < m_Config.m_freeMissionThreshold)
 				continue;
 			if (definition.m_eDifficulty == WR_MissionDifficulty.HARD && currentPlayers < m_Config.m_hardMissionThreshold)
 				continue;
+			
+			break;
 		}
 
 		return definition;
-
 	}
 	
 	private WR_MissionLocationEntity GetRandomVacantMissionLocation(WR_MissionLocationSize requiredSize)
@@ -331,5 +339,24 @@ class WR_MissionSystem : GameSystem
 			return null;
 
 		return vacantLocations.GetRandomElement();
+	}
+	
+	// Ensures that, given the relevant mission difficulty playercount thresholds are greater than 0, at least one easy mission is present in the mission system config.
+	private bool ValidateMissionDifficulties()
+	{
+		// If no thresholds are set, all mission difficulties are valid, regardless of current player population.
+		if (m_Config.m_freeMissionThreshold == 0 && m_Config.m_freeMissionThreshold == 0)
+			return true;
+			
+		// Find one mission with easy difficulty.
+		array<WR_MissionDefinition> missionDefs = {};
+		m_aDefinitions.ToArray(missionDefs);
+		foreach (WR_MissionDefinition missionDef : missionDefs)
+		{
+			if (missionDef.m_eDifficulty == WR_MissionDifficulty.EASY)
+				return true;
+		}
+		
+		return false;
 	}
 }
