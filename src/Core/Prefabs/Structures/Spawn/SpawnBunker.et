@@ -2,7 +2,7 @@ GenericEntity {
  ID "62F768EB62D47393"
  coords -10000 1500 -10000
  {
-  GenericEntity : "{19A3C48FC2665A3F}Prefabs/Props/Construction/GravelPile_01/GravelPile_01_large.et" {
+  StaticModelEntity : "{19A3C48FC2665A3F}Prefabs/Props/Construction/GravelPile_01/GravelPile_01_large.et" {
    ID "62F768EB62D47385"
    coords -15.288 -4.397 22.229
   }
@@ -102,7 +102,7 @@ GenericEntity {
    }
    coords -6.936 -3.317 1.673
   }
-  GenericEntity : "{533CDABD77C4C43E}Prefabs/Rocks/Granite/GraniteCliff_02.et" {
+  SCR_IndestructibleEnvironmentalEntity : "{533CDABD77C4C43E}Prefabs/Rocks/Granite/GraniteCliff_02.et" {
    ID "62F768EB62D41F5D"
    coords -20.668 -3.633 33.224
    angleX 6.946
@@ -134,6 +134,10 @@ GenericEntity {
     m_sFaction "FIA"
     m_bIsSpawnLobbySpawnPoint 1
    }
+  }
+  WR_SafezoneEntity : "{5AF7AD250A60D208}Prefabs/MP/Zones/Safe/WR_Safezone.et" {
+   ID "652F765AC50126F6"
+   coords -12.552 -4.373 12.869
   }
   GenericEntity : "{6C57BFFFA642C60C}Prefabs/Compositions/Misc/SubCompositions/CrateStacked_04.et" {
    ID "62F768EB62D41F3B"
