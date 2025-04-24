@@ -5,7 +5,7 @@ class WR_RoamingBotSystem : GameSystem
 	static ref array<WR_SpawnAreaBotSpawnHandlerComponent> s_aBotSpawnHandlers = {};
 	
 	float m_fTimeElaspedS = 0;
-	float m_tickRateS = 30;
+	float m_tickRateS = 3*60;
 	
 	protected override void OnStarted()
 	{

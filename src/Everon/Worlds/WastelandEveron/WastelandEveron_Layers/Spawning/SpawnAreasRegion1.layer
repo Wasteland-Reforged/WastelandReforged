@@ -21,6 +21,9 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
  }
  SpawnArea_Etoupe {
   components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    Enabled 0
+   }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
    }

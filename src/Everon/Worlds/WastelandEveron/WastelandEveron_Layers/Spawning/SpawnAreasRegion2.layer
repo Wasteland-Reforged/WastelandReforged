@@ -98,4 +98,17 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   m_Name "Montignac"
   m_eSpawnRegion REGION_2
  }
+ SpawnArea_Chotain {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+   }
+  }
+  coords 7060.124 118.396 6014.66
+  TriggerShapeType Sphere
+  SphereRadius 125
+  ShapeColor 0 0 0 0
+  m_Name "Chotain"
+  m_eSpawnRegion REGION_2
+ }
 }

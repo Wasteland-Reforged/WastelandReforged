@@ -6,15 +6,18 @@ class WR_SpawnAreaBotSpawnHandlerComponentClass : ScriptComponentClass
 
 class WR_SpawnAreaBotSpawnHandlerComponent : ScriptComponent
 {
+	private const FactionKey FACTION_CIV = "CIV";
+	private const ResourceName WAYPOINT_DEFEND = "{93291E72AC23930F}Prefabs/AI/Waypoints/AIWaypoint_Defend.et";
+	
 	ref WR_Logger<WR_SpawnAreaBotSpawnHandlerComponent> logger = new WR_Logger<WR_SpawnAreaBotSpawnHandlerComponent>(this);
 	
 	private WR_SpawnAreaEntity _parent;
 	ref array<SCR_AIGroup> _aiGroups = {};
 	
-	[Attribute(defvalue: "50", desc: "Number of roaming bot groups to spawn per square kilometer of surface area inside this spawn area.")]
+	[Attribute(defvalue: "30", desc: "Number of roaming bot groups to spawn per square kilometer of surface area inside this spawn area.")]
 	protected int botsPerSqKm;
 	
-	[Attribute(defvalue: "2", desc: "Minimum number of roaming bot groups in this spawn area")]
+	[Attribute(defvalue: "1", desc: "Minimum number of roaming bot groups in this spawn area")]
 	protected int AIGroupsFlatRate;
 	
 	override void OnPostInit(IEntity owner)
@@ -66,15 +69,15 @@ class WR_SpawnAreaBotSpawnHandlerComponent : ScriptComponent
 		aiGroup.SetDeleteWhenEmpty(true);
 		
 		// All NPC fighters should be on civilian faction
-		aiGroup.SetFaction(GetGame().GetFactionManager().GetFactionByKey("CIV"));	
+		aiGroup.SetFaction(GetGame().GetFactionManager().GetFactionByKey(FACTION_CIV));	
 		
-		// Command the group to roam around the GetOwner		
-		ResourceName waypointResource = "{A33AF7FC5004F294}Prefabs/AI/Waypoints/AIWaypoint_Defend_Large_CO.et";
-		IEntity waypointEntity = WR_Utils.SpawnPrefabInWorld(waypointResource, _parent.GetOrigin());
+		// Command the group to roam around the GetOwner	
+		IEntity waypointEntity = WR_Utils.SpawnPrefabInWorld(WAYPOINT_DEFEND, _parent.GetOrigin());
 		SCR_AIWaypoint waypoint = SCR_AIWaypoint.Cast(waypointEntity);
 		aiGroup.AddWaypoint(waypoint);
 		
 		_aiGroups.Insert(aiGroup);
+		
 		return true;
 	}
 	
