@@ -14,7 +14,7 @@ class WR_SpawnAreaBotSpawnHandlerComponent : ScriptComponent
 	private WR_SpawnAreaEntity _parent;
 	ref array<SCR_AIGroup> _aiGroups = {};
 	
-	[Attribute(defvalue: "20", desc: "Number of roaming bot groups to spawn per square kilometer of surface area inside this spawn area.")]
+	[Attribute(defvalue: "30", desc: "Number of roaming bot groups to spawn per square kilometer of surface area inside this spawn area.")]
 	protected int botsPerSqKm;
 	
 	[Attribute(defvalue: "1", desc: "Minimum number of roaming bot groups in this spawn area")]
