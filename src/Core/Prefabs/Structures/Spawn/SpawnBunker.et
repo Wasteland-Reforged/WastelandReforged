@@ -138,6 +138,8 @@ GenericEntity {
   WR_SafezoneEntity : "{5AF7AD250A60D208}Prefabs/MP/Zones/Safe/WR_Safezone.et" {
    ID "652F765AC50126F6"
    coords -12.552 -4.373 12.869
+   SphereRadius 15
+   DrawShape 0
   }
   GenericEntity : "{6C57BFFFA642C60C}Prefabs/Compositions/Misc/SubCompositions/CrateStacked_04.et" {
    ID "62F768EB62D41F3B"
