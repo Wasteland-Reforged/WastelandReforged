@@ -40,12 +40,6 @@ GenericEntity : "{D4DDD345A352E97B}Prefabs/Compositions/Slotted/SlotFlatSmall/He
      m_vAngles 0 -90 0
      m_fScale 1
     }
-    SCR_EditorLinkEntry "{648C4272EB4E76CB}" {
-     m_Prefab "{D687CCF9E52FBE2D}Prefabs/Props/Civilian/BeerBottle_01_base.et"
-     m_vPosition -3.324 0 5.591
-     m_vAngles 0 0 0
-     m_fScale 1
-    }
     SCR_EditorLinkEntry "{648C4272EB4E76F5}" {
      m_Prefab "{9FEBA85C09987EF6}PrefabsEditable/Auto/Compositions/Misc/CustomEntities/CompositionDecals/E_CompositionDecal_Dirt_Patch_03.et"
      m_vPosition 2.457 0 1.001
