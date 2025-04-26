@@ -26,5 +26,5 @@ We thank the following individuals and organizations for their contributions to 
 > _Adam Duke_ - Shop System mod. Files or symbols prefixed with `ADM_` originate from Shop System.  
 > [GitHub](https://github.com/ekudmada/Reforger-Shop-System) [Workshop](https://reforger.armaplatform.com/workshop/5D2D1436D1FA5A13-ShopSystem)
 
-> _Kexanone_ - Player Map Markers mod. Files or symbols prefixed with `FPM_` originate from Player Map Markers. 
+> _Kexanone_ - Player Map Markers mod. Files or symbols prefixed with `FPM_` originate from Player Map Markers.  
 > [GitHub](https://github.com/Kexanone/ArmaReforgerMods/tree/main/addons/PlayerMapMarkers) [Workshop](https://reforger.armaplatform.com/workshop/5E92F5A4A1B75A75-PlayerMapMarkers)
