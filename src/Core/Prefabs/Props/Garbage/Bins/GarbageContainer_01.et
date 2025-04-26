@@ -1,0 +1,11 @@
+GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et" {
+ ID "6222A6AEF7BE1153"
+ components {
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ResponseIndex "Normal"
+  }
+  SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" {
+   Enabled 0
+  }
+ }
+}
