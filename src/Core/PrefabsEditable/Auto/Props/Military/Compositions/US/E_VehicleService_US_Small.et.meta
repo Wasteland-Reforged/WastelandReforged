@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{D4573A9778DB3CB0}PrefabsEditable/Auto/Props/Military/Compositions/US/E_VehicleService_US_Small.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}
