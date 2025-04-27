@@ -17,7 +17,7 @@ GenericEntity : "{ECB8E313DFBD3415}Prefabs/Compositions/Slotted/SlotFlatSmall/Ve
     m_EntityBudgetCost {
      SCR_EntityBudgetValue "{6536DBF8ED212399}" {
       m_BudgetType CAMPAIGN
-      m_Value 250
+      m_Value 150
      }
     }
     m_EntityChildrenBudgetCost {
