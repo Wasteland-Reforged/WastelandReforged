@@ -1,3 +1,11 @@
 WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wasteland/GameMode_Wasteland.et" {
  coords 124.387 1 142.536
 }
+WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ components {
+  WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+   Enabled 0
+  }
+ }
+ coords 127.75 1 110.991
+}

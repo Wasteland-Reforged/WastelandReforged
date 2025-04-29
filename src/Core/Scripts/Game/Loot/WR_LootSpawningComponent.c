@@ -165,12 +165,15 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		array<ResourceName> items = {};
 		float budgetUsed = 0;
 		
+		const float FLAT_BUDGET_PER_ITEM = 0.05;	//minimum budget an item takes up
+		const float ITEM_WEIGHT_COEFF = 0.1;		//amount that budget scales based on item weight
+		
 		while (budgetUsed < totalBudget)
 		{
 			WR_LootCategory randomCat = GetRandomCategoryFromContext(lootContext);
 			float itemWeight = GetRandomItemsFromCategory(items, randomCat, additionalItemsCoeff);
 			if (itemWeight)
-				budgetUsed += 1 / itemWeight;
+				budgetUsed += (FLAT_BUDGET_PER_ITEM + (ITEM_WEIGHT_COEFF / itemWeight));
 		}
 		
 		return items;
