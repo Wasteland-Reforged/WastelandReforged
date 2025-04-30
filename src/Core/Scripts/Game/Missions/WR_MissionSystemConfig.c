@@ -10,7 +10,7 @@ class WR_MissionSystemConfig
 	[Attribute(defvalue: "5", uiwidget: UIWidgets.Slider, params: "0.01 60 0.01", desc: "(minutes) How long to wait to create a new mission after one ends.")]
 	float m_fNewMissionDelayM;
 	
-	[Attribute(defvalue: "5", uiwidget: UIWidgets.Slider, params: "0 60 0.01", desc: "(minutes) How long to wait to start the mission after the initial 'new mission starting soon' notification. (0 -> no 'new mission starting soon' notification)")]
+	[Attribute(defvalue: "5", uiwidget: UIWidgets.Slider, params: "0 60 0.01", desc: "(minutes) How long to wait to start the mission after displaying the 'Upcoming Objective' notification. \n\nExample: 0 -> The 'Upcoming Objective' notifications will not be displayed.\nExample: 5 -> The 'Upcoming Objective' notifications will be displayed upon mission creation and the mission will start 5 minutes later.")]
 	float m_fNewMissionNotificationDelayM;
 	
 	[Attribute(defvalue: "0.5", uiwidget: UIWidgets.Slider, params: "0 5 0.1", desc: "(minutes) How long to wait to delete a mission's map marker after it ends.")]
@@ -19,7 +19,7 @@ class WR_MissionSystemConfig
 	[Attribute(defvalue: "5", uiwidget: UIWidgets.Slider, params: "0 60 0.01", desc: "(minutes) How long to wait to delete mission entities after it ends.")]
 	float m_fMissionCleanupDelayM;
 	
-	[Attribute(defvalue: "60", uiwidget: UIWidgets.Slider, params: "0 120 1", desc: "(minutes) Time limit for missions. (0 -> no time limit")]
+	[Attribute(defvalue: "60", uiwidget: UIWidgets.Slider, params: "0 120 1", desc: "(minutes) Time limit for missions. \n\n Example: 0 -> no time limit")]
 	float m_fMissionTimeLimitM;
 	
 	[Attribute(defvalue: "10", uiwidget: UIWidgets.Slider, params: "0 128 1", desc: "Server must have at least this many players to spawn missions with 'free' difficulty")]

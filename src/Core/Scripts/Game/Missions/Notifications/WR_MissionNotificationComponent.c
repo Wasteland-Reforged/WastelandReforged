@@ -135,6 +135,14 @@ class WR_MissionNotificationComponent : SCR_BaseGameModeComponent
 						
 						break;
 					}
+					case WR_MissionCompletionType.Stolen:
+					{
+						title = string.Format("Objective Complete: %1", definition.m_sName);
+						description = "All objective rewards have been stolen.";
+						sound = SCR_SoundEvent.TASK_SUCCEED;
+						
+						break;
+					}
 					case WR_MissionCompletionType.Destroyed:
 					{
 						title = string.Format("Objective Failed: %1", definition.m_sName);
@@ -146,14 +154,6 @@ class WR_MissionNotificationComponent : SCR_BaseGameModeComponent
 						
 						sound = SCR_SoundEvent.TASK_FAILED;
 
-						break;
-					}
-					case WR_MissionCompletionType.Stolen:
-					{
-						title = string.Format("Objective Complete: %1", definition.m_sName);
-						description = "All objective rewards have been stolen.";
-						sound = SCR_SoundEvent.TASK_SUCCEED;
-						
 						break;
 					}
 					case WR_MissionCompletionType.TimedOut:

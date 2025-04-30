@@ -9,7 +9,7 @@ class WR_Mission
 	WR_MissionLocationEntity m_Location;
 	WR_MissionDefinition m_Definition;
 	WR_MissionStatus m_eStatus;
-	WorldTimestamp timeSinceLastStatusChange;
+	WorldTimestamp m_LastStatusChangeTime;
 	
 	WR_MissionCompletionType m_eCompletionType = null;
 	int m_iCompletingPlayerId;
@@ -29,34 +29,43 @@ class WR_Mission
 		m_Definition = definition;
 		
 		SetMissionStatus(WR_MissionStatus.Pending);
+		m_LastStatusChangeTime = GetGame().GetWorld().GetTimestamp();
 	}
 	
 	bool StartMission()
 	{
 		// Fail to spawn if any entities are within the mission radius
 		vector safePos;
-		if (!SCR_WorldTools.FindEmptyTerrainPosition(safePos, m_Location.GetOrigin(), m_Location.GetSphereRadius(), m_Location.GetSphereRadius())) {
+		if (!SCR_WorldTools.FindEmptyTerrainPosition(safePos, m_Location.GetOrigin(), m_Location.GetSphereRadius(), m_Location.GetSphereRadius()))
+		{
 			logger.LogError(string.Format("Could not find empty terrain position when starting mission: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 			OnMissionMalformed();
 			return false;
 		}
 		
-		// Spawn each set of mission entities individually, while validating that they spawned correctly
-		if (!SpawnProp()) {
+		// Spawn each set of mission entities individually while validating that they spawned correctly
+		if (!SpawnProp())
+		{
 			OnMissionMalformed();
 			return false;
 		}
-		if (!SpawnRewards()) {
+		
+		if (!SpawnRewards())
+		{
 			OnMissionMalformed();
 			return false;
 		}
-		if (!SpawnNpcGroups()) {
+		
+		if (!SpawnNpcGroups())
+		{
 			OnMissionMalformed();
 			return false;
 		}
 
-		SetMissionStatus(WR_MissionStatus.InProgress);
 		m_Location.GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
+		
+		SetMissionStatus(WR_MissionStatus.InProgress);
+		
 		logger.LogNormal(string.Format("Mission started successfully: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 		
 		return true;
@@ -64,14 +73,13 @@ class WR_Mission
 	
 	void OnMissionMalformed()
 	{
-		//SetMissionStatus(WR_MissionStatus.Malformed);
 		logger.LogWarning(string.Format("Mission failed to spawn: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
 	}
 	
 	void SetMissionStatus(WR_MissionStatus newStatus)
 	{
 		m_eStatus = newStatus;
-		timeSinceLastStatusChange = GetGame().GetWorld().GetTimestamp();
+		m_LastStatusChangeTime = GetGame().GetWorld().GetTimestamp();
 	}
 	
 	protected bool SpawnProp()
@@ -82,7 +90,8 @@ class WR_Mission
 		ResourceName propResource = m_Definition.m_sPropPrefabChoices.GetRandomElement();
 
 		vector safepos;
-		if (!SCR_WorldTools.FindEmptyTerrainPosition(safepos, m_Location.GetOrigin(), 2)) {
+		if (!SCR_WorldTools.FindEmptyTerrainPosition(safepos, m_Location.GetOrigin(), 2))
+		{
 			logger.LogError(string.Format("Could not find empty terrain position for prop! (ID: %1)", m_iMissionId)); 
 			return false;
 		}
@@ -236,9 +245,8 @@ class WR_Mission
 	protected void CheckRewardDestroyed(int playerId)
 	{
 		// We only care about this if the mission is still in progress
-		if (m_eStatus != WR_MissionStatus.InProgress) {
+		if (m_eStatus != WR_MissionStatus.InProgress)
 			return;
-		}
 		
 		// Loop through all mission rewards and see if any are vehicles that are now destroyed
 		foreach (IEntity rewardEntity : m_aRewards)
@@ -255,8 +263,6 @@ class WR_Mission
 				}
 			}
 		}
-		
-		
 	}
 	
 	bool AreAllRewardsStolen()
@@ -280,13 +286,16 @@ class WR_Mission
 		// Delete prop and NPCs
 		SCR_EntityHelper.DeleteEntityAndChildren(m_PropEntity);
 		foreach (SCR_AIGroup group : m_aGroups)
+		{
 			SCR_EntityHelper.DeleteEntityAndChildren(group);
+		}
 		
 		if (!includeRewards)
 			return;
 		
 		// Delete rewards under certain conditions
-		foreach (IEntity ent : m_aRewards) {
+		foreach (IEntity ent : m_aRewards)
+		{
 			
 			if (!ent) continue;
 			
@@ -332,9 +341,9 @@ class WR_Mission
 		return m_eCompletionType;
 	}
 	
-	WorldTimestamp GetLastTimestamp()
+	WorldTimestamp GetLastStatusChangeTime()
 	{
-		return timeSinceLastStatusChange;
+		return m_LastStatusChangeTime;
 	}
 	
 	int GetCompletingPlayerId()

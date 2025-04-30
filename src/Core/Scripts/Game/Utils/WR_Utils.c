@@ -144,4 +144,9 @@ class WR_Utils
 	{
 		return s * 1000;
 	}
+	
+	static float MillisecondsToSeconds(float ms)
+	{
+		return ms / 1000;
+	}
 }

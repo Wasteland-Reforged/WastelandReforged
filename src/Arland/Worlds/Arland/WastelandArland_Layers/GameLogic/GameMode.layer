@@ -236,6 +236,10 @@ WR_GameModeWasteland GameMode_Wasteland : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wa
   WR_LootBoxControllerComponent "{619C2636EAF6853B}" {
    lootBoxBudget 0.5
   }
+  WR_LootSpawningComponent "{649C29A5BE88D153}" {
+   m_Config WR_LootTableConfig "{649C29A5BAD80780}" : "{3F16E3FF70B6D894}Configs/Loot/LootTableConfigDefault.conf" {
+   }
+  }
   WR_MissionNotificationComponent "{62F7739B427D99D3}" {
    m_MissionSystemConfig WR_MissionSystemConfig "{649C29A5C9C1818B}" : "{C18AB29E2B867A24}Configs/Missions/WR_MissionSystemConfigArland.conf" {
    }
