@@ -22,12 +22,12 @@ class WR_MissionSystemConfig
 	[Attribute(defvalue: "60", uiwidget: UIWidgets.Slider, params: "0 120 1", desc: "(minutes) Time limit for missions. (0 -> no time limit")]
 	float m_fMissionTimeLimitM;
 	
-	[Attribute(defvalue: "10", uiwidget: UIWidgets.Slider, params: "0 120 1", desc: "Server must have at least this many players to spawn Free Missions")]
+	[Attribute(defvalue: "10", uiwidget: UIWidgets.Slider, params: "0 128 1", desc: "Server must have at least this many players to spawn missions with 'free' difficulty")]
 	int m_freeMissionThreshold;
 	
-	[Attribute(defvalue: "10", uiwidget: UIWidgets.Slider, params: "0 120 1", desc: "Server must have at least this many players to spawn Hard Missions")]
+	[Attribute(defvalue: "5", uiwidget: UIWidgets.Slider, params: "0 128 1", desc: "Server must have at least this many players to spawn missions of 'hard' difficulty")]
 	int m_hardMissionThreshold;
 	
-	[Attribute(defvalue: "0", uiwidget: UIWidgets.Slider, params: "0 128 1", desc: "Array of server player count thresholds that determine how many mission slots are open. Each number in the array represents a threshold at which another mission slot will open. This list will always automatically be sorted in ascending order.\n\nExample: [0, 20, 50] -> 1 mission slot at 0 players, 2 mission slots at 20 players, and 3 mission slots at 50 players.\nExample: [0, 0] -> There are always 2 mission slots available, regardless of the number of players on the server.\n\n")]
+	[Attribute(defvalue: "0", uiwidget: UIWidgets.Slider, params: "0 128 1", desc: "Array of server player count thresholds that determine how many mission slots are open. Each number in the array represents a threshold at which another mission slot will open. This list will always automatically be sorted in ascending order.\n\nExample: [0, 20, 50] -> 1 mission slot at 0-19 players, 2 mission slots at 20-49 players, and 3 mission slots at 50+ players.\nExample: [0, 0] -> There are always 2 mission slots available, regardless of the number of players on the server.\n\n")]
 	ref array<int> m_aPlayercountMissionThresholds;
 }

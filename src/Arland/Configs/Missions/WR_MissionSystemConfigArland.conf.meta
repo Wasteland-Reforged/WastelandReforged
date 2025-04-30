@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{C18AB29E2B867A24}Configs/Missions/WR_MissionSystemConfigArland.conf"
+ Name "{41597A2762D6DA98}Configs/Missions/WR_MissionSystemConfigDefault.conf"
  Configurations {
   CONFResourceClass PC {
   }
