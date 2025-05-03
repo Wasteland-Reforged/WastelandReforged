@@ -13,6 +13,20 @@ GenericEntity {
    ID "6546E65478E45D75"
    coords -3.775 0 -0.131
    angleY 40.891
+   {
+    GenericEntity {
+     ID "5D4539382387133B"
+     components {
+      SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+       m_aContainers {
+        SCR_ResourceContainerVirtual "{5D8AA552C6324D54}" {
+         m_bEnableResourceGain 0
+        }
+       }
+      }
+     }
+    }
+   }
   }
  }
 }

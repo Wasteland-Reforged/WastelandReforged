@@ -59,6 +59,20 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    ID "6546E654E874371E"
    coords 1.568 0 -6.204
    angleY -56.763
+   {
+    GenericEntity {
+     ID "5D4539382387133B"
+     components {
+      SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+       m_aContainers {
+        SCR_ResourceContainerVirtual "{5D8AA552C6324D54}" {
+         m_bEnableResourceGain 0
+        }
+       }
+      }
+     }
+    }
+   }
   }
  }
 }

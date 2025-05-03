@@ -23,16 +23,6 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
  }
  coords 1266.833 39 2158.973
  {
-  GenericEntity : "{013297BA01640EB9}Prefabs/Props/Garbage/Military/Ammo/GarbageAmmunition_USSR_02.et" {
-   ID "62354233DA75DB34"
-   components {
-    Hierarchy "{62354233DA77212E}" {
-     Enabled 1
-    }
-   }
-   coords -1.799 0 -1.379
-   angleY -46.902
-  }
   $grp StaticModelEntity : "{172DD50ACF177B9E}Prefabs/Props/Military/Furniture/ChairMilitary_USSR_01.et" {
    {
     ID "62354233DA75C932"
@@ -94,41 +84,15 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
     coords 0.997 0 1.851
    }
   }
-  GenericEntity : "{2F4E74E28B1114AB}Prefabs/Structures/Military/CamoNets/Soviet/CamoNet_ObservationPost_Soviet.et" {
-   ID "62354233DA7452A3"
-   coords -1.072 0 -4.131
-  }
-  GenericEntity : "{55B73CF1EE914E07}Prefabs/Props/Military/Compositions/USSR/Antenna_02_USSR.et" {
-   ID "62354233DA7452C2"
-   coords -4.508 0 -2.608
-   angleY -24.307
-  }
-  $grp GenericEntity : "{590D0CC992E8AC25}Prefabs/Compositions/Misc/SubCompositions/Decorations/Crate_Bottles_01.et" {
-   {
-    ID "62354233DA7452C4"
-    coords -0.004 0 -2.339
-    angleY 165.062
-   }
-   {
-    ID "62354233DA7452C6"
-    coords 1.845 0 4.039
-    angleY -81.226
-   }
+  GenericEntity : "{590D0CC992E8AC25}Prefabs/Compositions/Misc/SubCompositions/Decorations/Crate_Bottles_01.et" {
+   ID "62354233DA7452C6"
+   coords 1.845 0 4.039
+   angleY -81.226
   }
   GenericEntity : "{6CD65604C7945A66}Prefabs/Compositions/Misc/CustomEntities/CompositionDecals/CompositionDecal_Dirt_Patch_03.et" {
    ID "62354233DA7452FD"
    coords 0.299 0 1.299
    angleY -12.024
-  }
-  GenericEntity : "{6D66A35ABDA08197}Prefabs/Props/Garbage/Military/Ammo/GarbageAmmunition_USSR_01.et" {
-   ID "62354233DA7452F6"
-   components {
-    Hierarchy "{62354233DA7720E0}" {
-     Enabled 1
-    }
-   }
-   coords -0.917 0 -1.232
-   angleY 31.776
   }
   $grp StaticModelEntity : "{75A7C06222E6218B}Prefabs/Structures/Military/Camps/TentSmallUSSR_01/TentSmallUSSR_01.et" {
    {
@@ -172,26 +136,23 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    }
    coords 2.326 0 2.505
   }
-  $grp GenericEntity : "{B547CF929FCC6BB7}Prefabs/Props/Military/Sandbags/Sandbag_01_end_high_burlap.et" {
+  GenericEntity : "{AB1A97B1BAE8C395}Prefabs/Compositions/Slotted/SlotFlatSmall/SupplyCache_S_FIA_01.et" {
+   ID "6546F664FB245D12"
+   coords -1.409 0 0.015
+   angleY 24.649
    {
-    ID "62354233DA74863F"
-    components {
-     Hierarchy "{62354233DA7720D3}" {
-      Enabled 1
+    GenericEntity {
+     ID "5D45393FCDDCFA0B"
+     components {
+      SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+       m_aContainers {
+        SCR_ResourceContainerVirtual "{5D8AA552C6324D54}" {
+         m_bEnableResourceGain 0
+        }
+       }
+      }
      }
     }
-    coords -3.543 0 -3.04
-    angleY -95.541
-   }
-   {
-    ID "62354233DA74E79F"
-    components {
-     Hierarchy "{62354233DA7720D7}" {
-      Enabled 1
-     }
-    }
-    coords -3.538 0 -4.276
-    angleY 90.165
    }
   }
   $grp GenericEntity : "{B898D2A1F45058F6}Prefabs/Props/Garbage/Military/Food/GarbageFoodMilitaryUSSR_01.et" {
@@ -215,21 +176,6 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
     angleY -69.013
    }
   }
-  GenericEntity : "{CC5453CCC311603B}Prefabs/Props/Military/Sandbags/Sandbag_01_end_burlap.et" {
-   ID "62354233DA772172"
-   components {
-    Hierarchy "{62354233DA7720A2}" {
-     Enabled 1
-    }
-   }
-   coords -3.563 0 -5.148
-   angleY 90
-  }
-  StaticModelEntity : "{CF84120477F3A54E}Prefabs/Compositions/Misc/SubCompositions/Furniture/Chair_Light_USSR_01.et" {
-   ID "62354233DA772176"
-   coords -2.429 0 -1.957
-   angleY -130.15
-  }
   GameEntity : "{D9842C11742C00CF}Prefabs/Props/Civilian/Fireplace_01.et" {
    ID "62354233DA772178"
    components {
@@ -243,36 +189,15 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    coords -0.335 0 3.12
    angleY -14.269
   }
-  $grp GenericEntity : "{E105D2F87098E1D8}Prefabs/Systems/Compositions/PatrolPoint/PatrolPoint_LoiterPoint.et" {
-   {
-    ID "62354233DA772145"
-    components {
-     Hierarchy "{62354233DA7720B9}" {
-      Enabled 1
-     }
-    }
-    coords -4.097 0 -1.466
-    angleY -107.482
-   }
-   {
-    ID "62354233DA772146"
-    components {
-     Hierarchy "{62354233DA7720B7}" {
-      Enabled 1
-     }
-    }
-    coords -1.362 0 5.072
-    angleY 62.108
-   }
-  }
-  GenericEntity : "{F76BD5785C7FE191}Prefabs/Systems/Compositions/PatrolPoint/PatrolPoint_ObservationPoint.et" {
-   ID "62354233DA772144"
+  GenericEntity : "{E105D2F87098E1D8}Prefabs/Systems/Compositions/PatrolPoint/PatrolPoint_LoiterPoint.et" {
+   ID "62354233DA772146"
    components {
-    Hierarchy "{62354233DA7720BC}" {
+    Hierarchy "{62354233DA7720B7}" {
+     Enabled 1
     }
    }
-   coords -5.367 0 -1.827
-   angleY -80.238
+   coords -1.362 0 5.072
+   angleY 62.108
   }
  }
 }
