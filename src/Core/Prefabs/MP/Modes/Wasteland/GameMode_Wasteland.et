@@ -73,6 +73,7 @@ WR_GameModeWasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
    }
   }
   SCR_GameModeHealthSettings "{5A22E11F9ACBB1DF}" {
+   m_bKillIndefinitelyUnconsciousPlayers 1
    m_bPermitUnconsciousVON 1
   }
   SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
