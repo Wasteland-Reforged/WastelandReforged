@@ -15,21 +15,14 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
  }
  coords 0 0.184 0
  {
-  $grp GenericEntity : "{047B9C8AAB50CE0F}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_MachineGunNest_S_USSR_01.et" {
-   {
-    ID "652B146FB59B85D6"
-    coords 5.623 0 -10.437
-    angleY 129.171
-   }
-   {
-    ID "652B146FFEE266C8"
-    coords -6.99 0 -7.259
-    angleY -110
-   }
+  GenericEntity : "{047B9C8AAB50CE0F}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_MachineGunNest_S_USSR_01.et" {
+   ID "652B146FFEE266C8"
+   coords -6.99 0 -7.259
+   angleY -110
   }
   GenericEntity : "{7CEBECD6FD380520}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_MortarPlacement_S_US_01.et" {
    ID "652D27F2B6F91E07"
-   coords 0 0.184 0
+   coords 0 0.184 1.863
   }
   $grp GenericEntity : "{A3A7C365E845B1B6}PrefabsEditable/Auto/Props/Military/Sandbags/E_Sandbag_01_long_high_burlap.et" {
    {
@@ -61,6 +54,11 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    ID "652B146EAAE060D6"
    coords 0.094 0.178 -5.39
    angleY -4.747
+  }
+  GenericEntity : "{C74EA351062C4CBB}Prefabs/Compositions/Slotted/SlotFlatSmall/SupplyCache_S_FIA_02.et" {
+   ID "6546E654E874371E"
+   coords 1.568 0 -6.204
+   angleY -56.763
   }
  }
 }

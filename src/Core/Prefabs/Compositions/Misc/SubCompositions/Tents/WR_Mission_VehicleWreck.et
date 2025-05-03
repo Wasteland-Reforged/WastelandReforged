@@ -1,0 +1,18 @@
+GenericEntity {
+ ID "6546E655A1BB3324"
+ components {
+  SCR_SlotCompositionComponent "{6546E655A1B1B2FD}" {
+  }
+ }
+ {
+  GenericEntity : "{B90E5414AB7C325B}Prefabs/Props/Wrecks/BTR70_wreck_static.et" {
+   ID "6546E655999B3DD0"
+   coords 4.503 0 0.015
+  }
+  GenericEntity : "{C74EA351062C4CBB}Prefabs/Compositions/Slotted/SlotFlatSmall/SupplyCache_S_FIA_02.et" {
+   ID "6546E65478E45D75"
+   coords -3.775 0 -0.131
+   angleY 40.891
+  }
+ }
+}

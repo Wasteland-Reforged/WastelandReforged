@@ -33,6 +33,10 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    coords -0.005 0.1 2.063
    angleY 34.761
   }
+  GenericEntity : "{76FCF25B67EAB855}Prefabs/Structures/Signs/Military/Supplies/Sign_SupplyStorage_01_Ammo_FIA.et" {
+   ID "6546E656CBEC7C47"
+   coords 9.075 -0.378 0.811
+  }
   GenericEntity : "{7F671B405CDBF0A2}Prefabs/Props/Airport/GeneratorAirfield_US_01/GeneratorAirfield_US_01.et" {
    ID "622B18B0E27C761D"
    components {

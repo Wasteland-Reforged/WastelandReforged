@@ -9,10 +9,6 @@ GenericEntity {
    ID "652EA2FC28D20AB1"
    coords 3.306 -0.147 17.653
   }
-  GenericEntity : "{24F9FA667DE0B56E}Prefabs/Props/Military/Camps/BoxMRE_01.et" {
-   ID "652EA2FA3EA76E92"
-   coords -5.742 1.195 1.324
-  }
   GenericEntity : "{25861AD07CEE719A}Prefabs/Compositions/Misc/SubCompositions/Sandbag_MG_USSR_01_PKM.et" {
    ID "652EA2F7FECF8EAF"
    coords 3.298 -0.023 16.337
@@ -68,10 +64,45 @@ GenericEntity {
    ID "652EA2FBF675A092"
    coords -4.555 0 1.219
   }
-  GenericEntity : "{78E7F5C4FFC687D5}Prefabs/MP/Campaign/SupplyDepots/SupplyCache_S_FIA_02_Campaign.et" {
-   ID "652EA2F066EFAE27"
-   coords 6.238 -0.023 -4.954
-   angleY -17.12
+  $grp GenericEntity : "{78E7F5C4FFC687D5}Prefabs/MP/Campaign/SupplyDepots/SupplyCache_S_FIA_02_Campaign.et" {
+   {
+    ID "652EA2F066EFAE27"
+    coords 6.238 -0.023 -4.954
+    angleY -17.12
+    {
+     GenericEntity {
+      ID "5D4539382387133B"
+      components {
+       SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+        m_aContainers {
+         SCR_ResourceContainerVirtual "{5D8AA552C6324D54}" {
+          m_bEnableResourceGain 0
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+   {
+    ID "6546E328DB1E4D07"
+    coords -2.287 0 4.523
+    angleY 76.102
+    {
+     GenericEntity {
+      ID "5D4539382387133B"
+      components {
+       SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+        m_aContainers {
+         SCR_ResourceContainerVirtual "{5D8AA552C6324D54}" {
+          m_bEnableResourceGain 0
+         }
+        }
+       }
+      }
+     }
+    }
+   }
   }
   Tree : "{7BAA3CF64495B691}Prefabs/Vegetation/Bush/b_rubus_idaeus_0s.et" {
    ID "652EA2FFA27D7A95"
@@ -173,11 +204,6 @@ GenericEntity {
     ID "652EA2E4E193A805"
     coords 7.496 0 2.563
     angleY 95.337
-   }
-   {
-    ID "652EA2F110D0D875"
-    coords 3.524 -0.068 9.545
-    angleY 144.471
    }
    {
     ID "652EA2F1445851F0"
@@ -352,11 +378,6 @@ GenericEntity {
   Tree : "{D9DF1D13919F19A0}Prefabs/Vegetation/Bush/b_rosa_canina_0s.et" {
    ID "652EA2FC28D20A95"
    coords 1.324 -0.05 15.452
-  }
-  GenericEntity : "{E2B01D303DD412D7}Prefabs/Props/Military/AmmoBoxes/AmmoBox_P150_Hydra_Container_US/AmmoBox_P150_Hydra_Container_Pallet_US.et" {
-   ID "652EA2FA3EA76E48"
-   coords -5.725 0 1.319
-   angleY 173.828
   }
   $grp Tree : "{F55BF63BAD1DCB7E}Prefabs/Vegetation/Bush/b_juniperus_communis_2s.et" {
    {
