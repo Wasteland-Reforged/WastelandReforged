@@ -10,7 +10,7 @@ modded class SCR_SpawnPoint
 		SCR_FactionManager factionManager = SCR_FactionManager.Cast(GetGame().GetFactionManager());
 		Faction playerFaction = factionManager.GetFactionByKey(factionKey);
 		
-		// For factions friendly to themselves, return all available spawn points.
+		// For factions friendly to themselves, return all available spawn points (spawn regions and player-built bases).
 		if (playerFaction.IsFactionFriendly(playerFaction))
 			return spawnPoints;
 		
@@ -29,7 +29,7 @@ modded class SCR_SpawnPoint
 			SCR_EditableEntityComponent editableEntityComponent = SCR_EditableEntityComponent.Cast(spawnBaseComponent.FindComponent(SCR_EditableEntityComponent));
 			if (!editableEntityComponent)
 			{
-				// This spawn point is not an entity within a base part with spawning capabilities. OK.
+				// This spawn point is not an entity within a base part having spawn capabilities. OK.
 				continue;
 			}
 				
