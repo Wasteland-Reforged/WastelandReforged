@@ -6,6 +6,8 @@ modded class SCR_SpawnPoint
 	override static array<SCR_SpawnPoint> GetSpawnPointsForFaction(string factionKey)
 	{
 		array<SCR_SpawnPoint> spawnPoints = GetAllFactionSpawnPoints(factionKey);
+		if (!spawnPoints || spawnPoints.Count() == 0)
+			return spawnPoints;
 		
 		SCR_FactionManager factionManager = SCR_FactionManager.Cast(GetGame().GetFactionManager());
 		Faction playerFaction = factionManager.GetFactionByKey(factionKey);
