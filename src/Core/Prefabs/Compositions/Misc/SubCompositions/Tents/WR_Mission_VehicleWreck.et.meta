@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{7E0BF2D19D196D3C}Prefabs/Props/Wrecks/WR_BTR70_wreck.et"
+ Name "{E99ED2EC6F0C7E05}Prefabs/Compositions/Misc/SubCompositions/Tents/WR_Mission_VehicleWreck.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }
