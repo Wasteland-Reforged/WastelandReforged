@@ -5,44 +5,52 @@ modded class SCR_SpawnPoint
 	//! \param factionKey Valid faction key
 	override static array<SCR_SpawnPoint> GetSpawnPointsForFaction(string factionKey)
 	{
-		int thisPlayerId = SCR_PlayerController.GetLocalPlayerId();
-
 		array<SCR_SpawnPoint> spawnPoints = GetAllFactionSpawnPoints(factionKey);
+		if (!spawnPoints || spawnPoints.Count() == 0)
+			return spawnPoints;
 		
 		SCR_FactionManager factionManager = SCR_FactionManager.Cast(GetGame().GetFactionManager());
 		Faction playerFaction = factionManager.GetFactionByKey(factionKey);
 		
-		// For factions friendly to themselves, show all available spawn points.
+		// For factions friendly to themselves, return all available spawn points (spawn regions and player-built bases).
 		if (playerFaction.IsFactionFriendly(playerFaction))
 			return spawnPoints;
 		
-		// For factions not friendly to themselves, filter out spawn points not built by group members.
-		PlayerManager playerManager = GetGame().GetPlayerManager();
-		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
-		
-		SCR_AIGroup thisPlayerGroup = groupManager.GetPlayerGroup(thisPlayerId);
-		if (!thisPlayerGroup)
-			return spawnPoints;
+		// For factions not friendly to themselves, we need to filter out spawn points on base parts not built by members of the player's group.
+		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();	
 		
 		foreach (SCR_SpawnPoint spawnPoint : spawnPoints)
 		{
 			IEntity spawnBaseComponent = spawnPoint.GetParent();
 			if (!spawnBaseComponent)
+			{
+				// This spawn point is a standalone entity. OK.
 				continue;
-			
+			}
+				
 			SCR_EditableEntityComponent editableEntityComponent = SCR_EditableEntityComponent.Cast(spawnBaseComponent.FindComponent(SCR_EditableEntityComponent));
 			if (!editableEntityComponent)
+			{
+				// This spawn point is not an entity within a base part having spawn capabilities. OK.
 				continue;
-			
+			}
+				
 			int builderPlayerId = editableEntityComponent.GetAuthorPlayerID();
-			
 			SCR_AIGroup builderPlayerGroup = groupManager.GetPlayerGroup(builderPlayerId);
-			if (!thisPlayerGroup)
-				return spawnPoints;
-			
-			// Remove spawn point if not owned by a group member
-			if (thisPlayerGroup != builderPlayerGroup)
+			if (!builderPlayerGroup)
+			{
+				// This spawn point's owner has no group. Disqualify.
 				spawnPoints.RemoveItem(spawnPoint);
+				continue;
+			}
+			
+			SCR_AIGroup thisPlayerGroup = groupManager.GetPlayerGroup(SCR_PlayerController.GetLocalPlayerId());
+			if (thisPlayerGroup != builderPlayerGroup)
+			{
+				// This spawn point's owner is not in the same group as the player. Disqualify.
+				spawnPoints.RemoveItem(spawnPoint);
+				continue;
+			}
 		}
 		
 		return spawnPoints;
