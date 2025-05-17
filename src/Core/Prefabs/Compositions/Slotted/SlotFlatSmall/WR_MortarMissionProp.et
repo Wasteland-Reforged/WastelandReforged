@@ -17,38 +17,13 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
  {
   GenericEntity : "{047B9C8AAB50CE0F}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_MachineGunNest_S_USSR_01.et" {
    ID "652B146FFEE266C8"
-   coords -6.99 0 -7.259
-   angleY -110
+   coords 0.752 0 4.42
+   angleY 1.766
   }
   GenericEntity : "{7CEBECD6FD380520}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_MortarPlacement_S_US_01.et" {
    ID "652D27F2B6F91E07"
-   coords 0 0.184 1.863
-  }
-  $grp GenericEntity : "{A3A7C365E845B1B6}PrefabsEditable/Auto/Props/Military/Sandbags/E_Sandbag_01_long_high_burlap.et" {
-   {
-    ID "652B146E86D00F39"
-    coords -7.062 0 0.801
-    angleY 90
-   }
-   {
-    ID "652B146E88305E52"
-    coords 4.912 0 5.778
-    angleY 45
-   }
-   {
-    ID "652B146E9C3435DA"
-    coords 0.121 0 7.498
-   }
-   {
-    ID "652B146EAAE06367"
-    coords 6.277 0 1.216
-    angleY 90
-   }
-   {
-    ID "652B146F724DE827"
-    coords -5.07 0 5.736
-    angleY -45
-   }
+   coords -6.892 0.184 3.147
+   angleY -65.828
   }
   GenericEntity : "{AA6C691B73FC7A84}PrefabsEditable/Auto/Structures/Military/CamoNets/FIA/E_CamoNet_Medium_FIA_01_V1.et" {
    ID "652B146EAAE060D6"
@@ -57,8 +32,8 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
   }
   GenericEntity : "{C74EA351062C4CBB}Prefabs/Compositions/Slotted/SlotFlatSmall/SupplyCache_S_FIA_02.et" {
    ID "6546E654E874371E"
-   coords 1.568 0 -6.204
-   angleY -56.763
+   coords 7.379 0 0.297
+   angleY -16.582
    {
     GenericEntity {
      ID "5D4539382387133B"
