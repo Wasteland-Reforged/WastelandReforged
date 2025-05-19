@@ -83,7 +83,7 @@ GenericEntity : "{D4DDD345A352E97B}Prefabs/Compositions/Slotted/SlotFlatSmall/He
      m_fScale 1
     }
     SCR_EditorLinkEntry "{648C4272EB4E7717}" {
-     m_Prefab "{52C9340EB367D20D}PrefabsEditable/Auto/Compositions/Misc/SubCompositions/E_Tent_CommandPost_US_01.et"
+     m_Prefab "{4689EDFD94C91897}PrefabsEditable/Auto/Compositions/Misc/SubCompositions/WR_CommandPost.et"
      m_vPosition -1.472 0 1.213
      m_vAngles 0 0 0
      m_fScale 1
@@ -172,6 +172,14 @@ GenericEntity : "{D4DDD345A352E97B}Prefabs/Compositions/Slotted/SlotFlatSmall/He
     GenericEntity {
      ID "5DCAAA1125B094F7"
      Flags 1048576
+    }
+    GenericEntity {
+     ID "620EE6CFA1BF63A3"
+     Flags 2098179
+    }
+    GenericEntity {
+     ID "620EE6CFA1BF63F0"
+     Flags 2098179
     }
     StaticModelEntity {
      ID "5CB6B2BAE0952263"
