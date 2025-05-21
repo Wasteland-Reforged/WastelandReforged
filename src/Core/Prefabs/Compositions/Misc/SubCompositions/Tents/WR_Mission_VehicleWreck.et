@@ -5,9 +5,13 @@ GenericEntity {
   }
  }
  {
-  GenericEntity : "{B90E5414AB7C325B}Prefabs/Props/Wrecks/BTR70_wreck_static.et" {
-   ID "6546E655999B3DD0"
-   coords 4.503 0 0.015
+  GenericEntity : "{25B265F3E7CBDFC8}Prefabs/Props/Wrecks/BMP1_wreck.et" {
+   ID "656A2E9CAECFCF92"
+   components {
+    Hierarchy "{656A2E9CA94DBD8C}" {
+    }
+   }
+   coords 1.882 0 0.19
   }
   GenericEntity : "{C74EA351062C4CBB}Prefabs/Compositions/Slotted/SlotFlatSmall/SupplyCache_S_FIA_02.et" {
    ID "6546E65478E45D75"
