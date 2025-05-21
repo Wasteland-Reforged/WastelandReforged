@@ -87,7 +87,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
 		if (Math.RandomFloat01() <= vehiclesSupplyChance) 
 		{
-			auto supplyStorage = SCR_ResourceComponent.Cast(vehicleEnt.FindComponent(SCR_ResourceComponent));
+			SCR_ResourceComponent supplyStorage = SCR_ResourceComponent.FindResourceComponent(vehicleEnt);
 				
 			if (supplyStorage && supplyStorage.GetContainers())
 			{
