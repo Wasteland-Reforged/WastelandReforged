@@ -16,9 +16,9 @@ class WR_LootItemConfig
 	[Attribute("0", desc: "Guarantee that at all additional items will attempt to spawn. Useful for vehicle loadouts.")]
 	bool m_bAlwaysSpawnAllAdditionalItems;
 	
-	[Attribute(defvalue: "0", uiwidget: UIWidgets.Slider, params: "0 10 1")]
+	[Attribute(defvalue: "0", uiwidget: UIWidgets.Slider, params: "0 100 1")]
 	int m_iMinAdditionalItems;
 	
-	[Attribute(defvalue: "0", uiwidget: UIWidgets.Slider, params: "0 10 1")]
+	[Attribute(defvalue: "0", uiwidget: UIWidgets.Slider, params: "0 100 1")]
 	int m_iMaxAdditionalItems;
 }
