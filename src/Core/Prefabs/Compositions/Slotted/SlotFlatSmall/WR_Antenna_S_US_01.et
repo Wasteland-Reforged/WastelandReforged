@@ -35,6 +35,10 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
   }
   GenericEntity : "{76FCF25B67EAB855}Prefabs/Structures/Signs/Military/Supplies/Sign_SupplyStorage_01_Ammo_FIA.et" {
    ID "6546E656CBEC7C47"
+   components {
+    Hierarchy "{656A33659B175CD0}" {
+    }
+   }
    coords 9.075 -0.378 0.811
   }
   GenericEntity : "{7F671B405CDBF0A2}Prefabs/Props/Airport/GeneratorAirfield_US_01/GeneratorAirfield_US_01.et" {
