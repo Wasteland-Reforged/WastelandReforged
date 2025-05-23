@@ -84,20 +84,17 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		SpawnVehicleLoot(vehicleEnt, vehicleResources);
 		
-		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
+		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies.
 		if (Math.RandomFloat01() <= vehiclesSupplyChance) 
 		{
 			SCR_ResourceComponent supplyStorage = SCR_ResourceComponent.FindResourceComponent(vehicleEnt);
 				
 			if (supplyStorage && supplyStorage.GetContainers())
 			{
-				
-				
 				foreach (SCR_ResourceContainer suppContainer : supplyStorage.GetContainers())
 				{
 					int maxSteps = suppContainer.GetMaxResourceValue() / vehicleSupplyStepSize;
 					int supplyToAdd = Math.RandomIntInclusive(1, maxSteps) * vehicleSupplyStepSize;
-					//Print("Adding supplies to vehicle %1: %2", vehicleEnt.GetName(), supplyToAdd);
 					suppContainer.IncreaseResourceValue(supplyToAdd);
 				}
 			}
