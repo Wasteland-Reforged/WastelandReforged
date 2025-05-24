@@ -1,4 +1,4 @@
-[BaseContainerProps(configRoot: true)]
+[BaseContainerProps(configRoot: true), SCR_BaseContainerCustomTitleFields({"m_sItemPrefab"}, "%1")]
 class WR_LootItemConfig
 {
 	[Attribute(defvalue: "", uiwidget: UIWidgets.ResourcePickerThumbnail, params: "et")]
