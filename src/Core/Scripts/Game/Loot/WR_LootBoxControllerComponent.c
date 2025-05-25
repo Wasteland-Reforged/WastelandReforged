@@ -64,7 +64,7 @@ class WR_LootBoxControllerComponent : SCR_BaseGameModeComponent
 			auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(boxOwner.FindComponent(SCR_UniversalInventoryStorageComponent));
 			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(boxOwner.FindComponent(SCR_InventoryStorageManagerComponent));
 
-			array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(WR_LootContext.WEAPON_BOX, lootBoxBudget, additionalItemsCoeff: addItemCoeff);
+			array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(WR_LootContext.TIER1, lootBoxBudget, additionalItemsCoeff: addItemCoeff);
 			foreach (ResourceName item : items)
 				inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
 			

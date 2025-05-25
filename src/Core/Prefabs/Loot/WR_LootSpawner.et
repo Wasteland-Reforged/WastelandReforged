@@ -4,6 +4,6 @@ WR_LootSpawner {
   RplComponent "{62CE37A24481F0BF}" {
   }
  }
- coords 2.833 1.155 1.96
- m_LootContextType LOOSE
+ coords 17.059 7.19 -0.211
+ m_LootContextType TIER1
 }

@@ -96,7 +96,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		if (categoryArr)
 			categoryArr.GetRandomValue(cat);
 		else
-			logger.LogError("Cannot find weighted category array for the provided loot context");
+			logger.LogError("Cannot find weighted category array for the provided loot context: " + lootContext);
 		
 		return cat;
 	}
