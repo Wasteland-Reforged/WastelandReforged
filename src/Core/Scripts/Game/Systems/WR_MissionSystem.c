@@ -5,17 +5,19 @@ class WR_MissionSystem : GameSystem
 	[Attribute("", UIWidgets.Object, "Mission system configuration.")];
 	protected ref WR_MissionSystemConfig m_Config;
 	
-	float m_fMissionCreationTimeElaspedS = 0;
-	float m_fMissionCreationTickrateS = 5.0;
-
 	ref SCR_WeightedArray<WR_MissionDefinition> m_aDefinitions;
 	ref array<ref WR_Mission> m_aActiveMissions = {};
 	WR_MissionDefinition m_LastMissionDefinition = null;
 	
 	WR_MissionNotificationComponent m_NotifComponent;
 	
-	ref array<ref WR_Mission> m_aMissionsNeedingLowPrioNotifications = {};
-	WorldTimestamp m_LastNotificationSendTime;
+	ref array<ref WR_Mission> m_aPendingTimedNotifications = {};
+	WorldTimestamp m_LastNotificationSendTime = null;
+	WorldTimestamp m_WorldStartTime;
+
+	ref array<int> m_aPlayercountMissionThresholds;
+	int m_iNotificationDelayMs = WR_Constants.s_iMissionHintDisplayDurationMs + WR_Constants.s_iMissionHintPaddingDurationMs;
+	int m_iInitialDelayMs;
 	
 	private override void OnStarted()
 	{
@@ -27,44 +29,42 @@ class WR_MissionSystem : GameSystem
 			this.Enable(false);
 		}
 		
-		if (!m_NotifComponent)
-			SetMissionNotificationComponent();
-		
 		InitializeDefinitions();
+		InitializePlayercountThresholds();
+		InitializeMissionNotificationComponent();
+		
+		m_WorldStartTime = GetGame().GetWorld().GetTimestamp();
+		m_iInitialDelayMs = WR_Utils.MinutesToMilliseconds(m_Config.m_fInitialMissionDelayM);
+
 		logger.LogNormal("Mission system started.");
 	}
 	
 	private override void OnUpdate(ESystemPoint point)
 	{
-		// Advance time elapsed
-		float timeSlice = GetWorld().GetTimeSlice();
-		m_fMissionCreationTimeElaspedS += timeSlice;
-		
-		// Check if mission needs creation
-		if (m_fMissionCreationTimeElaspedS >= m_fMissionCreationTickrateS)
-		{
-			if (GetActiveMissionCount() < GetMaxActiveMissionSlots())
-				TryCreateNewMission();
-			
-			m_fMissionCreationTimeElaspedS = 0;
-		}
-		
-		if (!m_aActiveMissions || m_aActiveMissions.Count() == 0)
+		// Do nothing until	the initial mission delay time has passed
+		WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
+
+		if (now.DiffMilliseconds(m_WorldStartTime) <= m_iInitialDelayMs)
 			return;
 		
-		// Advance mission statuses
-		for (int i = 0; i < m_aActiveMissions.Count();)
-		{
-			if (AdvanceMissionStatus(m_aActiveMissions[i]))
-				i++;
+		// Handle timed notifications
+		HandleTimedNotificationQueue();
 		
-			// Only increment index if the mission was not deleted.
-			// Avoids index out of bounds errors.
+		// Handle existing missions
+		if (m_aActiveMissions && m_aActiveMissions.Count() > 0)
+		{
+			for (int i = 0; i < m_aActiveMissions.Count();)
+			{
+				if (AdvanceMissionStatus(m_aActiveMissions[i]))
+					i++;
+			
+				// Only increment index if the mission was not deleted.
+				// Avoids index out of bounds errors.
+			}
 		}
 		
-		// Check low-priority notification queue
-		if (m_aMissionsNeedingLowPrioNotifications.Count() > 0)
-			CheckLowPriorityNotificationQueue();
+		// Attempt to create a new mission
+		TryCreateNewMission();
 	}
 	
 	private override void OnCleanup()
@@ -76,7 +76,7 @@ class WR_MissionSystem : GameSystem
 	{
 		logger.LogNormal("Mission system stopped.");
 	}
-	
+
 	private void InitializeDefinitions()
 	{
 		m_aDefinitions = new SCR_WeightedArray<WR_MissionDefinition>();
@@ -84,6 +84,31 @@ class WR_MissionSystem : GameSystem
 		{
 			m_aDefinitions.Insert(def, def.m_iWeight);
 		}
+	}
+
+	private void InitializePlayercountThresholds()
+	{
+		m_aPlayercountMissionThresholds	= m_Config.m_aPlayercountMissionThresholds;
+		m_aPlayercountMissionThresholds.Sort(); // Threshold list must be sorted for thresholds to work properly.
+	}
+
+	private void InitializeMissionNotificationComponent()
+	{
+		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
+		if (!gameMode)
+		{
+			logger.LogError("Wasteland game mode entity not found! Cannot send mission notifications. Place a 'GameMode_Wasteland' prefab in the world to resolve. Stopping mission system...");
+			Enable(false);
+		}
+			
+		WR_MissionNotificationComponent notifComponent = WR_MissionNotificationComponent.Cast(gameMode.FindComponent(WR_MissionNotificationComponent));
+		if (!notifComponent)
+		{
+			logger.LogError("Mission notification component not found on game mode! Cannot send mission notifications. Add a 'WR_MissionNotificationComponent' to the game mode to resolve. Stopping mission system...");
+			Enable(false);
+		}
+			
+		m_NotifComponent = notifComponent;
 	}
 	
 	private bool AdvanceMissionStatus(WR_Mission mission)	// Returns false if a mission was deleted this pass
@@ -105,7 +130,10 @@ class WR_MissionSystem : GameSystem
 						int markerId = WR_StaticMarkerHelper.ShowMarker(markerParameters);
 						mission.SetMarkerId(markerId);
 						
-						SendNotification(mission);
+						//SendNotification(mission);
+						EnqueueTimedNotification(mission);
+						
+						logger.LogNormal(string.Format("Mission started: %1 (ID: %2)", mission.GetDefinition().m_sName, mission.GetMissionId()));
 					}
 					else
 					{
@@ -156,7 +184,6 @@ class WR_MissionSystem : GameSystem
 				
 				break;
 			}
-
 			case WR_MissionStatus.AwaitingMarkerCleanup:
 			{
 				// Check for marker ready to be cleaned up
@@ -196,10 +223,32 @@ class WR_MissionSystem : GameSystem
 	
 	private void TryCreateNewMission()
 	{
+		// Do not create new mission if there are no slots available
+		if (GetActiveMissionCount() >= GetMaxActiveMissionSlots())
+			return;
+		
+		// Do not create new mission if there are pending timed notifications
+		if (m_aPendingTimedNotifications.Count() > 0)
+			return;
+
+		// Do not create new mission if the relevant delays have not elapsed
+		WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
+		if (m_Config.m_fNewMissionDelayM > 0 || m_Config.m_fNewMissionNotificationDelayM > 0)
+		{
+			int delayMs = WR_Utils.MinutesToMilliseconds(m_Config.m_fNewMissionDelayM + m_Config.m_fNewMissionNotificationDelayM);			
+			if (m_LastNotificationSendTime && now.DiffMilliseconds(m_LastNotificationSendTime) < delayMs)
+				return;
+		}
+		
+		// Do not create new mission if last displayed notification has not disappeared
+		if (m_LastNotificationSendTime && now.DiffMilliseconds(m_LastNotificationSendTime) < m_iNotificationDelayMs)
+			return;
+		
+		// Choose a random definition for the mission
 		WR_MissionDefinition definition = GetRandomUniqueMissionDefinition();
 		if (!definition)
 		{
-			logger.LogError("Unable to generate unique mission definition! Cannot start new mission.");
+			logger.LogError("Unable to get unique mission definition! Cannot start new mission.");
 			return;
 		}
 		
@@ -211,24 +260,21 @@ class WR_MissionSystem : GameSystem
 			return;
 		}
 		
-		// Initialize new mission and increment mission count. If mission fails to spawn, AdvanceMissionStatuses catches it next frame anyways so we dont handle it here
+		// Initialize new mission and increment mission count.
+		// If mission fails to spawn, AdvanceMissionStatuses catches it next frame, so we don't need to handle it here.
 		WR_Mission mission = new WR_Mission(location, definition);
-
-		logger.LogNormal(string.Format("Mission created: %1 (ID: %2, Location: %3)", mission.GetDefinition().m_sName, mission.GetMissionId(), mission.GetLocation().GetName()));
-			
 		
 		// Send preliminary notification if a mission start delay exists
 		if (m_Config.m_fNewMissionNotificationDelayM > 0)
 		{
-			if (!m_NotifComponent)
-				SetMissionNotificationComponent();
-
-			QueueLowPrioNotification(mission);
+			EnqueueTimedNotification(mission);
 		}
 
 		m_LastMissionDefinition = definition;
-		location.SetIsHostingMission(true);
+		location.SetIsHostingMission();
 		m_aActiveMissions.Insert(mission);
+		
+		logger.LogNormal(string.Format("Mission queued: %1 (ID: %2, Location: %3)", mission.GetDefinition().m_sName, mission.GetMissionId(), mission.GetLocation().GetName()));
 	}
 	
 	private void ChangeMissionLocation(WR_Mission mission) // Called when a mission fails to spawn at the original location
@@ -244,25 +290,6 @@ class WR_MissionSystem : GameSystem
 		logger.LogNormal(string.Format("Mission location changed for: %1 (ID: %2, Location: %3)", mission.GetDefinition().m_sName, mission.GetMissionId(), mission.GetLocation().GetName()));
 	}
 	
-	private void SetMissionNotificationComponent()
-	{
-		WR_GameModeWasteland gameMode = WR_GameModeWasteland.Cast(GetGame().GetGameMode());
-		if (!gameMode)
-		{
-			logger.LogError("Wasteland game mode entity not found! Cannot send mission notifications. Place a 'GameMode_Wasteland' prefab in the world to resolve. Stopping mission system...");
-			Enable(false);
-		}
-			
-		WR_MissionNotificationComponent notifComponent = WR_MissionNotificationComponent.Cast(gameMode.FindComponent(WR_MissionNotificationComponent));
-		if (!notifComponent)
-		{
-			logger.LogError("Mission notification component not found on game mode! Cannot send mission notifications. Add a 'WR_MissionNotificationComponent' to the game mode to resolve. Stopping mission system...");
-			Enable(false);
-		}
-			
-		m_NotifComponent = notifComponent;
-	}
-	
 	private int GetMaxActiveMissionSlots()
 	{
 		if (m_Config.m_aPlayercountMissionThresholds.Count() == 0)
@@ -274,10 +301,6 @@ class WR_MissionSystem : GameSystem
 		
 		// Get number of players currently in the game
 		int playerCount = GetGame().GetPlayerManager().GetPlayerCount();
-		
-		// Ensure threshold list is sorted
-		array<int> thresholds = m_Config.m_aPlayercountMissionThresholds;
-		thresholds.Sort();
 		
 		int slots = 0;
 		foreach (int threshold : m_Config.m_aPlayercountMissionThresholds)
@@ -338,9 +361,9 @@ class WR_MissionSystem : GameSystem
 			// and is within the playercount thresholds for difficulty.
 			if (m_LastMissionDefinition && definition.m_eType == m_LastMissionDefinition.m_eType)
 				continue;
-			if (definition.m_eDifficulty == WR_MissionDifficulty.FREE && currentPlayers < m_Config.m_freeMissionThreshold)
+			if (definition.m_eDifficulty == WR_MissionDifficulty.FREE && currentPlayers < m_Config.m_iFreeMissionThreshold)
 				continue;
-			if (definition.m_eDifficulty == WR_MissionDifficulty.HARD && currentPlayers < m_Config.m_hardMissionThreshold)
+			if (definition.m_eDifficulty == WR_MissionDifficulty.HARD && currentPlayers < m_Config.m_iHardMissionThreshold)
 				continue;
 			
 			break;
@@ -362,7 +385,7 @@ class WR_MissionSystem : GameSystem
 	private bool ValidateMissionDifficulties()
 	{
 		// If no thresholds are set, all mission difficulties are valid, regardless of current player population.
-		if (m_Config.m_freeMissionThreshold == 0 && m_Config.m_hardMissionThreshold == 0)
+		if (m_Config.m_iFreeMissionThreshold == 0 && m_Config.m_iHardMissionThreshold == 0)
 			return true;
 			
 		// Find one mission with easy difficulty.
@@ -379,31 +402,28 @@ class WR_MissionSystem : GameSystem
 	
 	private void SendNotification(WR_Mission mission)
 	{
-		if (!m_NotifComponent)
-			SetMissionNotificationComponent();
-		
 		m_NotifComponent.SendNotification(mission);
 		m_LastNotificationSendTime = GetGame().GetWorld().GetTimestamp();
 	}
 	
-	private void QueueLowPrioNotification(WR_Mission mission)
+	private void EnqueueTimedNotification(WR_Mission mission)
 	{
-		m_aMissionsNeedingLowPrioNotifications.Insert(mission);
+		m_aPendingTimedNotifications.Insert(mission);
 	}
 	
-	private void CheckLowPriorityNotificationQueue()
-	{
-		if (m_aMissionsNeedingLowPrioNotifications.Count() == 0)
+	private void HandleTimedNotificationQueue()
+	{		
+		if (m_aPendingTimedNotifications.Count() == 0)
 			return;
 		
 		WorldTimestamp now = GetGame().GetWorld().GetTimestamp();
 		
 		int delayMs = WR_Constants.s_iMissionHintDisplayDurationMs + WR_Constants.s_iMissionHintPaddingDurationMs;
-		if (now.DiffMilliseconds(m_LastNotificationSendTime) > delayMs)
+		if (!m_LastNotificationSendTime || now.DiffMilliseconds(m_LastNotificationSendTime) > delayMs)
 		{
-			WR_Mission mission = m_aMissionsNeedingLowPrioNotifications[0];
+			WR_Mission mission = m_aPendingTimedNotifications[0];
 			SendNotification(mission);
-			m_aMissionsNeedingLowPrioNotifications.Remove(0);
+			m_aPendingTimedNotifications.Remove(0);
 		}
 	}
 }

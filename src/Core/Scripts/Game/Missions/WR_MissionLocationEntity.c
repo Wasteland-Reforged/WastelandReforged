@@ -79,7 +79,7 @@ class WR_MissionLocationEntity : SCR_ScenarioFrameworkTriggerEntity
 		return m_bIsHostingMission;
 	}
 	
-	void SetIsHostingMission(bool isHostingMission)
+	void SetIsHostingMission(bool isHostingMission = true)
 	{
 		m_bIsHostingMission = isHostingMission;
 	}

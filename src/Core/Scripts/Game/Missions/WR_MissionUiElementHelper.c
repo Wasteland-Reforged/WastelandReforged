@@ -6,7 +6,6 @@ class WR_StaticMarkerHelper
 		
 		if (!markerManager)
 		{
-			
 			Print("[WASTELAND] WR_StaticMarkerHelper: Marker manager is null.", LogLevel.ERROR);
 			return -1;
 		}

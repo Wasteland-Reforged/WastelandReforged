@@ -65,9 +65,6 @@ class WR_Mission
 		m_Location.GetOnActivate().Insert(OnPlayerEnteredMissionLocation);
 		
 		SetMissionStatus(WR_MissionStatus.InProgress);
-		
-		logger.LogNormal(string.Format("Mission started successfully: %1 (ID: %2)", m_Definition.m_sName, m_iMissionId));
-		
 		return true;
 	}
 	
@@ -398,6 +395,7 @@ class WR_Mission
 			case WR_MissionStatus.AwaitingMarkerCleanup:
 			case WR_MissionStatus.AwaitingCleanup:
 			{
+				parameters.m_sCustomText += " (Ended)";
 				parameters.m_iColorEntry = WR_MapMarkerConfigColorIndices.DarkGrey;
 				break;
 			}
