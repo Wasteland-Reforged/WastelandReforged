@@ -12,7 +12,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 	[Attribute(defvalue: "7", desc: "Number of vehicles guaranteed to spawn inside this spawn area. Overrides vehiclesPerSqKm if it is less than this value.")]
 	protected int vehiclesFlatRate;
 	
-	[Attribute(defvalue: "0.75", desc: "Chance for vehicle to spawn with a random amount of supplies")]
+	[Attribute(defvalue: "1.0", desc: "Chance for vehicle to spawn with a random amount of supplies")]
 	protected float vehiclesSupplyChance;
 	
 	[Attribute(defvalue: "1", desc: "Amount of minutes to wait before checking if vehicles need respawning")]
@@ -84,10 +84,10 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 		
 		SpawnVehicleLoot(vehicleEnt, vehicleResources);
 		
-		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies
+		// Roll chance to spawn with supplies. If successful, fill vehicle with random amount of supplies.
 		if (Math.RandomFloat01() <= vehiclesSupplyChance) 
 		{
-			auto supplyStorage = SCR_ResourceComponent.Cast(vehicleEnt.FindComponent(SCR_ResourceComponent));
+			SCR_ResourceComponent supplyStorage = SCR_ResourceComponent.FindResourceComponent(vehicleEnt);
 				
 			if (supplyStorage && supplyStorage.GetContainers())
 			{

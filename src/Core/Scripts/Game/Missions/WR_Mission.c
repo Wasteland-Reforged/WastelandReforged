@@ -142,6 +142,11 @@ class WR_Mission
 			WR_Utils.RandomlyRotateAndOrientEntity(rewardEntity);
 			m_aRewards.Insert(rewardEntity);
 			
+			// Prevent rewards from entering garbage collection
+			SCR_GarbageSystem GarbageSys = SCR_GarbageSystem.GetByEntityWorld(rewardEntity);
+			if (GarbageSys)
+				GarbageSys.UpdateBlacklist(rewardEntity, true);
+			
 			// Insert OnDestroy function for vehicles
 			auto vehicleDamageManager = SCR_VehicleDamageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleDamageManagerComponent));
 			if (vehicleDamageManager)
