@@ -7,7 +7,7 @@ class WR_LootSpawner : GenericEntity
 {
     ref WR_Logger<WR_LootSpawner> logger = new WR_Logger<WR_LootSpawner>(this);
 	
-	[Attribute(defvalue: "", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContext))]
+	[Attribute(defvalue: "0", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContext))]
 	WR_LootContext m_LootContextType;
 	
 	[Attribute("0 0 90", UIWidgets.EditBox, desc: "Rotation of item when spawned", category: "Loot")]
@@ -89,8 +89,12 @@ class WR_LootSpawner : GenericEntity
 		ClearItems();
 		
 		// Get item resource to be spawned
-		auto lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
-		array<ResourceName> itemsToSpawn = lootSpawningComponent.GetRandomItemsByCount(m_LootContextType, 1, 1);
+		WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
+		WR_LootContext contextToUse = m_LootContextType;
+		if (contextToUse == WR_LootContext.NONE)
+			contextToUse = lootSpawningComponent.m_LooseLootContext;
+		
+		array<ResourceName> itemsToSpawn = lootSpawningComponent.GetRandomItemsByCount(contextToUse, 1, 1);
 
 		bool firstItem = true;
 		foreach (ResourceName item : itemsToSpawn)

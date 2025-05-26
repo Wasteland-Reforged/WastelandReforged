@@ -147,7 +147,7 @@ class WR_SpawnAreaVehicleSpawnHandlerComponent : ScriptComponent
 			}
 		}
 		
-		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(WR_LootContext.TIER1, m_fLootBudget);
+		array<ResourceName> itemResourceNamesToSpawn = lootSpawnComp.GetRandomItemsByBudget(lootSpawnComp.m_VehicleLootContext, m_fLootBudget);
 		
 		foreach (ResourceName name : itemResourceNamesToSpawn) 
 		{
