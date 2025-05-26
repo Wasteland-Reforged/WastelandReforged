@@ -1,4 +1,5 @@
 GenericEntity SpawnLobby : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
+ Flags 2097155
  coords -20000 100 -20000
  {
   GenericEntity {
@@ -7,8 +8,7 @@ GenericEntity SpawnLobby : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunk
     ActionsManagerComponent "{647379DC7EAF638C}" {
      additionalActions {
       WR_OpenDeployMenuUserAction "{64937568A3185290}" {
-       ParentContextList {
-        "SpawnAction"
+       ParentContextList +{
        }
        UIInfo SCR_ActionUIInfo "{65752A2F745BF075}" {
        }
