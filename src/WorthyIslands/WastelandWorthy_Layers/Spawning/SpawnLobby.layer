@@ -1,3 +1,30 @@
-GenericEntity : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
+GenericEntity SpawnLobby : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
  coords -20000 100 -20000
+ {
+  GenericEntity {
+   ID "62F768EB62D41F0D"
+   components {
+    ActionsManagerComponent "{647379DC7EAF638C}" {
+     additionalActions {
+      WR_OpenDeployMenuUserAction "{64937568A3185290}" {
+       ParentContextList {
+        "SpawnAction"
+       }
+       UIInfo SCR_ActionUIInfo "{65752A2F745BF075}" {
+       }
+      }
+     }
+    }
+   }
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_US {
+   ID "64940A71D2D68111"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_USSR {
+   ID "64940A71D2D68137"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_FIA {
+   ID "64940A71D2D6813B"
+  }
+ }
 }

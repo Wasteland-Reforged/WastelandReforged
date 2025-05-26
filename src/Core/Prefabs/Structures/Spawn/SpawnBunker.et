@@ -171,6 +171,12 @@ GenericEntity {
      }
      additionalActions {
       WR_OpenDeployMenuUserAction "{64937568A3185290}" {
+       ParentContextList {
+        "SpawnAction"
+       }
+       UIInfo SCR_ActionUIInfo "{65752A2F15C44E06}" {
+        Name "View Deployment Map"
+       }
        ActionTitle "Open Deploy Menu"
        VisibilityRange 2
       }

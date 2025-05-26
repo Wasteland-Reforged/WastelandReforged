@@ -27,8 +27,8 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   m_Name "Warley Quay"
  }
  {
-  coords 1065.623 9.297 2821.015
-  SphereRadius 85
+  coords 1095.886 9.297 2819.595
+  SphereRadius 60
   m_Name "Warley Valley"
  }
 }
