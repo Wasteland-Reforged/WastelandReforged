@@ -5,52 +5,42 @@ GenericEntity {
    {
     ID "62CEF12F596790B7"
     coords 18.629 0.687 3.043
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F596790CB"
     coords 13.663 1.222 -6.33
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F596790DA"
     coords -1.698 1.119 -3.535
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F596790E9"
     coords 12.264 0.705 3.095
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F596790F8"
     coords 17.317 0.675 -6.206
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F59679306"
     coords -19.853 1.119 6.079
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F59679312"
     coords 19.835 0.702 5.474
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F5967932A"
     coords 0.063 1.125 4.68
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F59679334"
     coords -18.042 1.118 -1.096
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F5967933B"
     coords -11.078 1.12 -2.463
-    m_LootContextType TIER2
    }
   }
  }

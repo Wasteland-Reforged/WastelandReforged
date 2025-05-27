@@ -5,12 +5,10 @@ SCR_DestructibleBuildingEntity : "{A43A100E3C377DB2}Prefabs/Structures/Core/Buil
    {
     ID "62CEF12F4D4BD924"
     coords -1.293 0.2 0.589
-    m_LootContextType TIER3
    }
    {
     ID "62CEF12F4D92FE5C"
     coords 1.123 0.2 0.692
-    m_LootContextType TIER3
    }
   }
  }

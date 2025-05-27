@@ -5,57 +5,46 @@ SCR_DestructibleBuildingEntity : "{A43A100E3C377DB2}Prefabs/Structures/Core/Buil
    {
     ID "62CEF12C48E0E800"
     coords -2.292 6.396 1.432
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12C48E0E828"
     coords 3.457 4.444 -0.398
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12C48E0E839"
     coords -4.814 6.396 6.869
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12C48E0E84F"
     coords 7.171 12.295 -3.463
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12C48E0E85B"
     coords 3.573 16.282 0.228
-    m_LootContextType TIER3
    }
    {
     ID "62CEF12C48E0E878"
     coords 5.102 8.242 -0.395
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12C48E0E8AA"
     coords 8.066 0.666 3.275
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12C48E0E941"
     coords -5.093 2.596 0.606
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12C48E0E994"
     coords 7.791 4.436 -2.554
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12C48E0E9B3"
     coords -7.528 2.588 8.644
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12C48E0E9FD"
     coords 2.511 4.461 -2.622
-    m_LootContextType TIER2
    }
   }
  }

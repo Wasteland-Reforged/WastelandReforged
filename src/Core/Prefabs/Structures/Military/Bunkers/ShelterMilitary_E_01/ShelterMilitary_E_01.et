@@ -5,17 +5,14 @@ SCR_DestructibleBuildingEntity : "{26A4193702B0EC4A}Prefabs/Structures/Military/
    {
     ID "62CEF12F9F37CC0E"
     coords -2.465 1.099 -1.749
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F9F37CC1F"
     coords 3.774 1.112 1.155
-    m_LootContextType TIER2
    }
    {
     ID "62CEF12F9F37CDD0"
     coords 1.826 1.046 -2.351
-    m_LootContextType TIER2
    }
   }
  }

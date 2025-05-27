@@ -4,7 +4,6 @@ SCR_DestructibleBuildingEntity : "{33F50E1C918159AB}Prefabs/Structures/Military/
   WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Loot/WR_LootSpawner.et" {
    ID "62CEF12FAA615D04"
    coords -0.022 6.986 0.455
-   m_LootContextType TIER3
   }
  }
 }
