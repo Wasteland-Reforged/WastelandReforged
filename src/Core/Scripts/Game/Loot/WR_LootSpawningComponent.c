@@ -9,6 +9,12 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 	ref map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItemConfig>> masterLootMap = new map<WR_LootCategory, ref SCR_WeightedArray<WR_LootItemConfig>>();
 	ref map<WR_LootContext, ref SCR_WeightedArray<WR_LootCategory>> masterContextMap = new map<WR_LootContext, ref SCR_WeightedArray<WR_LootCategory>>();
 	
+	[Attribute(defvalue: "1", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContext))];
+	WR_LootContext m_LooseLootContext;
+	
+	[Attribute(defvalue: "2", uiwidget: UIWidgets.ComboBox, desc: "Which loot context to use for this spawn", enums: ParamEnumArray.FromEnum(WR_LootContext))];
+	WR_LootContext m_VehicleLootContext;
+
 	[Attribute("", UIWidgets.Object, "Loot system configuration.")];
 	protected ref WR_LootTableConfig m_Config;
 
@@ -96,7 +102,7 @@ class WR_LootSpawningComponent : SCR_BaseGameModeComponent
 		if (categoryArr)
 			categoryArr.GetRandomValue(cat);
 		else
-			logger.LogError("Cannot find weighted category array for the provided loot context");
+			logger.LogError("Cannot find weighted category array for the provided loot context: " + lootContext);
 		
 		return cat;
 	}

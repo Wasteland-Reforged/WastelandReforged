@@ -5,6 +5,8 @@ SCR_AIWorld SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
     NavmeshFilesConfig BaseNavmeshFilesConfig "{62F80B30F065B4B9}" {
      NavmeshFile "{D8EF7131FB31AF97}worlds/GameMaster/Navmeshes/GM_Arland.nmn"
     }
+    RecastConfig NavmeshRecastConfig "{657533218B768704}" {
+    }
     NavmeshProject "Soldiers"
    }
   }
