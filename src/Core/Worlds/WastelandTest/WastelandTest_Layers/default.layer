@@ -1,29 +1,21 @@
 WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wasteland/GameMode_Wasteland.et" {
  coords 124.387 1 142.536
 }
-GenericEntity : "{1141B1DA6D272A70}Prefabs/Compositions/Slotted/SlotFlatSmall/WR_Antenna_S_US_01.et" {
- coords 104.96 1 154.869
- {
-  GenericEntity {
-   ID "623F34A149C998C7"
-   {
-    GenericEntity {
-     ID "5CCCBEC480BAEE00"
-     {
-      Turret Tripod_M3_M2HB_656A3365919299B0 {
-       ID "5CB0D9912FD9E690"
-      }
-     }
-    }
-   }
-  }
- }
-}
 WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
  components {
   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
    Enabled 0
   }
  }
- coords 127.75 1 110.991
+ coords 46.504 1 50.734
+}
+$grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_MissionLocation.et" {
+ {
+  coords 84.366 1 177.187
+  m_eSize LARGE
+ }
+ {
+  coords 157.607 1 165.325
+  m_eSize SMALL
+ }
 }
