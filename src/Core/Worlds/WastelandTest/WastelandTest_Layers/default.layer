@@ -27,3 +27,6 @@ WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et
  }
  coords 127.75 1 110.991
 }
+GenericEntity : "{72CE6354863D4306}Prefabs/GunStore/GunStore.et" {
+ coords 148.151 1.859 53.204
+}
