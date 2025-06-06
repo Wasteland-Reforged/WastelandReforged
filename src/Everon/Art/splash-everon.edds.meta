@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{9D472902BC0BEFB3}Art/splash.edds"
+ Name "{9D472902BC0BEFB3}Art/splash-everon.edds"
  Configurations {
   PNGResourceClass PC : "{DC555BD399D92412}Configs/System/ResourceTypes/PC/TextureUnspecified.conf" {
    ColorSpace ToSRGB
