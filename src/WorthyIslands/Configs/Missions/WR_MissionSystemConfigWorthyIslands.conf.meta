@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{1D170AA06B50CEC1}Configs/Missions/WR_MissionSystemConfigWorthyIslands.conf"
+ Configurations {
+  CONFResourceClass PC {
+  }
+  CONFResourceClass XBOX_ONE : PC {
+  }
+  CONFResourceClass XBOX_SERIES : PC {
+  }
+  CONFResourceClass PS4 : PC {
+  }
+  CONFResourceClass PS5 : PC {
+  }
+  CONFResourceClass HEADLESS : PC {
+  }
+ }
+}
