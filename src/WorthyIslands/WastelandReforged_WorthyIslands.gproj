@@ -5,4 +5,31 @@ GameProject {
  Dependencies {
   "64901CB1F99CB10A" "596CB4A0AE84C08E" "58D0FB3206B6F859"
  }
+ Configurations {
+  GameProjectConfig PC {
+   WidgetManagerSettings WidgetManagerSettings "{AC4BE58770485E02}" {
+    StringTables {
+     StringTableDefinition "{658C5B69BCE4A223}" {
+      StringTableSource "{2503269C9FB3700B}UI/StringTables/localizationWastelandReforged.st"
+      Languages {
+       LanguageDefinition "{658C5B69BD34B42F}" {
+        Code "en_us"
+        StringTableRuntime "{F7B25375F1E6A1F3}UI/StringTables/localizationWastelandReforged.en_us.conf"
+       }
+      }
+     }
+    }
+   }
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
 }
