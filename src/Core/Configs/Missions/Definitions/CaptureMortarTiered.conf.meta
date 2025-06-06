@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{1AEC725F4D6F881E}Configs/Missions/Definitions/CaptureHelicopter.conf"
+ Name "{6E9B555EE1B4B0E6}Configs/Missions/Definitions/CaptureMortarTiered.conf"
  Configurations {
   CONFResourceClass PC {
   }
