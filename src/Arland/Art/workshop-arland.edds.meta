@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{DC1BA61142CCA163}Art/workshop.edds"
+ Name "{DC1BA61142CCA163}Art/workshop-arland.edds"
  Configurations {
   PNGResourceClass PC : "{DC555BD399D92412}Configs/System/ResourceTypes/PC/TextureUnspecified.conf" {
    ColorSpace ToSRGB

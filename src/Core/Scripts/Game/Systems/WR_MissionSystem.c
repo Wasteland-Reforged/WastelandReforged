@@ -67,6 +67,9 @@ class WR_MissionSystem : GameSystem
 		m_aDefinitions = new SCR_WeightedArray<WR_MissionDefinition>();
 		foreach (WR_MissionDefinition def : m_Config.m_aMissionDefinitions)
 		{
+			if (def.m_iWeight == 0)
+				continue;
+			
 			m_aDefinitions.Insert(def, def.m_iWeight);
 		}
 	}
