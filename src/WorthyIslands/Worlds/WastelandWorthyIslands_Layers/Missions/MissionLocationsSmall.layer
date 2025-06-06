@@ -1,0 +1,112 @@
+$grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_MissionLocation.et" {
+ {
+  coords 1153.357 0.875 3133.158
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 607.449 72.719 3046.873
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1704.386 8.668 2308.382
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 907.869 10.375 2133.176
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 762.414 33.919 1840.574
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 782.067 27.143 1368.392
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 996.497 60.441 1325.471
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 517.746 3.627 504.909
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 759.712 2.304 283.424
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 817.168 2.125 148.827
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1176.025 41.081 851.908
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1260.945 2.003 541.498
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1535.92 50.125 279.914
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 2551.384 14.468 334.93
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 2636.598 2 1110.571
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 2491.468 11.188 887.303
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1918.457 83.875 378.364
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 2012.482 30.219 1646.685
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1755.857 3.886 1853.381
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 2158.32 17.158 2174.66
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 2578.571 26.496 1768.96
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 2026.02 30 728.619
+  DrawShape 0
+  m_eSize SMALL
+ }
+}

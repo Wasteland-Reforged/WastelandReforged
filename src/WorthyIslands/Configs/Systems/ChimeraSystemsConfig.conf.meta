@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{1AEC725F4D6F881E}Configs/Missions/Definitions/CaptureHelicopter.conf"
+ Name "{86E953538A28A98D}Configs/Systems/ChimeraSystemsConfig.conf"
  Configurations {
   CONFResourceClass PC {
   }

@@ -14,5 +14,8 @@ enum WR_LootCategory
     Hats,
     Backpacks,
 	SpawnAreaVehicles,
+	WeaponsTier1,
+	WeaponsTier2,
+	WeaponsTier3,
 	VehicleAmmo
 }
