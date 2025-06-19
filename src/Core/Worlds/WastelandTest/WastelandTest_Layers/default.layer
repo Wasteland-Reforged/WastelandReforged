@@ -1,14 +1,6 @@
 WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wasteland/GameMode_Wasteland.et" {
  coords 124.387 1 142.536
 }
-WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
- components {
-  WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
-   Enabled 0
-  }
- }
- coords 46.504 1 50.734
-}
 $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_MissionLocation.et" {
  {
   coords 84.366 1 177.187
@@ -18,4 +10,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
   coords 157.607 1 165.325
   m_eSize SMALL
  }
+}
+Vehicle M923A1_engineer_full1 : "{D169205E1F9A3390}Prefabs/Vehicles/Wheeled/M923A1/M923A1_engineer_full.et" {
+ coords 179.918 1 40.19
 }

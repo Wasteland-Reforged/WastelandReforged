@@ -3,7 +3,7 @@ GenericEntity : "{7649AC4689618998}Prefabs/Props/Military/Compositions/US/Buildi
  components {
   SCR_CampaignBuildingProviderComponent "{5EBCED04D0321687}" {
    m_aAvailableTraits {
-    28 28 108
+    6001 28 108
    }
   }
  }

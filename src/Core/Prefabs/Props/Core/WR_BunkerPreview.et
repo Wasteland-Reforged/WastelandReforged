@@ -1,0 +1,40 @@
+GenericEntity {
+ ID "659F2B225CA21D17"
+ components {
+  MeshObject "{659F2B225CA21D68}" {
+   Object "{A8F8DBDFC154B585}Assets/Structures/Military/Bunkers/Bunker_01/Bunker_01_3fp.xob"
+   LODFactors {
+    5 2 1.5 1 1 1
+   }
+  }
+  RigidBody "{659F2B225CA21D61}" {
+   ResponseIndex "TinyDestructible"
+   ModelGeometry 1
+   Static 1
+  }
+  SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" : "{76DA308CC9E2AB84}Prefabs/Props/Core/DestructionMultiPhase_Base.ct" {
+  }
+  SCR_EditableEntityComponent "{659F2B225CA21D65}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659F2B225CA21D7E}" {
+    Name "TEST"
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags 769
+  }
+  SCR_PreviewEntityComponent "{659F2B225CA21D7C}" {
+   m_bRuntime 0
+   m_aEntries {
+    SCR_BasePreviewEntry "{659F2B225CA21D73}" {
+     m_iParentID -1
+     m_Mesh "{A8F8DBDFC154B585}Assets/Structures/Military/Bunkers/Bunker_01/Bunker_01_3fp.xob"
+     m_Shape MESH
+     m_iPivotID ""
+    }
+   }
+  }
+  RplComponent "{5624A88DC2D9928D}" : "{3B686EF5E3C610B9}Prefabs/Props/Core/DestructionMultiPhase_Rpl_Base.ct" {
+   Enabled 1
+  }
+ }
+ Flags 1027
+}

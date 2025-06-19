@@ -1,0 +1,89 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_EditableEntityComponent "{659F4701BB8BB89D}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659F4701BB8BB895}" {
+    Name "Storage Box"
+    Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
+    m_Image "{1A0F0531DD704581}UI/Textures/EditorPreviews/Auto/Props/Military/AmmoBoxes/EquipmentBoxStack/E_EquipmentBoxStack_US_01_V1.edds"
+    m_sFaction "US"
+    m_aAuthoredLabels {
+     108 11
+    }
+    m_aAutoLabels {
+     1 121
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{659F4701BB8BB8E8}" {
+      m_BudgetType CAMPAIGN
+      m_Value 100
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{659F4701BB8BB8EE}" {
+      m_Value 1
+     }
+    }
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags 132355
+  }
+  SCR_EditorLinkComponent "{659F4701BB8BB8E0}" {
+   m_aEntries {
+    SCR_EditorLinkEntry "{659F4701BB8BB8E7}" {
+     m_Prefab "{BBE2F1A6DC2BA51F}Prefabs/Props/Core/WR_LootBoxPreview.et"
+    }
+   }
+  }
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   ActionContexts {
+    UserActionContext "{5D66ED108A2039E0}" {
+    }
+   }
+  }
+  Hierarchy "{659F4701BB8BB8FB}" {
+  }
+ }
+ coords 1306.409 39 2737.607
+ {
+  GenericEntity : "{129CCBDCAEAA0065}Prefabs/Props/Core/WR_BuildPieceChild.et" {
+   ID "659F4701BB8BB89B"
+   components {
+    MeshObject "{659CFAB1FEF7EE2B}" {
+     Object "{5172A6E151032216}Assets/Props/Military/AmmoBox/EquipmentBoxStack/EquipmentBoxStack_01_V1.xob"
+    }
+    RigidBody "{659CFAB1FEF7EE38}" {
+     ResponseIndex "HugeDestructible"
+    }
+    SCR_InventoryStorageManagerComponent "{659F4705292607A4}" {
+    }
+    ActionsManagerComponent "{659F470514237E7F}" {
+     ActionContexts {
+      UserActionContext "{659F4705153F869A}" {
+       ContextName "default"
+       Position PointInfo "{659F47051D3930BD}" {
+        Offset 0 0.5 0
+       }
+       Radius 1.5
+      }
+     }
+     additionalActions {
+      SCR_OpenStorageAction "{659F470507342277}" {
+       ParentContextList {
+        "default"
+       }
+       UIInfo UIInfo "{659F470503166F35}" {
+        Name "Open Storage"
+       }
+      }
+     }
+    }
+    RplComponent "{5624A88DC2D9928D}" {
+     "Rpl State Override" Runtime
+     "Parent Node From Parent Entity" 0
+    }
+   }
+   coords 0 0 0
+  }
+ }
+}
