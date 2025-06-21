@@ -27,6 +27,7 @@ GenericEntity {
     SCR_BasePreviewEntry "{659F2B225CA21D73}" {
      m_iParentID -1
      m_Mesh "{A8F8DBDFC154B585}Assets/Structures/Military/Bunkers/Bunker_01/Bunker_01_3fp.xob"
+     m_Flags EDITABLE
      m_Shape MESH
      m_iPivotID ""
     }

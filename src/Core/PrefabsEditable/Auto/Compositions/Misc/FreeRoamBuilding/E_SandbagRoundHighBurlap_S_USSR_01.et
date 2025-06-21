@@ -1,0 +1,13 @@
+GenericEntity : "{AC6DC9D2E040268A}Prefabs/Compositions/Misc/FreeRoamBuilding/SandbagRoundHighBurlap_S_USSR_01.et" {
+ ID "5282DCB5DFC8538F"
+ {
+  GenericEntity {
+   ID "5D6CEB977773E465"
+   components {
+    SCR_CampaignBuildingCompositionComponent "{65A6CE0B0BC8A2D4}" {
+     Enabled 0
+    }
+   }
+  }
+ }
+}

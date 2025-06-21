@@ -1,0 +1,12 @@
+GenericEntity : "{21D83950DF36F250}Prefabs/Props/Military/Sandbags/Sandbag_01_long_burlap.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SCR_PreviewEntityComponent "{5D64DDE72131961E}" {
+   m_aEntries {
+    SCR_BasePreviewEntry "{5D64DDE7212E6C65}" {
+     m_Flags 0
+    }
+   }
+  }
+ }
+}

@@ -27,6 +27,7 @@ GenericEntity {
     SCR_BasePreviewEntry "{659D131C7B526AFE}" {
      m_iParentID -1
      m_Mesh "{1E5C4242E70D7D19}Assets/Structures/Infrastructure/Waterworks/Dams/GravelDam_01/GravelDam_01.xob"
+     m_Flags EDITABLE
      m_Shape MESH
      m_iPivotID ""
     }

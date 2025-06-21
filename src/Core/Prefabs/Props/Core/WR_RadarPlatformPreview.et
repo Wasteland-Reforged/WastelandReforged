@@ -27,6 +27,7 @@ GenericEntity {
     SCR_BasePreviewEntry "{659F2B2464F82A2C}" {
      m_iParentID -1
      m_Mesh "{951BB68983165444}Assets/Structures/Military/Radar/ApproachRadar_01/ApproachRadar_RPL5_01_tall.xob"
+     m_Flags EDITABLE
      m_Shape MESH
      m_iPivotID ""
     }
