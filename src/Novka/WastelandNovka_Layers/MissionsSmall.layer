@@ -1,0 +1,52 @@
+$grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_MissionLocation.et" {
+ {
+  coords 788.463 4.463 1340.235
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1116.687 69.251 2014.332
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1202.773 4.463 1631.282
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 891.641 51.009 1771.887
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1284.539 2.369 319.107
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 365.504 91.948 1780.591
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 2681.213 468.687 2567.805
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1241.791 15.518 866.117
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 1543.522 33.752 895.979
+  DrawShape 0
+  m_eSize SMALL
+ }
+ {
+  coords 2125.059 122.603 1856.456
+  DrawShape 0
+  m_eSize SMALL
+ }
+}

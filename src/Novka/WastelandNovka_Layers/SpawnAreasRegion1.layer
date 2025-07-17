@@ -1,0 +1,79 @@
+WR_SpawnPoint : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 1485.124 53.815 1842.427
+ angleY 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Central"
+ }
+ m_eSpawnRegion REGION_1
+}
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1482.307 61.271 1835.304
+  m_Name "Dunvak"
+ }
+ {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1506.25 64.625 1211.051
+  SphereRadius 70
+  m_Name "Veska"
+ }
+ {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1521.421 67.121 694.191
+  SphereRadius 70
+  m_Name "Kasny"
+ }
+ {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 2037.583 81.37 865.138
+  SphereRadius 75
+  m_Name "Tjeska"
+ }
+ {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 451.804 23.23 1404.594
+  SphereRadius 75
+  m_Name "Banes"
+ }
+ {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 643.617 125.122 2042.662
+  SphereRadius 70
+  m_Name "Kipar"
+ }
+ {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1273.241 208.496 2416.768
+  SphereRadius 70
+  m_Name "Kowert"
+ }
+}
