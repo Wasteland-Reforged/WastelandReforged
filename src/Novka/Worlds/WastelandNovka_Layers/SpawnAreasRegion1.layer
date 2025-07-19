@@ -1,4 +1,4 @@
-WR_SpawnPoint : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+WR_SpawnPoint WR_SpawnRegion_1 : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
  coords 1485.124 53.815 1842.427
  angleY 0
  m_Info SCR_UIInfo "{64940A703C7E8519}" {
@@ -7,7 +7,7 @@ WR_SpawnPoint : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
  m_eSpawnRegion REGION_1
 }
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
- {
+ WR_SpawnArea_Dunvak {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesFlatRate 4
@@ -17,7 +17,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 90
   m_Name "Dunvak"
  }
- {
+ WR_SpawnArea_Veska {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesFlatRate 4
@@ -27,7 +27,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 70
   m_Name "Veska"
  }
- {
+ WR_SpawnArea_LittleKasny {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesFlatRate 4
@@ -37,7 +37,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 70
   m_Name "Kasny"
  }
- {
+ WR_SpawnArea_Tjeska {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesFlatRate 4
@@ -47,7 +47,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 75
   m_Name "Tjeska"
  }
- {
+ WR_SpawnArea_SouthBanes {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesFlatRate 4
@@ -57,7 +57,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 75
   m_Name "Banes"
  }
- {
+ WR_SpawnArea_Kipar {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesFlatRate 4
@@ -67,7 +67,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   SphereRadius 70
   m_Name "Kipar"
  }
- {
+ WR_SpawnArea_KowertTown {
   components {
    WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
     vehiclesFlatRate 4
