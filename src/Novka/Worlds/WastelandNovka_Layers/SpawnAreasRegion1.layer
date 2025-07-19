@@ -2,7 +2,7 @@ WR_SpawnPoint : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
  coords 1485.124 53.815 1842.427
  angleY 0
  m_Info SCR_UIInfo "{64940A703C7E8519}" {
-  Name "Central"
+  Name "Random Town"
  }
  m_eSpawnRegion REGION_1
 }
@@ -13,7 +13,9 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
     vehiclesFlatRate 4
    }
   }
-  coords 1482.307 61.271 1835.304
+  coords 1502.56 61.271 1829.266
+  SphereRadius 90
+  DrawShape 1
   m_Name "Dunvak"
  }
  {
