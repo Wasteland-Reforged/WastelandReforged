@@ -24,8 +24,9 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
     vehiclesFlatRate 4
    }
   }
-  coords 1506.25 64.625 1211.051
+  coords 1505.874 64.625 1222.947
   SphereRadius 70
+  DrawShape 1
   m_Name "Veska"
  }
  {
@@ -34,8 +35,9 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
     vehiclesFlatRate 4
    }
   }
-  coords 1521.421 67.121 694.191
+  coords 1528.062 67.121 674.026
   SphereRadius 70
+  DrawShape 1
   m_Name "Kasny"
  }
  {
@@ -44,8 +46,9 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
     vehiclesFlatRate 4
    }
   }
-  coords 2037.583 81.37 865.138
+  coords 2042.513 81.37 860.55
   SphereRadius 75
+  DrawShape 1
   m_Name "Tjeska"
  }
  {
@@ -56,6 +59,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   }
   coords 451.804 23.23 1404.594
   SphereRadius 75
+  DrawShape 1
   m_Name "Banes"
  }
  {
@@ -66,6 +70,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   }
   coords 643.617 125.122 2042.662
   SphereRadius 70
+  DrawShape 1
   m_Name "Kipar"
  }
  {
@@ -76,6 +81,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   }
   coords 1273.241 208.496 2416.768
   SphereRadius 70
+  DrawShape 1
   m_Name "Kowert"
  }
 }
