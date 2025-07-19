@@ -19,3 +19,17 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
   m_eSize SMALL
  }
 }
+GenericEntity SpawnLobby : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
+ coords 268.756 49.588 -146.772
+ {
+  WR_SpawnPoint WR_SpawnPoint_Lobby_US {
+   ID "64940A71D2D68111"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_USSR {
+   ID "64940A71D2D68137"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_FIA {
+   ID "64940A71D2D6813B"
+  }
+ }
+}
