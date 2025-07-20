@@ -1,11 +1,11 @@
 GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
  ID "5282DCB5DFC8538F"
  components {
-  SCR_EditableEntityComponent "{625216836BCD6C1F}" {
-   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
-    Name "TEST"
+  SCR_EditableEntityComponent "{659CFAB48B81B903}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659CFAB48B81B916}" {
+    Name "Gravel Wall"
     Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
-    m_Image "{0DD84CC4F1E2885C}UI/Imagesets/game_template.edds"
+    m_Image "{66C699DC5C6023CC}Thumbnails/graveldam.edds"
     m_sFaction "US"
     m_aAuthoredLabels {
      108 11
@@ -14,13 +14,13 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
      1 121
     }
     m_EntityBudgetCost {
-     SCR_EntityBudgetValue "{62521683A63264C2}" {
+     SCR_EntityBudgetValue "{659CFAB48B81B968}" {
       m_BudgetType CAMPAIGN
-      m_Value 69
+      m_Value 150
      }
     }
     m_EntityChildrenBudgetCost {
-     SCR_EntityBudgetValue "{659CFAB5E36638B5}" {
+     SCR_EntityBudgetValue "{659CFAB48B81B96E}" {
       m_Value 1
      }
     }
@@ -28,20 +28,24 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    m_bAutoRegister ALWAYS
    m_Flags 132355
   }
-  SCR_EditorLinkComponent "{62521683547C6D53}" {
+  SCR_EditorLinkComponent "{659CFAB48B81B966}" {
    m_aEntries {
-    SCR_EditorLinkEntry "{62521683A8B80316}" {
+    SCR_EditorLinkEntry "{659CFAB48B81B964}" {
+     m_Prefab "{C282C094D222BB6A}Prefabs/Props/Core/WR_GravelDamPreview.et"
     }
    }
   }
-  Hierarchy "{659CFAB332A63C2E}" {
+  Hierarchy "{659CFAB3263DEC71}" {
   }
  }
  coords 1306.409 39 2737.607
  {
   GenericEntity : "{129CCBDCAEAA0065}Prefabs/Props/Core/WR_BuildPieceChild.et" {
-   ID "659D131E5BC6B8D0"
+   ID "659CFAB1B9414FC3"
    components {
+    MeshObject "{659CFAB1FEF7EE2B}" {
+     Object "{1E5C4242E70D7D19}Assets/Structures/Infrastructure/Waterworks/Dams/GravelDam_01/GravelDam_01.xob"
+    }
     RigidBody "{659CFAB1FEF7EE38}" {
      ResponseIndex "HugeDestructible"
     }

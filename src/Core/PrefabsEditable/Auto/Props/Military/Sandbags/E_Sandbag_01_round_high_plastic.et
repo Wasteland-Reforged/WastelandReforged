@@ -1,0 +1,12 @@
+GenericEntity : "{B6307C189CCCA0B9}Prefabs/Props/Military/Sandbags/Sandbag_01_round_high_plastic.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SCR_PreviewEntityComponent "{5E02C08FCD490993}" {
+   m_aEntries {
+    SCR_BasePreviewEntry "{5E02C08FCD49014B}" {
+     m_Flags 0
+    }
+   }
+  }
+ }
+}

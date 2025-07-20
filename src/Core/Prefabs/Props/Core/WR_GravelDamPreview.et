@@ -1,0 +1,41 @@
+GenericEntity {
+ ID "659D131C7B526A84"
+ components {
+  MeshObject "{659D131C7B526A99}" {
+   Object "{1E5C4242E70D7D19}Assets/Structures/Infrastructure/Waterworks/Dams/GravelDam_01/GravelDam_01.xob"
+   LODFactors {
+    5 2 1.5 1 1 1
+   }
+  }
+  RigidBody "{659D131C7B526A95}" {
+   ResponseIndex "TinyDestructible"
+   ModelGeometry 1
+   Static 1
+  }
+  SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" : "{76DA308CC9E2AB84}Prefabs/Props/Core/DestructionMultiPhase_Base.ct" {
+  }
+  SCR_EditableEntityComponent "{659D131C7B526AEE}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659D131C7B526AE0}" {
+    Name "TEST"
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags 769
+  }
+  SCR_PreviewEntityComponent "{659D131C7B526AFB}" {
+   m_bRuntime 0
+   m_aEntries {
+    SCR_BasePreviewEntry "{659D131C7B526AFE}" {
+     m_iParentID -1
+     m_Mesh "{1E5C4242E70D7D19}Assets/Structures/Infrastructure/Waterworks/Dams/GravelDam_01/GravelDam_01.xob"
+     m_Flags EDITABLE
+     m_Shape MESH
+     m_iPivotID ""
+    }
+   }
+  }
+  RplComponent "{5624A88DC2D9928D}" : "{3B686EF5E3C610B9}Prefabs/Props/Core/DestructionMultiPhase_Rpl_Base.ct" {
+   Enabled 1
+  }
+ }
+ Flags 1027
+}

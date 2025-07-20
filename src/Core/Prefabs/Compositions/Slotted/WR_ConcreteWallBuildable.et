@@ -1,11 +1,11 @@
 GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
  ID "5282DCB5DFC8538F"
  components {
-  SCR_EditableEntityComponent "{625216836BCD6C1F}" {
-   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
-    Name "TEST"
+  SCR_EditableEntityComponent "{659F2B22C296B6B1}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659F2B22C296B68E}" {
+    Name "Concrete Wall"
     Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
-    m_Image "{0DD84CC4F1E2885C}UI/Imagesets/game_template.edds"
+    m_Image "{DFE4CEEDA5FCD33E}Thumbnails/Untitled.edds"
     m_sFaction "US"
     m_aAuthoredLabels {
      108 11
@@ -14,13 +14,13 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
      1 121
     }
     m_EntityBudgetCost {
-     SCR_EntityBudgetValue "{62521683A63264C2}" {
+     SCR_EntityBudgetValue "{659F2B22C296B68D}" {
       m_BudgetType CAMPAIGN
-      m_Value 69
+      m_Value 100
      }
     }
     m_EntityChildrenBudgetCost {
-     SCR_EntityBudgetValue "{659CFAB5E36638B5}" {
+     SCR_EntityBudgetValue "{659F2B22C296B682}" {
       m_Value 1
      }
     }
@@ -28,20 +28,24 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    m_bAutoRegister ALWAYS
    m_Flags 132355
   }
-  SCR_EditorLinkComponent "{62521683547C6D53}" {
+  SCR_EditorLinkComponent "{659F2B22C296B685}" {
    m_aEntries {
-    SCR_EditorLinkEntry "{62521683A8B80316}" {
+    SCR_EditorLinkEntry "{659F2B22C296B69A}" {
+     m_Prefab "{3369E71AC41E0B69}Prefabs/Props/Core/WR_ConcreteWallPreview.et"
     }
    }
   }
-  Hierarchy "{659CFAB332A63C2E}" {
+  Hierarchy "{659F2B22C296B69E}" {
   }
  }
  coords 1306.409 39 2737.607
  {
   GenericEntity : "{129CCBDCAEAA0065}Prefabs/Props/Core/WR_BuildPieceChild.et" {
-   ID "659D131E5BC6B8D0"
+   ID "659F2B22C296B6BF"
    components {
+    MeshObject "{659CFAB1FEF7EE2B}" {
+     Object "{4634BD85D1441032}Assets/Structures/Walls/Concrete/ConcreteWall_01_6m_A.xob"
+    }
     RigidBody "{659CFAB1FEF7EE38}" {
      ResponseIndex "HugeDestructible"
     }
