@@ -5,7 +5,7 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
    m_UIInfo SCR_EditableEntityUIInfo "{659F2B22C296B68E}" {
     Name "Concrete Wall"
     Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
-    m_Image "{0DD84CC4F1E2885C}UI/Imagesets/game_template.edds"
+    m_Image "{DFE4CEEDA5FCD33E}Thumbnails/Untitled.edds"
     m_sFaction "US"
     m_aAuthoredLabels {
      108 11

@@ -3,9 +3,9 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
  components {
   SCR_EditableEntityComponent "{659CFAB48B81B903}" {
    m_UIInfo SCR_EditableEntityUIInfo "{659CFAB48B81B916}" {
-    Name "TEST"
+    Name "Gravel Wall"
     Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
-    m_Image "{0DD84CC4F1E2885C}UI/Imagesets/game_template.edds"
+    m_Image "{66C699DC5C6023CC}Thumbnails/graveldam.edds"
     m_sFaction "US"
     m_aAuthoredLabels {
      108 11
@@ -16,7 +16,7 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
     m_EntityBudgetCost {
      SCR_EntityBudgetValue "{659CFAB48B81B968}" {
       m_BudgetType CAMPAIGN
-      m_Value 69
+      m_Value 150
      }
     }
     m_EntityChildrenBudgetCost {
