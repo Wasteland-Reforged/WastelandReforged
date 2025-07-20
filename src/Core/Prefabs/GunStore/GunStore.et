@@ -17,6 +17,11 @@ GenericEntity {
   }
   GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et" {
    ID "6490630690A6B064"
+   components {
+    SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" {
+     Enabled 0
+    }
+   }
    coords -0.131 0 0.61
    angleY -112.731
   }
@@ -25,6 +30,13 @@ GenericEntity {
    components {
     ADM_ShopComponent "{647379C8EAF8C735}" : "{1D5ECEB7EA0D7D22}Prefabs/Components/Shop/ShopComponent.ct" {
      m_ShopName "Gun Store"
+    }
+    RigidBody "{5872F0EB7DFB5A9D}" {
+     SimState None
+     ResponseIndex "NoCollision"
+    }
+    SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" {
+     Enabled 0
     }
     WR_MapMarkerComponent "{647379CAF7E22ABB}" {
      m_sLabel "Gun Store"
