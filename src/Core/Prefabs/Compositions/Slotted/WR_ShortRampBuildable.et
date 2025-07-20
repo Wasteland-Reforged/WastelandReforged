@@ -1,0 +1,56 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_EditableEntityComponent "{659F2B25A60FCB1E}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659F2B25A60FCB16}" {
+    Name "Short Ramp"
+    Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
+    m_Image "{22C4F0519E46BBF7}UI/Textures/EditorPreviews/Auto/Props/Military/Training/Obstacles/E_ObstacleRamp_01_start.edds"
+    m_sFaction "US"
+    m_aAuthoredLabels {
+     108 11
+    }
+    m_aAutoLabels {
+     1 121
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{659F2B25A60FCB15}" {
+      m_BudgetType CAMPAIGN
+      m_Value 25
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{659F2B25A60FCB68}" {
+      m_Value 1
+     }
+    }
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags 132355
+  }
+  SCR_EditorLinkComponent "{659F2B25A60FCB63}" {
+   m_aEntries {
+    SCR_EditorLinkEntry "{659F2B25A60FCB60}" {
+     m_Prefab "{6A561B816364F8BA}Prefabs/Props/Core/WR_ShortRampPreview.et"
+    }
+   }
+  }
+  Hierarchy "{659F2B25A60FCB64}" {
+  }
+ }
+ coords 1306.409 39 2737.607
+ {
+  GenericEntity : "{129CCBDCAEAA0065}Prefabs/Props/Core/WR_BuildPieceChild.et" {
+   ID "659F2B25A60FCB04"
+   components {
+    MeshObject "{659CFAB1FEF7EE2B}" {
+     Object "{C40A898CC5D69691}Assets/Props/Military/Training/Obstacles/ObstacleRamp_01/ObstacleRamp_01_start.xob"
+    }
+    RigidBody "{659CFAB1FEF7EE38}" {
+     ResponseIndex "HugeDestructible"
+    }
+   }
+   coords 0 0 0
+  }
+ }
+}

@@ -1,0 +1,56 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_EditableEntityComponent "{659F2B2463C6AFA7}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659F2B2463C6AFBC}" {
+    Name "Radar Platform"
+    Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
+    m_Image "{F79EA5259CBBBBE0}Thumbnails/radarplatform.edds"
+    m_sFaction "US"
+    m_aAuthoredLabels {
+     108 11
+    }
+    m_aAutoLabels {
+     1 121
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{659F2B2463C6AFB2}" {
+      m_BudgetType CAMPAIGN
+      m_Value 200
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{659F2B2463C6AFB7}" {
+      m_Value 1
+     }
+    }
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags 132355
+  }
+  SCR_EditorLinkComponent "{659F2B2463C6AF89}" {
+   m_aEntries {
+    SCR_EditorLinkEntry "{659F2B2463C6AF8F}" {
+     m_Prefab "{B3993EB17D470C69}Prefabs/Props/Core/WR_RadarPlatformPreview.et"
+    }
+   }
+  }
+  Hierarchy "{659F2B2463C6AF82}" {
+  }
+ }
+ coords 1306.409 39 2737.607
+ {
+  GenericEntity : "{129CCBDCAEAA0065}Prefabs/Props/Core/WR_BuildPieceChild.et" {
+   ID "659F2B2463C6AFAF"
+   components {
+    MeshObject "{659CFAB1FEF7EE2B}" {
+     Object "{951BB68983165444}Assets/Structures/Military/Radar/ApproachRadar_01/ApproachRadar_RPL5_01_tall.xob"
+    }
+    RigidBody "{659CFAB1FEF7EE38}" {
+     ResponseIndex "HugeDestructible"
+    }
+   }
+   coords 0 0 0
+  }
+ }
+}

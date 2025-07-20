@@ -1,0 +1,91 @@
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 3
+    m_fLootBudget 0.25
+   }
+  }
+  coords 2770.47 2 976.032
+  SphereRadius 75
+  DrawShape 1
+  m_Name "Lower Port"
+ }
+ {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 3
+    m_fLootBudget 0.25
+   }
+  }
+  coords 2682.315 2.813 330.296
+  DrawShape 1
+  m_Name "Worthy Military"
+ }
+ {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 3
+    m_fLootBudget 0.25
+   }
+  }
+  coords 910.003 2.255 220.462
+  SphereRadius 75
+  DrawShape 1
+  m_Name "Sotuhwick Military"
+ }
+ {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 3
+    m_fLootBudget 0.25
+   }
+  }
+  coords 2051.449 6.824 947.015
+  SphereRadius 60
+  DrawShape 1
+  m_Name "Power Station"
+ }
+ {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 3
+    m_fLootBudget 0.25
+   }
+  }
+  coords 1264.521 0.875 3121.947
+  SphereRadius 75
+  DrawShape 1
+  m_Name "Warley Military"
+ }
+}

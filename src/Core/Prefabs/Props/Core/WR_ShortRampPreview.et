@@ -1,0 +1,40 @@
+GenericEntity {
+ ID "659F2B25B908ED52"
+ components {
+  MeshObject "{659F2B25B908ED56}" {
+   Object "{C40A898CC5D69691}Assets/Props/Military/Training/Obstacles/ObstacleRamp_01/ObstacleRamp_01_start.xob"
+   LODFactors {
+    5 2 1.5 1 1 1
+   }
+  }
+  RigidBody "{659F2B25B908EDAE}" {
+   ResponseIndex "TinyDestructible"
+   ModelGeometry 1
+   Static 1
+  }
+  SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" : "{76DA308CC9E2AB84}Prefabs/Props/Core/DestructionMultiPhase_Base.ct" {
+  }
+  SCR_EditableEntityComponent "{659F2B25B908EDA2}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659F2B25B908EDA7}" {
+    Name "TEST"
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags 769
+  }
+  SCR_PreviewEntityComponent "{659F2B25B908EDBA}" {
+   m_bRuntime 0
+   m_aEntries {
+    SCR_BasePreviewEntry "{659F2B25B908EDBB}" {
+     m_iParentID -1
+     m_Mesh "{C40A898CC5D69691}Assets/Props/Military/Training/Obstacles/ObstacleRamp_01/ObstacleRamp_01_start.xob"
+     m_Shape MESH
+     m_iPivotID ""
+    }
+   }
+  }
+  RplComponent "{5624A88DC2D9928D}" : "{3B686EF5E3C610B9}Prefabs/Props/Core/DestructionMultiPhase_Rpl_Base.ct" {
+   Enabled 1
+  }
+ }
+ Flags 1027
+}

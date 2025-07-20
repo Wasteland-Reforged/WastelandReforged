@@ -1,0 +1,23 @@
+GenericEntity {
+ ID "659CFAB1FEF7EFD1"
+ components {
+  MeshObject "{659CFAB1FEF7EE2B}" {
+   LODFactors {
+    5 2 1.5 1 1 1
+   }
+  }
+  RigidBody "{659CFAB1FEF7EE38}" {
+   ResponseIndex "TinyDestructible"
+   ModelGeometry 1
+   Static 1
+  }
+  SCR_DestructionMultiPhaseComponent "{5624A88D86EFE8BA}" : "{76DA308CC9E2AB84}Prefabs/Props/Core/DestructionMultiPhase_Base.ct" {
+  }
+  RplComponent "{5624A88DC2D9928D}" : "{3B686EF5E3C610B9}Prefabs/Props/Core/DestructionMultiPhase_Rpl_Base.ct" {
+   Enabled 1
+  }
+  Hierarchy "{659CFAB1DA8C2B0C}" {
+  }
+ }
+ Flags 1048576
+}

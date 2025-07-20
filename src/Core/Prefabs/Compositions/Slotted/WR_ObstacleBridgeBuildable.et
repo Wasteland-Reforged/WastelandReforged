@@ -1,0 +1,56 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_EditableEntityComponent "{659F2B23FA55C429}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659F2B23FA55C424}" {
+    Name "Long Ramp"
+    Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
+    m_Image "{2496BAF460723BC0}UI/Textures/EditorPreviews/Auto/Props/Military/Training/Obstacles/E_ObstacleBridge_01_start.edds"
+    m_sFaction "US"
+    m_aAuthoredLabels {
+     108 11
+    }
+    m_aAutoLabels {
+     1 121
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{659F2B23FA55C438}" {
+      m_BudgetType CAMPAIGN
+      m_Value 50
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{659F2B23FA55C43C}" {
+      m_Value 1
+     }
+    }
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags 132355
+  }
+  SCR_EditorLinkComponent "{659F2B23FA55C434}" {
+   m_aEntries {
+    SCR_EditorLinkEntry "{659F2B23FA55C40A}" {
+     m_Prefab "{26B6C2465660F22E}Prefabs/Props/Core/WR_ObstacleBridgePreview.et"
+    }
+   }
+  }
+  Hierarchy "{659F2B23FA55C40F}" {
+  }
+ }
+ coords 1306.409 39 2737.607
+ {
+  GenericEntity : "{129CCBDCAEAA0065}Prefabs/Props/Core/WR_BuildPieceChild.et" {
+   ID "659F2B23FA55C5D6"
+   components {
+    MeshObject "{659CFAB1FEF7EE2B}" {
+     Object "{A0473062D82C96FD}Assets/Props/Military/Training/Obstacles/ObstacleBridge_01/ObstacleBridge_01_start.xob"
+    }
+    RigidBody "{659CFAB1FEF7EE38}" {
+     ResponseIndex "HugeDestructible"
+    }
+   }
+   coords 0 0 0
+  }
+ }
+}

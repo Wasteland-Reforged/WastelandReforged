@@ -1,0 +1,12 @@
+StaticModelEntity : "{C16C62041E2AAAB2}Prefabs/Structures/Military/Fortifications/Dragontooth_01/Dragontooth_01_V1.et" {
+ ID "5272E314C5058BE6"
+ components {
+  SCR_PreviewEntityComponent "{5EF0BDF2D0B8162F}" {
+   m_aEntries {
+    SCR_BasePreviewEntry "{5EF0BDF2D0B86DFD}" {
+     m_Flags 0
+    }
+   }
+  }
+ }
+}

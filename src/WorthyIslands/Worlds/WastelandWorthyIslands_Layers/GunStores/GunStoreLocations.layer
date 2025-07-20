@@ -1,0 +1,10 @@
+$grp GenericEntity : "{72CE6354863D4306}Prefabs/GunStore/GunStore.et" {
+ {
+  coords 740.699 34.032 1798.952
+  angleY -91.248
+ }
+ {
+  coords 2609.597 26.356 1849.589
+  angleY -91.248
+ }
+}

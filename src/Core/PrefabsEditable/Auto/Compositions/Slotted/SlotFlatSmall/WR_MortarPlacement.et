@@ -3,31 +3,30 @@ GenericEntity : "{2323F9E4C524F047}Prefabs/Compositions/Slotted/SlotFlatSmall/Mo
  components {
   SCR_EditableEntityComponent "{6186DB2D6434FA80}" : "{B35795373E565FE7}Prefabs/Editor/Components/SlotFlatSmall_SCR_EditableEntityComponent.ct" {
    m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
-    Name "#AR-EditableEntity_MortarEmplacement_M252_S_US_Name"
+    Name "Mortar Emplacement"
     m_Image "{9B7751C21D93058E}UI/Textures/EditorPreviews/Auto/Slotted/SlotFlatSmall/E_MortarPlacement_S_US.edds"
     m_sFaction "US"
     m_aAuthoredLabels {
-     108 11
+     5 90 27 6001 902 280 281 913 11
     }
     m_aAutoLabels {
-     1 121
     }
     m_EntityBudgetCost {
-     SCR_EntityBudgetValue "{652D27F6D3A9A5CC}" {
+     SCR_EntityBudgetValue "{65A6CE30D3B911A4}" {
       m_BudgetType CAMPAIGN
-      m_Value 400
+      m_Value 1000
      }
-     SCR_EntityBudgetValue "{652D27F6D3A9A5DA}" {
+     SCR_EntityBudgetValue "{65A6CE30D3B911B0}" {
       m_BudgetType RANK_SERGEANT
       m_Value 3
      }
     }
     m_EntityChildrenBudgetCost {
-     SCR_EntityBudgetValue "{652D27F6D3A9A5D9}" {
+     SCR_EntityBudgetValue "{65A6CE30D3B911B7}" {
       m_BudgetType PROPS
       m_Value 24
      }
-     SCR_EntityBudgetValue "{652D27F6D3A9A5DE}" {
+     SCR_EntityBudgetValue "{65A6CE30D3B911B4}" {
       m_BudgetType SYSTEMS
       m_Value 4
      }
@@ -35,10 +34,10 @@ GenericEntity : "{2323F9E4C524F047}Prefabs/Compositions/Slotted/SlotFlatSmall/Mo
    }
    m_Flags 131395
   }
-  SCR_EditorLinkComponent "{652D27F6D3A9A5D6}" {
+  SCR_EditorLinkComponent "{65A6CE30D3B9118C}" {
    m_bRandomizeVariants 0
    m_aEntries {
-    SCR_EditorLinkEntry "{652D27F6D3A9A42A}" {
+    SCR_EditorLinkEntry "{65A6CE30D3B91183}" {
      m_Prefab "{BE34F0B3A22481F5}PrefabsEditable/Auto/Compositions/Misc/SubCompositions/E_Foundation_Mortar_US.et"
      m_vPosition 0 0.2 0
      m_vAngles 0 0 0

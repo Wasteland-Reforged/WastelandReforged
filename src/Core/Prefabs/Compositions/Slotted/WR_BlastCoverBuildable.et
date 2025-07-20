@@ -1,0 +1,56 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  SCR_EditableEntityComponent "{659F2B213232EE7C}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{659F2B213232EE4F}" {
+    Name "Blast Cover"
+    Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
+    m_Image "{D0009C11DCE96C6A}Thumbnails/blastcover.edds"
+    m_sFaction "US"
+    m_aAuthoredLabels {
+     108 11
+    }
+    m_aAutoLabels {
+     1 121
+    }
+    m_EntityBudgetCost {
+     SCR_EntityBudgetValue "{659F2B213232EE40}" {
+      m_BudgetType CAMPAIGN
+      m_Value 200
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{659F2B213232EE46}" {
+      m_Value 1
+     }
+    }
+   }
+   m_bAutoRegister ALWAYS
+   m_Flags 132355
+  }
+  SCR_EditorLinkComponent "{659F2B213232EE59}" {
+   m_aEntries {
+    SCR_EditorLinkEntry "{659F2B213232EE5F}" {
+     m_Prefab "{87935CD8D94B4DD7}Prefabs/Props/Core/WR_BlastCoverPreview.et"
+    }
+   }
+  }
+  Hierarchy "{659F2B213232EE53}" {
+  }
+ }
+ coords 1306.409 39 2737.607
+ {
+  GenericEntity : "{129CCBDCAEAA0065}Prefabs/Props/Core/WR_BuildPieceChild.et" {
+   ID "659F2B213232EE7A"
+   components {
+    MeshObject "{659CFAB1FEF7EE2B}" {
+     Object "{1EC130E5FC2EDADB}Assets/Structures/Military/Fortifications/BlastCover_E_01/BlastCover_E_01_8x5.xob"
+    }
+    RigidBody "{659CFAB1FEF7EE38}" {
+     ResponseIndex "HugeDestructible"
+    }
+   }
+   coords 0 0 0
+  }
+ }
+}

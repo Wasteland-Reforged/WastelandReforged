@@ -1,0 +1,25 @@
+SCR_EditorModeEntity : "{E56F54E533ACE527}Prefabs/Editor/Modes/EditorModeBase.et" {
+ ID "518A34314C7CB324"
+ components {
+  SCR_ContentBrowserEditorComponent "{597071D8310A282F}" {
+   m_aContentBrowserTabStates {
+    SCR_EditorContentBrowserSaveStateDataUI "{65A6B8C6DBFEAD23}" {
+     m_iSavedLabels {
+      6001
+     }
+     m_BrowserStateUIInfo SCR_UIInfo "{65A6B8C6C2A3AAC8}" {
+      Icon "{CD975FD1D8625C80}UI/Textures/Editor/Attributes/FreeRoamBuilding/Support_Assets_Tab-64.edds"
+     }
+    }
+    SCR_EditorContentBrowserSaveStateDataUI "{65A6B8C8AC79B653}" {
+     m_iSavedLabels {
+      6002
+     }
+     m_BrowserStateUIInfo SCR_UIInfo "{65A6B8C89E7E38A7}" {
+      Icon "{6C492D2DC9F2EF04}UI/Textures/Editor/ContentBrowser/ContentBrowser_Vehicle_Helicopter.edds"
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{B08BCB2AD5A57B72}PrefabsEditable/Auto/Structures/Military/Fortifications/E_Dragontooth_01_V1.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

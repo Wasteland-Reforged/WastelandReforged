@@ -144,26 +144,33 @@ class WR_Mission
 			{
 				vehicleDamageManager.GetOnVehicleDestroyed().Insert(CheckRewardDestroyed);
 			}
-			
+
 			// Check if we need to fill reward with loot
 			if (m_Definition.m_eLootContext == WR_LootContext.NONE)
 				continue;
 			
 			// Fill with Loot----------------------------------------------------------------------------------------------------------------------------------
-			// Find the prefabs InventoryStorageManager, which may be a regular one, or a vehicle one
-			auto inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));
-			if (!inventoryStorageManager) 
-				inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+			WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
+			array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(m_Definition.m_eLootContext, m_Definition.m_fLootBudget, m_Definition.m_fLootBoxAdditionalItemMultiplier);
 			
-			// Insert Randomly Selected Items
+			SCR_InventoryStorageManagerComponent inventoryStorageManager = SCR_InventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_InventoryStorageManagerComponent));
+			SCR_VehicleInventoryStorageManagerComponent vicStorageManager = SCR_VehicleInventoryStorageManagerComponent.Cast(rewardEntity.FindComponent(SCR_VehicleInventoryStorageManagerComponent));
+
 			if (inventoryStorageManager)
 			{
-				auto inventoryStorage = SCR_UniversalInventoryStorageComponent.Cast(rewardEntity.FindComponent(SCR_UniversalInventoryStorageComponent));
-				
-				WR_LootSpawningComponent lootSpawningComponent = WR_LootSpawningComponent.GetInstance();
-				array<ResourceName> items = lootSpawningComponent.GetRandomItemsByBudget(m_Definition.m_eLootContext, m_Definition.m_fLootBudget, m_Definition.m_fLootBoxAdditionalItemMultiplier); // TODO: parameterize these floats. maybe make a lootbox reward config
+				Print("Found inventory storage manager");
 				foreach (ResourceName item : items)
-					inventoryStorageManager.TrySpawnPrefabToStorage(item, inventoryStorage);
+					inventoryStorageManager.TrySpawnPrefabToStorage(item);
+			}
+			else if (vicStorageManager)
+			{
+				Print("Found vehicle inventory storage manager");
+				foreach (ResourceName item : items)
+					vicStorageManager.TrySpawnPrefabToStorage(item);
+			}
+			else 
+			{
+				Print("Could not find inventory storage manager");
 			}
 		
 		}

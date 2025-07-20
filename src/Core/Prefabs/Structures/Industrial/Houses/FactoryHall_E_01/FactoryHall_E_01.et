@@ -1,46 +1,78 @@
 SCR_DestructibleBuildingEntity : "{A31C6EAC2D6E8BA2}Prefabs/Structures/Industrial/Houses/FactoryHall_E_01/FactoryHall_E_01_Base.et" {
  ID "F0DBA538AC2A0552"
  {
-  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Loot/WR_LootSpawner.et" {
    {
-    ID "62CEF13E83D8E043"
-    coords -14.17 7.096 -3.828
-    m_LootContextType LOOSE
+    ID "657323396324A604"
+    coords -17.901 7.09 1.131
    }
    {
-    ID "62CEF13E83D8E052"
-    coords -7.183 7.193 -5.987
-    m_LootContextType LOOSE
+    ID "657323396324A60E"
+    coords -13.334 7.096 -2.012
    }
    {
-    ID "62CEF13E83D8E069"
-    coords -2.582 1.25 2.519
-    m_LootContextType LOOSE
+    ID "657323396324A612"
+    coords 17.059 7.19 -0.211
    }
    {
-    ID "62CEF13E83D8E089"
-    coords 17.052 7.19 -0.231
-    m_LootContextType LOOSE
+    ID "657323396324A627"
+    coords 1.162 7.193 6.399
    }
    {
-    ID "62CEF13E83D8E09A"
-    coords -8.351 7.141 13.662
-    m_LootContextType LOOSE
+    ID "657323396324A628"
+    coords 6.121 7.26 -6.071
    }
    {
-    ID "62CEF13E83D8E0AF"
-    coords 1.304 6.77 0.861
-    m_LootContextType LOOSE
+    ID "657323396324A633"
+    coords -5.609 7.139 -0.01
    }
    {
-    ID "62CEF13E83D8E0BE"
-    coords 0.233 7.209 9.923
-    m_LootContextType LOOSE
+    ID "657323396324A665"
+    coords -12.517 0.617 0.367
    }
    {
-    ID "62CEF13E83D8E0EA"
-    coords 9.393 0.325 4.11
-    m_LootContextType LOOSE
+    ID "657323396324A668"
+    coords -0.926 6.994 1.091
+   }
+   {
+    ID "657323396324A74F"
+    coords -17.946 0.592 -5.29
+   }
+   {
+    ID "657323396324A783"
+    coords 8.079 1.248 3.694
+   }
+   {
+    ID "657323396324A79F"
+    coords 10.55 0.896 12.966
+   }
+   {
+    ID "657323396324A7AC"
+    coords -1.181 2.203 3.954
+   }
+   {
+    ID "657323396324A7B2"
+    coords -5.869 2.203 6.732
+   }
+   {
+    ID "657323396324A7C0"
+    coords -8.311 7.139 13.694
+   }
+   {
+    ID "657323396324A7DF"
+    coords -4.825 7.09 13.251
+   }
+   {
+    ID "657323396324A7EE"
+    coords 14.447 0.906 6.419
+   }
+   {
+    ID "657323396324A7F4"
+    coords -1.026 7.084 10.469
+   }
+   {
+    ID "657323396324A7F8"
+    coords 0.25 7.211 9.851
    }
   }
  }

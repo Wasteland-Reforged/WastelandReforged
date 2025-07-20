@@ -4,6 +4,7 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
   SCR_EditableEntityComponent "{625216836BCD6C1F}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
     Name "TEST"
+    Icon "{077BEF7A3C7930CF}UI/Textures/Editor/EditableEntities/Compositions/EditableEntity_Composition.edds"
     m_Image "{0DD84CC4F1E2885C}UI/Imagesets/game_template.edds"
     m_sFaction "US"
     m_aAuthoredLabels {
@@ -15,10 +16,17 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
     m_EntityBudgetCost {
      SCR_EntityBudgetValue "{62521683A63264C2}" {
       m_BudgetType CAMPAIGN
-      m_Value 50
+      m_Value 69
+     }
+    }
+    m_EntityChildrenBudgetCost {
+     SCR_EntityBudgetValue "{659CFAB5E36638B5}" {
+      m_Value 1
      }
     }
    }
+   m_bAutoRegister ALWAYS
+   m_Flags 132355
   }
   SCR_EditorLinkComponent "{62521683547C6D53}" {
    m_aEntries {
@@ -26,6 +34,19 @@ GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposi
     }
    }
   }
+  Hierarchy "{659CFAB332A63C2E}" {
+  }
  }
  coords 1306.409 39 2737.607
+ {
+  GenericEntity : "{129CCBDCAEAA0065}Prefabs/Props/Core/WR_BuildPieceChild.et" {
+   ID "659D131E5BC6B8D0"
+   components {
+    RigidBody "{659CFAB1FEF7EE38}" {
+     ResponseIndex "HugeDestructible"
+    }
+   }
+   coords 0 0 0
+  }
+ }
 }

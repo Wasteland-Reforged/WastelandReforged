@@ -1,0 +1,34 @@
+WR_SpawnPoint : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 1141.079 68.022 2309.316
+ angleY 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Random Town - North"
+ }
+ m_eSpawnRegion REGION_1
+}
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ {
+  coords 1219.815 14.353 2223.248
+  m_Name "Lower Lymeford"
+ }
+ {
+  coords 956.861 10.502 2200.564
+  SphereRadius 75
+  m_Name "Upper Lymeford"
+ }
+ {
+  coords 250.076 13.233 2359.614
+  SphereRadius 150
+  m_Name "Winmere"
+ }
+ {
+  coords 850.783 3.875 3067.501
+  SphereRadius 75
+  m_Name "Warley Quay"
+ }
+ {
+  coords 1095.886 9.297 2819.595
+  SphereRadius 60
+  m_Name "Warley Valley"
+ }
+}

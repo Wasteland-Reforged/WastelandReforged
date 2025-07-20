@@ -1,42 +1,81 @@
 SCR_DestructibleBuildingEntity : "{9E1B1BC411CE2CBC}Prefabs/Structures/Military/Houses/Barracks_01/Barracks_01_medical_base.et" {
  ID "F0DBA538AC2A0552"
  {
-  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Spawners/WR_LootSpawner.et" {
+  $grp WR_LootSpawner : "{C1DA502D84E51335}Prefabs/Loot/WR_LootSpawner.et" {
    {
     ID "647A037393AB28CE"
     coords 5.504 0.61 6.31
+    m_LootContextType MEDICAL
    }
    {
-    ID "647A037393AB28D2"
-    coords 5.531 0.576 0.226
+    ID "6573233BE61C7083"
+    coords -1.24 1.019 9.798
+    m_LootContextType MEDICAL
    }
    {
-    ID "647A037393AB28E8"
-    coords -1.173 1.019 9.871
+    ID "6573233BE61C70CC"
+    coords 5.382 0.58 0.166
+    m_LootContextType MEDICAL
    }
    {
-    ID "647A037393AB2B09"
-    coords 3.411 0.593 -7.217
+    ID "6573233BE61C70D2"
+    coords 3.742 1.026 5.01
+    m_LootContextType MEDICAL
    }
    {
-    ID "647A037393AB2B17"
-    coords 5.632 0.592 -14.322
+    ID "6573233BE61C70FB"
+    coords 0.872 0.603 -0.046
+    m_LootContextType MEDICAL
    }
    {
-    ID "647A037393AB2B1A"
-    coords -5.52 0.559 -7.39
+    ID "6573233BE61C7307"
+    coords -3.504 0.56 -7.368
+    m_LootContextType MEDICAL
    }
    {
-    ID "647A037393AB2B23"
-    coords -4.862 0.603 2.454
+    ID "6573233BE61C7311"
+    coords 5.584 0.591 -2.836
+    m_LootContextType MEDICAL
    }
    {
-    ID "647A037393AB2B3C"
-    coords 5.538 0.595 -2.905
+    ID "6573233BE61C7326"
+    coords -4.855 0.609 2.537
+    m_LootContextType MEDICAL
    }
    {
-    ID "647A037393AB2B63"
-    coords -2.986 1.003 -9.233
+    ID "6573233BE61C7334"
+    coords -5.572 0.561 -2.786
+    m_LootContextType MEDICAL
+   }
+   {
+    ID "6573233BE61C7355"
+    coords -5.921 0.119 -14.253
+    m_LootContextType MEDICAL
+   }
+   {
+    ID "6573233BE61C735B"
+    coords 3.375 0.594 -14.397
+    m_LootContextType MEDICAL
+   }
+   {
+    ID "6573233BE61C7366"
+    coords 3.416 0.592 -7.284
+    m_LootContextType MEDICAL
+   }
+   {
+    ID "6573233BE61C7374"
+    coords 5.637 0.593 -14.369
+    m_LootContextType MEDICAL
+   }
+   {
+    ID "6573233BE61C73A6"
+    coords -2.835 1.004 -9.266
+    m_LootContextType MEDICAL
+   }
+   {
+    ID "6573233BE61C73B6"
+    coords 3.541 0.62 12.939
+    m_LootContextType MEDICAL
    }
   }
  }

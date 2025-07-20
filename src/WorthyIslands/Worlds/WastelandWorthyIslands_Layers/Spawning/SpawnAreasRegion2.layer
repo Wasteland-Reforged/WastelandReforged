@@ -1,0 +1,44 @@
+WR_SpawnPoint : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 1555.666 0 858.975
+ angleY 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Random Town - South"
+ }
+ m_eSpawnRegion REGION_2
+}
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ {
+  coords 1733.484 15.201 1674.373
+  SphereRadius 125
+  m_Name "Lutley"
+  m_eSpawnRegion REGION_2
+ }
+ {
+  coords 1010.443 27.844 1542.496
+  m_Name "Farebridge"
+  m_eSpawnRegion REGION_2
+ }
+ {
+  coords 402.04 6.138 856.823
+  SphereRadius 75
+  m_Name "Netston"
+  m_eSpawnRegion REGION_2
+ }
+ {
+  coords 387.966 2.969 246.759
+  m_Name "Southwick"
+  m_eSpawnRegion REGION_2
+ }
+ {
+  coords 1610.712 9.357 663.327
+  SphereRadius 60
+  m_Name "Stockley"
+  m_eSpawnRegion REGION_2
+ }
+ {
+  coords 2550.403 2 1063.437
+  SphereRadius 150
+  m_Name "Port"
+  m_eSpawnRegion REGION_2
+ }
+}

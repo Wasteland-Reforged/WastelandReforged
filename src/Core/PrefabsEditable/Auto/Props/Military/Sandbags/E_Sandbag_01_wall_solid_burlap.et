@@ -1,0 +1,12 @@
+GenericEntity : "{9C9C4BED9E19C374}Prefabs/Props/Military/Sandbags/Sandbag_01_wall_solid_burlap.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SCR_PreviewEntityComponent "{5D70BA34701F4CCA}" {
+   m_aEntries {
+    SCR_BasePreviewEntry "{5D70BA34701F4BBD}" {
+     m_Flags 0
+    }
+   }
+  }
+ }
+}
