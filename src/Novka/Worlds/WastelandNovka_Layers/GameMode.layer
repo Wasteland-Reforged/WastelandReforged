@@ -1,0 +1,8 @@
+WR_GameModeWasteland GameMode_Wasteland1 : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wasteland/GameMode_Wasteland.et" {
+ components {
+  SCR_TimeAndWeatherHandlerComponent "{61D805F9F5E6DB16}" {
+   m_fDayTimeAcceleration 12
+  }
+ }
+ coords 867.054 0 1080.362
+}

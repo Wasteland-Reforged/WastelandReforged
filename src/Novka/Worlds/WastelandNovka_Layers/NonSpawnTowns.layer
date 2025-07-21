@@ -1,0 +1,164 @@
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ WR_BotTown {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 840.618 56.929 1900.802
+  SphereRadius 50
+  m_Name "Kipar"
+ }
+ WR_BotTown2 {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 722.007 89.87 2490.68
+  SphereRadius 50
+  m_Name "Kipar"
+ }
+ WR_BotTown3 {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1430.878 120.627 2182.381
+  SphereRadius 50
+  m_Name "Kipar"
+ }
+ WR_BotTown4 {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 2054.403 215.883 2399.746
+  SphereRadius 50
+  m_Name "Kipar"
+ }
+ WR_BotTown5 {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 2093.64 133.202 1957.164
+  SphereRadius 50
+  m_Name "Kipar"
+ }
+ WR_BotTown6 {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 2479.236 87.256 1658.929
+  SphereRadius 50
+  m_Name "Kipar"
+ }
+ WR_BotTown7 {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1283.148 21.879 795.554
+  SphereRadius 50
+  m_Name "Kipar"
+ }
+ WR_BotTown8 {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 3
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    Enabled 0
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1136.43 69.668 2007.883
+  SphereRadius 50
+  m_Name "Kipar"
+ }
+ WR_BotTown9 {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 3
+   }
+  }
+  coords 427.336 93.969 1774.204
+  SphereRadius 40
+  m_Name "Kipar"
+ }
+ WR_BotTown10 {
+  components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 2
+   }
+   WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+    Enabled 0
+   }
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    Enabled 0
+    vehiclesFlatRate 4
+   }
+  }
+  coords 2729.92 492.156 2488.975
+  SphereRadius 40
+  m_Name "Kipar"
+ }
+}

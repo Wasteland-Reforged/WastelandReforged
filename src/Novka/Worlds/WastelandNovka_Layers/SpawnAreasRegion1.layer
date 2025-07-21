@@ -1,0 +1,100 @@
+WR_SpawnPoint WR_SpawnRegion_1 : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 1485.124 53.815 1842.427
+ angleY 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Random Town"
+ }
+ m_eSpawnRegion REGION_1
+}
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ WR_SpawnArea_Dunvak {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 6
+   }
+  }
+  coords 1502.56 61.271 1829.266
+  SphereRadius 90
+  m_Name "Dunvak"
+ }
+ WR_SpawnArea_Veska {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 6
+   }
+  }
+  coords 1506.25 64.625 1211.051
+  SphereRadius 70
+  m_Name "Veska"
+ }
+ WR_SpawnArea_LittleKasny {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 6
+   }
+  }
+  coords 1521.421 67.121 694.191
+  SphereRadius 70
+  m_Name "Kasny"
+ }
+ WR_SpawnArea_Tjeska {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 6
+   }
+  }
+  coords 2037.583 81.37 865.138
+  SphereRadius 75
+  m_Name "Tjeska"
+ }
+ WR_SpawnArea_SouthBanes {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 6
+   }
+  }
+  coords 451.804 23.23 1404.594
+  SphereRadius 75
+  m_Name "Banes"
+ }
+ WR_SpawnArea_Kipar {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 6
+   }
+  }
+  coords 643.617 125.122 2042.662
+  SphereRadius 70
+  m_Name "Kipar"
+ }
+ WR_SpawnArea_KowertTown {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 6
+   }
+  }
+  coords 1273.241 208.496 2416.768
+  SphereRadius 70
+  m_Name "Kowert"
+ }
+ WR_SpawnAreaHusca {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 6
+   }
+  }
+  coords 2566.854 125.106 1306.46
+  SphereRadius 50
+  m_Name "Kipar"
+ }
+ WR_SpawnArea_Livva {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesFlatRate 4
+   }
+  }
+  coords 1787.479 48.625 892.485
+  SphereRadius 40
+  m_Name "Kipar"
+ }
+}
