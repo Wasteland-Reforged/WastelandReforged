@@ -108,11 +108,6 @@ GenericEntity {
    ID "652EA2FFA27D7A95"
    coords -8.071 -0.216 -6.284
   }
-  StaticModelEntity : "{80DF3BD810D032AF}Prefabs/Structures/Industrial/Towers/LightTower_01/LightTower_01.et" {
-   ID "652EA2FAF7A4E204"
-   coords -3.785 0 8.132
-   angleY 166.505
-  }
   DecalEntity : "{9EE74738BD9E8CDB}Prefabs/Decals/Dirt/Decal_Dirt_Tracks_02.et" {
    ID "652EA2FB32B6334E"
    components {
@@ -370,10 +365,6 @@ GenericEntity {
     coords -7.493 -0.04 7.152
     angleY -43.16
    }
-  }
-  GameEntity : "{D9842C11742C00CF}Prefabs/Props/Civilian/Fireplace_01.et" {
-   ID "652EA2F0C7A02BE8"
-   coords 8.768 -0.047 7.964
   }
   Tree : "{D9DF1D13919F19A0}Prefabs/Vegetation/Bush/b_rosa_canina_0s.et" {
    ID "652EA2FC28D20A95"
