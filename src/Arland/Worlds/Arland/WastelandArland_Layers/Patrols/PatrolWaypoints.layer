@@ -1,0 +1,46 @@
+$grp WR_AIPatrolWaypoint : "{B0C23693756CEC83}Prefabs/Spawning/WR_PatrolWaypoint.et" {
+ {
+  coords 3053.003 24.905 2603.609
+  angleY 0
+ }
+ {
+  coords 2693.255 21.161 3128.164
+  angleY 0
+  m_iWaypointOrderIndex 1
+ }
+ {
+  coords 2075.636 52.833 2926.665
+  angleY 0
+  m_iWaypointOrderIndex 2
+ }
+ {
+  coords 1840.815 44.719 2944.809
+  angleY 0
+  m_iWaypointOrderIndex 3
+ }
+ {
+  coords 1644.284 5.683 1978.05
+  angleY 0
+  m_iWaypointOrderIndex 4
+ }
+ {
+  coords 1894.544 26.067 1957.48
+  angleY 0
+  m_iWaypointOrderIndex 5
+ }
+ {
+  coords 2260.956 58.031 1729.158
+  angleY 0
+  m_iWaypointOrderIndex 6
+ }
+ {
+  coords 2497.013 77.744 1735.652
+  angleY 0
+  m_iWaypointOrderIndex 7
+ }
+ {
+  coords 2665.572 79.07 1771.259
+  angleY 0
+  m_iWaypointOrderIndex 8
+ }
+}

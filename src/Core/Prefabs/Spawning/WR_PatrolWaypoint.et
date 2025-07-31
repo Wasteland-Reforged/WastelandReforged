@@ -1,0 +1,13 @@
+WR_AIPatrolWaypoint {
+ ID "65FE1AEA002A2B36"
+ components {
+  RplComponent "{65FE1AEA002A2B52}" {
+  }
+ }
+ coords -12.547 -4.373 12.825
+ angleY 180
+ TriggerShapeType Sphere
+ SphereRadius 15
+ TriggerActivationType "Every query"
+ PeriodicQueries 1
+}
