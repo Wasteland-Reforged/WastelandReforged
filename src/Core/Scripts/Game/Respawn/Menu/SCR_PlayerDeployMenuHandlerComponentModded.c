@@ -42,8 +42,6 @@ modded class SCR_PlayerDeployMenuHandlerComponent
 					SCR_DeployMenuMain.CloseDeployMenu();
 					SCR_RoleSelectionMenu.OpenRoleSelectionMenu();
 				}
-				
-				m_bFirstOpen = false;
 			}
 		}
 		else if (IsMenuOpen())

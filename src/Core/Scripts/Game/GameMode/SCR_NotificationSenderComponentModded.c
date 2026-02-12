@@ -2,10 +2,10 @@ modded class SCR_NotificationSenderComponent
 {		
 	//------------------------------------------------------------------------------------------------
 	// Disable "<player-name> joined the <faction-name>" notifications for game masters.
-	override void OnPlayerSpawned(int playerId, IEntity controlledEntity)
+	override void OnPlayerSpawnFinalize_S(SCR_SpawnRequestComponent requestComponent, SCR_SpawnHandlerComponent handlerComponent, SCR_SpawnData data, IEntity entity)
 	{
-		
-	}
+		// No-op
+	}	
 	
 	//------------------------------------------------------------------------------------------------
 	// Make kill feed notifications appear for all players, regardless of replication proximity.

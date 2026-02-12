@@ -6,9 +6,9 @@ modded class SCR_MapJournalUI : SCR_MapUIBaseComponent
 		if (response)
 		{
 			// Add null check to prevent exeception when leaving faction
-			if (!m_wEntryLayout) return;
+			if (!m_Widgets || !m_Widgets.m_wEntryLayout) return;
 			
-			m_wEntryLayout.SetVisible(false);
+			m_Widgets.m_wEntryLayout.SetVisible(false);
 			GetJournalForPlayer();
 		}
 	}

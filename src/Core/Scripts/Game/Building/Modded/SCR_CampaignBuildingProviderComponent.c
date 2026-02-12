@@ -4,10 +4,10 @@ modded class SCR_CampaignBuildingProviderComponentClass : SCR_MilitaryBaseLogicC
 
 modded class SCR_CampaignBuildingProviderComponent : SCR_MilitaryBaseLogicComponent
 {
-	override bool IsCharacterFactionSame(notnull IEntity character)
-	{
-		return true;
-	}
+//	override bool IsCharacterFactionSame(notnull IEntity character)
+//	{
+//		return true;
+//	}
 	
 	override bool IsEnemyFaction(notnull ChimeraCharacter char)
 	{
