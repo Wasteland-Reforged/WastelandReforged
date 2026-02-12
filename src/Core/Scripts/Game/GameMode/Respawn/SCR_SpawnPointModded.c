@@ -12,9 +12,9 @@ modded class SCR_SpawnPoint
 		SCR_FactionManager factionManager = SCR_FactionManager.Cast(GetGame().GetFactionManager());
 		Faction playerFaction = factionManager.GetFactionByKey(factionKey);
 		
-		// For factions friendly to themselves, return all available spawn points (spawn regions and player-built bases).
-		if (playerFaction.IsFactionFriendly(playerFaction))
-			return spawnPoints;
+//		// For factions friendly to themselves, return all available spawn points (spawn regions and player-built bases).
+//		if (playerFaction.IsFactionFriendly(playerFaction))
+//			return spawnPoints;
 		
 		// For factions not friendly to themselves, we need to filter out spawn points on base parts not built by members of the player's group.
 		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();	
@@ -27,7 +27,20 @@ modded class SCR_SpawnPoint
 				// This spawn point is a standalone entity. OK.
 				continue;
 			}
-				
+			
+			WR_ControllableSpawnPoint controllableSpawnPoint = WR_ControllableSpawnPoint.Cast(spawnPoint);
+			if (controllableSpawnPoint)
+			{
+				int thisPlayerId = GetGame().GetPlayerController().GetPlayerId();
+			
+				if (!controllableSpawnPoint.IsParentSpawnAreaControlledByFriendlies(thisPlayerId))
+				{
+					// The parent spawn area of this controllable spawn point's does not have enough friendlies in it to allow spawning. Disqualify.
+					spawnPoints.RemoveItem(spawnPoint);
+					continue;
+				}
+			}
+
 			SCR_EditableEntityComponent editableEntityComponent = SCR_EditableEntityComponent.Cast(spawnBaseComponent.FindComponent(SCR_EditableEntityComponent));
 			if (!editableEntityComponent)
 			{

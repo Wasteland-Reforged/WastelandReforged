@@ -13,6 +13,9 @@ class WR_GameModeWasteland : SCR_BaseGameMode
 	[Attribute("25", desc: "Supply cost to respawn at buildable HQ tents.", category: CATEGORY_WR)]
 	protected int m_iTentRespawnSupplyCost;
 	
+	[Attribute("0.5", desc: "The ratio (%) of friendly to enemy players to allow spawning in a town. Must be greater than or equal to this percentage.", category: CATEGORY_WR)]
+	protected float m_fFriendlyPlayerTownSpawnRatio;
+	
 	override void OnGameStart()
 	{
 		super.OnGameStart();
@@ -43,6 +46,11 @@ class WR_GameModeWasteland : SCR_BaseGameMode
 	int GetTentRespawnSupplyCost()
 	{
 		return m_iTentRespawnSupplyCost;
+	}
+	
+	int GetFriendlyPlayerTownSpawnRatio()
+	{
+		return m_fFriendlyPlayerTownSpawnRatio;
 	}
 	
 	bool IsSpawnLobbyPresent()

@@ -9,12 +9,30 @@ WR_SpawnAreaEntity {
    vehiclesPerSqKm 250
    vehiclesFlatRate 12
   }
+  Hierarchy "{65FE24AF86A90A30}" {
+  }
  }
  coords 1627.565 2.523 594.502
  TriggerShapeType Sphere
  SphereRadius 100
  DrawShape 0
  ShapeColor 0 0.591 1 0.102
+ ClassesFilter {
+  "SCR_ChimeraCharacter"
+ }
  m_Name "Norwich"
  m_eSpawnRegion REGION_1
+ {
+  WR_ControllableSpawnPoint {
+   ID "65FE0675CECB30F8"
+   components {
+    Hierarchy "{65FE24AF83AE2A6C}" {
+    }
+   }
+   m_sFaction ""
+   m_Info SCR_UIInfo "{65FE24AD3BEFF017}" {
+    Name "Spawn Area Name"
+   }
+  }
+ }
 }

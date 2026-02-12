@@ -34,4 +34,81 @@ class WR_SpawnAreaEntity : BaseGameTriggerEntity
 	{
 		return m_eSpawnRegion;
 	}
+	
+	//! Returns all player entities within the trigger.
+	notnull array<IEntity> GetPlayerControlledEntitiesInsideTrigger()
+	{
+		array<IEntity> entitiesInside = {};
+		GetEntitiesInside(entitiesInside);
+		
+		array<IEntity> result = {};
+		foreach (IEntity entity : entitiesInside)
+		{
+			SCR_ChimeraCharacter character = SCR_ChimeraCharacter.Cast(entity);
+			if (!character)
+				continue;
+			
+			PlayerManager playerManager = GetGame().GetPlayerManager();
+			int playerId = playerManager.GetPlayerIdFromControlledEntity(entity);
+			if (playerId == 0)
+				continue;
+			
+			result.Insert(entity);
+		}
+		
+		return result;
+	}
+	
+//	//! Returns all the players in the trigger that are members of the given faction
+//	array<IEntity> GetPlayersByFactionInsideTrigger(Faction faction)
+//	{
+//		array<IEntity> entitiesInside = {};
+//		GetEntitiesInside(entitiesInside);
+//		
+//		array<IEntity> entitiesOut = {};
+//		foreach (IEntity entity : entitiesInside)
+//		{
+//			if (!entity)
+//				continue;
+//
+//			SCR_ChimeraCharacter chimeraCharacter = SCR_ChimeraCharacter.Cast(entity);
+//			if (!chimeraCharacter)
+//				entitiesOut.Insert(chimeraCharacter);
+//
+//			if (chimeraCharacter.GetFaction() != m_OwnerFaction)
+//				continue;
+//
+//			if (EntityUtils.IsPlayer(entity))
+//				entitiesOut.Insert(chimeraCharacter);
+//		}
+//	}
+//	
+//	//! Returns all the players in the trigger that are members of the given squad
+//	array<IEntity> GetPlayersByGroupInsideTrigger(SCR_AIGroup group)
+//	{
+//		array<IEntity> entitiesInside = {};
+//		GetEntitiesInside(entitiesInside);
+//	
+//		SCR_GroupsManagerComponent groupManager = SCR_GroupsManagerComponent.GetInstance();
+//			
+//		array<IEntity> entitiesOut = {};
+//		foreach (IEntity entity : entitiesInside)
+//		{
+//			if (!entity)
+//				continue;
+//
+//			SCR_ChimeraCharacter chimeraCharacter = SCR_ChimeraCharacter.Cast(entity);
+//			if (!chimeraCharacter)
+//				entitiesOut.Insert(chimeraCharacter);
+//
+//			// Compare group
+//			chimeraCharacter
+//			groupManager.GetPlayerGroup();
+//			if (chimeraCharacter != m_OwnerFaction)
+//				continue;
+//
+//			if (EntityUtils.IsPlayer(entity))
+//				entitiesOut.Insert(chimeraCharacter);
+//		}
+//	}
 }
