@@ -1,35 +1,78 @@
+WR_SpawnPoint SpawnPointEast : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 10657.707 205.157 8006.356
+ angles 0 0 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "East"
+ }
+}
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
  {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 150
+    vehiclesFlatRate 8
+   }
+  }
   coords 6843.504 5.751 2559.982
   SphereRadius 180
   m_Name "Chernogorsk E."
   m_eSpawnRegion REGION_2
  }
  {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 150
+    vehiclesFlatRate 8
+   }
+  }
   coords 6529.277 5.748 2392.852
   SphereRadius 180
   m_Name "Chernogorsk W."
   m_eSpawnRegion REGION_2
  }
  {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 150
+    vehiclesFlatRate 8
+   }
+  }
   coords 2734.19 204.302 5402.689
   SphereRadius 150
   m_Name "Zelenogorsk N."
   m_eSpawnRegion REGION_2
  }
  {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 150
+    vehiclesFlatRate 8
+   }
+  }
   coords 2665.027 190.646 5097.024
   SphereRadius 150
   m_Name "Zelenogorsk S."
   m_eSpawnRegion REGION_2
  }
  {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 150
+    vehiclesFlatRate 8
+   }
+  }
   coords 3794.869 299.397 8912.289
   SphereRadius 150
   m_Name "Vybor"
   m_eSpawnRegion REGION_2
  }
  {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 150
+    vehiclesFlatRate 8
+   }
+  }
   coords 6095.167 292.563 7751.719
   SphereRadius 150
   m_Name "Stary Sobor"

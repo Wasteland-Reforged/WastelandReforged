@@ -1,6 +1,9 @@
 $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
  BotArea1 {
   components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 3
+   }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
    }
@@ -14,6 +17,9 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
  }
  BotArea2 {
   components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 3
+   }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
    }
@@ -27,6 +33,9 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
  }
  BotArea3 {
   components {
+   WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+    AIGroupsFlatRate 3
+   }
    WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
     Enabled 0
    }
