@@ -1,0 +1,32 @@
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ {
+  coords 13388.118 5.746 6253.096
+  SphereRadius 150
+  m_Name "Solnichniy"
+ }
+ {
+  coords 10092.042 6.059 1971.867
+  SphereRadius 200
+  m_Name "Elektrozavodsk W."
+ }
+ {
+  coords 10477.615 6 2219.346
+  SphereRadius 200
+  m_Name "Elektrozavodsk E."
+ }
+ {
+  coords 11924.679 53.56 9114.354
+  SphereRadius 200
+  m_Name "Berenzino S."
+ }
+ {
+  coords 12832.375 5.749 10041.313
+  SphereRadius 200
+  m_Name "Berenzino N."
+ }
+ {
+  coords 7096.415 285.563 7720.008
+  SphereRadius 150
+  m_Name "Novy Sobor"
+ }
+}

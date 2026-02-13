@@ -1,0 +1,140 @@
+GenericEntity : "{18B92018CF634D22}Prefabs/Compositions/Slotted/SlotFlatSmall/SandbagPosition_S_US_03.et" {
+ coords 11822.692 152.593 12663.889
+ angles 0 38.297 0
+}
+$grp GenericEntity : "{1DB9C9CAEA70E7E5}PrefabsEditable/Auto/Props/Military/Fortification/E_BarbedTape_KnifeRest.et" {
+ {
+  coords 11767.75 152.915 12656.178
+ }
+ {
+  coords 11767.811 152.954 12652.48
+ }
+ {
+  coords 11767.652 153.023 12649.029
+ }
+}
+$grp GenericEntity : "{5519B339E041781E}Prefabs/Compositions/Misc/SubCompositions/Fortifications/Sandbag_Wall_BarbedWire_US_01.et" {
+ {
+  coords 11849.024 152.594 12613.644
+  angles 0 110.727 0
+ }
+ {
+  coords 11845.781 152.594 12608.151
+  angles 0 110.727 0
+ }
+ {
+  coords 11842.193 152.594 12602.554
+  angles 0 110.727 0
+ }
+ {
+  coords 11852.421 152.594 12619.113
+  angles 0 110.727 0
+ }
+ {
+  coords 11805.697 153.228 12592.105
+  angles 0 -159.867 0
+ }
+ {
+  coords 11800.192 153.228 12595.445
+  angles 0 -159.867 0
+ }
+ {
+  coords 11794.667 153.228 12598.631
+  angles 0 -159.867 0
+ }
+ {
+  coords 11789.032 153.228 12602.161
+  angles 0 -159.867 0
+ }
+}
+GenericEntity : "{69131FD53AF6C044}Prefabs/Compositions/Slotted/SlotFlatSmall/SupplyStorage_S_US_01.et" {
+ coords 11823.284 152.594 12657.024
+ angles 0 -142.714 0
+}
+GenericEntity : "{76D4FE49EA6C57F3}Prefabs/Compositions/Slotted/SlotFlatLarge/LivingArea_L_US_01.et" {
+ coords 11786.093 152.717 12635.771
+ angles 0 24.726 0
+ {
+  GameEntity {
+   ID "5D0CC9D2A9422BD7"
+   coords 9.833 0.166 -15.82
+  }
+ }
+}
+GenericEntity : "{8B4B8BF44162B24E}Prefabs/Compositions/Slotted/SlotFlatSmall/Antenna_S_US_01.et" {
+ coords 11809.905 152.594 12631.174
+ angles 0 -5.658 0
+}
+$grp GenericEntity : "{9D720679B696FEE1}Prefabs/Compositions/Slotted/SlotFlatSmall/MachineGunNest_S_US_01_M2HB.et" {
+ {
+  coords 11829.49 152.594 12650.094
+  angles 0 58.695 0
+  {
+   GenericEntity {
+    ID "5CCCBEC1C8877BB1"
+    {
+     Turret Tripod_M122_MG_M60_689972DB6B6EE238 {
+      ID "5CB0D9912C9F8B8C"
+     }
+    }
+   }
+  }
+ }
+ {
+  coords 11802.711 152.594 12673.953
+  angles 0 24.811 0
+  {
+   GenericEntity {
+    ID "5CCCBEC1C8877BB1"
+    {
+     Turret Tripod_M122_MG_M60_689972DB41165149 {
+      ID "5CB0D9912C9F8B8C"
+     }
+    }
+   }
+  }
+ }
+}
+GenericEntity : "{A13F6A7F82DF031B}Prefabs/Compositions/Slotted/SlotFlatLarge/Helipad_L_US_01.et" {
+ coords 11825.624 152.594 12601.63
+ angles 0 29.828 0
+}
+StaticModelEntity : "{AA3DE61527216BDF}PrefabsEditable/Auto/Structures/Industrial/Towers/E_LightTower_01.et" {
+ coords 11804.076 152.594 12636.519
+}
+GenericEntity : "{C0D09A53EEA441D6}Prefabs/Compositions/Slotted/SlotFlatSmall/MachineGunNest_S_US_02.et" {
+ coords 11817.08 152.647 12586.089
+ angles 0 160.891 0
+ {
+  GenericEntity {
+   ID "5CCCBEC480BAEE00"
+   {
+    Turret Tripod_M3_M2HB_689972DBAF987486 {
+     ID "5CB0D9912FD9E690"
+    }
+   }
+  }
+ }
+}
+GenericEntity : "{CDD0712FD6215F04}Prefabs/Compositions/Slotted/SlotFlatMedium/FieldHospital_M_US_01.et" {
+ coords 11784.791 152.594 12671.66
+ angles 0 117.541 0
+}
+$grp GenericEntity : "{E5043AB2B2C5DFE1}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_GuardTower_S_US_01.et" {
+ {
+  coords 11815.97 152.594 12666.32
+  angles 0 40.172 0
+ }
+ {
+  coords 11775.866 152.748 12659.024
+  angles 0 -64.45 0
+ }
+}
+GenericEntity : "{ECB8E313DFBD3415}Prefabs/Compositions/Slotted/SlotFlatSmall/VehicleMaintenance_S_US_01.et" {
+ coords 11822.504 152.594 12637.889
+ angles 0 109.859 0
+}
+GenericEntity : "{FB18EFE9C1A81E29}Prefabs/Compositions/Slotted/SlotFlatMedium/VehicleMaintenance_M_US_01.et" {
+ coords 11837.325 152.594 12632.008
+ angles 0 -65.02 0
+}

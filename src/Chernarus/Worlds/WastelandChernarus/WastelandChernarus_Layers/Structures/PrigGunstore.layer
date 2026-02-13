@@ -1,0 +1,100 @@
+GenericEntity : "{172D03072FE6ECAB}Prefabs/Compositions/Slotted/SlotRoadMedium/Barricade_M_US_01.et" {
+ coords 7862.573 5.75 3508.051
+}
+GenericEntity : "{76D4FE49EA6C57F3}Prefabs/Compositions/Slotted/SlotFlatLarge/LivingArea_L_US_01.et" {
+ coords 7815.819 5.75 3462.162
+ angles 0 -4.106 0
+}
+GenericEntity : "{77F90F896D5145C8}Prefabs/Compositions/Slotted/SlotFlatSmall/LivingArea_S_US_01.et" {
+ coords 7868.962 5.75 3450.535
+ angles 0 -7.609 0
+}
+$grp DecalEntity : "{9EE74738BD9E8CDB}Prefabs/Decals/Dirt/Decal_Dirt_Tracks_02.et" {
+ {
+  components {
+   Hierarchy "{56E0B29FD1BC7A6F}" {
+   }
+  }
+  coords 7793.022 0 3494.135
+  angles -90 0 -160.31
+  scale 5
+  FarPlane 1.5
+  Stretch 2
+ }
+ {
+  components {
+   Hierarchy "{56E0B29FD1BC7A6F}" {
+   }
+  }
+  coords 7784.449 -0.004 3502.66
+  angles -90 180 69.562
+  scale 5
+  FarPlane 1.5
+  Stretch 2
+ }
+ {
+  components {
+   Hierarchy "{56E0B29FD1BC7A6F}" {
+   }
+  }
+  coords 7786.488 0 3498.674
+  angles -90 -180 54.982
+  scale 5
+  FarPlane 1.5
+  Stretch 2
+ }
+}
+$grp GenericEntity : "{AB87B392A989CA95}Prefabs/Compositions/Slotted/SlotFlatSmall/GuardTower_S_US_01.et" {
+ {
+  coords 7849.774 5.75 3501.468
+  angles 0 -3.928 0
+ }
+ {
+  coords 7839.513 5.75 3479.361
+  angles 0 -92.932 0
+ }
+ {
+  coords 7857.13 5.916 3446.107
+  angles 0 172.438 0
+ }
+}
+$grp GenericEntity : "{AF770C825EA592CF}Prefabs/Compositions/Slotted/SlotRoadLarge/Barricade_L_US_01.et" {
+ {
+  coords 7826.728 5.75 3437.404
+  angles 0 -4.957 0
+ }
+ {
+  coords 7803.453 5.75 3441.116
+  angles 0 35.528 0
+ }
+ {
+  coords 7794.272 5.75 3455.974
+  angles 0 77.966 0
+ }
+}
+GenericEntity : "{CDD0712FD6215F04}Prefabs/Compositions/Slotted/SlotFlatMedium/FieldHospital_M_US_01.et" {
+ coords 7878.914 5.75 3496.213
+ angles 0 -97.295 0
+}
+GenericEntity : "{E74D2F51CD4F03D0}Prefabs/Compositions/Slotted/SlotRoadLarge/Checkpoint_L_US_01.et" {
+ coords 7759.088 5.75 3505.736
+ angles 0 -102.242 0
+ {
+  GenericEntity {
+   ID "5CC6B4A35174E1FD"
+   {
+    Turret Tripod_M3_M2HB_689972DD517086B1 {
+     ID "5CB0D9912FD9E690"
+    }
+   }
+  }
+ }
+}
+GenericEntity : "{FB18EFE9C1A81E29}Prefabs/Compositions/Slotted/SlotFlatMedium/VehicleMaintenance_M_US_01.et" {
+ coords 7811.045 5.75 3494.956
+ angles 0 -96.608 0
+}
+GenericEntity : "{FB26A800AC01D85A}Prefabs/Compositions/Slotted/SlotFlatSmall/Antenna_S_FIA_01.et" {
+ coords 7838.88 5.75 3499.261
+ angles 0 133.477 0
+}

@@ -1,0 +1,8 @@
+GameProject {
+ ID "WastelandReforgedChernarus"
+ GUID "68995BF17E5FD061"
+ TITLE "Wasteland Reforged - Chernarus"
+ Dependencies {
+  "64901CB1F99CB10A" "665D1AA55B5D8076" "58D0FB3206B6F859"
+ }
+}
