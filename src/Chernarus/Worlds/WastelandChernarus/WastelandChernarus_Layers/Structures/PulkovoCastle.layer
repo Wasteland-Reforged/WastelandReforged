@@ -1,0 +1,543 @@
+$grp SCR_IndestructibleEnvironmentalEntity : "{019E4E540652B141}Prefabs/Rocks/Granite/GraniteRock_02_Forest.et" {
+ {
+  coords 5402.129 297.731 5605.976
+  angles 0 65.494 0
+ }
+ {
+  coords 5411.084 295.183 5615.001
+  angles 0 116.95 0
+ }
+ {
+  coords 5416.342 295.182 5617.427
+  angles 0 99.098 0
+ }
+ {
+  coords 5412.471 295.182 5621.457
+  angles 0 1.267 0
+ }
+}
+SCR_DestructibleBuildingEntity : "{07B7B618E3DEFBBF}Prefabs/Structures/Cultural/Castles/Castle_01_InnerWall_02.et" {
+ coords 5461.481 0 5668.2
+ angles 0 -96.139 0
+}
+SCR_IndestructibleEnvironmentalEntity : "{0D98C34E6FA16D53}PrefabsEditable/Auto/Rocks/Granite/E_GraniteRock_01.et" {
+ coords 5438.73 297.203 5671.207
+}
+SCR_DestructibleBuildingEntity : "{165E069CD712902F}Prefabs/Structures/Houses/Village/House_Village_E_1I01/Dst/House_Village_E_1I01_ruined.et" {
+ coords 5438.792 -0.138 5714.099
+ angles 0 95.179 0
+}
+$grp SCR_DestructibleBuildingEntity : "{1D70DE614FFACFE0}Prefabs/Structures/Culture/Castle/Castle Tower 01.et" {
+ {
+  coords 5388.284 0 5609.224
+  angles 0 35.565 0
+ }
+ {
+  coords 5439.438 0.001 5726.858
+  angles 0 2.042 0
+ }
+ {
+  coords 5436.215 -19.669 5651.401
+  angles 0 -90.824 0
+ }
+ {
+  coords 5438.377 -15.424 5662.047
+  angles 0 -90.824 0
+ }
+}
+StaticModelEntity : "{2425DE3CEFA44F5A}Prefabs/Structures/Cultural/Statues/StatueCharacter_02/StatueCharacter_02.et" {
+ coords 5393.343 2.156 5685.155
+ angles 0 144.105 0
+ scale 2.5
+}
+SCR_DestructibleBuildingEntity : "{2C97FDC04C9E39C0}Prefabs/Structures/Cultural/Castles/Castle_01_InnerWall_Small_01.et" {
+ coords 5368.77 -0.022 5617.49
+ angles 0 -131.171 0
+}
+$grp SCR_DestructibleBuildingEntity : "{31CAD6AEE7E7E4CF}Prefabs/Structures/Cultural/Castles/Castle_01_Stairs_01.et" {
+ {
+  coords 5432.295 4.703 5668.92
+  angles 0 -179.886 0
+ }
+ {
+  coords 5418.849 -2.167 5666.02
+  angles 0 -90 0
+ }
+ {
+  coords 5438.47 2.11 5658.285
+  angles 0 87.198 0
+ }
+ {
+  coords 5431.837 4.641 5655.456
+ }
+ {
+  coords 5441.276 2.112 5655.344
+  angles 0 270 0
+ }
+ {
+  coords 5441.743 -2.55 5648.179
+  angles 0 180 0
+ }
+}
+$grp SCR_DestructibleBuildingEntity : "{43A29CB361BBBA26}Prefabs/Structures/Culture/Castle/CastleGatehouse.et" {
+ {
+  coords 5417.02 0 5596.426
+  angles 0 10.44 0
+ }
+ {
+  coords 5364.275 -0 5632.638
+  angles 0 57.351 0
+ }
+ {
+  coords 5450.687 -0.101 5642.748
+ }
+ {
+  coords 5450.502 0 5652.879
+ }
+ {
+  coords 5450.526 0 5663.659
+ }
+}
+$grp SCR_DestructibleBuildingEntity : "{4619CA33D4F7394B}Prefabs/Structures/Culture/Castle/Castle wall 03.et" {
+ {
+  coords 5421.978 0 5735.307
+  angles 0 4.219 0
+ }
+ {
+  coords 5399.346 0 5623.439
+  angles 0 -59.136 0
+ }
+}
+StaticModelEntity : "{4770A7459C71805E}Prefabs/Structures/Ruins/Church_Ruin_01/Dst/Church_Ruin_01_Ruin.et" {
+ coords 5423.652 299.437 5715.267
+ angles 0 -176.736 0
+}
+$grp SCR_DestructibleBuildingEntity : "{47DA19EDF2754DE0}Prefabs/Structures/Cultural/Castles/Castle_01_Pillar.et" {
+ {
+  coords 5383.013 294.907 5605.118
+  angles 0 36.872 0
+  scale 2
+ }
+ {
+  coords 5347.666 291.29 5679.038
+  angles 0 85.937 0
+  scale 2
+ }
+ {
+  coords 5443.632 295.887 5603.484
+  angles 0 -34.605 0
+  scale 1.5
+ }
+ {
+  coords 5457.764 295.827 5620.301
+  angles 0 -72.213 0
+  scale 1.5
+ }
+ {
+  coords 5457.251 296.577 5694.461
+  angles 0 -105.871 0
+  scale 1.5
+ }
+}
+SCR_DestructibleBuildingEntity : "{4EEE140BBF69CAB3}Prefabs/Structures/Culture/Castle/Castle Wooden Stairs.et" {
+ coords 5360.565 0.329 5670.082
+ angles 0 -95.864 0
+}
+$grp SCR_IndestructibleEnvironmentalEntity : "{61CCF7AED365E27D}PrefabsEditable/Auto/Rocks/Granite/E_GraniteRock_02.et" {
+ {
+  coords 5408.205 297.553 5638
+ }
+ {
+  coords 5414.643 294.468 5660.302
+ }
+ {
+  coords 5356.547 293.231 5663.021
+  angles 0 52.633 0
+  scale 2
+ }
+ {
+  coords 5367.925 291.276 5665.004
+  angles 0 -39.241 0
+  scale 2
+ }
+}
+GenericEntity : "{654B33C808C4D93E}Prefabs/Props/Wrecks/M151A2_wreck/M151A2_wreck_static.et" {
+ coords 5431.129 299.438 5673.764
+}
+$grp SCR_DestructibleBuildingEntity : "{6BE382F85F1A7491}Prefabs/Structures/Cultural/Castles/Castle_01_InnerWall_01.et" {
+ {
+  coords 5367.6 0 5617.589
+  angles 0 41.138 0
+ }
+ {
+  coords 5439.559 -5.189 5697.839
+ }
+}
+$grp SCR_DestructibleBuildingEntity : "{6E10F2B9F8C8BB2C}Prefabs/Structures/Cultural/Castles/Castle_01_OuterWall_01_Round.et" {
+ {
+  coords 5388.82 0 5600.193
+  angles 0 37.101 0
+ }
+ {
+  coords 5456.024 0 5616.546
+  angles 0 -62.438 0
+ }
+ {
+  coords 5441.147 0 5601.786
+  angles 0 -29.11 0
+ }
+ {
+  coords 5428.562 0 5597.272
+  angles 0 -10.872 0
+ }
+}
+SCR_DestructibleBuildingEntity : "{70231867B54741BB}Prefabs/Structures/Cultural/Castles/Castle_01_Bridge_Pillar.et" {
+ coords 5421.527 3.259 5647.961
+ angles 0 -89 0
+}
+SCR_DestructibleBuildingEntity : "{7124EA81F33E40CE}Prefabs/Structures/Culture/Castle/Castle Tower 02.et" {
+ coords 5352.569 1.489 5676.984
+ angles 0 177.292 0
+}
+GenericEntity : "{74DCE1AEC6832E18}Prefabs/Props/Wrecks/UH1H_wreck/UH1H_wreck_static.et" {
+ coords 5382.562 299.955 5688.509
+ angles -15.59 -33.915 0
+}
+SCR_DestructibleBuildingEntity : "{788F0C1721D815B9}Prefabs/Structures/Cultural/Castles/Castle_01_Bridge_wide.et" {
+ coords 5409.873 1.367 5660.883
+ angles -14.195 0 0
+ scale 0.75
+}
+$grp Tree : "{7D5C8883A0DF9D96}PrefabLibrary/DefaultLibrary/Vegetation/Trees/t_picea_abies_1f.et" {
+ {
+  coords 5399.566 -0 5645.619
+  angles 0.644 -151.957 0.437
+  scale 1.28
+ }
+ {
+  coords 5400.956 0.062 5636.564
+  angles 0.644 -151.957 0.437
+  scale 1.28
+ }
+ {
+  coords 5401.047 0.046 5632.267
+  angles 0.644 -151.957 0.437
+  scale 1.28
+ }
+ {
+  coords 5377.22 0.015 5670.59
+  angles 0.644 -151.957 0.437
+  scale 1.28
+ }
+ {
+  coords 5380.378 0.02 5674.303
+  angles 0.644 -151.957 0.437
+  scale 1.28
+ }
+ {
+  coords 5354.983 0 5687.939
+  angles 0.644 -151.957 0.437
+  scale 1.28
+ }
+ {
+  coords 5420.556 -0 5641.576
+  angles 0.644 -151.957 0.437
+  scale 1.28
+ }
+ {
+  coords 5413.664 0.09 5633.669
+  angles 0.644 -151.957 0.437
+  scale 1.28
+ }
+}
+$grp SCR_IndestructibleEnvironmentalEntity : "{8450BB57DF807516}PrefabsEditable/Auto/Rocks/Granite/E_GraniteRock_03.et" {
+ {
+  coords 5415.559 296.693 5646.963
+  angles 0 -92.374 0
+ }
+ {
+  coords 5425.573 295.559 5651.084
+  angles 0 -51.299 0
+ }
+ {
+  coords 5433.049 295.616 5644.804
+  angles 0 3.424 0
+ }
+}
+SCR_DestructibleBuildingEntity : "{86952D860A66DBA6}Prefabs/Structures/Culture/Castle/Castle Wall Bastion.et" {
+ coords 5370.216 0.029 5744.136
+ angles 0 -23.257 0
+}
+StaticModelEntity : "{86D8E0BF27D93000}Prefabs/Structures/Debris/DebrisPile/castle_brick_pile.et" {
+ coords 5362.111 299.125 5676.74
+ scale 2
+}
+SCR_DestructibleBuildingEntity : "{90582DA173C00605}Prefabs/Structures/Cultural/Cemeteries/Tombstones/GraveStone_E_01_A.et" {
+ coords 5394.07 -0.421 5714.657
+ angles 0 149.071 0
+ scale 3
+}
+$grp SCR_DestructibleBuildingEntity : "{937F86E27BAA1B67}Prefabs/Structures/Culture/Castle/Castle Wall Turn 20.et" {
+ {
+  coords 5358.201 -1.47 5724.376
+  angles 0 -54.085 0
+ }
+ {
+  coords 5351.037 -0.401 5706.844
+  angles 0 -66.641 0
+ }
+ {
+  coords 5348.064 -0.091 5692.926
+  angles 0 -74.543 0
+ }
+ {
+  coords 5356.634 -1.034 5660.736
+  angles 0 -93.713 0
+ }
+ {
+  coords 5359.178 -1.411 5650.756
+  angles 0 -102.863 0
+ }
+ {
+  coords 5366.486 -0.975 5669.933
+  angles 0 169.038 0
+ }
+}
+$grp Tree : "{9C0C6602505DC9B9}PrefabLibrary/CainLibrary/Vegetation/Bushes/b_sambucus_nigra_2_aut.et" {
+ {
+  coords 5379.179 -0.011 5668.192
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5380.973 -0 5678.232
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5363.803 0 5650.455
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5367.639 -0 5656.27
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5401.711 -0 5643.576
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5400.669 -0 5627.385
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5419.237 -0 5639.176
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5429.709 0 5641.394
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5450.295 0 5615.516
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5452.246 -0 5619.079
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5450.877 0 5702.597
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5432.848 -0 5677.234
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5411.425 0 5708.729
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5411.483 -0.043 5704.159
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+ {
+  coords 5413.958 0.319 5706.121
+  angles 1.357 -152.55 0.202
+  scale 0.989
+ }
+}
+SCR_DestructibleBuildingEntity : "{9C5E92698F5C9D94}Prefabs/Structures/Culture/Churches/Dst Church 01.et" {
+ coords 5378.295 0 5727.349
+ angles 0 -117.009 0
+}
+SCR_DestructibleBuildingEntity : "{ADDA5472F867C249}Prefabs/Structures/Cultural/Castles/Castle_01_Bridge.et" {
+ coords 5420.768 3.463 5648.039
+ angles 0 -89.007 0
+}
+$grp SCR_DestructibleBuildingEntity : "{B2B1177A8C5F4C41}Prefabs/Structures/Culture/Castle/Castle wall 03 End.et" {
+ {
+  coords 5399.56 0 5737.278
+  angles 0 6.821 0
+ }
+ {
+  coords 5413.27 -2.735 5641.053
+  angles 0 120.848 0
+ }
+ {
+  coords 5382.643 -5.369 5684.049
+  angles 0 121.918 0
+ }
+}
+$grp Tree : "{B497AD7A270F78C8}PrefabLibrary/CainLibrary/Vegetation/Trees/t_betula_pendula_2sw_aut.et" {
+ {
+  coords 5357.697 -0 5707.47
+  angles 2.679 137.311 -3.538
+  scale 1.162
+ }
+ {
+  coords 5374.607 0 5712.146
+  angles 2.679 137.311 -3.538
+  scale 1.162
+ }
+ {
+  coords 5407.536 -0 5731.548
+  angles 2.679 137.311 -3.538
+  scale 1.162
+ }
+ {
+  coords 5413.574 -0.27 5721.546
+  angles -0.622 92.176 -4.393
+  scale 1.162
+ }
+ {
+  coords 5447.299 0 5708.65
+  angles 2.679 137.311 -3.538
+  scale 1.162
+ }
+ {
+  coords 5422.27 0.014 5671.05
+  angles -1.107 85.8 -4.297
+  scale 1.162
+ }
+ {
+  coords 5372.092 0.014 5619.911
+  angles -0.622 92.176 -4.393
+  scale 1.162
+ }
+ {
+  coords 5425.14 0.007 5641.611
+  angles -4.24 -6.923 1.307
+  scale 1.162
+ }
+}
+$grp GenericEntity : "{B90E5414AB7C325B}Prefabs/Props/Wrecks/BTR70_Wreck/BTR70_wreck_static.et" {
+ {
+  coords 5394.879 299.163 5624.093
+  angles 0 50.427 0
+ }
+ {
+  coords 5398.374 298.881 5730.381
+  angles 0 -123.798 0
+ }
+}
+$grp Tree : "{C44F51A81AC2B063}PrefabLibrary/DefaultLibrary/Vegetation/Trees/t_carpinus_betulus_3s.et" {
+ {
+  coords 5365.044 -0.003 5714.43
+  angles 0.859 -149.298 2.075
+  scale 0.773
+ }
+ {
+  coords 5439.307 0 5699.812
+  angles 0.859 -149.298 2.075
+  scale 0.773
+ }
+ {
+  coords 5426.263 0.045 5675.17
+  angles 0.859 -149.298 2.075
+  scale 0.773
+ }
+ {
+  coords 5443.691 -0.071 5614.764
+  angles 0.859 -149.298 2.075
+  scale 0.773
+ }
+}
+$grp SCR_DestructibleBuildingEntity : "{C4592FC281766885}Prefabs/Structures/Culture/Castle/Castle wall 20.et" {
+ {
+  coords 5457.481 -4.184 5691.287
+  angles 0 76.938 0
+ }
+ {
+  coords 5451.167 -3.977 5710.738
+  angles 0 66.142 0
+ }
+}
+$grp SCR_DestructibleBuildingEntity : "{D1C13682E4590A12}Prefabs/Structures/Cultural/Cemeteries/Graves/Grave_E_01_Covered_V1.et" {
+ {
+  coords 5393.546 0 5718.248
+  angles 0 -27.439 0
+ }
+ {
+  coords 5391.772 0 5721.637
+  angles 0 -27.439 0
+ }
+ {
+  coords 5396.908 0 5717.925
+  angles 0 -27.439 0
+ }
+ {
+  coords 5395.073 0 5721.378
+  angles 0 -27.439 0
+ }
+ {
+  coords 5393.085 0 5725.206
+  angles 0 -27.439 0
+ }
+}
+$grp SCR_IndestructibleEnvironmentalEntity : "{D8C0EA3A228F697C}PrefabsEditable/Auto/Rocks/Granite/E_GraniteCliff_03.et" {
+ {
+  coords 5407.692 281.099 5651.141
+  angles 0 -83.411 0
+ }
+ {
+  coords 5387.556 279.763 5683.052
+  angles 0 175.541 0
+ }
+}
+SCR_IndestructibleEnvironmentalEntity : "{D9D20C6C33517ED5}Prefabs/Rocks/Granite/GraniteRock_03_Forest.et" {
+ coords 5412.066 295.621 5608.939
+ angles 0 -54.853 0
+}
+SCR_DestructibleBuildingEntity : "{DECF116069DCCC2B}Prefabs/Structures/Cultural/Castles/Castle_01_Tower.et" {
+ coords 5421.323 -2.183 5655.285
+ angles 0 -90.761 0
+}
+SCR_DestructibleBuildingEntity : "{F384732A9336CBAF}Prefabs/Structures/Cultural/Cemeteries/Graves/GraveFence_E_02.et" {
+ coords 5392.772 -1.419 5722.271
+ angles 0 152.273 0
+ scale 4
+}
+GenericEntity : "{F88469B927C43440}Prefabs/Compositions/Misc/SubCompositions/Sandbag_round_Cluttered_US_01.et" {
+ coords 5406.95 302.793 5645.704
+ angles 0 -127.228 0
+ scale 2
+}
+SCR_IndestructibleEnvironmentalEntity : "{FF676E917668C455}Prefabs/Rocks/Granite/Granite_ForestStone_01.et" {
+ coords 5405.955 -5.046 5615.797
+ angles 0 143.798 0
+ scale 4
+}

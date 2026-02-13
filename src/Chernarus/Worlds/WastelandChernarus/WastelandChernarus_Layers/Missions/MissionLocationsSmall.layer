@@ -83,4 +83,7 @@ $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_M
  {
   coords 2231.604 168.958 5141.423
  }
+ {
+  coords 5411.184 299.438 5690.389
+ }
 }
