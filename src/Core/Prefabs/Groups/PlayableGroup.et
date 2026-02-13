@@ -1,4 +1,9 @@
 SCR_AIGroup {
  ID "56FC873F6D4EEACC"
+ components {
+  AIFormationComponent "{58947973EF813917}" {
+   DefaultFormation "Wedge"
+  }
+ }
  m_iMaxMembers 10
 }

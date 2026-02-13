@@ -251,8 +251,22 @@ WR_GameModeWasteland GameMode_Wasteland : "{C4DC8B21CB0B916C}Prefabs/MP/Modes/Wa
  }
  coords 1377.751 38.609 2929.999
  {
-  SCR_CampaignFactionManager CampaignFactionManager {
-   ID "62F778E615DD0124"
+  SCR_CampaignFactionManager "689B2339218C1596" {
+   ID "689964AEEB6401F7"
+   Factions {
+    SCR_CampaignFaction "{689964ACB223DEB3}" {
+     m_DefaultCharacterPrefab "{B39F86B378284BFC}Prefabs/Characters/Factions/BLUFOR/US_Army/WR_Character_US_Base.et"
+    }
+    SCR_CampaignFaction "{689964ACB37D0B6B}" {
+     m_DefaultCharacterPrefab "{8449DECFA1B5831F}Prefabs/Characters/Factions/OPFOR/USSR_Army/WR_Character_USSR_Base.et"
+    }
+    SCR_CampaignFaction "{689964ACB02686E1}" {
+     m_DefaultCharacterPrefab "{CEE7531F4FBAEB38}Prefabs/Characters/Factions/CIV/Dockworker/WR_Character_CIV_Base.et"
+    }
+    SCR_Faction "{689964AC8CFC98CA}" {
+     m_bIsMilitary 1
+    }
+   }
   }
   PerceptionManager PerceptionManager {
    ID "62F778E615DD0289"

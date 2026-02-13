@@ -9,25 +9,25 @@ GenericEntity {
   StaticModelEntity : "{1A962402D4B8CA23}Prefabs/MP/Campaign/RequestTable_US_brightlantern.et" {
    ID "6473623234392FB4"
    coords -6.938 -4.373 2.038
-   angleY 0
+   angles 0 0 0
   }
   $grp GenericEntity : "{231C30242B73D8A1}Prefabs/Structures/Signs/Warnings/SignOneWay_01.et" {
    {
     ID "647C29F218E25AB8"
     coords -5.402 -2.786 1.646
-    angleZ 270
+    angles 0 0 270
     scale 1.5
    }
    {
     ID "647C29FD28E0EAD4"
     coords -8.471 -2.786 1.64
-    angleZ 90
+    angles 0 0 90
     scale 1.6
    }
    {
     ID "647C29FD3D6B047D"
     coords -6.92 -1.619 1.646
-    angleZ 180
+    angles 0 0 180
     scale 1.5
    }
   }
@@ -38,18 +38,18 @@ GenericEntity {
   GenericEntity : "{4563E2B19BF965A4}PrefabsEditable/Auto/Compositions/Misc/SubCompositions/E_CableReelWooden_Cluttered_01.et" {
    ID "62F768EB62D41F49"
    coords -7.906 -4.373 14.819
-   angleY 155.672
+   angles 0 155.672 0
   }
   $grp GenericEntity : "{4A8829F6DD2162F7}Prefabs/Structures/Signs/Warnings/SignAheadOnly_01.et" {
    {
     ID "647C29F21BAD0ECC"
     coords -5.699 -1.774 1.64
-    angleZ 215
+    angles 0 0 215
    }
    {
     ID "647C29FD13B0D394"
     coords -8.154 -1.76 1.64
-    angleZ 135
+    angles 0 0 135
    }
   }
   GenericEntity SpawnBoard : "{4BF528DF7A469909}Prefabs/Props/Construction/PalletJack_01.et" {
@@ -105,32 +105,27 @@ GenericEntity {
   SCR_IndestructibleEnvironmentalEntity : "{533CDABD77C4C43E}Prefabs/Rocks/Granite/GraniteCliff_02.et" {
    ID "62F768EB62D41F5D"
    coords -20.668 -3.633 33.224
-   angleX 6.946
-   angleY -170.264
-   angleZ -90
+   angles 6.946 -170.264 -90
    scale 2
   }
   $grp WR_SpawnPoint : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
    {
     ID "64940A71D2D68111"
     coords -12.447 -4.373 12.825
-    angleY -180
-    m_fSpawnRadius 3
+    angles 0 -180 0
     m_sFaction "US"
     m_bIsSpawnLobbySpawnPoint 1
    }
    {
     ID "64940A71D2D68137"
-    angleY -180
-    m_fSpawnRadius 3
+    angles 0 -180 0
     m_sFaction "USSR"
     m_bIsSpawnLobbySpawnPoint 1
    }
    {
     ID "64940A71D2D6813B"
     coords -12.647 -4.373 12.825
-    angleY -180
-    m_fSpawnRadius 3
+    angles 0 -180 0
     m_sFaction "FIA"
     m_bIsSpawnLobbySpawnPoint 1
    }
@@ -148,7 +143,7 @@ GenericEntity {
   GenericEntity : "{792A2C359A0728C8}Prefabs/Compositions/Misc/SubCompositions/CrateWooden_Stacked_01.et" {
    ID "62F768EB62D41F3D"
    coords -19.024 -4.402 14.391
-   angleY 0
+   angles 0 0 0
   }
   GenericEntity : "{795552B887CD50E7}Prefabs/Props/Industrial/ConcretePanel_01_stack.et" {
    ID "62F768EB62D41F37"
@@ -191,36 +186,9 @@ GenericEntity {
    scale 1.3
   }
   GenericEntity : "{88537E49E399163E}Prefabs/Structures/BuildingParts/Doors/DoorSet_AircraftShelter_E_01_A_EXT_B_camo.et" {
-   ID "62F768EB62D41F17"
-   coords -11.824 -4.417 -1.251
-   scale 2
-   {
-    GenericEntity {
-     ID "5A6AE42C53FEF075"
-     components {
-      SCR_AISmartActionComponent "{5890ED6117CBB20D}" {
-       Enabled 0
-      }
-      ActionsManagerComponent "{F32B667C3C823800}" {
-       Enabled 0
-      }
-     }
-    }
-    GenericEntity {
-     ID "5A6AE42C53FEF138"
-     components {
-      DoorComponent "{221C667A9F7D4B69}" {
-       Enabled 0
-      }
-      SCR_AISmartActionComponent "{5890ED6117CBB20D}" {
-       Enabled 0
-      }
-      ActionsManagerComponent "{F32B667C3C823800}" {
-       Enabled 0
-      }
-     }
-    }
-   }
+   ID "689B735583CC07D2"
+   coords -11.839 -4.451 0.875
+   angles 0 0 0
   }
   $grp GameEntity : "{B140D3EDDDF06919}PrefabsEditable/Auto/Props/Military/Camps/E_LanternMilitary_US_01_bright.et" {
    {
@@ -247,7 +215,7 @@ GenericEntity {
   GenericEntity : "{B4FFD63EDFCBD850}Prefabs/Compositions/Misc/SubCompositions/CrateStacked_02.et" {
    ID "62F768EB62D410E2"
    coords -18.681 -4.373 16.115
-   angleY 111.844
+   angles 0 111.844 0
   }
   SCR_DestructibleBuildingEntity : "{CA7778B914D3A9FC}Prefabs/Structures/Military/Bunkers/AircraftShelter_E_01/AircraftShelter_E_01_base.et" {
    ID "62F768EB62D410F2"
@@ -260,7 +228,7 @@ GenericEntity {
   GameEntity : "{E3F157551B0501FE}Prefabs/Props/Military/Generators/GeneratorMilitary_USSR_01/GeneratorMilitary_USSR_01_open.et" {
    ID "62F768EB62D410C2"
    coords -6.799 -4.373 8.218
-   angleY -53.845
+   angles 0 -53.845 0
   }
   GenericEntity : "{FDA8F11B3BD0C445}PrefabsEditable/Auto/Props/Construction/CableReel/E_CableReelWooden_01.et" {
    ID "62F768EB62D5EC5E"

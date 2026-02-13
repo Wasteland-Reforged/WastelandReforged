@@ -28,6 +28,15 @@ GenericEntity SpawnLobby : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunk
     }
    }
   }
+  GenericEntity {
+   ID "62F768EB62D41F17"
+   components {
+    MeshObject "{61B367470698533A}" {
+     Enabled 0
+    }
+   }
+   coords -12.225 -4.417 -1.252
+  }
   WR_SpawnPoint WR_SpawnPoint_Lobby_US {
    ID "64940A71D2D68111"
   }
