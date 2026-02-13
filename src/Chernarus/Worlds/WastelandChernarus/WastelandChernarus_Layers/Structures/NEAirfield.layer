@@ -1,4 +1,9 @@
 GenericEntity : "{18B92018CF634D22}Prefabs/Compositions/Slotted/SlotFlatSmall/SandbagPosition_S_US_03.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 11822.692 152.593 12663.889
  angles 0 38.297 0
 }
@@ -15,43 +20,118 @@ $grp GenericEntity : "{1DB9C9CAEA70E7E5}PrefabsEditable/Auto/Props/Military/Fort
 }
 $grp GenericEntity : "{5519B339E041781E}Prefabs/Compositions/Misc/SubCompositions/Fortifications/Sandbag_Wall_BarbedWire_US_01.et" {
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11849.024 152.594 12613.644
   angles 0 110.727 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11845.781 152.594 12608.151
   angles 0 110.727 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11842.193 152.594 12602.554
   angles 0 110.727 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11852.421 152.594 12619.113
   angles 0 110.727 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11805.697 153.228 12592.105
   angles 0 -159.867 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11800.192 153.228 12595.445
   angles 0 -159.867 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11794.667 153.228 12598.631
   angles 0 -159.867 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11789.032 153.228 12602.161
   angles 0 -159.867 0
  }
 }
 GenericEntity : "{69131FD53AF6C044}Prefabs/Compositions/Slotted/SlotFlatSmall/SupplyStorage_S_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 11823.284 152.594 12657.024
  angles 0 -142.714 0
+ {
+  GenericEntity {
+   ID "58C28EA16E7B7C58"
+   components {
+    SCR_ArsenalComponent "{589F01C9C8D4A475}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
+     Enabled 0
+    }
+    SCR_ResupplySupportStationComponent "{5E2CE1BA1701C633}" {
+     Enabled 0
+    }
+    UniversalInventoryStorageComponent "{58A17A341AB8F069}" {
+     Enabled 0
+    }
+    SCR_ArsenalInventoryStorageManagerComponent "{58A0B19B1E191CC1}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5476B36C403D4CC0}" {
+     Enabled 0
+    }
+   }
+  }
+ }
 }
 GenericEntity : "{76D4FE49EA6C57F3}Prefabs/Compositions/Slotted/SlotFlatLarge/LivingArea_L_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 11786.093 152.717 12635.771
  angles 0 24.726 0
  {
@@ -59,14 +139,136 @@ GenericEntity : "{76D4FE49EA6C57F3}Prefabs/Compositions/Slotted/SlotFlatLarge/Li
    ID "5D0CC9D2A9422BD7"
    coords 9.833 0.166 -15.82
   }
+  GenericEntity {
+   ID "5D0A8E5C8B1528B5"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D22B92DE81D7971"
+   components {
+    ActionsManagerComponent "{5CB6953CEF1EFF85}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B152A87"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B152B99"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393E27E7F1AF"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B152403"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393DE220C780"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B14AE22"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D1ED93CFFD779A0"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B14AB2C"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D0A8E5C8B1526FE"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
  }
 }
 GenericEntity : "{8B4B8BF44162B24E}Prefabs/Compositions/Slotted/SlotFlatSmall/Antenna_S_US_01.et" {
+ components {
+  SCR_CampaignBuildingCompositionComponent "{5E96A067C097D570}" {
+   Enabled 0
+  }
+  SCR_SlotCompositionComponent "{52CAE30B655050CF}" {
+   Enabled 0
+  }
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 11809.905 152.594 12631.174
  angles 0 -5.658 0
+ {
+  GenericEntity {
+   ID "5DCAAA1816D09E42"
+   components {
+    SCR_SpawnPositionComponent "{5DCAAA19520B7416}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5DCAAA1816D09E6E"
+   components {
+    SCR_SpawnPositionComponent "{5DCAAA19520B7416}" {
+     Enabled 0
+    }
+   }
+  }
+ }
 }
 $grp GenericEntity : "{9D720679B696FEE1}Prefabs/Compositions/Slotted/SlotFlatSmall/MachineGunNest_S_US_01_M2HB.et" {
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11829.49 152.594 12650.094
   angles 0 58.695 0
   {
@@ -81,6 +283,11 @@ $grp GenericEntity : "{9D720679B696FEE1}Prefabs/Compositions/Slotted/SlotFlatSma
   }
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11802.711 152.594 12673.953
   angles 0 24.811 0
   {
@@ -96,13 +303,180 @@ $grp GenericEntity : "{9D720679B696FEE1}Prefabs/Compositions/Slotted/SlotFlatSma
  }
 }
 GenericEntity : "{A13F6A7F82DF031B}Prefabs/Compositions/Slotted/SlotFlatLarge/Helipad_L_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 11825.624 152.594 12601.63
  angles 0 29.828 0
+ {
+  GameEntity {
+   ID "627C8E6F66E43BCE"
+   components {
+    SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5D7D07D2F7A252D2}" {
+     Enabled 0
+    }
+    SCR_ServicePointComponent "{5C7489C20C7B5D4B}" {
+     Enabled 0
+    }
+    SCR_VehicleWeaponSupportStationComponent "{61B2A377EAFB909E}" {
+     Enabled 0
+    }
+    UniversalInventoryStorageComponent "{56F2C6D15FE6C4CE}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{56F2C6D1431ADB12}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E64C0FB916EAC93"
+   components {
+    InventoryItemComponent "{5E9697F253F88D41}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E3298BE225F0743}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5E3298BE3694CAAB}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E6A9384DDD03956"
+   components {
+    SCR_FuelSupportStationComponent "{5EA8A5EFA3C1923E}" {
+     Enabled 0
+    }
+    SCR_ServicePointComponent "{5EA8796FCE83A84A}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E64C0FB916EAF90"
+   components {
+    SCR_ResourceComponent "{5D7CC617B33EF1CF}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5CB6952C9693C41C}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E64C0FB916EA309"
+   components {
+    SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E6906884A85A3A3"
+   components {
+    SCR_ArsenalComponent "{589F01C9C8D4A475}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5476B36C403D4CC0}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E69068BD3F68B0C"
+   components {
+    SCR_RepairSupportStationComponent "{5E1CF31185E317FE}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5DACF52CF6D4A1C9}" {
+     Enabled 0
+    }
+    SCR_ServicePointComponent "{5C8CAE44023804D5}" {
+     Enabled 0
+    }
+    SCR_SupportStationAreaMeshComponent "{5B2AD5B869A9C26D}" {
+     Enabled 0
+    }
+    SCR_VehicleSalvageSupportStationComponent "{62D0E797B24AFC2B}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E64C0FB916EAC83"
+   components {
+    InventoryItemComponent "{5E9697F253F88D41}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E3298BE225F0743}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5E3298BE3694CAAB}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E64C0FB916EACD2"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  StaticModelEntity {
+   ID "5D1EB45B64492FFA"
+   components {
+    SCR_CampaignBuildingObstructionExceptionComponent "{5F18D0C53C86C027}" {
+     Enabled 0
+    }
+    SCR_HorizontalAlignComponent "{5E308349BAD51B11}" {
+     Enabled 0
+    }
+    SCR_SlotCompositionComponent "{5E308349B5DDD079}" {
+     Enabled 0
+    }
+   }
+   {
+    GenericEntity {
+     ID "5E92E720B6346009"
+     components {
+      SCR_EntitySpawnerSlotComponent "{5D2262B11A789A08}" {
+       Enabled 0
+      }
+     }
+    }
+   }
+  }
+ }
 }
 StaticModelEntity : "{AA3DE61527216BDF}PrefabsEditable/Auto/Structures/Industrial/Towers/E_LightTower_01.et" {
+ components {
+  ActionsManagerComponent "{591A8592E6D58CC1}" {
+   Enabled 0
+  }
+ }
  coords 11804.076 152.594 12636.519
 }
 GenericEntity : "{C0D09A53EEA441D6}Prefabs/Compositions/Slotted/SlotFlatSmall/MachineGunNest_S_US_02.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 11817.08 152.647 12586.089
  angles 0 160.891 0
  {
@@ -114,27 +488,503 @@ GenericEntity : "{C0D09A53EEA441D6}Prefabs/Compositions/Slotted/SlotFlatSmall/Ma
     }
    }
   }
+  GenericEntity {
+   ID "5CCCBEC480BAEFAB"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
  }
 }
 GenericEntity : "{CDD0712FD6215F04}Prefabs/Compositions/Slotted/SlotFlatMedium/FieldHospital_M_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 11784.791 152.594 12671.66
  angles 0 117.541 0
+ {
+  GenericEntity {
+   ID "5D088D1F968989A8"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+   {
+    GenericEntity {
+     ID "620EDD9C7774D884"
+     components {
+      SCR_ArsenalComponent "{589F01C9C8D4A475}" {
+       Enabled 0
+      }
+      SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
+       Enabled 0
+      }
+      SCR_ResupplySupportStationComponent "{5E2CE1BA1701C633}" {
+       Enabled 0
+      }
+      UniversalInventoryStorageComponent "{58A17A341AB8F069}" {
+       Enabled 0
+      }
+      SCR_ArsenalInventoryStorageManagerComponent "{58A0B19B1E191CC1}" {
+       Enabled 0
+      }
+      ActionsManagerComponent "{5476B36C403D4CC0}" {
+       Enabled 0
+      }
+     }
+    }
+    StaticModelEntity {
+     ID "5CC501D152FDEC34"
+     components {
+      SCR_HealSupportStationComponent "{5EE8A81A8E23D62A}" {
+       Enabled 0
+      }
+      SCR_ResourceComponent "{5EE8A81ADEC69E93}" {
+       Enabled 0
+      }
+      SCR_ServicePointComponent "{5EE8A81AB16FEB73}" {
+       Enabled 0
+      }
+     }
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E38F8672CC7853F"
+   {
+    GenericEntity {
+     ID "5E3303B3034FAE0F"
+     components {
+      ActionsManagerComponent "{5E3298BE3694CAAB}" {
+       Enabled 0
+      }
+     }
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D088D1F96898E31"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+   {
+    StaticModelEntity {
+     ID "620EDD9CB3507AB0"
+     {
+      GenericEntity {
+       ID "620EDD9D6788C0CB"
+       components {
+        ActionsManagerComponent "{5476B36C403D4CC0}" {
+         Enabled 0
+        }
+       }
+      }
+     }
+    }
+    StaticModelEntity {
+     ID "5CC501D811E7D19D"
+     components {
+      SCR_HealSupportStationComponent "{5EE8A81A8E23D62A}" {
+       Enabled 0
+      }
+      SCR_ResourceComponent "{5EE8A81ADEC69E93}" {
+       Enabled 0
+      }
+      SCR_ServicePointComponent "{5EE8A81AB16FEB73}" {
+       Enabled 0
+      }
+     }
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E58A7FA2A6DFDA3"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+ }
 }
 $grp GenericEntity : "{E5043AB2B2C5DFE1}PrefabsEditable/Auto/Compositions/Slotted/SlotFlatSmall/E_GuardTower_S_US_01.et" {
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11815.97 152.594 12666.32
   angles 0 40.172 0
+  {
+   GenericEntity {
+    ID "65E0A0CE725943EB"
+    components {
+     ActionsManagerComponent "{5D66ED1096104FD8}" {
+      Enabled 0
+     }
+    }
+   }
+  }
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 11775.866 152.748 12659.024
   angles 0 -64.45 0
+  {
+   GenericEntity {
+    ID "65E0A0CE725943EB"
+    components {
+     ActionsManagerComponent "{5D66ED1096104FD8}" {
+      Enabled 0
+     }
+    }
+   }
+  }
  }
 }
 GenericEntity : "{ECB8E313DFBD3415}Prefabs/Compositions/Slotted/SlotFlatSmall/VehicleMaintenance_S_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 11822.504 152.594 12637.889
  angles 0 109.859 0
+ {
+  GenericEntity {
+   ID "5D088D17AECAF9C6"
+   {
+    GenericEntity {
+     ID "5E3303B37C4BDC5D"
+     components {
+      InventoryItemComponent "{5E9697F253F88D41}" {
+       Enabled 0
+      }
+      SCR_ResourceComponent "{5E3298BE225F0743}" {
+       Enabled 0
+      }
+      ActionsManagerComponent "{5E3298BE3694CAAB}" {
+       Enabled 0
+      }
+     }
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D2262B1003C1024"
+   components {
+    SCR_EntitySpawnerSlotComponent "{5D2262B11A789A08}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D2262B1003C1FCC"
+   components {
+    SCR_EntitySpawnerSlotComponent "{5D2262B11A789A08}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E690689EC0B4D5B"
+   components {
+    SCR_ArsenalComponent "{589F01C9C8D4A475}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
+     Enabled 0
+    }
+    UniversalInventoryStorageComponent "{58A17A341AB8F069}" {
+     Enabled 0
+    }
+    SCR_ArsenalInventoryStorageManagerComponent "{58A0B19B1E191CC1}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5476B36C403D4CC0}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E6906881D34C0F4"
+   components {
+    SCR_ArsenalComponent "{62E49621E34C5C95}" {
+     Enabled 0
+    }
+    SCR_RepairSupportStationComponent "{5E1CF31185E317FE}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5DACF52CF6D4A1C9}" {
+     Enabled 0
+    }
+    SCR_ServicePointComponent "{5C8CAE44023804D5}" {
+     Enabled 0
+    }
+    SCR_SupportStationAreaMeshComponent "{5B2AD5B869A9C26D}" {
+     Enabled 0
+    }
+    SCR_VehicleSalvageSupportStationComponent "{62D0E797B24AFC2B}" {
+     Enabled 0
+    }
+    SCR_VehicleWeaponSupportStationComponent "{62E4B164B6B0244C}" {
+     Enabled 0
+    }
+    UniversalInventoryStorageComponent "{62E49621EC3B9E6A}" {
+     Enabled 0
+    }
+    SCR_ArsenalInventoryStorageManagerComponent "{62E49621E0FC36F4}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D22B94009C6AE81"
+   components {
+    SCR_CampaignBuildingProviderComponent "{5ED49CDEA85A0083}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5D7CC617B33EF1CF}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5CB6952C9693C41C}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D088D17AECAF951"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393A2E695E30"
+   components {
+    SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D088D17AECAF9AA"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+ }
 }
 GenericEntity : "{FB18EFE9C1A81E29}Prefabs/Compositions/Slotted/SlotFlatMedium/VehicleMaintenance_M_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 11837.325 152.594 12632.008
  angles 0 -65.02 0
+ {
+  GenericEntity {
+   ID "5E3303B728FD7B55"
+   components {
+    InventoryItemComponent "{5E9697F253F88D41}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E3298BE225F0743}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5E3298BE3694CAAB}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E3303B728FD7B61"
+   components {
+    InventoryItemComponent "{5E9697F253F88D41}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E3298BE225F0743}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5E3298BE3694CAAB}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E3303B6D25B6631"
+   components {
+    InventoryItemComponent "{5E9697F253F88D41}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E3298BE225F0743}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5E3298BE3694CAAB}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393CCD2480D9"
+   components {
+    SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D22B941BA4ECAA0"
+   components {
+    SCR_CampaignBuildingProviderComponent "{5ED49CDEA85A0083}" {
+     Enabled 0
+    }
+    SCR_CatalogEntitySpawnerComponent "{5D22B968F23A847A}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5D7CC617B33EF1CF}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5CB6952C9693C41C}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E69068BCF216025"
+   components {
+    SCR_ArsenalComponent "{62E49621E34C5C95}" {
+     Enabled 0
+    }
+    SCR_RepairSupportStationComponent "{5E1CF31185E317FE}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5DACF52CF6D4A1C9}" {
+     Enabled 0
+    }
+    SCR_ServicePointComponent "{5C8CAE44023804D5}" {
+     Enabled 0
+    }
+    SCR_SupportStationAreaMeshComponent "{5B2AD5B869A9C26D}" {
+     Enabled 0
+    }
+    SCR_VehicleSalvageSupportStationComponent "{62D0E797B24AFC2B}" {
+     Enabled 0
+    }
+    SCR_VehicleWeaponSupportStationComponent "{62E4B164B6B0244C}" {
+     Enabled 0
+    }
+    UniversalInventoryStorageComponent "{62E49621EC3B9E6A}" {
+     Enabled 0
+    }
+    SCR_ArsenalInventoryStorageManagerComponent "{62E49621E0FC36F4}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E690688EBC16840"
+   components {
+    SCR_ArsenalComponent "{589F01C9C8D4A475}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
+     Enabled 0
+    }
+    UniversalInventoryStorageComponent "{58A17A341AB8F069}" {
+     Enabled 0
+    }
+    SCR_ArsenalInventoryStorageManagerComponent "{58A0B19B1E191CC1}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5476B36C403D4CC0}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D2262B258345016"
+   components {
+    SCR_EntitySpawnerSlotComponent "{5D2262B11A789A08}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D2262B258345035"
+   components {
+    SCR_EntitySpawnerSlotComponent "{5D2262B11A789A08}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393D583117FF"
+   components {
+    SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D0A8E6422F60CA3"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D0A8E6422F60CC9"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5DCAAA1D8E38053F"
+   components {
+    SCR_SpawnPositionComponent "{5DCAAA19520B7416}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393D15FC29B1"
+   components {
+    SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+ }
 }

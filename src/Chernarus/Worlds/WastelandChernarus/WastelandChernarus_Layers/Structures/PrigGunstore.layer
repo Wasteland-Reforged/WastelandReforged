@@ -1,13 +1,91 @@
 GenericEntity : "{172D03072FE6ECAB}Prefabs/Compositions/Slotted/SlotRoadMedium/Barricade_M_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 7862.573 5.75 3508.051
 }
 GenericEntity : "{76D4FE49EA6C57F3}Prefabs/Compositions/Slotted/SlotFlatLarge/LivingArea_L_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 7815.819 5.75 3462.162
  angles 0 -4.106 0
+ {
+  GenericEntity {
+   ID "5D22B92DE81D7971"
+   components {
+    SCR_CampaignBuildingProviderComponent "{5ED7185081A6289C}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5D7CC617A89926F3}" {
+     Enabled 0
+    }
+    SCR_ServicePointComponent "{60567C5242176FCB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5CB6953CEF1EFF85}" {
+     Enabled 0
+    }
+   }
+  }
+ }
 }
 GenericEntity : "{77F90F896D5145C8}Prefabs/Compositions/Slotted/SlotFlatSmall/LivingArea_S_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 7868.962 5.75 3450.535
  angles 0 -7.609 0
+ {
+  GenericEntity {
+   ID "5E330D6F531E3262"
+   components {
+    InventoryItemComponent "{5E9697F253F88D41}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E3298BE225F0743}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5E3298BE3694CAAB}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D22B92C55FB6E83"
+   components {
+    SCR_CampaignBuildingProviderComponent "{5ED7185081A6289C}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5D7CC617A89926F3}" {
+     Enabled 0
+    }
+    SCR_ServicePointComponent "{60567C5242176FCB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5CB6953CEF1EFF85}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393EBFC416D1"
+   components {
+    SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+ }
 }
 $grp DecalEntity : "{9EE74738BD9E8CDB}Prefabs/Decals/Dirt/Decal_Dirt_Tracks_02.et" {
  {
@@ -46,37 +124,203 @@ $grp DecalEntity : "{9EE74738BD9E8CDB}Prefabs/Decals/Dirt/Decal_Dirt_Tracks_02.e
 }
 $grp GenericEntity : "{AB87B392A989CA95}Prefabs/Compositions/Slotted/SlotFlatSmall/GuardTower_S_US_01.et" {
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 7849.774 5.75 3501.468
   angles 0 -3.928 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 7839.513 5.75 3479.361
   angles 0 -92.932 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 7857.13 5.916 3446.107
   angles 0 172.438 0
  }
 }
 $grp GenericEntity : "{AF770C825EA592CF}Prefabs/Compositions/Slotted/SlotRoadLarge/Barricade_L_US_01.et" {
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 7826.728 5.75 3437.404
   angles 0 -4.957 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 7803.453 5.75 3441.116
   angles 0 35.528 0
  }
  {
+  components {
+   ActionsManagerComponent "{5D66ED1096104FD8}" {
+    Enabled 0
+   }
+  }
   coords 7794.272 5.75 3455.974
   angles 0 77.966 0
  }
 }
 GenericEntity : "{CDD0712FD6215F04}Prefabs/Compositions/Slotted/SlotFlatMedium/FieldHospital_M_US_01.et" {
+ components {
+  SCR_CampaignBuildingCompositionComponent "{5E96A067C097D570}" {
+   Enabled 0
+  }
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 7878.914 5.75 3496.213
  angles 0 -97.295 0
+ {
+  GenericEntity {
+   ID "5D088D1F968989A8"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+   {
+    GenericEntity {
+     ID "620EDD9C7774D884"
+     components {
+      SCR_ArsenalComponent "{589F01C9C8D4A475}" {
+       Enabled 0
+      }
+      SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
+       Enabled 0
+      }
+      SCR_ResupplySupportStationComponent "{5E2CE1BA1701C633}" {
+       Enabled 0
+      }
+      UniversalInventoryStorageComponent "{58A17A341AB8F069}" {
+       Enabled 0
+      }
+      SCR_ArsenalInventoryStorageManagerComponent "{58A0B19B1E191CC1}" {
+       Enabled 0
+      }
+      ActionsManagerComponent "{5476B36C403D4CC0}" {
+       Enabled 0
+      }
+     }
+    }
+    StaticModelEntity {
+     ID "5CC501D152FDEC34"
+     components {
+      SCR_HealSupportStationComponent "{5EE8A81A8E23D62A}" {
+       Enabled 0
+      }
+      SCR_ResourceComponent "{5EE8A81ADEC69E93}" {
+       Enabled 0
+      }
+      SCR_ServicePointComponent "{5EE8A81AB16FEB73}" {
+       Enabled 0
+      }
+     }
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E38F8672CC7853F"
+   {
+    GenericEntity {
+     ID "5E3303B3034FAE0F"
+     components {
+      InventoryItemComponent "{5E9697F253F88D41}" {
+       Enabled 0
+      }
+      SCR_ResourceComponent "{5E3298BE225F0743}" {
+       Enabled 0
+      }
+      ActionsManagerComponent "{5E3298BE3694CAAB}" {
+       Enabled 0
+      }
+     }
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D088D1F96898E31"
+   {
+    StaticModelEntity {
+     ID "620EDD9CB3507AB0"
+     {
+      GenericEntity {
+       ID "620EDD9D6788C0CB"
+       components {
+        SCR_ArsenalComponent "{589F01C9C8D4A475}" {
+         Enabled 0
+        }
+        SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
+         Enabled 0
+        }
+        SCR_ResupplySupportStationComponent "{5E2CE1BA1701C633}" {
+         Enabled 0
+        }
+        UniversalInventoryStorageComponent "{58A17A341AB8F069}" {
+         Enabled 0
+        }
+        SCR_ArsenalInventoryStorageManagerComponent "{58A0B19B1E191CC1}" {
+         Enabled 0
+        }
+        ActionsManagerComponent "{5476B36C403D4CC0}" {
+         Enabled 0
+        }
+       }
+      }
+     }
+    }
+    StaticModelEntity {
+     ID "5CC501D811E7D19D"
+     components {
+      SCR_HealSupportStationComponent "{5EE8A81A8E23D62A}" {
+       Enabled 0
+      }
+      SCR_ResourceComponent "{5EE8A81ADEC69E93}" {
+       Enabled 0
+      }
+      SCR_ServicePointComponent "{5EE8A81AB16FEB73}" {
+       Enabled 0
+      }
+     }
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E58A7FA2A6DFDA3"
+   components {
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+ }
 }
 GenericEntity : "{E74D2F51CD4F03D0}Prefabs/Compositions/Slotted/SlotRoadLarge/Checkpoint_L_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 7759.088 5.75 3505.736
  angles 0 -102.242 0
  {
@@ -91,10 +335,190 @@ GenericEntity : "{E74D2F51CD4F03D0}Prefabs/Compositions/Slotted/SlotRoadLarge/Ch
  }
 }
 GenericEntity : "{FB18EFE9C1A81E29}Prefabs/Compositions/Slotted/SlotFlatMedium/VehicleMaintenance_M_US_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 7811.045 5.75 3494.956
  angles 0 -96.608 0
+ {
+  GenericEntity {
+   ID "5E3303B728FD7B55"
+   components {
+    InventoryItemComponent "{5E9697F253F88D41}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E3298BE225F0743}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5E3298BE3694CAAB}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E3303B728FD7B61"
+   components {
+    InventoryItemComponent "{5E9697F253F88D41}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E3298BE225F0743}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5E3298BE3694CAAB}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E3303B6D25B6631"
+   components {
+    InventoryItemComponent "{5E9697F253F88D41}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E3298BE225F0743}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5E3298BE3694CAAB}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393CCD2480D9"
+   components {
+    SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D22B941BA4ECAA0"
+   components {
+    SCR_CampaignBuildingProviderComponent "{5ED49CDEA85A0083}" {
+     Enabled 0
+    }
+    SCR_CatalogEntitySpawnerComponent "{5D22B968F23A847A}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5D7CC617B33EF1CF}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5CB6952C9693C41C}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E69068BCF216025"
+   components {
+    SCR_ArsenalComponent "{62E49621E34C5C95}" {
+     Enabled 0
+    }
+    SCR_RepairSupportStationComponent "{5E1CF31185E317FE}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5DACF52CF6D4A1C9}" {
+     Enabled 0
+    }
+    SCR_ServicePointComponent "{5C8CAE44023804D5}" {
+     Enabled 0
+    }
+    SCR_SupportStationAreaMeshComponent "{5B2AD5B869A9C26D}" {
+     Enabled 0
+    }
+    SCR_VehicleSalvageSupportStationComponent "{62D0E797B24AFC2B}" {
+     Enabled 0
+    }
+    SCR_VehicleWeaponSupportStationComponent "{62E4B164B6B0244C}" {
+     Enabled 0
+    }
+    UniversalInventoryStorageComponent "{62E49621EC3B9E6A}" {
+     Enabled 0
+    }
+    SCR_ArsenalInventoryStorageManagerComponent "{62E49621E0FC36F4}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5E690688EBC16840"
+   components {
+    SCR_ArsenalComponent "{589F01C9C8D4A475}" {
+     Enabled 0
+    }
+    SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
+     Enabled 0
+    }
+    UniversalInventoryStorageComponent "{58A17A341AB8F069}" {
+     Enabled 0
+    }
+    SCR_ArsenalInventoryStorageManagerComponent "{58A0B19B1E191CC1}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5476B36C403D4CC0}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D2262B258345016"
+   components {
+    SCR_EntitySpawnerSlotComponent "{5D2262B11A789A08}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D2262B258345035"
+   components {
+    SCR_EntitySpawnerSlotComponent "{5D2262B11A789A08}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393D583117FF"
+   components {
+    SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5DCAAA1D8E38053F"
+   components {
+    SCR_SpawnPositionComponent "{5DCAAA19520B7416}" {
+     Enabled 0
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D45393D15FC29B1"
+   components {
+    SCR_ResourceComponent "{5D8AA552F85C2FBB}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{5D66ED1096104FD8}" {
+     Enabled 0
+    }
+   }
+  }
+ }
 }
 GenericEntity : "{FB26A800AC01D85A}Prefabs/Compositions/Slotted/SlotFlatSmall/Antenna_S_FIA_01.et" {
+ components {
+  ActionsManagerComponent "{5D66ED1096104FD8}" {
+   Enabled 0
+  }
+ }
  coords 7838.88 5.75 3499.261
  angles 0 133.477 0
 }

@@ -1,114 +1,86 @@
 $grp WR_MissionLocationEntity : "{6DE6E9DBA4A7B196}Prefabs/Systems/Missions/WR_MissionLocation.et" {
  {
   coords 13119.66 5.751 10428.621
-  DrawShape 0
  }
  {
   coords 10428.575 6.221 2582.128
-  DrawShape 0
  }
  {
   coords 12893.513 19.749 5593.003
-  DrawShape 0
  }
  {
   coords 6410.678 5.75 2611.951
-  DrawShape 0
  }
  {
   coords 12051.98 6.125 3636.472
-  DrawShape 0
  }
  {
   coords 13067.304 5.749 7078.925
-  DrawShape 0
  }
  {
   coords 11238.348 184.516 12174.412
-  DrawShape 0
  }
  {
   coords 11469.775 212.031 7524.901
-  DrawShape 0
  }
  {
   coords 7063.581 5.75 3180.947
-  DrawShape 0
  }
  {
   coords 1986.336 5.75 2218.889
-  DrawShape 0
  }
  {
   coords 3592.946 5.75 2242.164
-  DrawShape 0
  }
  {
   coords 2943.025 222.612 5396.784
-  DrawShape 0
  }
  {
   coords 3703.097 386.812 5993.234
-  DrawShape 0
  }
  {
   coords 3001.703 355.375 6725.408
-  DrawShape 0
  }
  {
   coords 3178.928 288.938 7942.769
-  DrawShape 0
  }
  {
   coords 4153.944 313.469 8936.562
-  DrawShape 0
  }
  {
   coords 4661.051 327.406 10456.796
-  DrawShape 0
  }
  {
   coords 1903.402 235.999 12443.258
-  DrawShape 0
  }
  {
   coords 5766.801 114.309 4637.166
-  DrawShape 0
  }
  {
   coords 7641.083 208.562 5184.413
-  DrawShape 0
  }
  {
   coords 6321.491 292.438 7713.375
-  DrawShape 0
  }
  {
   coords 10077.497 236.531 5442.613
-  DrawShape 0
  }
  {
   coords 10338.887 154.831 9590.907
-  DrawShape 0
  }
  {
   coords 5955.476 267.553 10188.783
-  DrawShape 0
  }
  {
   coords 8823.024 208.57 11651.739
-  DrawShape 0
  }
  {
   coords 9683.517 288.941 8892.891
-  DrawShape 0
  }
  {
   coords 5323.995 323.25 8668.396
-  DrawShape 0
  }
  {
   coords 2231.604 168.958 5141.423
-  DrawShape 0
  }
 }
