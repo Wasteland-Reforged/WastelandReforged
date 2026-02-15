@@ -1,0 +1,300 @@
+WR_SpawnPoint SpawnPointNortheast : "{54767D955866E80C}Prefabs/Spawning/WR_SpawnPoint.et" {
+ coords 10342.676 155.369 9688.021
+ angles 0 0 0
+ m_Info SCR_UIInfo "{64940A703C7E8519}" {
+  Name "Random Town - Northeast"
+ }
+ m_eSpawnRegion REGION_2
+}
+$grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ WR_SpawnArea_Staroye {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 10067.372 236.443 5500.068
+  SphereRadius 125
+  m_Name "Staroye"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Kabanino {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 5331.715 323.232 8595.072
+  SphereRadius 150
+  m_Name "Kabanino"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Guglovo {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 8477.647 348.043 6675.954
+  m_Name "Guglovo"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Khelm {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 12289.239 106.119 10908.562
+  SphereRadius 125
+  m_Name "Khelm"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Olsha {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 13356.827 97.409 12871.675
+  SphereRadius 75
+  m_Name "Olsha"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Petrovka {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 4995.431 176.963 12532.932
+  m_Name "Petrovka"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Dubrovka {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 10446.042 114.541 9821.285
+  SphereRadius 125
+  m_Name "Dubrovka"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Msta {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 11239.258 252.258 5454.45
+  m_Name "Msta"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Mogilevka {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 7527.887 208.577 5160.753
+  SphereRadius 150
+  m_Name "Mogilevka"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Nizhnoye {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 12927.298 16.467 8127.552
+  SphereRadius 150
+  m_Name "Nizhnoye"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Pusta {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 9155.278 215.375 3847.77
+  SphereRadius 125
+  m_Name "Pusta"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Prigorodki {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 7797.446 5.753 3487.259
+  m_Name "Prigorodki"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Krasnostav {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 60
+    vehiclesFlatRate 3
+   }
+  }
+  coords 11104.814 206.904 12345.64
+  SphereRadius 225
+  m_Name "Krasnostav"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Orlovets {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 12133.675 183.919 7263.085
+  m_Name "Orlovets"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Gvozdno {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 8546.656 176.295 11986.257
+  SphereRadius 125
+  m_Name "Gvozdno"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Grishino {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 5963.856 259.788 10345.974
+  SphereRadius 150
+  m_Name "Grishino"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Gorka {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 9570.107 291.477 8821.388
+  SphereRadius 175
+  m_Name "Gorka"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Polana {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 10700.264 205.062 8040.967
+  SphereRadius 150
+  m_Name "Polana"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Solnichniy {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 13381.174 5.75 6274.399
+  SphereRadius 150
+  m_Name "Solnichniy"
+ }
+ WR_SpawnArea_Berezino {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 60
+    vehiclesFlatRate 3
+   }
+  }
+  coords 11987.987 51.219 9169.716
+  SphereRadius 300
+  m_Name "Berezino"
+ }
+ WR_SpawnArea_BerezinoNorth {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 12806.505 5.75 10030.836
+  SphereRadius 200
+  m_Name "North Berezino"
+ }
+ WR_SpawnArea_NovySobor {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 70
+    vehiclesFlatRate 3
+   }
+  }
+  coords 7110.434 285.563 7714.001
+  SphereRadius 175
+  m_Name "Novy Sobor"
+ }
+ WR_SpawnArea_Nadezhdino {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 5830.076 131.377 4733.305
+  SphereRadius 125
+  m_Name "Nadezhdino"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Dolina {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 11179.813 75.688 6576.785
+  SphereRadius 125
+  m_Name "Dolina"
+  m_eSpawnRegion REGION_2
+ }
+ WR_SpawnArea_Shakhovka {
+  components {
+   WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+    vehiclesPerSqKm 100
+    vehiclesFlatRate 3
+   }
+  }
+  coords 9625.436 209.261 6551.121
+  m_Name "Shakhovka"
+  m_eSpawnRegion REGION_2
+ }
+}

@@ -257,50 +257,13 @@ WR_GameModeWasteland : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
    ID "62F778E615DD0289"
    coords -0.147 0.024 -4.973
   }
-  RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
+  SCR_CampaignFactionManager : "{130806924CFFDA55}Prefabs/MP/Campaign/CampaignFactionManager.et" {
+   ID "689D6BB61BDDF8F9"
+   coords 0 0 0
+  }
+  RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Systems/Radio/RadioManager.et" {
    ID "62F778E615DD028E"
    coords 2.873 0.024 -2.39
-  }
-  SCR_CampaignFactionManager FactionManager : "{F1AC26310BAE3788}Prefabs/MP/Campaign/CampaignFactionManager.et" {
-   ID "62F778E615DD0124"
-   coords 3.188 0.024 -3.799
-   scale 0.005
-   Factions {
-    SCR_CampaignFaction "{50B30C3AF4BFD934}" {
-     UIInfo SCR_FactionUIInfo "{528C96127F8B6B08}" {
-      Name "OPFOR"
-      m_sNameUpper "OPFOR"
-     }
-     m_sFactionFlag "{71E3850AED91D5AE}Art/Flags/opfor-saturated.edds"
-     m_DefaultCharacterPrefab "{8449DECFA1B5831F}Prefabs/Characters/Factions/OPFOR/USSR_Army/WR_Character_USSR_Base.et"
-    }
-    SCR_CampaignFaction "{50B30C3ADB052C80}" {
-     UIInfo SCR_FactionUIInfo "{528C961236B7DCD3}" {
-      Name "BLUFOR"
-      m_sNameUpper "BLUFOR"
-     }
-     m_sFactionFlag "{11599C68893A71E3}Art/Flags/blufor-saturated.edds"
-     m_DefaultCharacterPrefab "{B39F86B378284BFC}Prefabs/Characters/Factions/BLUFOR/US_Army/WR_Character_US_Base.et"
-    }
-    SCR_CampaignFaction "{56F0C3A6336375DC}" {
-     UIInfo SCR_FactionUIInfo "{5570936866E0AD08}" {
-      Name "Independent"
-     }
-     m_bIsPlayable 1
-     m_sFactionFlag "{4A69586A3A1F7E6F}Art/Flags/indfor-saturated.edds"
-     m_bFriendlyToSelf 0
-     m_DefaultCharacterPrefab "{CEE7531F4FBAEB38}Prefabs/Characters/Factions/CIV/Dockworker/WR_Character_CIV_Base.et"
-    }
-    SCR_Faction "{60DCF47AEF40BD72}" {
-     UIInfo SCR_FactionUIInfo "{56B49118D8D0A9C5}" {
-      Name "Civilian"
-      m_sNameUpper "CIVILIAN"
-     }
-     m_bIsMilitary 1
-     m_aFriendlyFactionsIds {
-     }
-    }
-   }
   }
   ScriptedChatEntity ScriptedChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
    ID "62F778E615DD4FD8"

@@ -1,0 +1,21 @@
+GenericEntity SpawnLobby : "{99CEC4F7ACD540B0}Prefabs/Structures/Spawn/SpawnBunker.et" {
+ coords -20000 200 -20000
+ {
+  GenericEntity {
+   scale 2
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_US {
+   ID "64940A71D2D68111"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_USSR {
+   ID "64940A71D2D68137"
+  }
+  WR_SpawnPoint WR_SpawnPoint_Lobby_FIA {
+   ID "64940A71D2D6813B"
+  }
+  GenericEntity : "{88537E49E399163E}Prefabs/Structures/BuildingParts/Doors/DoorSet_AircraftShelter_E_01_A_EXT_B_camo.et" {
+   coords -11.842 -4.373 1.092
+   scale 2
+  }
+ }
+}

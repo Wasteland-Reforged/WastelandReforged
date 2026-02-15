@@ -1,0 +1,16 @@
+WR_SpawnAreaEntity NwafBarracks1 : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnArea.et" {
+ components {
+  WR_SpawnAreaBotSpawnHandlerComponent "{652D17722684F2F6}" {
+   AIGroupsFlatRate 3
+  }
+  WR_SpawnAreaPlayerSpawnHandlerComponent "{618F71B5EED0993D}" {
+   Enabled 0
+  }
+  WR_SpawnAreaVehicleSpawnHandlerComponent "{619008C8173A74FE}" {
+   Enabled 0
+  }
+ }
+ coords 4632.238 327.406 9653.098
+ SphereRadius 70
+ m_Name "Solnichniy"
+}

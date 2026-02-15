@@ -1,14 +1,14 @@
 $grp GenericEntity : "{72CE6354863D4306}Prefabs/GunStore/GunStore.et" {
- {
+ GunStore_Prigorodki {
   coords 7847.07 7.529 3466.002
   angles 0 172.035 0
  }
- {
+ GunStore_GreenMountain {
   coords 3677.353 388.439 5994.463
   angles 0 -118.541 0
  }
- {
-  coords 10631.525 206.266 8019.141
-  angles 0 125.335 0
+ GunStore_OrlovetsConstructionSite {
+  coords 11471.247 213.197 7478.208
+  angles 0 -73.614 0
  }
 }
