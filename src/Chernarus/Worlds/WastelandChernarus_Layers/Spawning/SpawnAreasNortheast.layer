@@ -228,6 +228,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   coords 13381.174 5.75 6274.399
   SphereRadius 150
   m_Name "Solnichniy"
+  m_eSpawnRegion REGION_2
  }
  WR_SpawnArea_Berezino {
   components {
@@ -239,6 +240,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   coords 11987.987 51.219 9169.716
   SphereRadius 300
   m_Name "Berezino"
+  m_eSpawnRegion REGION_2
  }
  WR_SpawnArea_BerezinoNorth {
   components {
@@ -250,6 +252,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   coords 12806.505 5.75 10030.836
   SphereRadius 200
   m_Name "North Berezino"
+  m_eSpawnRegion REGION_2
  }
  WR_SpawnArea_NovySobor {
   components {
@@ -261,6 +264,7 @@ $grp WR_SpawnAreaEntity : "{69FC7C4E0DCB410A}Prefabs/Systems/Spawning/WR_SpawnAr
   coords 7110.434 285.563 7714.001
   SphereRadius 175
   m_Name "Novy Sobor"
+  m_eSpawnRegion REGION_2
  }
  WR_SpawnArea_Nadezhdino {
   components {
