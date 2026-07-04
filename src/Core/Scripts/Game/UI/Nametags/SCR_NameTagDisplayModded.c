@@ -4,8 +4,9 @@ modded class SCR_NameTagDisplay : SCR_InfoDisplayExtended
 	protected SCR_AIGroup m_CurrentGroup;
 	
 	//------------------------------------------------------------------------------------------------
-	override protected void InitializeTag(IEntity entity, bool friendlyOnly = true)
+	override protected void InitializeTag(IEntity entity)
 	{
+		bool friendlyOnly = true;
 		if (!m_wRoot)
 			return;
 		
