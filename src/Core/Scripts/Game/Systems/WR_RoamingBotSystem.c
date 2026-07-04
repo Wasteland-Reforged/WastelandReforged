@@ -4,6 +4,15 @@ class WR_RoamingBotSystem : GameSystem
 	
 	static ref array<WR_SpawnAreaBotSpawnHandlerComponent> s_aBotSpawnHandlers = {};
 	
+	override static void InitInfo(WorldSystemInfo outInfo)
+	{
+		super.InitInfo(outInfo);
+		outInfo.SetAbstract(false)
+			.SetUnique(true)
+			.SetLocation(WorldSystemLocation.Server)
+			.AddPoint(WorldSystemPoint.Frame);
+	}
+
 	float m_fTimeElaspedS = 0;
 	float m_tickRateS = 3*60;
 	

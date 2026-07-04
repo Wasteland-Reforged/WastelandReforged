@@ -5,6 +5,15 @@ class WR_MissionSystem : GameSystem
 	[Attribute("", UIWidgets.Object, "Mission system configuration.")];
 	protected ref WR_MissionSystemConfig m_Config;
 	
+	override static void InitInfo(WorldSystemInfo outInfo)
+	{
+		super.InitInfo(outInfo);
+		outInfo.SetAbstract(false)
+			.SetUnique(true)
+			.SetLocation(WorldSystemLocation.Server)
+			.AddPoint(WorldSystemPoint.Frame);
+	}
+
 	float m_fMissionCreationTimeElaspedS = 0;
 	float m_fMissionCreationTickrateS = 15.0;
 

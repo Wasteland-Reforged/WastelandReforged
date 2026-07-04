@@ -2,6 +2,15 @@ class WR_TownVehicleSystem : GameSystem
 {
 	ref WR_Logger<WR_TownVehicleSystem> logger = new WR_Logger<WR_TownVehicleSystem>(this);
 	
+	override static void InitInfo(WorldSystemInfo outInfo)
+	{
+		super.InitInfo(outInfo);
+		outInfo.SetAbstract(false)
+			.SetUnique(true)
+			.SetLocation(WorldSystemLocation.Server)
+			.AddPoint(WorldSystemPoint.Frame);
+	}
+
 	float m_fTimeElaspedS = 0;
 	float m_tickRateS = 15;
 	

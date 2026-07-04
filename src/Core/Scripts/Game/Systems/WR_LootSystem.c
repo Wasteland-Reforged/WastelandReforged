@@ -6,7 +6,16 @@ class WR_LootSystem : GameSystem
 	float m_fTotalTimeS = 0;
 	
 	float m_tickRateS = 60;
-	
+
+	override static void InitInfo(WorldSystemInfo outInfo)
+	{
+		super.InitInfo(outInfo);
+		outInfo.SetAbstract(false)
+			.SetUnique(true)
+			.SetLocation(WorldSystemLocation.Server)
+			.AddPoint(WorldSystemPoint.Frame);
+	}
+
 	private static int m_iSuccessfulSpawns = 0;
 	private static float lootRespawnChance = 0.1;			//Chance for a spawner to delete any remaining items and respawn a new loot pile
 	//private static float TimedOutLootRespawnChance = 0.3;	//Chance for an item that has timed out to be respawned
