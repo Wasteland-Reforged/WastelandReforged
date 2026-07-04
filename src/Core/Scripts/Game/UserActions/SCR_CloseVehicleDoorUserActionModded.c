@@ -80,7 +80,7 @@ modded class SCR_CloseVehicleDoorUserAction : VehicleDoorUserAction
 			}
 		}
 		
-		if (managerComponent.GetDoorUser(GetDoorIndex()) && managerComponent.GetDoorUser(GetDoorIndex()) != user || !managerComponent.AreDoorOpen(GetDoorIndex()))
+		if (managerComponent.GetDoorUser(GetDoorIndex()) && managerComponent.GetDoorUser(GetDoorIndex()) != user || !managerComponent.IsDoorOpen(GetDoorIndex()))
 		{
 			SetCannotPerformReason("#AR-UserAction_SeatOccupied");
 			return false;
