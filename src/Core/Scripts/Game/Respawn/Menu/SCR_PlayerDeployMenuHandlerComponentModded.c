@@ -42,8 +42,6 @@ modded class SCR_PlayerDeployMenuHandlerComponent
 					SCR_DeployMenuMain.CloseDeployMenu();
 					SCR_RoleSelectionMenu.OpenRoleSelectionMenu();
 				}
-				
-				m_bFirstOpen = false;
 			}
 		}
 		else if (IsMenuOpen())
@@ -71,7 +69,7 @@ modded class SCR_PlayerDeployMenuHandlerComponent
 		SCR_SpawnPoint spawnPoint = SCR_SpawnPoint.Cast(GetGame().GetWorld().FindEntityByName(spawnPointName));
 		if (!spawnPoint)
 		{
-			Print(string.Format("[WASTELAND] SCR_PlayerDeployMenuHandlerComponent: Spawn point '%1' should be present in the world if a spawn lobby is also present!", spawnPointName), LogLevel.ERROR);
+			Print(string.Format("Spawn point '%1' should be present in the world if a spawn lobby is also present!", spawnPointName), LogLevel.ERROR);
 			return false;
 		}
 		
