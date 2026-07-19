@@ -6,7 +6,6 @@ modded class SCR_NameTagDisplay : SCR_InfoDisplayExtended
 	//------------------------------------------------------------------------------------------------
 	override protected void InitializeTag(IEntity entity)
 	{
-		bool friendlyOnly = true;
 		if (!m_wRoot)
 			return;
 		
@@ -39,14 +38,11 @@ modded class SCR_NameTagDisplay : SCR_InfoDisplayExtended
 			return;
 		}
 		
-		if (friendlyOnly)
-		{
-			// Do not create tags for enemy players
-			if (!IsEntityFriendly(entity))
-				return;
-		}
-			
-		// Init tag and insert into arrays			
+		// Do not create tags for enemy players
+		if (!IsEntityFriendly(entity))
+			return;
+
+		// Init tag and insert into arrays
 		if (m_aUninitializedTags.IsEmpty())
 			CreateTagWidget();
 		
