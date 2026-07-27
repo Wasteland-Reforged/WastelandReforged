@@ -1,4 +1,4 @@
-# Wasteland Reforged
+# Battlefield Wasteland Reforged
 
 _An open-source implementation of the classic Wasteland gamemode for Arma Reforger._
 

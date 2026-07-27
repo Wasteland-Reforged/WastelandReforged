@@ -1,9 +1,9 @@
 GameProject {
  ID "WastelandReforgedWorthy"
- GUID "65716098EE3985B4"
- TITLE "Wasteland Reforged - Worthy Islands"
+ GUID "3CE106E48391F24B"
+ TITLE "Battlefield Wasteland Reforged - Worthy Islands"
  Dependencies {
-  "64901CB1F99CB10A" "596CB4A0AE84C08E" "58D0FB3206B6F859"
+  "2ED706EF42DA72F6" "596CB4A0AE84C08E" "58D0FB3206B6F859"
  }
  Configurations {
   GameProjectConfig PC {

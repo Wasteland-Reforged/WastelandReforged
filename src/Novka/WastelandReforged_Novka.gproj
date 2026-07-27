@@ -1,9 +1,9 @@
 GameProject {
  ID "WastelandReforgedNovka"
- GUID "65E2045C60BD1259"
- TITLE "Wasteland Reforged - Novka"
+ GUID "C30E2CC8F8E7D35A"
+ TITLE "Battlefield Wasteland Reforged - Novka"
  Dependencies {
-  "64901CB1F99CB10A" "6550CDE61DD51E14" "58D0FB3206B6F859"
+  "2ED706EF42DA72F6" "6550CDE61DD51E14" "58D0FB3206B6F859"
  }
  Configurations {
   GameProjectConfig PC {

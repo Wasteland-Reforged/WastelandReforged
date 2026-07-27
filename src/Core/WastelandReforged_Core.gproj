@@ -1,7 +1,7 @@
 GameProject {
  ID "WastelandReforgedCore"
- GUID "64901CB1F99CB10A"
- TITLE "Wasteland Reforged - Core"
+ GUID "2ED706EF42DA72F6"
+ TITLE "Battlefield Wasteland Reforged - Core"
  Dependencies {
   "58D0FB3206B6F859" "5E92F5A4A1B75A75" "5D2D1436D1FA5A13" "5D6EA74A94173EDF" "5D6EBC81EB1842EF"
  }
