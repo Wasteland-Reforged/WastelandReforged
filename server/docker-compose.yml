@@ -1,0 +1,15 @@
+services:
+  reforger:
+    build: ./docker
+    container_name: reforger-battlefield-wasteland
+    restart: unless-stopped
+    ports:
+      - "2001:2001/udp"
+      - "17777:17777/udp"
+      - "127.0.0.1:19999:19999"   # RCON: loopback only, not exposed publicly
+    volumes:
+      - ./config:/config:ro
+      - ./data/profile:/profile
+      - ./data/server:/server
+    mem_limit: 6g
+    cpus: 3.0

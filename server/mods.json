@@ -1,0 +1,15 @@
+[
+  { "modId": "69C8E56E33E3B602", "name": "Battlefield Wasteland",              "enabled": true,  "notes": "Top-level addon, hosts the scenario" },
+  { "modId": "3CE106E48391F24B", "name": "BFW Reforged Worthy Islands",        "enabled": true,  "notes": "" },
+  { "modId": "2ED706EF42DA72F6", "name": "BFW Reforged Core",                  "enabled": true,  "notes": "" },
+  { "modId": "69C8FE68300CC983", "name": "Battlefield Wasteland Weapons",      "enabled": true,  "notes": "" },
+  { "modId": "69CABDFB34A70A6C", "name": "Battlefield Wasteland Gear",         "enabled": true,  "notes": "" },
+  { "modId": "644F5B4619455A52", "name": "Build",                             "enabled": true,  "notes": "KodiisBuildingSystem" },
+  { "modId": "654378D9EA40DC4E", "name": "Hesco Walls",                       "enabled": true,  "notes": "" },
+  { "modId": "6109572980E4E3F7", "name": "ArmaTowerReforged",                  "enabled": true,  "notes": "" },
+  { "modId": "5D2D1436D1FA5A13", "name": "Shop System",                       "enabled": true,  "notes": "" },
+  { "modId": "5D6EA74A94173EDF", "name": "Enfusion Database Framework",       "enabled": true,  "notes": "" },
+  { "modId": "5D6EBC81EB1842EF", "name": "Enfusion Persistence Framework",    "enabled": true,  "notes": "" },
+  { "modId": "5E92F5A4A1B75A75", "name": "Player Map Markers",                "enabled": true,  "notes": "" },
+  { "modId": "596CB4A0AE84C08E", "name": "Worthy Islands",                    "enabled": true,  "notes": "base terrain, not the BFW map integration layer" }
+]

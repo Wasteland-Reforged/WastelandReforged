@@ -3,3 +3,7 @@ data.*
 WastelandReforged.gproj*
 meta
 *_manifest.json
+
+# Server config tooling - never commit real secrets or generated output
+server/secrets.json
+server/dist/

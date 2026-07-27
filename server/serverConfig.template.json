@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "scenarioIdVerified": true,
+    "note": "Confirmed 2026-07-26 against the 'Scenarios' tab on the BFW Reforged Worthy Islands Workshop page (reforger.armaplatform.com/workshop/3CE106E48391F24B-BFWReforgedWorthyIslands/scenarios) - matches exactly."
+  },
+  "bindAddress": "0.0.0.0",
+  "bindPort": 2001,
+  "publicAddress": "__PUBLIC_ADDRESS__",
+  "publicPort": 2001,
+  "a2s": {
+    "address": "0.0.0.0",
+    "port": 17777
+  },
+  "rcon": {
+    "address": "127.0.0.1",
+    "port": 19999,
+    "password": "__RCON_PASSWORD__",
+    "permission": "admin",
+    "blacklist": [],
+    "whitelist": []
+  },
+  "game": {
+    "name": "Battlefield Wasteland",
+    "password": "",
+    "passwordAdmin": "__ADMIN_PASSWORD__",
+    "admins": [],
+    "scenarioId": "{3CA3D64CBFD9C166}Missions/WastelandReforged_WorthyIslands.conf",
+    "maxPlayers": 128,
+    "visible": true,
+    "crossPlatform": true,
+    "supportedPlatforms": ["PLATFORM_PC"],
+    "gameProperties": {
+      "serverMaxViewDistance": 2500,
+      "networkViewDistance": 1000,
+      "disableThirdPerson": false,
+      "fastValidation": true,
+      "battlEye": true
+    },
+    "mods": []
+  },
+  "operating": {
+    "lobbyPlayerSynchronise": true,
+    "disableCrashReporter": false,
+    "playerSaveTime": 120,
+    "aiLimit": -1
+  }
+}
